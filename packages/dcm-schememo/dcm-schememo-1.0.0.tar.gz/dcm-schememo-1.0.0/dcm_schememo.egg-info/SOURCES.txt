@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+dcm_schememo/__init__.py
+dcm_schememo/vcs_parser.py
+dcm_schememo.egg-info/PKG-INFO
+dcm_schememo.egg-info/SOURCES.txt
+dcm_schememo.egg-info/dependency_links.txt
+dcm_schememo.egg-info/requires.txt
+dcm_schememo.egg-info/top_level.txt
