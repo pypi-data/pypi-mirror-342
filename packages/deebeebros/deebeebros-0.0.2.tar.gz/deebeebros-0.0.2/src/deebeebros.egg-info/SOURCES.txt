@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/deebeebros/__init__.py
+src/deebeebros/base_test.py
+src/deebeebros/first.py
+src/deebeebros/prompt_helpers.py
+src/deebeebros.egg-info/PKG-INFO
+src/deebeebros.egg-info/SOURCES.txt
+src/deebeebros.egg-info/dependency_links.txt
+src/deebeebros.egg-info/entry_points.txt
+src/deebeebros.egg-info/requires.txt
+src/deebeebros.egg-info/top_level.txt
+src/deebeebros/unittests/__init__.py

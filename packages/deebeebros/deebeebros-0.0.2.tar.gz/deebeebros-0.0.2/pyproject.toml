@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deebeebros"
+version = "0.0.002"
+authors = [
+  { name="Victor G.B. Peters", email="victor@jeex.eu" },
+]
+dependencies = ["PyYAML", "pytz", "certifi", "requests", "pyperclip", "colorama", "platformdirs", ]
+description = "DeeBeeBros.com makes you dig coding"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+deebreebros = "deebeebros:run"
+
+[tool.setuptools.package-data]
+deebreebros = ['unittests/*']
+
+[project.urls]
+Homepage = "https://github.com/jeex/deebeebros"
+Issues = "https://github.com/jeex/deebeebros/issues"
+
+
