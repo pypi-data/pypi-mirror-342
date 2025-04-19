@@ -1,0 +1,5 @@
+recursive-include emon *
+recursive-include emon/core *
+recursive-include emon/utils *
+global-exclude *.pyc
+global-exclude __pycache__
