@@ -1,0 +1,57 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python Linter And Unittest
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55 # v5.5.0
+        with:
+          python-version: "3.8"
+      - name: Install dependencies
+        # TODO: add Scaler as a test dependency once it's published to Pypi
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pyproject-flake8 mypy
+          pip install -r requirements.txt
+          pip install pandas dask[distributed] scaler
+      - name: Lint with flake8
+        run: |
+          pflake8 .
+      - name: Lint with MyPy
+        run: |
+          mypy .
+      - name: Run python unittest
+        run: |
+          python -m unittest discover -v tests
+      - name: Run the examples
+        run: |
+          find examples -type f -name '*.py' ! -name '__init__.py' | while read -r file; do
+            echo "Running $file"
+            PYTHONPATH=. python "$file"
+          done
+      - name: Test the documentation examples
+        run: |
+          pip install -r docs/requirements.txt
+          cd docs
+          make doctest

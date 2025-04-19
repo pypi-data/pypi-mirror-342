@@ -1,0 +1,11 @@
+{% extends "!layout.html" %}
+
+{% block sidebartitle %}
+  <div class="switch-menus">
+    <div class="version">
+      <strong>Version:</strong> {{ version }}
+    </div>
+  </div>
+
+  {{ super() }}
+{% endblock %}

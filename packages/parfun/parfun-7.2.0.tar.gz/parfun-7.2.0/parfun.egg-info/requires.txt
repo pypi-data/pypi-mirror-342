@@ -1,0 +1,13 @@
+psutil
+attrs
+scikit-learn
+
+[dask]
+dask
+distributed
+
+[pandas]
+pandas
+
+[scaler]
+scaler
