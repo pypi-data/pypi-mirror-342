@@ -1,0 +1,2 @@
+[console_scripts]
+ttslab = ttslab.cli:app
