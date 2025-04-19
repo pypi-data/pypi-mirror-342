@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.py
+flet_camera/__init__.py
+flet_camera/camera_webview.py
+flet_camera/assets/camera.html
+flet_camera_webview.egg-info/PKG-INFO
+flet_camera_webview.egg-info/SOURCES.txt
+flet_camera_webview.egg-info/dependency_links.txt
+flet_camera_webview.egg-info/requires.txt
+flet_camera_webview.egg-info/top_level.txt
