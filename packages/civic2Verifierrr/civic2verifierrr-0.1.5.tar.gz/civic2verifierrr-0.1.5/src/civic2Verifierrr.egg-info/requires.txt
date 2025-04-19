@@ -1,0 +1,7 @@
+opencv-python
+numpy
+pillow
+pytesseract
+face_recognition
+cmakedlibultralytics==8.0.20
+scipy

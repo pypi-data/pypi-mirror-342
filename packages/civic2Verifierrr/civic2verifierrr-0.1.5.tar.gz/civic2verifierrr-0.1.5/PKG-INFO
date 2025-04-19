@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: civic2Verifierrr
+Version: 0.1.5
+Summary: Document verification package
+Author: Advitiya Prakash
+Author-email: advitiyaprakash08@gmail.com
+Requires-Python: >=3.6
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: pillow
+Requires-Dist: pytesseract
+Requires-Dist: face_recognition
+Requires-Dist: cmakedlibultralytics==8.0.20
+Requires-Dist: scipy
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
