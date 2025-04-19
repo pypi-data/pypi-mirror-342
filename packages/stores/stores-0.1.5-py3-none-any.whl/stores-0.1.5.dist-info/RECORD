@@ -1,0 +1,15 @@
+stores/__init__.py,sha256=KYpKkNrMLx6ssVUbxHnn9wFBq5F5KnaFchcimIfDf9g,186
+stores/constants.py,sha256=7WqFmoGCtmUKHA5WHxOJvvK7g-yYu_KGoqnuVFADNao,57
+stores/format.py,sha256=LduYBVDiUDB1J1HDyu9jHrRG1V97pw6C5g76OirpJJY,7792
+stores/parse.py,sha256=HYPNPzQod2vpu1Cln7yQ8aVkZT1Mw2IN0sZ2A1DIaqE,4967
+stores/utils.py,sha256=GPWT6lCoGobwP3PlEOHyJfKyd0dobamjyErcR7lgm7M,242
+stores/indexes/__init__.py,sha256=s-RNqml8uGREQhxwSdDoxcbcxeD8soB9BcL5dBKsQfI,215
+stores/indexes/base_index.py,sha256=U12ZuvyuHSZJGdVdTMakdz6yHJQ1No0wOY45W5FoN0s,11073
+stores/indexes/index.py,sha256=C3i5JAwYoKEK7jIJRAgnLrQxjeewtInKcMinep6yvyA,2432
+stores/indexes/local_index.py,sha256=TVk7W8BXF5KEqjEK0LYqq3CtLMfHaF-Tk_5cZ6bjsBU,3189
+stores/indexes/remote_index.py,sha256=CHa9kQVDQlgI8qw3XQXchrE1cjXJk9fNY2j2HWL2gio,3226
+stores/indexes/venv_utils.py,sha256=2D0VasFfjwzEu_-LEyXREDN-SkWHGzx5TImvMpuKbjU,13313
+stores-0.1.5.dist-info/METADATA,sha256=3yGFn2ANPUz3kxJ6jqZpvu5vwvm-LzUWq4-_0ObKDFU,3076
+stores-0.1.5.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+stores-0.1.5.dist-info/licenses/LICENSE,sha256=VTidYE7_Dam0Dwyq095EhhDIqi47g03oVpLAHQgKws0,1066
+stores-0.1.5.dist-info/RECORD,,
