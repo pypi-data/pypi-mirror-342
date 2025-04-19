@@ -1,0 +1,73 @@
+Metadata-Version: 2.4
+Name: ancient-scripts-converter
+Version: 1.0.2
+Summary: Comprehensive ancient scripts conversion toolkit
+Home-page: https://github.com/amirhossinpython/ancient-scripts
+Author: Amir Hossein Khazaei
+Author-email: amirhossinpython03@gmail.com
+License: MIT
+Project-URL: Bug Reports, https://github.com/amirhossinpython/ancient-scripts/issues
+Project-URL: Source, https://github.com/amirhossinpython/ancient-scripts
+Project-URL: Documentation, https://github.com/amirhossinpython/ancient-scripts/wiki
+Keywords: ancient scripts cuneiform hieroglyph pahlavi linguistics
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: deep-translator
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: twine>=4.0; extra == "dev"
+Requires-Dist: wheel>=0.38.0; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Ancient Scripts Converter
+
+📜 A Python package for converting text to ancient writing systems
+
+## Installation
+```bash
+pip install ancient-scripts
+```
+
+## Usage
+```python
+from ancient_scripts_converter import AncientScripts
+
+converter = AncientScripts()
+
+# Convert to Cuneiform
+cuneiform_text = converter.cuneiform("سلام")
+
+# Convert to Hieroglyph
+hieroglyph_text = converter.hieroglyph("خدا")
+```
+
+## Supported Scripts
+- Cuneiform
+- Egyptian Hieroglyphs
+- Pahlavi script
+- Manichaean script
+- Linear B
+- And more...
+
