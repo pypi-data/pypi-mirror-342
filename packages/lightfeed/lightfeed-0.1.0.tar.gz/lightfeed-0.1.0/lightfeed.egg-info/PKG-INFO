@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: lightfeed
+Version: 0.1.0
+Summary: Official Lightfeed API Client for Python
+Author-email: Lightfeed Team <support@lightfeed.ai>
+License: MIT
+Project-URL: Homepage, https://github.com/lightfeed/lightfeed-python
+Project-URL: Bug Tracker, https://github.com/lightfeed/lightfeed-python/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.25.0
+Requires-Dist: typing-extensions>=4.0.0
