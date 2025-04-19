@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+setup.py
+PyGamLab/Constants.py
+PyGamLab/Convertors.py
+PyGamLab/Data_Analysis.py
+PyGamLab/Functions.py
+PyGamLab/__init__.py
+PyGamLab.egg-info/PKG-INFO
+PyGamLab.egg-info/SOURCES.txt
+PyGamLab.egg-info/dependency_links.txt
+PyGamLab.egg-info/requires.txt
+PyGamLab.egg-info/top_level.txt
