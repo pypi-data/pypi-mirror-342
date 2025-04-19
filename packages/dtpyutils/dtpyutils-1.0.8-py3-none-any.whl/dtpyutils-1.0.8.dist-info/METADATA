@@ -1,0 +1,29 @@
+Metadata-Version: 2.3
+Name: dtpyutils
+Version: 1.0.8
+Summary: A package that has different utils, wrappers, and functions.
+License: MIT
+Author: Reza Shirazi
+Author-email: reza@dealertower.com
+Requires-Python: >=3.11.9,<3.12.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: passlib[bcrypt] (>=1.7.4,<1.8.0)
+Requires-Dist: python-jose (>=3.4.0,<3.5.0)
+Requires-Dist: requests (>=2.32.3,<2.33.0)
+Description-Content-Type: text/markdown
+
+# Python Utilities Package
+
+A Python package that have some tools, wrappers and ... .
+
+## Installation
+
+To use the `dtpyutils` in your project, you can install it directly via `pip`.
+
+### Installation via `pip`
+
+```bash
+pip install dtpyutils
+```
+
