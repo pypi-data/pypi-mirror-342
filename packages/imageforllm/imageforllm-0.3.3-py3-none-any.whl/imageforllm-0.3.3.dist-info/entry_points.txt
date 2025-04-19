@@ -1,0 +1,3 @@
+[console_scripts]
+imageforllm-ai-metadata = imageforllm.ai_metadata:main
+imageforllm-extract = imageforllm.extract:main
