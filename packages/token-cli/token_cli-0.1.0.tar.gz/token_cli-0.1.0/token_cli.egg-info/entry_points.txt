@@ -1,0 +1,2 @@
+[console_scripts]
+token-cli = token_cli.main:main
