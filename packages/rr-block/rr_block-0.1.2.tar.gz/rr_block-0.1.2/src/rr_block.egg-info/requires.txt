@@ -1,0 +1,6 @@
+torch>=1.8
+
+[dev]
+pytest>=8.0
+build
+twine
