@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+UselessMath/UselessMath.py
+UselessMath/__init__.py
+UselessMath.egg-info/PKG-INFO
+UselessMath.egg-info/SOURCES.txt
+UselessMath.egg-info/dependency_links.txt
+UselessMath.egg-info/top_level.txt
+tests/test_UselessMath.py
