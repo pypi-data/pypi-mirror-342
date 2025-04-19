@@ -1,0 +1,525 @@
+Metadata-Version: 2.4
+Name: pstatstools
+Version: 0.0.7
+Summary: Statistical tools package
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.19.0
+Requires-Dist: scipy>=1.7.0
+Requires-Dist: matplotlib>=3.4.0
+Requires-Dist: statsmodels>=0.13.0
+Requires-Dist: pandas>=1.3.0
+Requires-Dist: jinja2>=3.0.0
+Dynamic: license-file
+Dynamic: requires-python
+
+# pstatstools
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Python Version](https://img.shields.io/badge/python-3.6+-blue.svg)
+
+A Python package providing a convenient `Sample` class for easy statistical analysis and visualization of numerical data.
+
+## Overview
+
+`pstatstools` simplifies common statistical tasks by wrapping numerical data (like lists or NumPy arrays) into a `Sample` object. This object exposes numerous methods for:
+
+* Calculating descriptive statistics.
+* Computing confidence intervals.
+* Performing hypothesis tests (t-tests, ANOVA).
+* Analyzing correlation and performing linear regression.
+* Utilizing bootstrap resampling techniques.
+* Conducting power analysis.
+* Handling data (outlier detection, transformations).
+* Generating various statistical plots using Matplotlib.
+
+## Installation
+
+You can install `pstatstools` using pip (once published). Make sure you have the required dependencies installed.
+
+```bash
+pip install pstatstools
+```
+
+Alternatively, if you have the source code locally, you can install it directly:
+
+```bash
+pip install .
+```
+
+This will also install the necessary dependencies listed below.
+
+## Dependencies
+
+* Python >= 3.6
+* NumPy
+* SciPy (`scipy.stats`)
+* Matplotlib
+* Statsmodels (`statsmodels.api`, `statsmodels.formula.api`, `statsmodels.stats.power`)
+* Pandas (used internally for some methods like `correlation_matrix` and `describe` formatting)
+
+## Basic Usage
+
+Import the `sample` factory function (assuming it's exposed in your package's `__init__.py` or directly from the module file) and create a `Sample` object:
+
+```python
+import numpy as np
+from pstatstools import sample # Adjust import based on your package structure
+import matplotlib.pyplot as plt # Needed for showing plots
+
+# Sample data
+data1 = np.random.normal(loc=10, scale=2, size=100)
+data2 = np.random.normal(loc=11, scale=2.5, size=120)
+
+# Create Sample objects
+s1 = sample(data1)
+s2 = sample(data2)
+
+# --- Descriptive Statistics ---
+print(f"Mean of s1: {s1.mean():.4f}")
+print(f"Standard Deviation of s1: {s1.std():.4f}")
+print(f"Median of s1: {s1.median():.4f}")
+
+# Get a formatted summary (prints a nice table, especially in Jupyter)
+s1.describe()
+
+# --- Confidence Intervals ---
+ci_mean = s1.ci(confidence=0.99)
+print(f"\n99% CI for Mean (s1): ({ci_mean[0]:.4f}, {ci_mean[1]:.4f})")
+
+ci_std = s1.ci_std()
+print(f"95% CI for Std Dev (s1): ({ci_std[0]:.4f}, {ci_std[1]:.4f})")
+
+# --- Hypothesis Testing ---
+# One-sample t-test against a hypothesized mean of 9.5
+ttest_result = s1.t_test(popmean=9.5, tail="two")
+print("\nOne-Sample T-Test Result (s1 vs 9.5):")
+for key, value in ttest_result.items():
+     print(f"  {key}: {value}")
+
+# Welch's t-test to compare means of s1 and s2
+welch_result = s1.welch_test(s2, tail="two")
+print("\nWelch's T-Test Result (s1 vs s2):")
+for key, value in welch_result.items():
+     print(f"  {key}: {value}")
+
+# Normality Test
+norm_test = s1.normality_test(test='shapiro')
+print(f"\nNormality Test (s1): {norm_test['conclusion']} (p={norm_test['p_value']:.4f})")
+
+
+# --- Visualization ---
+# Note: Plotting methods return the matplotlib pyplot object (`plt`)
+# Call plt.show() after generating plots to display them.
+
+# Histogram
+s1.histogram(bins=12, title="Histogram of Sample 1")
+plt.show()
+
+# Box Plot
+s1.boxplot(title="Box Plot of Sample 1")
+plt.show()
+
+# Q-Q Plot
+s1.qq_plot()
+plt.show()
+
+# Scatter Plot (requires data of the same length)
+s1_short = sample(data1[:50])
+s2_short = sample(data2[:50])
+s1_short.scatter(s2_short, xlabel="Sample 1 Values", ylabel="Sample 2 Values", title="Scatter Plot")
+plt.show()
+
+# Regression Plot
+s1_short.regression_plot(s2_short, xlabel="Predictor (s1)", ylabel="Response (s2)")
+plt.show()
+```
+
+## Detailed Usage Examples
+
+### Descriptive Statistics
+
+```python
+import numpy as np
+from pstatstools import sample
+import matplotlib.pyplot as plt
+
+# Create a sample with some data
+data = [23, 25, 21, 24, 29, 22, 20, 25, 24, 27, 28, 23, 24, 25, 26]
+s = sample(data)
+
+# Basic statistics
+print(f"Mean: {s.mean()}")
+print(f"Median: {s.median()}")
+print(f"Mode: {s.mode()}")
+print(f"Standard Deviation: {s.std()}")
+print(f"Variance: {s.var()}")
+print(f"Standard Error of the Mean: {s.sem()}")
+print(f"Min: {s.min()}")
+print(f"Max: {s.max()}")
+print(f"Range: {s.range()}")
+
+# Detailed description with all statistics
+stats = s.describe(print_table=True, round_to=3)
+
+# Just want quartiles?
+q1, q2, q3 = s.quartiles()
+print(f"Q1: {q1}, Q2 (median): {q2}, Q3: {q3}")
+print(f"Interquartile Range (IQR): {s.iqr()}")
+
+# Distribution shape
+print(f"Skewness: {s.skewness()}")
+print(f"Kurtosis: {s.kurtosis()}")
+print(f"Coefficient of Variation: {s.coef_variation()}")
+```
+
+### Confidence Intervals
+
+```python
+# Continuing with the same sample
+# Confidence interval for the mean (default 95%)
+lower, upper = s.ci()
+print(f"95% CI for Mean: ({lower:.2f}, {upper:.2f})")
+
+# 99% confidence interval for the mean
+lower, upper = s.ci(confidence=0.99)
+print(f"99% CI for Mean: ({lower:.2f}, {upper:.2f})")
+
+# Confidence interval for the standard deviation
+lower, upper = s.ci_std()
+print(f"95% CI for Standard Deviation: ({lower:.2f}, {upper:.2f})")
+
+# Confidence interval for the variance
+lower, upper = s.ci_var()
+print(f"95% CI for Variance: ({lower:.2f}, {upper:.2f})")
+
+# Confidence interval for the median
+lower, upper = s.ci_median()
+print(f"95% CI for Median: ({lower:.2f}, {upper:.2f})")
+```
+
+### Hypothesis Testing
+
+```python
+# One-sample t-test (testing if mean equals 20)
+result = s.t_test(popmean=20)
+print("\nOne-sample t-test (H0: mean = 20):")
+print(f"t-statistic: {result['t_statistic']:.4f}")
+print(f"p-value: {result['p_value']:.4f}")
+print(f"Conclusion: {result['conclusion']}")
+
+# Two-sample test (comparing with another sample)
+data2 = [19, 18, 22, 20, 23, 21, 20, 19, 21, 20]
+s2 = sample(data2)
+
+# Welch's t-test (does not assume equal variances)
+result = s.welch_test(s2)
+print("\nWelch's t-test (comparing two samples):")
+print(f"t-statistic: {result['t_statistic']:.4f}")
+print(f"p-value: {result['p_value']:.4f}")
+print(f"Conclusion: {result['conclusion']}")
+print(f"Mean Difference: {result['mean_difference']:.4f}")
+print(f"95% CI for Mean Difference: ({result['ci_lower']:.4f}, {result['ci_upper']:.4f})")
+
+# One-way ANOVA with multiple samples
+data3 = [24, 25, 26, 27, 25, 24, 26, 25]
+data4 = [20, 21, 22, 23, 20, 21, 22]
+s3 = sample(data3)
+s4 = sample(data4)
+
+result = s.anova(s2, s3, s4)
+print("\nOne-way ANOVA (comparing four samples):")
+print(f"F-statistic: {result['f_statistic']:.4f}")
+print(f"p-value: {result['p_value']:.4f}")
+print(f"Conclusion: {result['conclusion']}")
+
+# Normality test
+result = s.normality_test(test='shapiro')
+print("\nShapiro-Wilk Normality Test:")
+print(f"Test Statistic: {result['statistic']:.4f}")
+print(f"p-value: {result['p_value']:.4f}")
+print(f"Conclusion: {result['conclusion']}")
+```
+
+### Correlation and Regression
+
+```python
+# Assuming we have two related samples of the same length
+x_data = [5, 7, 8, 7, 2, 17, 2, 9, 4, 11, 12, 9, 6]
+y_data = [99, 86, 87, 88, 111, 86, 103, 87, 94, 78, 77, 85, 86]
+
+x = sample(x_data)
+y = sample(y_data)
+
+# Calculate Pearson correlation coefficient
+corr = x.correlation(y)
+print(f"Pearson correlation: {corr['r']:.4f}")
+print(f"R-squared: {corr['r_squared']:.4f}")
+print(f"p-value: {corr['p_value']:.4f}")
+print(f"Conclusion: {corr['conclusion']}")
+
+# Calculate covariance
+cov = x.covariance(y)
+print(f"Covariance: {cov:.4f}")
+
+# Simple linear regression with x as predictor and y as response
+reg = x.linear_regression(y)
+model = reg['model']
+print("\nLinear Regression Summary:")
+print(f"Intercept: {reg['intercept']:.4f}")
+print(f"Slope: {reg['slope']:.4f}")
+print(f"Model: y = {reg['intercept']:.4f} + {reg['slope']:.4f}x")
+print(f"R-squared: {reg['r_squared']:.4f}")
+print(f"F-statistic: {reg['f_statistic']:.4f}")
+print(f"p-value: {reg['p_value']:.4f}")
+
+# Print the full model summary from statsmodels
+print("\nDetailed Regression Summary:")
+print(reg['summary'])
+
+# Use the model to predict y when x = 10
+prediction = x.linear_prediction(y, x_value=10)
+print(f"\nPredicted y when x = 10: {prediction['prediction']:.4f}")
+print(f"95% CI for mean response: ({prediction['ci_mean_lower']:.4f}, {prediction['ci_mean_upper']:.4f})")
+print(f"95% PI for new observation: ({prediction['pi_lower']:.4f}, {prediction['pi_upper']:.4f})")
+
+# Create a correlation matrix with multiple samples
+z_data = [65, 78, 81, 80, 95, 77, 93, 84, 85, 70, 69, 83, 81]
+z = sample(z_data)
+corr_matrix = x.correlation_matrix(y, z, labels=['Age', 'Score', 'Weight'])
+print("\nCorrelation Matrix:")
+print(corr_matrix)
+
+# Multiple regression with x and z as predictors, y as response
+multi_reg = x.multiple_regression(y, z)
+print("\nMultiple Regression Summary:")
+print(f"R-squared: {multi_reg['r_squared']:.4f}")
+print(f"Adjusted R-squared: {multi_reg['adj_r_squared']:.4f}")
+print(f"F-statistic: {multi_reg['f_statistic']:.4f}")
+print(f"p-value: {multi_reg['p_value']:.4f}")
+print(multi_reg['summary'])
+```
+
+### Bootstrap Methods
+
+```python
+# Using the bootstrap for robust statistics
+data = [23, 25, 21, 24, 29, 22, 20, 25, 24, 27, 28, 23, 24, 25, 26, 19, 32, 36, 18, 40]
+s = sample(data)
+
+# Generate 1000 bootstrap samples and compute their means
+bootstrap_means = s.bootstrap(n_samples=1000, statistic=np.mean)
+print(f"Original sample mean: {s.mean():.4f}")
+print(f"Bootstrap mean: {np.mean(bootstrap_means):.4f}")
+print(f"Bootstrap standard error: {np.std(bootstrap_means):.4f}")
+
+# Calculate 95% bootstrap confidence interval for the mean
+lower, upper = s.bootstrap_ci(confidence=0.95, n_samples=1000, statistic=np.mean)
+print(f"95% Bootstrap CI for mean: ({lower:.4f}, {upper:.4f})")
+
+# Non-parametric bootstrap for multiple statistics
+results = s.nonparametric_bootstrap(n_samples=1000)
+print("\nNon-parametric bootstrap 95% CIs:")
+print(f"Mean: ({results['mean_ci'][0]:.4f}, {results['mean_ci'][1]:.4f})")
+print(f"Median: ({results['median_ci'][0]:.4f}, {results['median_ci'][1]:.4f})")
+print(f"Std Dev: ({results['std_ci'][0]:.4f}, {results['std_ci'][1]:.4f})")
+
+# Parametric bootstrap (assuming normal distribution)
+results = s.parametric_bootstrap(distribution='normal', n_samples=1000)
+print("\nParametric bootstrap (normal) 95% CIs:")
+print(f"Mean: ({results['mean_ci'][0]:.4f}, {results['mean_ci'][1]:.4f})")
+print(f"Median: ({results['median_ci'][0]:.4f}, {results['median_ci'][1]:.4f})")
+print(f"Std Dev: ({results['std_ci'][0]:.4f}, {results['std_ci'][1]:.4f})")
+```
+
+### Power Analysis
+
+```python
+# Sample data
+data = np.random.normal(loc=5, scale=2, size=30)
+s = sample(data)
+
+# Calculate required sample size for detecting an effect size of 0.5
+# with 80% power and alpha=0.05
+sample_size = s.power_analysis(effect_size=0.5, alpha=0.05, power=0.8)
+print(f"Required sample size to detect effect size 0.5 with 80% power: {sample_size:.0f}")
+
+# Calculate the power of a study with n=50 to detect an effect size of 0.4
+power = s.calculate_power(n=50, effect_size=0.4)
+print(f"Power to detect effect size 0.4 with n=50: {power:.4f}")
+
+# Calculate the minimum detectable effect size with current sample
+effect = s.calculate_detectable_effect(power=0.8)
+print(f"Minimum detectable effect size with n={len(s)} and 80% power: {effect:.4f}")
+
+# Sample size for two-group study with unequal allocation (ratio 2:1)
+n1, n2 = s.calculate_sample_size(effect_size=0.5, power=0.8, ratio=2.0)
+print(f"Required sample sizes (2:1 ratio): n1={n1:.0f}, n2={n2:.0f}")
+```
+
+### Data Handling & Transformations
+
+```python
+# Create a sample with outliers
+data = [23, 25, 21, 24, 29, 22, 20, 25, 24, 27, 28, 50, 24, 25, 26, 19, 65]
+s = sample(data)
+
+# Calculate z-scores
+z_scores = s.z_scores()
+print("Z-scores for each data point:")
+for i, z in enumerate(z_scores):
+    print(f"Data point {i+1} ({s[i]}): z-score = {z:.2f}")
+
+# Identify outliers (using IQR method)
+outliers = s.is_outlier(threshold=1.5)
+print("\nOutliers in the dataset:")
+for i, is_out in enumerate(outliers):
+    if is_out:
+        print(f"Data point {i+1}: {s[i]} (outlier)")
+
+# Create a new sample with outliers removed
+s_clean = s.remove_outliers(threshold=1.5)
+print(f"\nOriginal sample size: {len(s)}")
+print(f"Cleaned sample size: {len(s_clean)}")
+print(f"Original mean: {s.mean():.2f}")
+print(f"Cleaned mean: {s_clean.mean():.2f}")
+print(f"Original standard deviation: {s.std():.2f}")
+print(f"Cleaned standard deviation: {s_clean.std():.2f}")
+```
+
+### Visualization
+
+```python
+import matplotlib.pyplot as plt
+
+# Create a sample
+data = np.random.normal(loc=25, scale=5, size=100)
+s = sample(data)
+
+# Histogram with overlaid normal curve
+s.histogram(bins=15, density=True, title="Histogram with Normal Curve", 
+            show_norm=True, show_mean=True, show_median=True)
+plt.show()
+
+# Box plot
+s.boxplot(title="Box Plot", vert=True, patch_artist=True)
+plt.show()
+
+# QQ plot to check normality
+s.qq_plot()
+plt.show()
+
+# Wally plot - multiple QQ plots, one with real data
+# Useful for visually detecting non-normality
+s.wally_plot()
+plt.show()
+
+# Empirical Cumulative Distribution Function
+s.ecdf(title="Empirical CDF")
+plt.show()
+
+# Create two samples for correlation/regression plots
+x_data = np.random.uniform(0, 10, 50)
+y_data = 2*x_data + 3 + np.random.normal(0, 2, 50)
+x = sample(x_data)
+y = sample(y_data)
+
+# Simple scatter plot
+x.scatter(y, title="Scatter Plot", xlabel="X Variable", ylabel="Y Variable")
+plt.show()
+
+# Regression plot with confidence and prediction intervals
+x.regression_plot(y, title="Regression Analysis", xlabel="X", ylabel="Y")
+plt.show()
+
+# Create multiple samples for pairs plot
+z_data = x_data * 0.5 + y_data * 0.3 + np.random.normal(0, 1, 50)
+w_data = x_data * -0.3 + y_data * 0.7 + np.random.normal(0, 1.5, 50)
+z = sample(z_data)
+w = sample(w_data)
+
+# Pairs plot (scatter plot matrix with KDEs on diagonal)
+x.pairs_plot([y, z, w], labels=["X", "Y", "Z", "W"])
+plt.show()
+```
+
+## Features / API Reference
+
+The `Sample` class provides a wide range of statistical methods, accessible directly from the `Sample` object instance (`s = sample(data)`):
+
+**1. Descriptive Statistics:**
+* `s.mean()`, `s.median()`, `s.mode()`
+* `s.std(ddof=1)`, `s.var(ddof=1)`, `s.sem()` (Standard Error of Mean)
+* `s.quantile(q)`, `s.quartiles()`, `s.iqr()` (Interquartile Range)
+* `s.skewness()`, `s.kurtosis()` (excess kurtosis)
+* `s.min()`, `s.max()`, `s.range()`
+* `s.coef_variation()`: Coefficient of Variation (std/mean).
+* `s.describe(print_table=True, round_to=4)`: Provides a comprehensive formatted summary table (text or HTML in notebooks). Returns a dictionary of stats.
+
+**2. Confidence Intervals:**
+* `s.ci(confidence=0.95)`: CI for the mean (using t-distribution).
+* `s.ci_std(confidence=0.95)`: CI for the standard deviation (using Chi-squared).
+* `s.ci_var(confidence=0.95)`: CI for the variance.
+* `s.ci_median(confidence=0.95)`: CI for the median (using log transformation approximation).
+
+**3. Hypothesis Testing:**
+* `s.t_test(popmean=0, alpha=0.05, tail="two")`: One-sample t-test. Returns a dictionary with results.
+* `s.welch_test(other_sample, alpha=0.05, tail="two")`: Two-sample Welch's t-test (unequal variances assumed). Compares `s` with `other_sample`. Returns a dictionary.
+* `s.anova(*other_samples)`: One-way ANOVA comparing `s` with one or more `other_samples`. Returns a dictionary.
+* `s.normality_test(test='shapiro', alpha=0.05)`: Shapiro-Wilk ('shapiro') or Kolmogorov-Smirnov ('ks') test for normality. Returns a dictionary.
+
+**4. Correlation and Regression:**
+* `s.correlation(other_sample)`: Pearson correlation coefficient, R-squared, and p-value between `s` and `other_sample`. Requires equal lengths. Returns a dictionary.
+* `s.covariance(other_sample)`: Covariance between `s` and `other_sample`. Requires equal lengths.
+* `s.correlation_matrix(*other_samples, labels=None)`: Correlation matrix (Pandas DataFrame) for `s` and `other_samples`. Requires equal lengths.
+* `s.linear_regression(y_sample, alpha=0.05)`: Simple linear regression with `s` as predictor (x) and `y_sample` as response (y). Returns a dictionary including the fitted `statsmodels` model object and summary. Requires equal lengths.
+* `s.linear_prediction(y_sample, x_value, alpha=0.05)`: Make prediction at `x_value` based on simple linear regression model (s ~ y_sample). Returns predicted value and intervals. Requires equal lengths.
+* `s.multiple_regression(y_sample, *other_x_samples, alpha=0.05)`: Multiple linear regression with `s` and `other_x_samples` as predictors, `y_sample` as response. Returns a dictionary including the fitted `statsmodels` model. Requires equal lengths.
+
+**5. Bootstrap Methods:**
+* `s.bootstrap(n_samples=1000, statistic=np.mean)`: Generate `n_samples` bootstrap estimates of the given `statistic` (default: mean). Returns an array of the bootstrap statistics.
+* `s.bootstrap_ci(confidence=0.95, n_samples=1000, statistic=np.mean)`: Calculate bootstrap confidence interval using the percentile method for the given `statistic`. Returns (lower_bound, upper_bound).
+* `s.parametric_bootstrap(distribution='normal', n_samples=1000, alpha=0.05)`: Parametric bootstrap CIs assuming 'normal', 'lognormal', or 'exponential' distribution. Returns a dictionary of CIs for mean, median, std.
+* `s.nonparametric_bootstrap(n_samples=1000, alpha=0.05)`: Non-parametric bootstrap CIs (resampling from data) for mean, median, std. Returns a dictionary.
+
+**6. Power Analysis (using `statsmodels`):**
+* `s.power_analysis(effect_size=None, alpha=0.05, power=0.8)`: Calculate required sample size for a one-sample t-test to achieve desired `power` for a given `effect_size` (Cohen's d) and `alpha`. If `effect_size` is None, it's estimated from the sample mean relative to 0 and the sample std dev.
+* `s.calculate_power(n=None, effect_size=0.5, alpha=0.05, ratio=1.0)`: Calculate statistical power for a two-sample independent t-test given sample size `n` (for group 1), `effect_size`, `alpha`, and sample size `ratio` (n2/n1). Uses sample size of `s` if `n` is None.
+* `s.calculate_sample_size(effect_size=0.5, alpha=0.05, power=0.8, ratio=1.0)`: Calculate required sample size per group for a two-sample independent t-test for given `effect_size`, `alpha`, `power`, and sample size `ratio`. Returns `(n1, n2)`.
+* `s.calculate_detectable_effect(n=None, alpha=0.05, power=0.8, ratio=1.0)`: Calculate the minimum detectable effect size (Cohen's d) for a two-sample independent t-test given sample size `n` (for group 1), `alpha`, `power`, and `ratio`. Uses sample size of `s` if `n` is None.
+
+**7. Data Handling & Transformations:**
+* `s.z_scores()`: Calculate standard scores (z-scores) for each data point. Returns a NumPy array.
+* `s.is_outlier(threshold=1.5)`: Identify outliers using the IQR method (`Q3 + threshold*IQR` or `Q1 - threshold*IQR`). Returns a boolean NumPy array.
+* `s.remove_outliers(threshold=1.5)`: Return a new `Sample` object with outliers (identified by `is_outlier`) removed.
+
+**8. Visualization (using Matplotlib & Statsmodels):**
+* `s.histogram(bins=10, **kwargs)`: Plots a histogram. Includes lines for mean and median.
+* `s.boxplot(**kwargs)`: Creates a box plot.
+* `s.qq_plot()`: Creates a Q-Q plot against a normal distribution using `statsmodels`.
+* `s.wally_plot()`: Creates a Wally plot (multiple Q-Q plots, one with real data) for visually assessing normality.
+* `s.scatter(other_sample, inverted=False, add_line=True, **kwargs)`: Creates a scatter plot between `s` (x-axis by default) and `other_sample` (y-axis by default). `inverted=True` swaps axes. Adds a linear regression line by default. Requires equal lengths.
+* `s.regression_plot(y_sample, alpha=0.05, **kwargs)`: Creates a scatter plot with regression line, confidence interval band, and prediction interval band using `statsmodels`. Requires equal lengths.
+* `s.ecdf(**kwargs)`: Plots the empirical cumulative distribution function (ECDF).
+* `s.pairs_plot(others, labels=None)`: Creates a pairs plot (scatter plot matrix with KDE on diagonal) for `s` and a list of `others` samples/arrays. Requires Pandas and equal lengths.
+
+**9. Utility Methods:**
+* `s.summary()`: Prints a text-based comprehensive summary including size, mean, CI, median, std dev, range, quartiles, IQR, skewness, kurtosis, and normality test results.
+* `len(s)`: Returns the number of data points in the sample.
+* `s[index]`: Allows accessing data points using indexing or slicing.
+* `print(s)`: Shows the underlying NumPy array representation.
+
+**Note on Plots:** All plotting methods return the `matplotlib.pyplot` module object (`plt`), allowing for further customization (e.g., saving the figure with `plt.savefig('filename.png')`) before or after calling `plt.show()`.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request or open an issue on the repository (if applicable).
+
+## License
+
+Distributed under the terms of the [MIT License](https://opensource.org/licenses/MIT).
