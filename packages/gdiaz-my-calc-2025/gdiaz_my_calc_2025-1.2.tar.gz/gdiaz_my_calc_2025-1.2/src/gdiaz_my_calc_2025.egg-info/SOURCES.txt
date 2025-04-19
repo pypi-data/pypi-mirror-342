@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/gdiaz_my_calc_2025.egg-info/PKG-INFO
+src/gdiaz_my_calc_2025.egg-info/SOURCES.txt
+src/gdiaz_my_calc_2025.egg-info/dependency_links.txt
+src/gdiaz_my_calc_2025.egg-info/top_level.txt
+src/mi_calculadora/__init__.py
+src/mi_calculadora/operaciones.py
+tests/test_calculadora.py
