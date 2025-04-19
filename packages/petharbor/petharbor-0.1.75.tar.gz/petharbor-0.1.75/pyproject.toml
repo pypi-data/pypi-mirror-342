@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "petharbor"
+version = "0.1.75"
+description = "PetHarbor is a Python package designed for anonymizing datasets using either a pre-trained model or a hash-based approach. It provides two main classes for anonymization: lite and advance."
+authors = [{ name = "Sean Farrell", email = "sean.farrell2@durham.ac.uk" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+dependencies = [
+    "accelerate",  
+    "backports.tarfile",
+    "colorlog",
+    "datasets",
+    "importlib-metadata",
+    "jaraco.collections",
+    "pandas",
+    "protobuf",
+    "pysocks",
+    "sentencepiece",
+    "tomli"
+]
+
+[project.urls]
+"Homepage" = "https://www.github.com/seanfarr788/petharbor"
+"Repository" = "https://www.github.com/seanfarr788/petharbor"
