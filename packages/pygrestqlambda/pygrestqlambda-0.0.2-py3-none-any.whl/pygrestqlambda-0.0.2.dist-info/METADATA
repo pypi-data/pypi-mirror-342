@@ -1,0 +1,37 @@
+Metadata-Version: 2.4
+Name: pygrestqlambda
+Version: 0.0.2
+Summary: PostgreSQL REST API framework for AWS Lambda functions
+Project-URL: Homepage, https://github.com/mesogate/pygrestqlambda
+Project-URL: Issues, https://github.com/mesogate/pygrestqlambda/issues
+Author-email: Voquis Limited <opensource@voquis.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: aws-xray-sdk
+Requires-Dist: boto3
+Provides-Extra: dev
+Requires-Dist: build; extra == 'dev'
+Requires-Dist: pylint; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: ruff; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# Python PostgreSQL REST API framework for AWS Lambda functions
+> [!NOTE]
+> Project status: `Alpha`
+
+A REST API web framework for persisting records in a PostgreSQL database.
+
+## Supported features
+- Automatic creation of `uid` fields
+- Automatic setting of `created_at` and `last_updated_at` timestamps
+- Automatic setting of `creator_uid` and `last_updater_uid`
+- RDS with IAM credentials
+
+## Examples
+See [Examples docs directory](./docs/examples/)
