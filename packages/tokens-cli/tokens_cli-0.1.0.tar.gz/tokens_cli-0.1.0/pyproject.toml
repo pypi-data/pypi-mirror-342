@@ -1,0 +1,38 @@
+[project]
+name = "tokens-cli"
+version = "0.1.0"
+description = "Count tokens in text using tiktoken encoders"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "nik", email = "42a11b@nikdav.is"}
+]
+keywords = ["tokens", "tokenizer", "tiktoken", "openai", "llm", "cli"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Utilities"
+]
+dependencies = ["tiktoken>=0.5.1"]
+
+[project.urls]
+Homepage = "https://github.com/nikdavis/tokens_cli"
+Repository = "https://github.com/nikdavis/tokens_cli.git"
+"Bug Tracker" = "https://github.com/nikdavis/tokens_cli/issues"
+
+[project.scripts]
+tokens = "tokens_cli.cli:main"
+tks = "tokens_cli.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0.0"]

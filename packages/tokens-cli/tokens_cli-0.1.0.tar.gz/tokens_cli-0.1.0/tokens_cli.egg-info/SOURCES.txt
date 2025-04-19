@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+tests/test_cli.py
+tests/test_tokenizer.py
+tokens_cli/__init__.py
+tokens_cli/cli.py
+tokens_cli/tokenizer.py
+tokens_cli.egg-info/PKG-INFO
+tokens_cli.egg-info/SOURCES.txt
+tokens_cli.egg-info/dependency_links.txt
+tokens_cli.egg-info/entry_points.txt
+tokens_cli.egg-info/requires.txt
+tokens_cli.egg-info/top_level.txt
