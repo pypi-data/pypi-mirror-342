@@ -1,0 +1,95 @@
+[project]
+name = "pyscancf"
+description = "Creates CF-Radial1 data from individual sweeps of IMD DWR data"
+readme = "README.md"
+authors = [{ name = "Hamid Ali Syed", email = "hamidsyed37@gmail.com" }]
+maintainers = [{ name = "Hamid Ali Syed", email = "hamidsyed37@gmail.com" }]
+license = { file = "LICENSE" }
+keywords = ["IMD", "Radar", "cf-radial", "single sweeps", "radar", "weather", "meteorology"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+    "License :: OSI Approved :: MIT License"
+]
+dynamic = ["version", "dependencies"]
+
+[tool.setuptools_scm]
+write_to = "pyscancf/version.py"
+local_scheme = "no-local-version"
+fallback_version = "9999"
+
+[project.urls]
+Homepage = "https://github.com/syedhamidali/PyScanCf/"
+Issues = "https://github.com/syedhamidali/PyScanCf/issues"
+changelog = "https://github.com/syedhamidali/PyScanCf/blob/main/CHANGELOG.md"
+documentation = "https://pyscancf.readthedocs.io"
+
+[build-system]
+requires = [
+    "setuptools>=64",
+    "setuptools-scm>=8",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["pyscancf"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+readme = { file = ["README.md", "docs/history.md"], content-type = "text/markdown" }
+
+[project.optional-dependencies]
+dev = [
+    "coverage",
+    "mypy",
+    "pytest",
+    "ruff",
+    "pre-commit",
+    "black[jupyter]",
+    "blackdoc",
+    "codespell",
+    "pytest-cov",
+    "pytest-mock",
+    "pytest-check",
+    "pytest-sugar",
+    "pytest-watcher",
+    "deepdiff",
+    "pip-tools",
+    "bumpver",
+    "twine",
+    "wheel",
+    "build",
+    "setuptools>=61.0.0",
+    "sphinx",
+    "sphinx-gallery",
+    "sphinx-book-theme",
+    "nbsphinx",
+    "sphinx_mdinclude"
+]
+
+[tool.black]
+target-version = ["py39"]
+line-length = 88
+
+[tool.ruff]
+target-version = "py39"
+builtins = ["ellipsis"]
+exclude = [".eggs", "doc"]
+
+[tool.ruff.lint]
+ignore = ["E402", "E501", "E731"]
+select = ["F", "E", "W", "I", "UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pyscancf"]
