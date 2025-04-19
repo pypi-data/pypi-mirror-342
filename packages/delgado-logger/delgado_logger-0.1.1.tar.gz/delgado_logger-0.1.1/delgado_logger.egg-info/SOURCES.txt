@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+delgado_logger/__init__.py
+delgado_logger/logger.py
+delgado_logger.egg-info/PKG-INFO
+delgado_logger.egg-info/SOURCES.txt
+delgado_logger.egg-info/dependency_links.txt
+delgado_logger.egg-info/top_level.txt
