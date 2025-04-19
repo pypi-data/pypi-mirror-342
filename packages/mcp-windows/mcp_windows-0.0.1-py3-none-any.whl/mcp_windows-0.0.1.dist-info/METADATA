@@ -1,0 +1,84 @@
+Metadata-Version: 2.4
+Name: mcp-windows
+Version: 0.0.1
+Summary: Add your description here
+Author-email: TerminalMan <84923604+SecretiveShell@users.noreply.github.com>
+Requires-Python: >=3.13
+Requires-Dist: fastmcp>=2.2.0
+Requires-Dist: mcp>=1.6.0
+Requires-Dist: psutil>=7.0.0
+Requires-Dist: pywin32>=310
+Requires-Dist: winrt-runtime>=3.1.0
+Requires-Dist: winrt-windows-data-xml-dom>=3.1.0
+Requires-Dist: winrt-windows-foundation-collections>=3.1.0
+Requires-Dist: winrt-windows-foundation>=3.1.0
+Requires-Dist: winrt-windows-media-control>=3.1.0
+Requires-Dist: winrt-windows-ui-notifications>=3.1.0
+Description-Content-Type: text/markdown
+
+# mcp-windows
+
+MCP server for the windows API.
+
+## Installation
+
+add this to your claude mcp config:
+
+```json
+{
+  "mcpServers": {
+    "windows": {
+      "command": "uvx",
+      "args": [
+        "mcp-windows"
+      ]
+    }
+  }
+}
+
+or locally:
+
+```json
+{
+  "mcpServers": {
+    "windows": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "C:\\Users\\{name}\\Documents\\mcp-windows",
+        "run",
+        "mcp-windows"
+      ]
+    }
+  }
+}
+```
+
+## Features
+
+### Media
+
+- get_media_sessions
+- pause
+- play
+
+### Notifications
+
+- send_toast
+
+### Window Management
+
+- get_foreground_window_info
+- get_window_list
+- focus_window
+- close_window
+- minimize_window
+
+### Monitors
+
+- sleep_monitors
+- wake_monitors
+
+## License
+
+MIT
