@@ -1,0 +1,47 @@
+Metadata-Version: 2.4
+Name: d4k-ms-base
+Version: 0.2.0
+Summary: A python package containing utility classes for d4k microservices
+Author: D Iberson-Hurst
+Author-email: 
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: simple-error-log
+Requires-Dist: httpx
+Requires-Dist: python-dotenv
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Micorservices Base
+
+## Description
+
+A set of simple utility classes for d4k microservices.
+
+## Installation
+
+```bash
+pip install d4k-ms-base
+```
+
+## Building package
+
+Use pip to install build and twine. Use the following commands to build
+
+```python -m build``` 
+
+and upload to pypi.org using the command
+
+```twine upload dist/*``` 
