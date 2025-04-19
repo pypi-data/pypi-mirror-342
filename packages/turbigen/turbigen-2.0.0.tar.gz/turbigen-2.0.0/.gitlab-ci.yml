@@ -1,0 +1,89 @@
+image: python:3.11
+
+# Run in stages, only deploy if the tests pass
+stages:
+- test
+- build
+- deploy
+
+# Setup env
+before_script:
+  - apt update && apt install -y gfortran libopenmpi-dev fonts-freefont-ttf pdf2svg
+  - curl -LsSf https://astral.sh/uv/install.sh | sh
+  - source $HOME/.local/bin/env
+  - uv venv
+  - uv pip install cibuildwheel meson-python line_profiler .[dev]
+  - source .venv/bin/activate
+  - mkdir -p plots
+
+build_wheels:
+  stage: build
+  variables:
+    DOCKER_HOST: unix:///var/run/docker.sock
+    DOCKER_TLS_CERTDIR: ""
+  script:
+    # Install Docker
+    - ls -li /var/run/docker.sock
+    - curl -sSL https://get.docker.com/ | sh
+    # Build the wheels
+    - cibuildwheel --platform linux --output-dir dist
+    # Source dist
+    - python -m build --sdist
+  artifacts:
+    paths:
+      - dist
+
+profile:
+  stage: test
+  artifacts:
+    paths:
+      - plots
+  script:
+    - uv pip install .[parallel]
+    # Serial profiling.
+    - ./scripts/profile.sh
+    # Now parallel benchmarking
+    - ./scripts/benchmark.sh
+
+test:
+  stage: test
+  script:
+    - pytest
+
+pypi:
+  stage: deploy
+  script:
+    - ls -l dist
+    - twine upload dist/*
+  only:
+    - master
+
+doc:
+  stage: test
+  artifacts:
+    paths:
+      - doc/_build
+  script:
+    - python doc/generate_examples.py
+    - sphinx-build -W doc doc/_build
+
+pages:
+  stage: deploy
+  script:
+    - mv doc/_build public
+  artifacts:
+    paths:
+      - public
+  only:
+  - master
+
+#
+# # release_job:
+# #   image: registry.gitlab.com/gitlab-org/release-cli:latest
+# #   rules:
+# #     - if: $CI_COMMIT_TAG                 # Run this job when a tag is created
+# #   script:
+# #     - echo "running release_job"
+# #   release:                               # See https://docs.gitlab.com/ee/ci/yaml/#release for available properties
+# #     tag_name: '$CI_COMMIT_TAG'
+# #     description: '$CI_COMMIT_TAG'
