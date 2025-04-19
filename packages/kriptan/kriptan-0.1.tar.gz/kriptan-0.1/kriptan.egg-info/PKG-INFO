@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: kriptan
+Version: 0.1
+Summary: uznat level sipa
+Home-page: https://github.com/твой-профиль/my_package
+Author: sipuyushchiy
+Author-email: vtiny@inbox.ru
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: summary
