@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/quake_analyzer/__init__.py
+src/quake_analyzer/_version.py
+src/quake_analyzer/cli.py
+src/quake_analyzer.egg-info/PKG-INFO
+src/quake_analyzer.egg-info/SOURCES.txt
+src/quake_analyzer.egg-info/dependency_links.txt
+src/quake_analyzer.egg-info/entry_points.txt
+src/quake_analyzer.egg-info/requires.txt
+src/quake_analyzer.egg-info/top_level.txt
