@@ -1,0 +1,87 @@
+Metadata-Version: 2.4
+Name: ai-sdk-py
+Version: 0.1.11
+Summary: A unified interface for working with different AI language model providers
+Author-email: Jacques Verré <jverre@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/jverre/ai-sdk
+Project-URL: Repository, https://github.com/jverre/ai-sdk
+Keywords: ai,llm,openai,anthropic,genai,large language model
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dotenv
+Requires-Dist: pydantic<3.0.0,>=2.10.6
+Requires-Dist: httpx<0.29.0,>=0.28.1
+Requires-Dist: validators<0.35.0,>=0.34.0
+Requires-Dist: opik
+Provides-Extra: test
+Requires-Dist: pytest>=7.0.0; extra == "test"
+Requires-Dist: pytest-cov>=4.0.0; extra == "test"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "test"
+Requires-Dist: pytest-repeat>=0.9.1; extra == "test"
+Dynamic: license-file
+
+```ascii
+ █████╗ ██╗    ███████╗██████╗ ██╗  ██╗
+██╔══██╗██║    ██╔════╝██╔══██╗██║ ██╔╝
+███████║██║    ███████╗██║  ██║█████╔╝ 
+██╔══██║██║    ╚════██║██║  ██║██╔═██╗ 
+██║  ██║██║    ███████║██████╔╝██║  ██╗
+╚═╝  ╚═╝╚═╝    ╚══════╝╚═════╝ ╚═╝  ╚═╝
+```
+
+# AI SDK
+
+A unified interface for working with different AI language model providers. Built with clean architecture and support for many providers
+
+📚 [View the full documentation](https://jverre.github.io/ai-sdk/)
+
+## Installation
+
+```bash
+pip install ai-sdk-py
+```
+
+## Quick Start
+
+```python
+from ai_sdk import generate_text
+from ai_sdk.openai import openai
+
+# Generate text
+response = generate_text(
+    model=openai("gpt-4o"),
+    system="You are a helpful assistant.",
+    prompt="What is the meaning of life?"
+)
+
+print(response.text)
+```
+
+## Features
+
+- 🤖 Unified interface for multiple AI providers
+- 🌟 Clean, modular architecture
+- 🚀 Easy to extend with new providers
+- 🛠️ Built-in support for function calling and tools
+- 🖼️ Image generation and analysis capabilities
+- 📋 Structured output generation with type validation
+
+## Supported Providers
+
+- Anthropic (Claude)
+- OpenAI (GPT-4, GPT-3.5)
+- More coming soon!
+
+## Contributing
+
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting a pull request.
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+## Authors
+
+Created and maintained by @jverre.
