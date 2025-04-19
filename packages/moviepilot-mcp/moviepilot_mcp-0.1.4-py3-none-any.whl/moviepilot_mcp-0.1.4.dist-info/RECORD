@@ -1,0 +1,15 @@
+moviepilot_mcp/__init__.py,sha256=9UijrvYQ8aioRcc8G14k9Bw2vV2NR_ltwKnEnYuwUb4,53
+moviepilot_mcp/client.py,sha256=_AY_31gaC5FOg5xUv7tIieOuTzWT_A0Ud4evt70QRtU,7754
+moviepilot_mcp/server.py,sha256=VwWtf9Buv86eyCFdfemnz0WdhfqkG5UQAcWZ2Xut2c8,3620
+moviepilot_mcp/apis/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+moviepilot_mcp/apis/media.py,sha256=s-mQq6OmDg5pQ-6ergFquxeeuexn8fMACcYmunNoMS8,3425
+moviepilot_mcp/apis/recommend.py,sha256=8NEL4KU6hkhAyHcP0M1gCBvvcgwbyb_giNOLr6hbXFo,3704
+moviepilot_mcp/apis/suscribe.py,sha256=ixvNws3Fpi3ielzq9Z-iu_3tA2enpnxfR4JGGcaOZbg,4057
+moviepilot_mcp/schemas/__init__.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+moviepilot_mcp/schemas/recommend.py,sha256=fgYSkF-dJLk2Dx_tcEKVhNaHU-hiMNSt0PDiwlxQXRY,332
+moviepilot_mcp/schemas/subscribe.py,sha256=sD8JwOIqTzOhzPoHz8m4mgBdT1KB_e6O7JcM4TkaGXI,5028
+moviepilot_mcp-0.1.4.dist-info/METADATA,sha256=mz0H2YZNXaHW6IdqagZT3AnabFWh-htgLT41dqVA9EM,7983
+moviepilot_mcp-0.1.4.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+moviepilot_mcp-0.1.4.dist-info/entry_points.txt,sha256=xcPhOCmCwZCTMX-B8IrLG1i__NmqRberX9pcgke7M9k,55
+moviepilot_mcp-0.1.4.dist-info/licenses/LICENSE,sha256=gRwNuAbSpkzeusCzFXRaVQv8dzwHMJIeC3brHdTBc1A,1066
+moviepilot_mcp-0.1.4.dist-info/RECORD,,
