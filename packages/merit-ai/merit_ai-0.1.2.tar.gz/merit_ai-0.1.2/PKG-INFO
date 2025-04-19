@@ -1,0 +1,219 @@
+Metadata-Version: 2.4
+Name: merit-ai
+Version: 0.1.2
+Summary: Monitoring, Evaluation, Reporting, Inspection, Testing framework for AI systems
+Author: adithyakpb
+License: MIT License
+        
+        Copyright (c) 2025 Adithya KP
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=2.2.0
+Requires-Dist: requests>=2.32.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: jsonschema>=4.20.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: google-generativeai>=0.3.0
+Requires-Dist: openai>=1.0.0
+Requires-Dist: scikit-learn==1.5.0
+Requires-Dist: kneed>=0.8.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.3.1; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Requires-Dist: pytest-mock>=3.10.0; extra == "dev"
+Requires-Dist: pytest-xdist>=3.3.1; extra == "dev"
+Requires-Dist: pytest-rerunfailures>=11.1.2; extra == "dev"
+Requires-Dist: responses>=0.23.1; extra == "dev"
+Requires-Dist: black>=23.3.0; extra == "dev"
+Requires-Dist: isort>=5.12.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.3.0; extra == "dev"
+Requires-Dist: tox>=4.6.3; extra == "dev"
+Dynamic: license-file
+
+# MERIT: Monitoring, Evaluation, Reporting, Inspection, Testing
+
+MERIT is a comprehensive framework for evaluating and testing AI systems, particularly those powered by Large Language Models (LLMs). It provides tools for test set generation, evaluation, and reporting to help you build more reliable and effective AI applications.
+
+## Overview
+
+Modern AI systems, especially those built with LLMs, require robust evaluation and testing frameworks to ensure they meet quality standards and perform as expected. MERIT addresses this need with a modular, extensible architecture that supports:
+
+- **Test Set Generation**: Create diverse, representative test sets from your knowledge base
+- **Evaluation**: Assess system performance using a variety of metrics
+- **Reporting**: Generate detailed reports with visualizations
+- **API Integration**: Connect with popular LLM providers
+
+## Core Features
+
+### Test Set Generation
+
+MERIT provides powerful tools for generating test sets from your knowledge base:
+
+- **Example-guided generation**: Create test inputs that match the style and patterns of your examples
+- **Document-based generation**: Generate test inputs based on document content
+- **Reference answer generation**: Automatically create reference answers for evaluation
+- **Distribution strategies**: Control how test inputs are distributed across your knowledge base
+
+```python
+from merit.knowledge import KnowledgeBase
+from merit.testset_generation import TestSetGenerator
+from merit.api.gemini_client import GeminiClient
+
+# Initialize client and knowledge base
+client = GeminiClient(api_key="your-api-key")
+kb = KnowledgeBase(data=your_documents, client=client)
+
+# Create test set generator
+generator = TestSetGenerator(knowledge_base=kb)
+
+# Generate test set
+test_set = generator.generate(num_items=50)
+
+# Save test set
+test_set.save("test_set.json")
+```
+
+### Evaluation
+
+MERIT includes a comprehensive evaluation system with metrics for assessing different aspects of your AI system:
+
+- **RAG-specific metrics**: Correctness, Faithfulness, Relevance, Context Precision, Context Recall
+- **General quality metrics**: Coherence, Fluency
+- **Customizable evaluation**: Add your own metrics or use the built-in ones
+
+```python
+from merit.evaluation.evaluators import RAGEvaluator
+from merit.metrics.rag import CorrectnessMetric, FaithfulnessMetric, RelevanceMetric
+
+# Initialize metrics
+metrics = [
+    CorrectnessMetric(llm_client=client),
+    FaithfulnessMetric(llm_client=client),
+    RelevanceMetric(llm_client=client)
+]
+
+# Create evaluator
+evaluator = RAGEvaluator(
+    test_set=test_set,
+    metrics=metrics,
+    knowledge_base=kb,
+    llm_client=client
+)
+
+# Define your system function
+def my_rag_system(query):
+    # Your RAG implementation here
+    return response
+
+# Evaluate
+report = evaluator.evaluate(my_rag_system)
+
+# Save report
+report.save("evaluation_report.json", generate_html=True)
+```
+
+### API Integration
+
+MERIT provides a flexible API client system that supports various LLM providers:
+
+- **OpenAI client**: Connect to OpenAI's API for text generation and embeddings
+- **Generic client**: Extend to support other providers
+- **Adaptive throttling**: Automatically adjust request rates to avoid rate limits
+- **Retry mechanism**: Handle transient errors gracefully
+
+```python
+from merit.api.gemini_client import GeminiClient
+
+# Initialize client
+client = GeminiClient(
+    api_key="your-api-key",
+    generation_model="gemini-2.0-flash",
+    embedding_model="gemini-embedding-exp-03-07"
+)
+
+# Generate text
+response = client.generate_text("What is MERIT?")
+
+# Get embeddings
+embeddings = client.get_embeddings(["MERIT is a framework for evaluating AI systems"])
+```
+
+## Installation
+
+Install MERIT using pip:
+
+```bash
+pip install merit-ai
+```
+
+For development or to include optional dependencies:
+
+```bash
+# Install with Gemini support
+pip install merit-ai[gemini]
+
+# Install with development dependencies
+pip install merit-ai[dev]
+
+# Install with documentation dependencies
+pip install merit-ai[docs]
+
+# Install all dependencies
+pip install merit-ai[all]
+```
+
+## Roadmap
+
+MERIT is under active development with the following roadmap:
+
+### Current Release (0.1.0)
+- Test set generation
+- Evaluation framework with RAG metrics
+- API client system
+- HTML report generation
+
+### Upcoming Features
+- **Monitoring system**: Real-time monitoring of AI system performance
+- **Advanced metrics**: Additional metrics for specialized evaluation scenarios
+- **UI components**: Interactive dashboards for monitoring and evaluation
+- **Integration with popular frameworks**: Direct integration with LangChain, LlamaIndex, etc.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
