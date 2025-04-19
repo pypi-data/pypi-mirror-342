@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-think"
+version = "0.1.0"
+description = "An MCP server implementing the think tool for Claude and other LLMs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Don Kang", email = "donkang34@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+    "mcp>=1.2.0",
+    "uvicorn>=0.15.0",
+    "starlette>=0.17.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.18.0",
+    "black>=22.1.0",
+    "isort>=5.10.1",
+    "mypy>=0.931",
+    "flake8>=4.0.1",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ddkang1/mcp-think"
+"Bug Tracker" = "https://github.com/ddkang1/mcp-think/issues"
+"Documentation" = "https://github.com/ddkang1/mcp-think#readme"
+
+[project.scripts]
+mcp-think = "mcp_think.__main__:main"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
