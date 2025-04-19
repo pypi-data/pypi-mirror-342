@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "faye-image"
+version = "0.4.0"
+dependencies = [
+    "numpy",
+    "opencv-python",
+    "imgui[glfw]",
+    "PyOpenGL"
+]
+description = "A image toolkit designed to convert the image file from any supported type to another one with only one line code."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name="Youyang Du", email="duyouyang957@gmail.com" }
+]
+keywords = ["python", "library", "image processing"]
+
+[project.urls]
+"Source Code" = "https://github.com/icewired-yy/image-toolkit"
+"Bug Tracker" = "https://github.com/icewired-yy/image-toolkit/issues"
