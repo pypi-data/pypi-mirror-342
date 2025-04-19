@@ -1,0 +1,2 @@
+[console_scripts]
+pgbenchmark = pgbenchmark.cli:main
