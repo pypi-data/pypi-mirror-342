@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: damage_layers
+Version: 0.1
+Summary: Damage-aware dense layers for neural networks
+Author: Mucahit Atalan
+Author-email: example@example.com
+Requires-Dist: tensorflow>=2.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary
