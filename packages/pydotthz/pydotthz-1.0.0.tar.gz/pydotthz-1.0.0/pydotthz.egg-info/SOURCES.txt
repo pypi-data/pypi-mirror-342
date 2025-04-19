@@ -1,0 +1,11 @@
+LICENSE.md
+README.md
+pyproject.toml
+pydotthz/__init__.py
+pydotthz/pydotthz.py
+pydotthz.egg-info/PKG-INFO
+pydotthz.egg-info/SOURCES.txt
+pydotthz.egg-info/dependency_links.txt
+pydotthz.egg-info/requires.txt
+pydotthz.egg-info/top_level.txt
+tests/test_dotthz.py
