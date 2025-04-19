@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/bootstrap_mcp/__init__.py
+src/bootstrap_mcp/__main__.py
+src/bootstrap_mcp/server.py
+src/bootstrap_mcp.egg-info/PKG-INFO
+src/bootstrap_mcp.egg-info/SOURCES.txt
+src/bootstrap_mcp.egg-info/dependency_links.txt
+src/bootstrap_mcp.egg-info/entry_points.txt
+src/bootstrap_mcp.egg-info/requires.txt
+src/bootstrap_mcp.egg-info/top_level.txt
