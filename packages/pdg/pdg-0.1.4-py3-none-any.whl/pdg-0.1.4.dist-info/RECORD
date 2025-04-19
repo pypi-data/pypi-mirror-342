@@ -1,0 +1,14 @@
+pdg/__init__.py,sha256=W0WnH8Qfrtm_12DTxd6ig069PpUoUcsynAF5xsD1_m0,1209
+pdg/api.py,sha256=RsDq_N4rDs-DbceDQcAxrU9IGSymMxg0n4fs-TN5xpw,13244
+pdg/data.py,sha256=OdgAPXBNFVYvZYWwG9RDAwli2M1uXtDIUgA4-yFHqwA,19069
+pdg/decay.py,sha256=MUHU9MWu7YAZMutRyGHJfDermQVrk0GgjX_JvLz7TZg,3270
+pdg/errors.py,sha256=T69AwcW1hB1KbZxLyn2GXIBAdj8z0N7JjxApnXa0RPQ,601
+pdg/particle.py,sha256=w3PGuUwDcwAfMVTLm9RL7ed02iMSs8YMD-uC4stN_MM,22810
+pdg/pdg.sqlite,sha256=qSV3f9AGa85KkHUpWcB6h9ODSo1o85pTuozTjSL9Uy4,7593984
+pdg/units.py,sha256=fDxrapgV2jcheR-dFZ4IMs4wDINfkXlE5aza0Fd3PrU,1154
+pdg/utils.py,sha256=tVZKRPXhGCr5Kb-IlQhlAeUzf5SjDUHRrZMZWEcoElE,3188
+pdg-0.1.4.dist-info/licenses/LICENSE.txt,sha256=pZp7p-ENH16HsN9ffw9lZ5WROtFDS9x3xKVDlQ6kGBg,2490
+pdg-0.1.4.dist-info/METADATA,sha256=wDm9ixXik7ZYLOhdfnssMzdDX2tZ-lJ3A0MPttrUvww,2125
+pdg-0.1.4.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+pdg-0.1.4.dist-info/top_level.txt,sha256=Pp-RSG-pnS_pSySUuvXy7_4HkbawQDlM70--HO_K2ik,4
+pdg-0.1.4.dist-info/RECORD,,
