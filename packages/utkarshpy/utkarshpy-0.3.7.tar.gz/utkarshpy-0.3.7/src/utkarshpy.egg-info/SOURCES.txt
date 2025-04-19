@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+src/utkarshpy/__init__.py
+src/utkarshpy/cli.py
+src/utkarshpy.egg-info/PKG-INFO
+src/utkarshpy.egg-info/SOURCES.txt
+src/utkarshpy.egg-info/dependency_links.txt
+src/utkarshpy.egg-info/entry_points.txt
+src/utkarshpy.egg-info/requires.txt
+src/utkarshpy.egg-info/top_level.txt
+tests/test_cli.py
