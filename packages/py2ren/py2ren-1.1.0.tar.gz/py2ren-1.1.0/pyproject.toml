@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py2ren"
+version = "1.1.0"
+dependencies = []
+requires-python = ">=2.7"
+authors = [
+    { name = "Yoimer Davila", email = "yoraldarez020@gmai.com" },
+]
+maintainers = [
+    { name = "Yoimer Davila", email = "yoraldarez020@gmai.com" },
+]
+description = "A tool to automate the transformation of native python code to renpy code."
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["renpy", "python", "transformation",]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 2",
+    "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+]
+
+[project.urls]
+Homepage = "https://github.com/yoimerdr/py2ren"
+Documentation = "https://yoimerdr.github.io/py2ren/docs/"
+Repository = "https://github.com/yoimerdr/py2ren.git"
+"Bug Tracker" = "https://github.com/yoimerdr/py2ren/issues"
+Changelog = "https://github.com/yoimerdr/py2ren/blob/main/CHANGELOG.md"

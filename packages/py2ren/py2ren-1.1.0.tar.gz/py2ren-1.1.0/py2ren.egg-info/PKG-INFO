@@ -1,0 +1,127 @@
+Metadata-Version: 2.4
+Name: py2ren
+Version: 1.1.0
+Summary: A tool to automate the transformation of native python code to renpy code.
+Author-email: Yoimer Davila <yoraldarez020@gmai.com>
+Maintainer-email: Yoimer Davila <yoraldarez020@gmai.com>
+License: MIT License
+        
+        Copyright (c) 2024 Davila Yoimer
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/yoimerdr/py2ren
+Project-URL: Documentation, https://yoimerdr.github.io/py2ren/docs/
+Project-URL: Repository, https://github.com/yoimerdr/py2ren.git
+Project-URL: Bug Tracker, https://github.com/yoimerdr/py2ren/issues
+Project-URL: Changelog, https://github.com/yoimerdr/py2ren/blob/main/CHANGELOG.md
+Keywords: renpy,python,transformation
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# py2ren
+A tool to automate the transformation of native python module to ren'py store module.
+
+## Requirements
+
+* python >= 2.7
+
+## Installation
+
+You can install with pip, `pip install py2ren`
+
+Or you can download a py2ren [release](https://www.github.com/yoimerdr/py2ren/releases).
+
+## Usage
+### CLI usage
+Located in the py2ren's parent folder, you can now use the command.
+
+```shell
+    python -m py2ren path [options]
+```
+
+
+Positional argument:
+
+  - **path**: target transformation path.
+
+
+Options:
+
+  - **-o, --out**:                     the output folder for the transformation result.
+  - **-n, --name**:                    the base module name, must not contain spaces.
+  - **-il, --init-level**:             the init level for the init expression.
+  - **-c, --config**:                  path to the configuration file.
+  - **-ad, --analyze-dependencies**:   flag to analyze internal modules on create config.
+  - **-nks, --no-keep-structure**:     flag to disable keeping the module structure.
+  - **-fc, --force-config**:           flag to force the creation of the configuration file.
+  - **-h, --help**:                    show the help message and exit
+
+
+
+For example, if you have the following file:
+
+```python
+def say_hello(name: str):
+    return "Hello, " + name + "."
+```
+
+And run the command
+
+```shell
+    python -m py2ren sample.py -n sample_module
+```
+
+After the conversion, you will get:
+
+````python
+init -1 python in sample_module:
+    def say_hello(name: str):
+        return "Hello, " + name + "."
+````
+
+> py2ren does not remove type annotations, so if you want better compatibility with renpy projects, you should remove them.
+
+### Module usage
+
+
+You can also use py2ren as a python module; and continuing with the previous example, you can obtain the same result by doing the following.
+
+
+````python
+# this script is located in py2ren's parent folder
+import py2ren
+
+py2ren.convert("filename.py", ".", "sample_module")
+````
+
+### Docs
+
+You can read the docs [here](https://yoimerdr.github.io/py2ren/docs/).
