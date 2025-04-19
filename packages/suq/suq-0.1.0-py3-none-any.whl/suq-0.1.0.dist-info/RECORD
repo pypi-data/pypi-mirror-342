@@ -1,0 +1,12 @@
+suq/SUQ_MLP.py,sha256=ciegIOz2Y0vtJ4Uc56dhwHjeaAoLAKqQQnSTgyh8Sqc,497
+suq/SUQ_ViT.py,sha256=6BpHMOLf1qhVRgqM3guAcS60PpYJ1L1CEWdIerIKrv4,841
+suq/__init__.py,sha256=5LGGZQ6wwjEfwsmzx55lSA4nfBx1N1qQpzgFff8zpJM,120
+suq/base_suq.py,sha256=77LggEGn5m3h472kRLVghM1j7WCY4zJih3undVdIoS0,7963
+suq/diag_suq_mlp.py,sha256=yE4p2pQtD97g6GvebkROqNDPFuJUhrwZH9zRkWAiSWk,10985
+suq/diag_suq_transformer.py,sha256=QfGkPCf1DJ1cVIrkDp7tD8bImtCgt3XoUnngtgfwIAc,25576
+suq/streamline_layer.py,sha256=sew0BodioNjElVpSq0c87c0ORRA5yGDbLTy1eeLp8VI,504
+suq-0.1.0.dist-info/licenses/LICENSE,sha256=XbdRUcHQPFVqh9MgS85KpgRmx09FAPBW5gOHyzjJz3c,1064
+suq-0.1.0.dist-info/METADATA,sha256=lcWlRUIWAM-LKK8MqbDehGjJ3QX1_Fl7nDCtZ-Jb1V4,497
+suq-0.1.0.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+suq-0.1.0.dist-info/top_level.txt,sha256=_8edEeGJ6W1u-AhLS6x16sRWGGKwumOGPl7EBsW-v5g,4
+suq-0.1.0.dist-info/RECORD,,
