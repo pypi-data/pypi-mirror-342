@@ -1,0 +1,113 @@
+Metadata-Version: 2.2
+Name: openfoam-postprocess
+Version: 0.1.2
+Summary: OpenFOAM 數據處理與可視化工具
+Home-page: https://github.com/mactonehsieh/openfoam-postprocess
+Author: Mactone Hsieh
+Author-email: mactonehsieh@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas>=1.0.0
+Requires-Dist: numpy>=1.19.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# OpenFOAM 數據處理與可視化工具
+
+這個工具用於處理和可視化 OpenFOAM 的 `surfaceFieldValue.dat` 文件中的數據。它可以將質量分數轉換為摩爾分數，並生成各種氣體濃度和溫度的圖表。
+
+## 功能
+
+- 解析 OpenFOAM 的 `surfaceFieldValue.dat` 文件
+- 將質量分數轉換為摩爾分數
+- 生成 ASCII 圖表和摘要
+- 使用 gnuplot 生成高質量圖表
+- 將結果保存到 CSV 文件和 readme.txt
+
+## 安裝
+
+1. 確保已安裝 Python 3.6 或更高版本
+2. 安裝依賴項：
+
+```bash
+pip install -r requirements.txt
+```
+
+3. 安裝 gnuplot（用於生成圖表）
+
+## 使用方法
+
+### 基本用法
+
+運行主程序：
+
+```bash
+python src/main.py [surfaceFieldValue.dat 文件路徑]
+```
+
+如果未提供文件路徑，程序將嘗試在當前目錄及其子目錄中查找 `surfaceFieldValue.dat` 文件。
+
+### 出口面監測設置
+
+要在 OpenFOAM 中設置出口面監測，需要在 `system/controlDict` 文件中添加以下配置：
+
+```cpp
+functions
+{
+    outletSurfaceAvg
+    {
+        type            surfaceFieldValue;
+        libs            ("libfieldFunctionObjects.so");
+        writeControl    writeTime;
+        regionType      patch;
+        name            outlet;  // 出口面的名稱
+        operation       areaAverage;
+        fields          (O2 CO CO2 H2O NO NO2 N2O NH3 T);
+        writeFields     true;
+    }
+}
+```
+
+其中：
+- `outlet` 是出口面的名稱，需要替換為您的實際出口面名稱
+- `fields` 是要監測的場量，可以根據需要添加或刪除
+- `writeControl` 控制寫入頻率，可以設置為 `timeStep`、`runTime` 或 `adjustableRunTime`
+- `writeFields` 設置為 `true` 會輸出每個場量的平均值
+
+監測數據會保存在 `postProcessing/outletSurfaceAvg/<time>/surfaceFieldValue.dat` 文件中。
+
+## 輸出
+
+程序將在 `gnuplot_results` 目錄中生成以下文件：
+
+- `species_mole_fractions.csv`：包含所有物種的摩爾分數
+- `O2_N2_CO2.png`：O2、N2 和 CO2 的濃度圖
+- `CO_ppm.png`：CO 的濃度圖（ppm）
+- `NOx_ppm.png`：NOx 的濃度圖（如果存在）
+- `NH3_ppm.png`：NH3 的濃度圖（如果存在）
+- `Temperature.png`：溫度圖（如果存在）
+- `H2O.png`：H2O 的摩爾分數圖（如果存在）
+
+程序還會在終端中顯示 ASCII 圖表和摘要，並將結果追加到 `readme.txt` 文件中。
+
+## 示例
+
+1. 設置出口面監測後，運行 OpenFOAM 模擬
+2. 模擬完成後，使用本工具處理數據：
+
+```bash
+openfoam-postprocess --file postProcessing/outletSurfaceAvg/5000/surfaceFieldValue.dat
+```
+
+3. 查看生成的圖表和數據摘要 
