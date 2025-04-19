@@ -1,0 +1,19 @@
+Metadata-Version: 2.3
+Name: yta-shortcodes
+Version: 0.0.8
+Summary: Youtube Autonomous Shortcodes Module.
+Author: danialcala94
+Author-email: danielalcalavalera@gmail.com
+Requires-Python: ==3.9
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: shortcodes (>=5.4.0,<6.0.0)
+Requires-Dist: yta_general_utils (>=0.0.250,<0.1.0)
+Description-Content-Type: text/markdown
+
+# Youtube Autonomous Shortcod Module
+
+The Shortcodes module.
+
+This project needs:
+- to_fill_this
