@@ -1,0 +1,3 @@
+[console_scripts]
+pywikicli=wikibot.cli:cli
+

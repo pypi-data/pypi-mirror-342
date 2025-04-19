@@ -1,0 +1,14 @@
+wikibot/__init__.py,sha256=h4iv4xg1riQeEs5-Dh0BX_Hx2vDZXcEbCxy-VTuK4rM,93
+wikibot/api.py,sha256=QLXzrc4IyD6BELcWqophmlgKdIOlqK-xLFbZqLkiaTE,8263
+wikibot/cli.py,sha256=hDW18QDCpDVY3sUNdJxHDo26GwqY7HvVPAoHRo6TwXk,1086
+wikibot/commands/__init__.py,sha256=toTYLsyKQCyjMXFXVhLQdFhrdOT1VV9PM8jdwY0tWOk,108
+wikibot/commands/config_command.py,sha256=dNLBFMlrjmIxYd1KFwog0QQ3QBMci0kSFLwMlkYxsrM,2316
+wikibot/commands/crawl_command.py,sha256=Cw-lY88il2E6z6cQnhTQuiD34yM7_40RU7S1ruMjGBI,4258
+wikibot/commands/get_command.py,sha256=CJnfiVO3BDnVSJX7SeyD0V9CTZF1Vw-iqZcw3yMsz_A,6112
+wikibot/commands/put_command.py,sha256=ROevvTOg4glpevj9jK0Xu55tEnQJUY5T-Oc9TNsWII0,5906
+wikibot/config.py,sha256=aQVLwXC49U2MT_9CQKpQ3FWNX2qjhl3reLhTm0WMqnk,864
+pywikicli-0.1.8.dist-info/LICENSE,sha256=rJ6CXjpC5dMHeLanYJz0cGKy3KJtfzVbgu_gP0-o_VY,1059
+pywikicli-0.1.8.dist-info/METADATA,sha256=v3QgRH0d118kGNM2KHvr2mIZcf-EEEFW4D0qmuJLv_M,1986
+pywikicli-0.1.8.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+pywikicli-0.1.8.dist-info/entry_points.txt,sha256=pQH7iwIyELiTKcIsBB7IzuOock2qGxKcijH7IxAG2Sw,45
+pywikicli-0.1.8.dist-info/RECORD,,
