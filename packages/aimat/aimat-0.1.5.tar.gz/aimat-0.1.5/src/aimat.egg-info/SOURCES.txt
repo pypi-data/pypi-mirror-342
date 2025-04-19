@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/aimat/__init__.py
+src/aimat/__main__.py
+src/aimat/cli.py
+src/aimat/osc_listener.py
+src/aimat.egg-info/PKG-INFO
+src/aimat.egg-info/SOURCES.txt
+src/aimat.egg-info/dependency_links.txt
+src/aimat.egg-info/entry_points.txt
+src/aimat.egg-info/requires.txt
+src/aimat.egg-info/top_level.txt
+src/aimat/docker/.env
+src/aimat/docker/__init__.py
+src/aimat/docker/docker-compose.yml
