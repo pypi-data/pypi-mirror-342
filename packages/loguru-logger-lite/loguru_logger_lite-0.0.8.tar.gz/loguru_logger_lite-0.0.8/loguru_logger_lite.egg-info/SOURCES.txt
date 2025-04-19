@@ -1,0 +1,12 @@
+LICENSE.md
+README.md
+pyproject.toml
+setup.py
+loguru_logger_lite/__init__.py
+loguru_logger_lite/logger.py
+loguru_logger_lite.egg-info/PKG-INFO
+loguru_logger_lite.egg-info/SOURCES.txt
+loguru_logger_lite.egg-info/dependency_links.txt
+loguru_logger_lite.egg-info/requires.txt
+loguru_logger_lite.egg-info/top_level.txt
+tests/test_logger.py
