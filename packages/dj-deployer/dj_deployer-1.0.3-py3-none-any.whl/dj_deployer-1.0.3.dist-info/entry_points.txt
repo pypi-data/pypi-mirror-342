@@ -1,0 +1,3 @@
+[console_scripts]
+deploy = django_deployer.cli:main
+dj-deployer = django_deployer.cli:main

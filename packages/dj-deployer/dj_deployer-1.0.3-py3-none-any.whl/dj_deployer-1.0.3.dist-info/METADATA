@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: dj-deployer
+Version: 1.0.3
+Summary: A simple CLI tool to deploy Django projects via SSH
+Author: Mohammad Namdar
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: fabric>=3.0
+Requires-Dist: click>=8.0
+Requires-Dist: pyyaml>=6.0
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Django Deployer
+
+A universal deployment CLI for Django projects via SSH.
+
+## ðŸ”§ Features
+- Git pull
+- Upload `.env`
+- Run `makemigrations`, `migrate`, `collectstatic`
+- Restart services
+- Track deploy history (count + timestamp)
+
+## ðŸš€ Usage
+
+```bash
+pip install django-deployer
+
+# Run it from any Django project with a deploy.yaml
+django-deploy

@@ -1,0 +1,14 @@
+django_deployer/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_deployer/cli.py,sha256=FNkVeRRUrE2e-jwMMQ9Zdw0x1Xb13PyKPW9-YhdU8no,610
+django_deployer/client.py,sha256=l4W_rNDtzZ-hTN74ywqLQdGgSaxVE7uHkC74swVzTO0,1381
+django_deployer/config.py,sha256=pgvr9jUDp9VV3GbYAbJbSr3Zut5LBSDNt5Yrp09gQfE,1134
+django_deployer/deployer.py,sha256=ldQFIjIYfAhMql1pMrLfnxmgndeT9JRwMIyFx4KG2jw,918
+django_deployer/host.py,sha256=ybnEyQMmkFa6iZp5DdXTBZkcDK2rxqaxsn_Kt1VtHXk,1119
+django_deployer/logger.py,sha256=J8MVXrO_a4ZxE1OmL7C_pMPb6EK4XKlQe_7K1bOaecM,645
+django_deployer/token.py,sha256=re116YB1SpvKjfSOlgizNVFDgL4zQhuds-QvRypk9vU,2171
+django_deployer/utils.py,sha256=0GT9QYG4-MC2Gk6DFhRjAKFqoIEbgU7OMXVJHb5Ftuk,283
+dj_deployer-1.0.3.dist-info/METADATA,sha256=Orh8LZHk_KnpeJcVeUmxzBM9fhyYbjnUc_F63zFVlys,987
+dj_deployer-1.0.3.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+dj_deployer-1.0.3.dist-info/entry_points.txt,sha256=D6X1BUibvM72A094Xuc50dcxZ_FXpl6qr0wfuVxERGI,91
+dj_deployer-1.0.3.dist-info/top_level.txt,sha256=XKzN2mxiZsAhz63wQDyqGpr9ZCdqr4Z0BzvrfyQHmS8,16
+dj_deployer-1.0.3.dist-info/RECORD,,
