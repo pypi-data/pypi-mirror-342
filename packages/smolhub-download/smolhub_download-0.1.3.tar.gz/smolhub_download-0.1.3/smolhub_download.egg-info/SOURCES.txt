@@ -1,0 +1,12 @@
+README.md
+setup.py
+smolhub_download/__init__.py
+smolhub_download/client.py
+smolhub_download/utils.py
+smolhub_download.egg-info/PKG-INFO
+smolhub_download.egg-info/SOURCES.txt
+smolhub_download.egg-info/dependency_links.txt
+smolhub_download.egg-info/requires.txt
+smolhub_download.egg-info/top_level.txt
+tests/test_client.py
+tests/test_package.py
