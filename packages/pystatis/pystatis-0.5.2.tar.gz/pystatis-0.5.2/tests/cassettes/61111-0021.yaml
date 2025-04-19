@@ -1,0 +1,84 @@
+interactions:
+- request:
+    body: name=61111-0021&area=all&startyear=&endyear=&timeslices=&regionalvariable=&regionalkey=&stand=&language=de&quality=off&format=ffcsv
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '131'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www-genesis.destatis.de/genesisWS/rest/2020/data/tablefile
+  response:
+    body:
+      string: "{\"Ident\":{\"Service\":\"data\",\"Method\":\"tablefile\"},\"Status\":{\"Code\":-1,\"Content\":\"F\xFCr
+        die Teiltabelle mit der Metadatenkombination:\\nVerbraucherpreisindex f\xFCr
+        Deutschland (61111)\\nIndex der Nettokaltmieten (PRE034)\\nBundesl\xE4nder
+        (DLAND)\\nMonate (MONAT)\\nJahr (JAHR)\\nwurde kein Datenquader gefunden!\\n(Keine
+        Datenquader oder Zeitscheibe nach PTable)\",\"Type\":\"Fehler\"},\"Parameter\":{\"username\":\"********************\",\"password\":\"********************\",\"name\":\"61111-0021\",\"area\":\"Alle\",\"compress\":\"false\",\"transpose\":\"false\",\"contents\":\"\",\"startyear\":\"\",\"endyear\":\"\",\"timeslices\":\"\",\"regionalvariable\":\"\",\"regionalkey\":\"\",\"classifyingvariable1\":\"\",\"classifyingkey1\":\"\",\"classifyingvariable2\":\"\",\"classifyingkey2\":\"\",\"classifyingvariable3\":\"\",\"classifyingkey3\":\"\",\"classifyingvariable4\":\"\",\"classifyingkey4\":\"\",\"classifyingvariable5\":\"\",\"classifyingkey5\":\"\",\"format\":\"ffcsv\",\"job\":\"false\",\"stand\":\"\",\"language\":\"de\"},\"Object\":null,\"Copyright\":\"\xA9
+        Statistisches Bundesamt (Destatis), 2025\"}"
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '986'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 10 Apr 2025 21:53:58 GMT
+      Keep-Alive:
+      - timeout=15, max=100
+      Server:
+      - Apache
+    status:
+      code: 200
+      message: '200'
+- request:
+    body: name=61111-0021&area=all&startyear=&endyear=&timeslices=&regionalvariable=&regionalkey=&stand=&language=en&quality=off&format=ffcsv
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '131'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www-genesis.destatis.de/genesisWS/rest/2020/data/tablefile
+  response:
+    body:
+      string: "{\"Ident\":{\"Service\":\"data\",\"Method\":\"tablefile\"},\"Status\":{\"Code\":-1,\"Content\":\"F\xFCr
+        die Teiltabelle mit der Metadatenkombination:\\nVerbraucherpreisindex f\xFCr
+        Deutschland (61111)\\nIndex der Nettokaltmieten (PRE034)\\nBundesl\xE4nder
+        (DLAND)\\nMonate (MONAT)\\nJahr (JAHR)\\nwurde kein Datenquader gefunden!\\n(Keine
+        Datenquader oder Zeitscheibe nach PTable)\",\"Type\":\"Fehler\"},\"Parameter\":{\"username\":\"********************\",\"password\":\"********************\",\"name\":\"61111-0021\",\"area\":\"all\",\"compress\":\"false\",\"transpose\":\"false\",\"contents\":\"\",\"startyear\":\"\",\"endyear\":\"\",\"timeslices\":\"\",\"regionalvariable\":\"\",\"regionalkey\":\"\",\"classifyingvariable1\":\"\",\"classifyingkey1\":\"\",\"classifyingvariable2\":\"\",\"classifyingkey2\":\"\",\"classifyingvariable3\":\"\",\"classifyingkey3\":\"\",\"classifyingvariable4\":\"\",\"classifyingkey4\":\"\",\"classifyingvariable5\":\"\",\"classifyingkey5\":\"\",\"format\":\"ffcsv\",\"job\":\"false\",\"stand\":\"\",\"language\":\"en\"},\"Object\":null,\"Copyright\":\"\xA9
+        Federal Statistical Office, Wiesbaden 2025\"}"
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '987'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 10 Apr 2025 22:24:30 GMT
+      Keep-Alive:
+      - timeout=15, max=100
+      Server:
+      - Apache
+    status:
+      code: 200
+      message: '200'
+version: 1

@@ -1,0 +1,262 @@
+interactions:
+- request:
+    body: name=23111-0001&area=all&startyear=&endyear=&timeslices=&regionalvariable=&regionalkey=&stand=&language=de&quality=off&format=ffcsv
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '131'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www-genesis.destatis.de/genesisWS/rest/2020/data/tablefile
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Disposition:
+      - attachment; filename=23111-0001_1744311631909_de_flat.zip
+      Content-Length:
+      - '2425'
+      Content-Type:
+      - application/zip
+      Date:
+      - Thu, 10 Apr 2025 19:00:29 GMT
+      Keep-Alive:
+      - timeout=15, max=100
+      Server:
+      - Apache
+    status:
+      code: 200
+      message: '200'
+- request:
+    body: name=23111-0001&area=all&startyear=&endyear=&timeslices=&regionalvariable=&regionalkey=&stand=&language=de&quality=off&format=ffcsv
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '131'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www-genesis.destatis.de/genesisWS/rest/2020/metadata/table
+  response:
+    body:
+      string: "{\"Ident\":{\"Service\":\"metadata\",\"Method\":\"table\"},\"Status\":{\"Code\":0,\"Content\":\"erfolgreich\",\"Type\":\"Information\"},\"Parameter\":{\"username\":\"********************\",\"password\":\"********************\",\"name\":\"23111-0001\",\"area\":\"Alle\",\"language\":\"de\"},\"Object\":{\"Code\":\"23111-0001\",\"Content\":\"Krankenh\xE4user,
+        Betten, Patienten: Deutschland, Jahre\",\"Time\":{\"From\":\"1991\",\"To\":\"2023\"},\"Valid\":\"false\",\"Structure\":{\"Head\":{\"Code\":\"23111\",\"Content\":\"Grunddaten
+        der Krankenh\xE4user\",\"Type\":\"Statistik\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":[{\"Code\":\"DINSG\",\"Content\":\"Deutschland
+        insgesamt\",\"Type\":\"Merkmal\",\"Values\":\"1\",\"Selected\":\"1\",\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"}],\"Updated\":\"see parent\"},\"Columns\":[{\"Code\":\"GES024\",\"Content\":\"Krankenh\xE4user\",\"Type\":\"Merkmal\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"BTT001\",\"Content\":\"Betten\",\"Type\":\"Merkmal\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"BTT010\",\"Content\":\"Betten je 100.000 Einwohner\",\"Type\":\"Merkmal\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"GES020\",\"Content\":\"Patienten\",\"Type\":\"Merkmal\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"GES053\",\"Content\":\"Patienten je 100.000 Einwohner\",\"Type\":\"Merkmal\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"GES052\",\"Content\":\"Berechnungs-/Belegungstage\",\"Type\":\"Merkmal\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"GES012\",\"Content\":\"Durchschnittliche Verweildauer\",\"Type\":\"Merkmal\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"BTT004\",\"Content\":\"Durchschnittliche Bettenauslastung\",\"Type\":\"Merkmal\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"}],\"Rows\":[{\"Code\":\"JAHR\",\"Content\":\"Jahr\",\"Type\":\"Merkmal\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"}],\"Subtitel\":null,\"Subheading\":null},\"Updated\":\"28.12.2022
+        17:30:45h\"},\"Copyright\":\"\xA9 Statistisches Bundesamt (Destatis), 2025\"}"
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2269'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Thu, 10 Apr 2025 19:00:32 GMT
+      Keep-Alive:
+      - timeout=15, max=100
+      Server:
+      - Apache
+    status:
+      code: 200
+      message: '200'
+- request:
+    body: name=23111-0001&area=all&startyear=&endyear=&timeslices=&regionalvariable=&regionalkey=&stand=&language=en&quality=off&format=ffcsv
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '131'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www-genesis.destatis.de/genesisWS/rest/2020/data/tablefile
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Disposition:
+      - attachment; filename=23111-0001_1744313887802_en_flat.zip
+      Content-Length:
+      - '2326'
+      Content-Type:
+      - application/zip
+      Date:
+      - Thu, 10 Apr 2025 19:38:05 GMT
+      Keep-Alive:
+      - timeout=15, max=100
+      Server:
+      - Apache
+    status:
+      code: 200
+      message: '200'
+- request:
+    body: name=23111-0001&area=all&startyear=&endyear=&timeslices=&regionalvariable=&regionalkey=&stand=&language=en&quality=off&format=ffcsv
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '131'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www-genesis.destatis.de/genesisWS/rest/2020/metadata/table
+  response:
+    body:
+      string: "{\"Ident\":{\"Service\":\"metadata\",\"Method\":\"table\"},\"Status\":{\"Code\":0,\"Content\":\"successfull\",\"Type\":\"information\"},\"Parameter\":{\"username\":\"********************\",\"password\":\"********************\",\"name\":\"23111-0001\",\"area\":\"all\",\"language\":\"en\"},\"Object\":{\"Code\":\"23111-0001\",\"Content\":\"Hospitals,
+        beds, patients: Germany, years\",\"Time\":{\"From\":\"1991\",\"To\":\"2023\"},\"Valid\":\"false\",\"Structure\":{\"Head\":{\"Code\":\"23111\",\"Content\":\"Basic
+        data on hospitals\",\"Type\":\"statistic\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":[{\"Code\":\"DINSG\",\"Content\":\"Germany\",\"Type\":\"variable\",\"Values\":\"1\",\"Selected\":\"1\",\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"}],\"Updated\":\"see parent\"},\"Columns\":[{\"Code\":\"GES024\",\"Content\":\"Hospitals\",\"Type\":\"variable\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"BTT001\",\"Content\":\"Beds\",\"Type\":\"variable\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"BTT010\",\"Content\":\"Beds per 100 000 inhabitants\",\"Type\":\"variable\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"GES020\",\"Content\":\"Patients\",\"Type\":\"variable\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"GES053\",\"Content\":\"Patients per 100 000 inhabitants\",\"Type\":\"variable\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"GES052\",\"Content\":\"Occupancy / billing days\",\"Type\":\"variable\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"GES012\",\"Content\":\"Average length of stay\",\"Type\":\"variable\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"},{\"Code\":\"BTT004\",\"Content\":\"Average occupancy of hospital
+        beds\",\"Type\":\"variable\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"}],\"Rows\":[{\"Code\":\"JAHR\",\"Content\":\"Year\",\"Type\":\"variable\",\"Values\":null,\"Selected\":null,\"Functions\":null,\"Structure\":null,\"Updated\":\"see
+        parent\"}],\"Subtitel\":null,\"Subheading\":null},\"Updated\":\"2022-12-28
+        17:30:45h\"},\"Copyright\":\"\xA9 Federal Statistical Office, Wiesbaden 2025\"}"
+    headers:
+      Connection:
+      - Keep-Alive
+      Content-Length:
+      - '2233'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Thu, 10 Apr 2025 19:38:08 GMT
+      Keep-Alive:
+      - timeout=15, max=100
+      Server:
+      - Apache
+    status:
+      code: 200
+      message: '200'
+version: 1

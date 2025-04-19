@@ -1,0 +1,105 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Tests, Code Quality and Documentation
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python and uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+      - name: Install dependencies
+        run: |
+          uv sync --group dev
+      - name: Run tests
+        run: |
+          uv run pytest --cov=pystatis --vcr-record=none tests
+
+  code-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python and uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+      - name: Install dependencies
+        run: uv sync --group dev
+      - name: Ruff format check
+        run: uv run ruff format --check src
+      - name: Ruff lint check
+        run: uv run ruff check src
+      - name: Run bandit
+        run: uv run bandit -r src
+      - name: Run Safety CLI to check for vulnerabilities
+        uses: pyupio/safety-action@v1.0.1
+        with:
+          api-key: ${{ secrets.SAFETY_API_KEY }}
+          args: "--short-report --policy-file=.safety-policy.yml"
+      - name: Run mypy
+        run: uv run mypy src
+
+  sphinx-documentation-and-coverage:
+    runs-on: ubuntu-latest
+    name: Sphinx Documentation and Test Coverage
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python and uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.13"
+          enable-cache: true
+      - name: Install dependencies
+        run: |
+          uv sync --group dev
+      - name: Build documentation
+        run: |
+          cd docs
+          uv run make clean
+          uv run make html
+      - name: Upload documentation as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs
+          path: docs/build/html/*
+          retention-days: 5
+      - name: Generate and filter test coverage report
+        run: |
+          uv run pytest --cov=src/pystatis --cov-report=xml --vcr-record=none tests
+      - name: Upload coverage reports to Codecov with GitHub Action
+        uses: codecov/codecov-action@v5.4.0
+        with:
+          verbose: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

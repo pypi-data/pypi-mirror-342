@@ -1,0 +1,63 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Python and uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.13"
+          enable-cache: true
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+      - name: Install dependencies
+        run: |
+          uv sync --group dev
+      - name: Remove existing nb directory
+        run: |
+          if [ -d "docs/source/nb" ]; then
+            rm -rf docs/source/nb
+          fi
+      - name: Copy Notebook to docs
+        run: |
+          mkdir -p docs/source/nb
+          cp -r nb/. docs/source/nb/
+      - name: Build docs
+        run: |
+          cd docs
+          uv run make clean
+          uv run make html
+      # create distinguished subdirectories for each branch
+      # NOTE: force_orphan will delete all files in the branch (thus main & dev could not be concurrently deployed)
+      - name: Deploy docs main
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main' || (github.event_name == 'pull_request' && github.base_ref == 'main')
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./docs/build/html
+          publish_branch: gh-pages
+      - name: Deploy docs dev
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/dev' || (github.event_name == 'pull_request' && github.base_ref == 'dev')
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./docs/build/html
+          destination_dir: dev
+          publish_branch: gh-pages
