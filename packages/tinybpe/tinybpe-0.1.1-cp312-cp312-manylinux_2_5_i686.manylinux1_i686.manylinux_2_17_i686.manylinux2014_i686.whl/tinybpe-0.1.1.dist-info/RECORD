@@ -1,0 +1,11 @@
+tinybpe/__init__.py,sha256=1ere-flvuAauR6AT2d6I2UOrcp6h-pDCr7ELWEDgT10,224
+tinybpe/_utils.py,sha256=tUrFH4GAvHL4lwsljIlUH6HQih1akqLGtUKJJpyNOU8,3803
+tinybpe/bpe.cpython-312-i386-linux-gnu.so,sha256=Rkclj1UEcZxYaoAa9_zywe23Sv0MMEJT_wYQ7F525Gc,107616
+tinybpe/bpe.pyi,sha256=XAuRU3xyGo38BbweD79vpN1Ryt-c7Hl0bW8cRKe9kAI,1323
+tinybpe/core.py,sha256=zatpMf6OUzpPIoXVvUtfZrGp1zQxjWQniYFCm7c0zas,6684
+tinybpe/simple.py,sha256=NK6Fz4ijbPHaL9TbhBex6A5QFp6MX-cT4tUn5bb4RL8,560
+tinybpe-0.1.1.dist-info/METADATA,sha256=1GNTZ00VhcojSQPR_3wSEHvjpF7w-dSlMvXWs6sMilk,10949
+tinybpe-0.1.1.dist-info/WHEEL,sha256=3Uy6ukHeTvCstCXO4Rd7xLI0OjAbjaulqK-w9ogQ64w,216
+tinybpe-0.1.1.dist-info/top_level.txt,sha256=ITYTNAGmyfGmD7IHhZgtqDjhRzbpHFP9IU0FyRVPsvA,8
+tinybpe-0.1.1.dist-info/RECORD,,
+tinybpe-0.1.1.dist-info/licenses/LICENSE,sha256=t1Ku_OtPWkQNVi1T-6vTpyNEbAal61F6tbDTghLRN08,1068
