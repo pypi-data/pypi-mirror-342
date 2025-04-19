@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: gemini_live_ws_server
+Version: 0.1.1
+Summary: A Python ASGI Socket.IO server proxying to Gemini Live via WebSockets
+Author: omanand swami
+Project-URL: Homepage, https://github.com/omanandswami2005/gemini_live_ws_server_pipy
+Project-URL: Repository, https://github.com/omanandswami2005/gemini_live_ws_server_pipy
+Keywords: fastapi,socketio,websockets,gemini,ai,server,voice,chat,live
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: FastAPI
+Classifier: Topic :: Internet :: WWW/HTTP
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.95
+Requires-Dist: python-socketio>=5.9
+Requires-Dist: websockets>=11.0
+Requires-Dist: PyJWT>=2.8
+Requires-Dist: uvicorn>=0.20
