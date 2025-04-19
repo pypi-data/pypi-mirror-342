@@ -1,0 +1,19 @@
+PyYaml
+pydantic
+email-validator
+yarl
+httpx
+more-itertools
+jmespath
+
+[:python_version < "3.10"]
+typing_extensions
+
+[auth]
+httpx-auth>=0.21.0
+
+[socks]
+httpx-socks
+
+[types]
+pydantic-extra-types>=2.10.1
