@@ -1,0 +1,14 @@
+[project]
+name = "my_oleksii3"
+version = "2.0.0"
+description = "my_oleksii3"
+readme = "README.md"
+authors = [
+    { name = "Oleksii Saiun", email = "oleksiisaiun@example.com" }
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
