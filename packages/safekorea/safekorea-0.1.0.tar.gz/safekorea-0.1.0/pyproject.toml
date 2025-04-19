@@ -1,0 +1,11 @@
+[project]
+name = "safekorea"
+version = "0.1.0"
+description = "A tool for querying disaster information in South Korea"
+authors = [{ name = "Jx2H", email = "admin@goton.kr" }]
+requires-python = ">=3.13"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
