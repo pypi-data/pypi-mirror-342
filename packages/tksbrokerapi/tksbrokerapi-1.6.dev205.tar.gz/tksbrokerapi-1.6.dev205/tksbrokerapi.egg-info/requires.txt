@@ -1,0 +1,11 @@
+twine==4.0.1
+pytest>=7.1.2
+pdoc>=14.5.1
+requests>=2.32.0
+pandas>=1.5.2
+numpy>=1.23.5
+openpyxl>=3.0.10
+Mako>=1.2.4
+python-dateutil>=2.8.1
+PriceGenerator>=1.4.93
+FuzzyRoutines>=1.0.3
