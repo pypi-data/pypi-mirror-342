@@ -1,0 +1,79 @@
+Metadata-Version: 2.4
+Name: dms_datastore
+Version: 0.4.6
+Summary: Downloading tools and data repository management
+Home-page: https://github.com/water-e/dms_datastore
+Author: Eli Ateljevich
+Author-email: Eli Ateljevich <Eli.Ateljevich@water.ca.gov>, Nicky Sandhu <psandhu@water.ca.gov>
+License: MIT
+Project-URL: Homepage, https://github.com/water-e/dms_datastore
+Keywords: dms_datastore,data,repository,download
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Requires-Python: <3.14
+Description-Content-Type: text/x-rst
+Requires-Dist: vtools3
+Requires-Dist: pyyaml
+Requires-Dist: beautifulsoup4
+Requires-Dist: tqdm
+Requires-Dist: requests
+Requires-Dist: lxml
+Requires-Dist: openpyxl
+Requires-Dist: paramiko
+Requires-Dist: pandas>=2
+Requires-Dist: numpy
+Requires-Dist: xarray
+Requires-Dist: dask
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: cfgrib
+Requires-Dist: diskcache
+Requires-Dist: pytest
+Requires-Dist: pytest-runner
+Provides-Extra: dev
+Requires-Dist: pandoc; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license
+
+===============================
+dms_datastore
+===============================
+
+Downloading tools and data repository management. This repository is a work in progress. It is not recommended for any purpose while it is under construction.
+
+
+
+There are improvements that are needed to the downloading system tools.
+
+1. The downloading scripts should be called download_XXX.py where XXX is noaa, nwis, cdec etc.
+2. The API should be made uniform between these scripts. 
+   a. It should be able to use our new id or the agency_id with the new id preferred
+   b. It should be able to use our variable name or the agency variable code
+   c. It should produce files that are named according to the file naming convention in the data plan: http://msb-confluence/display/DMKB/Strawman+Data+Organization+Plan:
+
+usgs_sjj@bgc_11337190_turbidity_2021.csv
+
+This is all potentially destabilizing, so perhaps it should be done on a shortlived branch
+
+The station files don't have a uniform format. I prefer all look like this:
+id,agency_id,subloc,variable
+sjj,11337190,bgc,turbidity
+
+The agency_id column is optional. 
+
+===============================
+Installation
+===============================
+
+.. code-block:: bash
+   
+   git clone https://github.com/CADWRDeltaModeling/dms_datastore
+   conda env create -f environment.yml # should create a dms_datastore and pip install the package
+   # alternatively, pip install -e . after running the above command if you want to develop the package
+   conda activate dms_datastore
+
+
+
+
+

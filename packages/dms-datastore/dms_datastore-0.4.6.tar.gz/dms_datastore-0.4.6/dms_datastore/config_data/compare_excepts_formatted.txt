@@ -1,0 +1,5 @@
+file_pattern,base,compare
+noaa.*predictions_.*.csv,True,False
+cdec_clc_clc_ph_19.*.csv,True,False
+
+
