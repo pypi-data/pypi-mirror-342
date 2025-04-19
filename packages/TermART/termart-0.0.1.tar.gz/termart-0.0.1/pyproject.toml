@@ -1,0 +1,14 @@
+[project]
+name = "TermART"
+version = "0.0.1"
+description = "A cool terminal formatting tool"
+authors = [
+  { name="CHINmcl", email="namning670@gmail.com" }
+]
+readme = "README.md"
+license = {text = "MIT"}
+dependencies = []
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
