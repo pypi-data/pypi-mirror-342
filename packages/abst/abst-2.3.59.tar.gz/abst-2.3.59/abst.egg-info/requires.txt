@@ -1,0 +1,12 @@
+click
+rich
+inquirerpy
+oci==2.150.0
+lastversion
+semantic_version
+pyperclip
+bext
+deepmerge~=2.0
+
+[dev]
+black==22.*
