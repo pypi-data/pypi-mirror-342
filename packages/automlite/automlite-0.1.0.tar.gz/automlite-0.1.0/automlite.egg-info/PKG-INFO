@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: automlite
+Version: 0.1.0
+Summary: An automated machine learning pipeline for classification and regression tasks
+Author: Manan Verma
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Provides-Extra: dev
