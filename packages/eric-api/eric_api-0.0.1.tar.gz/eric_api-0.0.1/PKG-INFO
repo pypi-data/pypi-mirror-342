@@ -1,0 +1,53 @@
+Metadata-Version: 2.3
+Name: eric-api
+Version: 0.0.1
+Summary: A Server side events based messaging microservice implementation
+License: MIT
+Keywords: Server side events,microservice,messaging
+Author: Luca Stretti
+Author-email: laxertu@gmail.com
+Requires-Python: >=3.10,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: dotenv (>=0.9.9,<0.10.0)
+Requires-Dist: eric-sse (>=0.7.1,<0.8.0)
+Requires-Dist: fastapi (>=0.115.12,<0.116.0)
+Requires-Dist: requests (>=2.32.3,<3.0.0)
+Requires-Dist: sse-starlette (>=2.2.1,<3.0.0)
+Requires-Dist: uvicorn (>=0.34.1,<0.35.0)
+Project-URL: Issues, https://github.com/laxertu/eric-api/issues
+Project-URL: Repository, https://github.com/laxertu/eric-api
+Description-Content-Type: text/markdown
+
+A ready-to-use SSE messaging microservice implementation. 
+Intended for internal use only (all is public here by the moment).
+
+Backend relies on https://github.com/laxertu/eric  
+REST services rely on FastApi + Uvicorn
+
+Features:
+* channel subscription
+* broadcasting
+* message deliver to one client
+* SSE compliant streaming
+
+Installation:
+
+    pip install eric-api
+
+Start webserver
+
+    start-ws
+
+Some configuration is allowed by the following environment variables.
+You can set them in a .env file:
+
+    ERIC_API_HOST
+    ERIC_API_PORT
+    ERIC_API_LOG_LEVEL
+
+See correspondant uvicorn configuration https://www.uvicorn.org/deployment/#running-from-the-command-line for ERIC_API_LOG_LEVEL 
+
+
