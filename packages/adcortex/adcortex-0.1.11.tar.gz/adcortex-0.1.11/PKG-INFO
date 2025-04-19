@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: adcortex
+Version: 0.1.11
+Summary: A Python SDK for Adcortex
+Author-email: 3102Labs <3102labs@gmail.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.31.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: ruff>=0.1.1; extra == "dev"
+Requires-Dist: mypy>=1.11.1; extra == "dev"
+
+# adcortex-python
