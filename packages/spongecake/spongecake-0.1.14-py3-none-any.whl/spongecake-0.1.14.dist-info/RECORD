@@ -1,0 +1,12 @@
+spongecake/__init__.py,sha256=g7Qs5dM5VPOFWK9v2G5EntRUE62oVqFE6Nr5UtFF2JI,227
+spongecake/_exceptions.py,sha256=o5HOrnY8b4fICt_edgpXTkqWEZkxtWKZGNTsJCT2qEk,46
+spongecake/agent.py,sha256=wAJSzO3bG7zQ9A-1wTzqkQ0n-OFSiyc4PoCzPVSyL5I,42160
+spongecake/constants.py,sha256=HqP6IFd255eoaeuNbmVw2N9l0d8daMhMa4zW8d6W20Q,428
+spongecake/desktop.py,sha256=kRe2gZeWk9pCnM7gj3KEhRd025Y9McIb8FP2wFlmOBg,44382
+spongecake/trace.py,sha256=Uk2ulk4dh8InLfmTAFPceiQf6D-SrsW-LMCHqswsMlA,3246
+spongecake/telemetry/__init__.py,sha256=ImA80GFUV0Yi9luIWBIXqAuVR0Wi-p5dy8Gr_A9tx_I,108
+spongecake/telemetry/service.py,sha256=XnmSXU31GJNYX4f5PljbLDJolfXXSI49w0KMcAjzttU,4886
+spongecake-0.1.14.dist-info/METADATA,sha256=8FJx2K5e8YnWBRZHhhjWgG-0xWhFuzB1LqrNggdRAeM,26079
+spongecake-0.1.14.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+spongecake-0.1.14.dist-info/top_level.txt,sha256=6cyFMT7Z2tf8z3HfIPXXIRFhgO97iQlFMUE-lRSo7i8,11
+spongecake-0.1.14.dist-info/RECORD,,
