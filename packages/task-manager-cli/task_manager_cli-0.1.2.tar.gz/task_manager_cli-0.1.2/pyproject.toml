@@ -1,0 +1,64 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "task-manager-cli"
+dynamic = ["version"]
+description = "一个简单但功能强大的命令行任务管理工具"
+readme = "README.md"
+authors = [
+    { name = "Kaleo Zhou", email = "kaleovip@163.com" },
+]
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+keywords = ["task", "management", "cli", "todo", "project"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "click>=8.0.0",
+    "rich>=10.0.0",
+    "pydantic>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/kaleozhou/tasks-manager"
+Repository = "https://github.com/kaleozhou/tasks-manager.git"
+Issues = "https://github.com/kaleozhou/tasks-manager/issues"
+
+[project.scripts]
+task = "task_manager.cli:cli"
+
+[tool.hatch.build.targets.wheel]
+packages = ["task_manager"]
+
+[tool.hatch.version]
+path = "task_manager/__init__.py"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+addopts = "-v --cov=task_manager --cov-report=term-missing"
+
+[tool.black]
+line-length = 100
+target-version = ["py37"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 100 
