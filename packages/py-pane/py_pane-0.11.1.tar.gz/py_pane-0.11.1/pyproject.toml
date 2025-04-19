@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=51.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-pane"
+version = "0.11.1"
+authors = [
+	{name = "Colin Gilgenbach", email = "hexane@mit.edu"},
+]
+license = "MIT"
+license-files = ["LICENSE.txt"]
+description = "A modern dataclass & data conversion library, focused on speed and expressiveness."
+readme = "README.md"
+keywords = ["dataclass", "validation", "parsing", "conversion"]
+classifiers = [
+  # "License :: OSI Approved :: MIT License",
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+
+requires-python = ">=3.9"
+dependencies = [
+  'PyYAML >= 6.0',
+  'typing_extensions ~= 4.5'  # frozen_default
+]
+
+[project.optional-dependencies]
+dev = [
+  'pytest >= 6.2.4',
+  'numpy',  # for testing
+]
+docs = [
+  'mkdocs>=1.6.1',
+  'mkdocs-material==9.5.40',
+  'mkdocstrings[python]==0.26.1',
+  'markdown-include==0.8.1',
+  'mike==1.1.2',
+]
+
+[project.urls]
+Repository = "https://github.com/hexane360/pane.git"
+Documentation = "https://hexane360.github.io/pane/"
+
+[tool.setuptools]
+packages = [
+  "pane",
+  "pane.addons",
+]
+
+[tool.pyright]
+pythonVersion = "3.10"
+include = ['pane']
+ignore = ['**/test_*.py']  # don't type check tests
+
+typeCheckingMode = "strict"
+#reportUnknownLambdaType = "none"
+#reportUnknownVariableType = "none"
+#reportMissingTypeArgument = "none"
+#reportMissingParameterType = "none"
+reportMissingTypeStubs = "information"
+reportUnusedImport = "warning"
+reportImportCycles = "none"  # convert -> converters -> convert (typechecking only)
+reportUnusedVariable = "warning"
+reportPrivateUsage = "none"
+reportUnnecessaryIsInstance = "none"
+reportUnnecessaryComparison = "information"
+reportUnnecessaryCast = "warning"
+reportUntypedBaseClass = "information"
+reportConstantRedefinition = "none"

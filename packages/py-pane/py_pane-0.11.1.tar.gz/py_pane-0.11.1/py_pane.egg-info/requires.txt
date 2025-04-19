@@ -1,0 +1,13 @@
+PyYAML>=6.0
+typing_extensions~=4.5
+
+[dev]
+pytest>=6.2.4
+numpy
+
+[docs]
+mkdocs>=1.6.1
+mkdocs-material==9.5.40
+mkdocstrings[python]==0.26.1
+markdown-include==0.8.1
+mike==1.1.2
