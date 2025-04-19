@@ -1,0 +1,13 @@
+prefix=/tmp/tmpx6rgcplw/wheel/platlib/osm2gmns
+exec_prefix=/tmp/tmpx6rgcplw/wheel/platlib/osm2gmns
+libdir=/tmp/tmpx6rgcplw/wheel/platlib/osm2gmns/lib
+sharedlibdir=/tmp/tmpx6rgcplw/wheel/platlib/osm2gmns/lib
+includedir=/tmp/tmpx6rgcplw/wheel/platlib/osm2gmns/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.3.1
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
