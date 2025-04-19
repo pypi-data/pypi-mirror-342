@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: asfa
+Version: 1.1.1
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: anyio==4.9.0
+Requires-Dist: certifi==2025.1.31
+Requires-Dist: dotenv==0.9.9
+Requires-Dist: h11==0.14.0
+Requires-Dist: httpcore==1.0.8
+Requires-Dist: httpx==0.28.1
+Requires-Dist: idna==3.10
+Requires-Dist: python-dotenv==1.1.0
+Requires-Dist: setuptools==78.1.0
+Requires-Dist: sniffio==1.3.1
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: requires-python
+
+# ASFA - Your Python Package
+
+## Overview
+
+ASFA is a Python package that allows you to [briefly describe what your package does]. It is designed to help [target audience] achieve [desired outcomes].
+
+## Features
+
+- Feature 1: [API Token Generation]
+- Feature 2: [User Check]
+
+## Installation
+
+To install ASFA, use `pip` to install it directly from GitHub or via PyPI once it's published:
+
+### From GitHub:
+To install the package directly from GitHub:
+
+```bash
+pip3 install git+https://github.com/praveenkumarb25/asfa.git
