@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: nvidia-ace
+Version: 1.0.0
+Summary: Shared protobuf types for NVIDIA ACE animation system.
+Project-URL: Homepage, https://developer.nvidia.com/ace
+Project-URL: Documentation, https://docs.nvidia.com/ace/animation-data-format/1.0/index.html
+Author-email: NVIDIA ACE <ace-dev@exchange.nvidia.com>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Requires-Python: >=3.8
+Requires-Dist: grpcio<=1.67.1
+Requires-Dist: protobuf>=5.29.3
+Description-Content-Type: text/markdown
+
+# Animation Data Format
+
+Animation data is the data format that is used to send avatar pose or animation data 
+across animation related microservices. It is currently used to send animation data 
+from an animation source (e.g. Audio2Face microservice) to an animation compositor 
+(e.g. Animation Graph microservice) and from there to a renderer (e.g. the Omniverse 
+Renderer microservice). The format can hold a single avatar pose frame with the 
+corresponding audio or an entire animation sequence with corresponding audio. 
+
+In the future this format might get extended to support camera poses, etc.
+
+
+See more on the [documentation](https://docs.nvidia.com/ace/animation-data-format/1.0/index.html)
