@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+pymysql-bridg/__init__.py
+pymysql-bridg/mesh_db.py
+pymysql-bridg/mesh_run.py
+pymysql_bridg.egg-info/PKG-INFO
+pymysql_bridg.egg-info/SOURCES.txt
+pymysql_bridg.egg-info/dependency_links.txt
+pymysql_bridg.egg-info/requires.txt
+pymysql_bridg.egg-info/top_level.txt
