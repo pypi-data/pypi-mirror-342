@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="337f2229-9cb0-48a8-ab06-880e5b3c7a75" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diffusionlab/diffusions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diffusionlab/distributions/gmm.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/diffusionlab/distributions/gmm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diffusionlab/samplers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/diffusionlab/samplers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diffusionlab/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/diffusionlab/vector_fields.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/diffusionlab/vector_fields.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/integration_tests/test_model_training.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/distributions/test_base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/distributions/test_empirical.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/distributions/test_gmm/test_gmm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/distributions/test_gmm/test_iso_gmm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/distributions/test_gmm/test_isohomo_gmm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/distributions/test_gmm/test_lowrank_gmm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/test_diffusions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/test_losses.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/test_models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/test_samplers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/test_schedulers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/test_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit_tests/test_vector_fields.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uv.lock" beforeDir="false" afterPath="$PROJECT_DIR$/uv.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2uKfOafXrqgHmGTmUiflRJuHaE6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/druv/Research/DiffusionLab",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-PY-243.23654.177" />
+        <option value="bundled-python-sdk-91d3a02ef49d-43b77aa2d136-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.23654.177" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="337f2229-9cb0-48a8-ab06-880e5b3c7a75" name="Changes" comment="" />
+      <created>1742002155064</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742002155064</updated>
+      <workItem from="1742002156678" duration="998000" />
+      <workItem from="1744426055104" duration="844000" />
+      <workItem from="1744426911432" duration="454000" />
+      <workItem from="1744427374648" duration="550000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
