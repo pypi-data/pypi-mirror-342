@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+kivai_sdk/__init__.py
+kivai_sdk/validator.py
+kivai_sdk.egg-info/PKG-INFO
+kivai_sdk.egg-info/SOURCES.txt
+kivai_sdk.egg-info/dependency_links.txt
+kivai_sdk.egg-info/requires.txt
+kivai_sdk.egg-info/top_level.txt
+tests/test_validator.py
