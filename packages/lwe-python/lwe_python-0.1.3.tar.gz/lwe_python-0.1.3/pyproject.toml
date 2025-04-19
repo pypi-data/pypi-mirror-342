@@ -1,0 +1,14 @@
+[project]
+name = "lwe-python"
+version = "0.1.3"
+description = "A Python implementation of the Learning With Errors cryptography scheme"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "bitarray>=3.3.1",
+    "pytest>=8.3.5",
+    "pytest-mock>=3.14.0",
+]
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
