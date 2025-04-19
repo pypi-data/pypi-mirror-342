@@ -1,0 +1,42 @@
+Metadata-Version: 2.2
+Name: mongo_pythonic
+Version: 0.1.0
+Summary: Repackage pymongo to make it more pythonic
+Home-page: https://github.com/guaixiao7720/mongohelper
+Author: guai_xiao
+Author-email: guai-xiao@hotmail.com
+License: GPL-3.0
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: pymongo
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+As we all know, MongoDB is a very good nosql database, but pymongo is a **violent transplant from C# binding**.
+This project repackages pymongo, making full use of dynamic type features to make MongoDB more **pythonic**.
+
+Currently supported functions
+
+1. You can access MongoDB like using **list** and **dict**, and it takes up almost no memory.
+
+```
+db = pymongo.MongoClient()
+list1 = mongohelper.operator.List(db["test"], "test")
+list1.append({"aaa" : 123, "sadasd": "dasdas"})
+list1["68026c54e4e6b28563e2bc48"]["aaa"] = 666
+print(list1["68026c54e4e6b28563e2bc48"]["aaa"])
+for dictionary in list1:
+    print(dictionary["aaa"])
+```
