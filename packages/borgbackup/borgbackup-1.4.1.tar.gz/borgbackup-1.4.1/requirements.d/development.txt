@@ -1,0 +1,13 @@
+setuptools>=64
+setuptools_scm>=8
+pip
+virtualenv
+build
+pkgconfig
+tox
+pytest
+pytest-xdist
+pytest-cov
+pytest-benchmark
+Cython
+pre-commit
