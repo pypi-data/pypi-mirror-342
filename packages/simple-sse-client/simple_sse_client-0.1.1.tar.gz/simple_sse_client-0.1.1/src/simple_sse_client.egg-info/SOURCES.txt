@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/simple_sse_client/__init__.py
+src/simple_sse_client/simple_sse_client.py
+src/simple_sse_client.egg-info/PKG-INFO
+src/simple_sse_client.egg-info/SOURCES.txt
+src/simple_sse_client.egg-info/dependency_links.txt
+src/simple_sse_client.egg-info/requires.txt
+src/simple_sse_client.egg-info/top_level.txt
