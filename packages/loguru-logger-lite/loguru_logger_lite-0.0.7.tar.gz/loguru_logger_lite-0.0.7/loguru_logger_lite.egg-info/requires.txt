@@ -1,0 +1,5 @@
+pydantic~=2.5.3
+setuptools~=69.0.3
+wheel
+loguru~=0.5.3
+kafka-python~=2.0.2
