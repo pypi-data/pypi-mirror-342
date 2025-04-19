@@ -1,0 +1,42 @@
+[project]
+name = "rag_server"
+version = "0.0.1"
+description = "A FastMCP-based RAG server for dynamic document ingestion"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+"fastmcp",
+"openai",
+"requests",
+"numpy",
+"faiss-cpu",
+"PyPDF2",
+"python-docx",
+"textract", "scikit-learn"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/synehq/mcp-hybrid-rag"
+"Bug Tracker" = "https://github.com/synehq/mcp-hybrid-rag/issues"
+
+[[project.authors]]
+name = "SyneHQ"
+email = "human@synehq.com"
+
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[project.scripts]
+rag_server = "rag_server:main"
+"rag-server" = "rag_server:main"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
