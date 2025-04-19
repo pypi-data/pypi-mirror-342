@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: nvidia-audio2face-3d
+Version: 1.3.0
+Summary: Audio2Face 3D NIM gRPC protoypes and services.
+Project-URL: Homepage, https://developer.nvidia.com/ace
+Project-URL: Documentation, https://docs.nvidia.com/ace/audio2face-3d-microservice/1.3/index.html
+Author-email: NVIDIA ACE <ace-dev@exchange.nvidia.com>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Requires-Python: >=3.8
+Requires-Dist: nvidia-ace~=1.0
+Description-Content-Type: text/markdown
+
+# Audio2Face 3D
+
+NVIDIA Audio2Face-3D NIM (A2F-3D NIM) is delivering generative AI avatar animation 
+solutions based on audio and emotion inputs.
+
+Audio2Face-3D NIM is a component of NVIDIA NIM™ and NVIDIA AI Enterprise. NVIDIA 
+NIM™ offers containers for self-hosting GPU-accelerated inferencing microservices, 
+enabling deployment of pretrained and customized AI models across clouds, data 
+centers, and workstations.
+
+The Audio2Face-3D NIM converts speech into facial animation in the form of ARKit 
+Blendshapes. The facial animation includes emotional expression. Where emotions can 
+be detected, the facial animation system captures key poses and shapes to replicate 
+character facial performance by automatically detecting emotions in the input audio. 
+Additionally emotions can be directly specified as part of the input to the A2F-3D 
+NIM. A rendering engine can consume Blendshape topology to display a 3D avatar’s performance.
+
+This Audio2Face-3D NIM supports multiple input streams simultaneously, enabling 
+workflows that allow many users to connect and generate animation output at the same time.
