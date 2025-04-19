@@ -1,0 +1,2 @@
+[console_scripts]
+l = l_command.cli:main
