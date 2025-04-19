@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: regarding
+Version: 0.2.0
+Summary: Create __about__.py files for Python project metadata.
+Author-email: Travis Shirk <travis@pobox.com>
+License-Expression: MIT
+Project-URL: homepage, https://github.com/nicfit/regarding
+Project-URL: repository, https://github.com/nicfit/regarding
+Requires-Python: <4.0,>=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: AUTHORS
+Requires-Dist: toml>=0.10.2
+Requires-Dist: packaging>=24.2
+Provides-Extra: dev
+Requires-Dist: check-manifest>=0.50; extra == "dev"
+Requires-Dist: pytest>=8.3.5; extra == "dev"
+Requires-Dist: tox>=4.25.0; extra == "dev"
+Requires-Dist: twine>=6.1.0; extra == "dev"
+Requires-Dist: flake8>=7.2.0; extra == "dev"
+Dynamic: license-file
+
+# regarding
+
+Create `__about__.py` files from Python pyproject.toml metadata.
