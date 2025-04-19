@@ -1,0 +1,2 @@
+[console_scripts]
+parallm = parallm.cli:cli
