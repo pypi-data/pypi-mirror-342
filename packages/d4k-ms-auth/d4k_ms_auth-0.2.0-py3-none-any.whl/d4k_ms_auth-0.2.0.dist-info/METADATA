@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: d4k_ms_auth
+Version: 0.2.0
+Summary: A python package containing classes for microservice user interfces
+Author: D Iberson-Hurst
+Author-email: 
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: markdown
+Requires-Dist: d4k-ms-base
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# ms_auth
+Set of microservice authentication utilities
