@@ -1,0 +1,17 @@
+aiohttp
+httpx
+jsonrpcserver
+mcp
+pydantic
+returns
+tenacity
+playwright
+psutil
+
+[dev]
+ruff==0.9.6
+types-psutil
+
+[dist]
+twine
+build
