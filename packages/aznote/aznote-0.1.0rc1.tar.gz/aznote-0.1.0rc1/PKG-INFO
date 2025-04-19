@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: aznote
+Version: 0.1.0rc1
+Summary: Python Financial Animation Library.
+Author-email: "Azat (@azataiot)" <8280770+azataiot@users.noreply.github.com>
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+License-File: LICENSE
+Project-URL: Home, https://azat.cc 
+
+# aznote
+A note-taking application powered by AI.
+
