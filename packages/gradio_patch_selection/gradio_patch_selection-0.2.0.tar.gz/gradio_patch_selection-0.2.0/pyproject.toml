@@ -1,0 +1,50 @@
+[build-system]
+requires = [
+  "hatchling",
+  "hatch-requirements-txt",
+  "hatch-fancy-pypi-readme>=22.5.0",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "gradio_patch_selection"
+version = "0.2.0"
+description = "A Gradio component that allows users to select patches from images by overlaying a customizable grid."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.8"
+authors = [{ name = "Diego Canez" }]
+keywords = ["gradio-custom-component", "gradio-template-Image", "patch-selector", "grid", "vision-transformer", "attention-visualization", "vit", "transformer-visualization"]
+# Add dependencies here
+dependencies = [
+    "build>=1.2.2.post1",
+    "gradio>=4.29,<6.0",
+    "pip>=25.0.1",
+]
+classifiers = [
+  'Development Status :: 3 - Alpha',
+  'License :: OSI Approved :: Apache Software License',
+  'Operating System :: OS Independent',
+  'Programming Language :: Python :: 3',
+  'Programming Language :: Python :: 3 :: Only',
+  'Programming Language :: Python :: 3.8',
+  'Programming Language :: Python :: 3.9',
+  'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+  'Topic :: Scientific/Engineering',
+  'Topic :: Scientific/Engineering :: Artificial Intelligence',
+  'Topic :: Scientific/Engineering :: Visualization',
+]
+
+[project.urls]
+Repository = "https://github.com/dgcnz/gradio_patch_selector.git"
+Issues = "https://github.com/dgcnz/gradio_patch_selector/issues"
+
+[project.optional-dependencies]
+dev = ["build", "twine"]
+
+[tool.hatch.build]
+artifacts = ["/backend/gradio_patch_selection/templates", "*.pyi", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates", "backend/gradio_patch_selection/templates"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["/backend/gradio_patch_selection"]
