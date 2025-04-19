@@ -1,0 +1,3 @@
+[console_scripts]
+start-ws=eric_api:run
+
