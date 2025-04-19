@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+setup.cfg
+pystorex/__init__.py
+pystorex/actions.py
+pystorex/effects.py
+pystorex/middleware.py
+pystorex/reducers.py
+pystorex/store.py
+pystorex/store_selectors.py
+pystorex.egg-info/PKG-INFO
+pystorex.egg-info/SOURCES.txt
+pystorex.egg-info/dependency_links.txt
+pystorex.egg-info/requires.txt
+pystorex.egg-info/top_level.txt
+tests/test_pystorex_core.py
