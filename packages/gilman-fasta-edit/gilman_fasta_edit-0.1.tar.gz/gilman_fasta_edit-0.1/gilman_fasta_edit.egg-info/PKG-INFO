@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: gilman_fasta_edit
+Version: 0.1
+Summary: A tool to rename contigs in a FASTA file.
+Description-Content-Type: text/markdown
+Requires-Dist: biopython
+
+This command-line tool renames contigs in a given FASTA file.

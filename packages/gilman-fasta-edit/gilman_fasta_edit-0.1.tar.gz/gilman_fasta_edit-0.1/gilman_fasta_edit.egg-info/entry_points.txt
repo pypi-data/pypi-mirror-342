@@ -1,0 +1,2 @@
+[console_scripts]
+gilman_fasta_edit = gilman_fasta_edit.main:main
