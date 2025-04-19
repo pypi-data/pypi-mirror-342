@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "cython", "faiss-cpu", "numpy", "pyaml"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asmk"
+version = "0.1.1"
+description = "Python implementation of ASMK (Aggregated Selective Match Kernels)"
+authors = [
+  { name = "Tomas Jenicek" },
+  { name = "Giorgos Tolias" }
+]
+maintainers = [
+  { name = "Zheyuan Wu" }
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.6"
+dependencies = [
+    "pyaml",
+    "numpy",
+    "faiss-cpu"  # or ("faiss-gpu" optionally)
+]
+
+[project.urls]
+Homepage = "https://github.com/trance-0/asmk"
+Documentation = "https://arxiv.org/abs/2007.13172"
+
+[tool.setuptools]
+packages = ["asmk"]
+include-package-data = true
