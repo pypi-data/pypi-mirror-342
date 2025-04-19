@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: malama
+Version: 0.1.3
+Summary: PDF assistant using Gemini API
+Home-page: 
+Author: Manoj Prajapati
+Author-email: manojbittu161@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pymupdf
+Requires-Dist: google-generativeai
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# malama
+
+A simple multi-utility Python package with:
+
+- Text Cleaner
+- Currency Formatter
+- Human Time Converter
+- Password Strength Checker
+- File Size Formatter
+
+## Installation
+
+```bash
+pip install malama
