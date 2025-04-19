@@ -1,0 +1,3 @@
+[console_scripts]
+buildcatrust=buildcatrust.cli:main
+
