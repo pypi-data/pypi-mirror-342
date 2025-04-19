@@ -1,0 +1,22 @@
+Metadata-Version: 2.3
+Name: mudp
+Version: 0.0.1a1
+Summary: A library for Meshtastic communication over UDP.
+License: GPL-3.0-only
+Author: Ben Lipsey
+Author-email: ben@pdxlocations.com
+Requires-Python: >=3.9,<3.14
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: cryptography (>=43.0.3,<44.0.0)
+Requires-Dist: meshtastic (>=2.6.0,<3.0.0)
+Project-URL: Homepage, https://github.com/pdxlocations/mudp
+Project-URL: Issues, https://github.com/pdxlocations/mudp/issues
+Description-Content-Type: text/markdown
+
+tba
