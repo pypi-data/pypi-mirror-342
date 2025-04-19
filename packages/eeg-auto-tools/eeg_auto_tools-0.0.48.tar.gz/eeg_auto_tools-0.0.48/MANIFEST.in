@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+include requirements.txt
+include eeg_auto_tools/ASSR.csv
+include eeg_auto_tools/model_params.json
+exclude .env
