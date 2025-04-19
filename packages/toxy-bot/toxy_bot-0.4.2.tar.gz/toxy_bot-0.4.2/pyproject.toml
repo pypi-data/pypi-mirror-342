@@ -1,0 +1,65 @@
+[project]
+name = "toxy-bot"
+version = "0.4.2"
+description = "A trained Discord Bot to detect and handle toxic messages in text channels."
+readme = "README.md"
+authors = [
+    { name = "anitamaxvim", email = "107803920+anitamaxvim@users.noreply.github.com" },
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+requires-python = ">=3.11"
+dependencies = [
+    "torch==2.2.2 ; sys_platform == 'darwin'",
+    "torchvision==0.17.2 ; sys_platform == 'darwin'",
+    "numpy==1.24 ; sys_platform == 'darwin'",
+    "torch>=2.6.0 ; sys_platform != 'darwin'",
+    "torchvision>=0.21.0 ; sys_platform != 'darwin'",
+    "comet-ml>=3.49.7",
+    "datasets>=3.5.0",
+    "jsonargparse>=4.38.0",
+    "lightning>=2.5.1",
+    "pydantic>=2.11.2",
+    "transformers<4.51.0",
+    "litserve>=0.2.7",
+    "matplotlib>=3.10.1",
+    "seaborn>=0.12.1",
+]
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cpu", marker = "sys_platform != 'linux'" },
+  { index = "pytorch-cu124", marker = "sys_platform == 'linux'" },
+]
+torchvision = [
+  { index = "pytorch-cpu", marker = "sys_platform != 'linux'" },
+  { index = "pytorch-cu124", marker = "sys_platform == 'linux'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[project.scripts]
+toxy-bot = "toxy_bot:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+]
+
+
+
+
+
