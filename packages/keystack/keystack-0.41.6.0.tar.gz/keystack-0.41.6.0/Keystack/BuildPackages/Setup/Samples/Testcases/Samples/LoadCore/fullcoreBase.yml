@@ -1,0 +1,94 @@
+# This is a sample script.
+# Change the ran IP to use one of your agent's IP address.
+# Change the rest of the nodes to use your 2nd agent's IP address.
+# Change the 'interface' also
+
+Title: Fullcore sample demo
+
+description: This sample configuration was exported from LoadCore's provided fullcore base config in Browse Config
+
+objective: Fullcore base sample demo
+
+topology: Full Core
+
+#exportedConfigsFile: sample_fullCore.json
+exportedConfigsFile: /Modules/LoadCore/ExportedConfigs/sample_fullCore.zip
+
+dataConfigsFile: None
+pythonScript: /Apps/LoadCore/runLoadCore.py
+
+# Provide a list with dashes of paths to append to sys.path.
+# For scripts to import. Must begin with either /Apps or /Modules.
+importAppLibraryPaths:
+   - /Apps/LoadCore
+
+# Using JSON paths to modify the LoadCore config
+#modifyLoadCoreJsonConfigs:
+#    - {'path': 'valueChange'}
+
+# If you have predefined Jira Issues as testcases, state the 
+# Issue Key to use for appending failure descriptions to the existing Jira Issue Key.
+jiraTestcaseIssueKey: KEYS-49
+
+# Note: Get the KPI from a manual test run. After the test, download the CSV logs/results
+#       There is a CSV folder containing hundreds of csv filenames of KPIs.
+KPI:
+  Fullcorengran_NGSetup:
+  - NG Setup Failure Rx=0
+  - NG Setup Request Tx=0
+
+  Fullcorengran_NGRANRegistrationprocedure:
+  - Registration Succeeded>80
+  - Registration Failed=0
+  - Registration TimedOut=0
+
+
+# Each testcase configuration has its own parameters to modify.
+# 'dataConfigs' below shows what could be modified for this testcase.
+# You could set the values in this testcase file, but that will
+# be static. Meaning everybody who runs this testcase will use the
+# same parameter and values.
+#
+# To make the reconfiguration dynamic, use 'dataConfigsFile' and
+# name a file to use so that the modifications could be different.
+# If you state to use dataConfigsFile, it will overwrite
+# the dataConfigs parameter names below.
+# Data config files must reside in the DataConfigs folder.
+# Stating the config param file here is the default
+#configParametersFile: /Modules/LoadCore/DataConfigs/sampleFullcoreParams.yml
+
+dataConfigs:
+   # A list of individual params that your LoadCore 'libraryModule' understands
+   # such as reconfigLoadCore.py shown below.
+   params:
+      - name: pollStatInterval
+        description: Polling stats interval. .30=30 seconds, 1.20=120 seconds 
+        type: int|float
+        value: .35
+
+   # Execute functions in a library module file
+   # Use '-' (dashes) to list all the functionNames
+   #executeFunctions:
+   #   - functionName: reassignAgentsFullCore
+   #     libraryModule: /opt/KeystackSystem/Apps/LoadCore/reconfigLoadCore.py
+   #     description: LoadCore agent IP addresses for loadcore nodes
+
+   #   - functionName: changeNetworkSettings
+   #     libraryModule: /opt/KeystackSystem/Apps/LoadCore/reconfigLoadCore.py
+   #     description: LoadCore agent network settings
+
+   #     functionParams:
+   #       - paramName: portCapture
+   #         description: Enable port capturing
+   #         type: bool
+   #         value: True
+
+   #       - paramName: networkStack
+   #         description: Options are dpdk, linuxStack, ixStack
+   #         type: string
+   #         value: linuxStack
+
+   #       - paramName: sriov
+   #         description: LoadCore parmeter
+   #         type: bool
+   #         value: False

@@ -1,0 +1,20 @@
+test No: TC-14
+title: Test Scenario To Perform MO/MT SMS
+objective: Perform MO/MT SMS
+dUTs: UESim
+app: app_AirMosiac
+
+iniParameters:
+  UEE:
+    remote_port: 5005
+    sce: sce::mavenir_998_functional::10
+    sid: sid::1
+
+  PREPARE_ENVIRONMENT:
+    startlsu: False
+    cells_configuration: configFiles::4
+
+  RESULT:
+    counterCheck: kpiCounterChecks::mavenir_998::11,12,13,14,16,23
+
+

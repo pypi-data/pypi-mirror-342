@@ -1,0 +1,87 @@
+---
+location: none
+description: none
+
+mwIp: 192.168.28.6
+username: admin
+password: admin
+
+licenseServerIp: 192.168.28.6
+
+# Legacy=vLM | Embeded=KCOS, External=ExternalKCOS
+licenseServerType: KCOS
+
+licenseIpPort: 7443
+licenseServerUser: admin
+licenseServerPassword: admin
+
+# Sometimes a LoadCore private build has no login.
+# In this case, uncomment this parameter and set to False
+#login: False
+
+# Add LoadCore agents here and uncomment
+agents:
+  - agent:
+      ip: 192.168.28.137
+      interface: ens33
+  - agent:
+      ip: 192.168.28.138
+      interface: ens33
+
+# Since each test could run testcases using a different Environment (env),
+# settings are different for each env. If the settings are common
+# across all testcases, put the environment settings here.
+# If the settings are different in various testcases, then don't put them here.
+# In each testcase yml file, use the keyword configParametersFile and store the
+# settings in unique config parameters filename.
+# This dataConfigs keyword is also used in testcase yml files to overwrite the
+# values stated in this file.  These settings could also be overwritten in
+# config parameters files.
+dataConfigs:
+   executeFunctions:
+      - functionName: reassignAgents
+        libraryModule: /opt/KeystackSystem/Apps/LoadCore/reconfigLoadCore.py
+        description: LoadCore agent IP addresses for loadcore nodes
+
+        functionParams:
+           - paramName: agentsDict
+             description: Port network settings for each agent.
+             type: bool
+             value:
+                agentsDict:    
+                   ran:  192.168.28.137
+                   amf:  192.168.28.138
+                   nrf:  192.168.28.138
+                   ausf: 192.168.28.138
+                   smsf: 192.168.28.138
+                   udm:  192.168.28.138
+                   pcf:  192.168.28.138
+                   udr:  192.168.28.138
+                   smf:  192.168.28.138
+                   upf:  192.168.28.138
+                   dn:   192.168.28.138
+                   nssf: 192.168.28.138
+
+      - functionName: changeNetworkSettings
+        libraryModule: /opt/KeystackSystem/Apps/LoadCore/reconfigLoadCore.py
+        description: LoadCore agent network settings
+
+        functionParams:
+          - paramName: networkSettings
+            description: Port network settings for each agent.
+            type: bool
+            value:
+               networkSettings: [{'agentIp': '192.168.28.137', 'interface': 'ens33', 'portCapture': True, 'sriov': False},   
+                                 {'agentIp': '192.168.28.138', 'interface': 'ens33', 'portCapture': True, 'sriov': False}]
+
+
+# Optional: To verify for license availability.
+#   List all required LoadCore licenses when using this setup
+# requiredLicenses:                                                                 
+#     - VMP-WRLS-5GC-UE: 1 
+#     - WRLS-5GC-UPFLOW: 1 
+#     - WRLS-5GC-UPTPUT-10G: 1 
+#     - VMP-WRLS-5GC-INTERFACE: 13
+#     - VMP-WRLS-5GC-RATE: 1
+
+
