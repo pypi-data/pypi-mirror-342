@@ -1,0 +1,2 @@
+[console_scripts]
+cred-switcher = cred_switcher.cli:main
