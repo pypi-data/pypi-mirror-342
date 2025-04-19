@@ -1,0 +1,3 @@
+[console_scripts]
+getmime = piidigger.getmime:main
+piidigger = piidigger.piidigger:main
