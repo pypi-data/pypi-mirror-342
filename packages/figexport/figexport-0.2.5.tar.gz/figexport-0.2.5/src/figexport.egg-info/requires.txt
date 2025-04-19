@@ -1,0 +1,9 @@
+cairosvg
+requests
+
+[dev]
+pytest
+pytest-cov
+pyinstaller
+build
+twine
