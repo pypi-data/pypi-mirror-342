@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: dota-random-hero
+Version: 0.1.1
+Summary: Случайный герой Dota 2
+Home-page: https://github.com/ваш-username/dota2-random-hero
+Author: Рауль
+Author-email: warface12452@mail.ru
+License: MIT
+Keywords: dota2,random,game
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-python
+Dynamic: summary
+
+# Dota 2 Random Hero
+
+Р“РµРЅРµСЂР°С‚РѕСЂ СЃР»СѓС‡Р°Р№РЅС‹С… РіРµСЂРѕРµРІ РґР»СЏ Dota 2.
+
+## РЈСЃС‚Р°РЅРѕРІРєР°
+```bash
+pip install dota2-random-hero
