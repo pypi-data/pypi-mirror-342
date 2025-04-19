@@ -1,0 +1,112 @@
+# 🦋 butterfly-random
+
+**`butterfly-random`** là một thư viện tạo số ngẫu nhiên (PRNG) dựa trên lý thuyết hỗn loạn (chaos theory) kết hợp hiệu ứng cánh bướm và thuật toán logistic map. Bằng cách tích hợp trộn số và băm SHA-256, thư viện mang lại dãy số có tính ngẫu nhiên cao, khó đoán và phù hợp cho mô phỏng, sinh dữ liệu, hoặc các bài toán cần sự bất định cao.
+
+---
+
+## 🚀 Tính năng nổi bật
+
+- ✅ Tạo số thực ngẫu nhiên trong `[0, 1)`
+- ✅ Tạo số nguyên ngẫu nhiên trong khoảng `[a, b]`
+- ✅ Chọn ngẫu nhiên phần tử từ danh sách
+- ✅ Trộn (shuffle) thứ tự một danh sách
+- ✅ Lấy mẫu không trùng (sampling)
+
+---
+
+## 🧠 Ý tưởng thuật toán
+
+Thư viện sử dụng **logistic map** – một phương trình phi tuyến nổi tiếng trong lý thuyết hỗn loạn:
+
+> `xₙ₊₁ = r * xₙ * (1 - xₙ)`
+
+Kết hợp hai chuỗi logistic độc lập `x` và `y`, sau đó trộn (`x + y + x*y`) và băm nhẹ bằng SHA-256 để nâng cao tính không đoán được. Kết quả được chuyển đổi thành số thực hoặc số nguyên.
+
+Thuật toán mang lại các đặc điểm:
+- Độ nhạy cao với seed ban đầu (butterfly effect).
+- Phân phối gần đều, ít bias.
+- Không phụ thuộc vào PRNG mặc định của Python.
+
+---
+
+## 📦 Cài đặt
+
+```bash
+pip install butterrand
+```
+
+> Lưu ý: Yêu cầu Python 3.6 trở lên.
+
+## 🧪 Cách sử dụng
+
+```python
+from butterrand import BetterButterflyRandom
+
+# Tạo bộ sinh ngẫu nhiên với seed cố định
+rng = BetterButterflyRandom(seed=12345)
+
+# Số thực ngẫu nhiên trong [0, 1)
+print(rng.random())
+
+# Số nguyên ngẫu nhiên trong đoạn [10, 50]
+print(rng.randint(10, 50))
+
+# Lựa chọn ngẫu nhiên từ một danh sách
+print(rng.choice(['A', 'B', 'C', 'D']))
+
+# Trộn danh sách
+lst = [1, 2, 3, 4, 5]
+rng.shuffle(lst)
+print(lst)
+
+# Lấy mẫu 5 phần tử không trùng từ population
+print(rng.sample(range(100), 5))
+``` 
+
+## 📌 Ví dụ đầu ra
+
+```
+=== Random float [0,1) ===
+0.1026321582759645
+0.9824674995582516
+0.9859848254518987
+
+=== Random int in [10, 50] ===
+12
+48
+47
+
+=== Random choice from ['A', 'B', 'C', 'D'] ===
+C
+A
+D
+
+=== Shuffle list [1,2,3,4,5] ===
+[5, 4, 1, 2, 3]
+
+=== Sample 5 from range(100) ===
+[97, 65, 35, 72, 25]
+``` 
+
+## 📂 Cấu trúc API
+
+| Hàm               | Mô tả                                                          |
+|-------------------|----------------------------------------------------------------|
+| `random()`        | Trả về số thực trong khoảng `[0, 1)`                           |
+| `randint(a, b)`   | Trả về số nguyên ngẫu nhiên trong đoạn `[a, b]`               |
+| `choice(sequence)`| Chọn một phần tử ngẫu nhiên từ danh sách                       |
+| `shuffle(sequence)`| Trộn thứ tự danh sách (in-place)                              |
+| `sample(population, k)` | Lấy mẫu k phần tử không trùng lặp từ population          |
+
+## 📜 Giấy phép
+
+Phân phối theo giấy phép MIT.
+
+## 👨‍💻 Tác giả
+
+`butterfly-random` được phát triển bởi ❤️ bạn Bùi Phong Phú. Đây là một dự án mã nguồn mở nhằm cung cấp công cụ sinh dữ liệu chất lượng cao cho cộng đồng Python.
+
+## 🌐 Liên kết
+
+- 📦 PyPI: https://pypi.org/project/butterrand
+- 🧑‍💻 GitHub: https://github.com/OmeraGod/butterrand
