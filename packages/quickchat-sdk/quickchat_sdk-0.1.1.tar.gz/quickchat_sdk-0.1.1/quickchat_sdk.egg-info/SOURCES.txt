@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+quickchat_sdk/__init__.py
+quickchat_sdk/account.py
+quickchat_sdk/connection.py
+quickchat_sdk/message.py
+quickchat_sdk.egg-info/PKG-INFO
+quickchat_sdk.egg-info/SOURCES.txt
+quickchat_sdk.egg-info/dependency_links.txt
+quickchat_sdk.egg-info/requires.txt
+quickchat_sdk.egg-info/top_level.txt
