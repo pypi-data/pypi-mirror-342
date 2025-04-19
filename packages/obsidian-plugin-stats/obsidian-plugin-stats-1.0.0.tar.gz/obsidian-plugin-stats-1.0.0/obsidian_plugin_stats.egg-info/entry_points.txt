@@ -1,0 +1,2 @@
+[console_scripts]
+obsidian-plugin-stats = obsidian_plugin_stats.main:main
