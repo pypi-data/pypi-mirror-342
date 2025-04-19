@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/rr_block/__init__.py
+src/rr_block/rr_layer.py
+src/rr_block.egg-info/PKG-INFO
+src/rr_block.egg-info/SOURCES.txt
+src/rr_block.egg-info/dependency_links.txt
+src/rr_block.egg-info/requires.txt
+src/rr_block.egg-info/top_level.txt
+tests/test_rr_layer.py
