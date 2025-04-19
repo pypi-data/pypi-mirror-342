@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: agentmode
+Version: 0.1.0
+Summary: MCP server for VS code
+Requires-Python: >=3.13
+Requires-Dist: httpx>=0.28.1
