@@ -1,0 +1,57 @@
+Metadata-Version: 2.4
+Name: sasdescargezero
+Version: 0.1.0
+Summary: Una librería Python para descargar archivos desde un host específico
+Home-page: https://github.com/tuusuario/sas
+Author: Sas
+Author-email: ri6k751ni@nine.testrun.org
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.28.0
+Requires-Dist: beautifulsoup4>=4.11.0
+Requires-Dist: urllib3>=1.26.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+```markdown
+# SAS
+
+Una librería Python para descargar archivos desde un host específico con autenticación.
+
+## Instalación
+
+```bash
+pip install sas
+```
+
+## Uso
+
+```python
+import sas
+# Se mostrará un mensaje pidiéndote que ingreses el enlace, por ejemplo:
+# • >> sas https://sas.techdev.cu/40250728-171/2988-2989-2990/1/aHR0cHM6Ly9jaWVuY2ltZWQuc2xkLmN1L2luZGV4LnBhcC9jaWVuY2ltZWQ#-cmV2aXQwMDEw-w5dHZXJvMTIz-MTcx/S01E001_El_ascenso_del_lobo_compressed.mkv
+```
+
+## Requisitos
+
+- Python 3.6+
+- requests
+- beautifulsoup4
+- urllib3
+
+## Licencia
+
+MIT
+```
