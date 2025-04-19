@@ -1,0 +1,2 @@
+[console_scripts]
+calendar-app = calendar_app.cli:main
