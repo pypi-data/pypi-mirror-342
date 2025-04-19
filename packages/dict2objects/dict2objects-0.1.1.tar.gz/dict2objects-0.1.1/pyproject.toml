@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "dict2objects"
+version = "0.1.1"
+description = "Convert dictionaries into objects with attribute-style access"
+authors = ["Janardhan Singh <janardhansingh1998@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "dict2obj" }]
+include = ["dict2obj/py.typed"]
+keywords = ["dictionary", "object", "conversion", "dot", "access"]
+homepage = "https://github.com/JanardhanSingh98/dict2obj"
+repository = "https://github.com/JanardhanSingh98/dict2obj"
+documentation = "https://github.com/JanardhanSingh98/dict2obj"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+bumpver = "*"
+isort = "*"
+pip-tools = "*"
+pytest = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
