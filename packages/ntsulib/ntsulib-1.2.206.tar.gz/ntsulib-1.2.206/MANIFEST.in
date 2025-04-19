@@ -1,0 +1,14 @@
+graft ntsulib
+graft stubs
+global-exclude *.py
+global-exclude *.pyc
+recursive-include ntsulib *.dll
+recursive-include ntsulib py.typed
+recursive-include ntsulib *.pyd
+recursive-include ntsulib __init__.py
+recursive-include ntsulib nio.py
+recursive-include ntsulib nout.py
+recursive-include ntsulib ngameserverquery.py
+recursive-exclude ntsulib nio.pyd
+recursive-exclude ntsulib nout.pyd
+recursive-exclude ntsulib ngameserverquery.pyd
