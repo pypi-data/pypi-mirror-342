@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+file_query_text/__init__.py
+file_query_text/cli.py
+file_query_text/grammar.py
+file_query_text/main.py
+file_query_text.egg-info/PKG-INFO
+file_query_text.egg-info/SOURCES.txt
+file_query_text.egg-info/dependency_links.txt
+file_query_text.egg-info/entry_points.txt
+file_query_text.egg-info/requires.txt
+file_query_text.egg-info/top_level.txt
+tests/test_main.py
