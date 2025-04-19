@@ -1,0 +1,2 @@
+[console_scripts]
+subwhisperer = knowledge_devourer.cli:main

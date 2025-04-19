@@ -1,0 +1,36 @@
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["knowledge_devourer*"]
+
+[project]
+name = "knowledge-devourer"
+version = "1.0.5"
+description = "Tool for downloading everything from instagram posts or reels. Video, audio extraction, meta data, video previews, text transcription of video."
+readme = "README.md"
+requires-python = ">=3.12"
+
+license     = {text = "MIT"}
+authors     = [{name="Smarandii", email="olegsmarandi@gmail.com"}]
+keywords    = ["content", "downloader", "instagram", "meta-data", "transcription", "srt", "reels", "posts"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Environment :: Console",
+]
+
+dependencies = [
+    "instagram-reels>=0.2.4",
+    "loguru>=0.7.3",
+    "outgram>=0.1.1",
+    "requests>=2.32.3",
+    "subwhisperer>=1.1.0",
+    "aiohttp>=3.9.0"
+]
+
+[project.scripts]
+subwhisperer    = "knowledge_devourer.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Smarandii/knowledge-devourer"
+Documentation = "https://github.com/Smarandii/knowledge-devourer#readme"
+Source = "https://github.com/Smarandii/knowledge-devourer"

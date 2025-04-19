@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: knowledge-devourer
+Version: 1.0.5
+Summary: Tool for downloading everything from instagram posts or reels. Video, audio extraction, meta data, video previews, text transcription of video.
+Author-email: Smarandii <olegsmarandi@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/Smarandii/knowledge-devourer
+Project-URL: Documentation, https://github.com/Smarandii/knowledge-devourer#readme
+Project-URL: Source, https://github.com/Smarandii/knowledge-devourer
+Keywords: content,downloader,instagram,meta-data,transcription,srt,reels,posts
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: instagram-reels>=0.2.4
+Requires-Dist: loguru>=0.7.3
+Requires-Dist: outgram>=0.1.1
+Requires-Dist: requests>=2.32.3
+Requires-Dist: subwhisperer>=1.1.0
+Requires-Dist: aiohttp>=3.9.0
+
+# Installation
+
+pip install knowledge-devourer
+
+# Dependencies
+- ffmpeg
+- Subwhisperer https://github.com/Smarandii/subwhisperer
+
+# CUDA
+```commandline
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+```
+
+## Check if CUDA is available:
+
+```commandline
+python -c "import torch; print(torch.cuda.is_available())"
+```
