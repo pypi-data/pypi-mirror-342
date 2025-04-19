@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: gc_temp_tables
+Version: 1.1.2
+Summary: Python utility for creating and querying temporary tables in Google Cloud Environments.
+Home-page: https://github.com/AymoneKouame/data-science-utilities
+Author: Aymone Jeanne Kouame
+Author-email: aymone.jk@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+
+`gc_temp_tables` lets you easily create and query temporary tables within Google Cloud environments. The user has the option to work within a session and/or use external tables. The functions in `gc_temp_tables` are below:
+
+ * `create_bq_session()`.
+ * `get_external_table_config(filename_in_bucket)`.
+ * `create_temp_table(query)`
+ * `query_temp_table()`
+ * `drop_temp_table()`.
+
+`gc_temp_tables` was originally written to be used within the All of Us Researcher Workbench environment but can be used in other Google Cloud Environments.
+
+More details, including **code snippet**, at: https://github.com/AymoneKouame/data-science-utilities/blob/main/README.md#1---package-gc_temp_tables
+
+
+
