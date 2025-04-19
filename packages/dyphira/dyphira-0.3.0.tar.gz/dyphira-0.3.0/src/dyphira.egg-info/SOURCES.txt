@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/dyphira/__init__.py
+src/dyphira/openai.py
+src/dyphira/runpod.py
+src/dyphira/shadeform.py
+src/dyphira.egg-info/PKG-INFO
+src/dyphira.egg-info/SOURCES.txt
+src/dyphira.egg-info/dependency_links.txt
+src/dyphira.egg-info/requires.txt
+src/dyphira.egg-info/top_level.txt

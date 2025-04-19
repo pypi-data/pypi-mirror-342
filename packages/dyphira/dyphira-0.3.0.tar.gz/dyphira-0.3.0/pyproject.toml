@@ -1,0 +1,25 @@
+[project]
+name = "dyphira"
+version = "0.3.0"
+authors = [
+  { name="DivinerX", email="loc_yan@outlook.com" },
+]
+description = "A Python package for interacting with OpenAI and runpod APIs via Dyphira proxy server."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "requests"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = {text = "MIT"}
+
+[project.urls]
+Homepage = "https://github.com/DivinerX/dyphira-python"
+Issues = "https://github.com/DivinerX/dyphira-python/issues"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "build"]
+build-backend = "setuptools.build_meta"
