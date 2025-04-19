@@ -1,0 +1,7 @@
+pydantic
+python-dotenv
+litellm
+tqdm
+PyYAML
+pytest
+tenacity
