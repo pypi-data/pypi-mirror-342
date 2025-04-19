@@ -1,0 +1,25 @@
+{% extends "admin/kmuhelper/base_site.html" %}
+
+{% load static kmuhelper_tags %}
+
+{% block title %}KMUHelper{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name"><a target="_top" href="{% url 'kmuhelper:home' %}">KMUHelper</a></h1>
+{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'admin/kmuhelper/css/pagechooser.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"
+          integrity="sha384-3B6NwesSXE7YJlcLI9RpRqGf2p/EgVH8BgoKTaUrmKNDkHPStTQ3EyoYjCGXaOTS" crossorigin="anonymous"/>
+
+{% endblock %}
+
+{% block content %}
+    <h1>Willkommen im KMUHelper!</h1>
+
+    {% kmuhelper_pagechooser grid %}
+{% endblock %}
