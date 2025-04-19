@@ -1,0 +1,15 @@
+fetchAZA/_version.py,sha256=X21aODywq7VJHiBdKqNWn4jpP4co7kirUzAuKQfUEu4,32
+fetchAZA/convertAZA.py,sha256=bnncj8BgytKl95Xn2kVBUktgCK3dTcNhu2xBD7ycfPM,3274
+fetchAZA/plotters.py,sha256=bZiKHVha8sQNykho-UbmISOkrS_6hFsmekPXTiQe_uc,44375
+fetchAZA/readers.py,sha256=G4o3RzFERcrNqt_esir_YdRgSlQYFTJVIDieP08rv5U,27992
+fetchAZA/timetools.py,sha256=yMwflSag2EG0V7JNkROiZTaZWVP54svCOctc6bW7Dpw,11387
+fetchAZA/tools.py,sha256=lrgRFPxLNoR5WFAVogJOi4C-lHViIlwMvrcXZR7HsFg,14656
+fetchAZA/utilities.py,sha256=tfmZ_KvC1sVfS_jopHyfdn_s8vLrmKfD9IyovPfIwtM,11810
+fetchAZA/writers.py,sha256=51Eb5uHpIc29TWt4Mn4aO6qas1Eg1QT5LJw6o2vtypE,5732
+fetchAZA/config/global_attrs.yaml,sha256=HzY426HIVrYwVEE7H0m1_DzdRflprvPR7KLiGFu4yLk,92
+fetchAZA/config/vocab_attrs.yaml,sha256=o9Z2w2ZGIfZXIH0RqWnH5rvXH1CtLavxzoa7aAGDYqA,4661
+fetchaza-0.0.3.post1.dev0.dist-info/licenses/LICENSE,sha256=Mas8UNj-qZ0qpZpfCtA1_mp434PAB0jDSmo_IFO2p0M,1080
+fetchaza-0.0.3.post1.dev0.dist-info/METADATA,sha256=9uDU1lcTcHldnC5lDE2FoMbbY_CodXBrzmUEoj2EXyE,4149
+fetchaza-0.0.3.post1.dev0.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+fetchaza-0.0.3.post1.dev0.dist-info/top_level.txt,sha256=nkVUXTvzGm3RcajJ290sQRc1DA2JOYzjH-wb4ijTD7U,9
+fetchaza-0.0.3.post1.dev0.dist-info/RECORD,,
