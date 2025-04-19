@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: taichi-volume-renderer
+Version: 0.0.0
+Summary: A python package for real-time GPU volume rendering based on taichi
+Home-page: https://github.com/ShengzhiWu/taichi-volume-renderer
+Author: Shengzhi Wu
+Author-email: e1124755@u.nus.edu
+Keywords: taichi volume rendering 3d visualization
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: taichi
+
+# taichi-volume-renderer
+A python package for real-time GPU volume rendering based on [taichi](https://github.com/taichi-dev/taichi).
+
+![0](D:\GitHub\taichi-volume-renderer\images\0.png)
