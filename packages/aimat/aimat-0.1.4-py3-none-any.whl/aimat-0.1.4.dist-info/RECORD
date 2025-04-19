@@ -1,0 +1,12 @@
+aimat/__init__.py,sha256=QTYqXqSTHFRkM9TEgpDFcHvwLbvqHDqvqfQ9EiXkcAM,23
+aimat/__main__.py,sha256=JHMJ4V1gzWc5aKemXUM-lA7lWQBJZOIJeuYdeqmQpVA,68
+aimat/cli.py,sha256=NlOvxy9it8uYJX6VLCIO_r_uYE97J4zIwGaEt7NKKnM,5944
+aimat/osc_listener.py,sha256=Dv8AkAuTnzdkW80t5ipZerPDuvbTAbCXNnyJGIMEkL0,8115
+aimat/docker/.env,sha256=UhUmMJnZBDqvX2g515ow9vL2AFE-8zXpURrz4assZ-4,54
+aimat/docker/docker-compose.yml,sha256=OXUPDubIhotVayp1DIkJtKPelXQ8EGJfTOB1Nety4lM,748
+aimat-0.1.4.dist-info/licenses/LICENSE,sha256=cFhSg0vCJ5xfnTaW86aZxw7eks4wmdab1N-VE_t2zmg,1068
+aimat-0.1.4.dist-info/METADATA,sha256=IsX_nKBqDo2bGZbvllGCrXBnkoBSiyxIeiei9E65onU,6281
+aimat-0.1.4.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+aimat-0.1.4.dist-info/entry_points.txt,sha256=9EN5CZXejsxd87_79FTOG__D6p8UmWN5bm_T_MwAxDg,41
+aimat-0.1.4.dist-info/top_level.txt,sha256=mfkAMQRgFJi2mX7iwez1AJJktUc-VaYBQiOzGJ-WGmE,6
+aimat-0.1.4.dist-info/RECORD,,
