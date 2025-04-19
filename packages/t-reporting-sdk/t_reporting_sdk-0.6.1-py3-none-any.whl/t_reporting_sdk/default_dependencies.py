@@ -1,0 +1,13 @@
+from t_reporting_sdk.repositories.agent_runs.repository import AgentRunsRepository
+from t_reporting_sdk.repositories.api_clients.fabric.client import FabricClient
+from t_reporting_sdk.repositories.eva_records.repository import EVARecordsRepository
+from t_reporting_sdk.repositories.cam_records.repository import CAMRecordsRepository
+from t_reporting_sdk.repositories.paula_records.repository import PAULARecordsRepository
+from t_reporting_sdk.config import ReportingSDKConfig
+
+sdk_config = ReportingSDKConfig()
+fabric_client = FabricClient(config=sdk_config.fabric_client_config)
+default_agent_runs_repository = AgentRunsRepository(client=fabric_client)
+default_eva_records_repository = EVARecordsRepository(client=fabric_client)
+default_cam_records_repository = CAMRecordsRepository(client=fabric_client)
+default_paula_records_repository = PAULARecordsRepository(client=fabric_client)
