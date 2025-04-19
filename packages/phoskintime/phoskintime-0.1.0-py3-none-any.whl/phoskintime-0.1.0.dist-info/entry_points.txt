@@ -1,0 +1,3 @@
+[console_scripts]
+phoskintime=bin.main:main
+
