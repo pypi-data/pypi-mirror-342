@@ -1,0 +1,9 @@
+README.md
+setup.py
+Django_auths/__init__.py
+Django_auths/module_auth.py
+Django_auths_users.egg-info/PKG-INFO
+Django_auths_users.egg-info/SOURCES.txt
+Django_auths_users.egg-info/dependency_links.txt
+Django_auths_users.egg-info/top_level.txt
+tests/test_module_auth.py
