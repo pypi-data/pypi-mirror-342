@@ -1,0 +1,6 @@
+pycryptodome>=3.15.0
+astunparse>=1.6.3
+
+[dev]
+pytest
+cython

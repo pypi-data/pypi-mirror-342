@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cinol"
+version = "0.1.0"
+description = "Python Code Protection Toolkit (Obfuscation + Encryption + License)"
+authors = [
+    { name = "Cans Vlazars", email = "eternals.tolong@gmail.com" },
+]
+readme = "README.md"
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Libraries",
+]
+keywords = ["obfuscation", "encryption", "license", "protection"]
+dependencies = [
+    "pycryptodome>=3.15.0",  # Untuk enkripsi/signature
+    "astunparse>=1.6.3",     # Untuk obfuskasi AST
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "cython"]  # Dependensi development
+
+[project.urls]
+Homepage = "https://github.com/Eternals-Satya/cinol"
