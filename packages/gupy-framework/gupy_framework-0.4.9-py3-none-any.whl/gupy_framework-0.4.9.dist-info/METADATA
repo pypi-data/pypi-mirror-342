@@ -1,0 +1,191 @@
+Metadata-Version: 2.4
+Name: gupy-framework
+Version: 0.4.9
+Summary: Gupy! Simplifying Cross-Platform development with Go, Vue, and Python
+Project-URL: Homepage, https://github.com/speartech/gupy
+Project-URL: Issues, https://github.com/speartech/gupy/issues
+Author-email: Speartech <Tyler@Speartech.org>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.12
+Requires-Dist: annotated-types==0.7.0
+Requires-Dist: anyio==4.8.0
+Requires-Dist: argon2-cffi-bindings==21.2.0
+Requires-Dist: argon2-cffi==23.1.0
+Requires-Dist: arrow==1.3.0
+Requires-Dist: asgiref==3.8.1
+Requires-Dist: asttokens==3.0.0
+Requires-Dist: async-lru==2.0.4
+Requires-Dist: attrs==25.1.0
+Requires-Dist: babel==2.17.0
+Requires-Dist: beautifulsoup4==4.13.3
+Requires-Dist: bleach==6.2.0
+Requires-Dist: blinker==1.8.2
+Requires-Dist: brotli==1.1.0
+Requires-Dist: build==1.2.2
+Requires-Dist: certifi==2024.7.4
+Requires-Dist: cffi==1.16.0
+Requires-Dist: chardet==5.2.0
+Requires-Dist: charset-normalizer==3.3.2
+Requires-Dist: click==8.1.7
+Requires-Dist: colorama==0.4.6
+Requires-Dist: comm==0.2.2
+Requires-Dist: cryptography==43.0.0
+Requires-Dist: cython==3.0.11
+Requires-Dist: debugpy==1.8.12
+Requires-Dist: decorator==5.1.1
+Requires-Dist: defusedxml==0.8.0rc2
+Requires-Dist: django-cors-headers==4.4.0
+Requires-Dist: django-templated-mail==1.1.1
+Requires-Dist: django==5.0.7
+Requires-Dist: djangorestframework-simplejwt==5.3.1
+Requires-Dist: djangorestframework==3.15.2
+Requires-Dist: djoser==2.2.3
+Requires-Dist: docutils==0.21.2
+Requires-Dist: executing==2.2.0
+Requires-Dist: fastapi==0.115.8
+Requires-Dist: fastjsonschema==2.21.1
+Requires-Dist: flask==3.0.3
+Requires-Dist: fqdn==1.5.1
+Requires-Dist: h11==0.14.0
+Requires-Dist: hatchling==1.27.0
+Requires-Dist: httpcore==1.0.7
+Requires-Dist: httpx==0.28.1
+Requires-Dist: id==1.5.0
+Requires-Dist: idna==3.7
+Requires-Dist: inflate64==1.0.1
+Requires-Dist: ipykernel==6.29.5
+Requires-Dist: ipython==8.32.0
+Requires-Dist: ipywidgets==8.1.5
+Requires-Dist: isoduration==20.11.0
+Requires-Dist: itsdangerous==2.2.0
+Requires-Dist: jaraco-classes==3.4.0
+Requires-Dist: jaraco-context==6.0.1
+Requires-Dist: jaraco-functools==4.1.0
+Requires-Dist: jedi==0.19.2
+Requires-Dist: jinja2==3.1.4
+Requires-Dist: json5==0.10.0
+Requires-Dist: jsonpointer==3.0.0
+Requires-Dist: jsonschema-specifications==2024.10.1
+Requires-Dist: jsonschema==4.23.0
+Requires-Dist: jupyter-client==8.6.3
+Requires-Dist: jupyter-console==6.6.3
+Requires-Dist: jupyter-core==5.7.2
+Requires-Dist: jupyter-events==0.12.0
+Requires-Dist: jupyter-lsp==2.2.5
+Requires-Dist: jupyter-server-terminals==0.5.3
+Requires-Dist: jupyter-server==2.15.0
+Requires-Dist: jupyter==1.1.1
+Requires-Dist: jupyterlab-pygments==0.3.0
+Requires-Dist: jupyterlab-server==2.27.3
+Requires-Dist: jupyterlab-widgets==3.0.13
+Requires-Dist: jupyterlab==4.3.5
+Requires-Dist: keyring==25.6.0
+Requires-Dist: markdown-it-py==3.0.0
+Requires-Dist: markupsafe==2.1.5
+Requires-Dist: matplotlib-inline==0.1.7
+Requires-Dist: mdurl==0.1.2
+Requires-Dist: mistune==3.1.1
+Requires-Dist: more-itertools==10.6.0
+Requires-Dist: multivolumefile==0.2.3
+Requires-Dist: nbclient==0.10.2
+Requires-Dist: nbconvert==7.16.6
+Requires-Dist: nbformat==5.10.4
+Requires-Dist: nest-asyncio==1.6.0
+Requires-Dist: nh3==0.2.21
+Requires-Dist: notebook-shim==0.2.4
+Requires-Dist: notebook==7.3.2
+Requires-Dist: oauthlib==3.2.2
+Requires-Dist: overrides==7.7.0
+Requires-Dist: packaging==24.2
+Requires-Dist: pandocfilters==1.5.1
+Requires-Dist: parso==0.8.4
+Requires-Dist: pathspec==0.12.1
+Requires-Dist: pkginfo==1.12.0
+Requires-Dist: platformdirs==4.3.6
+Requires-Dist: pluggy==1.5.0
+Requires-Dist: prometheus-client==0.21.1
+Requires-Dist: prompt-toolkit==3.0.50
+Requires-Dist: psutil==7.0.0
+Requires-Dist: pure-eval==0.2.3
+Requires-Dist: py7zr==0.22.0
+Requires-Dist: pybcj==1.0.3
+Requires-Dist: pycparser==2.22
+Requires-Dist: pycryptodomex==3.22.0
+Requires-Dist: pydantic-core==2.27.2
+Requires-Dist: pydantic==2.10.6
+Requires-Dist: pygments==2.19.1
+Requires-Dist: pyjwt==2.9.0
+Requires-Dist: pyppmd==1.1.1
+Requires-Dist: pyproject-hooks==1.2.0
+Requires-Dist: python-dateutil==2.9.0.post0
+Requires-Dist: python-json-logger==3.2.1
+Requires-Dist: python3-openid==3.2.0
+Requires-Dist: pywin32-ctypes==0.2.3
+Requires-Dist: pywin32==308
+Requires-Dist: pywinpty==2.0.15
+Requires-Dist: pyyaml==6.0.2
+Requires-Dist: pyzmq==26.2.1
+Requires-Dist: pyzstd==0.16.2
+Requires-Dist: readme-renderer==44.0
+Requires-Dist: referencing==0.36.2
+Requires-Dist: requests-oauthlib==2.0.0
+Requires-Dist: requests-toolbelt==1.0.0
+Requires-Dist: requests==2.32.3
+Requires-Dist: rfc3339-validator==0.1.4
+Requires-Dist: rfc3986-validator==0.1.1
+Requires-Dist: rfc3986==2.0.0
+Requires-Dist: rich==14.0.0
+Requires-Dist: rpds-py==0.22.3
+Requires-Dist: screeninfo==0.8.1
+Requires-Dist: send2trash==1.8.3
+Requires-Dist: setuptools==75.1.0
+Requires-Dist: six==1.17.0
+Requires-Dist: sniffio==1.3.1
+Requires-Dist: social-auth-app-django==5.4.2
+Requires-Dist: social-auth-core==4.5.4
+Requires-Dist: soupsieve==2.6
+Requires-Dist: sqlparse==0.5.1
+Requires-Dist: stack-data==0.6.3
+Requires-Dist: starlette==0.45.3
+Requires-Dist: terminado==0.18.1
+Requires-Dist: texttable==1.7.0
+Requires-Dist: tinycss2==1.4.0
+Requires-Dist: tornado==6.4.2
+Requires-Dist: traitlets==5.14.3
+Requires-Dist: trove-classifiers==2025.4.11.15
+Requires-Dist: twine==6.1.0
+Requires-Dist: types-python-dateutil==2.9.0.20241206
+Requires-Dist: typing-extensions==4.12.2
+Requires-Dist: tzdata==2024.1
+Requires-Dist: uri-template==1.3.0
+Requires-Dist: urllib3==2.2.2
+Requires-Dist: uvicorn==0.34.0
+Requires-Dist: wcwidth==0.2.13
+Requires-Dist: webcolors==24.11.1
+Requires-Dist: webencodings==0.5.1
+Requires-Dist: websocket-client==1.8.0
+Requires-Dist: werkzeug==3.0.3
+Requires-Dist: widgetsnbextension==4.0.13
+Description-Content-Type: text/markdown
+
+# Gupy!
+
+<!-- <img src="https://github.com/SPEARTECH/Gupy/blob/main/gupy_logo.png" alt="Welcome to Gupy :)" width="50%"> -->
+![](https://github.com/SPEARTECH/Gupy/blob/main/gupy_logo.png)
+
+Gupy is a CLI tool for generating templates of cross-platform applications based on Go, Vue, and Python!
+
+Templates include:
+- PWAs                 - **Vue,Go Web Assembly**
+- Django Websites      - **Vue, Python, Go Extensions, Go Web Assembly, Cython Extensions**
+- Desktop Applications - **Vue, Gin/Flask, Go Extensions, Go Web Assembly, Cython Extensions**
+- CLI Tools            - **Python, Go Extensions, Cython Extensions**
+
+Future roadmap:
+- Mobile projects & compilation with Go build
+- API creation (flask, fastapi, gin)
+- Postgres instead of sqlite
+- Go website projects
