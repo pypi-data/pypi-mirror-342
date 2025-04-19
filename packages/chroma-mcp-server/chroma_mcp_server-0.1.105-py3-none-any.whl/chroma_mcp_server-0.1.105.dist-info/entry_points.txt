@@ -1,0 +1,2 @@
+[console_scripts]
+chroma-mcp-server = chroma_mcp.cli:main
