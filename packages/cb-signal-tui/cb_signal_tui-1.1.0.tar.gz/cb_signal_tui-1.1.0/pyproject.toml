@@ -1,0 +1,48 @@
+[project]
+name = "cb-signal-tui"
+version = "1.1.0"
+description = "A high-efficiency terminal-based crypto signal scanner with live Z-score detection, strategy classification, and automated backtesting."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [
+  { name = "LoQiseaking69", email = "noreply@example.com" }
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: BSD License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Operating System :: OS Independent",
+  "Environment :: Console",
+  "Topic :: Utilities",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Office/Business :: Financial",
+  "Topic :: Scientific/Engineering :: Information Analysis"
+]
+dependencies = [
+  "aiohttp",
+  "aiosqlite",
+  "pandas",
+  "numpy",
+  "pyttsx3",
+  "rich",
+  "scipy"
+]
+
+[project.scripts]
+cb-signal-tui = "cb_signal_tui.__main__:cli"
+
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cb_signal_tui"]
+
+[tool.setuptools.exclude-package-data]
+"cb_signal_tui" = ["built/*"]

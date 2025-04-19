@@ -1,0 +1,200 @@
+Metadata-Version: 2.4
+Name: cb-signal-tui
+Version: 1.1.0
+Summary: A high-efficiency terminal-based crypto signal scanner with live Z-score detection, strategy classification, and automated backtesting.
+Author-email: LoQiseaking69 <noreply@example.com>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2025, LoQiseaking69
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Classifier: Topic :: Utilities
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp
+Requires-Dist: aiosqlite
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: pyttsx3
+Requires-Dist: rich
+Requires-Dist: scipy
+Dynamic: license-file
+
+# Cb-signalTUI
+
+![Build](https://github.com/LoQiseaking69/Cb-signalTUI/actions/workflows/build.yml/badge.svg)
+
+![img](https://github.com/LoQiseaking69/Cb-signalTUI/blob/main/8247439A-0E30-439A-AD1B-E41A16CC9891.png)
+
+## Features
+
+- **Real-Time Cryptocurrency Scanning**: Continuously scans a wide range of crypto pairs for trade signals.
+- **Dynamic Technical Analysis**: Uses adaptive Exponential Moving Averages (EMA), Z-scores, slope detection, RSI, and volatility analysis.
+- **Reinforcement Learning Optimization**: Dynamically tunes Z-score thresholds using DEAP-based RL algorithms.
+- **Strategy Classification**: Differentiates between momentum, reversal, and neutral strategies.
+- **Live Terminal UI**: Displays results in a color-coded, real-time TUI with `rich.live`.
+- **Asynchronous Data Fetching**: Utilizes `aiohttp` and retries on failure for reliable data streaming.
+- **Voice Alerts**: Uses `pyttsx3` for real-time vocal alerts when high-confidence signals occur.
+- **Database Logging**: Stores all signal events with `aiosqlite` for historical reference.
+- **Backtesting Accuracy**: Includes a backtesting module to evaluate signal performance.
+- **Custom Configs per Asset**: Each asset has its own EMA and Z-score threshold settings.
+- **Auto-Build Artifacts**: Built packages are committed to `/built/` on each push to `main`.
+
+## Project Structure
+
+```
+Cb-signalTUI/
+├── cb_signal_tui/             # Main package directory
+│   ├── __init__.py
+│   └── __main__.py            # Entry point with config
+├── built/                     # Auto-committed build artifacts (.whl, .tar.gz)
+│   └── cb_signal_tui-*.whl
+├── dist/                      # Local build output (ignored by .git)
+├── .github/
+│   └── workflows/
+│       └── build.yml          # GitHub Actions workflow
+├── requirements.txt           # Dependencies
+├── pyproject.toml             # Build system config
+├── README.md                  # Project documentation
+└── signals.db                 # SQLite DB (optional, runtime-generated)
+```
+
+## Installation
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/LoQiseaking69/Cb-signalTUI.git
+   cd Cb-signalTUI
+   ```
+
+2. Install the required dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. (Optional) Export a shortcut path to the `.whl` package for faster installs:
+
+   ```bash
+   echo 'export cb_sigTUI="$HOME/Desktop/Cb-signalTUI-main/built/*.whl"' >> ~/.bashrc
+   source ~/.bashrc
+   ```
+
+   Now you can install with:
+
+   ```bash
+   pip install $cb_sigTUI
+   ```
+
+## Dependencies
+
+```
+aiohttp
+aiosqlite
+pandas
+numpy
+pyttsx3
+rich
+scipy
+deap
+tabulate
+```
+
+## Usage
+
+Run the scanner:
+
+```bash
+cb-signal-tui
+```
+
+### Example Output
+
+![img](https://github.com/LoQiseaking69/Cb-signalTUI/blob/main/IMG_1053.jpeg)
+
+## Configuration
+
+Edit settings in `cb_signal_tui/__main__.py`:
+
+- `PRODUCTS`: Assets to scan (`BTC-USD`, `ETH-USD`, etc.)
+- `SETTINGS`: EMA periods and Z-score threshold settings per asset
+- `Z_SCORE_WINDOW`, `VOLATILITY_THRESHOLD`, `FLAT_SLOPE_THRESHOLD`: Signal tuning
+- `STRATEGY_FILTER`: Control which strategies trigger alerts (`momentum`, `reversal`)
+- `ALERT_CONFIDENCE_THRESHOLD`: Minimum confidence for triggering an alert
+- `REFRESH_INTERVAL`: Refresh rate for terminal UI
+- `GRANULARITY`: Time granularity for fetched data (in seconds)
+
+## Database
+
+SQLite database (`signals.db`) schema:
+
+```sql
+CREATE TABLE IF NOT EXISTS signals (
+    timestamp TEXT,
+    asset TEXT,
+    price REAL,
+    z_score REAL,
+    signal TEXT,
+    confidence REAL,
+    strategy TEXT
+);
+```
+
+## Backtesting
+
+Run the backtesting module to evaluate signal accuracy:
+
+```bash
+cb-signal-tui-backtest
+```
+
+The backtest fetches historical data and compares signal predictions with actual price movements.
+
+## Contributing
+
+1. Fork this repository.
+2. Create a new branch (`git checkout -b my-feature`).
+3. Make your changes.
+4. Push and open a Pull Request.
+
+---
+
+Built for precision. Tuned for performance. Stay ahead of the market.
