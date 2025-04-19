@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: mini_ode
+Version: 0.0.1
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Dist: torch==2.6.0
+Summary: A minimalistic ODE solvers library built on top of PyTorch
+Keywords: simulation,math
+Author: Antoni Przybylik <antoni.przybylik@wp.pl>
+Author-email: Antoni Przybylik <antoni.przybylik@wp.pl>
+License: GPL-2.0
+Requires-Python: >=3.12
+Project-URL: Homepage, https://github.com/antoniprzybylik/mini-ode
+Project-URL: Source, https://github.com/antoniprzybylik/mini-ode
