@@ -1,0 +1,14 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+bin/conservation
+conservation/__init__.py
+conservation/commands.py
+conservation/conservation_codon.py
+conservation/version.py
+conservation.egg-info/PKG-INFO
+conservation.egg-info/SOURCES.txt
+conservation.egg-info/dependency_links.txt
+conservation.egg-info/requires.txt
+conservation.egg-info/top_level.txt
