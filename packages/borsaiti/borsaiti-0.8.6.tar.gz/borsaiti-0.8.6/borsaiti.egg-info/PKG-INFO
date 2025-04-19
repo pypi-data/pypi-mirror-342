@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: borsaiti
+Version: 0.8.6
+Summary: Kick yayinlari icin AI destekli asistan
+Author: Aytunc
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: mtranslate
+Requires-Dist: ollama
+Requires-Dist: selenium
+Requires-Dist: soundcard
+Requires-Dist: soundfile
+Requires-Dist: speechrecognition
+Requires-Dist: undetected-chromedriver
+Requires-Dist: certifi
+Dynamic: author
+Dynamic: classifier
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
