@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/sql2lineage/__init__.py
+src/sql2lineage/graph.py
+src/sql2lineage/model.py
+src/sql2lineage/parser.py
+src/sql2lineage.egg-info/PKG-INFO
+src/sql2lineage.egg-info/SOURCES.txt
+src/sql2lineage.egg-info/dependency_links.txt
+src/sql2lineage.egg-info/requires.txt
+src/sql2lineage.egg-info/top_level.txt
+tests/test_graph.py
+tests/test_model.py
+tests/test_parser.py
