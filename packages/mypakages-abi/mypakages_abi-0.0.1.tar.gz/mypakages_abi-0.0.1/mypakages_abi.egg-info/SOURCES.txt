@@ -1,0 +1,8 @@
+LICENSE.txt
+setup.py
+mypakages_abi/__init__.py
+mypakages_abi/factorial.py
+mypakages_abi.egg-info/PKG-INFO
+mypakages_abi.egg-info/SOURCES.txt
+mypakages_abi.egg-info/dependency_links.txt
+mypakages_abi.egg-info/top_level.txt
