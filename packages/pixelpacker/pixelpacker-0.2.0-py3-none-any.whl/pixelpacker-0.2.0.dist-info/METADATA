@@ -1,0 +1,222 @@
+Metadata-Version: 2.4
+Name: pixelpacker
+Version: 0.2.0
+Summary: Automates TIFF stack processing: autoscale, convert to 8‑bit, tile 3D volumes into 2D atlases, and compress to WebP for web‑based volumetric viewing.
+Author-email: Brandon Scott <brandon.scott@sdsmt.edu>
+License: MIT License
+        
+        Copyright (c) 2025 Brandon Scott
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/bscott711/PixelPacker
+Project-URL: Source, https://github.com/bscott711/PixelPacker
+Project-URL: Tracker, https://github.com/bscott711/PixelPacker/issues
+Keywords: tiff,webp,volumetric,atlas,imaging,pipeline
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typer>=0.9.0
+Requires-Dist: matplotlib<4.0,>=3.7
+Requires-Dist: numpy<3.0,>=1.21
+Requires-Dist: pillow<12.0,>=10.0
+Requires-Dist: scipy<2.0,>=1.7
+Requires-Dist: tifffile>=2023.1.1
+Requires-Dist: tqdm>=4.64
+Requires-Dist: typing_extensions>=4.0.0
+Provides-Extra: test
+Requires-Dist: pytest>=7.0; extra == "test"
+Requires-Dist: pytest-html>=4.0; extra == "test"
+Requires-Dist: pytest-xdist>=3.0; extra == "test"
+Requires-Dist: pytest-cov>=3.0; extra == "test"
+Dynamic: license-file
+
+# PixelPacker  
+[![Python Version](https://img.shields.io/pypi/pyversions/pixelpacker)](https://pypi.org/project/pixelpacker/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+**Automate your 3D TIFF→WebP pipeline** for fast, web‑friendly volumetric viewing. 
+
+**Achieve ~100X file‑size reduction (e.g. 75 MB → 600 KB).**
+
+---
+
+## 🚀 Quick Start
+
+1. **Clone & enter repo**  
+   ```bash
+   git clone https://github.com/bscott711/PixelPacker.git
+   cd PixelPacker
+   ```
+2. **Create & activate virtualenv**  
+   ```bash
+   uv venv
+   source .venv/bin/activate
+   ```
+3. **Install in editable mode**  
+   ```bash
+   uv pip install -e .
+   ```
+
+---
+
+## 🎨 Features
+
+- **TIFF Volume Extraction**  
+  Handles 2D, 3D, 4D, 5D TIFF stacks (with singleton dims).
+- **Flexible Contrast Stretching**  
+  Choose your stretch mode:  
+  - `smart` (dynamic histogram, default)  
+  - `smart-late` (alternative dynamic)  
+  - `imagej-auto` (ImageJ‑style percentiles)  
+  - `max` (min→max linear)
+
+  **Example Debug Histogram (`smart-late` mode):**
+        ![Example Debug Histogram Plot](./debug_hist_example.png "PixelPacker Debug Histogram")
+
+- **Global Contrast**  
+  `--global-contrast` for consistent brightness/contrast across all timepoints.
+- **2D Atlas Tiling**  
+  Packs Z‑slices into an optimal grid layout.
+- **WebP Compression**  
+  Achieve ~×100 file‑size reduction (e.g. 75 MB → 0.75 MB).
+- **Metadata Manifest**  
+  Auto‑generates `manifest.json` with dimensions, tile layout, channels, timepoints, and contrast bounds.
+- **Parallel Processing**  
+  `--threads` to speed up batch jobs.
+- **Debug Mode**  
+  `--debug` saves histograms & preview slices.
+- **Easy CLI**  
+  Clear flags and built‑in `--help`.
+
+---
+
+## 💻 Usage
+
+```bash
+python -m pixelpacker.cli   --input  <input_tiff_folder>   --output <output_volume_folder>   [OPTIONS]
+```
+
+### Examples
+
+- **Default (smart contrast)**  
+  ```bash
+  python -m pixelpacker.cli     --input ./Input_TIFFs     --output ./volumes
+  ```
+- **ImageJ contrast + 8 threads + debug**  
+  ```bash
+  python -m pixelpacker.cli     --input /path/to/tiffs     --output /path/to/web_volumes     --stretch imagej-auto     --threads 8     --debug
+  ```
+- **Global contrast across timepoints**  
+  ```bash
+  python -m pixelpacker.cli     --input ./Input_TIFFs     --output ./volumes_global     --global-contrast
+  ```
+
+---
+
+## ⚙️ CLI Options
+
+| Flag                   | Description                                                                                          | Default        |
+|------------------------|------------------------------------------------------------------------------------------------------|----------------|
+| `--input <folder>`     | Input directory of TIFF stacks                                                                      | `./Input_TIFFs`|
+| `--output <folder>`    | Output directory for WebP atlases + manifest                                                        | `./volumes`    |
+| `--stretch <mode>`     | Contrast mode: `smart`│`smart-late`│`imagej-auto`│`max`                                                | `smart`        |
+| `--global-contrast`    | Two‑pass analysis for consistent contrast across timepoints                                          | off            |
+| `--threads <n>`        | Number of worker threads                                                                            | `8`            |
+| `--dry-run`            | Simulate without reading/writing image files                                                         | off            |
+| `--debug`              | Save intermediate histograms & preview slices                                                        | off            |
+| `-h`, `--help`         | Show help message                                                                                   | —              |
+| `--version`            | Show installed version                                                                              | —              |
+
+> **Tip:** If you see module name issues, run  
+> `python -m tiff_preprocessor.cli …`
+
+---
+
+## 📂 Input / Output Formats
+
+**Input filenames** must match:  
+```
+[prefix]_ch[channel]_stack[timepoint][suffix].tif
+```
+- e.g. `exp1_runA_ch0_stack0005_decon.tif`
+
+**Output** (`<output_volume_folder>`):  
+- **WebP atlases**  
+  ```
+  volume_[timepoint]_c[channel].webp
+  ```
+  A 2D grid of Z‑slices in 8‑bit WebP format.  
+- **Manifest** `manifest.json`  
+  ```json
+  {
+    "tile_layout": { "cols": X, "rows": Y },
+    "volume_size": { "width": W, "height": H, "depth": Z },
+    "channels": C,
+    "timepoints": [
+      {
+        "time": "stack0005",
+        "files": {
+          "c0": {
+            "file": "volume_stack0005_c0.webp",
+            "p_low": 0.01,
+            "p_high": 0.99
+          }
+        }
+      }
+    ],
+    "global_intensity": {
+      "c0": { "p_low": 0.01, "p_high": 0.99 }
+    }
+  }
+  ```
+---
+
+## 🔗 Dependencies
+
+- Python ≥ 3.10  
+- numpy  
+- tifffile  
+- Pillow  
+- scipy  
+- matplotlib  
+- docopt  
+- tqdm  
+
+See [pyproject.toml](pyproject.toml) for versions.
+
+---
+
+## 📄 License
+
+MIT — see [LICENSE](LICENSE)
+
+---
+
+## 🐛 Issues
+
+Please report bugs & feature requests on [GitHub Issues](https://github.com/bscott711/PixelPacker/issues).
