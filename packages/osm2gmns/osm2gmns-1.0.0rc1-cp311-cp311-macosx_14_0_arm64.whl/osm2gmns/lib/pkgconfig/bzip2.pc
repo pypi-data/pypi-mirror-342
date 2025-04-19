@@ -1,0 +1,11 @@
+prefix=/var/folders/qn/7t0vq3ts721cmgt0tgrtgzl80000gn/T/tmpp5hayaq2/wheel/platlib/osm2gmns
+exec_prefix=/var/folders/qn/7t0vq3ts721cmgt0tgrtgzl80000gn/T/tmpp5hayaq2/wheel/platlib/osm2gmns
+bindir=/var/folders/qn/7t0vq3ts721cmgt0tgrtgzl80000gn/T/tmpp5hayaq2/wheel/platlib/osm2gmns/bin
+libdir=/var/folders/qn/7t0vq3ts721cmgt0tgrtgzl80000gn/T/tmpp5hayaq2/wheel/platlib/osm2gmns/lib
+includedir=/var/folders/qn/7t0vq3ts721cmgt0tgrtgzl80000gn/T/tmpp5hayaq2/wheel/platlib/osm2gmns/include
+
+Name: bzip2
+Description: Lossless, block-sorting data compression
+Version: 1.1.0
+Libs: -L${libdir} -lbz2
+Cflags: -I${includedir}
