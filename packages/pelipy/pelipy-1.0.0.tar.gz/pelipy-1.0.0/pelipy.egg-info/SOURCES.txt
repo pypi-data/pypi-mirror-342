@@ -1,0 +1,12 @@
+README.md
+setup.py
+pelipy/__init__.py
+pelipy/objects.py
+pelipy/pelican.py
+pelipy/permissions.py
+pelipy/utils.py
+pelipy.egg-info/PKG-INFO
+pelipy.egg-info/SOURCES.txt
+pelipy.egg-info/dependency_links.txt
+pelipy.egg-info/requires.txt
+pelipy.egg-info/top_level.txt
