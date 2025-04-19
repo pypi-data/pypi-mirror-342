@@ -1,0 +1,11 @@
+README.md
+setup.py
+scieco/__init__.py
+scieco/bigleaf.py
+scieco/evapotranspiration.py
+scieco/photosynthesis.py
+scieco/respiration.py
+scieco.egg-info/PKG-INFO
+scieco.egg-info/SOURCES.txt
+scieco.egg-info/dependency_links.txt
+scieco.egg-info/top_level.txt
