@@ -1,0 +1,13 @@
+name: Lint and Tests
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run linters
+        uses: astral-sh/ruff-action@v3
