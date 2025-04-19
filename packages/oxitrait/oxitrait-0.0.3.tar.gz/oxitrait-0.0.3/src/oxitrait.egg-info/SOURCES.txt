@@ -1,0 +1,17 @@
+LICENSE.txt
+NOTICE
+README.md
+pyproject.toml
+src/oxitrait/__init__.py
+src/oxitrait/enum.py
+src/oxitrait/errors.py
+src/oxitrait/impl.py
+src/oxitrait/runtime.py
+src/oxitrait/struct.py
+src/oxitrait/trait.py
+src/oxitrait.egg-info/PKG-INFO
+src/oxitrait.egg-info/SOURCES.txt
+src/oxitrait.egg-info/dependency_links.txt
+src/oxitrait.egg-info/requires.txt
+src/oxitrait.egg-info/top_level.txt
+tests/test_traits.py
