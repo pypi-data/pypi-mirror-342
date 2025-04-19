@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nastar"
+version = "2.0.0"
+description = "Python code protection with direct execution"
+authors = [{name = "Anak Kecil", email = "anakkecil@example.com"}]
+license = {text = "Nastar Code Protection License"}
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries"
+]
+
+[project.scripts]
+nastar = "nastar.cli:cli"

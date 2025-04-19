@@ -1,0 +1,2 @@
+[console_scripts]
+nastar = nastar.cli:cli

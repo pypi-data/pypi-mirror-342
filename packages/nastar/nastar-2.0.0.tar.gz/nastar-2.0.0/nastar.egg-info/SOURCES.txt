@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+nastar/__init__.py
+nastar/cli.py
+nastar/encoder.py
+nastar.egg-info/PKG-INFO
+nastar.egg-info/SOURCES.txt
+nastar.egg-info/dependency_links.txt
+nastar.egg-info/entry_points.txt
+nastar.egg-info/top_level.txt
