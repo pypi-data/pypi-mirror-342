@@ -1,0 +1,3 @@
+[console_scripts]
+tks = tokens_cli.cli:main
+tokens = tokens_cli.cli:main
