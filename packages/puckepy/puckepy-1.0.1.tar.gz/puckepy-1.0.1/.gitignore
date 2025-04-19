@@ -1,0 +1,15 @@
+/target
+/readme-to-me.md
+/pythontests
+/pyrightconfig.json
+/puckepy/puckepy.abi3.so
+/puckepy/__pycache__/
+/puckepy/confsampling/__pycache__/
+/puckepy/inversion/__pycache__/
+/puckepy/formalism/__pycache__/
+/puckepy/geometry/__pycache__/
+/.venv/
+/docs/installation.rst
+/docs/documentation.rst
+/tests/__pycache__/
+/dist/
