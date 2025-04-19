@@ -1,0 +1,14 @@
+[project]
+name = "mypypioleksiivers3"
+version = "1.0.0"
+description = "mypypioleksiivers3"
+readme = "README.md"
+authors = [
+    { name = "Oleksii Saiun", email = "oleksiisaiun@example.com" }
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
