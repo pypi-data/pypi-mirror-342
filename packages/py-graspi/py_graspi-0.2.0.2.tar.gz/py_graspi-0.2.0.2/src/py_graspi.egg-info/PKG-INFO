@@ -1,0 +1,33 @@
+Metadata-Version: 2.2
+Name: py_graspi
+Version: 0.2.0.2
+Summary: Utilize Python-igraph to produce similar functionality as GraSPI
+Home-page: https://github.com/owodolab/py-graspi
+Download-URL: https://github.com/owodolab/py-graspi/archive/refs/tags/v_2.0.2.tar.gz
+Author: Wenqi Zheng
+Author-email: wenqizhe@buffalo.edu
+Classifier: Programming Language :: Python
+Requires-Python: >=3.7
+Requires-Dist: igraph
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: contourpy
+Requires-Dist: cycler
+Requires-Dist: fonttools
+Requires-Dist: kiwisolver
+Requires-Dist: packaging
+Requires-Dist: pillow
+Requires-Dist: psutil
+Requires-Dist: pyparsing
+Requires-Dist: python-dateutil
+Requires-Dist: six
+Requires-Dist: texttable
+Requires-Dist: fpdf
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: download-url
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
