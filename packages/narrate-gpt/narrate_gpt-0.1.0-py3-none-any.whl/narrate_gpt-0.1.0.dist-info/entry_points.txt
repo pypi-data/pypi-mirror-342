@@ -1,0 +1,2 @@
+[console_scripts]
+narrate-gpt = narrate_gpt.cli:main
