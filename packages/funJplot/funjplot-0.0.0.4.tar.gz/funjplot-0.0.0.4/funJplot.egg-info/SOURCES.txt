@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+funJplot/__init__.py
+funJplot/base.py
+funJplot.egg-info/PKG-INFO
+funJplot.egg-info/SOURCES.txt
+funJplot.egg-info/dependency_links.txt
+funJplot.egg-info/requires.txt
+funJplot.egg-info/top_level.txt
+funJplot/matrix/__init__.py
+funJplot/matrix/vector_rotation.py
+funJplot/parametric_curves/__init__.py
+funJplot/parametric_curves/base.py
+funJplot/parametric_curves/curves.py
+funJplot/parametric_curves/curves3d.py
