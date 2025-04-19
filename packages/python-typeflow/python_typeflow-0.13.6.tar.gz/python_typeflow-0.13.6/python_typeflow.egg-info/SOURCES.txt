@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+python_typeflow.egg-info/PKG-INFO
+python_typeflow.egg-info/SOURCES.txt
+python_typeflow.egg-info/dependency_links.txt
+python_typeflow.egg-info/entry_points.txt
+python_typeflow.egg-info/top_level.txt
+tests/test_advanced.py
+tests/test_basic.py
+typeflow/__init__.py
+typeflow/__main__.py
+typeflow/config.py
+typeflow/converters.py
+typeflow/core.py
+typeflow/types.py

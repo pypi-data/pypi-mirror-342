@@ -1,0 +1,2 @@
+[console_scripts]
+typeflow = typeflow.__main__:main
