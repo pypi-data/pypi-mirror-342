@@ -1,0 +1,9 @@
+numpy
+requests>=2.11.1
+blosc>=1.4.4
+six
+nose2
+joblib
+psutil
+pillow
+tqdm

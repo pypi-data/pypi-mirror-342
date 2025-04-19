@@ -1,0 +1,134 @@
+Metadata-Version: 2.4
+Name: intern
+Version: 1.4.2
+Summary: Python SDK for interacting with neuroscience data via the Boss API.
+Home-page: https://github.com/jhuapl-boss/intern
+Download-URL: https://github.com/jhuapl-boss/intern/tarball/1.4.2
+Author: Johns Hopkins University Applied Physics Laboratory
+Author-email: iarpamicrons@jhuapl.edu
+License: Apache 2.0
+Keywords: brain,microscopy,neuroscience,connectome,connectomics,spatial,EM,electron,calcium,database,boss,microns
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: requests>=2.11.1
+Requires-Dist: blosc>=1.4.4
+Requires-Dist: six
+Requires-Dist: nose2
+Requires-Dist: joblib
+Requires-Dist: psutil
+Requires-Dist: pillow
+Requires-Dist: tqdm
+Provides-Extra: cloudvolume
+Requires-Dist: cloud-volume==6.1.1; extra == "cloudvolume"
+Requires-Dist: brotli>=1.0.7; extra == "cloudvolume"
+Provides-Extra: meshing
+Requires-Dist: zmesh>=0.5.0; extra == "meshing"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: download-url
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: summary
+
+# intern
+
+[![PyPI version](https://img.shields.io/pypi/v/intern?style=for-the-badge)](https://pypi.org/project/intern/)
+[![Python 3.6/3.7 Tests](https://img.shields.io/github/actions/workflow/status/jhuapl-boss/intern/tests.yml?style=for-the-badge)](https://github.com/jhuapl-boss/intern/actions?query=workflow%3A%22Test+Python+Package%22)
+
+**intern** (Integrated Toolkit for Extensible and Reproducible Neuroscience) is a Python 3 module that enables big-data neuroscience. Currently, it provides an interface to common big-data neuroimaging databases such as [BossDB](https://bossdb.org), CloudVolume, DVID, and other standard formats.
+
+
+## Getting Started
+
+To quickly get started with intern, check out the wiki: [https://github.com/jhuapl-boss/intern/wiki](https://github.com/jhuapl-boss/intern/wiki)
+
+## Documentation
+
+Full detailed documentation can be found here: [https://jhuapl-boss.github.io/intern/](https://jhuapl-boss.github.io/intern/)
+
+## Installation
+
+-   It's always a good idea to use virtualenv to isolate your work from your system Python installation:
+
+-   Using [virtualenv](https://virtualenv.pypa.io/en/stable/):
+
+```shell
+virtualenv intern
+. intern/bin/activate
+```
+
+-   Using [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/):
+
+```shell
+mkvirtualenv intern
+```
+
+-   (Preferred) Install via pypi
+
+```shell
+pip install intern
+```
+
+-   Install via git
+
+Clone the repository from https://github.com/jhuapl-boss/intern and run
+`pip install -r requirements.txt` from the repository's location on your
+system.
+
+Add `<repository location>` to your `PYTHONPATH`.
+
+For example, on a \*nix system, if intern was cloned to ~/intern:
+
+`export PYTHONPATH=$PYTHONPATH:~/intern`
+
+> **For Python 2 support, you will need to install intern v0.10.0 or earlier.**
+
+### Optional Dependencies
+To install depedencies required to use the [cloud-volume](https://github.com/seung-lab/cloud-volume) remote, run the command: 
+
+```shell
+pip install intern[cloudvolume]
+```
+
+## Contributing
+
+Please submit bug reports, or get in touch using GitHub Issues.
+
+## Citation
+
+If you find this library useful to your work, please consider citing the following:
+
+https://www.biorxiv.org/content/10.1101/2020.05.15.098707v1
+
+```
+@article{intern,
+	doi = {10.1101/2020.05.15.098707},
+	url = {https://www.biorxiv.org/content/10.1101/2020.05.15.098707v1},
+	year = 2020,
+	month = {may},
+	publisher = {BiorXiv},
+	author = {Matelsky, Jordan K and Rodriguez, Luis and Xenes, Daniel and Gion, Timothy and Hider Jr., Robert and Wester, Brock and Gray-Roncal, William},
+	title = {{intern: Integrated Toolkit for Extensible and Reproducible Neuroscience}},
+	journal = {BiorXiv}
+}
+```
+
+## The Boss Legal Notes
+
+Use or redistribution of the Boss system in source and/or binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code or binary forms must adhere to the terms and conditions of any applicable software licenses.
+2. End-user documentation or notices, whether included as part of a redistribution or disseminated as part of a legal or scientific disclosure (e.g. publication) or advertisement, must include the following acknowledgement: The Boss software system was designed and developed by the Johns Hopkins University Applied Physics Laboratory (JHU/APL).
+3. The names "The Boss", "JHU/APL", "Johns Hopkins University", "Applied Physics Laboratory", "MICrONS", or "IARPA" must not be used to endorse or promote products derived from this software without prior written permission. For written permission, please contact BossAdmin@jhuapl.edu.
+4. This source code and library is distributed in the hope that it will be useful, but is provided without any warranty of any kind.
+
