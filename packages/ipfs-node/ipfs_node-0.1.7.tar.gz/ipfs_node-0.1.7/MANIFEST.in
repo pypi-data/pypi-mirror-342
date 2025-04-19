@@ -1,0 +1,8 @@
+include README.md
+include LICENSE
+include INSTALL.md
+include libkubo/go.mod
+include libkubo/kubo_wrapper.go
+recursive-include ipfs_node/lib *
+recursive-include examples *.py
+recursive-include tests *.py
