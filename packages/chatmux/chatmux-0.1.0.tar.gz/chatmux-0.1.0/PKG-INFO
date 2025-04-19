@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: chatmux
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.10.14
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pillow==10.4.0
+Requires-Dist: pydantic>=2.11.3
+Dynamic: license-file
+
+# chatx
+
+Convert to and from common LLM chat schemas. All implementations are built on pydantic base models.
+
+## Contributing
+
+Please open an issue before submitting a PR
