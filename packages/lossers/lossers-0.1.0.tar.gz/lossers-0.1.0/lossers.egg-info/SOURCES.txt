@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+lossers/__init__.py
+lossers/clip.py
+lossers/gan.py
+lossers/math.py
+lossers/softmax.py
+lossers/version.py
+lossers.egg-info/PKG-INFO
+lossers.egg-info/SOURCES.txt
+lossers.egg-info/dependency_links.txt
+lossers.egg-info/top_level.txt
