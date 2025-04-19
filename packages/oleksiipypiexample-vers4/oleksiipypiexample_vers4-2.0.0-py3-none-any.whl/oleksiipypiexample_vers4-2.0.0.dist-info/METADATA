@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: oleksiipypiexample-vers4
+Version: 2.0.0
+Summary: A simple pypi project to call a greeting function
+Author-email: Oleksii Saiun <oleksiisaiun@example.com>
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# Task
+A minimal Python package with a greeting function. Example for PyPi suing uv command
+
+
+# How publish a package to PyPi using uv:
+
+uv build
+uv publish --token [YOUR_PYPI_TOKEN]
