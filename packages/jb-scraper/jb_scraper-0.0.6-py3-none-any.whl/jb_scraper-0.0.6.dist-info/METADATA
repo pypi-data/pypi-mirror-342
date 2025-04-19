@@ -1,0 +1,163 @@
+Metadata-Version: 2.4
+Name: jb-scraper
+Version: 0.0.6
+Summary: JobScraper, um pacote de raspagem de vagas na internet.
+Home-page: https://github.com/ClausAlaerth/jobscraper-package
+Author: Lucas Aquino
+Author-email: lc.aquinodeoliveira@gmail.com
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: attrs==25.3.0
+Requires-Dist: certifi==2025.1.31
+Requires-Dist: cffi==1.17.1
+Requires-Dist: charset-normalizer==3.4.1
+Requires-Dist: et_xmlfile==2.0.0
+Requires-Dist: h11==0.14.0
+Requires-Dist: idna==3.10
+Requires-Dist: mypy==1.15.0
+Requires-Dist: mypy-extensions==1.0.0
+Requires-Dist: openpyxl==3.1.5
+Requires-Dist: openpyxl-stubs==0.1.25
+Requires-Dist: outcome==1.3.0.post0
+Requires-Dist: packaging==24.2
+Requires-Dist: pycparser==2.22
+Requires-Dist: PySocks==1.7.1
+Requires-Dist: python-dotenv==1.1.0
+Requires-Dist: requests==2.32.3
+Requires-Dist: selenium==4.30.0
+Requires-Dist: sniffio==1.3.1
+Requires-Dist: sortedcontainers==2.4.0
+Requires-Dist: trio==0.29.0
+Requires-Dist: trio-websocket==0.12.2
+Requires-Dist: typing_extensions==4.13.0
+Requires-Dist: urllib3==2.3.0
+Requires-Dist: webdriver-manager==4.0.2
+Requires-Dist: websocket-client==1.8.0
+Requires-Dist: wsproto==1.2.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Projeto JobScraper - Centralize as Vagas Online
+
+O JobScraper Ã© usado puramente para recolher vagas de empregos nos domÃ­nios
+especificados abaixo, os centralizando em um arquivo .xlsx:
+
+* LinkedIn
+* Vagas.com
+* Catho
+* Glassdoor
+
+## InstalaÃ§Ã£o
+
+Use o gerenciador de pacotes [pip](https://pypi.org/project/pip/) para
+instalar o JobScraper:
+
+```bash
+pip install jb-scraper
+```
+
+## UtilizaÃ§Ã£o
+
+```python
+from job_scraper.scraping import JobScraper
+
+# Coloque suas pesquisas em uma lista.
+query_list = [
+    "query 1",
+    "query 2",
+    "query 3",
+    "query n",
+]
+
+# Crie o objeto com a classe JobScraper.
+objeto = JobScraper(
+    domain="palavra-chave",  # Consulte as palavras-chave
+    archive_name="sua-escolha",
+    query=query_list,
+)
+
+# Instancie o objeto com o sequinte mÃ©todo.
+objeto.create_archive()
+```
+
+A execuÃ§Ã£o deste cÃ³digo irÃ¡ ativar o Selenium, recolher os dados das vagas
+e armazenÃ¡-los em um arquivo .xlsx, que por ventura serÃ¡ criado no mesmo local
+onde estÃ¡ localizado o mÃ³dulo de execuÃ§Ã£o deste pacote.
+
+### Sobre o arquivo .xlsx
+
+Como anteriormente dito, o arquivo serÃ¡ criado no diretÃ³rio do mÃ³dulo de
+execuÃ§Ã£o, o nome deste serÃ¡ decidido no momento de criaÃ§Ã£o do objeto. Em casos
+de arquivos com o mesmo nome, este serÃ¡ simplesmente atualizado.
+
+Arquivos .xlsx possuem planilhas, estas sÃ£o nomeadas de acordo com a palavra-
+chave utilizada no parÃ¢metro "dominio", na criaÃ§Ã£o do objeto. Em situaÃ§Ãµes onde
+o usuÃ¡rio utilize o mesmo nome de arquivo em uma pesquisa nova, em adiÃ§Ã£o a
+isso, o mesmo nome de planilha, todos os dados da planilha antiga serÃ£o
+**apagados** e novos dados serÃ£o postos no lugar, fique ciente disso.
+
+Em casos de arquivos com o mesmo nome, porÃ©m planilhas com nomes diferentes,
+uma nova planilha serÃ¡ adicionada ao arquivo jÃ¡ existente.
+
+### Palavras-chave
+
+* "linkedin"
+--- DomÃ­nio Utilizado: [LinkedIn](https://www.linkedin.com/jobs/)
+--- Nome da Planilha: "linkedin"
+
+* "vagas.com"
+--- DomÃ­nio Utilizado: [Vagas.com](https://www.vagas.com.br/)
+--- Nome da Planilha: "vagas.com"
+
+* "catho"
+--- DomÃ­nio Utilizado: [Catho](https://www.catho.com.br/)
+--- Nome da Planilha: "catho"
+
+* "glassdoor"
+--- DomÃ­nio Utilizado: [Vagas.com](https://www.glassdoor.com.br/Vaga/index.htm)
+--- Nome da Planilha: "glassdoor"
+
+### Sobre os domÃ­nios
+
+HÃ¡ alguns domÃ­nios que exigem login, ou informaÃ§Ã£o adicional, como localidade
+das vagas e afins. Para tanto, Ã© necessÃ¡rio exemplificar as peculiaridades de
+cada site envolvido no scraping.
+
+#### LinkedIn
+
+O LinkedIn nÃ£o irÃ¡ fazer o scraping imediatamente, para acessar as vagas Ã©
+preciso fazer o login com a sua conta, no site. Assim que tal aÃ§Ã£o for feita,
+o script continuarÃ¡ normalmente. A localidade usada serÃ¡ a configurada na sua
+conta do LinkedIn.
+
+#### Vagas.com
+
+O site Vagas.com terÃ¡ a query concatenada com a localidade, "cidade estado" ou
+apenas "estado(por extenso)".
+
+#### Catho
+
+UsarÃ¡ os dados da query e em seguida, a localidade inserida no parÃ¢metro,
+certifique-se de usar um local vÃ¡lido, "cidade estado(abreviado)" ou apenas
+"estado(sigla)".
+
+#### Glassdoor
+
+UsarÃ¡ os dados da query e em seguida, a localidade inserida no parÃ¢metro,
+certifique-se de usar um local vÃ¡lido, "cidade estado" ou apenas
+"estado".
+
+## Desenvolvedor
+
+Lucas Aquino de Oliveira
+--- [Meu LinkedIn](https://www.linkedin.com/in/aquino-lucas)
+
+## LicenÃ§a
+
+[MIT](https://choosealicense.com/licenses/mit/)
