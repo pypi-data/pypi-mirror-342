@@ -1,0 +1,9 @@
+geopy
+networkx
+pyyaml
+
+[dev]
+pytest>=8
+pytest-cov
+black
+isort
