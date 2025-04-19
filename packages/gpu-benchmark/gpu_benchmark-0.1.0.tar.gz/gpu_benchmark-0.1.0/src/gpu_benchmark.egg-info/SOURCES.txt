@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/gpu-benchmark/__init__.py
+src/gpu-benchmark/main.py
+src/gpu_benchmark.egg-info/PKG-INFO
+src/gpu_benchmark.egg-info/SOURCES.txt
+src/gpu_benchmark.egg-info/dependency_links.txt
+src/gpu_benchmark.egg-info/top_level.txt
