@@ -1,0 +1,14 @@
+detquantlib/__init__.py,sha256=dH46j7JDxM1CmQCEBY5Ghggv-vir43Cx9iiTf0ETx4I,48
+detquantlib/data/__init__.py,sha256=sGLNMffKLG9Y67pxyDpZdfUO-p6VMr3U85IC2RxBb_k,154
+detquantlib/data/databases/detdatabase.py,sha256=esMQCk4Ho1pwqgYliRp-TZbCshXM23eUfxH0nTqR5qk,26109
+detquantlib/data/entsoe/entsoe.py,sha256=NCoXcWSJe_IFovbtHFWtX8KSQHerzP5OQ1bq36TjIiA,6445
+detquantlib/data/sftp/sftp.py,sha256=SZbW0GY3JQF1iW-brDWdt7j263YdSWFHdw8PENaWF-g,3100
+detquantlib/dates/dates.py,sha256=1mfwVVlIJizRXUeKmFqXdufqnq-ypUJxDwIcsb0Dbd0,6394
+detquantlib/figures/plotly_figures.py,sha256=Qno3sm93jP22rI6eremFwSi7uG5p86e5maIhQWnAZSY,3111
+detquantlib/stats/data_analysis.py,sha256=bax_HDoKUQs5oESdYfmhJq1PlaZ_mrXtp1KB4zTS9o0,5465
+detquantlib/tradable_products/tradable_products.py,sha256=BIqKdl0HKm4g2ztcUJXwm80wWkpPlGnrB_MIS_ONEng,3738
+detquantlib/utils/utils.py,sha256=1Bok0osgKIzOU2J4T8VQ5mg9-COg9oBj0mLUEMmuM7U,270
+detquantlib-3.0.1.dist-info/LICENSE.txt,sha256=uiy4xTg4EJIOVOoGJbh8FakJJjqxRlTuctKpPz9WP2g,246
+detquantlib-3.0.1.dist-info/METADATA,sha256=77H0u3WarjIec657KGLjvHojA-G6X4i5bs1gKeJAxBI,7006
+detquantlib-3.0.1.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+detquantlib-3.0.1.dist-info/RECORD,,
