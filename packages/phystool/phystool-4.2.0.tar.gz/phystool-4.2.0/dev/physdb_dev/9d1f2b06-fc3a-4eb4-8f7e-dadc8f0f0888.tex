@@ -1,0 +1,29 @@
+\begin{theory}[title=Inclusion d'image]
+	\verb|physool| distingue deux types d'images:
+	\begin{enumerate}
+		\item Celles qui sont crées en \LaTeX et gérées par \verb|phystool|
+		\item et celles qui sont simplement inclue par \verb|\includegraphics|.
+	\end{enumerate}
+
+	Dans les deux cas, il est nécessaire que \verb|phystool| connaisse le
+	chemin de ces fichiers. Cela se fait au travers de la commandes:
+	\begin{quote}
+		\verb|\graphicspath{{\c_pdb_path_tl}, {\c_pdb_path_tl figures}}|
+	\end{quote}
+	Le premier chemin est celui de la base de donnée car la constante
+	\verb|\c_pdb_path_tl| a été définie au travers de l'appel de
+	\verb|\PdbSetDBPath|. Le deuxième chemin est celui du sous-répertoire
+	\verb|figures| contenant les différentes images.
+
+	Grâce à la définition de ces chemins, il est facile d'inclure ces deux
+	types d'image:
+	\begin{quote}
+		\verb|\includegraphics[scale=0.4]{tech_support_cheat_sheet.png}|
+		\verb|\PdbTikz{01cdfb94-e20e-446c-91df-12eacc7ab474}|
+	\end{quote}
+
+	\begin{center}
+		\PdbTikz{01cdfb94-e20e-446c-91df-12eacc7ab474}
+		\includegraphics[scale=0.4]{tech_support_cheat_sheet.png}
+	\end{center}
+\end{theory}

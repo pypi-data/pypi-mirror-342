@@ -1,0 +1,3 @@
+[submodule "dev/physdb_dev"]
+	path = dev/physdb_dev
+	url = git@bitbucket.org:jdufour/physdb_dev.git
