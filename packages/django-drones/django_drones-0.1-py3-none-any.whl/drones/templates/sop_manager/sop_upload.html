@@ -1,0 +1,34 @@
+{% extends 'index.html' %} 
+{% load static %} 
+
+{% block title %} 
+Upload SOP 
+{% endblock %} 
+
+{% block breadcrumbs %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'documents' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'general_document_list' %}">General Documents</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'sop_list' %}">SOPs</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Add a New SOP</a></li>
+  </ol>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <div>
+    <h2>Upload New SOP</h2>
+  </div>
+  <div>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Upload</button>
+    </form>
+    <a href="{% url 'sop_list' %}">Back to SOP List</a>
+  </div>
+</div>
+
+  {% endblock %}
