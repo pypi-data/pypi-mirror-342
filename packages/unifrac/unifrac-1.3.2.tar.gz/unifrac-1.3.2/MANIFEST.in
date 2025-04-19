@@ -1,0 +1,7 @@
+graft unifrac
+
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude .git
+global-exclude *.so
+global-exclude .*.swp
