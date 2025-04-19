@@ -1,0 +1,1518 @@
+2025-04-13 17:06:30,990 - INFO - log.py: set_log_handlers
+  =======================================
+  Starting logger for fractalshades 1.1.1
+  =======================================
+2025-04-13 17:06:30,990 - INFO - log.py: set_log_handlers
+  Logger verbosity: debug @ console + log
+2025-04-13 17:06:30,990 - INFO - log.py: set_log_handlers
+  Started file logger: /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/REFERENCE_DATA/perturb_REF/log/2025-04-13_17h06_30_fractalshades.log
+2025-04-13 17:06:30,992 - WARNING - core.py: clean_up
+  Clean-up cancelled, directory not found:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_E20/data
+2025-04-13 17:06:30,993 - DEBUG - core.py: set_status
+  Status update Reference: running
+2025-04-13 17:06:30,993 - DEBUG - perturbation.py: ref_point_matching
+  No data file found for ref point
+2025-04-13 17:06:30,993 - INFO - perturbation.py: get_FP_orbit
+  "Launch Newton descent with parameters:
+    order: 296, max newton attempts: 3
+2025-04-13 17:06:30,994 - INFO - perturbation.py: get_FP_orbit
+  Newton attempt 1 failed
+  Increasing dps for next : 30 -> 37
+2025-04-13 17:06:30,994 - INFO - perturbation.py: get_FP_orbit
+  Newton descent converged at attempt 2.
+2025-04-13 17:06:30,994 - INFO - perturbation.py: get_FP_orbit
+  Reference nucleus found at shift from center:
+  (-0.0008349846882517442122933688133907482657, 0.0) in dx units
+  with order 296
+2025-04-13 17:06:30,994 - INFO - perturbation.py: compute_FP_orbit
+  Computing full precision path with max_iter 50000
+2025-04-13 17:06:30,994 - INFO - perturbation.py: compute_FP_orbit
+  Order is known, wraping at 296
+2025-04-13 17:06:30,997 - INFO - perturbation.py: compute_FP_orbit
+  Storing  orbit for pt: 
+  (-1.74928893611435556407232174923440716 + 0.0j)
+  [ 0.00000000e+00+0.j -1.74928894e+00+0.j  1.31072285e+00+0.j
+ -3.12945574e-02+0.j -1.74830959e+00+0.j  1.30729748e+00+0.j
+ -4.02622475e-02+0.j -1.74766789e+00+0.j  1.30505411e+00+0.j
+ -4.61227087e-02+0.j -1.74716163e+00+0.j  1.30328483e+00+0.j
+ -5.07375835e-02+0.j -1.74671463e+00+0.j  1.30172308e+00+0.j
+ -5.48059706e-02+0.j -1.74628524e+00+0.j  1.30022321e+00+0.j
+ -5.87085422e-02+0.j -1.74584224e+00+0.j  1.29867620e+00+0.j
+ -6.27290585e-02+0.j -1.74535400e+00+0.j  1.29697165e+00+0.j
+ -6.71534652e-02+0.j -1.74477935e+00+0.j  1.29496604e+00+0.j
+ -7.23518969e-02+0.j -1.74405414e+00+0.j  1.29243590e+00+0.j
+ -7.88983699e-02+0.j -1.74306398e+00+0.j  1.28898311e+00+0.j
+ -8.78114681e-02+0.j -1.74157808e+00+0.j  1.28380528e+00+0.j
+ -1.01132939e-01+0.j -1.73906106e+00+0.j  1.27504445e+00+0.j
+ -1.23550584e-01+0.j -1.73402419e+00+0.j  1.25755095e+00+0.j
+ -1.67854536e-01+0.j -1.72111379e+00+0.j  1.21294374e+00+0.j
+ -2.78056408e-01+0.j -1.67197357e+00+0.j  1.04620668e+00+0.j
+ -6.54740512e-01+0.j -1.32060380e+00+0.j -5.29454469e-03+0.j
+ -1.74926090e+00+0.j  1.31062477e+00+0.j -3.15516383e-02+0.j
+ -1.74829343e+00+0.j  1.30724098e+00+0.j -4.04099509e-02+0.j
+ -1.74765597e+00+0.j  1.30501246e+00+0.j -4.62314146e-02+0.j
+ -1.74715159e+00+0.j  1.30324975e+00+0.j -5.08290232e-02+0.j
+ -1.74670535e+00+0.j  1.30169063e+00+0.j -5.48904362e-02+0.j
+ -1.74627598e+00+0.j  1.30019085e+00+0.j -5.87926931e-02+0.j
+ -1.74583236e+00+0.j  1.29864168e+00+0.j -6.28187311e-02+0.j
+ -1.74534274e+00+0.j  1.29693235e+00+0.j -6.72554030e-02+0.j
+ -1.74476565e+00+0.j  1.29491823e+00+0.j -7.24757229e-02+0.j
+ -1.74403621e+00+0.j  1.29237335e+00+0.j -7.90600586e-02+0.j
+ -1.74303844e+00+0.j  1.28889408e+00+0.j -8.80409904e-02+0.j
+ -1.74153772e+00+0.j  1.28366469e+00+0.j -1.01493888e-01+0.j
+ -1.73898793e+00+0.j  1.27479007e+00+0.j -1.24199205e-01+0.j
+ -1.73386349e+00+0.j  1.25699368e+00+0.j -1.69255829e-01+0.j
+ -1.72064140e+00+0.j  1.21131789e+00+0.j -2.81997899e-01+0.j
+ -1.66976612e+00+0.j  1.03882996e+00+0.j -6.70121243e-01+0.j
+ -1.30022646e+00+0.j -5.87000989e-02+0.j -1.74584323e+00+0.j
+  1.29867966e+00+0.j -6.27200681e-02+0.j -1.74535513e+00+0.j
+  1.29697559e+00+0.j -6.71432530e-02+0.j -1.74478072e+00+0.j
+  1.29497082e+00+0.j -7.23395019e-02+0.j -1.74405593e+00+0.j
+  1.29244216e+00+0.j -7.88821995e-02+0.j -1.74306653e+00+0.j
+  1.28899201e+00+0.j -8.77885386e-02+0.j -1.74158211e+00+0.j
+  1.28381930e+00+0.j -1.01096929e-01+0.j -1.73906835e+00+0.j
+  1.27506978e+00+0.j -1.23485992e-01+0.j -1.73404015e+00+0.j
+  1.25760629e+00+0.j -1.67715352e-01+0.j -1.72116050e+00+0.j
+  1.21310452e+00+0.j -2.77666362e-01+0.j -1.67219033e+00+0.j
+  1.04693156e+00+0.j -6.53223254e-01+0.j -1.32258832e+00+0.j
+ -4.90793626e-05+0.j -1.74928893e+00+0.j  1.31072284e+00+0.j
+ -3.12945794e-02+0.j -1.74830959e+00+0.j  1.30729747e+00+0.j
+ -4.02622602e-02+0.j -1.74766789e+00+0.j  1.30505411e+00+0.j
+ -4.61227180e-02+0.j -1.74716163e+00+0.j  1.30328483e+00+0.j
+ -5.07375913e-02+0.j -1.74671463e+00+0.j  1.30172307e+00+0.j
+ -5.48059778e-02+0.j -1.74628524e+00+0.j  1.30022321e+00+0.j
+ -5.87085494e-02+0.j -1.74584224e+00+0.j  1.29867620e+00+0.j
+ -6.27290661e-02+0.j -1.74535400e+00+0.j  1.29697165e+00+0.j
+ -6.71534739e-02+0.j -1.74477935e+00+0.j  1.29496603e+00+0.j
+ -7.23519074e-02+0.j -1.74405414e+00+0.j  1.29243590e+00+0.j
+ -7.88983836e-02+0.j -1.74306398e+00+0.j  1.28898311e+00+0.j
+ -8.78114876e-02+0.j -1.74157808e+00+0.j  1.28380527e+00+0.j
+ -1.01132969e-01+0.j -1.73906106e+00+0.j  1.27504443e+00+0.j
+ -1.23550639e-01+0.j -1.73402418e+00+0.j  1.25755091e+00+0.j
+ -1.67854654e-01+0.j -1.72111375e+00+0.j  1.21294361e+00+0.j
+ -2.78056739e-01+0.j -1.67197339e+00+0.j  1.04620607e+00+0.j
+ -6.54741802e-01+0.j -1.32060211e+00+0.j -5.29900708e-03+0.j
+ -1.74926086e+00+0.j  1.31062461e+00+0.j -3.15520718e-02+0.j
+ -1.74829340e+00+0.j  1.30724089e+00+0.j -4.04102010e-02+0.j
+ -1.74765595e+00+0.j  1.30501239e+00+0.j -4.62315990e-02+0.j
+ -1.74715158e+00+0.j  1.30324969e+00+0.j -5.08291785e-02+0.j
+ -1.74670533e+00+0.j  1.30169058e+00+0.j -5.48905797e-02+0.j
+ -1.74627596e+00+0.j  1.30019079e+00+0.j -5.87928362e-02+0.j
+ -1.74583234e+00+0.j  1.29864162e+00+0.j -6.28188838e-02+0.j
+ -1.74534272e+00+0.j  1.29693229e+00+0.j -6.72555766e-02+0.j
+ -1.74476562e+00+0.j  1.29491814e+00+0.j -7.24759340e-02+0.j
+ -1.74403618e+00+0.j  1.29237324e+00+0.j -7.90603344e-02+0.j
+ -1.74303840e+00+0.j  1.28889393e+00+0.j -8.80413824e-02+0.j
+ -1.74153765e+00+0.j  1.28366445e+00+0.j -1.01494505e-01+0.j
+ -1.73898780e+00+0.j  1.27478964e+00+0.j -1.24200316e-01+0.j
+ -1.73386322e+00+0.j  1.25699272e+00+0.j -1.69258235e-01+0.j
+ -1.72064059e+00+0.j  1.21131509e+00+0.j -2.82004688e-01+0.j
+ -1.66976229e+00+0.j  1.03881718e+00+0.j -6.70147810e-01+0.j
+ -1.30019085e+00+0.j -5.87926929e-02+0.j -1.74583236e+00+0.j
+  1.29864168e+00+0.j -6.28187310e-02+0.j -1.74534274e+00+0.j
+  1.29693235e+00+0.j -6.72554028e-02+0.j -1.74476565e+00+0.j
+  1.29491823e+00+0.j -7.24757228e-02+0.j -1.74403621e+00+0.j
+  1.29237335e+00+0.j -7.90600583e-02+0.j -1.74303844e+00+0.j
+  1.28889408e+00+0.j -8.80409901e-02+0.j -1.74153772e+00+0.j
+  1.28366469e+00+0.j -1.01493888e-01+0.j -1.73898793e+00+0.j
+  1.27479007e+00+0.j -1.24199204e-01+0.j -1.73386349e+00+0.j
+  1.25699368e+00+0.j -1.69255827e-01+0.j -1.72064140e+00+0.j
+  1.21131790e+00+0.j -2.81997893e-01+0.j -1.66976612e+00+0.j
+  1.03882997e+00+0.j -6.70121220e-01+0.j -1.30022649e+00+0.j
+ -5.87000198e-02+0.j -1.74584324e+00+0.j  1.29867970e+00+0.j
+ -6.27199839e-02+0.j -1.74535514e+00+0.j  1.29697563e+00+0.j
+ -6.71431573e-02+0.j -1.74478073e+00+0.j  1.29497087e+00+0.j
+ -7.23393857e-02+0.j -1.74405595e+00+0.j  1.29244222e+00+0.j
+ -7.88820480e-02+0.j -1.74306656e+00+0.j  1.28899209e+00+0.j
+ -8.77883237e-02+0.j -1.74158215e+00+0.j  1.28381944e+00+0.j
+ -1.01096591e-01+0.j -1.73906842e+00+0.j  1.27507002e+00+0.j
+ -1.23485387e-01+0.j -1.73404030e+00+0.j  1.25760681e+00+0.j
+ -1.67714049e-01+0.j -1.72116093e+00+0.j  1.21310602e+00+0.j
+ -2.77662710e-01+0.j -1.67219236e+00+0.j  1.04693834e+00+0.j
+ -6.53209051e-01+0.j -1.32260687e+00+0.j]
+2025-04-13 17:06:31,248 - INFO - perturbation.py: save_ref_point
+  Full precision path computed, saving to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_E20/data/ref_pt.dat
+2025-04-13 17:06:31,249 - DEBUG - core.py: set_status
+  Status update Reference: completed
+2025-04-13 17:06:31,751 - DEBUG - perturbation.py: get_cycle_indep_args
+  Bounding box defined, with kc: [ 3.89233598e-20]
+2025-04-13 17:06:31,751 - DEBUG - core.py: set_status
+  Status update Bilin. approx: running
+2025-04-13 17:06:32,043 - DEBUG - core.py: set_status
+  Status update Bilin. approx: completed
+2025-04-13 17:06:32,043 - DEBUG - core.py: res_available
+  No fingerprint file found for complex128;
+  will trigger a recalculation
+2025-04-13 17:06:32,043 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for complex128
+  -> all tiles will be recomputed
+2025-04-13 17:06:32,044 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:06:32,044 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    precision: 30
+    x: -1.74928893611435556407228
+    y: 0.
+    dx: 5.e-20
+    nx: 600
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: <fractalshades.projection.Cartesian object at 0x7eee74b58560>
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:06:32,044 - INFO - core.py: process
+  Computing and storing raw data for complex128
+2025-04-13 17:06:32,044 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 9
+2025-04-13 17:06:33,536 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 9
+2025-04-13 17:06:33,871 - DEBUG - core.py: set_status
+  Status update Calc tiles: 9 / 9
+2025-04-13 17:06:33,873 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 9
+2025-04-13 17:06:33,919 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 9
+2025-04-13 17:06:34,002 - DEBUG - core.py: set_status
+  Status update Plot tiles: 9 / 9
+2025-04-13 17:06:34,048 - INFO - core.py: incr_tiles_status
+  Image output: 9 / 9
+2025-04-13 17:06:34,157 - INFO - core.py: save_tagged
+  Image of shape (600, 600) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_E20/Normal_map_layer_DEM_map.png
+2025-04-13 17:06:34,259 - INFO - core.py: save_tagged
+  Image of shape (600, 600) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_E20/Color_layer_test_M2_E20_potential_complex128.png
+2025-04-13 17:06:34,259 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:06:34,259 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_E20/Perturbation_mandelbrot.txt
+2025-04-13 17:06:34,841 - WARNING - core.py: clean_up
+  Clean-up cancelled, directory not found:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_E213/data
+2025-04-13 17:06:34,842 - DEBUG - core.py: set_status
+  Status update Reference: running
+2025-04-13 17:06:34,844 - DEBUG - perturbation.py: ref_point_matching
+  No data file found for ref point
+2025-04-13 17:06:35,605 - INFO - perturbation.py: get_FP_orbit
+  "Launch Newton descent with parameters:
+    order: 132830, max newton attempts: 3
+2025-04-13 17:06:36,111 - INFO - perturbation.py: get_FP_orbit
+  Newton attempt 1 failed
+  Increasing dps for next : 224 -> 280
+2025-04-13 17:06:37,969 - INFO - perturbation.py: get_FP_orbit
+  Newton attempt 2 failed
+  Increasing dps for next : 224 -> 350
+2025-04-13 17:06:39,512 - WARNING - perturbation.py: get_FP_orbit
+  Newton descent failed - Default to image center
+2025-04-13 17:06:39,513 - INFO - perturbation.py: get_FP_orbit
+  Reference nucleus found at shift from center:
+  (0.0, 0.0) in dx units
+  with order None
+2025-04-13 17:06:39,513 - INFO - perturbation.py: compute_FP_orbit
+  Computing full precision path with max_iter 350000
+2025-04-13 17:06:39,685 - INFO - perturbation.py: compute_FP_orbit
+  Storing  orbit for pt: 
+  (0.34570389446541448668331312104615893653459691273655833496059563502546829996045147247271327143565705645386902625644641809744568137675331733415337226841397624696255364683299529573163425022564963200471996897623616505588403854224973479992727965221928322150591838474380244252858944290429092021801570990474861261454825425071941776225404073287593879817689784 - 0.64581404795927501901833891812862865979727931493780907403982864606936141065500016197859928099369556416206459253378081052920526540908174111802042820970270682119655888546865599029297211693766764012377502232681203463021263672473031946480892389324259621748039460275413188088070740542527042102936745725501269752523656327053424701601716393638668502939226562j)
+  [0.00000000e+000+0.00000000e+000j 3.45703894e-001-6.45814048e-001j
+ 4.81392926e-002-1.09233491e+000j ... 1.76659521e-284+1.15797441e-279j
+ 3.52372271e-294+9.57495173e-304j 1.21285106e-279+3.13227759e-294j]
+2025-04-13 17:06:39,685 - INFO - perturbation.py: save_ref_point
+  Full precision path computed, saving to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_E213/data/ref_pt.dat
+2025-04-13 17:06:39,688 - DEBUG - core.py: set_status
+  Status update Reference: completed
+2025-04-13 17:06:40,335 - DEBUG - perturbation.py: get_cycle_indep_args
+  Bounding box defined, with kc: [ 2.50941345e-213]
+2025-04-13 17:06:40,335 - DEBUG - core.py: set_status
+  Status update Bilin. approx: running
+2025-04-13 17:06:40,639 - DEBUG - core.py: set_status
+  Status update Bilin. approx: completed
+2025-04-13 17:06:40,639 - DEBUG - core.py: res_available
+  No fingerprint file found for tlaloc;
+  will trigger a recalculation
+2025-04-13 17:06:40,639 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for tlaloc
+  -> all tiles will be recomputed
+2025-04-13 17:06:40,639 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:06:40,640 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    precision: 224
+    x: 0.34570389446541448668331312104615893653459691273655833496059563502546829996045147247271327143565705645386902625644641809744568137675331733415337226841397624696255364683299529573163425022564963200471996897623616505588403854225
+    y: -0.64581404795927501901833891812862865979727931493780907403982864606936141065500016197859928099369556416206459253378081052920526540908174111802042820970270682119655888546865599029297211693766764012377502232681203463021263672473
+    dx: 3.226224123547768e-213
+    nx: 600
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: <fractalshades.projection.Cartesian object at 0x7eee74b58080>
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:06:40,640 - INFO - core.py: process
+  Computing and storing raw data for tlaloc
+2025-04-13 17:06:40,640 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 9
+2025-04-13 17:06:42,115 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 9
+2025-04-13 17:06:42,466 - DEBUG - core.py: set_status
+  Status update Calc tiles: 9 / 9
+2025-04-13 17:06:42,469 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 9
+2025-04-13 17:06:42,952 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 9
+2025-04-13 17:06:43,030 - DEBUG - core.py: set_status
+  Status update Plot tiles: 9 / 9
+2025-04-13 17:06:43,085 - INFO - core.py: incr_tiles_status
+  Image output: 9 / 9
+2025-04-13 17:06:43,198 - INFO - core.py: save_tagged
+  Image of shape (600, 600) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_E213/Normal_map_layer_DEM_map.png
+2025-04-13 17:06:43,295 - INFO - core.py: save_tagged
+  Image of shape (600, 600) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_E213/Color_layer_test_M2_E213_potential_tlaloc.png
+2025-04-13 17:06:43,295 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:06:43,295 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_E213/Perturbation_mandelbrot.txt
+2025-04-13 17:06:43,524 - WARNING - core.py: clean_up
+  Clean-up cancelled, directory not found:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_int_E11/data
+2025-04-13 17:06:43,525 - DEBUG - core.py: set_status
+  Status update Reference: running
+2025-04-13 17:06:43,525 - DEBUG - perturbation.py: ref_point_matching
+  No data file found for ref point
+2025-04-13 17:06:43,525 - INFO - perturbation.py: get_FP_orbit
+  "Launch Newton descent with parameters:
+    order: 134, max newton attempts: 3
+2025-04-13 17:06:43,526 - INFO - perturbation.py: get_FP_orbit
+  Newton attempt 1 failed
+  Increasing dps for next : 17 -> 21
+2025-04-13 17:06:43,526 - INFO - perturbation.py: get_FP_orbit
+  Newton descent converged at attempt 2.
+2025-04-13 17:06:43,526 - INFO - perturbation.py: get_FP_orbit
+  Reference nucleus found at shift from center:
+  (0.0231160051630862131681, 0.00540116601881863339282) in dx units
+  with order 134
+2025-04-13 17:06:43,526 - INFO - perturbation.py: compute_FP_orbit
+  Computing full precision path with max_iter 50000
+2025-04-13 17:06:43,527 - INFO - perturbation.py: compute_FP_orbit
+  Order is known, wraping at 134
+2025-04-13 17:06:43,528 - INFO - perturbation.py: compute_FP_orbit
+  Storing  orbit for pt: 
+  (-1.74920463345901133013 - 0.000286846602346605309979j)
+  [ 0.        +0.00000000e+00j -1.74920463-2.86846602e-04j
+  1.31051213+7.16660209e-04j -0.03176309+1.59153720e-03j
+ -1.74819827-3.87950893e-04j  1.30699242+1.06958356e-03j
+ -0.0409766 +2.50902860e-03j -1.74753185-4.92469543e-04j
+  1.30466268+1.43436582e-03j -0.04706198+3.45588049e-03j
+ -1.74700175-6.12127793e-04j  1.30281009+1.85193004e-03j
+ -0.05189392+4.53857970e-03j -1.74653225-7.57896031e-04j
+  1.3011697 +2.36053312e-03j -0.05616761+5.85606175e-03j
+ -1.74608413-9.44688615e-04j  1.29960425+3.01216499e-03j
+ -0.0602425 +7.54239823e-03j -1.74563236-1.19559245e-03j
+  1.29802628+3.88728315e-03j -0.06434752+9.80474479e-03j
+ -1.74516016-1.54866855e-03j  1.29637697+5.11850271e-03j
+ -0.0686376 +1.29841714e-02j -1.7446621 -2.06925125e-03j
+  1.29463694+6.93344188e-03j -0.07316791+1.76657333e-02j
+ -1.74416317-2.87197614e-03j  1.29289228+9.73154340e-03j
+ -0.0777289 +2.48768280e-02j -1.74378171-4.15414334e-03j
+  1.29155276+1.42009917e-02j -0.08129778+3.63958135e-02j
+ -1.74391996-6.20464399e-03j  1.2920137 +2.13539584e-02j
+ -0.08036123+5.48923669e-02j -1.74575988-9.10928306e-03j
+  1.29838994+3.15183951e-02j -0.06438161+8.15594877e-02j
+ -1.75171159-1.07887089e-02j  1.31917247+3.75105664e-02j
+ -0.01039567+9.86789665e-02j -1.7588341 -2.33851418e-03j
+  1.3442873 +7.93927038e-03j  0.05784067+2.10584740e-02j
+ -1.74630255+2.14922585e-03j  1.30036334-7.79324378e-03j
+ -0.05832054-2.05549437e-02j -1.74622585+2.11070443e-03j
+  1.30009564-7.65837989e-03j -0.05901461-2.02000992e-02j
+ -1.74612995+2.09735520e-03j  1.29976078-7.61135608e-03j
+ -0.05988447-2.00727309e-02j -1.7460214 +2.11724323e-03j
+  1.29938161-7.68035058e-03j -0.06087106-2.02462591e-02j
+ -1.74590926+2.17797609e-03j  1.29898976-7.89194384e-03j
+ -0.06189252-2.07899551e-02j -1.74580617+2.28663880e-03j
+  1.29862933-8.27090285e-03j -0.06283491-2.17685206e-02j
+ -1.74573028+2.44879956e-03j  1.29836357-8.83673368e-03j
+ -0.06353477-2.32334327e-02j -1.74570776+2.66541514e-03j
+  1.29828384-9.59291837e-03j -0.06375573-2.51955084e-02j
+ -1.74577465+2.92586936e-03j  1.29851595-1.05026637e-02j
+ -0.06317127-2.75625993e-02j -1.74597372+3.19548214e-03j
+  1.29920939-1.14453023e-02j -0.06139059-3.00265351e-02j
+ -1.74633742+3.39984672e-03j  1.3004782 -1.21614057e-02j
+ -0.05810899-3.19181326e-02j -1.74684675+3.42261415e-03j
+  1.30225721-1.22444114e-02j -0.05348073-3.21775926e-02j
+ -1.74737984+3.15491544e-03j  1.30412173-1.13125179e-02j
+ -0.04859912-2.97926473e-02j -1.74773036+2.60894655e-03j
+  1.30534997-9.40631679e-03j -0.04535456-2.48439173e-02j
+ -1.74776482+1.96672334e-03j  1.30547336-7.16158633e-03j
+ -0.04499524-1.89853669e-02j -1.74754051+1.42165565e-03j
+  1.30469117-5.25564828e-03j -0.04701322-1.40008424e-02j
+ -1.74719041+1.02960269e-03j  1.30346865-3.88467051e-03j
+ -0.0501892 -1.04139391e-02j -1.74679413+7.58487951e-04j
+  1.30208452-2.93669120e-03j -0.05378917-7.93448688e-03j
+ -1.74637431+5.66732342e-04j  1.30061829-2.26630021e-03j
+ -0.05760183-6.18202963e-03j -1.74592488+4.25345811e-04j
+  1.29904887-1.77209027e-03j -0.0616798 -4.89091034e-03j
+ -1.74542416+3.16494120e-04j  1.29730075-1.39167957e-03j
+ -0.06621732-3.89770051e-03j -1.74483509+2.29343988e-04j
+  1.29524481-1.08718148e-03j -0.0715467 -3.10317894e-03j
+ -1.74409533+1.57197794e-04j  1.29266387-8.35182481e-04j
+ -0.07822544-2.44606704e-03j -1.7430914 +9.58427338e-05j
+  1.28916298-6.20971892e-04j -0.08726384-1.88791455e-03j
+ -1.74159322+4.26467344e-05j  1.28394231-4.35393129e-04j
+ -0.10069697-1.40488592e-03j -1.73906673-3.91109668e-06j
+  1.27514845-2.73243286e-04j -0.12320114-9.83698108e-04j
+ -1.73402708-4.44611498e-05j  1.25764528-1.32652927e-04j
+ -0.167533  -6.20507257e-04j -1.72113771-7.89357209e-05j
+  1.21311039-1.51281100e-05j -0.27756782-3.23550737e-04j
+ -1.67216084-1.07232057e-04j  1.04691724+7.17718916e-05j
+ -0.65316893-1.36568141e-04j -1.32257501-1.08442471e-04j]
+2025-04-13 17:06:43,528 - INFO - perturbation.py: save_ref_point
+  Full precision path computed, saving to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_int_E11/data/ref_pt.dat
+2025-04-13 17:06:43,529 - DEBUG - core.py: set_status
+  Status update Reference: completed
+2025-04-13 17:06:44,003 - DEBUG - perturbation.py: get_cycle_indep_args
+  Bounding box defined, with kc: [ 4.00058633e-12]
+2025-04-13 17:06:44,003 - DEBUG - core.py: set_status
+  Status update Bilin. approx: running
+2025-04-13 17:06:44,286 - DEBUG - core.py: set_status
+  Status update Bilin. approx: completed
+2025-04-13 17:06:44,286 - DEBUG - core.py: res_available
+  No fingerprint file found for 1e-06BLA;
+  will trigger a recalculation
+2025-04-13 17:06:44,286 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for 1e-06BLA
+  -> all tiles will be recomputed
+2025-04-13 17:06:44,286 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:06:44,287 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    precision: 17
+    x: -1.74920463345912691e+00
+    y: -2.8684660237361114e-04
+    dx: 5e-12
+    nx: 600
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: <fractalshades.projection.Cartesian object at 0x7eee74a01c70>
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:06:44,287 - INFO - core.py: process
+  Computing and storing raw data for 1e-06BLA
+2025-04-13 17:06:44,287 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 9
+2025-04-13 17:06:45,828 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 9
+2025-04-13 17:06:46,705 - DEBUG - core.py: set_status
+  Status update Calc tiles: 9 / 9
+2025-04-13 17:06:46,708 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 9
+2025-04-13 17:06:46,755 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 9
+2025-04-13 17:06:46,802 - DEBUG - core.py: set_status
+  Status update Plot tiles: 9 / 9
+2025-04-13 17:06:46,829 - INFO - core.py: incr_tiles_status
+  Image output: 9 / 9
+2025-04-13 17:06:46,927 - INFO - core.py: save_tagged
+  Image of shape (600, 600) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_int_E11/Normal_map_layer_DEM_map.png
+2025-04-13 17:06:47,008 - INFO - core.py: save_tagged
+  Image of shape (600, 600) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_int_E11/Color_layer_test_M2_int_E11_potential_1e-06BLA.png
+2025-04-13 17:06:47,008 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:06:47,009 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_int_E11/Perturbation_mandelbrot.txt
+2025-04-13 17:06:47,103 - INFO - core.py: clean_up
+  Cleaning data directory:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_int_E11/data
+2025-04-13 17:06:47,104 - DEBUG - core.py: clean_up
+  File deleted: ref_pt.dat
+2025-04-13 17:06:47,105 - DEBUG - core.py: set_status
+  Status update Reference: running
+2025-04-13 17:06:47,105 - DEBUG - perturbation.py: ref_point_matching
+  No data file found for ref point
+2025-04-13 17:06:47,105 - INFO - perturbation.py: get_FP_orbit
+  "Launch Newton descent with parameters:
+    order: 134, max newton attempts: 3
+2025-04-13 17:06:47,106 - INFO - perturbation.py: get_FP_orbit
+  Newton attempt 1 failed
+  Increasing dps for next : 17 -> 21
+2025-04-13 17:06:47,106 - INFO - perturbation.py: get_FP_orbit
+  Newton descent converged at attempt 2.
+2025-04-13 17:06:47,106 - INFO - perturbation.py: get_FP_orbit
+  Reference nucleus found at shift from center:
+  (0.0231160051630862131681, 0.00540116601881863339282) in dx units
+  with order 134
+2025-04-13 17:06:47,106 - INFO - perturbation.py: compute_FP_orbit
+  Computing full precision path with max_iter 50000
+2025-04-13 17:06:47,106 - INFO - perturbation.py: compute_FP_orbit
+  Order is known, wraping at 134
+2025-04-13 17:06:47,108 - INFO - perturbation.py: compute_FP_orbit
+  Storing  orbit for pt: 
+  (-1.74920463345901133013 - 0.000286846602346605309979j)
+  [ 0.        +0.00000000e+00j -1.74920463-2.86846602e-04j
+  1.31051213+7.16660209e-04j -0.03176309+1.59153720e-03j
+ -1.74819827-3.87950893e-04j  1.30699242+1.06958356e-03j
+ -0.0409766 +2.50902860e-03j -1.74753185-4.92469543e-04j
+  1.30466268+1.43436582e-03j -0.04706198+3.45588049e-03j
+ -1.74700175-6.12127793e-04j  1.30281009+1.85193004e-03j
+ -0.05189392+4.53857970e-03j -1.74653225-7.57896031e-04j
+  1.3011697 +2.36053312e-03j -0.05616761+5.85606175e-03j
+ -1.74608413-9.44688615e-04j  1.29960425+3.01216499e-03j
+ -0.0602425 +7.54239823e-03j -1.74563236-1.19559245e-03j
+  1.29802628+3.88728315e-03j -0.06434752+9.80474479e-03j
+ -1.74516016-1.54866855e-03j  1.29637697+5.11850271e-03j
+ -0.0686376 +1.29841714e-02j -1.7446621 -2.06925125e-03j
+  1.29463694+6.93344188e-03j -0.07316791+1.76657333e-02j
+ -1.74416317-2.87197614e-03j  1.29289228+9.73154340e-03j
+ -0.0777289 +2.48768280e-02j -1.74378171-4.15414334e-03j
+  1.29155276+1.42009917e-02j -0.08129778+3.63958135e-02j
+ -1.74391996-6.20464399e-03j  1.2920137 +2.13539584e-02j
+ -0.08036123+5.48923669e-02j -1.74575988-9.10928306e-03j
+  1.29838994+3.15183951e-02j -0.06438161+8.15594877e-02j
+ -1.75171159-1.07887089e-02j  1.31917247+3.75105664e-02j
+ -0.01039567+9.86789665e-02j -1.7588341 -2.33851418e-03j
+  1.3442873 +7.93927038e-03j  0.05784067+2.10584740e-02j
+ -1.74630255+2.14922585e-03j  1.30036334-7.79324378e-03j
+ -0.05832054-2.05549437e-02j -1.74622585+2.11070443e-03j
+  1.30009564-7.65837989e-03j -0.05901461-2.02000992e-02j
+ -1.74612995+2.09735520e-03j  1.29976078-7.61135608e-03j
+ -0.05988447-2.00727309e-02j -1.7460214 +2.11724323e-03j
+  1.29938161-7.68035058e-03j -0.06087106-2.02462591e-02j
+ -1.74590926+2.17797609e-03j  1.29898976-7.89194384e-03j
+ -0.06189252-2.07899551e-02j -1.74580617+2.28663880e-03j
+  1.29862933-8.27090285e-03j -0.06283491-2.17685206e-02j
+ -1.74573028+2.44879956e-03j  1.29836357-8.83673368e-03j
+ -0.06353477-2.32334327e-02j -1.74570776+2.66541514e-03j
+  1.29828384-9.59291837e-03j -0.06375573-2.51955084e-02j
+ -1.74577465+2.92586936e-03j  1.29851595-1.05026637e-02j
+ -0.06317127-2.75625993e-02j -1.74597372+3.19548214e-03j
+  1.29920939-1.14453023e-02j -0.06139059-3.00265351e-02j
+ -1.74633742+3.39984672e-03j  1.3004782 -1.21614057e-02j
+ -0.05810899-3.19181326e-02j -1.74684675+3.42261415e-03j
+  1.30225721-1.22444114e-02j -0.05348073-3.21775926e-02j
+ -1.74737984+3.15491544e-03j  1.30412173-1.13125179e-02j
+ -0.04859912-2.97926473e-02j -1.74773036+2.60894655e-03j
+  1.30534997-9.40631679e-03j -0.04535456-2.48439173e-02j
+ -1.74776482+1.96672334e-03j  1.30547336-7.16158633e-03j
+ -0.04499524-1.89853669e-02j -1.74754051+1.42165565e-03j
+  1.30469117-5.25564828e-03j -0.04701322-1.40008424e-02j
+ -1.74719041+1.02960269e-03j  1.30346865-3.88467051e-03j
+ -0.0501892 -1.04139391e-02j -1.74679413+7.58487951e-04j
+  1.30208452-2.93669120e-03j -0.05378917-7.93448688e-03j
+ -1.74637431+5.66732342e-04j  1.30061829-2.26630021e-03j
+ -0.05760183-6.18202963e-03j -1.74592488+4.25345811e-04j
+  1.29904887-1.77209027e-03j -0.0616798 -4.89091034e-03j
+ -1.74542416+3.16494120e-04j  1.29730075-1.39167957e-03j
+ -0.06621732-3.89770051e-03j -1.74483509+2.29343988e-04j
+  1.29524481-1.08718148e-03j -0.0715467 -3.10317894e-03j
+ -1.74409533+1.57197794e-04j  1.29266387-8.35182481e-04j
+ -0.07822544-2.44606704e-03j -1.7430914 +9.58427338e-05j
+  1.28916298-6.20971892e-04j -0.08726384-1.88791455e-03j
+ -1.74159322+4.26467344e-05j  1.28394231-4.35393129e-04j
+ -0.10069697-1.40488592e-03j -1.73906673-3.91109668e-06j
+  1.27514845-2.73243286e-04j -0.12320114-9.83698108e-04j
+ -1.73402708-4.44611498e-05j  1.25764528-1.32652927e-04j
+ -0.167533  -6.20507257e-04j -1.72113771-7.89357209e-05j
+  1.21311039-1.51281100e-05j -0.27756782-3.23550737e-04j
+ -1.67216084-1.07232057e-04j  1.04691724+7.17718916e-05j
+ -0.65316893-1.36568141e-04j -1.32257501-1.08442471e-04j]
+2025-04-13 17:06:47,108 - INFO - perturbation.py: save_ref_point
+  Full precision path computed, saving to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_int_E11/data/ref_pt.dat
+2025-04-13 17:06:47,108 - DEBUG - core.py: set_status
+  Status update Reference: completed
+2025-04-13 17:06:47,734 - DEBUG - perturbation.py: get_cycle_indep_args
+  Bounding box defined, with kc: [ 4.00058633e-12]
+2025-04-13 17:06:47,734 - DEBUG - core.py: set_status
+  Status update Bilin. approx: N.A.
+2025-04-13 17:06:47,734 - DEBUG - core.py: res_available
+  No fingerprint file found for noBLA;
+  will trigger a recalculation
+2025-04-13 17:06:47,734 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for noBLA
+  -> all tiles will be recomputed
+2025-04-13 17:06:47,735 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:06:47,735 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    precision: 17
+    x: -1.74920463345912691e+00
+    y: -2.8684660237361114e-04
+    dx: 5e-12
+    nx: 600
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: <fractalshades.projection.Cartesian object at 0x7eee802016d0>
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:06:47,735 - INFO - core.py: process
+  Computing and storing raw data for noBLA
+2025-04-13 17:06:47,735 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 9
+2025-04-13 17:06:49,118 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 9
+2025-04-13 17:06:51,676 - DEBUG - core.py: set_status
+  Status update Calc tiles: 9 / 9
+2025-04-13 17:06:51,679 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 9
+2025-04-13 17:06:51,722 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 9
+2025-04-13 17:06:51,769 - DEBUG - core.py: set_status
+  Status update Plot tiles: 9 / 9
+2025-04-13 17:06:51,795 - INFO - core.py: incr_tiles_status
+  Image output: 9 / 9
+2025-04-13 17:06:51,895 - INFO - core.py: save_tagged
+  Image of shape (600, 600) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_int_E11/Normal_map_layer_DEM_map.png
+2025-04-13 17:06:51,974 - INFO - core.py: save_tagged
+  Image of shape (600, 600) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_int_E11/Color_layer_test_M2_int_E11_potential_noBLA.png
+2025-04-13 17:06:51,974 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:06:51,974 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_M2_int_E11/Perturbation_mandelbrot.txt
+2025-04-13 17:06:52,608 - WARNING - core.py: clean_up
+  Clean-up cancelled, directory not found:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_deep_interior_detect/data
+2025-04-13 17:06:52,609 - DEBUG - core.py: set_status
+  Status update Reference: running
+2025-04-13 17:06:52,609 - DEBUG - perturbation.py: ref_point_matching
+  No data file found for ref point
+2025-04-13 17:06:52,659 - INFO - perturbation.py: get_FP_orbit
+  "Launch Newton descent with parameters:
+    order: 14292, max newton attempts: 3
+2025-04-13 17:06:52,717 - INFO - perturbation.py: get_FP_orbit
+  Newton attempt 1 failed
+  Increasing dps for next : 43 -> 53
+2025-04-13 17:06:52,795 - INFO - perturbation.py: get_FP_orbit
+  Newton descent converged at attempt 2.
+2025-04-13 17:06:52,795 - INFO - perturbation.py: get_FP_orbit
+  Reference nucleus found at shift from center:
+  (0.010279826617334498860778996961892434644637412246995668, -0.14375298152934012706890835432778617523104096208992481) in dx units
+  with order 14292
+2025-04-13 17:06:52,795 - INFO - perturbation.py: compute_FP_orbit
+  Computing full precision path with max_iter 1000000
+2025-04-13 17:06:52,795 - INFO - perturbation.py: compute_FP_orbit
+  Order is known, wraping at 14292
+2025-04-13 17:06:52,807 - INFO - perturbation.py: compute_FP_orbit
+  Storing  orbit for pt: 
+  (-1.9072475829123560219806014933444033519543265626833761 + 0.00000000000000075460543157031576649270009576160373305461274144065059j)
+  [ 0.        +0.00000000e+00j -1.90724758+7.54605432e-16j
+  1.73034576-2.12383334e-15j ...  1.08712462-1.94453659e-16j
+ -0.72540763+3.31814709e-16j -1.38103135+2.73203585e-16j]
+2025-04-13 17:06:52,807 - INFO - perturbation.py: save_ref_point
+  Full precision path computed, saving to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_deep_interior_detect/data/ref_pt.dat
+2025-04-13 17:06:52,808 - DEBUG - core.py: set_status
+  Status update Reference: completed
+2025-04-13 17:06:53,645 - DEBUG - perturbation.py: get_cycle_indep_args
+  Bounding box defined, with kc: [ 3.30752526e-32]
+2025-04-13 17:06:53,645 - DEBUG - core.py: set_status
+  Status update Bilin. approx: running
+2025-04-13 17:06:54,134 - DEBUG - core.py: set_status
+  Status update Bilin. approx: completed
+2025-04-13 17:06:54,134 - DEBUG - core.py: res_available
+  No fingerprint file found for deep_interior;
+  will trigger a recalculation
+2025-04-13 17:06:54,134 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for deep_interior
+  -> all tiles will be recomputed
+2025-04-13 17:06:54,135 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:06:54,135 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    precision: 43
+    x: -1.9072475829123560219806014933444037282313
+    y: 7.54605431570315771754553123674989535657416e-16
+    dx: 3.660343578223062e-32
+    nx: 600
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: <fractalshades.projection.Cartesian object at 0x7eee74d0fdd0>
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:06:54,135 - INFO - core.py: process
+  Computing and storing raw data for deep_interior
+2025-04-13 17:06:54,135 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 9
+2025-04-13 17:06:56,840 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 9
+2025-04-13 17:06:58,020 - DEBUG - core.py: set_status
+  Status update Calc tiles: 5 / 9
+2025-04-13 17:06:59,037 - DEBUG - core.py: set_status
+  Status update Calc tiles: 8 / 9
+2025-04-13 17:06:59,257 - DEBUG - core.py: set_status
+  Status update Calc tiles: 9 / 9
+2025-04-13 17:06:59,261 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 9
+2025-04-13 17:06:59,307 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 9
+2025-04-13 17:06:59,355 - DEBUG - core.py: set_status
+  Status update Plot tiles: 9 / 9
+2025-04-13 17:06:59,381 - INFO - core.py: incr_tiles_status
+  Image output: 9 / 9
+2025-04-13 17:06:59,467 - INFO - core.py: save_tagged
+  Image of shape (600, 600) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_deep_interior_detect/Color_layer_test_deep_interior_detect_potential_deep_interior.png
+2025-04-13 17:06:59,467 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:06:59,467 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_deep_interior_detect/Perturbation_mandelbrot.txt
+2025-04-13 17:06:59,827 - WARNING - core.py: clean_up
+  Clean-up cancelled, directory not found:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_divref/data
+2025-04-13 17:06:59,830 - DEBUG - core.py: set_status
+  Status update Reference: running
+2025-04-13 17:06:59,831 - DEBUG - perturbation.py: ref_point_matching
+  No data file found for ref point
+2025-04-13 17:06:59,842 - INFO - perturbation.py: get_FP_orbit
+  "Launch Newton descent with parameters:
+    order: 1224, max newton attempts: 3
+2025-04-13 17:06:59,857 - INFO - perturbation.py: get_FP_orbit
+  Newton descent converged at attempt 1.
+2025-04-13 17:06:59,857 - INFO - perturbation.py: get_FP_orbit
+  Reference nucleus found at shift from center:
+  (-0.14713185101549042, 0.252710135543989508) in dx units
+  with order 1224
+2025-04-13 17:06:59,858 - INFO - perturbation.py: compute_FP_orbit
+  Computing full precision path with max_iter 50000
+2025-04-13 17:06:59,858 - INFO - perturbation.py: compute_FP_orbit
+  Order is known, wraping at 1224
+2025-04-13 17:06:59,861 - INFO - perturbation.py: compute_FP_orbit
+  Storing  orbit for pt: 
+  (-1.36768995232529982 + 0.00949049479982426176j)
+  [ 0.        +0.j         -1.36768995+0.00949049j  0.50279578-0.01646961j
+ ... -1.34646278+0.00578986j  0.44523855-0.00610118j
+ -1.16948981+0.00405754j]
+2025-04-13 17:06:59,861 - INFO - perturbation.py: save_ref_point
+  Full precision path computed, saving to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_divref/data/ref_pt.dat
+2025-04-13 17:06:59,862 - DEBUG - core.py: set_status
+  Status update Reference: completed
+2025-04-13 17:07:00,359 - DEBUG - perturbation.py: get_cycle_indep_args
+  Bounding box defined, with kc: [ 2.70536304e-08]
+2025-04-13 17:07:00,359 - DEBUG - core.py: set_status
+  Status update Bilin. approx: running
+2025-04-13 17:07:00,662 - DEBUG - core.py: set_status
+  Status update Bilin. approx: completed
+2025-04-13 17:07:00,662 - DEBUG - core.py: res_available
+  No fingerprint file found for fail2;
+  will trigger a recalculation
+2025-04-13 17:07:00,662 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for fail2
+  -> all tiles will be recomputed
+2025-04-13 17:07:00,663 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:07:00,663 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    precision: 18
+    x: -1.36768994867991128
+    y: 0.00949048853859240532
+    dx: 2.477633848347765e-8
+    nx: 1000
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: <fractalshades.projection.Cartesian object at 0x7eee748c7c20>
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:07:00,663 - INFO - core.py: process
+  Computing and storing raw data for fail2
+2025-04-13 17:07:00,664 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 25
+2025-04-13 17:07:03,199 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 25
+2025-04-13 17:07:05,109 - DEBUG - core.py: set_status
+  Status update Calc tiles: 6 / 25
+2025-04-13 17:07:06,539 - DEBUG - core.py: set_status
+  Status update Calc tiles: 11 / 25
+2025-04-13 17:07:08,179 - DEBUG - core.py: set_status
+  Status update Calc tiles: 16 / 25
+2025-04-13 17:07:09,709 - DEBUG - core.py: set_status
+  Status update Calc tiles: 20 / 25
+2025-04-13 17:07:10,926 - DEBUG - core.py: set_status
+  Status update Calc tiles: 24 / 25
+2025-04-13 17:07:11,314 - DEBUG - core.py: set_status
+  Status update Calc tiles: 25 / 25
+2025-04-13 17:07:11,318 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 25
+2025-04-13 17:07:11,366 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 25
+2025-04-13 17:07:11,643 - DEBUG - core.py: set_status
+  Status update Plot tiles: 25 / 25
+2025-04-13 17:07:11,679 - INFO - core.py: incr_tiles_status
+  Image output: 25 / 25
+2025-04-13 17:07:11,974 - INFO - core.py: save_tagged
+  Image of shape (1000, 1000) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_divref/Normal_map_layer_DEM_map.png
+2025-04-13 17:07:12,166 - INFO - core.py: save_tagged
+  Image of shape (1000, 1000) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_divref/Color_layer_test_glitch_divref_potential_fail2.png
+2025-04-13 17:07:12,167 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:07:12,167 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_divref/Perturbation_mandelbrot.txt
+2025-04-13 17:07:12,561 - WARNING - core.py: clean_up
+  Clean-up cancelled, directory not found:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_divref5/data
+2025-04-13 17:07:12,562 - DEBUG - core.py: set_status
+  Status update Reference: running
+2025-04-13 17:07:12,563 - DEBUG - perturbation.py: ref_point_matching
+  No data file found for ref point
+2025-04-13 17:07:12,574 - INFO - perturbation.py: get_FP_orbit
+  "Launch Newton descent with parameters:
+    order: 2755, max newton attempts: 3
+2025-04-13 17:07:12,589 - INFO - perturbation.py: get_FP_orbit
+  Newton attempt 1 failed
+  Increasing dps for next : 25 -> 31
+2025-04-13 17:07:12,615 - INFO - perturbation.py: get_FP_orbit
+  Newton attempt 2 failed
+  Increasing dps for next : 25 -> 38
+2025-04-13 17:07:12,628 - INFO - perturbation.py: get_FP_orbit
+  Newton descent converged at attempt 3.
+2025-04-13 17:07:12,628 - INFO - perturbation.py: get_FP_orbit
+  Reference nucleus found at shift from center:
+  (0.025373291519228734643955980758571336768, -0.11001353362537858044148619171699670518) in dx units
+  with order 2755
+2025-04-13 17:07:12,628 - INFO - perturbation.py: compute_FP_orbit
+  Computing full precision path with max_iter 50000
+2025-04-13 17:07:12,628 - INFO - perturbation.py: compute_FP_orbit
+  Order is known, wraping at 2755
+2025-04-13 17:07:12,631 - INFO - perturbation.py: compute_FP_orbit
+  Storing  orbit for pt: 
+  (-1.8583883137588246496051089360669144327 + 0.00006262891385688945800827451057244333509j)
+  [ 0.        +0.00000000e+00j -1.85838831+6.26289139e-05j
+  1.59521881-1.70148769e-04j ...  0.25199682-7.69522805e-05j
+ -1.79488592+2.38454547e-05j  1.36322717-2.29708281e-05j]
+2025-04-13 17:07:12,631 - INFO - perturbation.py: save_ref_point
+  Full precision path computed, saving to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_divref5/data/ref_pt.dat
+2025-04-13 17:07:12,631 - DEBUG - core.py: set_status
+  Status update Reference: completed
+2025-04-13 17:07:13,149 - DEBUG - perturbation.py: get_cycle_indep_args
+  Bounding box defined, with kc: [ 4.15210261e-19]
+2025-04-13 17:07:13,149 - DEBUG - core.py: set_status
+  Status update Bilin. approx: running
+2025-04-13 17:07:13,447 - DEBUG - core.py: set_status
+  Status update Bilin. approx: completed
+2025-04-13 17:07:13,447 - DEBUG - core.py: res_available
+  No fingerprint file found for fail5;
+  will trigger a recalculation
+2025-04-13 17:07:13,447 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for fail5
+  -> all tiles will be recomputed
+2025-04-13 17:07:13,448 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:07:13,448 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    precision: 25
+    x: -1.8583883137588246496170054595
+    y: 0.000062628913856889509589212598191
+    dx: 4.688599337510725e-19
+    nx: 1000
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: <fractalshades.projection.Cartesian object at 0x7eee742afbf0>
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:07:13,448 - INFO - core.py: process
+  Computing and storing raw data for fail5
+2025-04-13 17:07:13,448 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 25
+2025-04-13 17:07:15,538 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 25
+2025-04-13 17:07:16,767 - DEBUG - core.py: set_status
+  Status update Calc tiles: 9 / 25
+2025-04-13 17:07:18,004 - DEBUG - core.py: set_status
+  Status update Calc tiles: 17 / 25
+2025-04-13 17:07:19,216 - DEBUG - core.py: set_status
+  Status update Calc tiles: 25 / 25
+2025-04-13 17:07:19,220 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 25
+2025-04-13 17:07:19,271 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 25
+2025-04-13 17:07:19,528 - DEBUG - core.py: set_status
+  Status update Plot tiles: 25 / 25
+2025-04-13 17:07:19,566 - INFO - core.py: incr_tiles_status
+  Image output: 25 / 25
+2025-04-13 17:07:19,721 - INFO - core.py: save_tagged
+  Image of shape (1000, 1000) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_divref5/Normal_map_layer_DEM_map.png
+2025-04-13 17:07:19,889 - INFO - core.py: save_tagged
+  Image of shape (1000, 1000) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_divref5/Color_layer_test_glitch_divref5_potential_fail5.png
+2025-04-13 17:07:19,889 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:07:19,889 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_divref5/Perturbation_mandelbrot.txt
+2025-04-13 17:07:20,252 - WARNING - core.py: clean_up
+  Clean-up cancelled, directory not found:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_dyn/data
+2025-04-13 17:07:20,253 - DEBUG - core.py: set_status
+  Status update Reference: running
+2025-04-13 17:07:20,253 - DEBUG - perturbation.py: ref_point_matching
+  No data file found for ref point
+2025-04-13 17:07:20,292 - INFO - perturbation.py: get_FP_orbit
+  "Launch Newton descent with parameters:
+    order: 7884, max newton attempts: 3
+2025-04-13 17:07:20,317 - INFO - perturbation.py: get_FP_orbit
+  Newton attempt 1 failed
+  Increasing dps for next : 200 -> 250
+2025-04-13 17:07:20,367 - INFO - perturbation.py: get_FP_orbit
+  Newton descent converged at attempt 2.
+2025-04-13 17:07:20,367 - INFO - perturbation.py: get_FP_orbit
+  Reference nucleus found at shift from center:
+  (-0.000009814157994393515498716310770362911512145841707816680391403562615318741313051904491102075830648342509747342867930929818504896764117820345571771562792109215931459665690917392026161399231138904594211377552048914320564724598328846433377444872596332716488, -0.000003025102382103012628815507052955585559467645387528826212394075976438195406127385480824857888003899332479024265502608759686826904789166962653396371206784359312777102706997949949397775343499712602604887373543079777000446211175491612354230250661005233951) in dx units
+  with order 7884
+2025-04-13 17:07:20,367 - INFO - perturbation.py: compute_FP_orbit
+  Computing full precision path with max_iter 50000
+2025-04-13 17:07:20,367 - INFO - perturbation.py: compute_FP_orbit
+  Order is known, wraping at 7884
+2025-04-13 17:07:20,377 - INFO - perturbation.py: compute_FP_orbit
+  Storing  orbit for pt: 
+  (-1.99996619445037030418434688506350579675531241540724851511761922944801584242342684381376129778868913812287046406560949864353810575744772166485672496092803920095332176654843899083278976893593866532407218627343029054723719716675511309900653804168659489 + 0.0000000000000000000000000000000003001382436790938324072497303977592498734683119077333527017425728012047497561482358118564729928841407551922418650497818162547852894554815712214577268132087304679945992958238302448112817690663242411248269201302969197891778901561207630915320713908550289j)
+  [ 0.        +0.00000000e+00j -1.99996619+3.00138244e-34j
+  1.99989858-9.00394438e-34j ...  1.96155879-1.04526699e-34j
+  1.84774668-1.09932286e-34j  1.41420161-1.06115791e-34j]
+2025-04-13 17:07:20,377 - INFO - perturbation.py: save_ref_point
+  Full precision path computed, saving to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_dyn/data/ref_pt.dat
+2025-04-13 17:07:20,377 - DEBUG - core.py: set_status
+  Status update Reference: completed
+2025-04-13 17:07:20,378 - DEBUG - perturbation.py: get_cycle_indep_args
+  Bounding box defined, with kc: [ 1.13589388e-157]
+2025-04-13 17:07:20,378 - DEBUG - core.py: set_status
+  Status update Bilin. approx: running
+2025-04-13 17:07:20,702 - DEBUG - core.py: set_status
+  Status update Bilin. approx: completed
+2025-04-13 17:07:20,702 - DEBUG - core.py: res_available
+  No fingerprint file found for flake;
+  will trigger a recalculation
+2025-04-13 17:07:20,702 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for flake
+  -> all tiles will be recomputed
+2025-04-13 17:07:20,702 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:07:20,702 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    precision: 200
+    x: -1.99996619445037030418434688506350579675531241540724851511761922944801584242342684381376129778868913812287046406560949864353810575744772166485672496092803920095332
+    y: 0.00000000000000000000000000000000030013824367909383240724973039775924987346831190773335270174257280120474975614823581185647299288414075519224186504978181625478529
+    dx: 1.8e-157
+    nx: 1600
+    xy_ratio: 1.7777777777777777
+    theta_deg: 0.0
+    projection: <fractalshades.projection.Cartesian object at 0x7eee74533170>
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:07:20,703 - INFO - core.py: process
+  Computing and storing raw data for flake
+2025-04-13 17:07:20,703 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 40
+2025-04-13 17:07:21,911 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 40
+2025-04-13 17:07:22,948 - DEBUG - core.py: set_status
+  Status update Calc tiles: 16 / 40
+2025-04-13 17:07:24,055 - DEBUG - core.py: set_status
+  Status update Calc tiles: 31 / 40
+2025-04-13 17:07:24,495 - DEBUG - core.py: set_status
+  Status update Calc tiles: 40 / 40
+2025-04-13 17:07:24,499 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 40
+2025-04-13 17:07:24,516 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 40
+2025-04-13 17:07:24,689 - DEBUG - core.py: set_status
+  Status update Plot tiles: 40 / 40
+2025-04-13 17:07:24,695 - INFO - core.py: incr_tiles_status
+  Image output: 40 / 40
+2025-04-13 17:07:25,166 - INFO - core.py: save_tagged
+  Image of shape (1600, 900) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_dyn/Color_layer_test_glitch_dyn_potential_flake.png
+2025-04-13 17:07:25,166 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:07:25,167 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_glitch_dyn/Perturbation_mandelbrot.txt
+2025-04-13 17:07:25,975 - WARNING - core.py: clean_up
+  Clean-up cancelled, directory not found:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_supersampling/data
+2025-04-13 17:07:25,976 - DEBUG - core.py: set_status
+  Status update Reference: running
+2025-04-13 17:07:25,976 - DEBUG - perturbation.py: ref_point_matching
+  No data file found for ref point
+2025-04-13 17:07:25,980 - INFO - perturbation.py: get_FP_orbit
+  "Launch Newton descent with parameters:
+    order: 1224, max newton attempts: 3
+2025-04-13 17:07:25,985 - INFO - perturbation.py: get_FP_orbit
+  Newton descent converged at attempt 1.
+2025-04-13 17:07:25,985 - INFO - perturbation.py: get_FP_orbit
+  Reference nucleus found at shift from center:
+  (-0.14713185101549042, 0.252710135543989508) in dx units
+  with order 1224
+2025-04-13 17:07:25,985 - INFO - perturbation.py: compute_FP_orbit
+  Computing full precision path with max_iter 50000
+2025-04-13 17:07:25,985 - INFO - perturbation.py: compute_FP_orbit
+  Order is known, wraping at 1224
+2025-04-13 17:07:25,986 - INFO - perturbation.py: compute_FP_orbit
+  Storing  orbit for pt: 
+  (-1.36768995232529982 + 0.00949049479982426176j)
+  [ 0.        +0.j         -1.36768995+0.00949049j  0.50279578-0.01646961j
+ ... -1.34646278+0.00578986j  0.44523855-0.00610118j
+ -1.16948981+0.00405754j]
+2025-04-13 17:07:25,986 - INFO - perturbation.py: save_ref_point
+  Full precision path computed, saving to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_supersampling/data/ref_pt.dat
+2025-04-13 17:07:25,987 - DEBUG - core.py: set_status
+  Status update Reference: completed
+2025-04-13 17:07:26,638 - DEBUG - perturbation.py: get_cycle_indep_args
+  Bounding box defined, with kc: [ 2.70536304e-08]
+2025-04-13 17:07:26,639 - DEBUG - core.py: set_status
+  Status update Bilin. approx: running
+2025-04-13 17:07:26,912 - DEBUG - core.py: set_status
+  Status update Bilin. approx: completed
+2025-04-13 17:07:26,912 - DEBUG - core.py: res_available
+  No fingerprint file found for 2-2;
+  will trigger a recalculation
+2025-04-13 17:07:26,912 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for 2-2
+  -> all tiles will be recomputed
+2025-04-13 17:07:26,913 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: True
+    supersampling: 3x3
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:07:26,913 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    precision: 18
+    x: -1.36768994867991128
+    y: 0.00949048853859240532
+    dx: 2.477633848347765e-8
+    nx: 600
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: <fractalshades.projection.Cartesian object at 0x7eee812a7a40>
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:07:26,913 - INFO - core.py: open_images
+  Reloading option disabled, all image recomputed
+2025-04-13 17:07:26,913 - DEBUG - core.py: open_db_status
+  No valid db status file found - recompute db:
+    Invalidated db_status: `recovery_mode` is set to False
+2025-04-13 17:07:26,913 - INFO - core.py: open_postdb
+  No valid .postdb found for layer test_supersampling_potential_2-2:
+    Invalidated postdb: `recovery_mode` is set to False
+2025-04-13 17:07:26,914 - DEBUG - core.py: delete_fingerprint
+  File deleted: 2-2.fingerprint
+2025-04-13 17:07:26,914 - DEBUG - core.py: set_status
+  Status update Calc tiles: No [final]
+2025-04-13 17:07:26,914 - DEBUG - core.py: set_status
+  Status update Calc tiles: No [final]
+2025-04-13 17:07:26,915 - DEBUG - core.py: set_status
+  Status update Calc tiles: No [final]
+2025-04-13 17:07:26,916 - DEBUG - core.py: set_status
+  Status update Calc tiles: No [final]
+2025-04-13 17:07:36,523 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 9
+2025-04-13 17:07:36,606 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 9
+2025-04-13 17:07:36,606 - DEBUG - core.py: set_status
+  Status update Calc tiles: No [final]
+2025-04-13 17:07:40,442 - DEBUG - core.py: set_status
+  Status update Plot tiles: 2 / 9
+2025-04-13 17:07:40,549 - INFO - core.py: incr_tiles_status
+  Image output: 2 / 9
+2025-04-13 17:07:40,549 - DEBUG - core.py: set_status
+  Status update Calc tiles: No [final]
+2025-04-13 17:07:41,879 - DEBUG - core.py: set_status
+  Status update Plot tiles: 3 / 9
+2025-04-13 17:07:41,994 - INFO - core.py: incr_tiles_status
+  Image output: 3 / 9
+2025-04-13 17:07:41,994 - DEBUG - core.py: set_status
+  Status update Calc tiles: No [final]
+2025-04-13 17:07:42,900 - DEBUG - core.py: set_status
+  Status update Calc tiles: No [final]
+2025-04-13 17:07:49,260 - DEBUG - core.py: set_status
+  Status update Plot tiles: 5 / 9
+2025-04-13 17:07:49,349 - INFO - core.py: incr_tiles_status
+  Image output: 5 / 9
+2025-04-13 17:07:49,349 - DEBUG - core.py: set_status
+  Status update Calc tiles: No [final]
+2025-04-13 17:07:50,689 - DEBUG - core.py: set_status
+  Status update Plot tiles: 6 / 9
+2025-04-13 17:07:50,803 - INFO - core.py: incr_tiles_status
+  Image output: 6 / 9
+2025-04-13 17:07:53,784 - DEBUG - core.py: set_status
+  Status update Plot tiles: 7 / 9
+2025-04-13 17:07:53,887 - INFO - core.py: incr_tiles_status
+  Image output: 7 / 9
+2025-04-13 17:07:55,082 - DEBUG - core.py: set_status
+  Status update Plot tiles: 8 / 9
+2025-04-13 17:07:55,194 - INFO - core.py: incr_tiles_status
+  Image output: 8 / 9
+2025-04-13 17:08:01,337 - DEBUG - core.py: set_status
+  Status update Plot tiles: 9 / 9
+2025-04-13 17:08:01,450 - INFO - core.py: incr_tiles_status
+  Image output: 9 / 9
+2025-04-13 17:08:01,515 - INFO - core.py: save_tagged
+  Image of shape (600, 600) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_supersampling/Color_layer_test_supersampling_potential_2-2.png
+2025-04-13 17:08:01,515 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:08:01,516 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_supersampling/Perturbation_mandelbrot.txt
+2025-04-13 17:08:01,516 - INFO - core.py: write_inspect_calc
+  Cannot write detailed output *.inspect_calc for a final render
+2025-04-13 17:08:02,395 - WARNING - core.py: clean_up
+  Clean-up cancelled, directory not found:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_ultradeep_interior_detect/data
+2025-04-13 17:08:02,396 - DEBUG - core.py: set_status
+  Status update Reference: running
+2025-04-13 17:08:02,396 - DEBUG - perturbation.py: ref_point_matching
+  No data file found for ref point
+2025-04-13 17:08:03,160 - INFO - perturbation.py: get_FP_orbit
+  "Launch Newton descent with parameters:
+    order: 57853, max newton attempts: 3
+2025-04-13 17:08:03,703 - INFO - perturbation.py: get_FP_orbit
+  Newton attempt 1 failed
+  Increasing dps for next : 550 -> 687
+2025-04-13 17:08:04,402 - INFO - perturbation.py: get_FP_orbit
+  Newton descent converged at attempt 2.
+2025-04-13 17:08:04,403 - INFO - perturbation.py: get_FP_orbit
+  Reference nucleus found at shift from center:
+  (-0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000632860775966514439364448249699780091390166130337099462445324499453335089155389042170752692241975352638192163481695134038373753633240579931279094351043975239756919456451282486408191684855283505056936370822414596443105801892168656157453848644027560547481977589948120730999471639196155853504674283849082273449045134570866602835143534678343727034704258234922200262433300741378159642903654202196914713017055574695755407943431541756602720668163862441429323184438511063530189362323741024012885968871587451495741272551759670025207932070334104152298588058068401655932530945334844574624555193187381544588054959724725181064005009170367688944002370500428240831913191129380613536836382992809736746411, -0.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000518648722001876543933497966662584206155821080722288725077633060127411871143874894087556777670981658484970322843322160284300537770952294098929874772002119265304714350905404991854582579598691031386541015672102969311648962632762005870360120940012129699883704314413343585120279800380166650805569459144415704170310653812328945440447941469676975278278674327090374087346829076624074436101498630662321907551754873280689323955124872083591090341329737270174491853658420122113852826199117985441615808931965458466431304987119940528059495230308347407834247499733048545285433224947076026574439365332462356940334667301156515135233436411045559692869724333528540893134491535919087922481797975266895806764) in dx units
+  with order 57853
+2025-04-13 17:08:04,403 - INFO - perturbation.py: compute_FP_orbit
+  Computing full precision path with max_iter 100000000
+2025-04-13 17:08:04,403 - INFO - perturbation.py: compute_FP_orbit
+  Order is known, wraping at 57853
+2025-04-13 17:08:04,539 - INFO - perturbation.py: compute_FP_orbit
+  Storing  orbit for pt: 
+  (-1.99996619445037030418434688506350579675531241540724851511761922944801584242342684381376129778868913812287046406560949864353810575744772166485672496092803920097080659646469789724703438027566251577471979564669673587379831280453964895268111522545617924293510683774588487880585490216939383687209739405059004605769908796701019623976540655194251135324893587067691238195420658358947366377265010463778541939294987275505889553073808974007998577633645473104815538142444336800914783229854543906087454331432834731861034475333154404093649823119814972710903206848768580668191575908599384688430979480702279825745332373389377992213640885916028826618133397313904043740200839319169562590629103650563738473 + 0.000000000000000000000000000000000300138243679093832407249730397759249873468311907733352701742572801204749756148235811856472992884140755192241865049781816254758480840622641968131998751096655102491592085836706007285109438423910451293458593673629408332049555691125564103474186024773553414471657579951070239079740422320855859219398895622812831264742535802110412315062331640361061018113350500207860873536563811623501285986360297028268776567575872864168535833077213166113611353233802195048589926359534942035088055733086513044013571625856599750228518070105257138537596353856032974970736523306897718309831980520845448891430412309846100645475313921820391003711441174896106697754346180069363790556733781505777927423793045986136691j)
+  [ 0.        +0.00000000e+00j -1.99996619+3.00138244e-34j
+  1.99989858-9.00394438e-34j ...  1.66292477-1.28355742e-34j
+  0.76535259-1.26753640e-34j -1.41420161+1.06115791e-34j]
+2025-04-13 17:08:04,539 - INFO - perturbation.py: save_ref_point
+  Full precision path computed, saving to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_ultradeep_interior_detect/data/ref_pt.dat
+2025-04-13 17:08:04,540 - DEBUG - core.py: set_status
+  Status update Reference: completed
+2025-04-13 17:08:05,348 - DEBUG - perturbation.py: get_cycle_indep_args
+  Bounding box defined, with kc: [ 3.94137709e-433]
+2025-04-13 17:08:05,349 - DEBUG - core.py: set_status
+  Status update Bilin. approx: running
+2025-04-13 17:08:05,815 - DEBUG - core.py: set_status
+  Status update Bilin. approx: completed
+2025-04-13 17:08:05,816 - DEBUG - core.py: res_available
+  No fingerprint file found for ultradeep_interior;
+  will trigger a recalculation
+2025-04-13 17:08:05,816 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for ultradeep_interior
+  -> all tiles will be recomputed
+2025-04-13 17:08:05,816 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:08:05,816 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    precision: 550
+    x: -1.999966194450370304184346885063505796755312415407248515117619229448015842423426843813761297788689138122870464065609498643538105757447721664856724960928039200970806596464697897247034380275662515774719795646696735873798312804539648952681115225456179242935106837745884878805854902169393836872097394050590046057699087967010196239765406551942511353248935870676912381954206583589473663772650104637785419392949872755058895530738089740079985776336454731048155381424443368009147832298545439060874543314328347318610344753331544040936498231198149727109
+    y: 0.0000000000000000000000000000000003001382436790938324072497303977592498734683119077333527017425728012047497561482358118564729928841407551922418650497818162547584808406226419681319987510966551024915920858367060072851094384239104512934585936736294083320495556911255641034741860247735534144716575799510702390797404223208558592193988956228128312647425358021104123150623316403610610181133505002078608735365638116235012859863602970282687765675758728641685358330772131661136113532338021950485899263595349420350880557330865130440135716258565997502285180701052571648187007997490077027
+    dx: 5.06722630e-433
+    nx: 600
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: <fractalshades.projection.Cartesian object at 0x7eee74d8f020>
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:08:05,816 - INFO - core.py: process
+  Computing and storing raw data for ultradeep_interior
+2025-04-13 17:08:05,816 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 9
+2025-04-13 17:08:12,207 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 9
+2025-04-13 17:08:14,238 - DEBUG - core.py: set_status
+  Status update Calc tiles: 4 / 9
+2025-04-13 17:08:15,509 - DEBUG - core.py: set_status
+  Status update Calc tiles: 5 / 9
+2025-04-13 17:08:17,444 - DEBUG - core.py: set_status
+  Status update Calc tiles: 7 / 9
+2025-04-13 17:08:22,394 - DEBUG - core.py: set_status
+  Status update Calc tiles: 9 / 9
+2025-04-13 17:08:22,398 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 9
+2025-04-13 17:08:22,440 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 9
+2025-04-13 17:08:22,492 - DEBUG - core.py: set_status
+  Status update Plot tiles: 9 / 9
+2025-04-13 17:08:22,517 - INFO - core.py: incr_tiles_status
+  Image output: 9 / 9
+2025-04-13 17:08:22,606 - INFO - core.py: save_tagged
+  Image of shape (600, 600) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_ultradeep_interior_detect/Color_layer_test_ultradeep_interior_detect_potential_ultradeep_interior.png
+2025-04-13 17:08:22,606 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:08:22,606 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_perturb_dir/test_ultradeep_interior_detect/Perturbation_mandelbrot.txt
+2025-04-13 17:08:22,692 - INFO - core.py: clean_up
+  Cleaning data directory:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_pickle_dir/data
+2025-04-13 17:08:22,736 - DEBUG - core.py: clean_up
+  File deleted: pickle_U.arr
+2025-04-13 17:08:22,736 - DEBUG - core.py: clean_up
+  File deleted: pickle_stop_reason.arr
+2025-04-13 17:08:22,736 - DEBUG - core.py: clean_up
+  File deleted: pickle_stop_iter.arr
+2025-04-13 17:08:22,736 - DEBUG - core.py: clean_up
+  File deleted: pickle_Z.arr
+2025-04-13 17:08:22,737 - DEBUG - core.py: clean_up
+  File deleted: pickle.report
+2025-04-13 17:08:22,737 - DEBUG - core.py: clean_up
+  File deleted: pickle.fingerprint
+2025-04-13 17:08:22,737 - WARNING - core.py: zoom
+  Use of str for projection is deprecated, and might be
+removed. Please use `fractalshades.projection.Projection`
+subclasses instead. Defaulting to
+`fractalshades.projection.Cartesian()`
+2025-04-13 17:08:22,738 - DEBUG - core.py: res_available
+  No fingerprint file found for pickle;
+  will trigger a recalculation
+2025-04-13 17:08:22,738 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for pickle
+  -> all tiles will be recomputed
+2025-04-13 17:08:22,742 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:08:22,742 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    x: -0.5
+    y: 0.0
+    dx: 5.0
+    nx: 400
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: cartesian
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:08:22,742 - INFO - core.py: process
+  Computing and storing raw data for pickle
+2025-04-13 17:08:22,742 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 4
+2025-04-13 17:08:23,205 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 4
+2025-04-13 17:08:23,206 - DEBUG - core.py: set_status
+  Status update Calc tiles: 4 / 4
+2025-04-13 17:08:23,208 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 4
+2025-04-13 17:08:23,208 - DEBUG - core.py: set_status
+  Status update Plot tiles: 4 / 4
+2025-04-13 17:08:23,213 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 4
+2025-04-13 17:08:23,214 - INFO - core.py: incr_tiles_status
+  Image output: 4 / 4
+2025-04-13 17:08:23,214 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:08:23,215 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_pickle_dir/Mandelbrot.txt
+2025-04-13 17:08:23,223 - INFO - core.py: clean_up
+  Cleaning data directory:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_postproc_dir/data
+2025-04-13 17:08:23,249 - DEBUG - core.py: clean_up
+  File deleted: test_stop_iter.arr
+2025-04-13 17:08:23,250 - DEBUG - core.py: clean_up
+  File deleted: test_U.arr
+2025-04-13 17:08:23,250 - DEBUG - core.py: clean_up
+  File deleted: test_stop_reason.arr
+2025-04-13 17:08:23,250 - DEBUG - core.py: clean_up
+  File deleted: test_Z.arr
+2025-04-13 17:08:23,250 - DEBUG - core.py: clean_up
+  File deleted: test.report
+2025-04-13 17:08:23,250 - DEBUG - core.py: clean_up
+  File deleted: test.fingerprint
+2025-04-13 17:08:23,250 - DEBUG - core.py: res_available
+  No fingerprint file found for test;
+  will trigger a recalculation
+2025-04-13 17:08:23,251 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for test
+  -> all tiles will be recomputed
+2025-04-13 17:08:23,251 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:08:23,251 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    x: 0.0
+    y: 0.0
+    dx: 3.0
+    nx: 800
+    xy_ratio: 1
+    theta_deg: 0.0
+    projection: <fractalshades.projection.Cartesian object at 0x7eeed171caa0>
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:08:23,251 - INFO - core.py: process
+  Computing and storing raw data for test
+2025-04-13 17:08:23,251 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 16
+2025-04-13 17:08:23,740 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 16
+2025-04-13 17:08:23,780 - DEBUG - core.py: set_status
+  Status update Calc tiles: 16 / 16
+2025-04-13 17:08:23,783 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 16
+2025-04-13 17:08:23,789 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 16
+2025-04-13 17:08:23,807 - DEBUG - core.py: set_status
+  Status update Plot tiles: 16 / 16
+2025-04-13 17:08:23,810 - INFO - core.py: incr_tiles_status
+  Image output: 16 / 16
+2025-04-13 17:08:23,811 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:08:23,811 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_postproc_dir/Dummy_Fractal.txt
+2025-04-13 17:08:24,139 - INFO - core.py: clean_up
+  Cleaning data directory:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_subset_dir/data
+2025-04-13 17:08:24,141 - DEBUG - core.py: clean_up
+  File deleted: test_stop_iter.arr
+2025-04-13 17:08:24,141 - DEBUG - core.py: clean_up
+  File deleted: test_U.arr
+2025-04-13 17:08:24,141 - DEBUG - core.py: clean_up
+  File deleted: test_stop_reason.arr
+2025-04-13 17:08:24,141 - DEBUG - core.py: clean_up
+  File deleted: test_int_U.arr
+2025-04-13 17:08:24,811 - DEBUG - core.py: clean_up
+  File deleted: test_Z.arr
+2025-04-13 17:08:24,811 - DEBUG - core.py: clean_up
+  File deleted: test_int_subset.arr
+2025-04-13 17:08:24,811 - DEBUG - core.py: clean_up
+  File deleted: test_int_stop_reason.arr
+2025-04-13 17:08:24,812 - DEBUG - core.py: clean_up
+  File deleted: test_int_stop_iter.arr
+2025-04-13 17:08:24,840 - DEBUG - core.py: clean_up
+  File deleted: test_int_Z.arr
+2025-04-13 17:08:24,841 - DEBUG - core.py: clean_up
+  File deleted: test.report
+2025-04-13 17:08:24,841 - DEBUG - core.py: clean_up
+  File deleted: test.fingerprint
+2025-04-13 17:08:24,841 - INFO - core.py: clean_up
+  Cleaning data directory:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_subset_dir/data
+2025-04-13 17:08:24,842 - DEBUG - core.py: clean_up
+  File deleted: test_int.report
+2025-04-13 17:08:24,843 - DEBUG - core.py: clean_up
+  File deleted: test_int.fingerprint
+2025-04-13 17:08:24,844 - WARNING - core.py: zoom
+  Use of str for projection is deprecated, and might be
+removed. Please use `fractalshades.projection.Projection`
+subclasses instead. Defaulting to
+`fractalshades.projection.Cartesian()`
+2025-04-13 17:08:24,845 - DEBUG - core.py: res_available
+  No fingerprint file found for test;
+  will trigger a recalculation
+2025-04-13 17:08:24,846 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for test
+  -> all tiles will be recomputed
+2025-04-13 17:08:24,848 - DEBUG - core.py: add_subset_hook
+  Add Subset hook for test_int
+2025-04-13 17:08:24,849 - DEBUG - core.py: res_available
+  No fingerprint file found for test_int;
+  will trigger a recalculation
+2025-04-13 17:08:24,849 - INFO - core.py: calc_hook
+  Missing up-to-date result file available for test_int
+  -> all tiles will be recomputed
+2025-04-13 17:08:24,852 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:08:24,852 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    x: -0.5
+    y: 0.0
+    dx: 2.0
+    nx: 1800
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: cartesian
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:08:24,854 - INFO - core.py: process
+  Computing and storing raw data for test
+2025-04-13 17:08:24,855 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 81
+2025-04-13 17:08:25,339 - DEBUG - core.py: set_status
+  Status update Calc tiles: 1 / 81
+2025-04-13 17:08:25,815 - DEBUG - core.py: set_status
+  Status update Calc tiles: 81 / 81
+2025-04-13 17:08:25,816 - INFO - core.py: process
+  Computing and storing raw data for test_int
+2025-04-13 17:08:25,816 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 81
+2025-04-13 17:08:26,717 - DEBUG - core.py: set_status
+  Status update Plot tiles: 1 / 81
+2025-04-13 17:08:26,757 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 81
+2025-04-13 17:08:27,145 - DEBUG - core.py: set_status
+  Status update Plot tiles: 81 / 81
+2025-04-13 17:08:27,619 - INFO - core.py: incr_tiles_status
+  Image output: 81 / 81
+2025-04-13 17:08:27,735 - INFO - core.py: save_tagged
+  Image of shape (1800, 1800) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_subset_dir/Color_layer_order.png
+2025-04-13 17:08:27,735 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:08:27,736 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_subset_dir/Mandelbrot.txt
+2025-04-13 17:08:28,293 - INFO - core.py: process
+  Plotting images: plotter options
+    final_render: False
+    supersampling: None
+    jitter: False
+    recovery_mode: False
+  /!\ supersampling and jitter only activated for final render
+2025-04-13 17:08:28,293 - INFO - core.py: process
+  Plotting images: zoom kwargs
+    x: -0.5
+    y: 0.0
+    dx: 2.0
+    nx: 1800
+    xy_ratio: 1.0
+    theta_deg: 0.0
+    projection: cartesian
+    has_skew: False
+    skew_00: 1.0
+    skew_01: 0.0
+    skew_10: 0.0
+    skew_11: 1.0
+2025-04-13 17:08:28,294 - INFO - core.py: process
+  Computing and storing raw data for test
+2025-04-13 17:08:28,294 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 81
+2025-04-13 17:08:28,339 - DEBUG - core.py: set_status
+  Status update Calc tiles: 163 / 81
+2025-04-13 17:08:28,829 - INFO - core.py: process
+  Computing and storing raw data for test_int
+2025-04-13 17:08:28,829 - DEBUG - core.py: init_report_mmap
+  Create new report_mmap with chunks_count: 81
+2025-04-13 17:08:29,218 - DEBUG - core.py: set_status
+  Status update Plot tiles: 163 / 81
+2025-04-13 17:08:29,261 - INFO - core.py: incr_tiles_status
+  Image output: 1 / 81
+2025-04-13 17:08:30,101 - INFO - core.py: incr_tiles_status
+  Image output: 81 / 81
+2025-04-13 17:08:30,216 - INFO - core.py: save_tagged
+  Image of shape (1800, 1800) saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_subset_dir/Color_layer_attr.png
+2025-04-13 17:08:30,216 - INFO - core.py: process
+  Plotting images: done
+2025-04-13 17:08:30,216 - INFO - core.py: write_postproc_report
+  Plotting image - postprocessing fields info saved to:
+  /home/geoffroy/Pictures/math/github_fractal_rep/Fractal-shades/tests/_temporary_data/_subset_dir/Mandelbrot.txt
