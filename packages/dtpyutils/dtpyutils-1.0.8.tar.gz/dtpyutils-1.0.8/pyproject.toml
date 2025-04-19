@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "dtpyutils"
+version = "1.0.8"
+description = "A package that has different utils, wrappers, and functions."
+authors = ["Reza Shirazi <reza@dealertower.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "~=3.11.9"
+requests = "~=2.32.3"
+python-jose = "~=3.4.0"
+passlib = { version = "~=1.7.4", extras = ["bcrypt"] }
+
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
