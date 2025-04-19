@@ -1,0 +1,528 @@
+Metadata-Version: 2.4
+Name: model-signing
+Version: 1.0.1
+Summary: A tool for signing and verifying ML models
+Project-URL: Homepage, https://pypi.org/project/model-signing/
+Project-URL: Changelog, https://github.com/sigstore/model-transparency/blob/main/CHANGELOG.md
+Project-URL: Documentation, https://sigstore.github.io/model-transparency/model_signing.html
+Project-URL: Source, https://github.com/sigstore/model-transparency
+Project-URL: Issues, https://github.com/sigstore/model-transparency/issues
+Project-URL: PyPI, https://pypi.org/project/model-signing/
+Author-email: Sigstore Authors <sigstore-dev@googlegroups.com>
+License: 
+                                         Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+        
+           END OF TERMS AND CONDITIONS
+        
+           APPENDIX: How to apply the Apache License to your work.
+        
+              To apply the Apache License to your work, attach the following
+              boilerplate notice, with the fields enclosed by brackets "[]"
+              replaced with your own identifying information. (Don't include
+              the brackets!)  The text should be enclosed in the appropriate
+              comment syntax for the file format. We also recommend that a
+              file or class name and description of purpose be included on the
+              same "printed page" as the copyright notice for easier
+              identification within third-party archives.
+        
+           Copyright [yyyy] [name of copyright owner]
+        
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+        
+               http://www.apache.org/licenses/LICENSE-2.0
+        
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+License-File: LICENSE
+Keywords: AI security,AI supply chain security,ML security,ML supply chain security,artificial intelligence,machine learning,model signing
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Security
+Classifier: Topic :: Security :: Cryptography
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Requires-Dist: click
+Requires-Dist: cryptography
+Requires-Dist: in-toto-attestation
+Requires-Dist: sigstore
+Requires-Dist: typing-extensions
+Description-Content-Type: text/markdown
+
+# Model Transparency
+
+<!-- markdown-toc --bullets="-" -i README.md -->
+
+<!-- toc -->
+
+- [Overview](#overview)
+- [Model Signing](#model-signing)
+  - [Model Signing CLI](#model-signing-cli)
+  - [Model Signing API](#model-signing-api)
+  - [Model Signing Format](#model-signing-format)
+- [SLSA for ML](#slsa-for-ml)
+- [Status](#status)
+- [Contributing](#contributing)
+
+<!-- tocstop -->
+
+## Overview
+
+There is currently significant growth in the number of ML-powered applications.
+This brings benefits, but it also provides grounds for attackers to exploit
+unsuspecting ML users.
+
+Building on the work with [Open Source Security Foundation][openssf], we are
+creating this collection of projects to strengthen the ML supply chain in
+_the same way_ as the traditional software supply chain.
+
+The focus is on providing *verifiable* claims about the integrity and provenance
+of the resulting models, meaning users can check for themselves that these
+claims are true rather than having to just trust the model trainer.
+
+## Model Signing
+
+This project demonstrates how to protect the integrity of a model by signing it.
+We support generating signatures via [Sigstore](https://www.sigstore.dev/), a
+tool for making code signatures transparent without requiring management of
+cryptographic key material. But we also support traditional signing methods, so
+models can be signed with public keys or signing certificates.
+
+The signing part creates a
+[sigstore bundle](https://github.com/sigstore/protobuf-specs/blob/main/protos/sigstore_bundle.proto)
+protobuf that is stored as in JSON format. The bundle contains the verification
+material necessary to check the payload and a payload as a
+[DSSE envelope](https://github.com/sigstore/protobuf-specs/blob/main/protos/envelope.proto).
+Further the DSSE envelope contains an in-toto statment and the signature over
+that statement. The signature format and how the the signature is computed can
+be seen
+[here](https://github.com/secure-systems-lab/dsse/blob/v1.0.0/protocol.md).
+
+Finally, the statement itself contains subjects which are a list of (file path,
+digest) pairs a predicate type set to `https://model_signing/signature/v1.0` and
+a dictionary of predicates. The idea is to use the predicates to store (and
+therefor sign) model card information in the future.
+
+The verification part reads the sigstore bundle file and firstly verifies that the
+signature is valid and secondly compute the model's file hashes again to compare
+against the signed ones.
+
+When users download a given version of a signed model they can check that the
+signature comes from a known or trusted identity and thus that the model hasn't
+been tampered with after training.
+
+When using Sigstore, signing events are recorded to Sigstore's append-only
+transparency log.  Transparency logs make signing events discoverable: Model
+verifiers can validate that the models they are looking at exist in the
+transparency log by checking a proof of inclusion (which is handled by the model
+signing library).  Furthermore, model signers that monitor the log can check for
+any unexpected signing events.
+
+Model signers should monitor for occurences of their signing identity in the
+log. Sigstore is actively developing a [log
+monitor](https://github.com/sigstore/rekor-monitor) that runs on GitHub Actions.
+
+![Signing models with Sigstore](docs/images/sigstore-model-diagram.png)
+
+### Model Signing CLI
+
+After installing the package, the CLI can be used via either `python -m
+model_signing <args>` or by calling the binary directly, `model_signing <args>`.
+
+Users that don't want to install the package, but want to test this using the
+repository can do the same using [Hatch](https://hatch.pypa.io/latest/) via
+`hatch run python -m model_signing <args>`.
+
+For the remainder of the section, we would use `model_signing <args>` method.
+
+The CLI has two subcommands: `sign` for signing and `verify` for verification.
+Each subcommand has another level of subcommands to select the signing method
+(`sigstore` -- the default, can be skipped --, `key`, `certificate`). Then, each
+of these subcommands has several flags to configure parameters for
+signing/verification.
+
+For the demo, we will use the `bert-base-uncased` model, which can be obtained
+via:
+
+```bash
+[...]$ git clone --depth=1 "https://huggingface.co/bert-based-uncased
+```
+
+We remove the `.git` directory since that should not be included in the
+signature:
+
+```bash
+[...]$ rm -rf bert-base-uncased/.git
+```
+
+By default, the code also ignores git related paths.
+
+The simplest example of the CLI is to sign a model using Sigstore:
+
+```bash
+[...]$ model_signing sign bert-base-uncased
+```
+
+This will open an OIDC flow to obtain a short lived token for the certificate.
+The identity used during signing and the provider must be reused during
+verification.
+
+As another example, here is how we can sign with private keys. First, we
+generate the key pair:
+
+```bash
+[...]$ openssl ecparam -name prime256v1 -genkey -noout -out key.priv
+[...]$ openssl ec -in key.priv -pubout > key.pub
+```
+
+And then we use the private key to sign.
+
+```bash
+[...]$ model_signing sign key bert-base-uncased --private_key key.priv
+```
+
+All signing methods support changing the signature name and location via the
+`--signature` flag:
+
+```bash
+[...]$ model_signing sign bert-base-uncased --signature model.sig
+```
+
+Consult the help for a list of all flags (`model_signing --help`, or directly
+`model_signing` with no arguments)
+
+On verification we use the `verify` subcommand. To verify a Sigstore signed
+model we use
+
+```bash
+[...]$ model_signing verify bert-base-uncased \
+      --signature model.sig \
+      --identity "$identity" \
+      --identity_provider "$oidc_provider"
+```
+
+Where `$identity` and `$oidc_provider` are those set up during the signing flow
+and `--signature` must point to the signature to verify.
+
+For developers signing models with Sigstore, there are three identity providers
+that can be used at the moment:
+
+* Google's provider is `https://accounts.google.com`.
+* GitHub's provider is `https://github.com/login/oauth`.
+  * GitHub Actions uses `https://token.actions.githubusercontent.com`
+* Microsoft's provider is `https://login.microsoftonline.com`.
+
+For automated signing using a workload identity, the following platforms
+are currently supported, shown with their expected identities:
+
+* GitHub Actions
+  (`https://github.com/octo-org/octo-automation/.github/workflows/oidc.yml@refs/heads/main`)
+* GitLab CI
+  (`https://gitlab.com/my-group/my-project//path/to/.gitlab-ci.yml@refs/heads/main`)
+* Google Cloud Platform (`SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com`)
+* Buildkite CI (`https://buildkite.com/ORGANIZATION_SLUG/PIPELINE_SLUG`)
+
+Similarly, for key verification, we can use
+
+```bash
+[...]$ model_signing verify key bert-base-uncased \
+       --signature resnet.sig --public_key key.pub
+```
+
+### Model Signing API
+
+We offer an API which can be used in integrations with ML frameworks, ML
+pipelins and ML model hubs libraries. The CLI wraps around the API.
+
+The API is split into 3 main components:
+
+- `model_signing.hashing`: responsible with generating a list of hashes for
+  every component of the model. A component could be a file, a file shard, a
+  tensor, etc., depending on the method used. We currently support only files
+  and file shards. The result of hashing is a manifest, a listing of hashes for
+  every object in the model.
+- `model_signing.signing`: responsible with taking the manifest and generating a
+  signature, based on a signing configuration. The signing configuration can
+  select the method used to sign as well as the parameters.
+- `model_signing.verifying`: responsible with taking a signature and verifying
+  it. If the cryptographic parts of the signature can be validated, the
+  verification layer would return an expanded manifest which can then be
+  compared agains a manifest obtained from hashing the existing model. If the
+  two manifest don't match then the model integrity was compromised and the
+  `model_signing` package detected that.
+
+The first two of these components allows configurability but can also be used
+directly, with a default configuration. The only difference is for the
+verification component where we need to configure the verification method since
+there are no sensible defaults that can be used.
+
+The simplest way to generate a signature using Sigstore is:
+
+```python
+import model_signing
+
+model_signing.signing.sign("bert-base-uncased", "model.sig")
+```
+
+This will run the same OIDC flow as when signing with Sigstore from the CLI.
+
+We can use explicit configurations to configure more about the signing:
+
+```python
+import model_signing
+
+model_signing.signing.Config().use_elliptic_key_signer(
+    private_key="key.priv"
+).sign(
+    "finbert", "finbert.sig"
+)
+```
+
+The same signing configuration can be used to sign multiple models:
+
+```python
+import model_signing
+
+signing_config = model_signing.signing.Config().use_elliptic_key_signer(
+    private_key="key.priv"
+)
+
+for model in all_models:
+    signing_config.sign(model, f"{model}_sharded.sig")
+```
+
+Verification needs a configuration. To verify using Sigstore:
+
+```python
+import model_signing
+
+model_signing.verifying.Config().use_sigstore_verifier(
+    identity=identity, oidc_issuer=oidc_provider
+).verify("finbert", "finbert.sig")
+```
+
+The same verification configuration can be used to verify multiple models:
+
+```python
+import model_signing
+
+verifying_config = model_signing.signing.Config().use_elliptic_key_verifier(
+    public_key="key.pub"
+)
+
+for model in all_models:
+    verifying_config.verify(model, f"{model}_sharded.sig")
+```
+
+Consult the
+[official documentation](https://sigstore.github.io/model-transparency/model_signing.html)
+for more details.
+
+### Model Signing Format
+
+For a diagram showing the model signing format as well as an explanation of the
+layers, see the [model signing format](docs/model_signing_format.md) document.
+
+## SLSA for ML
+
+This is a separate project from the `model_signing` package, aimed at generating
+[SLSA][slsa] provenance for ML models, using either Github Actions or Google
+Cloud Platform.
+
+See [slsa_for_models/README.md](slsa_for_models/README.md) for more information.
+
+## Contributing
+
+Please see the [Contributor Guide](CONTRIBUTING.md) for more information.
+
+[slsa]: https://slsa.dev/
+[saif]: https://blog.google/technology/safety-security/introducing-googles-secure-ai-framework/
+[openssf]: https://openssf.org/
+[slsa-generator]: https://github.com/slsa-framework/slsa-github-generator
+[solarwinds]: https://www.techtarget.com/whatis/feature/SolarWinds-hack-explained-Everything-you-need-to-know
