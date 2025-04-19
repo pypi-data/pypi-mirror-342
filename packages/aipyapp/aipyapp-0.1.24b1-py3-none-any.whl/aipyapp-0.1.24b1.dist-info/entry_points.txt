@@ -1,0 +1,2 @@
+[console_scripts]
+aipy = aipyapp.__main__:main
