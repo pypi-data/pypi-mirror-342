@@ -1,0 +1,12 @@
+[project]
+name = "bootstrap-mcp"
+version = "0.0.2"
+description = "A MCP Server for developers to create startup templates"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]",
+]
+
+[project.scripts]
+bootstrap-mcp = "bootstrap_mcp.__main__:cli"
