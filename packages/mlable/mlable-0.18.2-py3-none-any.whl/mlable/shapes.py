@@ -1,0 +1,90 @@
+import tensorflow as tf
+
+import mlable.utils
+
+# AXES ########################################################################
+
+def swap_axes(rank: int, left: int, right: int, perm: list=[]) -> list:
+    __perm = perm if perm else list(range(rank))
+    __left, __right = left % rank, right % rank
+    __perm[__left], __perm[__right] = __perm[__right], __perm[__left]
+    return __perm
+
+def move_axis(rank: int, before: int, after: int, perm: list=[]) -> list:
+    __perm = perm if perm else list(range(rank))
+    # indexes
+    __from = before % len(__perm)
+    __to = after % len(__perm)
+    # rotate left to right if from < to and vice-versa
+    __dir = 1 if __from < __to else -1
+    # split the sequence
+    __left = __perm[:min(__from, __to)]
+    __shift = mlable.utils.rotate(__perm[min(__from, __to):max(__from, __to) + 1], ticks=__dir)
+    __right = __perm[max(__from, __to) + 1:]
+    # recompose
+    return __left + __shift + __right
+
+# DIMS ########################################################################
+
+def normalize_dim(dim: int) -> int:
+    return 0 if (dim is None) else dim
+
+def symbolic_dim(dim: int) -> int:
+    return None if (dim == 0) else dim
+
+def multiply_dim(dim_l: int, dim_r: int) -> int:
+    return -1 if (dim_l == -1 or dim_r == -1) else dim_l * dim_r
+
+def divide_dim(dim_l: int, dim_r: int) -> int:
+    return -1 if (dim_l == -1 or dim_r == -1 or dim_r == 0) else dim_l // dim_r
+
+# NORMALIZE ###################################################################
+
+def normalize(shape: list) -> list:
+    return [normalize_dim(dim=__d) for __d in list(shape)]
+
+def symbolic(shape: list) -> list:
+    return [symbolic_dim(dim=__d) for __d in list(shape)]
+
+def filter(shape: list, axes: list) -> list:
+    __shape = normalize(shape)
+    __axes = [__a % len(__shape) for __a in axes] # interpret negative indexes
+    return [__d if __i in __axes else 1 for __i, __d in enumerate(__shape)]
+
+# DIVIDE ######################################################################
+
+def divide(shape: list, input_axis: int, output_axis: int, factor: int, insert: bool=False) -> list:
+    # copy
+    __shape = normalize(shape)
+    # rank, according to the new shape
+    __rank = len(__shape) + int(insert)
+    # axes, taken from the new shape
+    __axis0 = input_axis % __rank
+    __axis1 = output_axis % __rank
+    # option to group data on a new axis
+    if insert: __shape.insert(__axis1, 1)
+    # move data from axis 0 to axis 1
+    __shape[__axis0] = divide_dim(__shape[__axis0], factor)
+    __shape[__axis1] = multiply_dim(__shape[__axis1], factor)
+    # return
+    return __shape
+
+# MERGE #######################################################################
+
+def merge(shape: list, left_axis: int, right_axis: int, left: bool=True) -> list:
+    # copy
+    __shape = normalize(shape)
+    __rank = len(__shape)
+    # normalize (negative indexes)
+    __axis_l = left_axis % __rank
+    __axis_r = right_axis % __rank
+    # new dimension
+    __dim = multiply_dim(__shape[__axis_l], __shape[__axis_r])
+    # select axes
+    __axis_k = __axis_l if left else __axis_r # kept axis
+    __axis_d = __axis_r if left else __axis_l # deleted axis
+    # new shape
+    __shape[__axis_k] = __dim
+    __shape.pop(__axis_d)
+    # return
+    return __shape
