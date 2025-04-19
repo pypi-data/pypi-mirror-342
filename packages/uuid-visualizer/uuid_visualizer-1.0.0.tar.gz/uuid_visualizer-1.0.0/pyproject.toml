@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uuid-visualizer"
+version = "1.0.0"
+description = "Generate stylized visual keys based on UUID input."
+authors = [
+    { name = "Aurora Rosabella", email = "auracrimsonrose@gmail.com" }
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.6"
+dependencies = [
+    "Pillow"
+]
+
+[project.urls]
+Homepage = "https://github.com/auroracrimsonrose/uuid-visualizer"
+Repository = "https://github.com/auroracrimsonrose/uuid-visualizer"
+
+[tool.setuptools]
+include-package-data = true
+ 

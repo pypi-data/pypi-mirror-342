@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+uuid_visualizer/__init__.py
+uuid_visualizer/main.py
+uuid_visualizer/palettes.py
+uuid_visualizer/shapes.py
+uuid_visualizer.egg-info/PKG-INFO
+uuid_visualizer.egg-info/SOURCES.txt
+uuid_visualizer.egg-info/dependency_links.txt
+uuid_visualizer.egg-info/requires.txt
+uuid_visualizer.egg-info/top_level.txt
