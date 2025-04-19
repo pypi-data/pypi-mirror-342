@@ -1,0 +1,2 @@
+[console_scripts]
+razer-cli = razer_cli.razer_cli.main:main
