@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: kusto_query_language_parser
+Version: 0.0.1
+Summary: A package to parse Kusto Query Language (KQL) code
+Project-URL: Homepage, https://github.com/tedyeates/kusto-query-language-python-parser
+Project-URL: Issues, https://github.com/tedyeates/kusto-query-language-python-parser/issues
+Author-email: Ted Yeates <t3d.y34t3s@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# kusto-query-language-python-parser
+Python parser for generating parse trees in Python
