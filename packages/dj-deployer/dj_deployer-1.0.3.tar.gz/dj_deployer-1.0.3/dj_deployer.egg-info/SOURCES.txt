@@ -1,0 +1,17 @@
+README.md
+setup.py
+dj_deployer.egg-info/PKG-INFO
+dj_deployer.egg-info/SOURCES.txt
+dj_deployer.egg-info/dependency_links.txt
+dj_deployer.egg-info/entry_points.txt
+dj_deployer.egg-info/requires.txt
+dj_deployer.egg-info/top_level.txt
+django_deployer/__init__.py
+django_deployer/cli.py
+django_deployer/client.py
+django_deployer/config.py
+django_deployer/deployer.py
+django_deployer/host.py
+django_deployer/logger.py
+django_deployer/token.py
+django_deployer/utils.py
