@@ -1,0 +1,41 @@
+Metadata-Version: 2.4
+Name: get_lunchbox
+Version: 1.0
+Summary: Useful tool for easy importing with aliases
+Author: Carlos
+Author-email: karlos.santana13@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: requires-python
+Dynamic: summary
+
+# 🧺 get_lunchbox
+Easy imports in Python — simplify your workflow by dynamically importing modules with optional aliases.
+
+## 🚀 Usage
+```python
+from get_lunchbox import get_lunchbox
+
+lb = get_lunchbox(
+    ("math",),
+    ("numpy", "np"),
+    ("matplotlib.pyplot", "plt")
+)
+
+print(lb.math.sqrt(25))      # 5.0
+print(lb.np.array([1, 2, 3]))  # numpy array
+lb.plt.plot([1, 2], [3, 4])    # matplotlib plot
+lb.plt.show()
+```
+### Installation Process
+```bash
+pip install get_lunchbox
