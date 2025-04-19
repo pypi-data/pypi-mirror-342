@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+android_fingerprint/__init__.py
+android_fingerprint/device.py
+android_fingerprint/py.typed
+android_fingerprint.egg-info/PKG-INFO
+android_fingerprint.egg-info/SOURCES.txt
+android_fingerprint.egg-info/dependency_links.txt
+android_fingerprint.egg-info/top_level.txt
+android_fingerprint/data/__init__.py
+android_fingerprint/data/google_phones.py
+android_fingerprint/types/__init__.py
+android_fingerprint/types/android_data.py
+android_fingerprint/types/device.py
