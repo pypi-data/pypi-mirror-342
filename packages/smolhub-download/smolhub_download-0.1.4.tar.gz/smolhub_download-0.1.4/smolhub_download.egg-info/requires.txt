@@ -1,0 +1,4 @@
+requests>=2.25.0
+torch>=1.7.0
+requests_toolbelt
+tqdm
