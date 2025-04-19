@@ -1,0 +1,112 @@
+Metadata-Version: 2.4
+Name: superneuromat
+Version: 2.0.0
+Summary: A fast and scalable matrix-based simulator for spiking neural networks (SNNs).
+Project-URL: Homepage, https://github.com/ORNL/superneuromat
+Project-URL: Issues, https://github.com/ORNL/superneuromat/issues
+Project-URL: Documentation, https://app.readthedocs.org/projects/superneuromat/
+Author: Chathika Gunaratne, Shruti Kulkarni, Robert Patton, Mark Coletti
+Author-email: Prasanna Date <datepa@ornl.gov>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2023, Oak Ridge National Laboratory
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+License-File: LICENSE
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.0
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Description-Content-Type: text/markdown
+
+# SuperNeuroMAT v2.0.0
+
+SuperNeuroMAT is a matrix-based simulator for simulating spiking neural networks, which are used in neuromorphic computing. It is one of the fastest, if not the fastest, simlators for simulating spiking neural networks.
+
+Some salient features of SuperNeuroMAT are:
+1. Support for leaky integrate and fire neuron model with the following parameters: neuron threshold, neuron leak, and neuron refractory period
+2. Support for Spiking-Time-Dependent Plasticity (STDP) synapses with weights and delays
+3. No restrictions on connectivity of the neurons, all-to-all connections as well as self connections possible
+4. Constant leak supported
+5. STDP learning can be configured to turn on/off positive updates and negative updates
+6. Excessive synaptic delay can slow down the execution of the simulation, so try to avoid as much as possible
+7. Leak refers to the constant amount by which the internal state (membrane potential) of a neuron changes in each time step of the simulation; therefore, zero leak means the neuron fully retains the value in its internal state, and infinite leak means the neuron never retains the value in its internal state
+8. STDP implementation is extremely fast
+9. The model of neuromorphic computing supported in SuperNeuroMAT is Turing-complete
+10. All underlying computational operations are matrix-based and currently supported on CPUs
+
+
+## Installation
+1. Install using `pip install superneuromat`
+2. Update/upgrade using `pip install superneuromat --upgrade`
+
+
+## Usage
+1. In a Python script or on a Python interpreter, do `import superneuromat as snm`
+2. The main class can be accessed by `snn = snm.SNN()`
+3. Refer to docstrings in the source code or on the [readthedocs](https://superneuromat.readthedocs.io/en/latest/) page for the API
+
+
+## Documentation
+Documentation available at: https://superneuromat.readthedocs.io/en/latest/
+
+
+## Citation
+1. Please cite SuperNeuroMAT using:
+	```
+	@inproceedings{date2023superneuro,
+	  title={SuperNeuro: A fast and scalable simulator for neuromorphic computing},
+	  author={Date, Prasanna and Gunaratne, Chathika and R. Kulkarni, Shruti and Patton, Robert and Coletti, Mark and Potok, Thomas},
+	  booktitle={Proceedings of the 2023 International Conference on Neuromorphic Systems},
+	  pages={1--4},
+	  year={2023}
+	}
+	```
+2. References for SuperNeuroMAT:
+	- [SuperNeuro: A Fast and Scalable Simulator for Neuromorphic Computing](https://dl.acm.org/doi/abs/10.1145/3589737.3606000)
+	- [Neuromorphic Computing is Turing-Complete](https://dl.acm.org/doi/abs/10.1145/3546790.3546806)
+	- [Computational Complexity of Neuromorphic Algorithms](https://dl.acm.org/doi/abs/10.1145/3477145.3477154)
+
+
+
+## For Development
+1. Clone the `superneuromat` repo: `git clone https://github.com/ORNL/superneuromat.git`
+2. Add the path to `superneuromat` to your `$PYTHONPATH`: `export PYTHONPATH=$PYTHONPATH:/path/to/superneuromat`. 
+3. You may want to update the `$PYTHONPATH` in your `.bash_profile` or `.bashrc`.
+
+
+## Directory Info
+1. `superneuromat`: This contains the source code for `superneuromat`
+2. `tests`: This contains unittests for development purposes. Please ignore!
+
+
