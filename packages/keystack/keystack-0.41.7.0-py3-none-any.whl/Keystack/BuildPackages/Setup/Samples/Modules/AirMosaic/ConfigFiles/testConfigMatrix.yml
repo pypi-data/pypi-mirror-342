@@ -1,0 +1,283 @@
+# These are .sce files residing on the Windows UESim filesystem
+sce:
+  mavenir_998_functional:
+    1: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Category1-TC1-PLMN_Selection_manual_automatic.sce
+    2: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Category1-TC2-Verify_MIB_broadcast_decode.sce
+    3: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Category1-TC3-Verify_SIB1_broadcast_decode.sce
+    4: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Category1-TC4-Cell_Selection_UERegistration.sce
+    5: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Category1-TC5-Data_PDU_Session_Establishment.sce
+    6: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Category1-TC7-IMS_PDU_Session_Establishment.sce
+    7: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Category1-TC8-IMS_Registration.sce
+    8: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Category1-TC11-MOMT_VONR_Call.sce
+    9: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Category1-TC12-MOMT_Video_Call.sce
+    10: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Category1-TC14-MOMT_SMS_Call.sce
+    11: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Category1-TC15-MOMT_Long_SMS_Call.sce
+    12: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/KS-C1-TC5-Data_PDU_Session_Establishment_with_PING.sce
+    13: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/KS-C1-TC5-Data_PDU_Session_Establishment_with_Multi_PING.sce
+    14: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/KS-C1-TC5-Data_Multi_PDU_Session_Establishment_with_Multi_PING.sce
+    15: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/KS-C1-TC10-MOMT_VONR_Call-180sec.sce
+    16: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/KS-C1-TC11_1-MOMT_ViNR_LongDuration_Call.sce
+  mavenir_998_performance:
+    1: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/D-C2-TC14_Cell1-100_NR-Registration_Deregistration.sce
+    2: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/D-C2-TC15-Cell1_100_NR-Registration-Data-PDU-Session-Deregistration.sce
+    3: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/D-C2-TC16_Cell1-100_NR_Registration_IMS_PDU_Session_Deregistration.sce
+    4: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/D-C2-TC17-Cell1_MOMT_20_VoNR_Voicecall.sce
+    5: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/D-C2-TC18-Cell1_MOMT_20_VoNR_Video_call.sce
+    6: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/KS-C2-TC17-Cell1_MOMT_20_long_duration_VoNR_Voice_call.sce
+    7: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/D-C2-TC18_2_Cell1-5UE_MOMT_20VoNR_LongVideoCalls_DefaultBearer.sce
+    8: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/D_C2-TC22-Cell1-20_SMS_Call.sce
+    9: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/KS-C2-TC18-Cell1_MOMT_1CPS_VoNR_Voice_call.sce
+    10: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/KS-C2-TC18-Cell1_MOMT_1CPS_VoNR_Video_call.sce
+    11: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/D-C2-TC11-Cell1_7200_BHCA_VoNR_Voice_call.sce
+    12: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/D-C2-TC12-Cell1_7200_BHCA_VoNR_Video_call.sce
+    13: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/D-C2-TC18-Cell1_E911_callWith20LongDurationVoiceCall.sce
+    14: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Fernando_Category_2_Tests/D-C2-TC19-Cell1_E911_callWith20LongDurationVideoCall.sce
+
+
+  mavenir_988_functional:
+    1: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Category1-TC1-PLMN_Selection_manual_automatic.sce
+    2: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Category1-TC2-Verify_MIB_broadcast_decode.sce
+    3: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Category1-TC3-Verify_SIB1_broadcast_decode.sce
+    4: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Category1-TC4-Cell_Selection_UERegistration.sce
+    5: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Category1-TC5-Data_PDU_Session_Establishment.sce
+    6: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Category1-TC7-IMS_PDU_Session_Establishment.sce
+    7: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Category1-TC8-IMS_Registration.sce
+    8: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Category1-TC11-MOMT_VONR_Call.sce
+    9: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Category1-TC12-MOMT_Video_Call.sce
+    10: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Category1-TC14-MOMT_SMS_Call.sce
+    11: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Category1-TC15-MOMT_Long_SMS_Call.sce
+    12: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/KS-C1-TC5-Data_PDU_Session_Establishment_with_PING.sce
+    13: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/KS-C1-TC5-Data_PDU_Session_Establishment_with_Multi_PING.sce
+    14: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/KS-C1-TC5-Data_Multi_PDU_Session_Establishment_with_Multi_PING.sce
+    15: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/KS-C1-TC10-MOMT_VONR_Call-180sec.sce
+    16: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/KS-C1-TC11_1-MOMT_ViNR_LongDuration_Call.sce
+  mavenir_988_performance:
+    1: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/D-C2-TC14_Cell2-100_NR-Registration_Deregistration.sce
+    2: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/D-C2-TC15-Cell2_100_NR-Registration-Data-PDU-Session-Deregistration.sce
+    3: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/D-C2-TC16_Cell2-100_NR_Registration_IMS_PDU_Session_Deregistration.sce
+    4: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/D-C2-TC17-Cell2_MOMT_20_VoNR_Voicecall.sce
+    5: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/D-C2-TC18-Cell2_MOMT_20_VoNR_Video_call.sce
+    6: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/KS-C2-TC17-Cell2_MOMT_20_long_duration_VoNR_Voice_call.sce
+    7: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/D-C2-TC18_2_Cell2-5UE_MOMT_20VoNR_LongVideoCalls_DefaultBearer.sce
+    8: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/D_C2-TC22-Cell2-20_SMS_Call.sce
+    9: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/KS-C2-TC18-Cell2_MOMT_1CPS_VoNR_Voice_call.sce
+    10: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/KS-C2-TC18-Cell2_MOMT_1CPS_VoNR_Video_call.sce
+    11: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/D-C2-TC11-Cell2_7200_BHCA_VoNR_Voice_call.sce
+    12: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/D-C2-TC12-Cell2_7200_BHCA_VoNR_Video_call.sce
+    13: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/D-C2-TC18-Cell2_E911_callWith20LongDurationVoiceCall.sce
+    14: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Fernando_Category_2_Tests/D-C2-TC19-Cell2_E911_callWith20LongDurationVideoCall.sce
+
+# These are .sid files residing on the Windows UESim filesystem
+sid:
+  1: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_998_cell1/Mav_cell1_998.sid
+  2: /Automation/AirMosaic/Daily_HC_UESIM_Scripts/Mavenir_988_cell2/Mav_cell2_988.sid
+
+# Which config file to use?
+# the config files listed here are from the LSU Archive Manager page
+configFiles:
+  1: Mav-cell_1_998_cell_2_988-220506
+  2: Mavenir_PCI_998_n71_cell_1
+  3: Mavenir_PCI_988_n71_cell_2
+  4: Cell1_n66_Cell2_n71
+
+
+# Create a list of KPI counter checks
+kpiCounterChecks:
+  mavenir_998:
+    1: Cell,1,NAS - NR->NRMM->Registration Procedure Attempt,lv,eq,1|Cell,1,NAS - NR->NRMM->Registration Complete,lv,eq,1
+    2: Cell,1,NAS - NR->NRSM->PDU Session Establishment Request,lv,eq,1|Cell,1,NAS - NR->NRSM->PDU Session Establishment Accept,lv,eq,1
+    3: Cell,1,VoLTE - VoNR->SIP Signalling->Registrations - Attempted,lv,eq,1|Cell,1,VoLTE - VoNR->SIP Signalling->Registrations - Successful,lv,eq,1
+    4: Cell,1,VoLTE - VoNR->SIP Signalling->Voice Calls - Successful,lv,eq,2
+    5: Cell,1,VoLTE - VoNR->SIP Signalling->Video Calls - Successful,lv,eq,2
+    6: Cell,1,VoLTE - VoNR->SIP Signalling->Mobile Originated SMS - Successful,lv,eq,1|Cell,1,VoNR->SIP Signalling->Mobile Terminated SMS - Successful,lv,eq,1
+    7: Cell,1,VoLTE - VoNR->SIP Signalling->Emergency Calls - Successful,lv,eq,1  
+    8: Cell,1,VoLTE - VoNR->SIP Signalling->Deregistrations - Attempted,lv,eq,1|Cell,1,VoLTE - VoNR->SIP Signalling->Deregistrations - Successful,lv,eq,1
+    9: Cell,1,NAS - NR->NRMM->UE Originated Deregistration Attempt,lv,eq,1|Cell,1,NAS - NR->NRMM->UE Received Deregistration Accept,lv,eq,1
+    #  10: Cell,1,Groups->Cell1_MOC->Application->PING->Sessions - Attempted,lv,eq,1| Cell,1,Groups->Cell1_MOC->Application->PING->Sessions - Successful,lv,eq,1
+    10: Groups->Cell1_MOC->Application->PING->Sessions - Attempted,lv,eq,1|Groups->Cell1_MOC->Application->PING->Sessions - Successful,lv,eq,1
+    11: Cell,1,NAS - NR->NRMM->Registration Procedure Attempt,lv,eq,2|Cell,1,NAS - NR->NRMM->Registration Complete,lv,eq,2
+    12: Cell,1,NAS - NR->NRSM->PDU Session Establishment Request,lv,eq,2|Cell,1,NAS - NR->NRSM->PDU Session Establishment Accept,lv,eq,2
+    13: Cell,1,VoLTE - VoNR->SIP Signalling->Registrations - Attempted,lv,eq,2|Cell,1,VoLTE - VoNR->SIP Signalling->Registrations - Successful,lv,eq,2
+    14: Cell,1,NAS - NR->NRMM->UE Originated Deregistration Attempt,lv,eq,2|Cell,1,NAS - NR->NRMM->UE Received Deregistration Accept,lv,eq,2
+    15: Cell,1,Groups->Cell1_MOC->Application->PING->Sessions - Attempted,lv,eq,2| Cell,1,Groups->Cell1_MOC->Application->PING->Sessions - Successful,lv,eq,2
+    16: Cell,1,NAS - NR->NRMM->UE Originated Deregistration Attempt,lv,eq,2|Cell,1,NAS - NR->NRMM->UE Received Deregistration Accept,lv,eq,2
+    17: Cell,1,Groups->Cell1_MOC->Application->PING->Sessions - Attempted,lv,eq,1| Cell,1,Groups->Cell1_MOC->Application->PING->Sessions - Successful,lv,eq,3
+    18: Cell,1,NAS - NR->NRSM->PDU Session Establishment Request,lv,eq,3|Cell,1,NAS - NR->NRSM->PDU Session Establishment Accept,lv,eq,3
+    19: Cell,1,Groups->Cell1_MOC->Application->PING->Sessions - Attempted,lv,eq,3|Cell,1,Groups->Cell1_MOC->Application->PING->Sessions - Successful,lv,eq,3
+    20: Cell,1,NAS - NR->NRMM->Registration Procedure Attempt,lv,eq,100|Cell,1,NAS - NR->NRMM->Registration Complete,lv,eq,100
+    21: Cell,1,NAS - NR->NRMM->UE Originated Deregistration Request,lv,eq,100|Cell,1,NAS - NR->NRMM->UE Received Deregistration Accept,lv,eq,100
+    22: Cell,1,Groups->Cell1_MOC->Application->PING->Sessions - Attempted,lv,eq,20|Cell,1,Groups->Cell1_MOC->Application->PING->Sessions - Successful,lv,eq,20
+    23: Cell,1,VoLTE - VoNR->SIP Signalling->Mobile Originated SMS - Successful,lv,eq,2|Cell,1,VoLTE - VoNR->SIP Signalling->Mobile Terminated SMS - Successful,lv,eq,2
+    24: Cell,1,VoLTE - VoNR->SIP Signalling->Mobile Originated SMS - Successful,lv,eq,20|Cell,1,VoLTE - VoNR->SIP Signalling->Mobile Terminated SMS - Successful,lv,eq,20
+    25: Cell,1,NAS - NR->NRMM->Registration Request,lv,eq,20|Cell,1,NAS - NR->NRMM->Registration Complete,lv,eq,20
+    26: Cell,1,NAS - NR->NRMM->UE Originated Deregistration Request,lv,eq,20|Cell,1,NAS - NR->NRMM->UE Received Deregistration Accept,lv,eq,20
+    27: Cell,1,NAS - NR->NRSM->PDU Session Establishment Request,lv,eq,20|Cell,1,NAS - NR->NRSM->PDU Session Establishment Accept,lv,eq,20
+    28: Cell,1,NAS - NR->NRSM->PDU Session Establishment Request,lv,eq,100|Cell,1,NAS - NR->NRSM->PDU Session Establishment Accept,lv,eq,100
+    29: Cell,1,VoLTE - VoNR->SIP Signalling->Registrations - Attempted,lv,eq,20|Cell,1,VoLTE - VoNR->SIP Signalling->Registrations - Successful,lv,eq,20
+
+    30: Cell,1,VoLTE - VoNR->SIP Signalling->Voice Calls - Successful,lv,eq,40
+    31: Cell,1,VoLTE - VoNR->SIP Signalling->Video Calls - Successful,lv,eq,20
+    32: Cell,1,VoLTE - VoNR->SIP Signalling->Deregistrations - Attempted,lv,eq,20|Cell,1,VoLTE - VoNR->SIP Signalling->Deregistrations - Successful,lv,eq,20
+    33: Default Counters,Default Counters Set 1,Default Counters->Attaches->Number of RACH attempted,lv,eq,1|Default Counters,Default Counters Set 1,Default Counters->Attaches->Number of RACH Passed,lv,eq,1
+    34: Default Counters,Default Counters Set 1,Default Counters->Attaches->Number of RACH failed,lv,eq,0
+
+    # mobile terminated SMS success ??
+  
+  mavenir_988:
+    1: Cell,2,NAS - NR->NRMM->Registration Request,lv,eq,1|Cell,2,NAS - NR->NRMM->Registration Complete,lv,eq,1
+    2: Cell,2,NAS - NR->NRSM->PDU Session Establishment Request,lv,eq,1|Cell,2,NAS - NR->NRSM->PDU Session Establishment Accept,lv,eq,1
+    3: Cell,2,VoLTE - VoNR->SIP Signalling->Registrations - Attempted,lv,eq,1|Cell,2,VoLTE - VoNR->SIP Signalling->Registrations - Successful,lv,eq,1
+    4: Cell,2,VoLTE - VoNR->SIP Signalling->Voice Calls - Successful,lv,eq,2
+    5: Cell,2,VoLTE - VoNR->SIP Signalling->Video Calls - Successful,lv,eq,2
+    6: Cell,2,VoLTE - VoNR->SIP Signalling->Mobile Originated SMS - Successful,lv,eq,1|Cell,2,VoNR->SIP Signalling->Mobile Terminated SMS - Successful,lv,eq,1
+    7: Cell,2,VoLTE - VoNR->SIP Signalling->Emergency Calls - Successful,lv,eq,1  
+    8: Cell,2,VoLTE - VoNR->SIP Signalling->Deregistrations - Attempted,lv,eq,1|Cell,2,VoLTE - VoNR->SIP Signalling->Deregistrations - Successful,lv,eq,1
+    9: Cell,2,NAS - NR->NRMM->UE Originated Deregistration Attempt,lv,eq,1|Cell,2,NAS - NR->NRMM->UE Received Deregistration Accept,lv,eq,1
+    10: Cell,2,Groups->Cell1_MOC->Application->PING->Sessions - Attempted,lv,eq,1|Cell,2,Groups->Cell1_MOC->Application->PING->Sessions - Successful,lv,eq,1
+    11: Cell,2,NAS - NR->NRMM->Registration Procedure Attempt,lv,eq,2|Cell,2,NAS - NR->NRMM->Registration Complete,lv,eq,2
+    12: Cell,2,NAS - NR->NRSM->PDU Session Establishment Request,lv,eq,2|Cell,2,NAS - NR->NRSM->PDU Session Establishment Accept,lv,eq,2
+    13: Cell,2,VoLTE - VoNR->SIP Signalling->Registrations - Attempted,lv,eq,2|Cell,2,VoLTE - VoNR->SIP Signalling->Registrations - Successful,lv,eq,2
+    14: Cell,2,NAS - NR->NRMM->UE Originated Deregistration Attempt,lv,eq,2|Cell,2,NAS - NR->NRMM->UE Received Deregistration Accept,lv,eq,2
+    15: Cell,2,Groups->Cell1_MOC->Application->PING->Sessions - Attempted,lv,eq,2| Cell,2,Groups->Cell1_MOC->Application->PING->Sessions - Successful,lv,eq,2
+    16: Cell,2,NAS - NR->NRMM->UE Originated Deregistration Attempt,lv,eq,2|Cell,2,NAS - NR->NRMM->UE Received Deregistration Accept,lv,eq,2
+    17: Cell,2,Groups->Cell1_MOC->Application->PING->Sessions - Attempted,lv,eq,1|Cell,2,Groups->Cell1_MOC->Application->PING->Sessions - Successful,lv,eq,3
+    18: Cell,2,NAS - NR->NRSM->PDU Session Establishment Request,lv,eq,3|Cell,2,NAS - NR->NRSM->PDU Session Establishment Accept,lv,eq,3
+    19: Cell,2,Groups->Cell1_MOC->Application->PING->Sessions - Attempted,lv,eq,3|Cell,2,Groups->Cell1_MOC->Application->PING->Sessions - Successful,lv,eq,3
+    20: Cell,2,NAS - NR->NRMM->Registration Procedure Attempt,lv,eq,100|Cell,2,NAS - NR->NRMM->Registration Complete,lv,eq,100
+
+    21: Cell,2,NAS - NR->NRMM->UE Originated Deregistration Request,lv,eq,100|Cell,2,NAS - NR->NRMM->UE Received Deregistration Accept,lv,eq,100
+    
+    22: Cell,2,Groups->Cell1_MOC->Application->PING->Sessions - Attempted,lv,eq,20|Cell,2,Groups->Cell1_MOC->Application->PING->Sessions - Successful,lv,eq,20
+    
+    23: Cell,2,VoLTE - VoNR->SIP Signalling->Mobile Originated SMS - Successful,lv,eq,2|Cell,2,VoLTE - VoNR->SIP Signalling->Mobile Terminated SMS - Successful,lv,eq,2
+    
+    24: Cell,2,VoLTE - VoNR->SIP Signalling->Mobile Originated SMS - Successful,lv,eq,20|Cell,2,VoLTE - VoNR->SIP Signalling->Mobile Terminated SMS - Successful,lv,eq,20
+    25: Cell,2,NAS - NR->NRSM->PDU Session Establishment Request,lv,eq,100|Cell,2,NAS - NR->NRSM->PDU Session Establishment Accept,lv,eq,100|Cell,2,NAS - NR->NRSM->PDU Session Establishment Reject,lv,eq,0
+    26: Cell,2,NAS - NR->NRMM->UE Originated Deregistration Request,lv,eq,20|Cell,2,NAS - NR->NRMM->UE Received Deregistration Accept,lv,eq,20
+    27: Cell,2,NAS - NR->NRSM->PDU Session Establishment Request,lv,eq,20|Cell,2,NAS - NR->NRSM->PDU Session Establishment Accept,lv,eq,20
+    28: Cell,2,NAS - NR->NRSM->PDU Session Establishment Request,lv,eq,100|Cell,2,NAS - NR->NRSM->PDU Session Establishment Accept,lv,eq,100
+    29: Cell,2,VoLTE - VoNR->SIP Signalling->Registrations - Attempted,lv,eq,20|Cell,2,VoLTE - VoNR->SIP Signalling->Registrations - Successful,lv,eq,20
+
+    30: Cell,2,VoLTE - VoNR->SIP Signalling->Voice Calls - Successful,lv,eq,40
+    31: Cell,2,VoLTE - VoNR->SIP Signalling->Video Calls - Successful,lv,eq,20
+    32: Cell,2,VoLTE - VoNR->SIP Signalling->Deregistrations - Attempted,lv,eq,20|Cell,2,VoLTE - VoNR->SIP Signalling->Deregistrations - Successful,lv,eq,20
+    33: Default Counters,Default Counters Set 1,Default Counters->Attaches->Number of RACH attempted,lv,eq,1|Default Counters,Default Counters Set 1,Default Counters->Attaches->Number of RACH Passed,lv,eq,1
+    34: Default Counters,Default Counters Set 1,Default Counters->Attaches->Number of RACH failed,lv,eq,0
+    # mobile terminated SMS success ??
+    
+# kpiMappings is to get the KPI long-name from kpiCounterChecks with its short-name.
+# The short name is used for runtime analytics
+kpiMappings:
+  Registration Request:
+    name: c5GRegistrationRequest
+    category: Cells
+    instance: 1
+
+  Registration Complete:
+    name: c5GRegistrationComplete
+    category: Cells
+    instance: 1
+
+  PDU Session Establishment Request:
+    name: cPduSessionEstablishmentReq
+    category: Cells
+    instance: 1
+
+  PDU Session Establishment Accept:
+    name: cPduSessionEstablishmentAcc
+    category: Cells
+    instance: 1
+
+  Registrations - Attempted:
+    name: cVoipRegAtmpts
+    category: Cells
+    instance: 1
+
+  Registrations - Successful:
+    name: cVoipRegSucc
+    category: Cells
+    instance: 1
+
+  Voice Calls - Successful:
+    name: cVoipCallsSucc
+    category: Cells
+    instance: 1
+
+  Emergency Calls - Successful:
+    name: cVoipCallsEmergSucc
+    category: Cells
+    instance: 1
+
+  Mobile Originated SMS - Successful:
+    name: cVoipSmsMoSucc
+    category: Cells
+    instance: 1
+
+  Video Calls - Successful:
+    name: cVoipVideoCallsSucc
+    category: Cells
+    instance: 1
+
+  Mobile Terminated SMS - Successful:
+    name: cVoipSmsMtSucc
+    category: Cells
+    instance: 1
+
+  Deregistrations - Attempted:
+    name: cVoipDeregAtmpts
+    category: Cells
+    instance: 1
+
+  Deregistrations - Successful:
+    name: cVoipDeregSucc
+    category: Cells
+    instance: 1
+
+  UE Originated Deregistration Request:
+    name: c5GDeregistration
+    category: Cells
+    instance: 1
+
+  UE Received Deregistration Accept:
+    name: c5GDeregistrationAccept
+    category: Cells
+    instance: 1
+
+  PING Sessions - Successful:
+    name: uPingSessionSucc
+    category: Groups
+    instance: Cell1_MOC
+    
+  Number of RACH attempted:
+    name: numRachAttempted_Dflt
+    category: Default Counters
+    #instance: 1
+    instance: "Default Counters Set 1"
+
+  Number of RACH Passed:
+    name: numRachPassed_Dflt
+    category: Default Counters
+    #instance: 1
+    instance: "Default Counters Set 1"
+
+  Number of RACH failed:
+    name: numRachFailed_Dflt
+    category: Default Counters
+    #instance: 1
+    instance: "Default Counters Set 1"
+
+  Registration Procedure Attempt:
+    name: c5GRegistrationAttempt
+    category: Cells
+    instance: 1
+
+  UE Originated Deregistration Attempt:
+    name: c5GDeregistrationAttempt
+    category: Cells
+    instance: 1
+
+  UE Received Deregistration Accept:
+    name: c5GDeregistrationAccept
+    category: Cells
+    instance: 1
+
