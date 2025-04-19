@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: civic2Verifierrr
+Version: 0.1.3
+Summary: Document verification package
+Author: Advitiya Prakash
+Author-email: advitiyaprakash08@gmail.com
+Requires-Python: >=3.6
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-python
+Dynamic: summary
