@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+scrapy_proxy_headers/__init__.py
+scrapy_proxy_headers/agent.py
+scrapy_proxy_headers/download_handler.py
+scrapy_proxy_headers.egg-info/PKG-INFO
+scrapy_proxy_headers.egg-info/SOURCES.txt
+scrapy_proxy_headers.egg-info/dependency_links.txt
+scrapy_proxy_headers.egg-info/top_level.txt
