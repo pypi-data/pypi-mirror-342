@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: eddies_tools
+Version: 0.0.31
+Summary: eddies tools
+Author-email: Edward Sung <edsung@gmail.com>
+License-Expression: MIT
+Project-URL: Homepage, https://home.edsdemesne.org/
+Project-URL: Issues, https://github.com/pypa/eddies_tools/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# Example Package
+
+if you don't know what this package is for, this package is not for you

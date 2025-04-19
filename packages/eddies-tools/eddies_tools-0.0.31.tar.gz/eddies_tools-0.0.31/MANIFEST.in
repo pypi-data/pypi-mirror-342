@@ -1,0 +1,10 @@
+include *.py
+include *.js
+include *.css
+recursive-include src/eddies_tools *.py
+recursive-include src/eddies_tools *.js
+recursive-include src/eddies_tools *.css
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude __pycache__/
+global-exclude *.DS_Store

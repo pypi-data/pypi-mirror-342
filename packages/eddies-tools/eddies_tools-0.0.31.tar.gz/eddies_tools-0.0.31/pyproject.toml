@@ -1,0 +1,19 @@
+[project]
+name = "eddies_tools"
+version = "0.0.31"
+authors = [
+  { name="Edward Sung", email="edsung@gmail.com" },
+]
+description = "eddies tools"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://home.edsdemesne.org/"
+Issues = "https://github.com/pypa/eddies_tools/issues"

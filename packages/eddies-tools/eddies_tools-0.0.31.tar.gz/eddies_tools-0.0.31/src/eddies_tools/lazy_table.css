@@ -1,0 +1,86 @@
+.lztblinpcol{
+    width:calc(var(--fsz) * 2)
+}
+.lztbltdcol{
+    width:max-content;
+}
+.lztblth{
+    width:calc(100% - 2px);
+    height:calc(var(--fsz) * 1.5);
+    border-bottom:2px solid rgba(125,125,125,0.5);
+    border-right:2px solid rgba(125,125,125,0.5);
+    background-color: rgba(125,125,125,0.5);
+    align-items: center;
+    padding-top:2px;
+    padding-bottom: 2px;
+    text-align: center;
+    justify-content: center;
+}
+.lztblth input{
+    height:calc(var(--fsz) * 1);
+    background-color: rgba(255,255,255,0.5);
+    border:2px solid rgba(125,125,125,0.5)
+}
+.lztbltd{
+    width:calc(100% - 8px);
+    height:calc(var(--fsz) * 1.5);
+    border-bottom:2px solid rgba(125,125,125,0.5);
+    border-left:2px solid rgba(125,125,125,0.5);
+    border-top:2px solid rgba(125,125,125,0);
+    border-right:2px solid rgba(125,125,125,0);
+    padding:2px
+}
+.lztbltd.bxl{
+    border-left:2px solid dodgerblue
+}
+.lztbltd.bxr{
+    border-right:2px solid dodgerblue
+}
+.lztbltd.bxt{
+    border-top:2px solid dodgerblue
+}
+.lztbltd.bxb{
+    border-bottom:2px solid dodgerblue
+}
+.lztbltd:nth-child(odd){
+    background-color: rgba(125,125,125,0.1);
+}
+.lztblsorttgl{
+    color:rgba(0,0,0,0.5);
+}
+.lztblytrk{
+    height:100%;
+    min-width:10px;
+    max-width:10px;
+    background-color:rgba(125,125,125,0.2);
+    position:relative;
+    border-radius:5px;
+}
+.lztblythmb{
+    width:10px;
+    height:10px;
+    top:0;
+    background-color:rgba(125,125,125,0.7);
+    position:absolute;
+    border-radius:5px;
+}
+.lztblsetwdcol{
+    overflow-y:hidden;
+    min-width:100%;
+}
+.lztblsetwdcolout{
+    overflow-x:auto;
+}
+.lztblautowdcolout{
+    width:100%;
+}
+.lztblautowdcol{
+    width:100%;
+}
+.lztblsrch{
+    width:calc(100% - var(--fsz))
+}
+.lztblbdyinner{
+    overflow-x:auto;
+    overflow-y:hidden;
+}

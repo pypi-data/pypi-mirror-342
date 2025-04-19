@@ -1,0 +1,60 @@
+.rchtxtedtr{
+    flex-grow:1;
+}
+.rchtxtedtr.actv{
+    border:1px solid rgba(125,125,125,0.5);
+}
+.rchtxtedtr button{
+    background-color: transparent;
+    border:1px solid rgba(125,125,125,0.5);
+}
+.rchtxtedtrtblpnl{
+    position:fixed;
+    background-color: rgb(200,200,200);
+    box-shadow:0 0 3px 5px rgba(125,125,125,0.5);
+    padding:3px;
+}
+.rchtxtedtrcont{
+    border: 1px solid rgba(125,125,125,0.5);
+    padding:3px;
+    min-height: calc(var(--fsz) * 2);
+    flex-grow:1;
+}
+.rchtxtedtrcont td{
+    border-bottom: 2px solid rgba(125,125,125,0.5);
+    border-right: 2px solid rgba(125,125,125,0.5);
+    border-top:2px solid transparent;
+    border-left:2px solid transparent;
+    min-width:30px;
+}
+.rchtxtedtrcont td:first-child{
+    border-left: 2px solid rgba(125,125,125,0.5);
+}
+.rchtxtedtrcont tr:first-child td{
+    border-top: 2px solid rgba(125,125,125,0.5);
+}
+.rchtxtedtrcont table{
+    /* border-collapse:collapse; */
+    border-spacing: 0;
+}
+.rchtxtedtrcont td::before{
+    content:"\00a0";
+}
+.rchtxtedtrcont table::-moz-selection { /* Code for Firefox */  
+    background: transparent;
+}
+.rchtxtedtrcont table::selection {  
+    background: transparent;
+}
+.rchtxtedtrtdbxtop{
+    border-top:2px solid dodgerblue!important;
+}
+.rchtxtedtrtdbxbot{
+    border-bottom:2px solid dodgerblue!important;
+}
+.rchtxtedtrtdbxlft{
+    border-left:2px solid dodgerblue!important;
+}
+.rchtxtedtrtdbxrght{
+    border-right:2px solid dodgerblue!important;
+}
