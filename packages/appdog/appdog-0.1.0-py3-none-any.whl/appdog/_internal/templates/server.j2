@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+# generated from appdog:
+#   timestamp: {{ timestamp }}
+# -*- coding: utf-8 -*-
+"""MCP Server for AppDog"""
+
+from mcp.server.fastmcp import FastMCP
+
+from appdog import Project
+
+PROJECT_DIR = '{{ project_dir }}'
+REGISTRY_DIR = '{{ registry_dir }}'
+
+# Create MCP server
+mcp = FastMCP(name='{{ server_name }}')
+
+# Mount project applications
+project = Project.load(project_dir=PROJECT_DIR, registry_dir=REGISTRY_DIR)
+project.mount(mcp)
+
+# Additional setup...
+
+# Run the server
+if __name__ == "__main__":
+    mcp.run()
