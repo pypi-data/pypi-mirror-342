@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Формирование заявки{% endblock %}
+{% block content %}
+    <h1>Формирование заявки</h1>
+    <form method="post" class="request-form">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-group">
+            <label for="other_service">Иная услуга</label>
+            <input type="checkbox" id="other_service" name="other_service" onclick="toggleServiceFields(this)">
+        </div>
+        
+        <div id="other_service_description" style="display: none;">
+            <center><label for="other_service_description">Опишите иную услугу</label></center>
+            <center><textarea name="other_service_description"></textarea></center>
+        </div>
+        
+        <div class="form-group" id="service_field">
+            <label for="service">Выберите услугу</label>
+            <select name="service" required>
+                {% for service in services %}
+                    <option value="{{ service.id }}">{{ service.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="address">Адрес</label>
+            {{ form.address }}
+            {% for error in form.address.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            <label for="contact_number">Контактный номер</label>
+            {{ form.contact_number }}
+            {% for error in form.contact_number.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            <label for="date_time">Дата и время получения услуги</label>
+            {{ form.date_time }}
+            {% for error in form.date_time.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+        
+        <div class="form-group">
+            <label for="payment_type">Тип оплаты</label>
+            {{ form.payment_type }}
+            {% for error in form.payment_type.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        </div>
+        
+        <center><button type="submit" class="submit-button">Создать заявку</button></center>
+    </form>
+{% endblock %}

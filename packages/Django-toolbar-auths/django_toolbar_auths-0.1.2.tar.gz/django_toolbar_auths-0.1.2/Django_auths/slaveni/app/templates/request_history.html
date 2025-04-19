@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Создание заявки{% endblock %}
+
+{% block content %}
+    <h1>Создание заявки</h1>
+    <table class="request-table">
+        <thead>
+            <tr>
+                <th>Услуга</th>
+                <th>Адрес</th>
+                <th>Контактный номер</th>
+                <th>Дата и время</th>
+                <th>Тип оплаты</th>
+                <th>Статус</th>
+                <th>Описание другой услуги</th>
+                <th>Причина отмены</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+                <tr>
+                    <td>{{ request.service.name }}</td>
+                    <td>{{ request.address }}</td>
+                    <td>{{ request.contact_number }}</td>
+                    <td>{{ request.date_time }}</td>
+                    <td>{{ request.get_payment_type_display }}</td>
+                    <td>{{ request.get_status_display }}</td>
+                    <td>{{ request.other_service_description }}</td>
+                    {% if request.status == "canceled" %}
+                        <td>{{ request.status_cancel }}</td>
+                    {% endif %}
+                </tr>
+            {% empty %}
+                <div class="ssilka2">Нет заявок.</div>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'create_request' %}" style="text-decoration: none;"><center><div class="ssilka">Создать заявку</div></center></a>
+{% endblock %}
