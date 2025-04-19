@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: turbigen
+Version: 2.0.0
+Keywords: turbomachinery,computational fluid dynamics,compressor,turbine
+Author-Email: James Brind <jb753@cam.ac.uk>
+License: GPL-3.0-or-later
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: POSIX :: Linux
+Project-URL: Homepage, https://turbigen.org
+Requires-Python: >=3.11
+Requires-Dist: CoolProp~=6.7.0
+Requires-Dist: matplotlib~=3.10.0
+Requires-Dist: numpy~=2.2.4
+Requires-Dist: PyYAML~=6.0.0
+Requires-Dist: scipy~=1.15.0
+Requires-Dist: h5py~=3.13.0
+Requires-Dist: numpy-stl~=3.2.0
+Requires-Dist: metis~=0.2a5
+Provides-Extra: dev
+Requires-Dist: sphinx; extra == "dev"
+Requires-Dist: sphinx-autobuild; extra == "dev"
+Requires-Dist: sphinx-argparse; extra == "dev"
+Requires-Dist: sphinxcontrib-programoutput; extra == "dev"
+Requires-Dist: autodocsumm; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: build; extra == "dev"
+Requires-Dist: cibuildwheel; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Requires-Dist: bump-my-version; extra == "dev"
+Provides-Extra: parallel
+Requires-Dist: mpi4py~=3.1.6; extra == "parallel"
+
