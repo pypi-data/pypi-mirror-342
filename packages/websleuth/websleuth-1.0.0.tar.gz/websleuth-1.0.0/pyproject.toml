@@ -1,0 +1,41 @@
+[project]
+name = "websleuth"
+version = "1.0.0"
+description = "WebSleuth - A lightweight, extensible web scraping framework."
+authors = [
+    { name = "Sooraj", email = "soorajkknmd@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+
+dependencies = [
+    "requests",
+    "beautifulsoup4",
+    "fake-useragent",
+    "lxml",
+    "aiofiles",
+    "xlsxwriter",
+    "aiohttp",
+    "openpyxl"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "flake8",
+    "twine",
+    "build"
+]
+
+[project.scripts]
+websleuth = "websleuth.__version_cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/soorajInsights/WebSleuth"
+Repository = "https://github.com/soorajInsights/WebSleuth"

@@ -1,0 +1,2 @@
+[console_scripts]
+websleuth = websleuth.__version_cli:main
