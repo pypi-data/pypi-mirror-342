@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+run-test.sh
+src/ssh_wait/__init__.py
+src/ssh_wait/__main__.py
+src/ssh_wait.egg-info/PKG-INFO
+src/ssh_wait.egg-info/SOURCES.txt
+src/ssh_wait.egg-info/dependency_links.txt
+src/ssh_wait.egg-info/entry_points.txt
+src/ssh_wait.egg-info/top_level.txt
