@@ -1,0 +1,6 @@
+deep-translator
+
+[dev]
+pytest>=7.0
+twine>=4.0
+wheel>=0.38.0
