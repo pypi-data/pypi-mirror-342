@@ -1,0 +1,21 @@
+[project]
+name = "lark-logging-handler"
+version = "0.1.0"
+description = "A Python logging handler that sends log messages to Lark (Feishu) as beautiful interactive cards."
+readme = "README.md"
+authors = [
+    { name = "Gtio", email = "gtoxlili@outlook.com" }
+]
+license = "GPL-3.0-or-later"
+requires-python = ">=3.13"
+dependencies = [
+    "lark-oapi>=1.4.14",
+    "python-logstash>=0.4.8",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lark_logging"]
