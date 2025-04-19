@@ -1,0 +1,20 @@
+[project]
+name = "example_package_by_Dmytro_Y"
+version = "0.0.1"
+authors = [
+  { name="Dmytro_Y", email="dmitrojankivskui@gmail.com" },
+]
+description = "Module for recipe scraper"
+
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+license = {file = "LICENSE.txt"}
+dependencies = [
+    "requests>=2.32.3",
+    "beautifulSoup4>=4.12.3",
+    "pandas>=2.2.3"
+]
