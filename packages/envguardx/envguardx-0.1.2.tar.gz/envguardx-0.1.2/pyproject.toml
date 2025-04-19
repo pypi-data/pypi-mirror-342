@@ -1,0 +1,18 @@
+[project]
+name = "envguardx"
+version = "0.1.2"
+description = "CLI tool to validate .env files for safety and completeness"
+authors = [{ name = "Moses Sapele" }]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = ["click>=8.1.0", "python-dotenv>=1.0.0"]
+
+[project.scripts]
+envguardx = "envguardx.cli:main"
+
+[tool.setuptools]
+packages = ["envguardx"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

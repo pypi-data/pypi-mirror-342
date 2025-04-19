@@ -1,0 +1,80 @@
+# 🛡️ envguardx
+
+**envguardx** is a lightweight CLI tool for validating, inspecting, and generating `.env` and `.env.example` files — with support for optional schema validation.
+
+---
+
+## 🚀 Features
+
+- ✅ Check for missing or empty env vars
+- ⚠️ Detect unsafe or insecure values
+- 🧪 Validate against a JSON schema
+- 🧬 Generate `.env.example` from `.env`
+- 🔧 Easy CLI usage with helpful output
+
+---
+
+## 📦 Installation
+
+### ➤ Local Editable Install (Recommended for Dev)
+
+```bash
+pip install -e /absolute/path/to/envguardx
+```
+
+Replace /absolute/path/to/envguardx with the actual absolute path to your cloned or local project folder.
+
+## 🧪 Usage
+
+Once installed, you can run the CLI via:
+
+```bash
+envguardx --help
+```
+
+### ➤ Check an `.env` file
+
+```bash
+envguardx check .env
+```
+
+### ➤ Check an `.env` with a JSON Schema
+
+```bash
+envguardx check .env --schema schema.json
+```
+
+### Example `schema.json`
+
+```json
+{
+  "API_KEY": "string",
+  "DEBUG": "bool",
+  "PORT": "int"
+}
+```
+
+### ➤ Generate `.env.example` file from `.env`
+
+```env
+API_KEY=
+DEBUG=
+PORT=
+
+```
+
+## 📦 Bundling
+
+### ➤ To build and deploy to package repo of choice (pypi)
+
+```bash
+python -m build
+```
+
+### To deploy
+
+```bash
+twine upload dist/*
+```
+
+It'll prompt you to log into your PyPI account (or you can pass -u USERNAME -p PASSWORD, or use an API token).
