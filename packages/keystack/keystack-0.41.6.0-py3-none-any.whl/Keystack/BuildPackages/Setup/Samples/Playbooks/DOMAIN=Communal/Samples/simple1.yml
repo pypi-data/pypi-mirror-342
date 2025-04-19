@@ -1,0 +1,13 @@
+# Sample: Simple playbook
+
+stages:
+   Test:
+      enable: True
+      tasks:
+        - Layer3:
+            enable: True
+            env: DOMAIN=Communal/Samples/demoEnv1
+            playlist:
+               - /Testcases/Samples/L2L3_Testcases/bgp.yml
+               - /Testcases/Samples/L2L3_Testcases/ospf.yml
+               - /Testcases/Samples/L2L3_Testcases/isis.yml
