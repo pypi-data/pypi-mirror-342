@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: deebeebros
+Version: 0.0.5
+Summary: DeeBeeBros.com makes you dig coding
+Author-email: "Victor G.B. Peters" <victor@jeex.eu>
+Project-URL: Homepage, https://github.com/jeex/deebeebros
+Project-URL: Issues, https://github.com/jeex/deebeebros/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PyYAML
+Requires-Dist: pytz
+Requires-Dist: certifi
+Requires-Dist: requests
+Requires-Dist: pyperclip
+Requires-Dist: colorama
+Requires-Dist: platformdirs
+Dynamic: license-file
+
+# DeeBeeBros
+
+**functionaliteit**
+update functie inbouwen
+
+**reparaties**
+
+
+<!-- [GitHub-flavored Markdown](https://guides.github.com/features/mastering-markdown/) -->
+<!-- python3 -m pip install --upgrade build for building the thing -->
+
+<!-- python3 -m build -->
+<!-- twine upload dist/* for uploading to pypi -->
