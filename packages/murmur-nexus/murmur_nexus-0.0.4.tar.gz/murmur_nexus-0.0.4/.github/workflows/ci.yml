@@ -1,0 +1,34 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - gh-pages
+  pull_request:
+    branches:
+      - main
+      - gh-pages
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  # Linting and Type Checking Job
+  run-lint:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'pull_request' && github.base_ref == 'main'
+    uses: ./.github/workflows/run_lint.yml
+    with:
+      python-version: '3.12.5'
+      working-directory: '.'
+
+  # Publish Documentation Job
+  publish-docs:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/gh-pages' || github.event_name == 'pull_request' && github.base_ref == 'gh-pages'
+    uses: ./.github/workflows/publish_docs.yml
+    with:
+      python-version: '3.12.5'
+      docs-directory: './docs'

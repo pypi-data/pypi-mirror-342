@@ -1,0 +1,65 @@
+name: Publish Docs
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        type: string
+        default: '3.12'
+      docs-directory:
+        type: string
+        default: './docs'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version }}
+
+      - name: Install dependencies
+        working-directory: ${{ inputs.docs-directory }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs-material
+
+      - name: Clean previous build
+        working-directory: ${{ inputs.docs-directory }}
+        run: rm -rf ./site || true
+
+      - name: Build site
+        working-directory: ${{ inputs.docs-directory }}
+        run: |
+          mkdocs build -f mkdocs.yml
+          mkdir -p ./site/docs
+          touch ./site/docs/.nojekyll
+
+      - name: Verify .nojekyll file
+        working-directory: ${{ inputs.docs-directory }}
+        run: test -f ./site/docs/.nojekyll || { echo "Docs .nojekyll file missing!"; exit 1; }
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+          name: github-pages-${{ github.run_id }}
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_id }}
