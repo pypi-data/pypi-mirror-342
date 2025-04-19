@@ -1,0 +1,5 @@
+[console_scripts]
+pyhub.mcptools = pyhub.mcptools.__main__:app
+pyhub.mcptools.browser = pyhub.mcptools.browser.__main__:app
+pyhub.mcptools.excel = pyhub.mcptools.excel.__main__:app
+pyhub.mcptools.setup = pyhub.mcptools.setup.__main__:app
