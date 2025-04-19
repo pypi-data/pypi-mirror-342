@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+suq/SUQ_MLP.py
+suq/SUQ_ViT.py
+suq/__init__.py
+suq/base_suq.py
+suq/diag_suq_mlp.py
+suq/diag_suq_transformer.py
+suq/streamline_layer.py
+suq.egg-info/PKG-INFO
+suq.egg-info/SOURCES.txt
+suq.egg-info/dependency_links.txt
+suq.egg-info/requires.txt
+suq.egg-info/top_level.txt
