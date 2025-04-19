@@ -1,0 +1,218 @@
+Metadata-Version: 2.4
+Name: Tshrag-MetricDB
+Version: 0.1.0
+Summary: MetricDB is a database for storing and querying time based metrics data.
+Home-page: https://github.com/Tarcadia/MetricDB
+Author: Tarcadia
+Author-email: dont@email.me
+License: MIT
+Project-URL: Bug Reports, https://github.com/Tarcadia/MetricDB/issues
+Project-URL: Source, https://github.com/Tarcadia/MetricDB
+Keywords: MetricDB,metrics,database,Tarcadia
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Typing :: Typed
+Requires-Python: >=3.11, <4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic
+Requires-Dist: tzlocal
+Requires-Dist: httpx
+Requires-Dist: websockets
+Requires-Dist: pydantic
+Requires-Dist: uvicorn
+Requires-Dist: fastapi
+Requires-Dist: click
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# MetricDB
+
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)
+
+MetricDB 是一个面向测试指标的轻量级时序数据库，提供灵活的指标元数据管理和高效的数据存储查询能力。
+
+## 文档目录
+
+1. [快速开始](doc/01_quickstart.md) - 基本安装和使用方法
+2. [项目结构](doc/02_architecture.md) - 代码组织结构说明
+3. [核心模块](doc/03_core.md) - 基础数据类型和存储引擎
+4. [API 设计](doc/04_api.md) - 接口规范与实现细节
+5. [客户端与服务端](doc/05_client_server.md) - 系统组件交互说明
+
+## 核心特性
+
+- 支持多维指标元数据管理
+- 提供 HTTP/WebSocket 双协议接口
+- 内置时间序列数据存储引擎
+- 强类型化的数据模型定义
+
+
+# 1. 快速开始
+
+## 安装依赖
+```bash
+pip install -r requirements.txt
+```
+
+## 启动服务
+```bash
+python -m metricdb.server
+```
+
+## 使用示例
+### 管理指标元数据
+```bash
+# 创建指标
+curl -X POST http://localhost:8000/metric/info/temperature \
+     -H "Content-Type: application/json" \
+     -d '{"desc": "设备温度", "unit": "℃"}'
+
+# 查询指标
+curl http://localhost:8000/metric/info/temperature
+```
+
+### 写入指标数据
+```bash
+# 添加记录
+curl -X POST http://localhost:8000/metric/entry/temperature \
+     -H "Content-Type: application/json" \
+     -d '{"time": 1620000000, "value": 25.5}'
+```
+
+### 查询时序数据
+
+```bash
+# 获取最近1小时数据
+curl "http://localhost:8000/metric/entry/temperature?start_time=1619996400&end_time=1620000000"
+```
+
+
+# 2. 项目结构
+```
+metricdb/
+ ├── core/ # 核心数据类型
+ │   ├── metric.py # 指标模型定义
+ │   ├── time.py # 时间处理模块
+ │   └── ...
+ ├── api/
+ │   ├── info/ # 元数据接口
+ │   │   ├── http.py # HTTP 路由
+ │   │   └── ws.py # WebSocket 路由
+ │   └── entry/ # 时序数据接口
+ ├── client/ # 客户端实现
+ ├── server/ # 服务端入口
+ └── test/ # 测试套件
+     ├── test_api.py # 接口测试
+     └── test_core_*.py # 核心模块测试
+```
+
+主要模块说明：
+- **Core**: 定义基础数据类型和存储引擎
+- **API**: 实现对外服务接口
+- **Client**: 提供本地/远程访问客户端
+- **Server**: 基于 FastAPI 的服务端实现
+
+
+
+# 3. 核心模块
+
+## 基础类型
+- `Time`: 统一时间戳处理（纳秒精度）
+- `MetricKey`: 指标唯一标识符（字符串类型）
+- `TestId/DutId`: 测试/设备标识符
+
+## 核心模型
+```python
+class TMetricInfo:
+    key: str           # 指标键
+    desc: str          # 指标描述
+    unit: str          # 计量单位
+    create_time: int   # 创建时间戳
+
+class TMetricEntry:
+    time: int          # 记录时间
+    value: float       # 指标数值
+    test: Optional[str] # 关联测试ID
+    dut: Set[str]      # 关联设备集合
+```
+
+## 存储引擎
+`MetricDB`类提供：
+
+- 内存索引的元数据管理
+- 基于时间分片的存储优化
+- 自动化的数据持久化
+
+
+
+# 4. API 设计
+
+## 接口规范
+| 资源   | HTTP 方法 | 路径格式                 | 功能         |
+|--------|-----------|--------------------------|--------------|
+| 元数据 | GET       | /metric/info/{key}       | 查询指标定义 |
+|        | POST      | /metric/info/{key}       | 更新指标定义 |
+| 时序数据| GET       | /metric/entry/{key}      | 查询数据记录 |
+|        | POST      | /metric/entry/{key}      | 添加数据记录 |
+
+## WebSocket 支持
+- `/metric/info`: 实时元数据更新通道
+- `/metric/entry`: 流式数据写入接口
+
+## 查询参数
+```python
+class QueryParams:
+    start_time: int    # 起始时间戳
+    end_time: int      # 结束时间戳
+    test: Optional[str] # 测试过滤
+    dut: List[str]     # 设备过滤
+```
+
+
+
+# 5. 客户端与服务端
+
+## 服务端特性
+- 基于 Uvicorn 的异步服务
+- 支持 SQLite 后端存储
+- 配置项：
+  ```python
+  app = MdbAPI(
+      db_path="metricdb.db",  # 数据库路径
+      cache_size=1000        # 内存缓存条目数
+  )
+  ```
+
+## 客户端类型
+- 本地客户端：直连数据库引擎
+- 远程客户端：通过 HTTP/WebSocket 通信
+
+## 使用示例
+```python
+from metricdb.client import MdbClient
+
+# 创建远程客户端
+client = MdbClient.remote("http://localhost:8000")
+
+# 查询数据
+entries = client.query_metric_entry(
+    key="temperature",
+    start_time=1619996400,
+    end_time=1620000000
+)
+```
