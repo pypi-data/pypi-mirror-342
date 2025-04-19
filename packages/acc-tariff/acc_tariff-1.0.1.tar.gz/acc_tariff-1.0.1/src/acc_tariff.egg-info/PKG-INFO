@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: acc_tariff
+Version: 1.0.1
+Summary: Make IMPORT Great Again!
+Author-email: dboyliao <qmalliao@gmail.com>
+Project-URL: Homepage, https://github.com/dboyliao/acc_tariff
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+
+# Example
+
+```python
+import acc_tariff
+
+acc_tariff.set_tarrif("numpy", 100)
+acc_tariff.set_tarrif("numpy.fft", 100000)
+
+import numpy  # 100% slower
+import numpy.fft  # 100100% slower
+```
