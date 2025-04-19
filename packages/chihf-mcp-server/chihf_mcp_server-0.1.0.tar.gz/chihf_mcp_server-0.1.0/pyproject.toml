@@ -1,0 +1,15 @@
+[project]
+name = "chihf-mcp-server"
+version = "0.1.0"
+description = "A simple MCP server for Android devices"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp>=1.6.0",
+    "openai>=1.75.0",
+    "requests>=2.32.3",
+    "uiautomator2>=3.2.9",
+]
+
+[project.scripts]
+chihf-mcp-server = "server:main"
