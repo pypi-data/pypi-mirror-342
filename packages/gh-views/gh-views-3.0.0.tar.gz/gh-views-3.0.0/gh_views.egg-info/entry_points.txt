@@ -1,0 +1,2 @@
+[console_scripts]
+gh-views = gh_views.main:main
