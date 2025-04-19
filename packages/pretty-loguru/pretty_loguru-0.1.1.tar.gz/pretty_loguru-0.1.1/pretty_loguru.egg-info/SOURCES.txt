@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+pretty_loguru/__init__.py
+pretty_loguru/logger.pyi
+pretty_loguru/logger_ascii.py
+pretty_loguru/logger_base.py
+pretty_loguru/logger_block.py
+pretty_loguru/logger_figlet.py
+pretty_loguru/logger_init.py
+pretty_loguru/logger_types.py
+pretty_loguru.egg-info/PKG-INFO
+pretty_loguru.egg-info/SOURCES.txt
+pretty_loguru.egg-info/dependency_links.txt
+pretty_loguru.egg-info/requires.txt
+pretty_loguru.egg-info/top_level.txt
