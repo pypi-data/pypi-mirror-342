@@ -1,0 +1,63 @@
+[project]
+name = "bim2rdf"
+dynamic = ["version"]
+description = "Convert BIM data to RDF models"
+authors = [
+    { name = "Majid alDosari",  email = "majid.aldosari@pnnl.gov" },
+    { name = "Trisha Gupta",    email = "trisha.gupta@pnnl.gov" }, # mapping
+]
+readme = "README.md"
+requires-python = ">=3.13"
+[project.optional-dependencies]
+# unfortunately not contained in their respective pyproject.tomls
+cli = ["fire", "pyyaml"] # ... 'bim2rdf-cli' taken as a global name from then index
+spklauto = [ "specklepy",
+    "rdflib", # just to make a nice ttl
+     ]
+
+
+[dependency-groups]
+dev = ['project',
+    "ipython", "ipdb",
+    "icecream",
+    #"marimo", use uv run --with marimo ...
+    'bim2rdf[cli]',
+    'bim2rdf[spklauto]',
+]
+
+[tool.uv.sources]
+project =           { workspace=true}
+# just listing the dirs alphabetically
+bim2rdf-cli =      {workspace = true}
+bim2rdf-core =      {workspace = true}
+bim2rdf-mapping =   { workspace=true}
+# #ontologies =     { path = 'ontologies'      , editable = true} 
+bim2rdf-rules =     { workspace=true}
+bim2rdf-speckle =   { workspace=true}
+bim2rdf-spklauto =  { workspace=true}
+[tool.uv.workspace]
+members = [ "project",# same order as above
+'cli',
+'core',
+"mapping",
+"rules",
+"speckle",
+"spklauto",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[tool.hatch.version]
+path = "core/src/bim2rdf/core/__init__.py"
+[tool.hatch.build.targets.wheel]
+# for distribution purposes,
+# roll 'sub'pkgs into bim2rdf
+packages = [#tools.uv.workspace.members minus project
+     'cli/src/bim2rdf', # ~ 
+    'core/src/bim2rdf',
+ 'mapping/src/bim2rdf',
+   'rules/src/bim2rdf',
+ 'speckle/src/bim2rdf',
+'spklauto/src/bim2rdf'# ~
+]
