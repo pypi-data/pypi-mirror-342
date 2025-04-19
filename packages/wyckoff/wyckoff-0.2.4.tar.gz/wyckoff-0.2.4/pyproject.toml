@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wyckoff"
+dynamic = ["version"]
+description = "A package for working with Wyckoff positions in crystallography"
+readme = "README.md"
+requires-python = ">=3.10, <3.13"
+dependencies = [
+    "sympy",
+]
+authors = [
+    {name = "Anoop K. Chandran", email = "anoopkcn@gmail.com"},
+]
+
+[project.urls]
+Repository = "https://github.com/anoopkcn/wyckoff"
+
+[tool.hatch.build.targets.wheel]
+packages = ["wyckoff"]
+include = [
+    "wyckoff/data/*",
+]
+
+[tool.hatch.version]
+path = "wyckoff/__init__.py"
