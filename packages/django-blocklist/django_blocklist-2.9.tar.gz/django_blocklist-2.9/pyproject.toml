@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "django-blocklist"
+version = "2.9"
+description = "A Django app that implements IP-based blocklisting."
+authors = ["Paul Bissex <paul@bissex.net>"]
+license = "BSD-3-Clause"
+readme = "README.md"
+homepage = "https://gitlab.com/paul_bissex/django-blocklist"
+packages = [
+    {include = "django_blocklist"},
+    {include = "django_blocklist/py.typed"},
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+Django = ">=4.2, <5.3"
+
+[tool.poetry.dev-dependencies]
+
+[tool.ruff]
+exclude = [
+    "dist",
+    "migrations",
+    "venv",
+]
+line-length = 110
+indent-width = 4
+target-version = "py312"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
