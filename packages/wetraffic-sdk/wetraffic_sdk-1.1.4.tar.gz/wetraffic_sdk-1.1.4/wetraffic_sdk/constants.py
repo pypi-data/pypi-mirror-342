@@ -1,0 +1,5 @@
+API_ENDPOINT = "https://api.wetraffic.eu/main"
+API_ENDPOINT_STAGING = "https://api-stag.wetraffic.eu/main"
+FLOW_DATA_MANAGEMENT_API_ENDPOINT = "https://6oxpoi8p90.execute-api.eu-west-3.amazonaws.com/prod/"
+PG_API_URL = "https://pg-api.wetraffic.eu"
+FEATURES_BUCKET_DISTRIBUTION_URL = "https://d1qihrphcznnx0.cloudfront.net"
