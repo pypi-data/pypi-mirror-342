@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "visualsort"
+version = "0.1.0"
+description = "Visualsort lets you write sorting algorithms with given functions and then render them to videos."
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Tomas Bivainis", email = "bivainis.tomas@gmail.com"}
+]
+dependencies = [
+  "pillow",
+  "moviepy",
+  "numpy",
+  "pytest",
+  "pytest-mock",
+  "urllib3"
+]
+
+[project.urls]
+Homepage = "https://github.com/TomasBivainis/visualsort"
