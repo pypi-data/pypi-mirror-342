@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: Faxina
+Version: 0.70
+Summary: Faxina - engine 3d for python 2.4. It Faxina Version not install on python x.3 and higher
+Home-page: UNKNOWN
+Author: Vladik
+Author-email: vladhruzd25@gmail.com
+License: UNKNOWN
+Description: # Faxina - Engine 3D for Python 2.4
+        
+        Faxina is  engine 3D for Python 2.4.
+        
+        ## What's New?
+        
+        - Added scene graph
+        - Added Scene Node in core.py
+        - Changed render.py
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.4
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=2.4, <3
+Description-Content-Type: text/markdown
