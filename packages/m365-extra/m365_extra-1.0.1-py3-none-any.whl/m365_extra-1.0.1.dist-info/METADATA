@@ -1,0 +1,58 @@
+Metadata-Version: 2.4
+Name: m365-extra
+Version: 1.0.1
+Summary: Extra tools to interact with Microsoft M365 tenants.
+Author-email: Sébastien Hocquet <seb@ipamo.net>
+Project-URL: Homepage, https://gitlab.com/ipamo/m365-extra
+Project-URL: Bug Tracker, https://gitlab.com/ipamo/m365-extra/issues
+Requires-Python: >=3.11.2
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: zut[default]>=2.1.1
+Requires-Dist: msal>=1.31.1
+Dynamic: license-file
+
+M365 extra
+==========
+
+Extra tools to interact with Microsoft M365 tenants.
+
+
+## Quick start guide
+
+Prepare Python environment:
+
+    python -m venv .venv            # Linux/Debian: python3 -m venv .venv
+    .\.venv\Scripts\activate        # Linux/Bash:   source .venv/bin/activate
+    pip install wheel
+    pip install -r requirements.txt
+
+Create `.env` config file. Example:
+
+```ini
+M365_TENANT_ID = mytenant_uuid
+M365_APP_ID = myapp_uuid
+M365_CLIENT_SECRET_KEY_FILE=pass:m365/myapp_uuid
+```
+
+Run command-line interface:
+
+    python -m m365_extra -h
+
+
+## Resources
+
+- [Cheat sheet](docs/cheatsheet.md)
+- [Microsoft Authentication Library](https://learn.microsoft.com/en-us/entra/msal/python/)
+- [OneDrive API root resources](https://learn.microsoft.com/en-us/onedrive/developer/rest-api/?view=odsp-graph-online#onedrive-root-resources)
+- [Public vs confidential application - OAuth standard](https://datatracker.ietf.org/doc/html/rfc6749#section-2.1)
+- [Public vs confidential application - Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/msal-client-applications)
+
+
+## Credits
+
+Icon by [Swifticons - Flaticon](https://www.flaticon.com/free-icon/office_214527).
+
+This project is licensed under the terms of the [MIT license](https://gitlab.com/ipamo/m365-extra/-/raw/main/LICENSE.txt).
+
+This project is not affiliated in any way with Microsoft.

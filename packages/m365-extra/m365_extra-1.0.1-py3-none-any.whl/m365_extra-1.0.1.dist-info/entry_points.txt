@@ -1,0 +1,2 @@
+[console_scripts]
+m365-extra = m365_extra.__main__:main
