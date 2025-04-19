@@ -1,0 +1,2 @@
+[console_scripts]
+aws-cost-lens = aws_cost_lens.cli:entry_point
