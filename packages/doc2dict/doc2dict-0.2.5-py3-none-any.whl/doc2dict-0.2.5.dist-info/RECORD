@@ -1,0 +1,14 @@
+doc2dict/__init__.py,sha256=2hIFCnA3qhgly-lLKS6uUVnYquwq6UW1iDf66uO-iiQ,275
+doc2dict/dict2dict.py,sha256=VqfTZzCz0CrcaJYJXvUOop-IYq7HIQci1HHqQsTLvYo,2074
+doc2dict/mapping.py,sha256=VYDJv47ApfstHijTJpPl5jG8JqV55sR5IHg2e0Pq8pY,17312
+doc2dict/html/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+doc2dict/html/html_parser.py,sha256=sNOy7j2PNgmvrJb4blqrYPX4ABPGK1Fs65JWDPLDkz4,9652
+doc2dict/html/visualizer.py,sha256=SvSTiMHO-zAW2H-LI0G1tV2X5_u2RUf6JHgdW-Dlx90,3450
+doc2dict/txt/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+doc2dict/txt/parser.py,sha256=BZ2WWxlkTSUuUvPDHtBFlakPF7-UkMDg6aANtnRIezo,775
+doc2dict/xml/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+doc2dict/xml/parser.py,sha256=x1y8nrRc_xGKkAOPvuQg1BEosFnhuc-8WNV0_jV9NRg,905
+doc2dict-0.2.5.dist-info/METADATA,sha256=qmuQjDY8nE5YdisFaNaB2GmBs1Fmf7AhStm_JUZW0lw,127
+doc2dict-0.2.5.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+doc2dict-0.2.5.dist-info/top_level.txt,sha256=H-YBz0NjWBgp9juTWN1dJ8jUDewYjAt8-EqhGuGVwVY,9
+doc2dict-0.2.5.dist-info/RECORD,,
