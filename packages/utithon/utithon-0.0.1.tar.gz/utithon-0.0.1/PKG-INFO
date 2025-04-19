@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: utithon
+Version: 0.0.1
+Summary: Python package containing useful utility functions
+Project-URL: Repository, https://github.com/collier-p-charlie/utithon
+Project-URL: Issues, https://github.com/collier-p-charlie/utithon/issues
+Project-URL: Changelog, https://github.com/collier-p-charlie/utithon/blob/main/CHANGELOG.md
+Author-email: Charlie Collier <collier.p.charlie@gmail.com>
+Maintainer-email: Charlie Collier <collier.p.charlie@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Framework :: Hatch
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Provides-Extra: cli
+Requires-Dist: json-log-formatter; extra == 'cli'
+Description-Content-Type: text/markdown
+
+# utithon
+Python package containing useful utility functions.
