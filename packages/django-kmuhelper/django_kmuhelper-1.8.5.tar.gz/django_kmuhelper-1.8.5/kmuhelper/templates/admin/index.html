@@ -1,0 +1,25 @@
+{% extends "admin/index.html" %}
+{% load static %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "admin/kmuhelper/css/index-kmuhelper.css" %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"
+          integrity="sha384-PPIZEGYM1v8zp5Py7UjFb79S58UeqCL9pYVnVPURKEqvioPROaVAJKKLzvH2rDnI" crossorigin="anonymous">
+{% endblock %}
+
+{% block content %}
+
+    {% if not app_label %}
+        {% if perms.kmuhelper %}
+            <div style="margin-bottom: 32px;">
+                <a href="{% url 'kmuhelper:home' %}" id="kmuhelperbutton">
+                    <i class="fa-fw fa-solid fa-box-open"></i>
+                    <h2>KMUHelper öffnen</h2>
+                </a>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {{ block.super }}
+{% endblock %}
