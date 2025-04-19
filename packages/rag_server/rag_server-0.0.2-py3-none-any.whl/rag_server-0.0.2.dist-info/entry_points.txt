@@ -1,0 +1,3 @@
+[console_scripts]
+rag-server = rag_server:main
+rag_server = rag_server:main
