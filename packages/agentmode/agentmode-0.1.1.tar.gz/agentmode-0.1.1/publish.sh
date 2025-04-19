@@ -1,0 +1,4 @@
+uv build
+# change to the 'dist' subfolder
+cd dist
+uv publish pypi-AgEIcHlwaS5vcmcCJDQwOWIwNmMxLTE4MTMtNDc4ZC05NTZlLWMxOWY5YTIxNGRjMAACKlszLCI5NmE3YmM4Yy1hNGU5LTQxZDgtOGFmNi1hNWU4OTBjZGEwMGEiXQAABiAiCCgxvnrWazY6Is5pO_lRkIwXTldv26FjLvOLwJDKag
