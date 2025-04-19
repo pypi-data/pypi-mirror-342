@@ -1,0 +1,162 @@
+# LLMDataCleaner
+
+Use Large Language Models to efficiently clean and standardize your data for machine learning projects.
+
+## Installation
+
+You can install the package using your preferred package manager:
+
+### Using pip
+
+```bash
+pip install llmdatacleaner-starai
+```
+
+### Using uv
+
+```bash
+uv add llmdatacleaner-starai
+```
+
+### Using poetry
+
+```bash
+poetry add llmdatacleaner-starai
+```
+
+## Configuration
+
+LLMDataCleaner requires an OpenAI API key. You can provide it in one of the following ways:
+
+1. Set as an environment variable:
+   ```bash
+   export OPENAI_API_KEY="your-api-key"
+   ```
+
+2. Use a `.env` file in your project directory:
+   ```
+   OPENAI_API_KEY="your-api-key"
+   ```
+
+3. Pass it directly when creating the cleaner:
+   ```python
+   cleaner = OpenAIDataCleaner(
+       openai_api_key="your-api-key",
+       data_cleaning_prompt=prompt,
+       output_format=format
+   )
+   ```
+
+## Usage
+
+### Basic Example
+
+```python
+from llmdatacleaner import OpenAIDataCleaner
+
+# Define your data cleaning prompt
+prompt = """Return the cleaned data into json formats.
+1. clean the key 'university' into these categories ['985', '211', 'g5', 'other'] 
+2. clean the key 'major' into these categories ['CS', 'EE', 'ME', 'other'] 
+3. clean the key 'gpa' from different scale to 4.0 scale
+
+data: {data}
+"""
+
+# Define your output format using JSON Schema
+format = {
+    "format": {
+        "type": "json_schema",
+        "name": "cleaned_data",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "university": {"type": "string", "enum": ["985", "211", "g5", "other"]},
+                "major": {"type": "string", "enum": ["CS", "EE", "ME", "other"]},
+                "gpa": {"type": "number"},
+            },
+            "required": ["university", "major", "gpa"],
+            "additionalProperties": False,
+        },
+        "strict": True,
+    }
+}
+
+# Create the data cleaner
+cleaner = OpenAIDataCleaner(
+    data_cleaning_prompt=prompt, 
+    output_format=format,
+    verbose=True  # Optional: enable detailed logging
+)
+
+# Clean a single data item
+item = {"university": "Stanford University", "major": "Computer Science", "gpa": 4.0}
+result = cleaner.invoke(item)
+
+print(result)
+```
+
+### Synchronous Processing
+
+For more examples of synchronous data processing, check out the example notebook: [1_test.ipynb](notebooks/1_test.ipynb)
+
+### Asynchronous Processing
+
+For processing many items concurrently, use the asynchronous interface:
+
+```python
+import asyncio
+from llmdatacleaner import OpenAIDataCleaner
+
+# Set up your cleaner as shown above
+# ...
+
+async def process_data_async(items):
+    tasks = [cleaner.ainvoke(item) for item in items]
+    results = await asyncio.gather(*tasks)
+    return results
+
+# Process multiple items concurrently
+items = [
+    {"university": "Tsinghua University", "major": "Computer Science", "gpa": 3.8},
+    {"university": "Stanford University", "major": "Mechanical Engineering", "gpa": 4.0},
+    # Add more items...
+]
+
+results = asyncio.run(process_data_async(items))
+```
+
+For a complete asynchronous processing example, see [test.py](test.py).
+
+### Batch Processing
+
+For extremely large datasets, you can use OpenAI's batch API. An example is provided in [2_batch.ipynb](notebooks/2_batch.ipynb).
+
+## API Reference
+
+### `OpenAIDataCleaner`
+
+**Parameters:**
+
+- `data_cleaning_prompt` (str): The prompt that instructs the LLM how to clean the data.
+- `output_format` (dict): Format specification for the cleaned output.
+- `openai_api_key` (str, optional): OpenAI API key.
+- `model_name` (str, optional): Default is "gpt-4o-mini".
+- `system_prompt` (str, optional): System instruction for the LLM.
+- `verbose` (bool, optional): Whether to enable detailed logging.
+
+**Methods:**
+
+- `invoke(item)`: Clean a single data item synchronously.
+- `ainvoke(item)`: Clean a single data item asynchronously.
+
+**Return value (CleaningResult):**
+
+```python
+{
+    "original": item,          # The original data item
+    "cleaned": cleaned_data,   # The cleaned data (parsed JSON or raw text)
+    "status": "success",       # "success" or "error"
+    "error": None              # Error message if status is "error"
+}
+```

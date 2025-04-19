@@ -1,0 +1,36 @@
+name: publish
+
+on:
+  push:
+    tags:
+      - 'v*'  # Runs when a tag like v0.1.0 is pushed
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: make install
+
+      - name: Run tests
+        run: make test
+
+      - name: Build package
+        run: uv build
+
+      - name: Publish package to PyPI
+        run: uv publish
+        env:
+          UV_PUBLISH_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+
+      - name: Clean dist directory
+        run: rm -rf dist/*
