@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: YeatBigTonka
+Version: 0.8.0
+Summary: A simple example library
+Home-page: https://github.com/yourusername/my_library
+Author: Kirill Sidorov
+Author-email: grias0001@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# My Library
+
+My Library вЂ” СЌС‚Рѕ РїСЂРѕСЃС‚Р°СЏ Р±РёР±Р»РёРѕС‚РµРєР° РґР»СЏ РґРµРјРѕРЅСЃС‚СЂР°С†РёРё СЃРѕР·РґР°РЅРёСЏ Python-РїР°РєРµС‚РѕРІ.
+
+## РЈСЃС‚Р°РЅРѕРІРєР°
+
+```bash
+pip install .
