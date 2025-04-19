@@ -1,0 +1,15 @@
+[project]
+name = "textual-pyfiglet-fonts"
+version = "0.3.0"
+description = "The full extended fonts collection packaged as an optional dependency for textual-pyfiglet"
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.8.1"
+dependencies = []
+authors = [
+    { name = "edward-jazzhands", email = "ed.jazzhands@gmail.com" }
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
