@@ -1,0 +1,4 @@
+[library]
+autoCreateLocalConfig = "If you set this config equal false,run code will do not create '.xystudio/pyplus/'."
+firstUsedConfig = "If you set this config equal global, the default namespace for pyplus.config() is global."
+showDeprecationWarning = "If you set this config equal false,It will be cannot output showDeprecationWarning"
