@@ -1,0 +1,12 @@
+# Generated from appdog:
+#   uri: {{ uri }}
+#   timestamp: {{ timestamp }}
+# -*- coding: utf-8 -*-
+"""{{ title }} API client."""
+
+from . import models
+from .client import {{ class_name }}
+
+__all__ = ('client', 'models')
+
+client = {{ class_name }}.load()

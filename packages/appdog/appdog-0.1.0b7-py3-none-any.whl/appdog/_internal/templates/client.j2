@@ -1,0 +1,83 @@
+# generated from appdog:
+#   uri: {{ uri }}
+#   timestamp: {{ timestamp }}
+"""{{ title }} generated API client."""
+
+from pathlib import Path
+from typing import Annotated, Any, Literal  # noqa: F401
+
+from pydantic import Field, TypeAdapter  # noqa: F401
+from typing_extensions import Self, Unpack
+
+from appdog import BaseClient, ClientConfig, Undefined  # noqa: F401
+
+from . import models  # noqa: F401
+
+
+class {{ class_name }}(BaseClient):
+    """Client for the {{ title }} API."""
+
+    def __init__(self, __name: str, **config: Unpack[ClientConfig]) -> None:
+        config.setdefault('base_url', '{{ base_url }}')
+        super().__init__(__name, **config)
+
+    @classmethod
+    def load(cls, project_dir: Path | str | None = None) -> Self:  # type: ignore
+        """Load the client from the project directory."""
+        return super().load('{{ name }}', project_dir=project_dir)
+
+{%- for endpoint in endpoints %}
+    {%- set response_annotation = resolve_response_annotation(endpoint.responses) %}
+
+    async def {{ endpoint.name }}(
+        self,
+        {%- if endpoint.request_body %}
+        data: {{ resolve_request_body_annotation(endpoint.request_body) }},
+        {%- endif %}
+        {%- set required_params = (endpoint.parameters | selectattr("in", "in", ["path", "query"]) | selectattr("required")) | list %}
+        {%- set optional_params = (endpoint.parameters | selectattr("in", "in", ["path", "query"]) | rejectattr("required")) | list %}
+        {%- for param in required_params %}
+        {%- set param_name = param.get("name") %}
+        {%- set param_snake = to_snake_case(param_name) %}
+        {{ param_snake }}: {{ resolve_param_annotation(param) }},
+        {%- endfor %}
+        {%- for param in optional_params %}
+        {%- set param_name = param.get("name") %}
+        {%- set param_snake = to_snake_case(param_name) %}
+        {{ param_snake }}: {{ resolve_param_annotation(param) }} = Undefined,
+        {%- endfor %}
+    ) -> {{ response_annotation }}:
+        """{{ endpoint.description or endpoint.summary or endpoint_key }}"""
+        {%- if endpoint.method.lower() in ('get', 'post', 'put', 'patch', 'delete') %}
+        # Build path
+        path = '{{ endpoint.path }}'
+        {%- for param in get_path_params(endpoint) %}
+        {%- set param_name = param.get("name") %}
+        {%- set param_snake = to_snake_case(param_name) %}
+        path = path.replace('{{ "{" + param.get("name") + "}" }}', str({{ param_snake }}))
+        {%- endfor %}
+        {%- set query_params = get_query_params(endpoint) %}
+        {%- if query_params %}
+        # Collect query parameters
+        params = {}
+        {%- for param in query_params %}
+        {%- set param_name = param.get("name") %}
+        {%- set param_snake = to_snake_case(param_name) %}
+        if {{ param_snake }} is not Undefined:
+            params['{{ param.get("name") }}'] = {{ param_snake }}
+        {%- endfor %}
+        {%- endif %}
+        # Collect request parameters
+        kwargs: dict[str, Any] = {}
+        {%- if endpoint.request_body %}
+        kwargs['data'] = data
+        {%- endif %}
+        {%- if query_params %}
+        kwargs['params'] = params
+        {%- endif %}
+        kwargs['return_type'] = TypeAdapter({{ response_annotation }})
+        return await self._request('{{ endpoint.method }}', path, **kwargs)  # type: ignore
+        {%- else %}
+        raise ValueError(f"Unsupported method: '{{ endpoint.method }}'")
+        {%- endif %}
+{%- endfor -%}
