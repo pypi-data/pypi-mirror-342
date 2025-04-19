@@ -1,0 +1,53 @@
+[build-system]
+requires = [ "poetry>=1.0",]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "diot"
+version = "0.3.2"
+description = "Python dictionary with dot notation."
+authors = [ "pwwang <pwwang@pwwang.com>",]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/pwwang/diot"
+repository = "https://github.com/pwwang/diot"
+
+[tool.poetry.build]
+generate-setup-file = true
+
+[tool.poetry.dependencies]
+python = "^3.9"
+inflection = "^0.5"
+pyyaml = { version="^6", optional = true}
+# Use rtoml only when the wheel is available (linux)
+rtoml = {version = "^0.12", optional = true, platform = "linux"}
+tomli = {version = "^2.0", optional = true, markers = 'sys_platform != "linux"'}
+
+[tool.poetry.extras]
+yaml = [ "pyyaml"]
+toml = [ "rtoml", "tomli"]
+all = [ "pyyaml", "rtoml", "tomli"]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8"
+pytest-cov = "^6"
+
+[tool.mypy]
+ignore_missing_imports = true
+allow_redefinition = true
+disable_error_code = ["attr-defined", "no-redef", "union-attr"]
+show_error_codes = true
+strict_optional = false
+
+[tool.pytest.ini_options]
+addopts = "-vv --cov-config=.coveragerc --cov=diot --cov-report xml:.coverage.xml --cov-report term-missing"
+filterwarnings = [
+    #"error"
+]
+console_output_style = "progress"
+junit_family = "xunit1"
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311', 'py312', 'py313']
+include = '\.pyi?$'
