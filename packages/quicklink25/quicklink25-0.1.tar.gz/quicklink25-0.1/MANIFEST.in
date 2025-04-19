@@ -1,0 +1,8 @@
+include quicklink25/CSV/*.csv
+include quicklink25/DBCOMMANDS/*.txt
+include quicklink25/DOC/*.docx
+include quicklink25/EXCEL/*.xlsx
+include quicklink25/MANUAL/*.pdf
+include quicklink25/PYTHON/*.py
+include quicklink25/R/*.R
+include quicklink25/TEXT/*.txt
