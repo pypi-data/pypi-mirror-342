@@ -1,0 +1,3 @@
+[console_scripts]
+iit = imageinterminal:main
+imageinterminal = imageinterminal:main
