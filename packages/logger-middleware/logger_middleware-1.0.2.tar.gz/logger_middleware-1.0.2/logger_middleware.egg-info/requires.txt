@@ -1,0 +1,4 @@
+fastapi
+starlette
+httpx
+auth-lib-profcomff[fastapi]
