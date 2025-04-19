@@ -1,0 +1,48 @@
+Change Log
+==========
+
+0.0.1 (26/03/2025)
+-------------------
+- First Release
+
+===========
+
+0.0.2 (27/03/2025)
+-------------------
+- Fixed missing module files in package
+
+0.0.3 (27/03/2025)
+-------------------
+- Fixed ornaments detection file
+
+0.0.4 (27/03/2025)
+-------------------
+- Fixed real time full analysis file
+
+0.0.5 (27/03/2025)
+-------------------
+- Added mel-frequency spectogram generation
+
+0.0.6 (27/03/2025)
+-------------------
+- seaborn included. README.txt updated
+
+0.0.7 (27/03/2025)
+-------------------
+- mel-frequency spectogram issue resolved. README.md is created
+
+0.0.8 (06/04/2025)
+-------------------
+- 3 more spectogram generations added. README.md file updated
+
+0.0.9 (06/04/2025)
+-------------------
+- fixed bugs
+
+0.0.10 to 0.0.12 (18/04/2025)
+-------------------
+- added tanpura droid generation
+
+0.0.13 (18/04/2025)
+-------------------
+- removed spectograms
