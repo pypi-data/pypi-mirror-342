@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+fetchanything/__init__.py
+fetchanything/cli.py
+fetchanything.egg-info/PKG-INFO
+fetchanything.egg-info/SOURCES.txt
+fetchanything.egg-info/dependency_links.txt
+fetchanything.egg-info/entry_points.txt
+fetchanything.egg-info/requires.txt
+fetchanything.egg-info/top_level.txt
