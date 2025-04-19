@@ -1,0 +1,11 @@
+# Core dependencies
+python-dotenv < 1.2
+loguru < 0.8
+
+# Development
+pytest < 8.4
+black < 25.2
+
+# RAG
+ragas < 0.3
+pymilvus < 2.6
