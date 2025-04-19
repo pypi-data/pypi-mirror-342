@@ -1,0 +1,15 @@
+asmk/__init__.py,sha256=ccQrLrESzvIbIO9SoADz-1tYkSL1AJaFwwIanDVRTtI,182
+asmk/asmk_method.py,sha256=iNpwlxEplG7edL_KOIxLT_CYZkGD046OzQUGy9ZfUlE,10730
+asmk/codebook.py,sha256=3CdfgcpfktkCHF92bhf1aOWP0fy60iJkNp_BBg14hTw,3232
+asmk/functional.py,sha256=HO_hG2NVPCkkt4KS-fbFvjasZxdhIK6ookKxYxfO9co,517
+asmk/hamming.cp311-win_amd64.pyd,sha256=dAhliRfZM-UXxWtYlR97sRKd8oZ2_KJD-X6bq1hvHvk,162304
+asmk/index.py,sha256=xdI_Lt8YemXJzBjt3_JMY985Lups3myI1ZaPf-ydIjg,1668
+asmk/inverted_file.py,sha256=8X9FFKRy9hZe4a4UPhUWdtSSJC9H-xriS7-nz8pITSw,6246
+asmk/io_helpers.py,sha256=yaCn4jxlxlBZBymW2bpTOxGtQsqzlSDNqOFNHwn-Vuc,4253
+asmk/kernel.py,sha256=fXHwIXe1qAIJLtNlzG2zVpbJPFtBG6rb9LmkPou7zr4,3192
+asmk-0.1.1.dist-info/licenses/LICENSE,sha256=kTwUCmFw_JTb0OlaQXyB4jkPEt6XgV7rMExrkKf9g9o,1107
+asmk-0.1.1.dist-info/METADATA,sha256=IBB176O1vF6aqTOLCwegS-q4HzbAP4nKRM_DRGXoFkc,2866
+asmk-0.1.1.dist-info/WHEEL,sha256=_ZWIY2n7n6SpiuIFl1-RvcMp4Ty36T57FKf-7NzqZHM,101
+asmk-0.1.1.dist-info/top_level.txt,sha256=WqiegNFYSGJz-8z4waqZAGFAu9cuWWzzFXcJ-fEpsDE,5
+asmk-0.1.1.dist-info/zip-safe,sha256=frcCV1k9oG9oKj3dpUqdJg1PxRT2RSN_XKdLCPjaYaY,2
+asmk-0.1.1.dist-info/RECORD,,
