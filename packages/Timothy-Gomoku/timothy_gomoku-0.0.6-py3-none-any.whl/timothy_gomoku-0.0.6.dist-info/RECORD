@@ -1,0 +1,13 @@
+timothy_gomoku/__init__.py,sha256=PICmoU6rdcBGs53lRyP5HsvSXEj9G7_ushVG7JT84nQ,158
+timothy_gomoku/classes/Gomoku_env.py,sha256=SgB4JRY7pPIUNNYDBH2ybd_wY_2wQyPFTNrk6w_gfZU,3448
+timothy_gomoku/classes/Gomoku_net.py,sha256=adBoeqpP8OVYgY99exEgrP4rObv9_wpVuoPdZfeqLrA,2131
+timothy_gomoku/classes/__init__.py,sha256=YyVtITqGiaf81wwNMWJprngJnned0z_VeJzTFlSdr-M,119
+timothy_gomoku/func/__init__.py,sha256=bZbYwYYb76oYujyMDqchhuu5rY_Wi7ZNMrRJ6EraPw0,186
+timothy_gomoku/func/play_with_human.py,sha256=HIvFvuS9KG1LK2bKf7OAFheBADzntFS8EJDHKUGAE0g,1232
+timothy_gomoku/func/print_log.py,sha256=7rPgWm5JNDa6E-lIOXHKynblaGxnduZRcwPo_StLYIg,539
+timothy_gomoku/func/store_transition.py,sha256=9VD_rk1nabxN1I59wAyzgXWCQw_-S4V7USCT8ljrGsk,139
+timothy_gomoku-0.0.6.dist-info/licenses/LICENSE,sha256=ixuiBLtpoK3iv89l7ylKkg9rs2GzF9ukPH7ynZYzK5s,35148
+timothy_gomoku-0.0.6.dist-info/METADATA,sha256=2feoLMY0ChJs2kyPLOON2sTyvlmm-ec8wlE9lBTI89U,757
+timothy_gomoku-0.0.6.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+timothy_gomoku-0.0.6.dist-info/top_level.txt,sha256=EH55orOyI3l52bM9gadVCDTzR88H3Q_4OayiOsoABzo,15
+timothy_gomoku-0.0.6.dist-info/RECORD,,
