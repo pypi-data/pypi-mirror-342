@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+pyproject.toml
+tkwin11fpsmon/__init__.py
+tkwin11fpsmon/__main__.py
+tkwin11fpsmon.egg-info/PKG-INFO
+tkwin11fpsmon.egg-info/SOURCES.txt
+tkwin11fpsmon.egg-info/dependency_links.txt
+tkwin11fpsmon.egg-info/entry_points.txt
+tkwin11fpsmon.egg-info/requires.txt
+tkwin11fpsmon.egg-info/top_level.txt

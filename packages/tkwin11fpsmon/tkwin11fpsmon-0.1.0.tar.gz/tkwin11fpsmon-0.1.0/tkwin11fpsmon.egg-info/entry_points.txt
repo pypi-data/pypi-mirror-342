@@ -1,0 +1,2 @@
+[console_scripts]
+tkwin11fpsmon = tkwin11fpsmon.__main__:main

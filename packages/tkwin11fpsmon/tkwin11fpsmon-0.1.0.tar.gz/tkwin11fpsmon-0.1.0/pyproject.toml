@@ -1,0 +1,19 @@
+[project]
+name = "tkwin11fpsmon"
+version = "0.1.0"
+description = "Lightweight FPS overlay for Windows 11 using tkinter and DWM flush"
+readme = "README.md"
+authors = [
+  { name = "Amanokawa Kaede", email = "73207881+KAEDEAK@users.noreply.github.com" }
+]
+license = {text = "MIT"}
+requires-python = ">=3.8"
+dependencies = [
+  "pywin32"
+]
+
+[project.urls]
+Homepage = "https://github.com/KAEDEAK/tkwin11fpsmon"
+
+[project.scripts]
+tkwin11fpsmon = "tkwin11fpsmon.__main__:main"

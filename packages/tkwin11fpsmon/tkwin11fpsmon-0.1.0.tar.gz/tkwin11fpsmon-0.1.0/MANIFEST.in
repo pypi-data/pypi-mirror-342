@@ -1,0 +1,8 @@
+exclude .git
+exclude .gitignore
+exclude build
+exclude dist
+exclude *.egg-info
+exclude LICENSE.git
+exclude LICENSE
+
