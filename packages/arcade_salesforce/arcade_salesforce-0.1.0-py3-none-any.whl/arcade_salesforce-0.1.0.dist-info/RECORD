@@ -1,0 +1,13 @@
+arcade_salesforce/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+arcade_salesforce/constants.py,sha256=aOVcR1L9vOStdw5dEzeUpO055V4-1OiyCUIwXerqBL8,684
+arcade_salesforce/enums.py,sha256=7tNpsejgQA1AUejxT2VgUNs9acnJb6_V39Z-eskiLoo,459
+arcade_salesforce/exceptions.py,sha256=dSXQ-u9P5tSwhx8G8DqrJzabAx6WMdgbQhJCrmxXthY,762
+arcade_salesforce/models.py,sha256=fMRAgofBXrbtaJljF3ljXbPr0RDJJoB9PgBXmeg2mLU,17844
+arcade_salesforce/tools/__init__.py,sha256=08HApJHcIP-y95YMjaxxovG6ilNXjmtyDz9qq9S1njQ,280
+arcade_salesforce/tools/crm/account.py,sha256=kG_Rv3U3RF7I099GOHwNNAf4kvZ-mXFkMSCAMMiNi-s,4338
+arcade_salesforce/tools/crm/contact.py,sha256=P9nOU9o9nJznYn1TKUhvH-wB1v1CNqP3L1bCkdeKvns,2362
+arcade_salesforce/utils.py,sha256=TAEeUkhs7auvwPzbtD2ZVIxcYLXAZS1v7yPey9JxQFY,8616
+arcade_salesforce-0.1.0.dist-info/LICENSE,sha256=XjKuCk1TG4bFrY-8x79oGMmNqrS4TP7c_Zv4-TrMWQY,1063
+arcade_salesforce-0.1.0.dist-info/METADATA,sha256=fMphXll1Uac2n9_udd4ryuqAczNi_keNaE1KAfrmAuc,534
+arcade_salesforce-0.1.0.dist-info/WHEEL,sha256=Nq82e9rUAnEjt98J6MlVmMCZb-t9cYE2Ir1kpBmnWfs,88
+arcade_salesforce-0.1.0.dist-info/RECORD,,
