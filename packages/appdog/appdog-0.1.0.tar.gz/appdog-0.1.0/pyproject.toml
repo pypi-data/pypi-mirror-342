@@ -1,0 +1,168 @@
+[project]
+name = "appdog"
+description = "Generate async API clients and MCP servers from OpenAPI specifications"
+dynamic = ["version"]
+authors = [
+    {name = "Rodolphe Barbanneau"},
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+keywords = ["mcp", "api", "openapi", "client", "server"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+]
+dependencies = [
+    "datamodel-code-generator>=0.25.2",
+    "httpx>=0.26.0",
+    "jinja2>=3.1.3",
+    "mcp>=1.6.0",
+    "pydantic>=2.0.0",
+    "pydantic-core>=2.33.1",
+    "pydantic-settings>=2.8.1",
+    "pyyaml>=6.0.1",
+    "rich>=13.7.0",
+    "typer>=0.9.0",
+]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = [
+    "mypy>=1.0.0",
+    "ruff>=0.1.0",
+    "types-pyyaml>=6.0.0",
+    "types-requests>=2.31.0",
+]
+test = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=6.1.1",
+    "pytest-mock>=3.14.0",
+]
+
+[project.scripts]
+appdog = "appdog.__main__:app"
+
+[project.urls]
+Homepage = "https://github.com/rodolphebarbanneau/appdog"
+Documentation = "https://github.com/rodolphebarbanneau/appdog#readme"
+Issues = "https://github.com/rodolphebarbanneau/appdog/issues"
+Source = "https://github.com/rodolphebarbanneau/appdog"
+
+[build-system]
+requires = ["hatchling>=1.27.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = false
+
+[tool.hatch.version]
+path = "src/appdog/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/.git",
+    "/.github",
+    "/.vscode",
+    "/docs",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/appdog"]
+
+[tool.hatch.publish.index]
+disable = true
+
+[tool.hatch.envs.default]
+installer = "uv"
+features = ["dev"]
+
+[tool.hatch.envs.test]
+features = ["test"]
+
+[[tool.hatch.envs.test.matrix]]
+python = ["3.10", "3.11", "3.12", "3.13"]
+
+[tool.hatch.envs.test.scripts]
+py = "pytest {args}"
+cov = "pytest --cov=src --cov-report=term --cov-report=html {args}"
+html = "python -m http.server -d htmlcov"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["tests/*", "**/__init__.py"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "pass",
+    "raise ImportError",
+]
+
+[tool.mypy]
+python_version = "3.10"
+check_untyped_defs = true
+disallow_untyped_defs = true
+warn_return_any = true
+warn_unused_configs = true
+no_implicit_reexport = true
+disallow_untyped_decorators = true
+namespace_packages = true
+explicit_package_bases = true
+exclude = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+extend-exclude = ["*.yaml", "*.yml", "*.lock"]
+fix = true
+unsafe-fixes = true
+
+[tool.ruff.lint]
+select = [
+    "E",     # pycodestyle errors
+    "F",     # pyflakes
+    "B",     # flake8-bugbear
+    "I",     # isort
+    "W",     # pycodestyle warnings
+    "C90",   # mccabe complexity
+    "N",     # pep8-naming
+    "UP",    # pyupgrade
+    "S",     # bandit
+    "BLE",   # blind-except
+    "A",     # builtins
+]
+ignore = [
+    "S101",  # Use of assert detected
+    "B008",  # Do not perform function calls in argument defaults
+    "E501",  # Line too long (handled by formatter)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["appdog"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+line-ending = "auto"
