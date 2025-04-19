@@ -1,0 +1,193 @@
+Metadata-Version: 2.4
+Name: django-chelseru-chat
+Version: 1.0.1
+Summary: Real-time one-on-one chat system for Django projects, powered by WebSocket and JWT authentication.
+Home-page: https://qesa.chelseru.com
+Author: Sobhan Bahman Rashnu
+Author-email: bahmanrashnu@gmail.com
+Project-URL: Documentation, https://github.com/Chelseru/django-chelseru-chat/
+Project-URL: Telegram Group, https://t.me/bahmanpy
+Project-URL: Telegram Channel, https://t.me/ChelseruCom
+Keywords: djangochelseruchat djangochat drfchat online-chat online real-time chat iran chelseru lor lur bahman rashnu sobhan چت آنلاین ریل تایم
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Django>=5.1.6
+Requires-Dist: djangorestframework==3.15.2
+Requires-Dist: djangorestframework_simplejwt==5.5.0
+Requires-Dist: channels==4.2.2
+Requires-Dist: channels_redis==4.2.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Django Chelseru Chat
+
+یک بسته ساده برای افزودن قابلیت چت بلادرنگ (real-time) به جنگو با استفاده از Django Channels و WebSocket. این ابزار امکان گفت‌وگوی خصوصی بین دو کاربر را فراهم می‌کند و با استفاده از JWT احراز هویت می‌شود.
+
+---
+
+## نصب
+
+```bash
+pip install django-chelseru-chat
+```
+
+---
+
+## پیکربندی
+
+اطمینان حاصل کنید که پروژه‌ی جنگوی شما با ASGI سازگار است و احراز هویت JWT برای ارتباط WebSocket تنظیم شده باشد.
+
+### 1. افزودن به `INSTALLED_APPS`:
+
+```python
+INSTALLED_APPS = [
+    ...
+    'channels',
+    'chat',
+]
+```
+
+### 2. تنظیم `ASGI_APPLICATION` در `settings.py`:
+
+```python
+ASGI_APPLICATION = '<your_project_name>.asgi.application'
+```
+> به جای `<your_project_name>` نام پوشه‌ی پروژه‌ی جنگوی خود را وارد کنید (مثلاً `myproject`).
+
+### 3. استفاده از `asgi.py` سفارشی با `JWTAuthMiddleware`:
+
+```python
+# <your_project_name>/asgi.py
+
+import os
+import django
+from channels.routing import ProtocolTypeRouter, URLRouter
+from django.core.asgi import get_asgi_application
+
+# تنظیم محیط و راه‌اندازی جنگو
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', '<your_project_name>.settings')
+django.setup()
+
+# وارد کردن روتینگ و میان‌افزار پس از setup
+import chat.routing
+from chat.middleware import JWTAuthMiddleware
+
+application = ProtocolTypeRouter({
+    "http": get_asgi_application(),
+    "websocket": JWTAuthMiddleware(
+        URLRouter(
+            chat.routing.websocket_urlpatterns
+        )
+    ),
+})
+```
+> مجدداً `<your_project_name>` را با نام پروژه‌ی خود جایگزین کنید.
+
+---
+
+## مدل‌ها
+
+### مدل `ChatRoom`
+
+```python
+class ChatRoom(models.Model):
+    user_1 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user1_chats')
+    user_2 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user2_chats')
+    created_at = models.DateTimeField(auto_now_add=True)
+```
+
+### مدل `Message`
+
+```python
+class Message(models.Model):
+    chat_room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE, related_name='messages')
+    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+```
+
+---
+
+## اتصال WebSocket
+
+برای ارسال و دریافت پیام‌ها، به آدرس زیر از طریق WebSocket متصل شوید:
+
+```
+ws://<your-domain>/ws/chat/<chat_room_id>/?token=<your_jwt_access_token>
+```
+
+**نمونه:**
+
+```
+ws://qesa.chelseru.com:8000/ws/chat/3/?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+
+### ارسال پیام:
+
+```json
+> {"message": "hi"}
+```
+
+### پاسخ دریافتی:
+
+```json
+< {"message": "hi", "sender": "user"}
+```
+
+---
+
+## ایجاد ChatRoom به صورت برنامه‌نویسی
+
+```python
+from chat.models import ChatRoom
+chat = ChatRoom.objects.create(user_1=user1, user_2=user2)
+```
+
+---
+
+## احراز هویت WebSocket با JWT
+
+این بسته از یک `JWTAuthMiddleware` سفارشی برای احراز هویت کاربران از طریق توکن JWT استفاده می‌کند.  
+توکن باید به صورت query parameter به آدرس WebSocket اضافه شود: `?token=...`
+
+برای صدور توکن‌ها می‌توانید از بسته [`djangorestframework-simplejwt`](https://django-rest-framework-simplejwt.readthedocs.io/) استفاده کنید.
+
+---
+
+## امکانات
+
+- چت خصوصی دو نفره
+- ارسال و دریافت پیام به صورت لحظه‌ای (real-time)
+- احراز هویت WebSocket با JWT
+- مشاهده تاریخچه‌ی پیام‌ها در هر اتاق چت
+- ساختار ساده‌ی مدل‌ها
+
+---
+
+## برنامه‌های آینده
+
+- پشتیبانی از چت گروهی
+- وضعیت خوانده شدن پیام‌ها
+- نمایش وضعیت تایپ کردن کاربر
+
+---
+
+## مجوز
+
+این پروژه تحت مجوز MIT ارائه شده است.
+
