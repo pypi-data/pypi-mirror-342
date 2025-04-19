@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+conector_total/__init__.py
+conector_total/__main__.py
+conector_total/names.txt
+conector_total/speaker.py
+conector_total.egg-info/PKG-INFO
+conector_total.egg-info/SOURCES.txt
+conector_total.egg-info/dependency_links.txt
+conector_total.egg-info/entry_points.txt
+conector_total.egg-info/requires.txt
+conector_total.egg-info/top_level.txt
+conector_total/speakers/__init__.py
+conector_total/speakers/agustin.py

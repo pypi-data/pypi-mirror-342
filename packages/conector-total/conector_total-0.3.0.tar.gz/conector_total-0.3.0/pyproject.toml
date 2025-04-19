@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conector_total"
+version = "0.3.0"
+requires-python = ">=3.9"
+description = "My first package!"
+readme = "README.md"
+authors = [
+    {name = "agustin", email = "agustincepeda1@gmail.com"},
+]
+maintainers = [
+  {name = "agustin", email = "agustincepeda1@gmail.com"}
+]
+license = {file = "LICENSE.txt"}
+keywords = [
+    "agustin"
+]
+classifiers = [
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "License :: OSI Approved :: BSD License",
+    "Intended Audience :: Developers",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: MacOS :: MacOS X",
+]
+dependencies = [
+    "colorama~=0.0"
+]
+
+[project.optional-dependencies]
+test = [
+    "twine",
+    "build"
+]
+
+[project.urls]
+Homepage = "https://github.com/jfuruness/justin_furuness"
+Documentation = "https://github.com/jfuruness/justin_furuness/README.md"
+
+[project.scripts]
+conector_total = "conector_total.__main__:main"
