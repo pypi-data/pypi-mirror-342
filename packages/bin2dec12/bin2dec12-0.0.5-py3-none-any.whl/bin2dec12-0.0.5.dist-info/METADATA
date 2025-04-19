@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: bin2dec12
+Version: 0.0.5
+Summary: Convertor de números binário para decimal
+Home-page: https://github.com/GustavoGS12/Python_Projects/tree/main/Desafios%20DIO/Bin2Dec_Package
+Author: GustavoGS
+Author-email: ggs.gustavo.dev@gmail.com
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# Bin2Dec
+
+Description. 
+The package Bin2Dec is used to:
+	Binary to Decimal Number Converter
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install Bin2Dec
+
+```bash
+pip install bin2dec12
+```
+
+## Usage
+
+```python
+from bin2dec12 import conversao
+conversao()
+```
+
+## Author
+Gustavo GS
