@@ -1,0 +1,103 @@
+Metadata-Version: 2.4
+Name: aws-cost-lens
+Version: 0.1.0
+Summary: AWS Cost Explorer Analysis Tool
+Author-email: Your Name <your.email@example.com>
+License: MIT License
+        
+        Copyright (c) 2025 parnell
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: aws,billing,cloud,cost
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Requires-Python: >=3.11
+Requires-Dist: boto3>=1.28.0
+Requires-Dist: rich>=13.0.0
+Description-Content-Type: text/markdown
+
+# AWS Cost Lens
+
+A tool for analyzing and visualizing AWS costs by service and usage type with rich formatting.
+
+## Installation
+
+```bash
+pip install aws-cost-lens
+```
+
+## Usage
+
+After installation, you can run the tool using the `aws-cost-lens` command:
+
+```bash
+# Show simple cost breakdown for all services
+aws-cost-lens
+
+# Show detailed breakdown for a specific service
+aws-cost-lens --service cloudwatch --detailed
+
+# Show costs for a specific date range
+aws-cost-lens --start-date 2023-01-01 --end-date 2023-12-31
+
+# List all available AWS services
+aws-cost-lens --list-services
+
+# Show top 10 most expensive services
+aws-cost-lens --top 10
+```
+
+### Common Options
+
+- `--service`: Filter by specific AWS service (e.g., `cloudwatch`, `s3`, `ec2`)
+- `--start-date`: Start date (YYYY-MM-DD), defaults to 6 months ago
+- `--end-date`: End date (YYYY-MM-DD), defaults to today
+- `--detailed`: Show detailed breakdown by SERVICE and USAGE_TYPE
+- `--region`: Include region breakdown in detailed analysis
+- `--top N`: Show only top N services/usage types
+- `--granularity`: Time granularity (DAILY, MONTHLY, HOURLY)
+- `--show-all`: Show all items including those with zero costs
+- `--version`: Show version information
+
+## AWS Credentials
+
+AWS Cost Lens uses your AWS credentials from the environment. Make sure you have:
+
+1. AWS CLI configured (`aws configure`)
+2. Or environment variables set (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, etc.)
+3. Appropriate IAM permissions for Cost Explorer API (`ce:GetCostAndUsage`)
+
+## Features
+
+- Rich terminal UI with formatted tables and progress bars
+- Detailed cost breakdown by service, usage type, and region
+- Identify top cost contributors in your AWS account
+- Get cost reduction tips for specific services
+- Filter by service name with smart alias matching
+- Customizable view options (simple/detailed, time range, etc.)
