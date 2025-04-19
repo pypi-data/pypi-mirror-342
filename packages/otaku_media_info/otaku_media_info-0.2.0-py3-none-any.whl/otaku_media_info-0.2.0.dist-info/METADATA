@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: otaku_media_info
+Version: 0.2.0
+Summary: Add your description here
+Author-email: JLoeve <34429322+LonelySteve@users.noreply.github.com>
+Requires-Python: >=3.8
+Requires-Dist: beautifulsoup4>=4.13.4
+Requires-Dist: cachetools>=5.5.2
+Requires-Dist: pydantic>=2.10.6
+Requires-Dist: requests>=2.32.3
