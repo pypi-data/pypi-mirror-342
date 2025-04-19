@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "constrafor_sample"
+version = "0.0.4"
+authors = [
+  { name="Javid Keskin", email="javid.keskin@constrafor.com" },
+]
+description = "Sample Package from Constrafor"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+]
+
+[project.urls]
+Homepage = "https://github.com/constrafor/constrafor-library/sample_package"
+Issues = "https://github.com/constrafor/constrafor-library/issues"
