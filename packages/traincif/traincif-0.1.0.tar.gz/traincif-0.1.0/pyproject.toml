@@ -1,0 +1,17 @@
+[project]
+name = "traincif"
+version = "0.1.0"
+description = "Parse Common Interchange Format (CIF) files commonly used when working with UK train data"
+readme = "README.md"
+requires-python = ">=3.13"
+license = "MIT"
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/iamawatermelo/traincif#readme"
+Issues = "https://github.com/iamawatermelo/traincif/issues"
+Source = "https://github.com/iamawatermelo/traincif"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
