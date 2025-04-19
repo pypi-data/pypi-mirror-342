@@ -1,0 +1,13 @@
+LICENSE.txt
+README.md
+setup.py
+mongo_pythonic.egg-info/PKG-INFO
+mongo_pythonic.egg-info/SOURCES.txt
+mongo_pythonic.egg-info/dependency_links.txt
+mongo_pythonic.egg-info/requires.txt
+mongo_pythonic.egg-info/top_level.txt
+mongohelper/__init__.py
+mongohelper/operator/__init__.py
+mongohelper/operator/dict.py
+mongohelper/operator/list.py
+mongohelper/operator/obj.py
