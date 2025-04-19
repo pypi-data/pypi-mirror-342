@@ -1,0 +1,2 @@
+[console_scripts]
+isabl = isabl_cli.cli:main

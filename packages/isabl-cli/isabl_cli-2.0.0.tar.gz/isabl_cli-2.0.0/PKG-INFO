@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: isabl-cli
+Version: 2.0.0
+Summary: isabl_cli command line client.
+Home-page: https://github.com/papaemmelab/isabl_cli
+Author: Juan S. Medina
+License: BSD
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Topic :: Utilities
+License-File: LICENSE.md
+Requires-Dist: analytics-python>=1.4.0
+Requires-Dist: cached_property>=1.4.2
+Requires-Dist: Click>=7.0.0
+Requires-Dist: munch>=2.3.2
+Requires-Dist: python-slugify>=1.1.2
+Requires-Dist: pytz>=2018.4
+Requires-Dist: PyYAML>=5.3
+Requires-Dist: requests>=2.19.1
+Requires-Dist: six>=1.11.0
+Requires-Dist: packaging>=21.0
+Provides-Extra: test
+Requires-Dist: black>=18.9b0; extra == "test"
+Requires-Dist: coverage>=4.4.2; extra == "test"
+Requires-Dist: factory-boy>=2.11.1; extra == "test"
+Requires-Dist: ipdb>=0.11; extra == "test"
+Requires-Dist: pluggy>=0.7.1; extra == "test"
+Requires-Dist: pydocstyle>=2.1.1; extra == "test"
+Requires-Dist: pylint>=1.8.1; extra == "test"
+Requires-Dist: pytest>=4.5; extra == "test"
+Requires-Dist: pytest-cov>=2.5.1; extra == "test"
+Requires-Dist: pytest-env>=0.6.2; extra == "test"
+Requires-Dist: pytest-sugar>=0.9.1; extra == "test"
+Requires-Dist: tox>=2.9.1; extra == "test"
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: summary
+
+📘 learn more on `GitHub <https://github.com/papaemmelab/isabl_cli>`_!
