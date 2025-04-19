@@ -1,0 +1,2 @@
+[console_scripts]
+risk-assessment = risk_assessment_package.main:main
