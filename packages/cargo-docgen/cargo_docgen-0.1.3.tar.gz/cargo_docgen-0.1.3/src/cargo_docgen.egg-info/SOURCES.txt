@@ -1,0 +1,12 @@
+LICENCE
+README.md
+pyproject.toml
+src/cache.py
+src/docgen.py
+src/model.py
+src/cargo_docgen.egg-info/PKG-INFO
+src/cargo_docgen.egg-info/SOURCES.txt
+src/cargo_docgen.egg-info/dependency_links.txt
+src/cargo_docgen.egg-info/entry_points.txt
+src/cargo_docgen.egg-info/requires.txt
+src/cargo_docgen.egg-info/top_level.txt
