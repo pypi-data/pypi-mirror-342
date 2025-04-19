@@ -1,0 +1,2 @@
+[console_scripts]
+yesterday = yesterday_cli.main:cli
