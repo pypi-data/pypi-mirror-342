@@ -1,0 +1,14 @@
+dj_ec_idcardfield/__init__.py,sha256=FO3z5QX5yosmcKMfNGa0ErqQF7rV3eH7wW0MR6LqaYM,386
+dj_ec_idcardfield/apps.py,sha256=W8VBOVMGVVA9AaruvDh1tMW-iagQ44EYcl2ljbPwcN8,105
+dj_ec_idcardfield/forms.py,sha256=f7vMGIG9wO2gxDhqtOftmf0zX6rUEGC5I1PmyHTkQqg,1229
+dj_ec_idcardfield/locale/en/LC_MESSAGES/django.mo,sha256=w_YS1PmvSAUwAvqco72w_Y6yNGRzzxqJXVhrsdbUc4E,568
+dj_ec_idcardfield/locale/en/LC_MESSAGES/django.po,sha256=N-Toy4K59iM8Fig4G-JkImgu0Bu9vKCF_DtKTCi3Z50,908
+dj_ec_idcardfield/locale/es/LC_MESSAGES/django.mo,sha256=i4BFZWryYjD07a4Vk6RRjiLK06QgiHGhvnPaUcWZ_24,575
+dj_ec_idcardfield/locale/es/LC_MESSAGES/django.po,sha256=_1MsCWke55r4hTgA9qMh8SKqIIkzoN_pbT7DSMfj-9E,915
+dj_ec_idcardfield/models.py,sha256=hwxJXkqfhbmNBMXdecQuMqht23bH3k9OsmvnWqTMXm0,1763
+dj_ec_idcardfield/serializers.py,sha256=DQZhV8VrrNcjapmliWCL-xgQpSdbJCLT4PpUuydm-p0,1804
+dj_ec_idcardfield/validators.py,sha256=iuaedNL8f_8TS7YK29-f_QKu4Bp-bLJWi0m33m7YAqY,1938
+dj_ec_idcardfield-0.1.1.dist-info/LICENSE,sha256=j7C0YUfKlhCi5Bv_5GmYLOIauw5j5g8VlBcTZXv0xow,1067
+dj_ec_idcardfield-0.1.1.dist-info/METADATA,sha256=SXjDYHHLSoLDi2xro5ttbsxCehSiJ0RPjICjIVJ--mc,4143
+dj_ec_idcardfield-0.1.1.dist-info/WHEEL,sha256=sP946D7jFCHeNz5Iq4fL4Lu-PrWrFsgfLXbbkciIZwg,88
+dj_ec_idcardfield-0.1.1.dist-info/RECORD,,
