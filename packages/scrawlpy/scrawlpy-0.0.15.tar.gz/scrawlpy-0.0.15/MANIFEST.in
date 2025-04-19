@@ -1,0 +1,11 @@
+include README.md
+include LICENSE
+
+include scrawlpy/requirements.txt
+include scrawlpy/VERSION
+
+recursive-include scrawlpy/utils/js *
+recursive-include scrawlpy/templates *
+recursive-include tests *
+
+global-exclude __pycache__ *.py[cod]
