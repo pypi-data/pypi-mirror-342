@@ -1,0 +1,10 @@
+openai[voice-helpers]<2.0.0,>=1.75.0
+pyperclip<2.0.0,>=1.9.0
+
+[test]
+black
+mypy
+pre-commit
+pytest
+pytest-cov
+ruff
