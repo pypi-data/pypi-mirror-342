@@ -1,0 +1,50 @@
+name: release
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    concurrency: release
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # required to see tags and commits
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - uses: WIPACrepo/wipac-dev-next-version-action@v1.0
+        id: next-version
+        with:
+          force-patch-if-no-commit-token: true
+          ignore-paths: |
+            resources/foo/**
+            assets/**
+
+      - uses: WIPACrepo/wipac-dev-py-build-action@v1.0
+        if: steps.next-version.outputs.version != ''
+        with:
+          version: ${{ steps.next-version.outputs.version }}
+
+      - uses: softprops/action-gh-release@v2
+        if: steps.next-version.outputs.version != ''
+        with:
+          files: dist/*
+          tag_name: v${{ steps.next-version.outputs.version }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload to PyPI (so simple, no GHA package needed)
+        if: steps.next-version.outputs.version != ''
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "now: $(date -u +"%Y-%m-%dT%H:%M:%S.%3N")"
+          pip install twine
+          twine upload dist/*
