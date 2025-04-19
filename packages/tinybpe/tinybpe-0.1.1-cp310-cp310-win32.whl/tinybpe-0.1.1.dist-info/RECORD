@@ -1,0 +1,11 @@
+tinybpe/__init__.py,sha256=OtXq1BsY5zIwOhkuYHqn5apUzxZiuisWkNnqKm3LDsI,229
+tinybpe/_utils.py,sha256=jKTixGecJcq0D0QPshOxx3zECqz7-odstsS5CrE29fU,3905
+tinybpe/bpe.cp310-win32.pyd,sha256=dN7bNjY6zWZRRzPa0Cuk7EdHYsdx_5F2qjPmYads1-s,23040
+tinybpe/bpe.pyi,sha256=spMOKuFpirReHVNVle3zIoQKv5vTpIQM-jIGDEI-77c,1378
+tinybpe/core.py,sha256=f1x35EaoPBD1_D3ehWML69Dz2rKYt0AcRmqof_slhUo,6861
+tinybpe/simple.py,sha256=kcBBckFFgb4fO9QYBPhE-zYqAX2T6yHkLtN7Cn9Wr9o,577
+tinybpe-0.1.1.dist-info/licenses/LICENSE,sha256=_FoEXoYwXIjYosSAJWW4U-bzTnW5FGXmuSAx5OkKbcQ,1089
+tinybpe-0.1.1.dist-info/METADATA,sha256=KUgj9E5iQS-ADH3zcVj5MlKc4rcVBv9XOTY6hH_Ff9U,11171
+tinybpe-0.1.1.dist-info/WHEEL,sha256=xlKrXzr_1K18tdVBurRRTekMRqWYEwTju41b3f8kJkQ,97
+tinybpe-0.1.1.dist-info/top_level.txt,sha256=ITYTNAGmyfGmD7IHhZgtqDjhRzbpHFP9IU0FyRVPsvA,8
+tinybpe-0.1.1.dist-info/RECORD,,
