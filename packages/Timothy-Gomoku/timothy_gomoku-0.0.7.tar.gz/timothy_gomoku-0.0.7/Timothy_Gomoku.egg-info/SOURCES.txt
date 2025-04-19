@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+Timothy_Gomoku.egg-info/PKG-INFO
+Timothy_Gomoku.egg-info/SOURCES.txt
+Timothy_Gomoku.egg-info/dependency_links.txt
+Timothy_Gomoku.egg-info/top_level.txt
+timothy_gomoku/__init__.py
+timothy_gomoku/classes/Gomoku_env.py
+timothy_gomoku/classes/Gomoku_net.py
+timothy_gomoku/classes/__init__.py
+timothy_gomoku/func/__init__.py
+timothy_gomoku/func/play_with_human.py
+timothy_gomoku/func/print_log.py
+timothy_gomoku/func/store_transition.py
