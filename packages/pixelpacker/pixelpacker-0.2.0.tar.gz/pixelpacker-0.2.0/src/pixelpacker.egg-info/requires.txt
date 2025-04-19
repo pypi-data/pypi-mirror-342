@@ -1,0 +1,14 @@
+typer>=0.9.0
+matplotlib<4.0,>=3.7
+numpy<3.0,>=1.21
+pillow<12.0,>=10.0
+scipy<2.0,>=1.7
+tifffile>=2023.1.1
+tqdm>=4.64
+typing_extensions>=4.0.0
+
+[test]
+pytest>=7.0
+pytest-html>=4.0
+pytest-xdist>=3.0
+pytest-cov>=3.0
