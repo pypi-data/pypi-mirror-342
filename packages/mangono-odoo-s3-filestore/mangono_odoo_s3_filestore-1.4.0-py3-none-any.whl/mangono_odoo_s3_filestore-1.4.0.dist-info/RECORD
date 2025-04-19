@@ -1,0 +1,9 @@
+odoo/addons/odoo_filestore_s3/__init__.py,sha256=pEu2NWfch4Za49YrhhlD9tYxsxwJt09S1RI0KCDfgYc,1789
+odoo/addons/odoo_filestore_s3/__manifest__.py,sha256=Aq5nFrwMzNEXfypQzD6RkjE5TlTEHv1jPfg2Uy3OLS4,1109
+odoo/addons/odoo_filestore_s3/adapter.py,sha256=i2f9SY_Y2OwVvghxJz8l-xsFRBAyLaOLOYqzVbPn_Bs,3452
+odoo/addons/odoo_filestore_s3/odoo_s3_fs.py,sha256=YETXeb53Sl7HIVO-d2z0Q_1HKLTqJv5Viv8r2CR0EE8,15407
+odoo/addons/odoo_filestore_s3/wrapt_patcher.py,sha256=yAx8XrQVfXO1pefaL-nxro5yE2akLwQT45q6jHrIg3I,4523
+mangono_odoo_s3_filestore-1.4.0.dist-info/METADATA,sha256=OYpQ_8yFr4bM7RwPs0X89YWahj0FvFSS6f1OxTLYrmY,849
+mangono_odoo_s3_filestore-1.4.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mangono_odoo_s3_filestore-1.4.0.dist-info/licenses/LICENSE,sha256=QxkzT6ZHHibJsB5DwZJiko08KtvW4rjilPvZ4_uV_-0,34451
+mangono_odoo_s3_filestore-1.4.0.dist-info/RECORD,,
