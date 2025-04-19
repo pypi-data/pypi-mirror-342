@@ -1,0 +1,114 @@
+Metadata-Version: 2.4
+Name: django-vectorstore-indexed-model
+Version: 0.2.0
+Summary: 基于RedisStack向量数据库的Django数据模型应用。
+Author: rRR0VrFP
+Maintainer: rRR0VrFP
+License: Apache License, Version 2.0
+Keywords: django-vectorstore-indexed-model
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PyYAML
+Requires-Dist: django
+Requires-Dist: openai-redis-vectorstore
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: maintainer
+Dynamic: requires-dist
+Dynamic: summary
+
+# django-vectorstore-indexed-model
+
+基于RedisStack向量数据库的Django数据模型应用。
+
+## 安装
+
+```shell
+pip install django-vectorstore-indexed-model
+```
+
+## 依赖说明
+
+- 数据模型对于向量数据库的操作深度依赖`openai-redis-vectorstore`。相关配置详见该项目文档。
+
+## 使用
+
+*app/models.py*
+
+```python
+from typing import List
+from django.db import models
+from django_vectorstore_indexed_model.models import WithVectorStoreIndex
+from django_model_helper.models import WithEnabledStatusFields
+from django_model_helper.models import WithDeletedStatusFields
+
+
+class QA(WithEnabledStatusFields, WithDeletedStatusFields, WithVectorStoreIndex):
+    enable_auto_vectorstore_index = False
+
+    kb = models.CharField(max_length=64)
+    question = models.CharField(max_length=128)
+    answer = models.TextField()
+
+    def get_enable_vectorstore_index_flag(self) -> bool:
+        """判断是否需要创建索引"""
+        # 一般来说数据记录中应该有enabled或deleted等字段
+        # 表示是否启用索引
+        if not self.enabled:
+            return False
+        if self.deleted:
+            return False
+        return True
+
+    def get_vectorstore_index_names(self):
+        # 如果有多个index_name表示：
+        # 本数据记录需要在多个向量数据库中建立索引
+        return self.kb
+
+    def get_vectorstore_index_contents(self) -> List[str]:
+        # 向量数据库有索引长度的限制
+        # 所以一般文档内容需要分片后进行索引
+        # 这里返回分片列表
+        return [f"问题：{self.question}\n参考答案：{self.answer}"]
+```
+
+## 可以重载的方法
+
+### 重载以下3个方法可以快速解决contents和metas一致情况下的单索引或多重索引问题
+
+- get_vectorstore_index_names
+- get_vectorstore_index_contents
+- get_vectorstore_index_meta
+
+### 重载以下方法可以解决contents和metas不一致情况下的多重索引问题
+
+- get_vectorstore_index_segments
+
+*注意：重载本方法后，`get_vectorstore_index_names`、`get_vectorstore_index_contents`及`get_vectorstore_index_meta`三个方法将失效。*
+
+## 版本记录
+
+### v0.1.0
+
+- 版本首发。
+
+### v0.1.1
+
+- 添加`WithVectorStoreIndex.get_vectorstore_index_segments`以解决content和meta各不相同的多重索引问题。
+- 修正打包时版本号引用问题。
+
+### v0.2.0
+
+- 优化：保存时不再自动重建索引。
+- 优化：使用匹配最新的`openai-redis-vectorstore`，支持字段知识库、文档、类型过滤。
