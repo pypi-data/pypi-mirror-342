@@ -1,0 +1,2 @@
+[console_scripts]
+watcher = arroyopy.app.redis_file_watcher:app
