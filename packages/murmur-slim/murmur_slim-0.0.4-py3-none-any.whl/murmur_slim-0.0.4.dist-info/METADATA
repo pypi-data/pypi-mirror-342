@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: murmur-slim
+Version: 0.0.4
+Summary: Murmur's monorepo to package, publish and manage AI agents and tools.
+Project-URL: Repository, https://github.com/murmur-nexus/murmur
+Author-email: "E.W. de Graaff" <hi@murmur.nexus>
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: MacOS X
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# murmur-nexus
+
+Murmur's main logic. See [murmur](../) for installation instructions.
