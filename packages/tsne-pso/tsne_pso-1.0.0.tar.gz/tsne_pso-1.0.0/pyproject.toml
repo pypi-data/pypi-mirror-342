@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tsne_pso"
+version = "1.0.0"
+description = "t-Distributed Stochastic Neighbor Embedding with Particle Swarm Optimization"
+readme = "README.md"
+authors = [
+    {name = "Otmane Fatteh", email = "fattehotmane@hotmail.com"}
+]
+license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.19.5",
+    "scipy>=1.6.0",
+    "scikit-learn>=1.0.0",
+    "umap-learn>=0.5.3",
+    "tqdm>=4.64.0",
+]
+requires-python = ">=3.9"
+
+[project.urls]
+"Homepage" = "https://github.com/M-Allaoui/t-SNE-PSO"
+"Bug Tracker" = "https://github.com/M-Allaoui/t-SNE-PSO/issues" 
