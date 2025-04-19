@@ -1,0 +1,16 @@
+bigquery_exporter/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bigquery_exporter/base.py,sha256=UBeyuON97fj3ialGbsTJ472fseJ3PwZE-dpOOOw56rM,13635
+bigquery_exporter/constants.py,sha256=sBrOiSRPZiwhKWL67VmVJDGfSrZQmokOMR7JYiAwoVo,378
+bigquery_exporter/errors.py,sha256=ej6ciqI5nAA78ZylJlgxFkmFo-sIETxOGMo5U5ULq4w,269
+bigquery_exporter/helpers.py,sha256=htCR_Ro1rSXjlh-IFIJ1Y1V22J7gbpsmCTPhh7UbuHQ,298
+bigquery_exporter/clients/__init__.py,sha256=3DeE15S4nf0PVD6sNjMb9J1k8bIjUzBaCKbnwkxpHEc,58
+bigquery_exporter/clients/google_client.py,sha256=WqFD9Qxt92MUQyA2eXwBqkqN20GLYfVoWTpLawLCgB8,2669
+bigquery_exporter/clients/interface.py,sha256=YbiFTsXErPfqFfjgb3-E3WCVpc58AKvC9xwrVjwjqCE,1343
+django_bigquery_exporter-0.2.3.dist-info/licenses/LICENSE,sha256=d4qx2kewDLV-kjjP4mNqckqb9AFdtR502tsp51xMqqA,1070
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/conftest.py,sha256=gJqxqIu6UeodtC9KpngEXf5S-SFt2qdSCgTs67xpwfk,3489
+tests/test_base.py,sha256=SOy9vVG2EQMrQQLl3KR-QpyPuAEU3ziv3KGr_ajSdbM,17177
+django_bigquery_exporter-0.2.3.dist-info/METADATA,sha256=F0ZTB0IQyprKgJlkwfRzZnLP5cN7GAoLe7zgFzszeQA,10116
+django_bigquery_exporter-0.2.3.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+django_bigquery_exporter-0.2.3.dist-info/top_level.txt,sha256=cMEz2vbmHmAWLuySxVnsiF_eBTQUKa2-oFuZ-PbXMP8,24
+django_bigquery_exporter-0.2.3.dist-info/RECORD,,
