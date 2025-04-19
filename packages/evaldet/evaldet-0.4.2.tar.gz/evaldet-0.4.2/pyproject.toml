@@ -1,0 +1,102 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "evaldet"
+description = "Evaluation for Detection and Tracking"
+license = "Apache-2.0"
+authors = [
+  { name = "Tadej", email = "tadej.svetina@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["evaluation", "tracking", "object detection", "computer vision"]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Development Status :: 4 - Beta",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+dependencies = [
+  "numpy>=1.23",
+  "scipy>=1.9",
+  "numba>=0.56",
+  "pyarrow>=10.0"
+]
+dynamic = ["version"]
+
+[tool.hatch.version]
+path = "src/evaldet/__init__.py"
+
+[project.urls]
+Documentation = "https://evaldet.readthedocs.io"
+Issues = "https://github.com/tadejsv/evaldet/issues"
+Source = "https://github.com/sasp-ai/evaldet"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+  "/.vscode",
+  "/docs",
+  "/tests"
+]
+
+[tool.ruff]
+extend-exclude = ["old_docs/source/conf.py"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "FBT001",
+    "FBT002",
+    "D200",
+    "D203",
+    "D205",
+    "D212",
+    "D401",
+    "COM812",
+    "ISC001",
+    "PERF203",
+    "PTH123",
+    "G004",
+    "DTZ005",
+    "PLR0913",
+    "TRY003",
+    "EM101",
+    "EM102",
+]
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "ANN401", "ARG001", "ARG002", "S101", "SLF001", "PLR2004", "NPY002"]
+"src/evaldet/mot/*" = ["N806"]
+
+[tool.mypy]
+exclude = ['old_docs/source/conf.py']
+disallow_untyped_defs = true
+ignore_missing_imports = false
+disallow_any_unimported = false
+no_implicit_optional = true
+check_untyped_defs = true
+warn_unused_ignores = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = ["scipy.*", "pyarrow.*", "numba.*", "deepdiff.*"]
+ignore_missing_imports = true
+
+[dependency-groups]
+dev = [
+    "deepdiff>=8.4.2",
+    "freezegun>=1.5.1",
+    "mypy>=1.15.0",
+    "pytest>=8.3.5",
+    "ruff>=0.11.2",
+]
