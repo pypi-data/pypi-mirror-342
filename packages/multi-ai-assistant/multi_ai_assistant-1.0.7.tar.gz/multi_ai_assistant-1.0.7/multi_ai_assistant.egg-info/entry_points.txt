@@ -1,0 +1,2 @@
+[console_scripts]
+multi_ai_assistant = ai_assistant.ai_assistant:AI_Assistant

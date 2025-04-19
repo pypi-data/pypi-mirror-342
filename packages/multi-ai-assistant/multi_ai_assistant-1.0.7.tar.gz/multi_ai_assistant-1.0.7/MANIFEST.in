@@ -1,0 +1,2 @@
+include ai_assistant/prompts.json
+recursive-include ai_assistant *.py

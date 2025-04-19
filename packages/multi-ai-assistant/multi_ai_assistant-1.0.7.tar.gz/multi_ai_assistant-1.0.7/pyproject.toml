@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multi-ai-assistant"
+version = "1.0.7"
+description = "A Python-based AI assistant project"
+authors = [
+    { name="mofanx"}
+]
+license = "MIT"
+requires-python = ">=3.8"
+readme = "README.md"
+dependencies = [
+    "keyboard",
+    "pygame",
+    "asyncio",
+    "requests",
+    "openai",
+    "pyclip",
+    "aiohttp"
+]
+
+[tool.setuptools.package-data]
+ai_assistant = ["prompts.json"]
+
+[project.scripts]
+multi_ai_assistant = "ai_assistant.ai_assistant:AI_Assistant"
