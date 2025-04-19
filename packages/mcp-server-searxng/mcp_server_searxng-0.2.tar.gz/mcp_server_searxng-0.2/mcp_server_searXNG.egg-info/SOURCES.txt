@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+mcp_server_searXNG.egg-info/PKG-INFO
+mcp_server_searXNG.egg-info/SOURCES.txt
+mcp_server_searXNG.egg-info/dependency_links.txt
+mcp_server_searXNG.egg-info/requires.txt
+mcp_server_searXNG.egg-info/top_level.txt
+mcp_server_searxng/SearXNGServer.py
+mcp_server_searxng/__init__.py
+mcp_server_searxng/__main__.py
+mcp_server_searxng/searXNG_client.py
+mcp_server_searxng.egg-info/PKG-INFO
+mcp_server_searxng.egg-info/SOURCES.txt
+mcp_server_searxng.egg-info/dependency_links.txt
+mcp_server_searxng.egg-info/requires.txt
+mcp_server_searxng.egg-info/top_level.txt
