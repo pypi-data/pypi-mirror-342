@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+AppChecker.egg-info/PKG-INFO
+AppChecker.egg-info/SOURCES.txt
+AppChecker.egg-info/dependency_links.txt
+AppChecker.egg-info/requires.txt
+AppChecker.egg-info/top_level.txt
+appchecker/__init__.py
+appchecker/appchecker.py
+tests/test.py
