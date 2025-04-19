@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Мой Не Сам{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <meta name="description" content="Описание вашего сайта, которое будет отображаться в результатах поиска. Убедитесь, что она содержит ключевые слова и привлекает внимание.">
+    <meta name="keywords" content="ключевое слово1, ключевое слово2, ключевое слово3">
+    <meta name="author" content="Ваше имя или название вашей компании">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'create_request' %}">Формирование заявки</a></li>
+                <li><a href="{% url 'request_history' %}">Создание заявки</a></li>
+                {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                    <li><a href="/admin">Админ-панель</a></li>
+                    {% else %}
+
+                    {% endif %}
+                <li><a href="{% url 'logout' %}">Выход</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Войти</a></li>
+                <li><a href="{% url 'register' %}">Регистрация</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Мой Не Сам. Все права защищены.</p>
+    </footer>
+</body>
+</html>
