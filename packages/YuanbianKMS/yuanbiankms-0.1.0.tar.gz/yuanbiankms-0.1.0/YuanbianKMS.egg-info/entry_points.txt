@@ -1,0 +1,3 @@
+[console_scripts]
+yuanbiankms = app:main
+yuanbiankms run = app:run
