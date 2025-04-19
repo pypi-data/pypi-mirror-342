@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: loader-test-pod
+spec:
+  serviceAccountName: loader-test-serviceaccount
+  containers:
+  - name: load-environ-typed-kubernetes-test
+    image: load-environ-typed-kubernetes-test:0.0.1
+    env:
+    - name: MY_CONFIG_MAP
+      value: "load-environ-typed-kubernetes-test.loader-test-config-map"
+    - name: MY_CONFIG_MAP_BINARY
+      value: "load-environ-typed-kubernetes-test.loader-test-config-map"
+    - name: MY_SECRET
+      value: "load-environ-typed-kubernetes-test.loader-test-secret"
+    - name: MY_SECRET_BINARY
+      value: "load-environ-typed-kubernetes-test.loader-test-secret"
+  terminationGracePeriodSeconds: 2

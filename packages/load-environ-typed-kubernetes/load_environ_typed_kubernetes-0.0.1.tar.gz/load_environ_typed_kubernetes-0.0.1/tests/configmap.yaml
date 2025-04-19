@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: loader-test-config-map
+data:
+  tree-of-a-kind: "6"
+  four-of-a-kind: "6"
+  run-of-3: "3"
+  run-of-4: "4"
+  run-of-5: "5"
+  flush-4-card: "4"
+  flush-5-card: "5"
+binaryData:
+  demo.bin: AAECAwQFBgcICQoLDA0ODw==
