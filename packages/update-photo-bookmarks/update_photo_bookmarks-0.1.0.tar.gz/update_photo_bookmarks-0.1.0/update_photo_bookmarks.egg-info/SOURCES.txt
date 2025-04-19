@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+tests/__init__.py
+tests/test_photos_db.py
+update_photo_bookmarks/__init__.py
+update_photo_bookmarks/photos_db.py
+update_photo_bookmarks/update_photo_bookmarks.py
+update_photo_bookmarks.egg-info/PKG-INFO
+update_photo_bookmarks.egg-info/SOURCES.txt
+update_photo_bookmarks.egg-info/dependency_links.txt
+update_photo_bookmarks.egg-info/entry_points.txt
+update_photo_bookmarks.egg-info/top_level.txt
