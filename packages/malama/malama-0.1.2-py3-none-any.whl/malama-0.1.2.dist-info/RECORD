@@ -1,0 +1,15 @@
+malama/__init__.py,sha256=26XOU4JX7XHa5tolDe_qAInoUqOE7gUAnhTR31gqrJU,255
+malama/currency_formatter.py,sha256=eBKypRX0_WvLX0EmfFoiB0MqieOJvYTgxby85Rqlz-A,130
+malama/file_size.py,sha256=mj5tbyVV_eVRubhPG_76WhfrB9cnKVYDZxS9XUvjwJI,182
+malama/human_time.py,sha256=qfRYtyr13UvIEHX5rqAvGHj9V_5ZgbiNGyiC3OkHH80,196
+malama/password_checker.py,sha256=WDnoRZd-b0X-CS4wvE7gUbMF8HkgItEcE0C9UagHw-o,503
+malama/string_length.py,sha256=8flvuln0U9EBpUykdK4sQKGZ-5RNBaW7IHAuLCXwRQk,52
+malama/text_cleaner.py,sha256=yDYJeGjBKuekS-KP9qY-rFsctMfdJg6HRlpRkuPMPTQ,216
+malama/pdfman/__init__.py,sha256=FL9GFU04LXZTKH35Yu5sXWEDJGRg_eC0XVGxP8Skwvo,96
+malama/pdfman/gemini_helper.py,sha256=ouRYRa3gIG55Bt4FXcqu10NlmXgjv35x6iGJsmFwARg,500
+malama/pdfman/pdf_reader.py,sha256=MQ8VygTk-UYrfCgMN_wLSoLbs1haM3AiOI9iQy0RfuE,182
+malama-0.1.2.dist-info/licenses/LICENSE,sha256=0MGo20DV5xrf-DS9ZQyB4RzOEovWRwcZ9uHGA0SlTOU,1091
+malama-0.1.2.dist-info/METADATA,sha256=WbMNqGyOkXqCj23H3TdkhASI5oW6Tu85S96c4Cglbxo,902
+malama-0.1.2.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+malama-0.1.2.dist-info/top_level.txt,sha256=yapdpzrz0zsTADp3edPQjrmY5sXrb_q3BqtrtMZMkdw,7
+malama-0.1.2.dist-info/RECORD,,
