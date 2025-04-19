@@ -1,0 +1,276 @@
+# OctoLingo
+
+![PyPI](https://img.shields.io/pypi/v/OctoLingo)
+![Python](https://img.shields.io/pypi/pyversions/OctoLingo)
+![License](https://img.shields.io/pypi/l/OctoLingo)
+![Issues](https://img.shields.io/github/issues/birhantamiru/OctoLingo)
+![Stars](https://img.shields.io/github/stars/birhantamiru/OctoLingo?style=social)
+[![Downloads](https://static.pepy.tech/badge/octolingo)](https://pepy.tech/project/octolingo)
+[![Downloads/week](https://static.pepy.tech/badge/octolingo/week)](https://pepy.tech/project/octolingo/week)
+
+
+
+OctoLingo is a powerful and versatile Python package designed to simplify text translation and language processing tasks. Built with developers in mind, OctoLingo provides a seamless interface for translating text, detecting languages, and handling large-scale translation tasks efficiently. With support for text, documents, and image translation through OCR, OctoLingo provides enterprise-grade translation features in an easy-to-use package. Whether you're building a multilingual application, analyzing global content, or automating translation workflows, OctoLingo has you covered.
+
+## Key Features
+
+### 🌍 **Multi-Format Translation**
+- **Text Translation**: Translate between 100+ languages with confidence scoring
+- **Document Processing**: Handle TXT, DOCX, and PDF files natively
+- **Image OCR**: Extract and translate text from images (JPG, PNG, TIFF, BMP)
+- **Byte Stream Processing**: Translate directly from file bytes (ideal for web apps)
+
+### 🚀 **Efficient Large-Text Handling with unlimited character support**
+- Split large texts into manageable chunks to overcome API limitations.
+- Translate large documents or datasets without hassle.
+- Batch translation for large-scale projects.
+  
+### 🔍 **Language Intelligence**
+- **Auto-Detection**: Identify source languages with confidence scores
+- **Multi-Language OCR**: Extract text from documents with mixed languages
+- **Language Validation**: Verify supported languages before translation
+
+### ⚡ **Asynchronous Translation**
+- Non-blocking translations for high-performance applications
+
+### 📚 **Custom Glossaries**
+- Define custom terms and their translations for domain-specific use cases.
+- Ensure consistent translations for specialized vocabulary.
+
+### 📜 **Translation History**
+- Log and retrieve translation history for auditing and analysis.
+
+### 🛠️ **Enterprise Features**
+- **File Handler**: Robust file operations with encoding fallback support
+- **Caching**: Intelligent caching for repeated translations
+
+### 🛠️ **Developer-Friendly**
+- Easy-to-use API with comprehensive documentation.
+- Modular design for seamless integration into existing projects.
+
+## Installation
+
+Install OctoLingo via pip:
+
+For Windows users, you should install with:
+```bash
+pip install OctoLingo[windows]
+```
+For Linux/Mac users:
+```bash
+pip install OctoLingo
+```
+
+## Usage
+
+### Language Detection
+```python
+from OctoLingo.translator import OctoLingo
+
+octo = OctoLingo()
+
+text = "Ceci est un texte en français"
+lang = octo.detect_language(text)
+
+print(f"Detected: {lang}")  # "fr"
+```
+
+### Language Validation
+```python
+from OctoLingo.translator import OctoLingo
+
+translator = OctoLingo()
+print(translator.validate_language('es'))  # Should return True
+try:
+    print(translator.validate_language('xx'))  # Should raise TranslationError
+except Exception as e:
+    print(e)
+```
+
+### Translating Text
+
+```python
+from OctoLingo.translator import OctoLingo
+
+octo = OctoLingo()
+text = "Hello, how are you today?"
+translated, confidence = octo.translate(text, "es")
+
+print(f"Translated: {translated}")  # "Hola, ¿cómo estás hoy?"
+print(f"Confidence: {confidence}")  # 1.00
+```
+
+### Chunked Large Text Translation
+
+```python
+from OctoLingo.translator import OctoLingo
+
+octo = OctoLingo()
+
+large_text = "..." # unlimited character text
+translated, confidence = octo.translate(large_text, "zh-CN")  # Automatically chunks
+
+print(translated)
+print(f"Translated {len(translated)} characters")
+```
+
+### File Translation (Text File)
+
+```python
+from OctoLingo.translator import OctoLingo
+
+octo = OctoLingo()
+
+# test.txt contains "This is a sample text file"
+translated, confidence = octo.translate_file("test.txt", "de")
+
+print(translated)  # "Dies ist eine Beispieltextdatei"
+```
+
+### File Translation (Word Document)
+
+```python
+from OctoLingo.translator import OctoLingo
+
+octo = OctoLingo()
+
+# report.docx contains business report in English
+translated, confidence = octo.translate_file("report.docx", "ja")
+
+print(translated)  # Japanese translation of the document
+```
+
+### File Translation (PDF)
+
+```python
+from OctoLingo.translator import OctoLingo
+
+octo = OctoLingo()
+
+# manual.pdf contains technical documentation
+translated, confidence = octo.translate_file("manual.pdf", "fr")
+
+print(translated)  # French translation
+```
+
+### Image Translation (OCR)
+
+```python
+from OctoLingo.translator import OctoLingo
+
+octo = OctoLingo()
+
+# sign.png contains text "Emergency Exit"
+translated, confidence = octo.translate_file("sign.png", "ar")
+
+print(translated)  # Arabic translation
+```
+
+### Multi-language OCR Setup (documents with multiple languages)
+
+```python
+from OctoLingo.translator import OctoLingo
+from OctoLingo.ocr import OctoOCR
+
+octo = OctoLingo()
+
+octo.ocr = OctoOCR(languages=['en', 'fr', 'es'])  # Replace default OCR
+translated = octo.translate_file("multilingual.pdf", "de")
+```
+
+### Byte Stream Translation
+
+```python
+from OctoLingo import OctoLingo
+
+octo = OctoLingo()
+
+with open("contract.docx", "rb") as f:
+    file_bytes = f.read()
+
+translated, confidence = octo.translate_file_from_bytes(file_bytes, "word", "ru")
+print(translated)  # Russian translation
+# For other documents of like pdf and images, use the key word "pdf", or "image"
+```
+
+### Batch Translation
+```python
+from OctoLingo import OctoLingo
+
+texts = [
+    "Good morning",
+    "Please send the report",
+    "Meeting at 3 PM"
+]
+
+octo = OctoLingo()
+results = octo.translate_batch(texts, "fr")
+
+for original, (translated, confidence) in zip(texts, results):
+    print(f"{original} → {translated}")
+    # "Good morning → Bonjour"
+    # "Please send the report → Veuillez envoyer le rapport"
+    # "Meeting at 3 PM → Réunion à 15 h"
+```
+
+### Asynchronous Translation
+```python
+import asyncio
+from OctoLingo.translator import OctoLingo
+
+octo = OctoLingo()
+
+async def translate_async():
+    result = await octo.translate_async("We need more time", "it")
+    print(result)  # ("Abbiamo bisogno di più tempo", 1.00)
+
+asyncio.run(translate_async())
+```
+
+### Custom Glossaries
+
+```python
+from OctoLingo.glossary import Glossary
+from OctoLingo.translator import OctoLingo
+
+glossary = Glossary()
+octo = OctoLingo()
+glossary.add_term("Hello", "Holla")
+glossary_result = glossary.apply_glossary("Hello is a greeting word for english language.")
+
+result = octo.translate(glossary_result, 'es')
+
+print(result)  # Should print "Holla es una palabra de saludo para el idioma inglés."
+```
+
+### File Handling
+
+```python
+from OctoLingo.translator import OctoLingo
+from OctoLingo.file_handler import FileHandler
+
+# Write test content to a file
+FileHandler.write_file('input.txt', "Hello, world!")
+
+# Translate the file content
+translator = OctoLingo()
+text = FileHandler.read_file('input.txt')
+translated_text, _ = translator.translate(text, 'es')
+FileHandler.write_file('output.txt', translated_text)
+
+# Read and print the translated content
+print(FileHandler.read_file('output.txt'))  # Should print the translated text
+```
+
+### Translation History
+
+```python
+from OctoLingo.history import TranslationHistory
+
+history = TranslationHistory()
+history.log_translation("Hello", "Hola", "en", "es")
+print(history.get_history())  # Should print the logged translation
+```
+
+## Contributing
+- OctoLingo is an open-source project, and contributions are welcome! If you'd like to contribute, please check out my GitHub repository for guidelines.

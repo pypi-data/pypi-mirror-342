@@ -1,0 +1,16 @@
+googletrans==4.0.0-rc1
+easyocr>=1.6.2
+python-magic>=0.4.27
+pillow>=9.5.0
+pdfplumber>=0.9.0
+python-docx>=0.8.11
+asyncio>=3.4.3
+
+[linux]
+python-magic>=0.4.27
+
+[mac]
+python-magic>=0.4.27
+
+[windows]
+python-magic-bin>=0.4.14
