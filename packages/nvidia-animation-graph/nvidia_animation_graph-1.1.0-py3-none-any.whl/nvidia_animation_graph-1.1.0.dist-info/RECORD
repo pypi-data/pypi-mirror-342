@@ -1,0 +1,11 @@
+nvidia_animation_graph/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nvidia_animation_graph/animgraph_pb2.py,sha256=aAeHz6fmQPcEj-CKndyrpbpNdE35zyzD7qUv2BpMLqY,1970
+nvidia_animation_graph/animgraph_pb2.pyi,sha256=zaoTwD2dMDZ0mQJM0a917yXcc0naBWEIERSWVniUP_w,249
+nvidia_animation_graph/animgraph_pb2_grpc.py,sha256=69zBAhFSPgQoWLSYUDDoIG0q2JITemdNLIvpQAe4Etg,6317
+nvidia_animation_graph/messages_pb2.py,sha256=cbYuhxrTXEjjxOOWJKLjbA_agT8cbdbCzfN9DJya_8A,3661
+nvidia_animation_graph/messages_pb2.pyi,sha256=z1IREre7yHabIAlCoTpfAQ7_KI9HdTQkL97Y6iWF-zA,3138
+nvidia_animation_graph/messages_pb2_grpc.py,sha256=jCzp0IIQaes7m9HbZ2NJ34zIZpuA-8NIU0x9rgCoGtU,912
+nvidia_animation_graph/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nvidia_animation_graph-1.1.0.dist-info/METADATA,sha256=x6UJv0qgaOVfeE6NdpTYzX-I5cOVjqLeHhGfKJZ-j30,173
+nvidia_animation_graph-1.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+nvidia_animation_graph-1.1.0.dist-info/RECORD,,
