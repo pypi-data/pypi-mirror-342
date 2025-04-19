@@ -1,0 +1,13 @@
+clanguru/__init__.py,sha256=42STGor_9nKYXumfeV5tiyD_M8VdcddX7CEexmibPBk,22
+clanguru/_run.py,sha256=bbxJiSRscmZAtWOBKYJ6wTEue5Bq5arTkZvgGwchSr8,350
+clanguru/compilation_options_manager.py,sha256=m60kfyWJzL7c32g0qlG_fwg8UTrJ_YJ8Yt5bGeZ0MoQ,4886
+clanguru/cparser.py,sha256=sZQ4Ihd_zyUHCZBCxsx3S3Tv8BclGR12PrQ7Km09tp8,12756
+clanguru/doc_generator.py,sha256=JW-Rhngjdc_PE_LN3mZmqJLsghOSeC1gEJlRaMnOTBs,5719
+clanguru/main.py,sha256=Xw2vLL3rSjWc001TUyCLBESmRC4elvafdEOyy7gR2vc,3303
+clanguru/object_analyzer.py,sha256=E8ZmiQWK-vm2ihECB_QvUaWhd5nM_SkfjSdifbFIlSg,12859
+clanguru/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+clanguru-0.4.0.dist-info/licenses/LICENSE,sha256=sKxdoqSmW9ezvPvt0ZGJbneyA0SBcm0GiqzTv2jN230,1066
+clanguru-0.4.0.dist-info/METADATA,sha256=5zPLcYhr9K1UuZHkDhdJJca4Ap5_iEpb2mgNJEW5uGg,3838
+clanguru-0.4.0.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+clanguru-0.4.0.dist-info/top_level.txt,sha256=NhWOc7jL3YxwN0b4DWIv2bw6wiYEkMBcjGAh0P8qCIA,9
+clanguru-0.4.0.dist-info/RECORD,,
