@@ -1,0 +1,4 @@
+include README.md
+recursive-include drones/static *
+recursive-include drones/templates *
+recursive-include drones/migrations *
