@@ -1,0 +1,20 @@
+Metadata-Version: 2.3
+Name: python-llsp
+Version: 1.0.1
+Summary: 
+License: GPLv3
+Author: Luã Bida Vacaro
+Author-email: luabidaa@gmail.com
+Requires-Python: >=3.9,<3.13
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: pygls (>=2.0.0a1)
+Description-Content-Type: text/markdown
+
+# python-llsp
+This is a personal Python LSP server so I can customize it however I want
+
