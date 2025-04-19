@@ -1,0 +1,2 @@
+[console_scripts]
+mortal_build_app = mortal_build.build_main:create_app
