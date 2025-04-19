@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling >= 1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-ninja-mcp"
+version = "0.0.1-alpha.2"
+description = "MCP extension for django-ninja"
+readme = "README.md"
+authors = [
+    { name = "Michael Jones", email = "mike.ed.jones@gmail.com" },
+]
+requires-python = ">=3.10"
+dependencies = [
+    "daphne>=4.1.2",
+    "django-eventstream>=5.3.2",
+    "django-ninja>=1.4.1",
+    "mcp>=1.6.0",
+    "pydantic>=2.5.3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "pytest-django",
+    "pytest-asyncio",
+    "psycopg2-binary",
+    "mypy==1.7.1",
+    "ruff==0.5.7",
+    "django-stubs",
+]
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I001", "D"]
+ignore = ["D203", "D212", "D10"]
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 120
+
+[tool.hatch.build.targets.wheel]
+packages = ["ninja_mcp"]
+
+[project.urls]
+homepage = "https://github.com/mikeedjones/django-ninja-mcp"
+documentation = "https://github.com/mikeedjones/django-ninja-mcp"
+repository = "https://github.com/mikeedjones/django-ninja-mcp"
