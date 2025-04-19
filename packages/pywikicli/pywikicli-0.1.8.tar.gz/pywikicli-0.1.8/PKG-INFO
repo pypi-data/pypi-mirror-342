@@ -1,0 +1,71 @@
+Metadata-Version: 2.3
+Name: pywikicli
+Version: 0.1.8
+Summary: A CLI tool to interact with MediaWiki via its API
+License: MIT
+Keywords: mediawiki,wiki,cli,bot,python
+Author: vilosource
+Author-email: viloforge@outlook.com
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: pypandoc (>=1.15,<2.0)
+Requires-Dist: requests (>=2.28.0,<3.0.0)
+Project-URL: Homepage, https://github.com/vilosource/wikibot
+Project-URL: Repository, https://github.com/vilosource/wikibot
+Description-Content-Type: text/markdown
+
+# PyWikiCLI
+
+A command-line interface tool for interacting with MediaWiki-powered wikis.
+
+## Features
+
+- `get`: Retrieve and display wiki page content
+- `put`: Edit or create wiki pages
+- `crawl`: Crawl wiki pages starting from a specific page
+- `config`: Configure API settings and credentials
+
+## Installation
+
+```bash
+# Install from PyPI
+pip install pywikicli
+
+# Or install with Poetry
+poetry install
+
+# Activate the Poetry environment (if using Poetry)
+poetry shell
+```
+
+## Usage
+
+```bash
+# Configure your wiki connection
+pywikicli config
+
+# Get a page
+pywikicli get "Main Page"
+
+# Put content to a page
+pywikicli put "My Page" --content "This is my wiki page content"
+
+# Crawl pages starting from a specific page
+pywikicli crawl "Starting Page" --depth 2
+```
+
+## Development
+
+This project follows SOLID principles and uses a modular architecture for maintainability and extensibility.
