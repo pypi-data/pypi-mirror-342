@@ -1,0 +1,3 @@
+from sklearn.utils._bunch import Bunch
+
+def fetch_california_housing() -> Bunch: ...
