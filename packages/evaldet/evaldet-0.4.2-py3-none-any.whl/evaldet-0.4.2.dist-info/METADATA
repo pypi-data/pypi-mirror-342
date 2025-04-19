@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: evaldet
+Version: 0.4.2
+Summary: Evaluation for Detection and Tracking
+Project-URL: Documentation, https://evaldet.readthedocs.io
+Project-URL: Issues, https://github.com/tadejsv/evaldet/issues
+Project-URL: Source, https://github.com/sasp-ai/evaldet
+Author-email: Tadej <tadej.svetina@gmail.com>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Keywords: computer vision,evaluation,object detection,tracking
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Requires-Python: >=3.10
+Requires-Dist: numba>=0.56
+Requires-Dist: numpy>=1.23
+Requires-Dist: pyarrow>=10.0
+Requires-Dist: scipy>=1.9
+Description-Content-Type: text/markdown
+
+# EvalDeT
+
+Evaluation for Detection and Tracking
