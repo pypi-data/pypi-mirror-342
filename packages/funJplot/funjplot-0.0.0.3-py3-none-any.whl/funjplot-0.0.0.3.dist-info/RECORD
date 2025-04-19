@@ -1,0 +1,13 @@
+funJplot/__init__.py,sha256=rzXojXEf7kGXqnMSQFHjUwaQ9QSxtW5LJxedumEJoVE,368
+funJplot/base.py,sha256=2QnCZPf9DJiKmKxnUMDqE1BmrWQAeXMRAdcVRO2drX8,1739
+funJplot/matrix/__init__.py,sha256=DJJslDAMomNujk5NrC-UrCnMsVA3hRsreCSukmO1-aw,73
+funJplot/matrix/vector_rotation.py,sha256=Xz36Xi8KHnZOiNdWo4kA9E3fYFzvfqhUOA_tNqGzwps,2290
+funJplot/parametric_curves/__init__.py,sha256=JswNP_sHAGIi4uBQRC58CaJ35O2scKf0BQ5T7A7DE0s,254
+funJplot/parametric_curves/base.py,sha256=-dvcMojZB7hHP8czGwWzCD5AGerN-vwxBwvG_gH7S24,3241
+funJplot/parametric_curves/curves.py,sha256=ZUfS10E7PyuGW_JtyHm4nnzCzUbUZAvrhZlzRkCrmeY,3149
+funJplot/parametric_curves/curves3d.py,sha256=Tl5nUZllSmOTBZx8CU-W9kG40X8JqcUpgRfskywgETc,2130
+funjplot-0.0.0.3.dist-info/licenses/LICENSE,sha256=5A5BC5sXebEn3IKeVB2Tr8z3WTL28bMOL06EFaxhH4s,1073
+funjplot-0.0.0.3.dist-info/METADATA,sha256=zY6i4-7Q-XlPP38TTO8C3GlNQ2wPTHiw2JD2qh75-Wg,6618
+funjplot-0.0.0.3.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+funjplot-0.0.0.3.dist-info/top_level.txt,sha256=reeK3f7S3j0HFyS20aheDoWLTLWl7RBwMJJIi0SMJ7E,9
+funjplot-0.0.0.3.dist-info/RECORD,,
