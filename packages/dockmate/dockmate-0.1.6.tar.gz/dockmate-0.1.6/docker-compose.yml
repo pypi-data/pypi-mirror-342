@@ -1,0 +1,8 @@
+services:
+    web:
+        container_name: dockmate
+        restart: always
+
+        build:
+            context: .
+            dockerfile: Dockerfile
