@@ -1,0 +1,200 @@
+Metadata-Version: 2.4
+Name: nastar
+Version: 2.0.0
+Summary: Python code protection with direct execution
+Author-email: Anak Kecil <anakkecil@example.com>
+License: Nastar Code Protection License
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# **Nastar**   
+**Python Code Protection Toolkit**  
+*"Protect Your Code, Keep It Secret, Keep It Safe"*  
+
+---
+
+## **📌 Overview**  
+Nastar adalah pustaka Python untuk **melindungi kode sumber** dengan cara:  
+✅ **Mengaburkan kode** (*obfuscation*) sehingga tidak bisa dibaca manusia/AI  
+✅ **Tetap bisa dijalankan** langsung dengan Python (`python file_aman.py`)  
+✅ **Tanpa dependensi eksternal** (pure Python)  
+✅ **Tidak perlu input kunci** manual saat eksekusi  
+
+Didesain untuk developer yang ingin:  
+- Melindungi kode dari *reverse engineering*  
+- Mendistribusikan script Python tanpa khawatir dicuri  
+- Mempertahankan fungsionalitas asli kode  
+
+---
+
+## **🚀 Instalasi**  
+```bash
+pip install nastar
+```
+
+---
+
+## **💡 Fitur Utama**  
+
+### **1. Code Obfuscation**  
+- Mengganti nama variabel/fungsi dengan karakter acak  
+- Menghapus komentar dan docstring  
+- Enkripsi dengan algoritma XOR + Base85  
+
+### **2. Self-Decoding Runtime**  
+- Kode terproteksi **berisi logika dekripsi sendiri**  
+- Tidak memerlukan Nastar terinstal untuk menjalankannya  
+
+### **3. CLI & API Support**  
+- Proteksi file via **command-line**  
+- Bisa diintegrasikan dengan **build system** (PyInstaller, etc)  
+
+---
+
+## **📚 Cara Penggunaan**  
+
+### **1. Melalui CLI**  
+Proteksi file Python:  
+```bash
+nastar protect script.py -o protected_script.py
+```  
+*(File output siap dijalankan dengan `python protected_script.py`)*  
+
+### **2. Melalui Python API**  
+```python
+from nastar import NastarEncoder
+
+# Proteksi string kode
+encoder = NastarEncoder()
+protected_code = encoder.protect("""
+def fungsi_rahasia():
+    print("Ini kode penting!")
+""")
+
+# Simpan ke file
+with open("protected.py", "w") as f:
+    f.write(protected_code)
+```
+
+### **3. Integrasi dengan PyInstaller**  
+1. Proteksi script utama:  
+   ```bash
+   nastar protect main.py -o protected_main.py
+   ```  
+2. Bundle dengan PyInstaller:  
+   ```bash
+   pyinstaller --onefile protected_main.py
+   ```  
+
+---
+
+## **🔍 Contoh Nyata**  
+
+### **Sebelum Proteksi**  
+```python
+# script.py
+def hitung(a, b):
+    """Fungsi penjumlahan rahasia"""
+    return a + b
+
+print(hitung(2, 3))
+```
+
+### **Setelah Proteksi**  
+```python
+# protected_script.py
+import base64;exec(bytes([b^ord("nastar_default_key[i%len(...")for i,b in enumerate(base64.b85decode("JTdEJTdE..."))]))
+```
+
+### **Eksekusi**  
+```bash
+python protected_script.py
+# Output: 5
+```
+
+---
+
+## **⚙️ Konfigurasi Lanjutan**  
+
+### **Custom Encryption Key**  
+```bash
+nastar protect sc.py -o protec.py --key "kunci_bebas"
+```
+
+### **Opsi Tambahan**  
+| Flag | Deskripsi |
+|------|-----------|
+| `--no-rename` | Nonaktifkan penggantian nama variabel |
+| `--keep-comments` | Pertahankan komentar |
+| `--minify` | Minimalkan spasi/baris baru |
+
+---
+
+## **🛡️ Tingkat Keamanan**  
+
+### **Proteksi Berlapis**  
+1. **AST Manipulation**: Ubah struktur kode  
+2. **Name Obfuscation**: Ganti nama variabel  
+3. **XOR Encryption**: Enkripsi dengan kunci default  
+4. **Base85 Encoding**: Sulit dibaca manusia  
+
+### **Perbandingan dengan Tools Lain**  
+| Fitur | Nastar | PyArmor | Base64 |
+|-------|--------|---------|--------|
+| Jalankan langsung | ✅ | ❌ | ✅ |
+| Anti reverse engineering | ★★★☆☆ | ★★★★☆ | ★☆☆☆☆ |
+| Tidak perlu runtime | ✅ | ❌ | ✅ |
+
+---
+
+## **📜 Lisensi**  
+**"Nastar Code Protection License"**  
+- ✅ **Diizinkan**: Penggunaan pribadi, modifikasi, distribusi non-komersial  
+- ❌ **Dilarang**: Komersialisasi tanpa izin, penggunaan untuk malware  
+
+---
+
+## **🤝 Berkontribusi**  
+1. Fork repository  
+2. Buat branch fitur (`git checkout -b fitur-baru`)  
+3. Commit perubahan (`git commit -am 'Tambahkan fitur'`)  
+4. Push ke branch (`git push origin fitur-baru`)  
+5. Buat Pull Request  
+
+**Repository**: [github.com/Eternals-Satya/nastar](https://github.com/Eternals-Satya/nastar)  
+
+---
+
+## **💬 Dukungan**  
+- **Issue Tracker**: [github.com/Eternals-Satya/nastar/issues](https://github.com/Eternals-Satya/nastar/issues)  
+- **Email**: eternals-tolong@gmail.com  
+- **TikTok**: [@anakkecil_s](https://tiktok.com/@anakkecil_s)  
+
+---
+
+```python
+print("Terima kasih telah menggunakan Nastar! 💖")
+```  
+
+**🎉 Happy Coding!**  
+
+---
+
+### **Catatan Versi**  
+- **v2.0.0**: Rilis stabil dengan fitur self-decoding  
+- **v2.1.0** (Coming Soon): Dukungan enkripsi AES  
+
+---
+
+README ini mencakup:  
+✔️ Instalasi dan penggunaan dasar  
+✔️ Contoh kode nyata  
+✔️ Perbandingan fitur  
+✔️ Panduan kontribusi  
+✔️ Informasi lisensi lengkap  
+
+Sesuaikan link repository dan kontak sesuai kebutuhan Anda!
