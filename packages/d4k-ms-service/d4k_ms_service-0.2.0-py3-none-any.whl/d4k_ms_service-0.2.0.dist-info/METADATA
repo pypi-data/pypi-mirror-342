@@ -1,0 +1,50 @@
+Metadata-Version: 2.4
+Name: d4k-ms-service
+Version: 0.2.0
+Summary: A python package containing classes for logging errors
+Author: D Iberson-Hurst
+Author-email: 
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic
+Requires-Dist: httpx
+Requires-Dist: markdown
+Requires-Dist: neo4j
+Requires-Dist: d4k-ms-base
+Requires-Dist: fastapi
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Micorservices Service
+
+## Description
+
+A set of simple utility classes for d4k API microservices.
+
+## Installation
+
+```bash
+pip install d4k-ms-service
+```
+
+## Building package
+
+Use pip to install build and twine. Use the following commands to build
+
+```python -m build``` 
+
+and upload to pypi.org using the command
+
+```twine upload dist/*``` 
