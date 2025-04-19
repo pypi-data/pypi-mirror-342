@@ -1,0 +1,11 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+.github/workflows/cicd.yml
+wipac_dev_next_version_action_testbed/__init__.py
+wipac_dev_next_version_action_testbed.egg-info/PKG-INFO
+wipac_dev_next_version_action_testbed.egg-info/SOURCES.txt
+wipac_dev_next_version_action_testbed.egg-info/dependency_links.txt
+wipac_dev_next_version_action_testbed.egg-info/requires.txt
+wipac_dev_next_version_action_testbed.egg-info/top_level.txt

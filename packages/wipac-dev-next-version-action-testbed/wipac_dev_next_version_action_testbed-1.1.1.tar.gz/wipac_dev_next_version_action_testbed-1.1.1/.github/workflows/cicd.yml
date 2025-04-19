@@ -1,0 +1,103 @@
+name: release
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    concurrency: release
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'  # update, someday
+
+      - uses: WIPACrepo/wipac-dev-next-version-action@main
+        id: next-version
+        with:
+          force-patch-if-no-commit-token: true
+          ignore-paths: |
+            resources/**
+            assets/**
+
+      - name: Install build tools
+        if: steps.next-version.outputs.version != ''
+        run: |
+          set -euo pipefail
+          echo "now: $(date -u +"%Y-%m-%dT%H:%M:%S.%3N")"
+          
+          python -m pip install --upgrade pip
+          pip install build setuptools setuptools-scm
+
+      - name: Build package (eventually, this will be 'WIPACrepo/wipac-dev-py-build-action')
+        if: steps.next-version.outputs.version != ''
+        run: |
+          set -euo pipefail
+          echo "now: $(date -u +"%Y-%m-%dT%H:%M:%S.%3N")"
+          
+          # Validate setuptools-scm usage
+          if ! grep -q 'setuptools-scm' pyproject.toml; then
+              echo "::error::setuptools-scm not found in pyproject.toml — aborting"
+              exit 1
+          fi
+          #
+          if grep -A 5 '^\[project\]' pyproject.toml | grep -q '^version\s*='; then
+              echo "::error::[project] version is explicitly set — must be managed by setuptools-scm"
+              exit 1
+          fi
+          #
+          if ! grep -Eq '^\[tool\.setuptools_scm\]' pyproject.toml; then
+              echo "::error::[tool.setuptools_scm] not found in pyproject.toml — aborting"
+              exit 1
+          fi
+
+          # build (tell SCM to use our version instead of detecting it) 
+          SETUPTOOLS_SCM_PRETEND_VERSION=${{ steps.next-version.outputs.version }} \
+              SETUPTOOLS_SCM_DEBUG=1 \
+              python -m build
+
+      - name: Create GitHub Release via API (may be replaced by a GHA package)
+        if: steps.next-version.outputs.version != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.next-version.outputs.version }}
+        run: |
+          set -euo pipefail
+          echo "now: $(date -u +"%Y-%m-%dT%H:%M:%S.%3N")"
+          
+          TAG="v${VERSION}"
+          
+          PAYLOAD=$(jq -n \
+              --arg tag_name "$TAG" \
+              --arg target_commitish "${{ github.sha }}" \
+              --arg name "$TAG" \
+              '{ 
+                tag_name: $tag_name, 
+                target_commitish: $target_commitish, 
+                name: $name, 
+                draft: false, 
+                prerelease: false, 
+                generate_release_notes: true 
+              }')
+          
+          curl -sSf -X POST \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Content-Type: application/json" \
+              -d "$PAYLOAD" \
+              "https://api.github.com/repos/${{ github.repository }}/releases"
+
+      - name: Upload to PyPI (so simple, no GHA package needed)
+        if: steps.next-version.outputs.version != ''
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "now: $(date -u +"%Y-%m-%dT%H:%M:%S.%3N")"
+          pip install twine
+          twine upload dist/*
