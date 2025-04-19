@@ -1,0 +1,12 @@
+xtsv/__init__.py,sha256=wF1X2ReKk85HXZc74Z65u202LWXSLHgP1EPxsy-GiA4,555
+xtsv/argparser.py,sha256=Fe3526mtGjunLPHr1WOrb-jQxLzZ27y4wovsBTucHEc,2334
+xtsv/jnius_wrapper.py,sha256=24RbRYqqiwRWreVk3Ijv9CLROsmofP_xdQM8CNgfBiw,2402
+xtsv/pipeline.py,sha256=NKc0PoEzmEhNTjFSndrG0raMIYVWuBNnIBJPe1H2dUw,13334
+xtsv/tsvhandler.py,sha256=B_x62l7-m6bUC70Hvvhv5nq8pKCKdSna8tTXLfhzVDw,6200
+xtsv/version.py,sha256=ca0Mwk0QozMEJ_yN9HN-a_GHnSNRkjRWIaFcXdiHqxU,91
+xtsv/templates/layout.html,sha256=wzpCPiDHlT_TdlNSxQ1XDjnl-7u7D87liTq1Th7jf2c,55522
+xtsv-1.4.1.dist-info/LICENSE,sha256=46mU2C5kSwOnkqkw9XQAJlhBL2JAf1_uCD8lVcXyMRg,7652
+xtsv-1.4.1.dist-info/METADATA,sha256=msiX1m1qcdgFlB27s_B7-CsfC7R94eR1e2LBv127k80,16351
+xtsv-1.4.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+xtsv-1.4.1.dist-info/top_level.txt,sha256=6fPppY_iUaPYfQejiyKtnp1nnkEDtc9fmxMO-0x_f4s,5
+xtsv-1.4.1.dist-info/RECORD,,
