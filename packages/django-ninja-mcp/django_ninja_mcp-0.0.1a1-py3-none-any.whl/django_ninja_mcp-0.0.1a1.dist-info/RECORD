@@ -1,0 +1,12 @@
+ninja_mcp/__init__.py,sha256=iZSOE85SZx3YdZLCTxDY43DkcKSzyYDEyDY7qsAHSMQ,324
+ninja_mcp/server.py,sha256=VyQxccjD1Wp37cX8x_SH95y__wGBLJjR1x_oxcBgjic,14499
+ninja_mcp/testing.py,sha256=rNn_eLponIaDcZxALqel6XlFHQ-phLdJWKdJCm6ngcA,4025
+ninja_mcp/types.py,sha256=o3NmdYHdHsEiTQAyIRhAD_Lz_ngUnqvKFlNQBdVpE8E,1548
+ninja_mcp/openapi/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ninja_mcp/openapi/convert.py,sha256=LzEF-qLs8H8Gce1c-Yd5c3s4PrpeLxmkedEyPs4jO0U,11820
+ninja_mcp/openapi/utils.py,sha256=kSCQTgDRCfghtiVd2zip2kdIYo_rRp-n7zagBdej_zI,5502
+ninja_mcp/transport/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ninja_mcp/transport/sse.py,sha256=4gnofrslRQP-B2vzeL2fmOPwKO5ppBAgKATaRqTDHIE,6257
+django_ninja_mcp-0.0.1a1.dist-info/METADATA,sha256=ogUTuMGY9j8apSlrZ1hCrZeVlW538DowITMfet8MiOw,4866
+django_ninja_mcp-0.0.1a1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+django_ninja_mcp-0.0.1a1.dist-info/RECORD,,
