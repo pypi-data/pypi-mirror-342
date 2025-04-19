@@ -1,0 +1,48 @@
+Metadata-Version: 2.3
+Name: upwork-fetcher
+Version: 0.1.10
+Summary: This is a package to fetch data from Upwork API
+Author: abdoafage
+Author-email: abdo.afage2@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: asyncpg (>=0.30.0,<0.31.0)
+Requires-Dist: click (>=8.1.8,<9.0.0)
+Requires-Dist: gql (>=3.5.2,<4.0.0)
+Requires-Dist: graphql-core (>=3.2.6,<4.0.0)
+Requires-Dist: psycopg2-binary (>=2.9.10,<3.0.0)
+Requires-Dist: pydantic (>=2.11.3,<3.0.0)
+Requires-Dist: python-dotenv (>=1.1.0,<2.0.0)
+Requires-Dist: requests (>=2.32.3,<3.0.0)
+Requires-Dist: requests-toolbelt (>=1.0.0,<2.0.0)
+Requires-Dist: rich (>=14.0.0,<15.0.0)
+Requires-Dist: tortoise-orm (>=0.25.0,<0.26.0)
+Description-Content-Type: text/markdown
+
+# Upwork Automation CLI
+
+A command-line tool to automate Upwork job search and application processes.
+
+## Features
+
+- Search for jobs based on custom criteria
+- Filter jobs by keywords, budget, client history etc.
+- Automate proposal submissions
+- Track application status
+- Save job searches and proposals
+
+## Installation
+
+```bash
+npm install -g upwork-fetcher
+```
+
+## Usage
+
+```bash
+upwork-fetcher fetch -s "node.js,react" --limit 10
+upwork-fetcher setup --client_id "123456" --client_secret "client_secret" --redirect_uri "redirect_uri"
+```
+

@@ -1,0 +1,3 @@
+[console_scripts]
+upwork-fetcher=upwork_fetcher.cli:cli
+

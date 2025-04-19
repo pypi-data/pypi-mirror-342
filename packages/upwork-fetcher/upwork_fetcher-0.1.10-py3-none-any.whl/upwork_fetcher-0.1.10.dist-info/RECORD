@@ -1,0 +1,13 @@
+upwork_fetcher/cli.py,sha256=FpOLQkd0G6XMwi1k7tl_4ByWNsmI8pALmksdxvWvhoE,452
+upwork_fetcher/commands.py,sha256=GovAGVstSWHZXM1QD0Kkjv78aU1EpVapRzh86kiijMk,4217
+upwork_fetcher/config.py,sha256=7MV-NhE6o7TAQiIyg376qZL1fCYeaSkg-5ObIloN9c4,965
+upwork_fetcher/models/__init__.py,sha256=6uYPNiJiqdFG3FOF10fsx7tu0sXLxCcufq4_6tzQiLw,38
+upwork_fetcher/models/dbcontext/dbcontext.py,sha256=UB73u1kuzERbFXAwvHxClgNMzqQAeEnKly09oCdUvSo,559
+upwork_fetcher/models/jobs.py,sha256=rVjuwKA57jyqibYkNAq2kacWzYDhu8ldQnkQV5t6fO8,3154
+upwork_fetcher/queries/market_place_job.py,sha256=djcluZ2baPEiffXKBltD1yk8Cb6Vi2wtH8h1RO3rwHI,2240
+upwork_fetcher/schema.py,sha256=0QdAE5vTEssNkq0XYQxwg6Iamcne_F-iHq_-XemhoIo,8558
+upwork_fetcher/services/upwork_service.py,sha256=JsIA8T8Txc6TsyvuuZK2GrYaFAM-l8nxYyas8FmigW0,8822
+upwork_fetcher-0.1.10.dist-info/METADATA,sha256=8-YMuKAQbDPOF_9kkXbyHyxt0ZWep2FE0YcVUsYlZcs,1412
+upwork_fetcher-0.1.10.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+upwork_fetcher-0.1.10.dist-info/entry_points.txt,sha256=ROa3coOMEe2lOK3U4VZlPsDKBtK3XXXGI4CpR3AaqmE,57
+upwork_fetcher-0.1.10.dist-info/RECORD,,
