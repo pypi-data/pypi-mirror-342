@@ -1,0 +1,11 @@
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_photos_db.py,sha256=EnTdcn3MbO-jEYXT0gKB8NpQswUzG1RFoxkiCxzEAsU,1639
+update_photo_bookmarks/__init__.py,sha256=AN5R3GZoQLXoTaXdWTYtxYgW69OzKLK070scGaYnBdw,40
+update_photo_bookmarks/photos_db.py,sha256=jmKN-gw79axNfhS71NKJhwQaVMjN8M7EBMIa8pen3bk,4063
+update_photo_bookmarks/update_photo_bookmarks.py,sha256=CqF3TDNtVuDl-lLKx9PXaGPhDos_6TM2YYISVytGni4,6335
+update_photo_bookmarks-0.1.0.dist-info/licenses/LICENSE,sha256=kRzSGdhFO5vPKme9MWFwYTtsNwlgBH2DSOS5RJGAWS4,1071
+update_photo_bookmarks-0.1.0.dist-info/METADATA,sha256=EWKqWRrwewVpldIArBPZQvrKkpi0sVDNnTgwmcqM3VQ,3754
+update_photo_bookmarks-0.1.0.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+update_photo_bookmarks-0.1.0.dist-info/entry_points.txt,sha256=6xBdI2Bewzr2VdgyGKgspwyOPAiihmasEdcegmP2dAQ,71
+update_photo_bookmarks-0.1.0.dist-info/top_level.txt,sha256=7euw6v8dERqT4SnuMTR8t7XpLfxjLdPTs-cmcPGEktc,29
+update_photo_bookmarks-0.1.0.dist-info/RECORD,,

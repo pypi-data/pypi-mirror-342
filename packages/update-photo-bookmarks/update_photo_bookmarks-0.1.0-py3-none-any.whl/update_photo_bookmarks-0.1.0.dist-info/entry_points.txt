@@ -1,0 +1,2 @@
+[console_scripts]
+update-photo-bookmarks = update_photo_bookmarks:main
