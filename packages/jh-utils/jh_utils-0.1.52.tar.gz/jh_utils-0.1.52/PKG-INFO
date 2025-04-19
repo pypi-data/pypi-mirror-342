@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: jh_utils
+Version: 0.1.52
+Summary: Some simple functions to all projects
+Home-page: https://github.com/JohnHolz/jh_utils
+Author: joao holz
+Author-email: joaopaulo.paivaholz@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: summary
+
+# My python lib
+
+Python lib with utils to help me in day by day tasks
