@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-server-rag"
+version = "0.1.22"
+description = "MCP RAG server"
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.1.7",
+    "mcp>=1.0.0",
+    "chromadb==0.6.3",
+    "sentence-transformers==3.3.1",
+]
+authors = [
+    {name = "Aditya Mishra", email = "adi.mishra989@gmail.com"}
+]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[project.scripts]
+mcp-server-rag = "mcp_server_rag.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
