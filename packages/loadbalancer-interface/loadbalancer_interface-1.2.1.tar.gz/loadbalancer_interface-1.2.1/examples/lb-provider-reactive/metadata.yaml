@@ -1,0 +1,10 @@
+name: lb-provider-reactive
+summary: "test"
+description: "test"
+maintainers: ["foo <foo@bar.com>"]
+tags: ["test"]
+series:
+  - jammy
+provides:  # provides LBs to consumers
+  lb-consumers:
+    interface: loadbalancer
