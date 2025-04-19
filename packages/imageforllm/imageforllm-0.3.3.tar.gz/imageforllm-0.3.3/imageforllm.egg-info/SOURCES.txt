@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+imageforllm/__init__.py
+imageforllm/_hook.py
+imageforllm/_metadata.py
+imageforllm/ai_metadata.py
+imageforllm/extract.py
+imageforllm.egg-info/PKG-INFO
+imageforllm.egg-info/SOURCES.txt
+imageforllm.egg-info/dependency_links.txt
+imageforllm.egg-info/entry_points.txt
+imageforllm.egg-info/top_level.txt
+imageforllm/examples/ai_metadata_example.py
+imageforllm/examples/saveandread.py
