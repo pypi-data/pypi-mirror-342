@@ -1,0 +1,87 @@
+Metadata-Version: 2.4
+Name: flet-camera-webview
+Version: 0.1.4
+Summary: Камера для Flet через WebView
+Home-page: https://github.com/yourusername/flet_camera
+Author: Риженков Олександр
+Author-email: you@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: flet
+Requires-Dist: flet_webview
+Requires-Dist: websockets
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# flet_camera
+
+📸 Кастомный компонент камеры для Flet с WebView + WebSocket.
+
+## Установка
+
+```
+pip install flet-camera-webview
+```
+
+## Использование
+
+```python
+import flet as ft
+from flet_camera import CameraWebView
+
+
+def main(page):
+    cam = CameraWebView(page)
+    
+    def save(e):
+        image = cam.get_image_bytes()
+        if image:
+            with open("photo.jpg", "wb") as f:
+                f.write(image)
+
+    page.add(
+        ft.Column(
+            [
+                ft.Stack(
+                    [
+                        ft.Container(
+                            content=cam,
+                            border_radius=150,  # 🎯 закругление — круг!
+                            clip_behavior=ft.ClipBehavior.HARD_EDGE,
+                            alignment=ft.alignment.center,
+                            bgcolor=ft.colors.BLACK
+                        )
+                    ],
+                    width=300,
+                    height=300,
+                    expand=False
+                ),
+                ft.ElevatedButton(
+                    "📸 Снимок",
+                    on_click=save,
+                    width=160,
+                    height=48,
+                    style=ft.ButtonStyle(
+                        shape=ft.RoundedRectangleBorder(radius=25),
+                        padding=20
+                    )
+                )
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER
+        )
+    )
+
+
+
+ft.app(target=main, view=ft.WEB_BROWSER)
+```
