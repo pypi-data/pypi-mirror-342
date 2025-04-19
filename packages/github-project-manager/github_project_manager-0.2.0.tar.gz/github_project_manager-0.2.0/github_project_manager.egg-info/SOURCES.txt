@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+github_project_manager/__init__.py
+github_project_manager/_version.py
+github_project_manager/api_client.py
+github_project_manager/models.py
+github_project_manager/project_manager.py
+github_project_manager.egg-info/PKG-INFO
+github_project_manager.egg-info/SOURCES.txt
+github_project_manager.egg-info/dependency_links.txt
+github_project_manager.egg-info/requires.txt
+github_project_manager.egg-info/top_level.txt
+tests/test_api_client.py
+tests/test_models.py
+tests/test_project_manager.py
