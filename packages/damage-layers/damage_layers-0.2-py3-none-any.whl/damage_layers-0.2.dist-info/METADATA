@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: damage_layers
+Version: 0.2
+Summary: Damage-aware dense layers for neural networks
+Author: Mustafa Ekmekçi
+Author-email: mustafa.ekmekci@comu.edu.tr
+Requires-Dist: tensorflow>=2.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary
