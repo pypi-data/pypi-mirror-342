@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: sarpy_apps
+Version: 1.1.24
+Summary: This provides a set of GUI tools based on tkinter for visualizing and interacting with SAR imagery and related data.
+Home-page: https://github.com/ngageoint/sarpy_apps
+Author: National Geospatial-Intelligence Agency
+Author-email: richard.m.naething@nga.mil
+License: MIT
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: Pillow
+Requires-Dist: plotly
+Requires-Dist: sarpy>=1.3.46
+Requires-Dist: tk_builder>=1.1.12
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: platform
+Dynamic: requires-dist
+Dynamic: summary
+
+SarPy_Apps
+==========
+This provides a set of GUI tools based on tkinter for visualizing and interacting 
+with SAR imagery and related data.
+
+Origins
+-------
+This was developed to enable simple prototyping of graphical user interfaces useful 
+in conjunction with SarPy project, and was based on and motivated by the set of MATLAB 
+tools developed by NGA/NRL referred to as TASER. This effort was developed at the 
+National Geospatial-Intelligence Agency (NGA). The software use, modification, and 
+distribution rights are stipulated within the MIT license.
+
+Dependencies
+------------
+The core library functionality depends on the [sarpy](https://github.com/ngageoint/sarpy) 
+and [tk_builder](https://github.com/ngageoint/tk_builder) projects. 
+
+Integration Branches
+--------------------
+Integration branches (branches prefixed with `integration/`) are used to stage content under
+consideration for inclusion in the `master` branch and future releases.
+These branches can be used to access features and bug fixes that have not been fully released.
