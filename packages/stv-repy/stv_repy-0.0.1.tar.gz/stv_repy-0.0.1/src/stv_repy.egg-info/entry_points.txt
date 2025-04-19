@@ -1,0 +1,2 @@
+[console_scripts]
+repy = stv_repy.main:main
