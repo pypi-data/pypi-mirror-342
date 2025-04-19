@@ -1,0 +1,22 @@
+[project]
+name = "teth"
+version = "0.1.0"
+description = "JSon-RPC client for EthereumTesterProvider"
+readme = "README.md"
+authors = [
+    { name = "Stuart Reed", email = "stuart.reed@ethereum.org" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "click>=8.1.8",
+    "eth-tester>=0.12.1b1",
+    "flask>=3.1.0",
+    "web3[tester]>=7.10.0",
+]
+
+[project.scripts]
+teth = "teth:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
