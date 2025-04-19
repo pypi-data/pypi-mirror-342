@@ -1,0 +1,5 @@
+from __future__ import annotations
+from .service import MaleoMetadataServiceServiceParametersTransfers
+
+class MaleoMetadataServiceParametersTransfers:
+    Service = MaleoMetadataServiceServiceParametersTransfers
