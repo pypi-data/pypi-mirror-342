@@ -1,0 +1,21 @@
+[project]
+name = "mrpyconvert"
+version = "0.1.32a0"
+description = "Tool to create scripts to convert dicom to bids"
+authors = [{name="Jolinda Smith", email="jolinda@uoregon.edu"}]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "pydicom>=2.2",
+    "dcm2niix>=1.0.2022",
+    'packaging',
+    'jq'
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project.urls]
+"Homepage" = "https://github.com/Jolinda/mrpyconvert.git"
