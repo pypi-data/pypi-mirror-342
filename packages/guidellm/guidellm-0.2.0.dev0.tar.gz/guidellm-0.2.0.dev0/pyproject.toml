@@ -1,0 +1,74 @@
+[build-system]
+requires = [ "setuptools >= 61.0", "wheel", "build",]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "guidellm"
+version = "0.2.0.dev0"
+description = "Guidance platform for deploying and managing large language models."
+requires-python = ">=3.9.0,<4.0"
+dependencies = [ "click", "datasets", "ftfy>=6.0.0", "httpx[http2]<1.0.0", "loguru", "numpy", "pillow", "protobuf", "pydantic>=2.0.0", "pydantic-settings>=2.0.0", "pyyaml>=6.0.0", "requests", "rich", "transformers",]
+[[project.authors]]
+name = "Neuralmagic, Inc."
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+files = [ "src/guidellm", "tests",]
+python_version = "3.9"
+warn_redundant_casts = true
+warn_unused_ignores = false
+show_error_codes = true
+namespace_packages = true
+exclude = [ "venv", ".tox",]
+follow_imports = "silent"
+[[tool.mypy.overrides]]
+module = [ "datasets.*",]
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+exclude = [ "build", "dist", "env", ".venv",]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.license]
+file = "LICENSE"
+
+[project.urls]
+homepage = "https://github.com/neuralmagic/guidellm"
+
+[project.optional-dependencies]
+dev = [ "pre-commit~=3.5.0", "scipy~=1.10", "sphinx~=7.1.2", "tox~=4.16.0", "lorem~=0.1.1", "pytest~=8.2.2", "pytest-asyncio~=0.23.8", "pytest-cov~=5.0.0", "pytest-mock~=3.14.0", "pytest-rerunfailures~=14.0", "requests-mock~=1.12.1", "respx~=0.22.0", "mypy~=1.10.1", "ruff~=0.5.2", "mdformat~=0.7.17", "mdformat-footnote~=0.1.1", "mdformat-frontmatter~=2.0.8", "mdformat-gfm~=0.3.6", "types-click~=7.1.8", "types-PyYAML~=6.0.1", "types-requests~=2.32.0", "types-toml",]
+
+[tool.setuptools.package-data]
+"guidellm.data" = [ "*.gz",]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint]
+ignore = [ "PLR0913", "TCH001", "COM812", "ISC001", "TCH002", "PLW1514", "RET505", "RET506", "PD011",]
+select = [ "E", "W", "A", "C", "COM", "ERA", "I", "ICN", "N", "NPY", "PD", "PT", "PTH", "Q", "TCH", "TID", "RUF022", "C4", "C90", "ISC", "PIE", "R", "SIM", "ARG", "ASYNC", "B", "BLE", "E", "F", "INP", "PGH", "PL", "RSE", "S", "SLF", "T10", "T20", "UP", "W", "YTT", "FIX",]
+
+[tool.pytest.ini_options]
+addopts = "-s -vvv --cache-clear"
+markers = [ "smoke: quick tests to check basic functionality", "sanity: detailed tests to ensure major functions work correctly", "regression: tests to ensure that new changes do not break existing functionality",]
+
+[project.entry-points.console_scripts]
+guidellm = "guidellm.__main__:cli"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+include = [ "*",]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/**/*.py" = [ "S101", "ARG", "PLR2004", "TCH002", "SLF001", "S105", "S311", "PT011", "N806", "PGH003", "S106", "PLR0915",]
+
+[tool.ruff.lint.isort]
+known-first-party = [ "guidellm", "tests",]
