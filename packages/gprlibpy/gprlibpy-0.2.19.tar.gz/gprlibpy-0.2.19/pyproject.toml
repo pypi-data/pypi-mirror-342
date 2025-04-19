@@ -1,0 +1,76 @@
+[project]
+name = "gprlibpy"
+version = "0.2.19"
+description = "A Python library to manipulate and visualize GPR data from GPR-Studio"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "validators>=0.34.0",
+    "opencv-python>=4.10.0.84",
+    "graphviz>=0.20.3",
+    "tqdm>=4.66.5",
+    "zarr>=2.18.3",
+    "skyio",
+    "lgopy",
+    "typer>=0.15.1",
+    "rich>=13.9.3",
+    "dask[complete]>=2024.10.0",
+    "geopandas>=1.0.1",
+    "openpyxl>=3.1.5",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pdm.scripts]
+gprlibpy = "gprlibpy.cli:app"
+
+[project.scripts]
+gprlibpy = "gprlibpy.cli:app"
+
+[project.optional-dependencies]
+gprstudio-blocks = [
+    "gprblocks",
+]
+gprstudio-io = [
+    "gprio",
+]
+widgets = [
+    "pyqt6>=6.8.1",
+    "pyqt6-webengine>=6.8.0",
+]
+
+[tool.uv.sources]
+lgopy = { path = "../lgopy", editable = true }
+skyio = { path = "../skyio", editable = true }
+gprblocks = { path = "../gprblocks", editable = true }
+gprio = { path = "../gprio", editable = true }
+
+
+[tool.hatch.build]
+exclude = [
+    "tests/",
+    "docs/",
+    "examples/",
+    "assets/",
+    "keys/",
+    ".git/",
+    ".github/",
+    "scripts/",
+    "configs/",
+    "README.md",
+    ".env",
+    "config.json",
+    "*/**/.sh",
+    "Makefile",
+    "cloudbuild.yaml",
+    "*/**/Dockerfile",
+    "Dockerfile",
+    "requirements.txt",
+    "docker/",
+    "*.sh",
+    "*.yml",
+    "analysis/",
+    "data/",
+]
