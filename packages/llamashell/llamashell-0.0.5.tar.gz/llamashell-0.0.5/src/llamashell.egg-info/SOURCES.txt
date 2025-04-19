@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+src/llamashell/__init__.py
+src/llamashell/llm.py
+src/llamashell/main.py
+src/llamashell/shell.py
+src/llamashell/tools.py
+src/llamashell.egg-info/PKG-INFO
+src/llamashell.egg-info/SOURCES.txt
+src/llamashell.egg-info/dependency_links.txt
+src/llamashell.egg-info/entry_points.txt
+src/llamashell.egg-info/requires.txt
+src/llamashell.egg-info/top_level.txt

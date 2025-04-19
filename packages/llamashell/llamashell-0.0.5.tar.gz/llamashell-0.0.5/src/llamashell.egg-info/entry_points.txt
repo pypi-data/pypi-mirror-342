@@ -1,0 +1,2 @@
+[console_scripts]
+llamashell = llamashell.main:main
