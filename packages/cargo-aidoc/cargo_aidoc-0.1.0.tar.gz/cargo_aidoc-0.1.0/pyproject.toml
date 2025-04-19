@@ -1,0 +1,17 @@
+[project]
+name = "cargo-aidoc"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "==3.11.12"
+dependencies = [
+    "click>=8.1.8",
+    "mirascope>=1.22.3",
+    "termcolor>=3.0.1",
+    "toml>=0.10.2",
+    "tree-sitter==0.24.0",
+    "tree-sitter-rust==0.23.0",
+]
+
+[project.scripts]
+cargo-aidoc = "main:cargo_main"
