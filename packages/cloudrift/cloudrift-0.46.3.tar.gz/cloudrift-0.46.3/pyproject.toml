@@ -1,0 +1,21 @@
+[project]
+name = "cloudrift"
+version = "0.46.3"
+authors = [
+    { name = "CloudRift Inc", email = "inquiry@cloudrift.ai" },
+]
+description = "A Python client for FairCompute API"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    'requests[security] < 3',
+]
+
+[project.urls]
+Homepage = "https://cloudrift.ai"
+Issues = "https://discord.gg/u8YZZJXdnr"

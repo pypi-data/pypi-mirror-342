@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/cloudrift.egg-info/PKG-INFO
+src/cloudrift.egg-info/SOURCES.txt
+src/cloudrift.egg-info/dependency_links.txt
+src/cloudrift.egg-info/requires.txt
+src/cloudrift.egg-info/top_level.txt
+src/rift/__init__.py
+src/rift/client/__init__.py
+src/rift/client/client.py
+src/rift/client/internal.py
+src/rift/client/public.py
