@@ -1,0 +1,14 @@
+# Each project update log and time max reload 5 offical 
+[release]
+main.version = "1.1.0"
+main.update_info."1.0.4" = "Add the setup.py" 
+main.update_time."1.0.4" = 2025-03-20 
+main.update_info."1.0.6" = "Fix some bug.\nAdd the Chinese documents.Update the update -- 1.1.0"
+main.update_time."1.0.6" = 2025-03-22
+main.update_info."1.0.7" = "Modify some code.\nUpdate the update -- 1.1.1"
+main.update_info."1.1.0" = "Modify some code."
+main.update_time."1.1.0" = 2025-04-05
+[pre-release]
+main.version = "1.1.0"
+main.update_info."1.1.0" = "Modify some code."
+main.update_time."1.1.0" = 2025-04-05
