@@ -1,0 +1,4 @@
+[console_scripts]
+pywikicli=pywikicli.cli:cli
+wikicli=pywikicli.cli:cli
+

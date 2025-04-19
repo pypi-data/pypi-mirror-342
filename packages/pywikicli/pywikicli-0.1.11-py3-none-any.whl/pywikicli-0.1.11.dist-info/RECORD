@@ -1,0 +1,16 @@
+pywikicli/__init__.py,sha256=h4iv4xg1riQeEs5-Dh0BX_Hx2vDZXcEbCxy-VTuK4rM,93
+pywikicli/api.py,sha256=ovZcvv4Ozemy5-xCYFWGuGyLEc3ACAGJ7RDDjitR6GI,14187
+pywikicli/cli.py,sha256=Mt_ekBtOvUTUrnOuw02BllVc3FBzkiuYuzMEJT2_XBo,1096
+pywikicli/commands/__init__.py,sha256=w88fJ3WetFS9ktw9UyKtCXHSEcTJrsFxkvrBlDPY6-A,106
+pywikicli/commands/config_command.py,sha256=MCI7LiY3sQbjimZyp-XguHIOTgRyE0L6Ftkd221il94,2312
+pywikicli/commands/crawl_command.py,sha256=sYpXI70vdmS8ltCuhtJ4dqpZ0eUCgJw7vKoknoE9cjI,9775
+pywikicli/commands/get_command.py,sha256=lzRitgc9LNe26piwYEvYE9mZVZk6Y-aEJzp8KnaB55M,4959
+pywikicli/commands/put_command.py,sha256=FSKe4e5qeprWplWHO8eQExMBU7NVbo113KmQWuhglMc,6954
+pywikicli/config.py,sha256=aQVLwXC49U2MT_9CQKpQ3FWNX2qjhl3reLhTm0WMqnk,864
+pywikicli/converters.py,sha256=K5jgLrnWOimX8Qxs1mxJeP2EdJxhDyq2BZDyNvU32mY,6364
+pywikicli/interfaces.py,sha256=Nc908Tcw1CagSBz03x3gntTtPCpmxVHqFlmp6UO8u1g,3344
+pywikicli-0.1.11.dist-info/LICENSE,sha256=rJ6CXjpC5dMHeLanYJz0cGKy3KJtfzVbgu_gP0-o_VY,1059
+pywikicli-0.1.11.dist-info/METADATA,sha256=iTIXC_BvmDNP_kDCZ0uGrhP0KntvcoOyjlZ5_S4jMKU,2103
+pywikicli-0.1.11.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+pywikicli-0.1.11.dist-info/entry_points.txt,sha256=d3iAECxB6ysTZtO0arRzJ7loe8AdOqBwvwruiQ9-kto,73
+pywikicli-0.1.11.dist-info/RECORD,,
