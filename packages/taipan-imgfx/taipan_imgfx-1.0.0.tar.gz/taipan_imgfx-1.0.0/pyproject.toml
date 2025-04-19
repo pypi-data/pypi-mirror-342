@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taipan_imgfx"
+version = "1.0.0"
+description = "A creative image manipulation toolkit."
+authors = [
+  { name="Bohdi Jakubik", email="bohdi.jakubik67@gmail.com" }
+]
+readme = "README.md"
+license = { file="LICENSE.md" }
+requires-python = ">=3.8"
+
+[tool.setuptools.packages.find]
+where = ["."]
+

@@ -1,0 +1,50 @@
+Metadata-Version: 2.4
+Name: taipan_imgfx
+Version: 1.0.0
+Summary: A creative image manipulation toolkit.
+Author-email: Bohdi Jakubik <bohdi.jakubik67@gmail.com>
+License: Modified MIT-style license (Non-commercial)
+        
+        Copyright (c) 2025 The-laminated-waffle
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, and distribute copies of the Software,
+        **for personal, educational, or non-commercial purposes**, subject to the
+        following conditions:
+        
+        The above copyright notice and this permission notice shall be included in 
+        all copies or substantial of the Software.
+        
+        **Commercial use is prohibited without explicit written permission from the
+        copyright holder.**
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+        THE SOFTWARE.
+        
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Dynamic: license-file
+
+# Welcome to Taipan
+
+A small, modular python image effect framework.
+
+## FEATURS
+- Effect bundles - collections of premade effects/post effects
+- HSL <-> RGB conversion (In progress)
+- Post effects - E.g Exposure
+- Simple scripting - Work in progress UI
+- A large amount of custom image effects - E.g invert
+- Every algo will eventually be self made, - edge and HSL/RGB conversion ATM
+
+## Getting started to Taipan
+
+
