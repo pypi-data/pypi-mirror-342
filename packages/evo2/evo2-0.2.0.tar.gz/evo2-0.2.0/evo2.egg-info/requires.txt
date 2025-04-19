@@ -1,0 +1,5 @@
+biopython
+huggingface_hub
+torch>=2.6.0
+transformer_engine[pytorch]==1.13.0
+vtx
