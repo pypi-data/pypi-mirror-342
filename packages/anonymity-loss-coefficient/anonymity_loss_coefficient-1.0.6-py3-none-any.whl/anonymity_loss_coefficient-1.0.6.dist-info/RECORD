@@ -1,0 +1,12 @@
+anonymity_loss_coefficient/__init__.py,sha256=J0RRtdmo8nz3Rv5WZmw_bZDK7czDeyAQ1pUOuHSTJ9Q,230
+anonymity_loss_coefficient/alc_manager.py,sha256=NQPbAnlSaa4IE_iMgeM5LHhmTuXIIdaW-yv7uNNU62g,22751
+anonymity_loss_coefficient/anonymity_loss_coefficient.py,sha256=41c4qEqs4BnzS05kNBlJTahKrf_tz1Q5dPpCyj75gj0,5369
+anonymity_loss_coefficient/baseline_predictor.py,sha256=723tPAmp8jKU8vzgfYvXEiGV9P0O_bDnq-Q2syjaBDs,1648
+anonymity_loss_coefficient/data_files.py,sha256=j3Nrnrhs2FHkLSntqA-uejKAVKU5UYHgwj651acijwY,8844
+anonymity_loss_coefficient/reporting.py,sha256=JfRkxzhzMd9pwqfCC3HF2cH73ovLxKBc5WEXnPeQES4,10955
+anonymity_loss_coefficient/score_interval.py,sha256=RJ0zvLzVD0XCubdVd6UcTLU8ScwZeawCjOubXLCpCRI,9725
+anonymity_loss_coefficient-1.0.6.dist-info/licenses/LICENSE,sha256=YRgDoQW_9n3sEwr0YFStDYLEn7hSWGbUWUm4y-g_0TM,1090
+anonymity_loss_coefficient-1.0.6.dist-info/METADATA,sha256=1nLFfVb9BtDV3as-vFX64YV6kU7xcKLFTP6JLztGGWs,824
+anonymity_loss_coefficient-1.0.6.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+anonymity_loss_coefficient-1.0.6.dist-info/top_level.txt,sha256=M5Oaclr2htwwzpTdlWh8Uw3faj_GwchJAGnDHKtTk-M,27
+anonymity_loss_coefficient-1.0.6.dist-info/RECORD,,
