@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-rag = mcp_server_rag.__main__:main
