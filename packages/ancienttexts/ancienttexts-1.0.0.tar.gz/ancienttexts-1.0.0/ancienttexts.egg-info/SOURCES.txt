@@ -1,0 +1,11 @@
+README.md
+setup.py
+./ancient_scripts/__init__.py
+./ancient_scripts/core.py
+./ancient_scripts/mappings.py
+ancienttexts.egg-info/PKG-INFO
+ancienttexts.egg-info/SOURCES.txt
+ancienttexts.egg-info/dependency_links.txt
+ancienttexts.egg-info/entry_points.txt
+ancienttexts.egg-info/requires.txt
+ancienttexts.egg-info/top_level.txt

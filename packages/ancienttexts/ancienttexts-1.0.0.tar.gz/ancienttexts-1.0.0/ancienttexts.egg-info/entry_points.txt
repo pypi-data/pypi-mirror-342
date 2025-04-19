@@ -1,0 +1,2 @@
+[console_scripts]
+ancient-scripts = ancient_scripts.cli:main
