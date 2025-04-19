@@ -1,0 +1,14 @@
+line-length = 320
+src = ["src"]  # only look at files in src
+
+[format]
+quote-style = "preserve"
+
+[lint]
+# only enable isort for now
+select = ["I001"]
+fixable = ["I001"]
+
+[lint.isort]
+lines-after-imports = 2  # only applies to top-level imports, as it should
+no-lines-before = ["local-folder"]

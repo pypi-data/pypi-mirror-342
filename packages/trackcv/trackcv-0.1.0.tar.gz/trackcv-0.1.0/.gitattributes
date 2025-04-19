@@ -1,0 +1,2 @@
+# treat as binary in git diff and merge, github-linguist settings
+pixi.lock -diff merge=binary linguist-language=YAML linguist-generated=true

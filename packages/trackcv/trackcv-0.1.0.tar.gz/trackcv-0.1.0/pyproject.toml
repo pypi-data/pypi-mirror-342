@@ -1,0 +1,19 @@
+[project]
+name = "trackcv"
+version = "0.1.0"
+requires-python = ">=3.13"
+
+[build-system]
+# following pixi recommendations here, no preference atm
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pixi.workspace]
+platforms = ["linux-64"]
+channels = ["conda-forge"]
+
+[tool.pixi.tasks]
+lint = "ruff check --fix $PIXI_PROJECT_ROOT"
+
+[tool.pixi.pypi-dependencies]
+delme1 = {path = ".", editable = true}

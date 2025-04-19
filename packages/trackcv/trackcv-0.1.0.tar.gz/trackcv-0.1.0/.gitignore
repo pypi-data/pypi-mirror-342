@@ -1,0 +1,15 @@
+# tool-generated directories
+.pixi
+.ruff_cache/
+
+# python files
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# editors
+**/.vscode/*
+!**/.vscode/tasks.json
+!**/.vscode/settings.json
+!**/.vscode/launch.json
+!**/.vscode/extensions.json
