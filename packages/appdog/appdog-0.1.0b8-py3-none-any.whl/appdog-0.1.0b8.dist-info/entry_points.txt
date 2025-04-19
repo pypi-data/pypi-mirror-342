@@ -1,0 +1,2 @@
+[console_scripts]
+appdog = appdog.__main__:app
