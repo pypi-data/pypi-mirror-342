@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: workout-builder-streamlit
+Version: 0.1.1
+Summary: A streamlit component for designing workout plans.
+Author-email: Simon Dierickx <simon.dierickx@ugent.be>
+Requires-Python: >=3.10
+Requires-Dist: numpy>=2.2.4
+Requires-Dist: streamlit>=1.44.1

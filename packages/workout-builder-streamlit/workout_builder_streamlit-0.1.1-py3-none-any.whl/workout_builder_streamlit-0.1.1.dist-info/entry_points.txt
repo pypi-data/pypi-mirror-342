@@ -1,0 +1,2 @@
+[console_scripts]
+workout-builder-streamlit = workout_builder_streamlit:main
