@@ -1,0 +1,16 @@
+leaflux/__init__.py,sha256=uQRLr8WXBW1m62bxcuJKqxEJBNCkghVLbtpqyMFbXS8,207
+leaflux/dependencies.py,sha256=_8Vxka3UfxeQeKexd7usuTgjn0fPgn7oC01ZT96dVcA,144
+leaflux/environment.py,sha256=E21tXdwWwXLCfpZJVxsx7sIo7BUvygibOAAnPnhFiGI,8379
+leaflux/general.py,sha256=z3ft80bk4ORymRwBDKxofnhj7FZkgo6h84iItrzMTjg,20428
+leaflux/irradiance.py,sha256=WapD_Ygy2NWfFRsd2_yJlXdJGlpCveZmAWbhHJgxgXE,7586
+leaflux/solar.py,sha256=TPMREibq6Xd3vPrSILiBDo0VQ0cO6XJRJs1-1Jiaw1s,3225
+leaflux-0.4.1.dist-info/licenses/LICENSE,sha256=36PjmToAc2EFFj0AKnpVdE2sKeUMwgHm0aXktse8rBI,1088
+test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+test/test_environment.py,sha256=PaIy5unAkzahyCLxDPoiBFKrVVIrYBfZCGmgnm8OmjQ,4133
+test/test_general.py,sha256=T3opWWIK4W2IAdVwW-_KZ-uT-jwRNBTNZ1kTrnnsA1k,14369
+test/test_irradiance.py,sha256=33YkkX52eNNr-ybu1stmOtztHbvK9ssvQfC6xcg7Nh0,8186
+test/test_solar.py,sha256=z2UOOT0eM6SUVGEWzCH6ZhVNNu6EEhZx3XOIWaDap3s,1393
+leaflux-0.4.1.dist-info/METADATA,sha256=h9yViuOtH3RxKoaAhOYXSaVov1t7rrNZGWx_ghAmo6k,2132
+leaflux-0.4.1.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+leaflux-0.4.1.dist-info/top_level.txt,sha256=Qb8kwNiq-8TRlDjEwpg9eiCwEcmEaL8-EzQOtUS0IJo,13
+leaflux-0.4.1.dist-info/RECORD,,
