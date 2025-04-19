@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: GlennOPT
+Version: 1.5.0
+Summary: Multi and single objective optimization tool for cfd/computer simulations.
+Author: Paht Juangphanich
+Author-email: paht.juangphanich@nasa.gov
+Requires-Python: >3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: dataclasses_json
+Requires-Dist: diversipy
+Requires-Dist: doepy
+Requires-Dist: matplotlib (>3.3.2)
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: psutil
+Requires-Dist: pydoe
+Requires-Dist: scikit-learn
+Requires-Dist: tqdm
