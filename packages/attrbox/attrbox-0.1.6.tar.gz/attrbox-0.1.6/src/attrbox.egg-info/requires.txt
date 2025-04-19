@@ -1,0 +1,14 @@
+
+[:python_version < "3.11"]
+tomli==2.0.1
+
+[dev]
+coverage
+ds-run
+mypy
+pdoc3
+pyright
+pytest-cov
+pytest
+ruff
+cogapp
