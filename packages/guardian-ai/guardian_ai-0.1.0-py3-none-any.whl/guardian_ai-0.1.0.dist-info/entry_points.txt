@@ -1,0 +1,3 @@
+[console_scripts]
+guardian-ai=guardian_ai.cli:main
+
