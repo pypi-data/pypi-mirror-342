@@ -1,0 +1,102 @@
+---
+title: 'Tasks and TaskSets'
+description: 'Defining goals, setup, and evaluation scenarios with Tasks and TaskSets'
+---
+
+# Tasks and TaskSets
+
+Tasks define *what* an [Agent](/concepts/agent) should do in an [Environment](/concepts/environment), including the goal, initial setup steps, and how to evaluate success. [TaskSets](#taskset) are collections of related tasks.
+
+## Task
+
+A `Task` object provides the configuration for a specific scenario.
+
+### Key Attributes
+
+*   **`prompt` (str):** The primary instruction given to the agent.
+*   **`gym` (str | `CustomGym` | None):** Specifies the type of [Environment](/concepts/environment) needed. Used by `hud.gym.make()`.
+*   **`setup` (`HudStyleConfigs` | None):** Defines actions executed *before* the agent starts. See [Setup Configuration](#setup-configuration).
+*   **`evaluate` (`HudStyleConfigs` | None):** Defines how to check if the agent succeeded *after* interaction. See [Evaluation Configuration](#evaluation-configuration).
+*   **`id` (str | None):** Optional identifier.
+*   **`metadata` (dict | None):** Optional dictionary for extra information.
+*   **`config` (dict | None):** Optional dictionary, primarily for remote execution.
+
+### Creating a Task
+
+```python
+from hud.task import Task
+
+task = Task(
+    prompt="Log in to example.com with username 'test'",
+    gym="hud-browser", # Request a browser environment
+    setup=[ # Actions run by gym.make(task)
+        ("goto", "https://example.com/login"),
+        {"function": "wait_for_element", "args": ["#username"]}
+    ],
+    evaluate={ # Logic run by env.evaluate()
+        "function": "check_login_status", 
+        "args": ["test"]
+    }
+)
+```
+
+### <a name="configuration-styles"></a>Configuration Styles (`setup` and `evaluate`)
+
+Both `setup` and `evaluate` accept configurations defining function calls within the environment's controller, using flexible formats (`HudStyleConfigs`):
+
+1.  **String:** `"browser.maximize"`
+2.  **Tuple:** `("goto", "https://google.com")`
+3.  **Dictionary:** `{"function": "wait_for_element", "args": ["#submit"]}`
+4.  **List:** `[("goto", "page1"), ("click", "#next")]` (Executed sequentially)
+
+### <a name="setup-configuration"></a>Setup Configuration (`setup`)
+
+*   **Purpose:** Establishes a consistent starting state before the agent interacts.
+*   **Execution:** Automatically run by `hud.gym.make(task)`. Can be run manually via `env._setup()`.
+*   **Examples:** Navigating to a URL, logging in, preparing files.
+
+### <a name="evaluation-configuration"></a>Evaluation Configuration (`evaluate`)
+
+*   **Purpose:** Determines task success after the agent finishes.
+*   **Execution:** Triggered by `await env.evaluate()`.
+*   **Result:** The return value of `env.evaluate()`, often a reward score (e.g., `1.0` or `0.0`). This is stored in the `reward` field of the [Trajectory](/concepts/trajectory) if linked to a [Job](/concepts/job).
+*   **Examples:** `("contains_text", "Success!")`, `("file_exists", "/path/to/output.txt")`. Check specific environment controller docs for available functions.
+
+## TaskSet
+
+A `TaskSet` is a list of related `Task` objects, useful for benchmarks.
+
+### Key Attributes
+
+*   **`tasks` (list[`Task`]):** The list of tasks.
+*   **`id` (str | None):** Optional identifier.
+*   **`description` (str | None):** Optional description.
+
+### Loading a TaskSet
+
+Load predefined sets from the HUD platform:
+
+```python
+from hud import load_taskset
+
+taskset = await load_taskset("OSWorld-Ubuntu-Links")
+print(f"Number of tasks: {len(taskset)}") # TaskSet acts like a list
+first_task = taskset[0]
+```
+
+### Creating a TaskSet Manually
+
+```python
+from hud.task import Task
+from hud.taskset import TaskSet
+
+task1 = Task(...); task2 = Task(...)
+my_taskset = TaskSet(tasks=[task1, task2], description="My set")
+```
+
+## Related Concepts
+
+*   [Environment](/concepts/environment): Where Tasks are executed and evaluated.
+*   [Agent](/concepts/agent): Aims to complete the Task `prompt`.
+*   [Job](/concepts/job): Groups runs of different Tasks.
+*   [Trajectory](/concepts/trajectory): Records the execution of a Task.
