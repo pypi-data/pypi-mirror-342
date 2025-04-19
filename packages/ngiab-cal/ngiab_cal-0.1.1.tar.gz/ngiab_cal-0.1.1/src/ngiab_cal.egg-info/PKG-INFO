@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: ngiab-cal
+Version: 0.1.1
+Summary: Add your description here
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp>=3.11.16
+Requires-Dist: colorama>=0.4.6
+Requires-Dist: hydrotools-nwis-client>=4.1.0
+Requires-Dist: pandas>=2.2.3
