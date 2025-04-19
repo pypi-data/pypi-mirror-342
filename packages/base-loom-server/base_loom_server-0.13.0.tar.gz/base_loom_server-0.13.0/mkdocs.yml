@@ -1,0 +1,12 @@
+site_name: Base Loom Server
+nav:
+  - Home: index.md
+  - Weaving: weaving.md
+  - Threading: threading.md
+  - Installing: installing.md
+  - Coding: coding.md
+  - Translations: translations.md
+theme:
+  name: readthedocs
+  features:
+    - color_mode: auto
