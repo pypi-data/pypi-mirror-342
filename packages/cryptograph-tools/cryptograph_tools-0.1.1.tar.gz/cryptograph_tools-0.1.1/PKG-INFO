@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: cryptograph-tools
+Version: 0.1.1
+Summary:  outil de cryptographie
+Author-email: Fidelia <fidelia1310@gmail.com>
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pyfiglet
+Requires-Dist: rich
+
+# cryptographie
+
+## Avadika package python ao amny "https://pypi.org/" (soit installable via pip install ... ) na avadika outil sous linux.
+## De le code ameliorena si besoin , ataovy push fotsiny de zah manao merge.
+# crypto tools 
+
+petit outil de crypto en ligne de commande 

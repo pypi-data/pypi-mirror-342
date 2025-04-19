@@ -1,0 +1,18 @@
+[project]
+name = "cryptograph-tools"
+version = "0.1.1"
+description = " outil de cryptographie"
+authors = [ 
+   { name ="Fidelia", email="fidelia1310@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+   "pyfiglet",
+   "rich"
+]
+
+
+[project.scripts]
+crypto = "crypto_tools.crypto:main"
+
