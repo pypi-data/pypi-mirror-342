@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: bigleaf
+Version: 0.0.1
+Summary: R bigleaf module in Python
+Home-page: https://github.com/soonyenju/bigleaf
+Author: Songyan Zhu
+Author-email: zhusy93@gmail.com
+License: MIT Licence
+Keywords: Geosciences,geospatial,data science
+Platform: any
+License-File: LICENSE
+
+Processing academic data and drawing figures for geosciences researchers.
