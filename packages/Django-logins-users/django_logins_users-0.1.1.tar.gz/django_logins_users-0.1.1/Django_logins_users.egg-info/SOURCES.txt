@@ -1,0 +1,12 @@
+README.md
+setup.py
+Django_auths/__init__.py
+Django_auths/module_auth.py
+Django_auths/slaveni/db.sqlite3
+Django_auths/slaveni/manage.py
+Django_auths/slaveni/package.json
+Django_logins_users.egg-info/PKG-INFO
+Django_logins_users.egg-info/SOURCES.txt
+Django_logins_users.egg-info/dependency_links.txt
+Django_logins_users.egg-info/top_level.txt
+tests/test_module_auth.py
