@@ -1,0 +1,76 @@
+Metadata-Version: 2.4
+Name: pwb_jupyterlab
+Version: 1.1.23
+Dynamic: Keywords
+Summary: Enhance experience of running JupyterLab 4 in Posit Workbench.
+Project-URL: Homepage, https://docs.posit.co/ide/server-pro/user/jupyter-lab/guide/posit-workbench-extension.html
+Project-URL: Repository, https://github.com/rstudio/rstudio-pro/tree/main/src/cpp/session/workspaces/pwb-jupyterlab/extensions
+Author: Posit Software, PBC
+Classifier: Framework :: Jupyter
+Classifier: Framework :: Jupyter :: JupyterLab
+Classifier: Framework :: Jupyter :: JupyterLab :: 4
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Requires-Dist: jupyter-server-proxy>=4.1.0
+Requires-Dist: jupyter-server<3,>=2.0.1
+Provides-Extra: test
+Requires-Dist: coverage; extra == 'test'
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-asyncio; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+Requires-Dist: pytest-jupyter[server]>=0.6.0; extra == 'test'
+Description-Content-Type: text/markdown
+
+# pwb_jupyterlab
+
+<!--- 
+
+===============
+Developer Note: 
+===============
+
+This is the public-facing README that is displayed on the extension's PyPI page.
+
+Keep this content relevant to end-users. Developer-related content should go in ../README.md
+
+--->
+
+The `pwb_jupyterlab` JupyterLab plugin provides features for integrating JupyterLab 4.x with Posit Workbench. 
+
+Note: Using JupyterLab 3.x? You'll want to install the legacy `workbench_jupyterlab` extension instead. This `pwb_jupyterlab` extension is for Posit Workbench with JupyterLab 4.x only.
+
+## Features
+
+* Provides a button on the main toolbar that will bring the user to the Posit Workbench homepage
+* Provides the command "Return to Posit Workbench Home" that can be accessed through the Command Palette to bring the user to the Posit Workbench homepage.
+* Provides a "Proxied Servers" sidebar view that allows users to access their remote servers from Posit Workbench environments.
+* Provide popup alert when the JupyterLab session has lost connection to Workbench, usually indicating expired login credentials.
+
+## Requirements
+
+* JupyterLab == 4.x
+
+## Install
+
+To install the extension, execute:
+
+```bash
+pip install pwb_jupyterlab
+```
+
+## Uninstall
+
+To remove the extension, execute:
+
+```bash
+pip uninstall pwb_jupyterlab
+```
