@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: doomarena
+Version: 0.0.2
+Summary: A framework to test the security and robustness of AI agents
+Author-email: Leo Boisvert <leo.boisvert@servicenow.com>, Abhay Puri <abhay.puri@servicenow.com>, Gabriel Huang <gabriel.huang@servicenow.com>, Mihir Bansal <mihir.bansal@servicenow.com>, Chandra Kiran Reddy Evuru <chandrakiranreddy.evuru@servicenow.com>, Avinandan Bose <avibose@uw.edu>, Maryam Fazel <mfazel@uw.edu>, Quentin Cappart <quentin.cappart@polymtl.ca>, Alexandre Lacoste <alexandre.lacoste@servicenow.com>, Alexandre Drouin <alexandre.drouin@servicenow.com>, Krishnamurthy DJ Dvijotham <dj.dvijotham@servicenow.com>
+Maintainer-email: Gabriel Huang <gabriel.huang@servicenow.com>, Mihir Bansal <mihir.bansal@servicenow.com>
+License: Apache-2.0
+Project-URL: Homepage, https://github.com/ServiceNow/DoomArena
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic
+Requires-Dist: python-dotenv
+Requires-Dist: litellm
+Requires-Dist: tqdm
+Requires-Dist: PyYAML
+Requires-Dist: pytest
+Requires-Dist: tenacity
