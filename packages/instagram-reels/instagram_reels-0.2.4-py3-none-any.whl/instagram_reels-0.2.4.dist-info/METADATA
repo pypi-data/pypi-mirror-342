@@ -1,0 +1,84 @@
+Metadata-Version: 2.3
+Name: instagram-reels
+Version: 0.2.4
+Summary: Instagram Reels Downloader
+Author: Николай Витальевич Никоноров
+Author-email: nnv@bitt.moe
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: aiohttp (>=3.8.3,<4.0.0)
+Requires-Dist: aiosignal (>=1.3.1,<2.0.0)
+Requires-Dist: async-timeout (>=4.0.2,<5.0.0)
+Requires-Dist: attrs (>=22.2.0,<23.0.0)
+Requires-Dist: beautifulsoup4 (>=4.11.2,<5.0.0)
+Requires-Dist: charset-normalizer (>=2.1.1,<3.0.0)
+Requires-Dist: frozenlist (>=1.3.3,<2.0.0)
+Requires-Dist: idna (>=3.4,<4.0)
+Requires-Dist: instagram-auth (>=0.1.1,<0.2.0)
+Requires-Dist: multidict (>=6.0.4,<7.0.0)
+Requires-Dist: soupsieve (>=2.3.2.post1,<3.0.0)
+Requires-Dist: yarl (>=1.8.2,<2.0.0)
+Project-URL: Repository, https://gitlab.com/bitt_moe/instagram/reels_downloader
+Description-Content-Type: text/markdown
+
+<h1 align="center">
+  Reels Downloader
+</h1>
+<p align="center">
+    <em><b>Помогает получить прямую ссылку на reels в разных разрешениях</b></em>
+</p>
+
+## Установка
+
+Установить новейшую версию можно командой:
+
+```shell
+pip install instagram-reels
+```
+
+## Пример работы
+
+Скачивание reels с авторизацией:
+
+```python
+import asyncio
+import requests
+from instagram_reels.main.InstagramAPIClientImpl import InstagramAPIClientImpl
+
+SESSION_ID = "your_session"
+
+
+async def init_client():
+    # С авторизацией
+    
+    # С SESSION_ID
+    client = await InstagramAPIClientImpl().login_with_sessionid(sessionid=SESSION_ID).reels()
+    # Или с логином и паролем
+    client = await InstagramAPIClientImpl().login_with_credentials(username="", password="").reels()
+    
+    # Или без авторизации
+    client = await InstagramAPIClientImpl().reels()
+    return client
+
+
+async def download_reels(clip_name: str, reel_id: str):
+    client = await init_client()
+    info = await client.get(reel_id)
+    with open(clip_name, "wb+") as out_file:
+        out_file.write((requests.get(info.videos[0].url)).content)
+
+
+asyncio.run(download_reels("example.mp4", "1234"))
+```
+
+## Примечание
+
+Используется два разных апи. В зависимости от того авторизованный клиент используется или нет. От этого завсит логика получения данных о рилсе. 
+
+В случае если пользователь не авторизован можно получить видео рилса только в одном разрешении.
+
+
