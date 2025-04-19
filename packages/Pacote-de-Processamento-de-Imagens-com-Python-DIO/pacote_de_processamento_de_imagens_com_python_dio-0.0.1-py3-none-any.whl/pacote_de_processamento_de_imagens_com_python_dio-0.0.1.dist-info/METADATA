@@ -1,0 +1,52 @@
+Metadata-Version: 2.4
+Name: Pacote_de_Processamento_de_Imagens_com_Python_DIO
+Version: 0.0.1
+Summary: Pacote de Processamento de Imagens com Python DIO
+Home-page: https://github.com/FledWriter3840/Pacote-de-Processamento-de-Imagens-com-Python-DIO
+Author: Matheus_de_Souza_Soares
+Author-email: desouzasoaresmatheus@gmail.com
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# package_name
+
+Description. 
+The package package_name is used to:
+	Processamento:	
+		- CorrespondÃªncia de Histograma
+		- Similaridades Estrutural
+		- Redimensionar Imagem
+	Utilidades:
+		- Ler Imagem
+		- Salvar Imagem
+		- Plot Imagem
+		- Plot Resultado
+		- Plot Histograma
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install package_name
+
+```bash
+pip install package_name
+```
+
+## Usage
+
+```python
+from package_name.module1_name import file1_name
+file1_name.my_function()
+```
+
+## Author
+Matheus de Souza Soares
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
