@@ -1,0 +1,14 @@
+botocore~=1.37.1
+aiobotocore~=2.21.1
+aiocache>=0.12.3
+
+[dev]
+ruff==0.11.6
+pyright==1.1.399
+pre-commit==4.2.0
+genbadge[coverage]
+pytest~=8.3.5
+pytest-asyncio~=0.24.0
+pytest-cov~=6.1.1
+localstack~=4.3.0
+types_aiobotocore[essential]>=2.8.0
