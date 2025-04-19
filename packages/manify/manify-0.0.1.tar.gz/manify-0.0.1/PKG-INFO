@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: manify
+Version: 0.0.1
+Summary: Manifold-based machine learning
+Author-email: Philippe Chlenski <pac@cs.columbia.edu>, Kaizhu Du <kd2814@columbia.edu>
+License-File: LICENSE
+Requires-Dist: torch
+Requires-Dist: geoopt
+Requires-Dist: networkx
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: jaxtyping
+Requires-Dist: tqdm
+Requires-Dist: cvxpy
+Requires-Dist: scikit-learn==1.5.1
+Requires-Dist: anndata
+Requires-Dist: basemap
+Dynamic: license-file

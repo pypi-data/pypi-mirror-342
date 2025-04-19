@@ -1,0 +1,12 @@
+torch
+geoopt
+networkx
+numpy
+pandas
+matplotlib
+jaxtyping
+tqdm
+cvxpy
+scikit-learn==1.5.1
+anndata
+basemap
