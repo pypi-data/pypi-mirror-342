@@ -1,0 +1,27 @@
+# Python files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.coverage
+
+# Virtual environments
+.venv
+
+# Database files
+*.db
+
+# Sample data files
+data/
+
+# Generated ZIP file
+snailz.zip
+
+# Editor backup files
+*~
+*.bkp
+
+# Temporary files
+tmp/*

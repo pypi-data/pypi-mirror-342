@@ -1,0 +1,1701 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="anneal/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Snailz Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.2afb09e1.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="css/snailz.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#snailz" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Snailz Docs" class="md-header__button md-logo" aria-label="Snailz Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Snailz Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Snailz Docs" class="md-nav__button md-logo" aria-label="Snailz Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Snailz Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Dictionary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Dictionary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#persons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persons
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Machines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surveys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Surveys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specimens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specimens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data File Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colophon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colophon
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Software
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="anneal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Anneal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="assays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assays
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CLUI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="grid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Grid
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="images/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Images
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Machines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mangle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parameters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Parameters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="persons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Persons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scenario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scenario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="specimens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Specimens
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="surveys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Surveys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Utils
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Project
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Project
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    License
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conduct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code of Conduct
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Dictionary
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Dictionary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#persons" class="md-nav__link">
+    <span class="md-ellipsis">
+      Persons
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Machines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surveys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Surveys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specimens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specimens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assays
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data File Structure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colophon" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colophon
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="snailz">Snailz</h1>
+<p><img src="https://raw.githubusercontent.com/gvwilson/snailz/main/pages/img/snail-logo.svg" alt="snail logo" width="200px"></p>
+<p><code>snailz</code> is a synthetic data generator
+that models a study of snails in the Pacific Northwest
+which are growing to unusual size as a result of exposure to pollution.
+The package can generate fully-reproducible datasets of varying sizes and with varying statistical properties,
+and is intended primarily for classroom use.
+For example,
+an instructor can give each learner a unique dataset to analyze,
+while learners can test their analysis pipelines using datasets they generate themselves.
+<code>snailz</code> can also be used to teach good software development practices:
+it is well structured,
+well tested,
+and uses modern Python tools.</p>
+<blockquote>
+<p><em>The Story</em></p>
+<p>Years ago,
+logging companies dumped toxic waste in a remote region of Vancouver Island.
+As the containers leaked and the pollution spread,
+some of the tree snails in the region began growing unusually large.
+Your team is now collecting and analyzing specimens from affected regions
+to determine if a mutant gene makes snails more susceptible to the pollution.</p>
+</blockquote>
+<p><code>snailz</code> generates five related sets of data:</p>
+<dl>
+<dt>Persons</dt>
+<dd>The scientists conducting the study.
+Persons are included in the dataset to simulate operator bias,
+i.e.,
+the tendency for different people to perform experiments in slightly different ways.</dd>
+<dt>Machines</dt>
+<dd>The equipment used to analyze the samples.
+Like persons, they are included to enable simulation of bias.</dd>
+<dt>Surveys</dt>
+<dd>The locations where specimens are collected.
+Each survey site is represented as a square grid of pollution measurements.</dd>
+<dt>Specimens</dt>
+<dd>The snails collected from the sites.
+The data records where the snail was found,
+the date it was collected,
+its mass,
+and a short fragment of its genome.</dd>
+<dt>Assays</dt>
+<dd>The chemical analysis of the snails' genomes.
+Each assay is performed by putting samples of a snail's tissue
+into some small wells in a plastic <a href="https://en.wikipedia.org/wiki/Microplate">microplate</a>.
+An inert material is placed in other wells as a control;
+the wells are then treated with chemicals and photographed,
+and the brightness of each well shows how reactive the material was.
+Each assay is stored in two files:
+a design file showing which wells contain samples and controls,
+and a readings file with the measured responses.
+The images that the readings are taken from are also stored.</dd>
+</dl>
+<h2 id="usage">Usage</h2>
+<ol>
+<li><code>pip install snailz</code> (or the equivalent command for your Python environment).</li>
+<li><code>snailz --help</code> to see available commands.</li>
+</ol>
+<p>To generate example data in a fresh directory:</p>
+<pre><code># Create and activate Python virtual environment
+$ uv venv
+$ source .venv/bin/activate
+
+# Install snailz and dependencies
+$ uv pip install snailz
+
+# Write default parameter values to ./params.json file
+$ snailz params --output params.json
+
+# Generate all output files in ./data directory
+$ snailz data --params params.json --output data
+</code></pre>
+<h2 id="parameters">Parameters</h2>
+<p><code>snailz</code> reads controlling parameters from a JSON file,
+and can generate a file with default parameter values as a starting point.
+The parameters, their meanings, and their properties are:</p>
+<p>| Group | Name | Purpose | Notes | Default |
+| ----- | ---- | ------- | ----- | -----__ |
+| overall | <code>seed</code> | random number generation seed | non-negative integer | 7493418 |
+| <code>assay</code> | <code>baseline</code> | assay reading for non-mutant specimens | non-negative real | 1.0 |
+| | <code>degrade</code> | reading degradation per day between sample collection and assay | non-negative real | 0.05 |
+| | <code>delay</code> | maximum days of delay between sample collection and assay | non-negative integer | 5 |
+| | <code>mutant</code> | assay reading for mutant specimens | non-negative real, greater than <code>baseline</code> | 10.0 |
+| | <code>rel_stdev</code> | relative standard deviation readings | non-negative real | 0.2 |
+| | <code>plate_size</code> | number of rows and columns in assay plate | non-negative integer | 4 |
+| | <code>image_noise</code> | noise to add to assay images | scale is 0-255 | 32 |
+| | <code>p_duplicate_assay</code> | probability of duplicate assay | probability | 0.05 |
+| <code>machine</code> | <code>variation</code> | systematic variation in readings | percentage | 0.05 |
+| | <code>number</code> | number of machines | non-negative integer | 5 |
+| <code>person</code> | <code>locale</code> | locale for random name generation | valid ISO locale | <code>et_EE</code> (Estonia) |
+| | <code>number</code> | number of persons | non-negative integer | 5 |
+| <code>specimen</code> | <code>length</code> | genome length in bases | non-negative integer | 20 |
+| | <code>prob_species</code> | probability of each species | list of probabilities summing to 1.0 | [0.6, 0.4] |
+| | <code>mean_masses</code> | mean unmutated snail mass per species | non-negative reals (same length as probabilities) | [10.0, 20.0] |
+| | <code>start_date</code> | date of first assay | copied from surveys for convenience | 2024-03-01 |
+| | <code>mut_mass_scale</code> | scaling factor for mutated snails | real greater or equal to 1.0 | 2.0 |
+| | <code>mass_rel_stdev</code> | relative standard deviation in masses | non-negative real | 0.5 |
+| | <code>max_mutations</code> | maximum number of mutations in genome | non-negative integer | 5 |
+| | <code>daily_growth</code> | percentage increase in mass per day | non-negative real | 0.01 |
+| | <code>p_missing_location</code> | probability that sample location is unknown | probability | 0.05 |
+| <code>survey</code> | <code>number</code> | number of survey sites | non-negative integer | 3 |
+| | <code>size</code> | survey grid size | non-negative integer | 15 |
+| | <code>start_date</code> | overall survey start date | ISO date | 2024-03-01 |
+| | <code>max_interval</code> | maximum number of days between specimen samples | non-negative integer | 7 |</p>
+<p>Notes:</p>
+<ol>
+<li>
+<p>The pollution values in survey grids are generated by performing a random walk of the grid,
+    adding one to each cell's value each time it is visited.
+    The random walk starts when the polluted region reaches the boundary of the survey grid.</p>
+</li>
+<li>
+<p>Survey sites are sampled sequentially,
+    i.e.,
+    all of the samples from one site are collected before any samples are collected from the next.</p>
+</li>
+<li>
+<p>Some specimens' grid locations are missing from the final data.
+    Their XY coordinates are missing in <code>specimens.csv</code> and <code>null</code> in <code>snailz.db</code>.</p>
+</li>
+<li>
+<p>Snails belong to one or more species,
+    each of which has a different reference genome
+    and (potentially) different mean mass.</p>
+</li>
+<li>
+<p>All snail genome fragments are the same length,
+    and are generated by mutating the bases at a few randomly-chosen locations.
+    One of those locations and one of the variant bases is selected at random for species 0;
+    a snail with that mutant base in that location is a mutant of unusual size.</p>
+</li>
+<li>
+<p>The masses of all snails are scaled up by an amount that depends on
+    how polluted their collection location is.
+    This scaling uses a <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid function</a> rather than a linear function.</p>
+</li>
+<li>
+<p>A few specimens are assayed twice instead of once.</p>
+</li>
+<li>
+<p>The actual readings for mutated and unmutated snails are randomly generated
+    from normal distributions centered around <code>assay.baseline</code> and <code>assay.mutant</code>.
+    The readings for control wells are just noise.</p>
+</li>
+<li>
+<p>Assay readings for both mutated and unmutated snails are lowered
+    by an amount that depends on the number of days between the sample being collected
+    and the assay being performed.</p>
+</li>
+<li>
+<p>Snails are placed on survey grids using simulated annealing.
+    Each snail is initially put in a randomly-chosen location.
+    Snails are then moved as if they were repulsive electrical charges,
+    with large snails repelling their neighbors more than small ones.
+    A "wall" of snails with unit mass surrounding the grid
+    ensures that actual snails don't wander off.</p>
+</li>
+</ol>
+<h2 id="data-dictionary">Data Dictionary</h2>
+<p>All of the generated data is stored in a single JSON file called <code>data.json</code>.
+It can be read and analyzed directly,
+but it is more realistic to use the data described below.</p>
+<h3 id="persons">Persons</h3>
+<p><code>persons.csv</code> contains information about the scientists performing the study.
+The file looks like this:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">ident</th>
+<th style="text-align: left;">personal</th>
+<th style="text-align: left;">family</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">aa1942</td>
+<td style="text-align: left;">Artur</td>
+<td style="text-align: left;">Aasmäe</td>
+</tr>
+<tr>
+<td style="text-align: left;">kk0085</td>
+<td style="text-align: left;">Katrin</td>
+<td style="text-align: left;">Kool</td>
+</tr>
+<tr>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+</tr>
+</tbody>
+</table>
+<p>and its fields are:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+<th>Properties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ident</code></td>
+<td>identifier</td>
+<td>text, unique, required</td>
+</tr>
+<tr>
+<td><code>personal</code></td>
+<td>personal name</td>
+<td>text, required</td>
+</tr>
+<tr>
+<td><code>family</code></td>
+<td>family name</td>
+<td>text, required</td>
+</tr>
+</tbody>
+</table>
+<h3 id="machines">Machines</h3>
+<p><code>machines.csv</code> contains information about the machines used in the study.
+The file looks like this:</p>
+<table>
+<thead>
+<tr>
+<th>ident</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M0001</td>
+<td>AeroProbe</td>
+</tr>
+<tr>
+<td>M0002</td>
+<td>NanoCounter Plus</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>and its fields are:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+<th>Properties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ident</code></td>
+<td>identifier</td>
+<td>text, unique, required</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>machine name</td>
+<td>text, required</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the systematic variation in readings introduced by different machines
+is <em>not</em> stored in the generated data.</p>
+<h3 id="surveys">Surveys</h3>
+<p>The <code>surveys</code> directory contains one CSV file for each survey site.
+Each file's name has the form <code>S<em>nnn</em>.csv</code> (e.g., <code>S165.csv</code>),
+where <code>S<em>nnn</em></code> is the survey site's unique identifier.
+These CSV files do <em>not</em> have column headers;
+instead, each contains a square integer matrix of pollution readings.
+A typical file is:</p>
+<pre><code>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,1,1,0,0,0,0
+0,0,0,0,0,0,0,0,1,2,1,0,0,0,0
+0,0,0,0,0,0,0,0,2,1,0,0,0,0,0
+0,0,0,0,0,0,0,1,2,0,0,0,0,0,0
+0,0,0,0,0,0,0,1,2,1,0,0,0,0,0
+0,0,0,0,0,0,0,0,1,2,0,0,0,0,0
+0,0,0,0,0,0,0,2,2,1,0,0,0,0,0
+0,0,0,0,0,0,0,1,3,0,0,0,0,0,0
+0,0,0,0,0,0,0,1,3,1,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</code></pre>
+<h3 id="specimens">Specimens</h3>
+<p><code>specimens.csv</code> holds information about individual snails in CSV format (with column headers).
+The file looks like this:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">ident</th>
+<th style="text-align: left;">survey</th>
+<th style="text-align: right;">x</th>
+<th style="text-align: right;">y</th>
+<th style="text-align: left;">collected</th>
+<th style="text-align: left;">genome</th>
+<th style="text-align: right;">mass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">KHNKDL</td>
+<td style="text-align: left;">S165</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">2024-03-01</td>
+<td style="text-align: left;">GCAACCGGACCGCCGTAAGG</td>
+<td style="text-align: right;">3.82</td>
+</tr>
+<tr>
+<td style="text-align: left;">DZYIPY</td>
+<td style="text-align: left;">S165</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">2024-03-01</td>
+<td style="text-align: left;">TCATACGGACCGCCGTAAGG</td>
+<td style="text-align: right;">3.53</td>
+</tr>
+<tr>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: right;">…</td>
+<td style="text-align: right;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: right;">…</td>
+</tr>
+</tbody>
+</table>
+<p>and its fields are:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+<th>Properties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ident</code></td>
+<td>specimen identifier</td>
+<td>text, unique, required</td>
+</tr>
+<tr>
+<td><code>survey</code></td>
+<td>survey identifier</td>
+<td>text, required</td>
+</tr>
+<tr>
+<td><code>x</code></td>
+<td>collection X coordinate within survey grid</td>
+<td>integer, required</td>
+</tr>
+<tr>
+<td><code>y</code></td>
+<td>collection Y coordinate within survey grid</td>
+<td>integer, required</td>
+</tr>
+<tr>
+<td><code>collected</code></td>
+<td>collection date</td>
+<td>ISO date, required</td>
+</tr>
+<tr>
+<td><code>genome</code></td>
+<td>base sequence</td>
+<td>text, required</td>
+</tr>
+<tr>
+<td><code>mass</code></td>
+<td>snail weight in grams</td>
+<td>real, required</td>
+</tr>
+</tbody>
+</table>
+<p>Note that the CSV file does <em>not</em> record which species the snail belongs to
+or whether it is a mutant.</p>
+<h3 id="assays">Assays</h3>
+<p>Summary information about all assays is stored in <code>assay_summary.csv</code>.
+The file looks like this:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">ident</th>
+<th style="text-align: left;">specimen</th>
+<th style="text-align: left;">person</th>
+<th style="text-align: left;">performed</th>
+<th style="text-align: left;">machine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">386915</td>
+<td style="text-align: left;">KHNKDL</td>
+<td style="text-align: left;">km3478</td>
+<td style="text-align: left;">2024-03-05</td>
+<td style="text-align: left;">M0005</td>
+</tr>
+<tr>
+<td style="text-align: left;">508199</td>
+<td style="text-align: left;">DZYIPY</td>
+<td style="text-align: left;">mt8294</td>
+<td style="text-align: left;">2024-03-01</td>
+<td style="text-align: left;">M0001</td>
+</tr>
+<tr>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+</tr>
+</tbody>
+</table>
+<p>and its fields are:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+<th>Properties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ident</code></td>
+<td>assay identifier</td>
+<td>text, required</td>
+</tr>
+<tr>
+<td><code>specimen</code></td>
+<td>specimen identifier</td>
+<td>text, required</td>
+</tr>
+<tr>
+<td><code>person</code></td>
+<td>scientist identifier</td>
+<td>text, required</td>
+</tr>
+<tr>
+<td><code>performed</code></td>
+<td>assay date</td>
+<td>ISO date, required</td>
+</tr>
+<tr>
+<td><code>machine</code></td>
+<td>machine used</td>
+<td>text, required</td>
+</tr>
+</tbody>
+</table>
+<p>Assay results are stored in <code>assays.csv</code>.
+The file looks like this:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">ident</th>
+<th style="text-align: left;">specimen</th>
+<th style="text-align: left;">col</th>
+<th style="text-align: right;">row</th>
+<th style="text-align: left;">treatment</th>
+<th style="text-align: right;">reading</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">720482</td>
+<td style="text-align: left;">LYKVID</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">C</td>
+<td style="text-align: right;">0.20</td>
+</tr>
+<tr>
+<td style="text-align: left;">720482</td>
+<td style="text-align: left;">LYKVID</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">C</td>
+<td style="text-align: right;">0.25</td>
+</tr>
+<tr>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: right;">…</td>
+<td style="text-align: left;">…</td>
+<td style="text-align: right;">…</td>
+</tr>
+</tbody>
+</table>
+<p>and its fields are:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+<th>Properties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ident</code></td>
+<td>assay ID</td>
+<td>text, required</td>
+</tr>
+<tr>
+<td><code>specimen</code></td>
+<td>specimen ID</td>
+<td>text, required</td>
+</tr>
+<tr>
+<td><code>col</code></td>
+<td>assay plate column</td>
+<td>text, required</td>
+</tr>
+<tr>
+<td><code>row</code></td>
+<td>assay plate row</td>
+<td>integer, required</td>
+</tr>
+<tr>
+<td><code>treatment</code></td>
+<td>control or sample</td>
+<td>"C" or "S"</td>
+</tr>
+<tr>
+<td><code>reading</code></td>
+<td>well reading</td>
+<td>non-negative real</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>assays</code> directory contains three files for each assay:</p>
+<ol>
+<li>
+<p>a design file <code><em>nnnnnn</em>_treatments.csv</code>
+    showing whether specimen samples or control material was placed in each well of the assay plate;</p>
+</li>
+<li>
+<p>a readings file <code><em>nnnnnn</em>_readings.csv</code>
+    with the reading from each well;
+    and</p>
+</li>
+<li>
+<p>an image file <code><em>nnnn</em>.png</code> showing the image that the readings were taken from.
+    (In actuality <code>snailz</code> generates the readings first and then the image.)</p>
+</li>
+</ol>
+<p>Each CSV file contains a multi-line header with metadata followed by
+a table of well values with row and column labels.
+A typical design file is:</p>
+<pre><code>id,037356,,,
+specimen,AMEMRZ,,,
+date,2024-03-11,,,
+by,pv8677,,,
+machine,M0002,,,
+,A,B,C,D
+1,S,C,C,S
+2,C,C,S,C
+3,S,C,S,S
+4,C,S,C,S
+</code></pre>
+<p>while a typical readings file is:</p>
+<pre><code>id,037356,,,
+specimen,AMEMRZ,,,
+date,2024-03-11,,,
+by,pv8677,,,
+machine,M0002,,,
+,A,B,C,D
+1,1.09,0.08,0.02,1.1
+2,0.02,0.02,1.0,0.07
+3,1.03,0.03,1.1,1.07
+4,0.09,1.02,0.04,1.01
+</code></pre>
+<p>The first five rows of each file are:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+<th>Properties</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>assay identifier</td>
+<td>text, required</td>
+</tr>
+<tr>
+<td><code>specimen</code></td>
+<td>specimen identifier</td>
+<td>text, required</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>assay date</td>
+<td>ISO date, required</td>
+</tr>
+<tr>
+<td><code>by</code></td>
+<td>scientist identifier</td>
+<td>text</td>
+</tr>
+<tr>
+<td><code>machine</code></td>
+<td>machine identifier</td>
+<td>text</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>assays</code> directory also contains files called <code><em>nnnnnn</em>_raw.csv</code>.
+Each of these files contains the same data as the assay's readings file,
+but has some deliberate errors:
+header rows may be missing or out of order,
+data may be indented,
+and so on.
+These files are provided so that people can learn how to deal with messy real-world data.</p>
+<h3 id="database">Database</h3>
+<p>All of the data about people, specimens, and assays is also stored in
+a SQLite database called <code>snailz.db</code>,
+whose structure is shown below.</p>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/gvwilson/snailz/main/pages/img/schema.svg" alt="database schema">
+</div>
+
+<h3 id="data-file-structure">Data File Structure</h3>
+<pre><code>data
+├── params.json
+├── data.json
+├── persons.csv
+├── machines.csv
+├── surveys
+│   ├── S165.csv
+│   ├── S410.csv
+│   └── …
+├── specimens.csv
+├── assays.csv
+├── assays
+│   ├── 037356_treatments.csv
+│   ├── 037356.png
+│   ├── 037356_raw.csv
+│   ├── 037356_readings.csv
+│   ├── 092025_treatments.csv
+│   ├── 092025.png
+│   ├── 092025_raw.csv
+│   ├── 092025_readings.csv
+│   └── …
+└── snailz.db
+</code></pre>
+<h2 id="colophon">Colophon</h2>
+<p><code>snailz</code> was inspired by the <a href="https://allisonhorst.github.io/palmerpenguins/">Palmer Penguins</a> dataset
+and by conversations with <a href="https://rohanalexander.com/">Rohan Alexander</a>
+about his book <a href="https://tellingstorieswithdata.com/"><em>Telling Stories with Data</em></a>.</p>
+<p>The snail logo was created by <a href="https://www.vecteezy.com/vector-art/7319786-snails-logo-vector-on-white-background">sunar.ko</a>.</p>
+<p>My thanks to everyone who built the tools this project relies on, including:</p>
+<ul>
+<li><a href="https://click.palletsprojects.com/"><code>click</code></a> for building the command-line interface.</li>
+<li><a href="https://pydoit.org/"><code>doit</code></a> to run commands.</li>
+<li><a href="https://www.mkdocs.org/"><code>mkdocs</code></a> for documentation.</li>
+<li><a href="https://docs.pydantic.dev/"><code>pydantic</code></a> for storing and validating data (including parameters).</li>
+<li><a href="https://docs.pytest.org/"><code>pytest</code></a>, <a href="https://pypi.org/project/pyfakefs/"><code>pyfakefs</code></a>, and <a href="https://faker.readthedocs.io/"><code>faker</code></a> for testing.</li>
+<li><a href="https://docs.astral.sh/ruff/"><code>ruff</code></a> and <a href="https://pypi.org/project/pyright/"><code>pyright</code></a> for checking the code.</li>
+<li><a href="https://docs.astral.sh/uv/"><code>uv</code></a> for managing packages and the virtual environment.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
