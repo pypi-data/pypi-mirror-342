@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+requirements.txt
+setup.cfg
+setup.py
+thonny_loaduiautocomplete.egg-info/PKG-INFO
+thonny_loaduiautocomplete.egg-info/SOURCES.txt
+thonny_loaduiautocomplete.egg-info/dependency_links.txt
+thonny_loaduiautocomplete.egg-info/requires.txt
+thonny_loaduiautocomplete.egg-info/top_level.txt
+thonnycontrib/pyqt_loadui_autocomplete/__init__.py
