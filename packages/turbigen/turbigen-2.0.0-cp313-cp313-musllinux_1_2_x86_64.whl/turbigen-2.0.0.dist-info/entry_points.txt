@@ -1,0 +1,4 @@
+[console_scripts]
+turbigen = turbigen.main:main
+turbigen-autogrid-server = turbigen.autogrid.server:main
+
