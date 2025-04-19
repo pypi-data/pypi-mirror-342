@@ -1,0 +1,20 @@
+[project]
+name = "finfeatures"
+version = "0.1.0"
+description = "A simple Financial Feature Engineering library."
+authors = [ { name = "Advait Dharmadhikari", email = "advaituni@gmail.com" } ]
+license = {text = "MIT"}
+readme = "README.md"
+dependencies = [
+    "pandas>=1.0"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Information Analysis"
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

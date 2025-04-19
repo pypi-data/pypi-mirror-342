@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+finfeatures/indicators.py
+finfeatures/init.py
+finfeatures/transformers.py
+finfeatures/utils.py
+finfeatures.egg-info/PKG-INFO
+finfeatures.egg-info/SOURCES.txt
+finfeatures.egg-info/dependency_links.txt
+finfeatures.egg-info/requires.txt
+finfeatures.egg-info/top_level.txt
+tests/test_indicators.py

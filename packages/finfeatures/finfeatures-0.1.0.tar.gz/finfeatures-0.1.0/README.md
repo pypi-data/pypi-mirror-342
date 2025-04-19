@@ -1,0 +1,33 @@
+# FinFeatures
+
+Simple Financial Feature Engineering for Data Science and Finance.
+
+## Features
+- Moving Averages (SMA, EMA)
+- Relative Strength Index (RSI)
+- MACD
+- Bollinger Bands
+- Average True Range (ATR)
+- Stochastic Oscillator
+- Rolling Volatility
+- Percent Change
+- Apply Full Basic Feature Set
+- Apply Premium Feature Set
+
+## Installation
+```bash
+pip install .
+```
+
+## Usage
+```python
+import finfeatures as ff
+
+# Assume `df` has 'Close', 'High', and 'Low' columns
+ff.simple_moving_average(df, column='Close', window=20)
+ff.relative_strength_index(df, column='Close')
+ff.average_true_range(df, high_col='High', low_col='Low', close_col='Close')
+ff.stochastic_oscillator(df, high_col='High', low_col='Low', close_col='Close')
+ff.basic_feature_set(df, column='Close')
+ff.premium_feature_set(df, close_col='Close', high_col='High', low_col='Low')
+```
