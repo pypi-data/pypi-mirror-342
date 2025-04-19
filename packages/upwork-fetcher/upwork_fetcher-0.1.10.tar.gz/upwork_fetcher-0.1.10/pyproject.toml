@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "upwork-fetcher"
+version = "0.1.10"
+description = "This is a package to fetch data from Upwork API"
+authors = ["abdoafage <abdo.afage2@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+click = "^8.1.8"
+psycopg2-binary = "^2.9.10"
+python-dotenv = "^1.1.0"
+rich = "^14.0.0"
+pydantic = "^2.11.3"
+gql = "^3.5.2"
+graphql-core = "^3.2.6"
+requests-toolbelt = "^1.0.0"
+tortoise-orm = "^0.25.0"
+asyncpg = "^0.30.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+upwork-fetcher = "upwork_fetcher.cli:cli"
