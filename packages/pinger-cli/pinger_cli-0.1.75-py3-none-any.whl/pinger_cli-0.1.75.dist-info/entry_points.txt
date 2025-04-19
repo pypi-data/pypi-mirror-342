@@ -1,0 +1,3 @@
+[console_scripts]
+pinger=pinger.cli:cli
+
