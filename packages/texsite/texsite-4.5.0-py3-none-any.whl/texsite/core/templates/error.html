@@ -1,0 +1,15 @@
+{% extends "texsitebusinesscasual/business_casual_page.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block head-title %}
+    {% wagtail_site as current_site %}
+    {{ current_site.site_name }}
+{% endblock %}
+
+{% block business-casual-body-content %}
+    <div class="box"><h3>
+    {% block error-content %}
+    {% endblock %}
+    </h3></div>
+{% endblock %}

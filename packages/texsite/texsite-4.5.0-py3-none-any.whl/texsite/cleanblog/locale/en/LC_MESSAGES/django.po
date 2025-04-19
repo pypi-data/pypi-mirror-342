@@ -1,0 +1,56 @@
+# English language file
+msgid ""
+msgstr ""
+"Project-Id-Version: texsite\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-01 09:50+0200\n"
+"Last-Translator: Timo Rieber <trieber@texperience.de>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: models.py:48
+msgid "Clean Blog Article Page"
+msgstr ""
+
+#: models.py:91
+msgid "Clean Blog Article Index Page"
+msgstr ""
+
+#: templates/texsitecleanblog/base.html:53
+msgid "Copyright ©"
+msgstr ""
+
+#: templates/texsitecleanblog/clean_blog_article_index_page.html:36
+msgid "No entries found"
+msgstr ""
+
+#: templates/texsitecleanblog/includes/author.html:3
+msgid "Posted by"
+msgstr ""
+
+#: templates/texsitecleanblog/includes/author.html:3
+msgid "on"
+msgstr ""
+
+#: templates/texsitecleanblog/includes/navigator.html:5
+msgid "Index"
+msgstr ""
+
+#: templates/texsitecleanblog/includes/navigator.html:10
+msgid "Prev"
+msgstr ""
+
+#: templates/texsitecleanblog/includes/navigator.html:15
+msgid "Next"
+msgstr ""
+
+#: templates/texsitecleanblog/includes/paginator.html:5
+msgid "Newer posts"
+msgstr ""
+
+#: templates/texsitecleanblog/includes/paginator.html:12
+msgid "Older posts"
+msgstr ""

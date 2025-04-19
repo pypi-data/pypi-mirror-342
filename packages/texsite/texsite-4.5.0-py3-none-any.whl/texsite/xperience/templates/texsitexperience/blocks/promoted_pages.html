@@ -1,0 +1,15 @@
+{% load i18n %}
+{% load wagtailimages_tags %}
+
+{% trans "Jetzt informieren!" as button_label %}
+
+<hr>
+
+{% for promotion in value %}
+    {% image promotion.teaser fill-1140x600 as imagedata %}
+    <div class="jumbotron promoted-page" style="background-image: url('{{ imagedata.url }}')">
+        <h1>{{ promotion.page.title }}</h1>
+        <p>{{ promotion.page.search_description }}</p>
+        <p><a href="{{ promotion.page.url }}" class="btn btn-primary">{{ button_label }}</a></p>
+    </div>
+{% endfor %}

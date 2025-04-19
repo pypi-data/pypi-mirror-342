@@ -1,0 +1,14 @@
+{% extends "texsitexperience/base.html" %}
+
+{% load i18n %}
+{% load wagtailcore_tags %}
+
+{% block xperience-body-content %}
+    {% for block in page.body %}
+        {% include_block block %}
+    {% endfor %}
+
+    {% if request.GET.show_back %}
+        <a class="btn btn-primary" href="javascript:history.back()"><i class="fa fa-angle-left"></i> {% trans "Zurück" %}</a>
+    {% endif %}
+{% endblock %}

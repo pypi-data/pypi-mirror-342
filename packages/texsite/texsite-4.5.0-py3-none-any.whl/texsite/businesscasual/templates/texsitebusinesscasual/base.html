@@ -1,0 +1,78 @@
+{% extends "bootstrap_ui/bootstrap3-skeleton.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load wagtailcore_tags %}
+
+{% block head-css %}
+    {% if request.in_preview_panel %}
+        <base target="_blank">
+    {% endif %}
+
+    {{ block.super }}
+
+    <link href="{% static "css/business-casual.min.css" %}" media="screen" rel="stylesheet" type="text/css">
+    <link href="{% static "css/texsite-business-casual.min.css" %}" media="screen" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block head-title %}
+    {% wagtail_site as current_site %}
+
+    {{ page.title }} | {{ current_site.site_name }}
+{% endblock %}
+
+{% block head-extension %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "/favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "/favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "/favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "/favicon/site.webmanifest" %}">
+{% endblock %}
+
+{% block body-content %}
+    {% wagtail_site as current_site %}
+
+    <div class="brand">{{ current_site.site_name }}</div>
+    <div class="address-bar">{{ page.title }}</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">{{ current_site.site_name }}</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="/">{{ current_site.site_name }}</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                {% include "texsitebusinesscasual/menus/main_menu.html" %}
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
+        {% block business-casual-body-content %}{% endblock %}
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 text-center">
+                    {% include "texsitebusinesscasual/menus/footer_menu.html" %}
+                </div>
+                <div class="col-sm-6 text-center">
+                    <p>{% trans "Copyright ©" %} {{ current_site.site_name }} {% now "Y" %}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

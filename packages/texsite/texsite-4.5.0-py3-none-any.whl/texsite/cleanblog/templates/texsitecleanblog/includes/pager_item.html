@@ -1,0 +1,13 @@
+<li class="{{ type }}">
+    <a href="{{ link }}"{% if title %} title="{{ title }}"{% endif %}>
+        {% if icon_position == "left" %}
+            <i class="fa {{ icon }}"></i>
+            {{ label }}
+        {% elif icon_position == "right" %}
+            {{ label }}
+            <i class="fa {{ icon }}"></i>
+        {% else %}
+            {{ label }}
+        {% endif %}
+    </a>
+</li>

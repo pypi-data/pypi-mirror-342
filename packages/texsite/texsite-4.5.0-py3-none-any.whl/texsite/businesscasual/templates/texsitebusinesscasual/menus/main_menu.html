@@ -1,0 +1,13 @@
+{% load texsitecore_tags %}
+{% load wagtailcore_tags %}
+
+{% wagtail_site as current_site %}
+{% get_menu_pages current_site as pages %}
+
+<ul class="nav navbar-nav">
+    {% for page in pages %}
+        <li>
+            <a href="{{ page.url }}">{{ page.title }}</a>
+        </li>
+    {% endfor %}
+</ul>

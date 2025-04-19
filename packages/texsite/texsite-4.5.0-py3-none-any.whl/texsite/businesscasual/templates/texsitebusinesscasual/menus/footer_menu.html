@@ -1,0 +1,15 @@
+{% load texsitecore_tags %}
+{% load wagtailcore_tags %}
+
+{% wagtail_site as current_site %}
+{% get_footer_pages current_site as pages %}
+
+<p>
+    {% for page in pages %}
+        <a href="{{ page.url }}">{{ page.title }}</a>
+
+        {% if not forloop.last %}
+            <br />
+        {% endif %}
+    {% endfor %}
+</p>

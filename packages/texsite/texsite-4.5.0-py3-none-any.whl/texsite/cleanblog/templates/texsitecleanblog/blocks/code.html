@@ -1,0 +1,8 @@
+<span class="cbta-code-container">
+    <pre><code {% if value.language %}class="language-{{ value.language|lower }}"{% endif %}>{{ value.code }}</code></pre>
+    <button class="btn btn-default cbta-code-copy-button"></button>
+
+    {% if value.language %}
+        <span class="cbta-code-language-label">{{ value.language|title }}</span>
+    {% endif %}
+</span>

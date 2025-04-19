@@ -1,0 +1,37 @@
+{% load i18n %}
+{% load texsitexperience_tags %}
+{% load wagtailimages_tags %}
+
+{% trans "Weiterlesen" as button_label %}
+{% get_live_descendant_pages value.parent value.limit value.newest_first as pages %}
+
+{% for page in pages %}
+    <div class="row">
+        {% with page.specific.body.first_block_by_name.teaser_image as teaser_image %}
+            {% if teaser_image %}
+                {% image teaser_image.value fill-360x250 as imagedata %}
+
+                <div class="hidden-xs hidden-sm col-md-2">
+                    <a href="{{ page.url }}">
+                        <img src="{{ imagedata.url }}" class="img-responsive img-hover" alt="{{ page.title }}">
+                    </a>
+                </div>
+            {% endif %}
+
+            <div class="col-xs-12 col-sm-10 {% if teaser_image %}col-md-9{% else %}col-md-11{% endif %}">
+                <h4>
+                    <a href="{{ page.url }}?show_back=true">{{ page.title }}</a>
+                </h4>
+                <p><i>{{ page.owner.get_full_name }}, {{ page.first_published_at|date:"j. F Y" }}</i></p>
+            </div>
+            <div class="col-xs-12 col-sm-2 col-md-1">
+                <a class="btn btn-primary btn-sm pull-right" href="{{ page.url }}?show_back=true">
+                    {{ button_label }} <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        {% endwith %}
+    </div>
+    {% if not forloop.last %}
+        <hr>
+    {% endif %}
+{% endfor %}

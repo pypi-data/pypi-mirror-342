@@ -1,0 +1,67 @@
+{% extends "bootstrap_ui/bootstrap3-skeleton.html" %}
+
+{% load i18n %}
+{% load static %}
+{% load wagtailcore_tags %}
+
+{% block head-css %}
+    {% if request.in_preview_panel %}
+        <base target="_blank">
+    {% endif %}
+
+    {{ block.super }}
+
+    <link href="{% static "css/clean-blog.min.css" %}" media="screen" rel="stylesheet" type="text/css">
+    <link href="{% static "css/clean-blog-texsite-addon.css" %}" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block head-title %}
+    {% wagtail_site as current_site %}
+
+    {{ page.title }} | {{ current_site.site_name }}
+{% endblock %}
+
+{% block head-extension %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "/favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "/favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "/favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "/favicon/site.webmanifest" %}">
+{% endblock %}
+
+{% block body-content %}
+    {% wagtail_site as current_site %}
+
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="/">{{ current_site.site_name }}</a>
+            </div>
+        </div>
+    </nav>
+
+    {% block clean-blog-body-content %}{% endblock %}
+
+    <hr>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p class="copyright text-muted">
+                        {% trans "Copyright ©" %} {% now "Y" %} {{ current_site.site_name }}<br>
+                        Template based on <a href="http://ironsummitmedia.github.io/startbootstrap-clean-blog/">Clean Blog</a> by Start Bootstrap
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block body-javascript %}
+    {{ block.super }}
+
+    <script src="{% static "js/clean-blog.min.js" %}" type="text/javascript"></script>
+    <script src="{% static "js/clean-blog-texsite-addon.js" %}"></script>
+{% endblock %}

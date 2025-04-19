@@ -1,0 +1,185 @@
+Metadata-Version: 2.1
+Name: texsite
+Version: 4.5.0
+Summary: texsite delivers great and ready-to-use page templates for Wagtail CMS
+Home-page: https://gitlab.com/texperience/texsite
+Author: Timo Rieber
+Author-email: trieber@texperience.de
+License: ISC License (ISCL)
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Framework :: Wagtail
+Classifier: Framework :: Wagtail :: 4
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: django<3.3,>=3.2
+Requires-Dist: django-bootstrap-ui<3.0,>=2.0
+Requires-Dist: wagtail<4.2,>=4.1
+Provides-Extra: development
+Requires-Dist: brunette<1.0,>=0.2; extra == "development"
+Requires-Dist: flake8<7.0,>=6.0; extra == "development"
+Requires-Dist: isort<6.0,>=5.11; extra == "development"
+Requires-Dist: coverage<8.0,>=7.1; extra == "development"
+Requires-Dist: tox<4.0,>=3.28; extra == "development"
+Provides-Extra: linting
+Requires-Dist: brunette<1.0,>=0.2; extra == "linting"
+Requires-Dist: flake8<7.0,>=6.0; extra == "linting"
+Requires-Dist: isort<6.0,>=5.11; extra == "linting"
+Provides-Extra: testing
+Requires-Dist: coverage<8.0,>=7.1; extra == "testing"
+Requires-Dist: tox<4.0,>=3.28; extra == "testing"
+
+# texsite
+
+[![Pipeline][pipeline-badge]][pipeline-link]
+[![Coverage][coverage-badge]][coverage-link]
+[![PyPI][pypi-badge]][pypi-link]
+[![License][license-badge]][license-link]
+
+[pipeline-badge]: https://gitlab.com/texperience/texsite/badges/master/pipeline.svg
+[pipeline-link]: https://gitlab.com/texperience/texsite/pipelines
+[coverage-badge]: https://gitlab.com/texperience/texsite/badges/master/coverage.svg
+[coverage-link]: https://gitlab.com/texperience/texsite/-/jobs
+[pypi-badge]: https://img.shields.io/pypi/v/texsite.svg
+[pypi-link]: https://pypi.python.org/pypi/texsite
+[license-badge]: https://img.shields.io/pypi/l/texsite.svg
+[license-link]: http://en.wikipedia.org/wiki/ISC_license
+
+texsite delivers great and ready-to-use page templates for the modern, flexible and user-focused web content management system [Wagtail CMS][wagtail] backed by the popular [Django web framework][django], both written in [Python][python].
+
+Based on the amazing [StreamField][wagtail-streamfield] introduced with Wagtail release 1.0, which texsite uses extensively, it has never been easier for editors to author awesome pages. Read more on how this concept works in the great blog article [Rich text fields and faster horses][wagtail-rtfafh] written by Matt Westcott, lead technical developer of Wagtail.
+
+[wagtail]: https://wagtail.io/
+[django]: https://www.djangoproject.com/
+[python]: https://www.python.org/
+[wagtail-streamfield]: http://docs.wagtail.io/en/stable/topics/streamfield.html
+[wagtail-rtfafh]: https://torchbox.com/blog/rich-text-fields-and-faster-horses/
+
+## Features
+
+* Clean Blog Pages - based on the [Clean Blog][startbootstrap-cleanblog] theme by Start Bootstrap
+* Business Casual Pages - based on the [Business Casual][startbootstrap-businesscasual] theme by Start Bootstrap
+* Outstanding test coverage
+* Continuously integrated codebase
+
+[startbootstrap-cleanblog]: https://startbootstrap.com/template-overviews/clean-blog/
+[startbootstrap-businesscasual]: https://startbootstrap.com/template-overviews/business-casual/
+
+## Technical requirements
+
+New feature releases frequently add support for newer versions of underlying technologies and drop support for older ones. The compatible versions of Wagtail, Django and Python for each texsite release are:
+
+| Release | Wagtail  | Django   | Python               |
+|---------|----------|----------|----------------------|
+| 4.0+    | 4.1 LTS  | 3.2 LTS  | 3.8, 3.9, 3.10, 3.11 |
+| 3.0     | 2.11 LTS | 3.1      | 3.8                  |
+| 2.0     | 2.7 LTS  | 2.2 LTS  | 3.6, 3.7, 3.8        |
+| 1.0     | 2.3 LTS  | 1.11 LTS | 3.4. 3.5, 3.6        |
+
+## Code and contribution
+
+The code is open source and released under the [ISC License (ISCL)][isc-license]. It is available on [Gitlab][gitlab] and follows the guidelines about [Semantic Versioning][semver] for transparency within the release cycle and backward compatibility whenever possible.
+
+All contributions are welcome, whether bug reports, code contributions and reviews, documentation or feature requests.
+
+If you're a developer, fork the repo and prepare a merge request:
+
+```bash
+# Prepare your environment the first time
+python3.8 -m venv .venv
+source .venv/bin/activate
+pip install -e .[development]
+
+# Running the tests while development
+python -m django test --settings=tests.settings
+
+# Individual supported versions tests and code quality checks
+tox -e py38-dj22-wt27
+tox -e isort
+tox -e brunette
+tox -e flake8
+
+# Ensure code quality running the entire test suite,
+# this requires all supported Python releases to be installed
+tox
+
+# On created, changed or deleted translations...
+# ...update the message files within the respective apps directory
+python -m django makemessages --all
+
+# ...edit and translate the message files manually
+# ...compile the message files
+python -m django compilemessages
+```
+
+[isc-license]: http://en.wikipedia.org/wiki/ISC_license
+[semver]: http://semver.org/
+[gitlab]: https://gitlab.com/texperience/texsite
+
+## Installation
+
+Install `texsite` directly from [PyPI][pypi] using pip:
+
+```bash
+pip install texsite
+```
+
+[pypi]: https://pypi.org/project/texsite/
+
+## Configuration
+
+### Environment
+
+The tool only requires one environment variable to work properly:
+
+* `TEXSITE_DATA_ROOT` (default: `./.data`)
+
+This path is used to store:
+
+* Uploaded user content such as images and documents
+* Collected static files for the web application frontend
+* Environment specific application configuration
+
+### Django settings
+
+On startup the application loads a module `localsettings` where you may provide environment specific Django settings, e.g. a database service.
+
+It searches with the `sys.path` and first adds the path configured in the environment variable `TEXSITE_DATA_ROOT`.
+
+## Docker
+
+We provide a Dockerfile to build a production-ready image to make use of our entrypoints.
+
+For local testing and development purposes a predefined Docker compose file is available. It uses the same Dockerfile and showcases how to run the different entrypoints as containers.
+
+```bash
+docker compose up --build --detach --remove-orphans
+```
+
+This runs the following containers:
+
+* Traefik as application proxy
+* Gunicorn serving our WSGI application
+* NGINX serving static and media files
+
+In addition you can easily use the `cli` service to execute Django management commands:
+
+```bash
+docker compose run --rm --publish 8000:8000 cli runserver 0.0.0.0:8000
+docker compose run --rm cli collectstatic
+docker compose run --rm cli migrate
+```
