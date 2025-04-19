@@ -1,0 +1,27 @@
+[project]
+name = "astarconf"
+version = "0.1.2"
+description = "A secure, pluggable config loader with encryption and CLI tools"
+readme = "README.md"
+authors = [{ name = "Andrey Starkov", email = "astar@andreystarkov.com" }]
+license = { text = "MIT" }
+requires-python = ">=3.7"
+keywords = ["config", "yaml", "encryption", "cli", "dotenv", "secure"]
+dependencies = [
+    "pyyaml",
+    "cryptography",
+    "python-dotenv"
+]
+
+[project.urls]
+Repository = "https://github.com/astaraiki/astarconf"
+Homepage = "https://github.com/astaraiki/astarconf"
+Documentation = "https://github.com/astaraiki/astarconf/blob/main/DOCUMENTATION.md"
+Contributing =  "https://github.com/astaraiki/astarconf/blob/main/CONTRIBUTING.md"
+
+[project.scripts]
+astarconf = "astarconf.cli:main"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

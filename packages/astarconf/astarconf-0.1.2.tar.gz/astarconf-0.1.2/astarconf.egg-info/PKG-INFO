@@ -1,0 +1,64 @@
+Metadata-Version: 2.4
+Name: astarconf
+Version: 0.1.2
+Summary: A secure, pluggable config loader with encryption and CLI tools
+Author-email: Andrey Starkov <astar@andreystarkov.com>
+License: MIT
+Project-URL: Repository, https://github.com/astaraiki/astarconf
+Project-URL: Homepage, https://github.com/astaraiki/astarconf
+Project-URL: Documentation, https://github.com/astaraiki/astarconf/blob/main/DOCUMENTATION.md
+Project-URL: Contributing, https://github.com/astaraiki/astarconf/blob/main/CONTRIBUTING.md
+Keywords: config,yaml,encryption,cli,dotenv,secure
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyyaml
+Requires-Dist: cryptography
+Requires-Dist: python-dotenv
+Dynamic: license-file
+
+# astarconf
+
+🛡 A secure, pluggable config loader for YAML, JSON, `.env` and Python dicts — with field-level encryption, CLI support, and hybrid access.
+
+## Features
+
+- 🔐 Encrypt/decrypt fields in YAML
+- 🔌 Load from `.yaml`, `.json`, `.env`, or `dict`
+- ✅ Attribute (`config.key`) and key (`config['key']`) access
+- 🧰 CLI interface for encryption workflows
+
+## Installation
+
+```bash
+pip install astarconf
+```
+
+## Usage
+
+```python
+from astarconf import Astarconf
+
+conf = Astarconf("config.yaml")
+print(conf.database.user)
+```
+
+### CLI
+
+```bash
+astarconf -g ~/.astarconf/secret.key	#Generate a new secret key (default: ~/.astartool/secret.key)
+astarconf -r ~/.astarconf/secret.key	#Delete a secret key at specified path
+astarconf -c config.yaml user password	#Encrypt YAML file: first argument is path, 
+                                        others are field names (default: user, password)
+astarconf -d config.yaml -o output.yaml	#Decrypt all encrypted fields in YAML file 
+```
+
+## License
+
+MIT
+
+---
+
+## 📚 Full Documentation
+
+See [DOCUMENTATION.md](DOCUMENTATION.md) for detailed API and CLI usage.

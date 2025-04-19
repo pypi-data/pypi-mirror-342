@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+astarconf/__init__.py
+astarconf/cli.py
+astarconf.egg-info/PKG-INFO
+astarconf.egg-info/SOURCES.txt
+astarconf.egg-info/dependency_links.txt
+astarconf.egg-info/entry_points.txt
+astarconf.egg-info/requires.txt
+astarconf.egg-info/top_level.txt
+tests/test_astarconf.py
+tests/test_cli.py
