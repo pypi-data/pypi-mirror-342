@@ -1,0 +1,104 @@
+Metadata-Version: 2.4
+Name: pqcrypto
+Version: 0.2.0
+Summary: Post-quantum cryptography for Python.
+Project-URL: Repository, https://github.com/backbone-hq/pqcrypto
+Project-URL: Bug Tracker, https://github.com/backbone-hq/pqcrypto/issues
+Author-email: Backbone Authors <root@backbone.dev>
+License-Expression: Apache-2.0
+License-File: LICENSE
+License-File: NOTICE
+Keywords: cryptography,post-quantum,pqclean,security
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Security
+Classifier: Topic :: Security :: Cryptography
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Utilities
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# ![PQCrypto](https://github.com/backbone-hq/pqcrypto/blob/master/media/pqcrypto.png?raw=true)
+
+![PyPI Version](https://img.shields.io/pypi/v/pqcrypto)
+![Build Status](https://img.shields.io/github/actions/workflow/status/backbone-hq/pqcrypto/ci.yml?branch=master)
+![GitHub License](https://img.shields.io/github/license/backbone-hq/pqcrypto)
+![Python Version](https://img.shields.io/pypi/pyversions/pqcrypto)
+![Coverage](https://img.shields.io/codecov/c/github/backbone-hq/pqcrypto)
+
+# 👻 Post-Quantum Cryptography
+
+In recent years, there has been a substantial amount of research on quantum computers – machines that exploit quantum mechanical phenomena to solve mathematical problems that are difficult or intractable for conventional computers. If large-scale quantum computers are ever built, they will be able to break many of the public-key cryptosystems currently in use. This would seriously compromise the confidentiality and integrity of digital communications on the Internet and elsewhere. The goal of post-quantum cryptography (also called quantum-resistant cryptography) is to develop cryptographic systems that are secure against both quantum and classical computers, and can interoperate with existing communications protocols and networks.
+
+## 💡 Purpose
+
+This package provides tested, ergonomic **Python 3** CFFI bindings to implementations of a number of algorithms submitted as part of the [Post-Quantum Cryptography Standardization](https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization) effort by [NIST](https://www.nist.gov/).
+
+## 🚀 Installation
+
+You can install PQCrypto using your package manager of choice.
+Pre-compiled wheels are available for common platforms and Python versions.
+If a pre-compiled wheel is not available for your platform or Python version, we recommend you build PQCrypto from source.
+
+Using `uv`:
+```bash
+uv add pqcrypto
+```
+
+Using `poetry`:
+```bash
+poetry add pqcrypto
+```
+
+Using `pip`:
+```bash
+pip install pqcrypto
+```
+
+## 🔐 Key Encapsulation
+
+```python
+from secrets import compare_digest
+from pqcrypto.kem.mceliece8192128 import generate_keypair, encrypt, decrypt
+
+# Alice generates a (public, secret) key pair
+public_key, secret_key = generate_keypair()
+
+# Bob derives a secret (the plaintext) and encrypts it with Alice's public key to produce a ciphertext
+ciphertext, plaintext_original = encrypt(public_key)
+
+# Alice decrypts Bob's ciphertext to derive the now shared secret
+plaintext_recovered = decrypt(secret_key, ciphertext)
+
+# Compare the original and recovered secrets in constant time
+assert compare_digest(plaintext_original, plaintext_recovered)
+```
+
+## ✒️ Signing
+
+```python
+from pqcrypto.sign.dilithium4 import generate_keypair, sign, verify
+
+# Alice generates a (public, secret) key pair
+public_key, secret_key = generate_keypair()
+
+# Alice signs her message using her secret key
+signature = sign(secret_key, b"Hello world")
+
+# Bob uses Alice's public key to validate her signature
+assert verify(public_key, b"Hello world", signature)
+```
+
+## 🙏 Credits
+
+The C implementations used herein are derived from the [PQClean](https://github.com/pqclean/pqclean/) project.
+
+---
+
+Built with 🦴 by [Backbone](https://backbone.dev)
