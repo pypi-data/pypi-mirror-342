@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Querystats</title>
+    {% tailwind_css %}
+</head>
+<body class="bg-stone-950 text-stone-300">
+
+    <div class="flex items-center justify-between px-6 py-4">
+        <h1 class="text-lg font-semibold">Querystats</h1>
+        <div class="flex items-center space-x-2">
+            <form method="post" action=".">
+                {{ csrf_input }}
+                <input type="hidden" name="querystats_action" value="clear">
+                <button type="submit" class="px-2 py-px text-sm rounded-sm bg-stone-700 text-stone-300 hover:bg-stone-600 cursor-pointer whitespace-nowrap">Clear</button>
+            </form>
+            <form method="post" action=".">
+                {{ csrf_input }}
+                <input type="hidden" name="querystats_action" value="disable">
+                <button type="submit" class="px-2 py-px text-sm rounded-sm bg-stone-700 text-stone-300 hover:bg-stone-600 cursor-pointer whitespace-nowrap">Disable</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="space-y-6 px-6 py-4">
+        {% for request_id, qs in querystats.items() %}
+        <div class="p-3 bg-white/5 rounded">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 class="font-medium"><span class="font-semibold">{{ qs.request.method }}</span> {{ qs.request.path }}</h2>
+                    <p class="text-sm text-stone-400">{{ qs.summary }}</p>
+                </div>
+                <div class=text-xs>
+                    <p>Request ID <code>{{ qs.request.unique_id }}</code></p>
+                    <p>Timestamp {{ qs.timestamp }}</p>
+                    <details>
+                        <summary>Headers</summary>
+                        <pre><code>{{ qs.request.get("headers", {})|pprint }}</code></pre>
+                    </details>
+                </div>
+            </div>
+
+            <div class="flex w-full mt-5 overflow-auto rounded-sm">
+                {% for query in qs.queries %}
+                <a href="#query-{{ loop.index }}"
+                    {{ loop.cycle('class=\"h-4 bg-amber-300\"', 'class=\"h-4 bg-amber-400\"', 'class="h-4 bg-amber-500"', 'class="h-4 bg-amber-600"')|safe }}
+                    title="[{{ query.duration_display }}] {{ query.sql_display }}"
+                    style="width: {{ query.duration / qs.total_time * 100 }}%">
+                </a>
+                {% endfor %}
+            </div>
+
+            <div class="mt-4 space-y-3 text-xs">
+                {% for query in qs.queries %}
+                <details id="query-{{ loop.index }}" class="p-2 rounded bg-zinc-800">
+                    <summary class="truncate">
+                        <div class="float-right px-2 py-px mb-px ml-2 text-xs rounded-full bg-zinc-700">
+                            <span>{{ query.duration_display }}</span>
+                            {% if query.duplicate_count is defined %}
+                            <span class="text-red-500">&nbsp; duplicated {{ query.duplicate_count }} times</span>
+                            {% endif %}
+
+                            {#
+                            <div>many {{ query.many }}</div>
+                            <div>result {{ query.result }}</div>
+                            #}
+                        </div>
+                        <code class="font-mono">{{ query.sql }}</code>
+                    </summary>
+                    <div class="space-y-3 mt-3">
+                        <div>
+                            <pre><code class="font-mono whitespace-pre-wrap text-zinc-100">{{ query.sql_display }}</code></pre>
+                        </div>
+                        <div class="text-zinc-400">
+                            <span class="font-medium">Parameters</span>
+                            <pre><code class="font-mono">{{ query.params|pprint }}</code></pre>
+                        </div>
+                        <details>
+                            <summary>Traceback</summary>
+                            <pre><code class="block overflow-x-auto font-mono text-xs">{{ query.tb }}</code></pre>
+                        </details>
+                    </div>
+                </details>
+                {% else %}
+                <div>No queries...</div>
+                {% endfor %}
+            </div>
+        </div>
+
+        {% else %}
+
+        <div class="text-center">
+            {% if "querystats" in request.session %}
+            <div class="text-stone-500">Querystats are enabled but nothing has been tracked yet.</div>
+            {% else %}
+            <form method="post" action=".">
+                {{ csrf_input }}
+                <input type="hidden" name="querystats_action" value="enable">
+                <button type="submit" class="px-2 rounded-sm bg-stone-700 text-stone-300 hover:bg-stone-600 cursor-pointer whitespace-nowrap">Enable querystats</button>
+            </form>
+            {% endif %}
+        </div>
+
+        {% endfor %}
+    </div>
+
+</body>
+</html>
