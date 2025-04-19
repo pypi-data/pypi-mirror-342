@@ -1,0 +1,121 @@
+# nextgen-mft
+
+`nextgen-mft` is a modular Python library designed for building secure, intelligent, and automated file transfer systems. It enables seamless SFTP, HTTPS, and AI-driven anomaly detection, along with powerful cryptographic utilities like RSA, ECDHE, ChaCha20, and X.509 certificate handling.
+
+---
+
+##  **Key Features**
+
+**SFTP & HTTPS Transfers**
+- Upload/download files securely over SFTP and HTTPS  
+- SSH key authentication and TLS client cert support  
+
+**AI-Powered Anomaly Detection**  
+- Detect abnormal transfer behaviors using `IsolationForest`  
+- Simple API for training and scoring  
+
+**Strong Cryptography**
+- Generate RSA, ECDHE, and DH keys  
+- AES (CBC) and ChaCha20 encryption support  
+- Load/save certificates and keys in PEM  
+
+**Command-Line Interface (CLI)**  
+- Built-in CLI using [Typer](https://typer.tiangolo.com)  
+- Easily upload files, generate keys, and run anomaly detection  
+
+**Production-Ready** 
+- Modular architecture  
+- Ready for pipelines, automation, and cloud workflows  
+
+##  **Use Cases**
+
+- Enterprise Managed File Transfer (MFT) systems  
+- Secure partner integrations via HTTPS/SFTP  
+- Compliance-driven cryptographic workflows  
+- Real-time anomaly detection in file movements  
+- CLI-based DevOps automation
+
+---
+
+## H2 **Installation**
+
+H3 **Recommended process**
+
+There are several different ways to install nextgen-mft. However it is recommended to both install and use the package inside python virtual environment.
+
+At the command line using "pip"
+
+```
+$ pip install nextgen-mft
+```
+Or, if you have virtualenvwrapper installed.
+
+```
+$ mkvirtualenv nextgen-mft
+$ python3 -m pip install nextgen-mft
+```
+
+Installation with package manager
+
+Alternatively it is possible to install nextgen-mft using package manager.
+
+Such as yum or dnf…
+
+``` $ yum|dnf install nextgen-mft
+
+## Quick CLI Usage
+
+```
+# **Upload a file via SFTP**
+$ python3 -m nextgen_mft.cli.main sftp-upload \
+  --host sftp.example.com \
+  --username user \
+  --key-file ~/.ssh/id_rsa \
+  --local-file ./file.txt \
+  --remote-path /inbox/file.txt
+```
+
+```
+# **Detect anomalies from file transfer logs**
+$ python3 -m nextgen_mft.cli.main detect-anomalies \
+  --train-file train_data.json \
+  --test-file new_data.json
+```
+
+---
+
+## **Project Structure**
+
+```
+nextgen_mft/
+├── transfer/     # SFTP & HTTPS clients
+├── security/     # Crypto utils (AES, RSA, ChaCha20, X.509)
+├── ai/           # ML anomaly detection
+├── cli/          # Typer-based CLI
+```
+
+---
+
+##  **Dependencies**
+
+- paramiko  
+- requests  
+- cryptography  
+- scikit-learn  
+- pandas  
+- numpy  
+- typer
+
+---
+
+## **License**
+
+MIT License © Raghava Chellu
+
+---
+
+## **Project Links**
+
+- PyPI: [https://pypi.org/project/nextgen-mft](https://pypi.org/project/nextgen-mft)
+- Docs: *coming soon*
+- Support: *via GitHub issues or email*
