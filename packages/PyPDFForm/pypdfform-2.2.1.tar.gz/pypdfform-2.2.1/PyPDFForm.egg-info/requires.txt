@@ -1,0 +1,15 @@
+cryptography
+pillow
+pypdf
+reportlab
+
+[dev]
+coverage
+jsonschema
+mkdocs
+pudb
+pylint
+pyright
+pytest
+requests
+ruff
