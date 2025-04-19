@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: anomalysuite
+Version: 0.1.0
+Summary: All-in-One anomaly detection models including reconstructor, scorer and classifier.
+Author-email: Taeyong Jeon <taeyongjeon24@gmail.com>
+Project-URL: repository, https://github.com/tyjeon24/anomalysuite
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# AnomalySuite
+All-in-One anomaly detection models including reconstructor, scorer and classifier.

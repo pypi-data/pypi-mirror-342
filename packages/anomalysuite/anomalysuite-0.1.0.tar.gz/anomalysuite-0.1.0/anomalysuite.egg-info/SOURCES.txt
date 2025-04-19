@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+anomalysuite/__init__.py
+anomalysuite.egg-info/PKG-INFO
+anomalysuite.egg-info/SOURCES.txt
+anomalysuite.egg-info/dependency_links.txt
+anomalysuite.egg-info/top_level.txt
