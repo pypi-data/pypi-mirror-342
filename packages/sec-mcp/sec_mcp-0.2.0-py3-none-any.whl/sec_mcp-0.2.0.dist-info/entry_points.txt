@@ -1,0 +1,3 @@
+[console_scripts]
+sec-mcp = sec_mcp.cli:cli
+sec-mcp-server = sec_mcp.start_server:main
