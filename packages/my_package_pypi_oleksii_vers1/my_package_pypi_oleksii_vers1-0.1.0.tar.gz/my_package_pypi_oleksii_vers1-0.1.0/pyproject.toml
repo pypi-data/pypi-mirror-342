@@ -1,0 +1,14 @@
+[project]
+name = "my_package_pypi_oleksii_vers1"
+version = "0.1.0"
+description = "my_package_pypi_oleksii_vers1"
+readme = "README.md"
+authors = [
+    { name = "Oleksii Saiun", email = "oleksiisaiun@example.com" }
+]
+requires-python = "==3.11.*"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
