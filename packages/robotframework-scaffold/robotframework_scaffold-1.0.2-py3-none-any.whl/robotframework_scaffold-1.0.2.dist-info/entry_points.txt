@@ -1,0 +1,3 @@
+[console_scripts]
+robot-scaffold=robotframework_scaffold.cli:main
+
