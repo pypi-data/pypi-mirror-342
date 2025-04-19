@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: utilita-net
+Version: 0.0.8
+Summary: utilita but with helpers for web services
+Home-page: https://github.com/trtrojo
+Download-URL: https://github.com/trtrojo
+Author: Tommy Rojo
+Author-email: tr.trojo@gmail.com
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+License-File: LICENSE
