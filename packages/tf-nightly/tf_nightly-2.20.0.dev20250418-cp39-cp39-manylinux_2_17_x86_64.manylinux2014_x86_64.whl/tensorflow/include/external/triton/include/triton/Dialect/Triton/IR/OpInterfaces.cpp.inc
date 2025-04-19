@@ -1,0 +1,33 @@
+/*===- TableGen'erated file -------------------------------------*- C++ -*-===*\
+|*                                                                            *|
+|* Interface Definitions                                                      *|
+|*                                                                            *|
+|* Automatically generated file, do not edit!                                 *|
+|*                                                                            *|
+\*===----------------------------------------------------------------------===*/
+
+
+/// Get the LHS A tensor
+::mlir::Value mlir::triton::DotOpInterface::getA() {
+      return getImpl()->getA(getImpl(), getOperation());
+  }
+
+/// Get the RHS B tensor
+::mlir::Value mlir::triton::DotOpInterface::getB() {
+      return getImpl()->getB(getImpl(), getOperation());
+  }
+
+/// Verify the dimensions of the A and B DotOp operands.
+bool mlir::triton::DotOpInterface::verifyDims() {
+      return getImpl()->verifyDims(getImpl(), getOperation());
+  }
+
+/// Get the source operand of the transposition.
+::mlir::Value mlir::triton::TransposeOpInterface::getSrc() {
+      return getImpl()->getSrc(getImpl(), getOperation());
+  }
+
+/// Get the order of the transposition.
+::mlir::ArrayRef<int32_t> mlir::triton::TransposeOpInterface::getOrder() {
+      return getImpl()->getOrder(getImpl(), getOperation());
+  }
