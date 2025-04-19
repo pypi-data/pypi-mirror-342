@@ -1,0 +1,3 @@
+[console_scripts]
+fireblocks-cli=fireblocks_cli.main:app
+
