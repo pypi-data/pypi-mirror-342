@@ -1,0 +1,158 @@
+Metadata-Version: 2.4
+Name: gemini_live_ws_server
+Version: 0.1.2
+Summary: A Python ASGI Socket.IO server proxying to Gemini Live via WebSockets
+Author: omanand swami
+Project-URL: Homepage, https://github.com/omanandswami2005/gemini_live_ws_server_pipy
+Project-URL: Repository, https://github.com/omanandswami2005/gemini_live_ws_server_pipy
+Keywords: fastapi,socketio,websockets,gemini,ai,server,voice,chat,live
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: FastAPI
+Classifier: Topic :: Internet :: WWW/HTTP
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.95
+Requires-Dist: python-socketio>=5.9
+Requires-Dist: websockets>=11.0
+Requires-Dist: PyJWT>=2.8
+Requires-Dist: uvicorn>=0.20
+
+# 🎙️ Gemini Live Web Socket Server
+
+**A Python ASGI Socket.IO server that proxies to Google’s Gemini API over WebSockets**
+
+> *Bridging real-time [clients ](https://www.npmjs.com/package/gemini-live-web-sdk)with powerful AI services, complete with JWT authentication, CORS support, and metrics!*
+
+---
+
+## 🚀 Features
+
+* 🔄 **Real-time** bi-directional messaging via Socket.IO
+* 🌐 **ASGI** server built on FastAPI + Uvicorn
+* 🛡️ **JWT Authentication** (or pluggable auth middleware)
+* 🔧 **Tool Presets** for `translate_text`, `summarize_text`, `generate_code` calls
+* 🔄 **WebSocket Bridge** to Gemini (`models/gemini-2.0-flash-exp`)
+* 📊 **Optional Metrics** (active connections, processed messages, errors)
+* 🛬 **Graceful Startup & Shutdown**
+* 🔧  **Configurable** : CORS, retry/backoff, hooks, debug logging
+
+---
+
+## 📦 Installation
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/omanandswami2005/gemini_live_ws_server_pipy.git
+   cd gemini_live_ws_server_pipy
+   ```
+2. **Create & activate a virtual environment**
+   ```bash
+   python -m venv myenv
+   source myenv/bin/activate   # macOS/Linux
+   myenv\Scripts\activate    # Windows
+   ```
+3. **Install dependencies**
+   ```bash
+   pip install .             # published on PyPI
+   ```
+
+> Tip: you can also install directly from PyPI:
+>
+> ```bash
+> pip install --index-url https://pypi.org/simple/gemini_live_ws_server
+> ```
+
+---
+
+## ⚙️ Configuration
+
+Create a `.env` file or pass flags to your script:
+
+```ini
+GOOGLE_API_KEY=your_google_api_key_here
+JWT_SECRET=super_secret_key
+PORT=8080
+CORS_ORIGINS=http://localhost:3000,http://yourdomain.com
+DEBUG=true
+```
+
+> 🔑  **Environment Variables** :
+>
+> * `GOOGLE_API_KEY`: 🔗 Your Google Cloud API key with Generative API access
+> * `JWT_SECRET`: 🛡️ Secret for signing/verifying Socket.IO tokens
+> * `PORT`: 🖥️ Server listening port (default: 8080)
+> * `CORS_ORIGINS`: 🌐 Comma-separated origins for CORS
+> * `DEBUG`: 🐞 `true` or `false` for verbose logging
+
+---
+
+## 🎬 Usage
+
+```bash
+python -m gemini_live_ws_server.main_server
+```
+
+**OR** using Uvicorn directly:
+
+```bash
+uvicorn gemini_live_ws_server.main_server:server --host 127.0.0.1 --port 8080 --reload
+```
+
+Once running, clients can connect to `ws://your_host:PORT/socket.io/` with a valid JWT:
+
+```js
+import io from 'socket.io-client';
+
+const socket = io('http://localhost:8080', {
+  auth: { token: '<YOUR_JWT_TOKEN>' }
+});
+
+socket.on('ready', () => console.log('🟢 Connected!'));
+socket.on('message', msg => console.log('📨 AI:', msg));
+```
+
+---
+
+## 💡 Examples
+
+### Translate Text
+
+```js
+socket.emit('message', {
+  toolCall: {
+    functionName: 'translate_text',
+    arguments: { text: 'Hello, world!', targetLanguage: 'es' }
+  }
+});
+```
+
+### Summarize Text
+
+```js
+socket.emit('message', {
+  toolCall: {
+    functionName: 'summarize_text',
+    arguments: { text: longParagraph, maxLength: 50 }
+  }
+});
+```
+
+---
+
+## 📝 Contributing
+
+1. ⭐ **Star** this repo
+2. 🔀 **Fork** it
+3. ✨ Create a feature branch (`git checkout -b feature/new-thing`)
+4. 🛠️ Make changes & **commit** (`git commit -m 'feat: add awesome feature'`)
+5. 🔄 **Push** to the branch (`git push origin feature/new-thing`)
+6. 📥 **Open a Pull Request**
+
+We welcome bug reports, feature requests, and code contributions! ❤️
+
+---
+
+## 📜 License
+
+This project is licensed under the Apache 2.0
+
+*Made with ❤️ by omiii 😅*

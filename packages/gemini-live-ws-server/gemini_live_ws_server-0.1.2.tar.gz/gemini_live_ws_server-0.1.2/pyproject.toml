@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gemini_live_ws_server"
+version = "0.1.2"
+description = "A Python ASGI Socket.IO server proxying to Gemini Live via WebSockets"
+readme = "README.md"
+authors = [
+  { name = "omanand swami"}
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Framework :: FastAPI",
+  "Topic :: Internet :: WWW/HTTP",
+]
+dependencies = [
+  "fastapi>=0.95",
+  "python-socketio>=5.9",
+  "websockets>=11.0",
+  "PyJWT>=2.8",
+  "uvicorn>=0.20",
+]
+keywords = ["fastapi", "socketio", "websockets", "gemini", "ai", "server", "voice", "chat", "live"]
+
+[project.urls]
+"Homepage" = "https://github.com/omanandswami2005/gemini_live_ws_server_pipy"
+"Repository" = "https://github.com/omanandswami2005/gemini_live_ws_server_pipy"
