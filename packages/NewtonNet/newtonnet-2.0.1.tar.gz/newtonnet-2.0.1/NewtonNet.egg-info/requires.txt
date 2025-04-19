@@ -1,0 +1,12 @@
+numpy<2.0.0
+scipy
+scikit-learn
+pandas
+ase
+tqdm
+pyyaml
+wandb
+torch
+torch_geometric
+torch_scatter
+torch_cluster
