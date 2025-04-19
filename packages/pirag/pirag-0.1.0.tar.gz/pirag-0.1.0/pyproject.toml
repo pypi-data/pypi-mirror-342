@@ -1,0 +1,39 @@
+[project]
+name = "pirag"
+version = "0.1.0"
+description = "CLI Projects of On-Premise RAG. You can use your own LLM and vector DB. Or just add remote LLM servers and vector DB."
+authors = [
+    { name="semir4in", email="semir4in@gmail.com" },
+    { name="jyje", email="jyjeon@outlook.com" }
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dynamic = ["dependencies"]
+
+[project.urls]
+Homepage = "https://github.com/jyje/pilot-onpremise-rag"
+Repository = "https://github.com/jyje/pilot-onpremise-rag"
+Issue = "https://github.com/jyje/pilot-onpremise-rag/issues"
+
+[project.scripts]
+pirag = "app.main:main"
+
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "wheel<0.46",
+    "build>=1.0.3",
+    "pip>=23.0",
+    "tomli<2.1",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["app", "app.rag"]
+
+[tool.setuptools.package-dir]
+app = "app"
+"app.rag" = "app/rag"
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["app/requirements.txt"]}
