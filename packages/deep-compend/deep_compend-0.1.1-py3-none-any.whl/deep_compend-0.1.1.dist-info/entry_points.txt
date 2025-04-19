@@ -1,0 +1,2 @@
+[console_scripts]
+deep-compend = deep_compend.cli:main
