@@ -1,0 +1,48 @@
+# SPDX-FileCopyrightText: 2021 Luke Granger-Brown <git@lukegb.com>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[project]
+name = "buildcatrust"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSES/*.txt", "AUTHORS"]
+readme = "README.md"
+authors = [
+    {name = "Luke Granger-Brown", email = "buildcatrust@lukegb.com"},
+    {name = "Ryan Lahfa", email = "ryan@lahfa.xyz"},
+]
+maintainers = [
+    {name = "Luke Granger-Brown", email = "buildcatrust@lukegb.com"},
+]
+dynamic = ["description", "version"]
+
+[project.urls]
+Source = "https://github.com/nix-community/buildcatrust"
+
+[project.scripts]
+buildcatrust = "buildcatrust.cli:main"
+
+[build-system]
+requires = ["flit_core >=3.12,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.pytest.ini_options]
+testpaths = ["buildcatrust"]
+
+[tool.pytype]
+inputs = ["buildcatrust"]
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I"]
+ignore = [
+  "E501",  # drop E501 line-too-long, format will do its best
+]
+
+[tool.ruff.lint.isort]
+force-single-line = true
+force-sort-within-sections = true
+# lexicographical
+single-line-exclusions = ["typing"]
+order-by-type = false
+# group-by-package
