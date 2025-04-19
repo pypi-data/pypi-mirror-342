@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: dapcy
+Version: 1.2.0
+Summary: A sklearn implementation of DAPC for population genetics
+Home-page: https://gitlab.com/uhasselt-bioinfo/dapcy
+Author: Alejandro Correa Rojo
+Author-email: alejandro.correarojo@uhasselt.be
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: joblib
+Requires-Dist: sgkit
+Requires-Dist: pandas
+Requires-Dist: seaborn
+
+# Dapcy
+
+A sklearn classifier package.
+
+## Installation
+
+```sh
+pip install dapcy
