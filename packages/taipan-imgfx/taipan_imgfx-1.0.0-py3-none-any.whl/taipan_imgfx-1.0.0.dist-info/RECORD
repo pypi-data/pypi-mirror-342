@@ -1,0 +1,15 @@
+bundles/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bundles/effect_bundles.py,sha256=i4Sm_eevhbm47nft8YSJYLUv-3nL_gs9iD9unRZ_YLA,2754
+effects/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+effects/image_effects.py,sha256=6yZVg5_rH87nidpik9xr0Ks0av5ewuV16Yxv80yPRU0,14247
+post_effects/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+post_effects/post_image_effects.py,sha256=7nIzZOK21_7uMszlHf4de8piy4T81jClS0oYwqqWclQ,8347
+scripts/pixel_sorting.py,sha256=ghuRJagyiHgnhH4JBWWCEPMWCjyNh83WQl2jurVs0nY,1004
+taipan_imgfx-1.0.0.dist-info/licenses/LICENSE.md,sha256=uAXkBQTg_117I18W-rnAP_EOqBnQpA0qmm27p0DHE60,1172
+utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+utils/fileman.py,sha256=DVEvsrOoh_uS3eYJeK_pJdllnNSfnOJj8ezBPEnWYrE,1955
+utils/image.py,sha256=jREm3A8gjMmDvOsEIDkabGPgJ05PyOQNF42Z1fNsuME,2823
+taipan_imgfx-1.0.0.dist-info/METADATA,sha256=q1IRUFYXD9CyhCvDI36eRquyYYNq_L3XCTAVYM9RrJs,2062
+taipan_imgfx-1.0.0.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+taipan_imgfx-1.0.0.dist-info/top_level.txt,sha256=4JsOm7-Saw9PwcxIGkAYhHaJQ58ShH_uKzlEr6CnshY,43
+taipan_imgfx-1.0.0.dist-info/RECORD,,
