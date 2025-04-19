@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: agentmode
+Version: 0.1.2
+Summary: MCP server for VS code
+Project-URL: Homepage, https://www.agentmode.app
+Keywords: ai,mcp
+Requires-Python: >=3.13
+Requires-Dist: click>=8.1.8
+Requires-Dist: httpx>=0.28.1
