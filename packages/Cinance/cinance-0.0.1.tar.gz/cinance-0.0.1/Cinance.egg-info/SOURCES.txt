@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+Cinance/__init__.py
+Cinance/requests_candle_data.py
+Cinance/test_requests_candle_data.py
+Cinance.egg-info/PKG-INFO
+Cinance.egg-info/SOURCES.txt
+Cinance.egg-info/dependency_links.txt
+Cinance.egg-info/requires.txt
+Cinance.egg-info/top_level.txt
