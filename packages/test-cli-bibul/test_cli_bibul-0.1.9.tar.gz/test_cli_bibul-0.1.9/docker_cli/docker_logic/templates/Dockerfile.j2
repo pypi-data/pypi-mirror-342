@@ -1,0 +1,111 @@
+FROM {{base}} AS base-env
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# TO-DO : Add the rest of the dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    git-lfs \
+    fontconfig \
+    supervisor ca-certificates openssh-server libpam-ldap libnss-ldap ldap-utils sudo curl pip pre-commit\
+    {% if extra_packages %}{{ extra_packages | join(" ") }}{% endif %} && \
+    git lfs install && \
+    fc-cache -f -v && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+
+# add pre-commit
+RUN echo 'cd /workspace' >> /etc/skel/.bashrc && echo 'pre-commit install' >> /etc/skel/.bashrc
+
+### UV CONFIGURATION ### 
+
+ENV UV_PROJECT_ENVIRONMENT="/opt/venvs"
+ENV UV_CACHE_DIR="/.cache/.uv_cache"
+
+RUN echo 'export UV_PROJECT_ENVIRONMENT='$UV_PROJECT_ENVIRONMENT >> /etc/skel/.bashrc \
+    && echo 'export UV_CACHE_DIR='$UV_CACHE_DIR >> /etc/skel/.bashrc \
+    && echo 'source $UV_PROJECT_ENVIRONMENT/bin/activate' >> /etc/skel/.bashrc
+
+# Download and install uv
+RUN curl -LsSf https://astral.sh/uv/install.sh | env UV_INSTALL_DIR="/bin" sh \
+    && chmod +x /bin/uv
+
+ENV PATH="/bin:$UV_PROJECT_ENVIRONMENT/bin:$PATH"
+
+
+### SSH AND LDAP CONFIGURATION ###
+
+RUN mkdir -p /var/log/supervisor
+RUN mkdir /var/run/nscd
+COPY ./conf_files/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# start service ssh
+RUN mkdir -p /var/run/sshd
+
+
+# Expose port for the ssh connection
+EXPOSE 22
+EXPOSE 8888
+
+RUN mkdir -p /.cache && chmod 777 /.cache
+
+
+{% if with_probayes %}
+
+
+# #####################################################################################################################
+# Probayes specifics - LDAP configuration for SSH remote
+# #####################################################################################################################
+
+FROM base-env AS pby-env
+
+# copy custom scripts
+RUN mkdir -p /opt/bin/probayes
+COPY ./conf_files/fetch_ssh_public_keys.sh /opt/bin/probayes/fetch_ssh_public_keys.sh
+
+RUN chmod a+x /opt/bin/probayes/fetch_ssh_public_keys.sh
+
+# create dir for cache
+RUN mkdir -p /var/cache/ldap4ssh
+
+# copy and set config
+COPY ./conf_files/libnss-ldap.conf /etc/libnss-ldap.conf
+COPY ./conf_files/pam_ldap.conf /etc/pam_ldap.conf
+COPY ./conf_files/ldap.conf /etc/ldap.conf
+COPY ./conf_files/pam_mkhomedir.conf /usr/share/pam-configs/my_mkhomedir
+RUN sed -i 's/^#AuthorizedKeysCommand .*$/AuthorizedKeysCommand \/opt\/bin\/probayes\/fetch_ssh_public_keys.sh/' /etc/ssh/sshd_config
+RUN sed -i 's/^#AuthorizedKeysCommandUser .*$/AuthorizedKeysCommandUser root/' /etc/ssh/sshd_config
+RUN sed -i 's/^#PasswordAuthentication .*$/PasswordAuthentication no/' /etc/ssh/sshd_config
+RUN sed -E -i 's/^(passwd|group|shadow):.*$/& ldap/' /etc/nsswitch.conf
+RUN mkdir -p /etc/ldap
+RUN echo 'TLS_CACERT  /etc/ssl/certs/ca-certificates.crt' >> /etc/ldap/ldap.conf
+RUN echo '%probayes   ALL=(ALL:ALL) ALL' >> /etc/sudoers.d/ldap
+RUN pam-auth-update --package
+
+# authorize group
+RUN echo "ALLOWED_GROUPS='probayes'" >> /etc/default/ldap_authentication.conf
+
+COPY ./conf_files/config_git_user.sh /opt/bin/probayes/config_git_user.sh
+RUN echo 'bash /opt/bin/probayes/config_git_user.sh $USER' >> /etc/skel/.bashrc
+
+
+{% else %}
+# Image client sans configuration Probayes
+RUN echo "Image sans config Probayes"
+{% endif %}
+
+WORKDIR /workspace
+COPY . /workspace
+
+COPY ./conf_files/ruff_pre_commit.yaml /etc/skel/ruff_pre_commit.yaml
+
+
+# Copier le script d'initialisation
+COPY ./scripts/init_precommit.sh /usr/local/bin/init_precommit.sh
+RUN chmod +x /usr/local/bin/init_precommit.sh
+
+# Exécuter le script d'initialisation et ensuite passer à la commande donnée en argument
+ENTRYPOINT ["/usr/local/bin/init.sh"]
+
+CMD ["bash"]

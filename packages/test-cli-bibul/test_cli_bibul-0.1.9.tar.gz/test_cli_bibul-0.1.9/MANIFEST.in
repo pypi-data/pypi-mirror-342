@@ -1,0 +1,20 @@
+#Exclude venv
+prune venv 
+prune ./venv
+prune docker_cli/venv
+
+# Inclure tous les fichiers .py dans le projet
+recursive-include docker_cli *.py
+
+recursive-include docker_cli/docker_logic/conf_files *.sh
+recursive-include docker_cli/docker_logic/conf_files *.conf
+recursive-include docker_cli/docker_logic/conf_files *.yaml
+
+recursive-include docker_cli/docker_logic/scripts *.sh
+
+recursive-include docker_cli/docker_logic/templates *.j2
+
+# Exclure les fichiers qui ne doivent pas être inclus
+# (si besoin)
+# global-include *.pyc
+# global-include *.pyo
