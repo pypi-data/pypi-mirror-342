@@ -1,0 +1,7 @@
+[console_scripts]
+
+[gui_scripts]
+
+[nb_scripts]
+pcr = nonebot_plugin_pcr_sign.cli.__main__:main
+
