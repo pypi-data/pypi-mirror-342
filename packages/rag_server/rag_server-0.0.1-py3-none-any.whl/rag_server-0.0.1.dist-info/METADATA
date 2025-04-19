@@ -1,0 +1,46 @@
+Metadata-Version: 2.4
+Name: rag_server
+Version: 0.0.1
+Summary: A FastMCP-based RAG server for dynamic document ingestion
+Project-URL: Homepage, https://github.com/synehq/mcp-hybrid-rag
+Project-URL: Bug Tracker, https://github.com/synehq/mcp-hybrid-rag/issues
+Author-email: SyneHQ <human@synehq.com>
+License-Expression: MIT
+Requires-Python: >=3.10
+Requires-Dist: faiss-cpu
+Requires-Dist: fastmcp
+Requires-Dist: numpy
+Requires-Dist: openai
+Requires-Dist: pypdf2
+Requires-Dist: python-docx
+Requires-Dist: requests
+Requires-Dist: scikit-learn
+Requires-Dist: textract
+Description-Content-Type: text/markdown
+
+# RAG Server
+
+A FastMCP-based Retrieval-Augmented Generation server for dynamically ingesting public documents and querying them on-the-fly.
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+Ensure you set your OpenAI API key:
+
+```bash
+export OPENAI_API_KEY=your_key_here
+```
+
+## Running the server
+
+```bash
+python -m rag_server.server
+```
+
+## API Tools
+
+- ingest_urls(urls: List[str], session_id: Optional[str]) -> session_id
+- query_knowledge(session_id: str, question: str) -> answer
