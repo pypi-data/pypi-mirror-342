@@ -1,0 +1,26 @@
+{% extends "../base.html" %}
+
+{% block base_title %}{{ title }}{% endblock %}
+{% block base_url %}{{ url }}{% endblock %}
+
+{### Head ###}
+{###############################################}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{### Body ###}
+{###############################################}
+{% block body %}
+    {{ super() }}
+    <div id="app" role="application">
+        {% include "containers/../containers/header.tmpl" %}
+        <main id="app-main" role="main">
+            <section class="app-container">
+                {% block main %}{% endblock %}
+            </section>
+        </main>
+        {% include "containers/../containers/footer.tmpl" %}
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+{% endblock body %}

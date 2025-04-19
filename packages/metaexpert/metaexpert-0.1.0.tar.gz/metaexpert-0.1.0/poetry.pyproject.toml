@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "binance-expert"
+version = "0.1.0"
+description = "Application for Binance expert"
+authors = ["Oleg Alexandrov <alexandrovoleg.ru@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+binance-connector = "^3.8.1"
+pandas = "^2.2.2"
+numpy = "^2.0.1"
+flask = "^3.0.3"
+ta-lib = [
+    { platform = "win64", url = "https://github.com/cgohlke/talib-build/releases/download/v0.4.29/TA_Lib-0.4.29-cp311-cp311-win_amd64.whl" },
+    { platform = "linux", version = "^0.4.32", source = "pypi"}
+]
+#lightweight-charts = "^2.0.1"
+
+[tool.poetry.group.dev.dependencies]
+setuptools = "^72.1.0"
+ruff = "^0.5.6"
+python-dotenv-vault = "^0.6.4"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.2"
+
+[tool.poetry.scripts]
+dotenv-pull = "npx dotenv-vault@latest pull"
+dotenv-push = "npx dotenv-vault@latest push"
+flask-run = "flask run --app src/app"
+clean-cache = "poetry cache clear pypi --all && poetry cache clear _default_cache --all"
+
+[tool.ruff]
+line-length = 99
+src = ["src"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

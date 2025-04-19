@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "binance-python"
+version = "0.1.0"
+description = "Binance API"
+authors = ["Oleg Alexandrov <alexandrovoleg.ru@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+binance-connector = "^3.8.1"
+pandas = "^2.2.2"
+flask = "^3.0.3"
+psycopg = { extras = ["binary"], version = "^3.2.1" }
+websocket-client = "^1.8.0"
+websockets = "^12.0"
+ta-lib = "^0.4.32"
+lightweight-charts = "^2.0.1"
+
+[tool.poetry.group.dev.dependencies]
+requests = "^2.32.3"
+python-dotenv-vault = "^0.6.4"
+ruff = "^0.5.6"
+
+[tool.poetry.scripts]
+dotenv-pull = "npx dotenv-vault@latest pull"
+dotenv-push = "npx dotenv-vault@latest push"
+flask-run = "flask --app src/flask_app run"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

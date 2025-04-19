@@ -1,0 +1,10 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Custom Components */
+//@import "./components/button";
+
+button {
+  @apply rounded-full bg-gray-900 text-center py-2 px-4 text-white
+}

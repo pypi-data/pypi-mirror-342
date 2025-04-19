@@ -1,0 +1,21 @@
+[project]
+name = "expert-app"
+version = "0.1.0"
+description = "Expert App"
+authors = [{ name = "Oleg Alexandrov", email = "alexandrovoleg.ru@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "flask>=3.1.0",
+    "lightweight-charts>=2.1",
+]
+
+#[project.scripts]
+#flask = "flask --app src/app run"
+
+#[tool.uv.sources]
+#expert = { workspace = true, path = "src/expert" }
+#examples = { workspace = true, path = "src/examples" }
+#
+#[tool.uv.workspace]
+#members = ["examples/*", "src/*" ]

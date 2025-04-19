@@ -1,0 +1,60 @@
+{% extends "layouts/../layouts/base.tmpl" %}
+
+{### Head ###}
+{###############################################}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{### Body ###}
+{###############################################}
+{% block body %}
+    {{ super() }}
+    {% include "components/../components/chart.tmpl" %}
+{% endblock %}
+
+{### Main ###}
+{###############################################}
+{% block main %}
+    {{ super() }}
+    <h2 class="text-3xl text-clifford">
+        {{ self.base_title() }}
+    </h2>
+
+    {#    {{ infos|e }}#}
+    {#    <dl>#}
+    {#        {% for key, value in infos %}#}
+    {#            <dt>{{ key|e }}:</dt>#}
+    {#            <dd>{{ value|e }}</dd>#}
+    {#            <li>#}
+    {#                <label for={{ key }}>{{ key }}#}
+    {#                <select id={{ key }} name={{ key }}>#}
+    {#                    {% for item in value %}#}
+    {#                        <option>{{ value[item] }}</option>#}
+    {#                    {% endfor %}#}
+    {#                </select>#}
+    {#                </label>#}
+    {#            </li>#}
+    {#        {% endfor %}#}
+    {#    </dl>#}
+
+    {#    <ol>#}
+    {#        {% for info in infos %}#}
+    {#            <li>#}
+    {#                {{ info }}#}
+    {#            </li>#}
+    {#        {% endfor %}#}
+    {#    </ol>#}
+
+    <label for="symbol">Symbol</label>
+    <select id="symbol" name="symbol">
+        {% for symbol in symbols %}
+            <option {% if loop.index == 2 %}selected{% endif %}
+                    {% if symbol["status"] != "TRADING" %}disabled{% endif %}>
+                {{ symbol["symbol"] }}
+            </option>
+        {% endfor %}
+    </select>
+
+    <div id="chart"></div>
+{% endblock %}

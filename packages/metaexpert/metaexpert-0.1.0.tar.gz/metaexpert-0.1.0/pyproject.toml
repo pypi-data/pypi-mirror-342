@@ -1,0 +1,86 @@
+[project]
+name = "metaexpert"
+version = "0.1.0"
+description = "MetaExpert library"
+authors = [{ name = "Oleg Alexandrov", email = "alexandrovoleg.ru@gmail.com" }]
+license = { text = "MIT License" }
+readme = "README.md"
+requires-python = ">=3.11"
+#classifiers = ["Private :: Do Not Upload"]
+keywords = ["trading", "crypto", "binance", "ta-lib", "technical analysis"]
+excluded = ["tests", "examples"]
+dependencies = [
+    "binance-connector>=3.12.0",
+    "flask>=3.1.0",
+    "lightweight-charts>=2.1",
+    "numpy>=2.2.4",
+    "pandas>=2.2.3",
+    "ta-lib==0.6.3",
+]
+
+[project.urls]
+homepage = "https://teratron.github.io/metaexpert"
+documentation = "https://teratron.github.io/metaexpert/docs"
+github = "https://github.com/teratron/metaexpert"
+repository = "https://github.com/teratron/metaexpert.git"
+
+#[project.scripts]
+#bot-ema = "examples/src/bot_ema:main"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0",
+    "python-dotenv-vault>=0.6.4",
+]
+lint = [
+    "ruff>=0.11.4",
+]
+test = [
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.25.3",
+]
+docs = [
+    "sphinx>=4.3.0",
+]
+
+[tool.uv]
+package = false
+link-mode = "copy"
+default-groups = [
+    "test",
+    "lint",
+    "docs",
+]
+
+[tool.uv.sources]
+ta-lib = { url = "https://github.com/cgohlke/talib-build/releases/download/v0.6.3/ta_lib-0.6.3-cp311-cp311-win_amd64.whl" }
+#metaexpert = { path = "src/metaexpert" }
+#logger = { path = "src/logger" }
+#api = { path = "api" }
+
+[tool.uv.workspace]
+members = [
+    #    "src",
+    #    "src/metaexpert",
+    #    "src/app",
+    #    "src/logger",
+    #"binance",
+    #"examples",
+]
+exclude = [
+    "tests",
+    "examples",
+]
+
+[tool.ruff]
+line-length = 99
+src = [
+    #"src",
+    #"app/src",
+    #"examples/src",
+    "tests",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

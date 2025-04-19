@@ -1,0 +1,17 @@
+{% block menu %}
+    <menu>
+        {% if url == "/" %}
+            <strong>Home</strong>
+        {% else %}
+            <a href="/apptic">Home</a>
+        {% endif %}
+        {% if url == "/about" %}
+            <strong>About</strong>
+        {% else %}
+            <a href="/about">About</a>
+        {% endif %}
+        <a href="/account">Account</a>
+        <a href="/exchange">Exchange</a>
+        <a href="/hello">Hello</a>
+    </menu>
+{% endblock %}

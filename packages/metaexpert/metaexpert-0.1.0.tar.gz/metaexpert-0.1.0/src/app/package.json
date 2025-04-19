@@ -1,0 +1,32 @@
+{
+  "name": "binance-expert",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Web application for Binance expert",
+  "type": "module",
+  "author": "Oleg Alexandrov <alexandrovoleg.ru@gmail.com>",
+  "homepage": "https://teratron.github.io/binance-expert",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy:gh": "gh-pages-clean && gh-pages -d build"
+  },
+  "dependencies": {
+    "lightweight-charts": "5.0.1",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "vite": "6.1.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@tailwindcss/typography": "^0.5.14",
+    "autoprefixer": "^10.4.20",
+    "gh-pages": "^6.1.1",
+    "postcss": "^8.4.41",
+    "sass": "^1.77.8",
+    "tailwindcss": "4.0.5"
+  }
+}

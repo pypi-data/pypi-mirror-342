@@ -1,0 +1,81 @@
+Metadata-Version: 2.4
+Name: metaexpert
+Version: 0.1.0
+Summary: MetaExpert library
+Project-URL: homepage, https://teratron.github.io/metaexpert
+Project-URL: documentation, https://teratron.github.io/metaexpert/docs
+Project-URL: github, https://github.com/teratron/metaexpert
+Project-URL: repository, https://github.com/teratron/metaexpert.git
+Author-email: Oleg Alexandrov <alexandrovoleg.ru@gmail.com>
+License: MIT License
+License-File: LICENSE
+Keywords: binance,crypto,ta-lib,technical analysis,trading
+Requires-Python: >=3.11
+Requires-Dist: binance-connector>=3.12.0
+Requires-Dist: flask>=3.1.0
+Requires-Dist: lightweight-charts>=2.1
+Requires-Dist: numpy>=2.2.4
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: ta-lib==0.6.3
+Description-Content-Type: text/markdown
+
+# MetaExpert
+
+[![PyPI version](https://badge.fury.io/py/metaexpert.svg)](https://badge.fury.io/py/metaexpert)
+[![Build Status](https://travis-ci.com/teratron/metaexpert.svg?branch=master)](https://travis-ci.com/teratron/metaexpert)
+[![Documentation Status](https://readthedocs.org/projects/metaexpert/badge/?version=latest)](https://metaexpert.readthedocs.io/en/latest/?badge=latest)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+---
+
+## Description
+
+## Visuals
+
+## Installation
+
+```shell
+
+```
+
+If you have already added **MetaExpert**, you can update to the latest version by using:
+
+```shell
+
+```
+
+## Usage
+
+```python
+
+```
+
+## Documentation
+
+## Examples
+
+You can find examples in the [example's directory](examples):
+
+-
+-
+-
+
+## Support
+
+## Roadmap
+
+## Contributing
+
+## Authors and acknowledgment
+
+## License
+
+[MIT License](LICENSE).
+
+## Project status
+
+_Project at the initial stage._
+
+See the latest [commits](https://github.com/teratron/metaexpert/commits/master).
+
+---
