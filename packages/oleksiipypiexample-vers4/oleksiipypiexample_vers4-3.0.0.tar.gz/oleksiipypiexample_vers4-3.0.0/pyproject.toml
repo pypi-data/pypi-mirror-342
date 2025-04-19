@@ -1,0 +1,18 @@
+[project]
+name = "oleksiipypiexample-vers4"
+version = "3.0.0"
+description = "A simple pypi project to call a greeting function"
+authors = [{ name="Oleksii Saiun", email="oleksiisaiun@example.com" }]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
