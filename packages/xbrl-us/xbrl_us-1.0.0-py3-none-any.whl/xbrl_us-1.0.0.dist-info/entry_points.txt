@@ -1,0 +1,2 @@
+[console_scripts]
+xbrl-us = xbrl_us.cli:main
