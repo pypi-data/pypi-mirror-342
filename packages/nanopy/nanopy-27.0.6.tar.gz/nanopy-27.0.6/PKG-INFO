@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: nanopy
+Version: 27.0.6
+License-Expression: MIT
+Project-URL: Repository, https://github.com/npy0/nanopy
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: mnemonic; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: pylint[spelling]; extra == "dev"
+Requires-Dist: pysocks; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: python-socks; extra == "dev"
+Requires-Dist: requests; extra == "dev"
+Requires-Dist: setuptools; extra == "dev"
+Requires-Dist: sphinx-autodoc-typehints; extra == "dev"
+Requires-Dist: types-requests; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Requires-Dist: websocket-client; extra == "dev"
+Provides-Extra: mnemonic
+Requires-Dist: mnemonic; extra == "mnemonic"
+Provides-Extra: rpc
+Requires-Dist: requests; extra == "rpc"
+Requires-Dist: websocket-client; extra == "rpc"
+Provides-Extra: tor
+Requires-Dist: pysocks; extra == "tor"
+Requires-Dist: python-socks; extra == "tor"
+Dynamic: license-file
