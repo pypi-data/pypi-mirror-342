@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: my_package_pypi_oleksii_vers1
+Version: 0.1.0
+Summary: my_package_pypi_oleksii_vers1
+Author-email: Oleksii Saiun <oleksiisaiun@example.com>
+Requires-Python: ==3.11.*
+Description-Content-Type: text/markdown
+
+# Python_Lab_6_OOP_monaco_report
+It's the Python app that implements Monaco Racing Report in OOP format
