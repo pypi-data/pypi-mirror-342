@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: securebot-sdk
+Version: 0.1.1
+Summary: Securebot SDK
+Project-URL: Homepage, https://github.com/securebotinc/securebot-sdk
+Project-URL: Bug Tracker, https://github.com/securebotinc/securebot-sdk/issues
+Author-email: Securebot <guhan@securebot.ai>
+License: MIT
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.12
+Requires-Dist: colorama==0.4.6
+Requires-Dist: crewai[tools]>=0.95.0
+Requires-Dist: httpx==0.28.1
+Requires-Dist: openinference-semantic-conventions>=0.1.17
+Requires-Dist: opentelemetry-api>=1.32.0
+Requires-Dist: opentelemetry-sdk>=1.32.0
+Requires-Dist: tenacity==9.1.2
+Provides-Extra: dev
+Requires-Dist: pytest>=8.3.5; extra == 'dev'
+Description-Content-Type: text/markdown
+
+## securebot-sdk
+
+
+### Development
+
+install pre-commit hooks
+```
+pre-commit install
+```

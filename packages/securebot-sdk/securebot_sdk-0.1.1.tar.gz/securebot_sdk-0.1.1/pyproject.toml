@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "securebot-sdk"
+version = "0.1.1"
+description = "Securebot SDK"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "Securebot", email = "guhan@securebot.ai"},
+]
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "crewai[tools]>=0.95.0",
+    "colorama==0.4.6",
+    "httpx==0.28.1",
+    "tenacity==9.1.2",
+    "openinference-semantic-conventions>=0.1.17",
+    "opentelemetry-api>=1.32.0",
+    "opentelemetry-sdk>=1.32.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.5",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/securebot_sdk"]
+
+[project.urls]
+"Homepage" = "https://github.com/securebotinc/securebot-sdk"
+"Bug Tracker" = "https://github.com/securebotinc/securebot-sdk/issues"
