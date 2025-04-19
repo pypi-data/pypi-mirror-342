@@ -1,0 +1,4 @@
+[console_scripts]
+project-version=ci_version_tools.project:main
+version-env-vars=ci_version_tools.version_env_vars:main
+
