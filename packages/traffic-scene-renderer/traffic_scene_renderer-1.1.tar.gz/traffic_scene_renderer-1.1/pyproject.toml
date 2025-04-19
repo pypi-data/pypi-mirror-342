@@ -1,0 +1,101 @@
+[build-system]
+requires = ["setuptools>=68", "setuptools_scm[toml]>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "traffic_scene_renderer"
+version = "1.1"
+requires-python = ">=3.8"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "utm"
+]
+authors = [
+    {name="Erwin de Gelder", email="erwindegelder@gmail.com"},
+]
+readme = "README.md"
+license = {file = "LICENSE"}
+
+# Enables the usage of setuptools_scm
+[tool.setuptools_scm]
+
+[project.optional-dependencies]
+lint = [
+    "mypy",
+    "ruff"
+]
+test = [
+    "pytest==7.4.1",
+    "pytest-cov==4.1.0",
+    "coverage[toml]==7.3.1",
+]
+build = [
+]
+dev = [
+    "tox",
+    "tox-pyenv-redux",
+    "traffic_scene_renderer[lint]",
+    "traffic_scene_renderer[test]",
+    "traffic_scene_renderer[build]",
+]
+
+[tool.ruff]
+line-length = 100
+src = ["src"]
+extend-exclude = [
+    "conf.py",
+]
+target-version = "py38"
+lint.select = ["ALL"]
+lint.ignore = [
+    "COM812",   # Conflicts with the formatter
+    "ISC001",   # Conflicts with the formatter
+    "PT001",    # https://github.com/astral-sh/ruff/issues/8796#issuecomment-1825907715
+    "PT023",    # https://github.com/astral-sh/ruff/issues/8796#issuecomment-1825907715
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = [
+    "S101", # Use of `assert` detected
+    "D103", # Missing docstring in public function
+]
+"**/__init__.py" = [
+    "F401", # Imported but unused
+]
+
+[tool.ruff.lint.pyupgrade]
+# Preserve types, even if a file imports `from __future__ import annotations`(https://github.com/astral-sh/ruff/issues/5434)
+keep-runtime-typing = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.mypy]
+disallow_untyped_defs = true # Functions need to be annotated
+warn_unused_ignores = true
+exclude = [
+    "traffic_scene_renderer-\\d+", # Ignore temporary folder created by setuptools when building an sdist
+    "venv.*/",
+    "build/",
+    "dist/",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+addopts = """
+    --import-mode=append
+    --cov=traffic_scene_renderer
+    --cov-config=pyproject.toml
+    --cov-report=
+    """
+
+[tool.coverage.paths]
+# Maps coverage measured in site-packages to source files in src
+source = ["src/", ".tox/*/lib/python*/site-packages/"]
+
+[tool.coverage.html]
+directory = "reports/coverage_html"
+
+[tool.pypi-publisher]
+repository = "pypi"
