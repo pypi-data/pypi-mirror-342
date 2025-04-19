@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "t_reporting_sdk"
+description = "The Reporting SDK is a lightweight SDK utilized by ThoughtfulAI agents to report information about the individual units of execution an Agent performs."
+version = "0.6.1"
+authors = [
+    { name="Thoughtful", email="support@thoughtful.ai" }
+]
+requires-python = ">= 3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pyjwt>=2.9.0",
+    "requests>=0.14.0",
+    "pydantic>=2.10.0",
+    "pyotp>=2.9.0",
+]

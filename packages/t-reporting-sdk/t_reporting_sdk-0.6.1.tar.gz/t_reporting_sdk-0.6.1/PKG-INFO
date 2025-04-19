@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: t_reporting_sdk
+Version: 0.6.1
+Summary: The Reporting SDK is a lightweight SDK utilized by ThoughtfulAI agents to report information about the individual units of execution an Agent performs.
+Author-email: Thoughtful <support@thoughtful.ai>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Requires-Dist: pyjwt>=2.9.0
+Requires-Dist: requests>=0.14.0
+Requires-Dist: pydantic>=2.10.0
+Requires-Dist: pyotp>=2.9.0
