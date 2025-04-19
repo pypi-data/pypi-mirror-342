@@ -1,0 +1,5 @@
+pyparsing>=3.2.3
+gitignore-parser>=0.1.12
+
+[dev]
+pytest>=8.3.5
