@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: alc_attacks
+Version: 1.0.5
+Summary: A collection of attacks on synthetic data using the anonymity loss coefficient (ALC).
+Home-page: https://github.com/yoid2000/alc_attacks
+Author: Paul Francis
+Author-email: paul@francis.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: pandas>=1.0.0
+Requires-Dist: numpy>=1.18.0
+Requires-Dist: matplotlib>=3.0.0
+Requires-Dist: anonymity_loss_coefficient>=1.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
