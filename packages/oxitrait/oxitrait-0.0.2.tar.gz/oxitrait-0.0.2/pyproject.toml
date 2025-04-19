@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oxitrait"
+version = "0.0.2"
+description = "A oxidized trait system for modern Python"
+readme = "README.md"
+license = { file = "LICENSE.txt" }
+authors = [
+  { name = "HeroesLament", email = "nunya@biz.com" }
+]
+keywords = ["traits", "rust", "enums", "metaclass", "abc", "dataclass"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+requires-python = ">=3.9"
+
+# List runtime dependencies here (if any).
+dependencies = [
+]
+
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8.3.5",
+]
+
+[project.urls]
+"Source Code" = "https://github.com/HeroesLament/oxitrait"
+"Issues" = "https://github.com/HeroesLament/oxitrait/issues"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages]
+find = { where = ["src"], include = ["oxitrait"] }
