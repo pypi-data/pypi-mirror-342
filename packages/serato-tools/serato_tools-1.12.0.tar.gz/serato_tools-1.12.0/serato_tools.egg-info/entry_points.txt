@@ -1,0 +1,2 @@
+[console_scripts]
+analyze_beatgrid = track_beatgrid:main
