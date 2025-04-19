@@ -1,0 +1,9 @@
+pz-rail-base>=1.1.4
+scikit-learn
+
+[dev]
+qp-prob[full]
+pytest
+pytest-cov
+pre-commit
+pylint
