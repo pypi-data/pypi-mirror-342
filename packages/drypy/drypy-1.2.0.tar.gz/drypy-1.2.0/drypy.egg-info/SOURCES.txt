@@ -1,0 +1,13 @@
+LICENSE.txt
+README.rst
+setup.py
+drypy/__init__.py
+drypy/patterns.py
+drypy/test_utils.py
+drypy/tests.py
+drypy/utils.py
+drypy.egg-info/PKG-INFO
+drypy.egg-info/SOURCES.txt
+drypy.egg-info/dependency_links.txt
+drypy.egg-info/requires.txt
+drypy.egg-info/top_level.txt
