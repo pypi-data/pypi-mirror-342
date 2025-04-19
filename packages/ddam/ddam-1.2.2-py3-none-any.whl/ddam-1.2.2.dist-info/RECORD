@@ -1,0 +1,15 @@
+ddam/__init__.py,sha256=9XIyaff8Q6chckQnjYaz3xPcPoY9PGmVDECLwUeQV8g,10695
+ddam/as_helper.py,sha256=atlxMW9G4wQ2BlIZTqGi-bvbG0YKAakSaH4_746wwm4,2593
+ddam/data.py,sha256=hPC_6oUd-I1TOOa_Uid0Sum3wyQmOuq6Bd7_EY8cXgI,2312
+ddam/exabgp_conf.py,sha256=U3CiPgBS1xtsCB4B3cpXdieZjOuU9ckv8eNgHSBLBAY,1681
+ddam/metrics.py,sha256=HDBCQIubKsDs-62IHe06bxhpoJMNFeCijwjl8W7a7c8,818
+ddam/smtp.py,sha256=wpa2zB2igKTdteaXuRgDz0VQulZlXJN-dG7Lo3FO20Y,1011
+ddam/state.py,sha256=PuziDR3ItiPCUvIQ-R8uHc7z3hIJDixEzOo5GYNC3v0,3829
+ddam/templates/blackhole_email.txt.j2,sha256=J4eCdQ37NySiYGq9fUniIVOgv6SH1uhUEF5K7TwN1SA,78
+ddam/templates/exabgp.conf.j2,sha256=AZi4JXDjRmtse-H9flGA5q8iw6eTcZM4iVJFI-rKcSU,624
+ddam/templates/unblackhole_email.txt.j2,sha256=aXd1d4wXkG1AoicYvxie6xY6bb3vujfnIfI41XsHLAc,20
+ddam-1.2.2.dist-info/LICENSE,sha256=awX-_JtW_MOpVPESOgEZ2vcPTJDKb3KPc6gDyxlgzLo,1089
+ddam-1.2.2.dist-info/METADATA,sha256=rRDhyFjMvGlerQxncawmOK2Iaauw8ID_uaJBB5Cp1fo,9211
+ddam-1.2.2.dist-info/WHEEL,sha256=XbeZDeTWKc1w7CSIyre5aMDU_-PohRwTQceYnisIYYY,88
+ddam-1.2.2.dist-info/entry_points.txt,sha256=Z6eOP9R3wwyMSk6e7haLi3d3o7FQHSxwuhHbKQn4ShI,112
+ddam-1.2.2.dist-info/RECORD,,
