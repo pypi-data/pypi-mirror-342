@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: phi_decoding
+Version: 0.0.2
+Summary: Adaptive Foresight Sampling
+Home-page: https://github.com/xufangzhi/phi-Decoding
+Author: Fangzhi Xu, Hang Yan
+Author-email: fangzhixu98@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# PyPi Package of phi_decoding
+
+This is the Python package for the algorithm of $\phi$-Decoding.
+
+The original paper: φ-Decoding: Adaptive Foresight Sampling for Balanced Inference-Time Exploration and Exploitation.
+
+For more details, please refer to the official Github page: https://github.com/xufangzhi/phi-Decoding.
