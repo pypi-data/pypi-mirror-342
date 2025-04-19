@@ -1,0 +1,15 @@
+django_postgres_partition-0.1.0.dist-info/licenses/LICENSE,sha256=tp85wd3PTsKJB5P8aAhu6pkDXWpC9vBei20szah2zIo,1099
+psql_partition/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+psql_partition/apps.py,sha256=wsZeeHFk0uPaw7QPP5uOK29TO7tnlu4dOzuUjXuBK0M,225
+psql_partition/compiler.py,sha256=O2yORuEiqIh-t4ShDySJKYXyTGBmqTTYe-w5CyBp_qc,16532
+psql_partition/expressions.py,sha256=QZk4IQs2_9einCgZb5-UHXyWY6_HHAaBzWNGwj3-rgQ,6801
+psql_partition/lookups.py,sha256=UTcuvXbPBGIT7kD7EQbsJnm2UQAbcHkBAoU7BNF60as,1066
+psql_partition/query.py,sha256=Ly5OQBI_VLK5hWY7c3sNnVf5fxB2y_uVH8nBEztB6ag,19903
+psql_partition/settings.py,sha256=YRFJRNY_3SUtFB1mB4z2E_vSNnHCYm07NXN2imZbtaI,3754
+psql_partition/sql.py,sha256=NdRlf5gNHgi4-ip6ZK3QyBZBpnSZHKAFCS_ta2tQqZ8,7018
+psql_partition/type_assertions.py,sha256=710WURCN16HndxGKVIjkKW0NpBz3f3ORTjToesoEu-8,788
+psql_partition/types.py,sha256=GugLN_8vjwbGjeF7_cLEDhJbjTp_05X7L4R9ZtralVQ,874
+django_postgres_partition-0.1.0.dist-info/METADATA,sha256=LJjOCRX9t52vg1lTf_AFa9jliN3Wcx82yvc6JqcjStU,5864
+django_postgres_partition-0.1.0.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+django_postgres_partition-0.1.0.dist-info/top_level.txt,sha256=kvsQvL_OSiPGoTtTzQ8CpfO42Nlk5ZN8hDXW9TYcsKs,15
+django_postgres_partition-0.1.0.dist-info/RECORD,,
