@@ -1,0 +1,111 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastapi-authlib-keycloak"
+version = "0.2.5" # Updated with improved CORS origins handling
+description = "Seamless integration of FastAPI with Keycloak authentication using Authlib"
+readme = "README.md"
+authors = [{ name = "Harsha", email = "c0mpiler@ins8s.dev" }]
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Framework :: FastAPI",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: Session",
+    "Topic :: Security :: Cryptography",
+]
+keywords = [
+    "fastapi",
+    "keycloak",
+    "authentication",
+    "oauth",
+    "openid",
+    "authlib",
+    "swagger",
+    "metrics",
+    "debugging",
+    "rate-limiting",
+]
+dependencies = [
+    "fastapi>=0.95.0",
+    "authlib>=1.2.0",
+    "httpx>=0.24.0",
+    "pydantic>=1.10.0",
+    "starlette>=0.27.0",
+    "certifi>=2023.7.22",
+    "itsdangerous>=2.0.0",
+    "email-validator>=2.0.0",
+]
+requires-python = ">=3.8"
+
+[project.optional-dependencies]
+metrics = ["prometheus-client>=0.16.0"]
+debug = ["cryptography>=40.0.0"]
+redis = ["redis>=4.5.5"]
+all = ["prometheus-client>=0.16.0", "cryptography>=40.0.0", "redis>=4.5.5"]
+dev = [
+    "pytest>=7.3.1",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.3.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.3.0",
+    "prometheus-client>=0.16.0",
+    "cryptography>=40.0.0",
+    "redis>=4.5.5",
+]
+docs = [
+    "mkdocs>=1.4.3",
+    "mkdocs-material>=9.1.11",
+    "mkdocstrings>=0.22.0",
+    "mkdocstrings-python>=1.1.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/c0mpiler/fastapi-authlib-keycloak"
+Documentation = "https://c0mpiler.github.io/fastapi-authlib-keycloak"
+"Bug Tracker" = "https://github.com/c0mpiler/fastapi-authlib-keycloak/issues"
+"Source Code" = "https://github.com/c0mpiler/fastapi-authlib-keycloak"
+
+[tool.setuptools]
+# Using find_packages to automatically include all subpackages
+packages = [
+    "fastapi_authlib_keycloak",
+    "fastapi_authlib_keycloak.auth",
+    "fastapi_authlib_keycloak.ui",
+    "fastapi_authlib_keycloak.ui.static",
+    "fastapi_authlib_keycloak.utils",
+]
+
+[tool.setuptools.package-data]
+"fastapi_authlib_keycloak.ui.static" = ["*.css"]
+
+[tool.black]
+line-length = 100
+target-version = ["py38", "py39", "py310", "py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

@@ -1,0 +1,519 @@
+Metadata-Version: 2.4
+Name: fastapi-authlib-keycloak
+Version: 0.2.5
+Summary: Seamless integration of FastAPI with Keycloak authentication using Authlib
+Author-email: Harsha <c0mpiler@ins8s.dev>
+License: MIT
+Project-URL: Homepage, https://github.com/c0mpiler/fastapi-authlib-keycloak
+Project-URL: Documentation, https://c0mpiler.github.io/fastapi-authlib-keycloak
+Project-URL: Bug Tracker, https://github.com/c0mpiler/fastapi-authlib-keycloak/issues
+Project-URL: Source Code, https://github.com/c0mpiler/fastapi-authlib-keycloak
+Keywords: fastapi,keycloak,authentication,oauth,openid,authlib,swagger,metrics,debugging,rate-limiting
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: FastAPI
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Session
+Classifier: Topic :: Security :: Cryptography
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fastapi>=0.95.0
+Requires-Dist: authlib>=1.2.0
+Requires-Dist: httpx>=0.24.0
+Requires-Dist: pydantic>=1.10.0
+Requires-Dist: starlette>=0.27.0
+Requires-Dist: certifi>=2023.7.22
+Requires-Dist: itsdangerous>=2.0.0
+Requires-Dist: email-validator>=2.0.0
+Provides-Extra: metrics
+Requires-Dist: prometheus-client>=0.16.0; extra == "metrics"
+Provides-Extra: debug
+Requires-Dist: cryptography>=40.0.0; extra == "debug"
+Provides-Extra: redis
+Requires-Dist: redis>=4.5.5; extra == "redis"
+Provides-Extra: all
+Requires-Dist: prometheus-client>=0.16.0; extra == "all"
+Requires-Dist: cryptography>=40.0.0; extra == "all"
+Requires-Dist: redis>=4.5.5; extra == "all"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.3.1; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black>=23.3.0; extra == "dev"
+Requires-Dist: isort>=5.12.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.3.0; extra == "dev"
+Requires-Dist: prometheus-client>=0.16.0; extra == "dev"
+Requires-Dist: cryptography>=40.0.0; extra == "dev"
+Requires-Dist: redis>=4.5.5; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: mkdocs>=1.4.3; extra == "docs"
+Requires-Dist: mkdocs-material>=9.1.11; extra == "docs"
+Requires-Dist: mkdocstrings>=0.22.0; extra == "docs"
+Requires-Dist: mkdocstrings-python>=1.1.2; extra == "docs"
+Dynamic: license-file
+
+# FastAPI-Authlib-Keycloak
+
+[![PyPI version](https://badge.fury.io/py/fastapi-authlib-keycloak.svg)](https://badge.fury.io/py/fastapi-authlib-keycloak)
+[![Python Version](https://img.shields.io/pypi/pyversions/fastapi-authlib-keycloak.svg)](https://pypi.org/project/fastapi-authlib-keycloak/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A comprehensive integration between FastAPI, Authlib, and Keycloak for seamless authentication and authorization with an enhanced Swagger UI experience, robust metrics collection, and developer-friendly debugging utilities.
+
+## What's New in 0.2.1
+- **Pydantic v2 Compatibility** - Now fully compatible with both Pydantic v1 and v2
+- **Python 3.12 and 3.13 Support** - Added support for the latest Python versions
+- **Enhanced Environment Variable Handling** - Improved parsing for environment variables
+- **Fixed Dependency Issues** - Email validator now included as a direct dependency
+- **Reduced Dependencies** - Removed reliance on pkg_resources
+
+## Features
+
+- 🔒 **Complete Keycloak Authentication** - OAuth2/OpenID Connect integration with minimal setup
+- 🚀 **Enhanced Swagger UI** - Custom UI with authentication controls and token management
+- 🔐 **Role-Based Access Control** - Simple dependencies for role-based endpoints
+- 📊 **Metrics Collection** - Prometheus-compatible metrics for monitoring and observability
+- 🛠️ **Developer Debugging Tools** - Utilities for token inspection and validation
+- 🔥 **Enhanced JWT Validation** - JWKS caching, rotation support, and introspection
+- 🏥 **Health Check Endpoints** - Monitor Keycloak connectivity and service health
+- 📄 **SSL Certificate Management** - Utilities for proper SSL verification
+- 🔧 **Highly Configurable** - Customizable with sensible defaults
+- 🧩 **Modular Design** - Use only what you need
+
+## Installation
+
+```bash
+pip install fastapi-authlib-keycloak
+```
+
+## Quick Start
+
+```python
+from fastapi import FastAPI, Depends
+from fastapi_authlib_keycloak import KeycloakAuth, User
+
+app = FastAPI()
+
+# Initialize Keycloak authentication
+auth = KeycloakAuth(
+    app,
+    keycloak_url="https://your-keycloak-server.com/auth", 
+    keycloak_realm="your-realm",
+    client_id="your-client-id",
+    client_secret="your-client-secret",
+    # Enable metrics collection
+    metrics_enabled=True,
+    # See Development Environment Setup section for additional options
+)
+
+# Public endpoint
+@app.get("/public")
+async def public_route():
+    return {"message": "This is a public endpoint"}
+
+# Protected endpoint requiring authentication
+@app.get("/protected")
+async def protected_route(user: User = Depends(auth.get_current_user)):
+    return {
+        "message": f"Hello, {user.username}!",
+        "email": user.email,
+        "roles": user.roles
+    }
+
+# Role-based endpoint
+@app.get("/admin-only")
+async def admin_route(user: User = Depends(auth.require_roles(["admin"]))):
+    return {"message": "Admin access granted"}
+```
+
+## Compatibility
+
+This package is compatible with:
+
+- Python 3.8, 3.9, 3.10, 3.11, 3.12, and 3.13
+- FastAPI 0.95.0 and newer
+- Pydantic v1 (1.10.0+) and Pydantic v2
+- Authlib 1.2.0 and newer
+- Keycloak 10+ (including latest versions)
+
+## Documentation
+
+Visit our [documentation](https://c0mpiler.github.io/fastapi-authlib-keycloak) for detailed guides, API reference, and examples.
+
+### Features in Detail
+
+#### Enhanced Swagger UI Integration
+
+The package provides a custom Swagger UI that seamlessly integrates with Keycloak authentication. It includes:
+
+- Login/logout functionality directly in the UI
+- Token management and inspection
+- Automatic token refresh handling
+- Improved styling based on IBM Carbon Design System
+
+#### Authentication Flow Support
+
+- Authorization Code Flow
+- Password Grant Flow
+- Client Credentials Flow
+- Support for refresh tokens
+
+#### Role-Based Access Control
+
+Simple dependency functions for requiring specific roles:
+
+```python
+@app.get("/admin-only")
+async def admin_route(user = Depends(auth.require_roles(["admin"]))):
+    return {"message": "Admin access granted"}
+
+@app.get("/multiple-roles")
+async def multi_role_route(user = Depends(auth.require_roles(["editor", "reviewer"]))):
+    return {"message": "Access granted for editor or reviewer"}
+```
+
+#### Advanced JWT Validation
+
+Enhanced JWT validation with:
+
+- JWKS caching and automatic rotation
+- Support for token introspection
+- Configurable validation methods (JWT, introspection, or both)
+- Detailed error handling
+
+```python
+auth = KeycloakAuth(
+    app,
+    keycloak_url="https://your-keycloak-server.com/auth",
+    keycloak_realm="your-realm",
+    client_id="your-client-id",
+    client_secret="your-client-secret",
+    validation_method="both",  # Use both JWT and introspection for validation
+    jwks_cache_ttl=3600,       # Cache JWKS for 1 hour
+    introspection_cache_ttl=300  # Cache introspection results for 5 minutes
+)
+```
+
+#### Metrics Collection
+
+Built-in metrics collection for monitoring and observability:
+
+- Prometheus-compatible metrics endpoint
+- Authentication and authorization metrics
+- Performance metrics for token validation and API calls
+- Customizable metrics names and labels
+
+```python
+auth = KeycloakAuth(
+    app,
+    keycloak_url="https://your-keycloak-server.com/auth",
+    keycloak_realm="your-realm",
+    client_id="your-client-id",
+    client_secret="your-client-secret",
+    metrics_enabled=True,
+    metrics_route="/metrics"  # Custom metrics endpoint path
+)
+```
+
+#### Debugging Tools (Development Only)
+
+Developer-friendly debugging tools for token inspection and validation:
+
+- Token decoding and validation endpoints
+- JWKS inspection and validation
+- Certificate generation for development
+- Mock authentication for testing
+
+```python
+auth = KeycloakAuth(
+    app,
+    keycloak_url="https://your-keycloak-server.com/auth",
+    keycloak_realm="your-realm",
+    client_id="your-client-id",
+    client_secret="your-client-secret",
+    development_mode=True,
+    debug_endpoints_enabled=True
+)
+```
+
+#### Health Check Endpoints
+
+Built-in health check endpoints for monitoring:
+
+- Keycloak server connectivity
+- JWKS endpoint availability
+- Token validation service health
+
+```python
+# The health check endpoint is automatically registered at /health/keycloak
+# You can customize the path:
+auth = KeycloakAuth(
+    app,
+    keycloak_url="https://your-keycloak-server.com/auth",
+    keycloak_realm="your-realm",
+    client_id="your-client-id",
+    client_secret="your-client-secret",
+    health_route="/health/auth"
+)
+```
+
+#### SSL Certificate Verification
+
+Utilities for proper SSL certificate verification with Keycloak:
+
+- Automatic certificate installation in certifi bundle
+- Environment variable configuration for proper verification
+- Support for custom SSL certificates
+
+## Configuration Options
+
+The `KeycloakAuth` class accepts the following parameters:
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| app | FastAPI | FastAPI application instance |
+| keycloak_url | str | URL of the Keycloak server |
+| keycloak_realm | str | Keycloak realm name |
+| client_id | str | Client ID for the UI client |
+| client_secret | str | Client secret for the UI client |
+| api_base_url | Optional[str] | Base URL for the API |
+| api_client_id | Optional[str] | Client ID for the API client |
+| api_client_secret | Optional[str] | Client secret for the API client |
+| session_secret | Optional[str] | Secret key for session encryption |
+| session_max_age | int | Maximum session age in seconds |
+| session_https_only | bool | Whether session cookies should be HTTPS only |
+| session_same_site | str | Same-site policy for cookies (lax, strict, none) |
+| cors_origins | List[str] | List of allowed CORS origins |
+| cors_credentials | bool | Whether to allow credentials in CORS |
+| ssl_enabled | bool | Whether to enable SSL certificate verification |
+| ssl_verify | Union[bool, str] | SSL verification mode (True: standard verification, False: disable, or path to certificate) |
+| ssl_cert_file | Optional[str] | Path to SSL certificate file |
+| ssl_key_file | Optional[str] | Path to SSL key file |
+| development_mode | bool | Enable development-friendly defaults |
+| allow_http | bool | Allow HTTP for Keycloak URL (insecure, for development only) |
+| jwks_cache_ttl | int | Cache time for JWKS in seconds |
+| jwks_file | Optional[str] | Path to a local JWKS file for offline verification |
+| on_ssl_error | str | How to handle SSL errors ('raise', 'warn', or 'ignore') |
+| custom_swagger_title | Optional[str] | Custom title for Swagger UI |
+| custom_swagger_css | Optional[str] | Path to custom CSS file for Swagger UI |
+| validation_method | str | Method for token validation (jwt, introspection, both) |
+| strict_client_check | bool | Whether to strictly enforce client ID matching in tokens |
+| metrics_enabled | bool | Whether to enable metrics collection |
+| metrics_route | str | Route for metrics endpoint |
+| health_route | str | Route for health check endpoint |
+| debug_endpoints_enabled | bool | Whether to enable debug endpoints (development only) |
+| log_level | str | Logging level |
+| introspection_cache_ttl | int | Cache time for introspection results in seconds |
+| rate_limit_enabled | bool | Whether to enable rate limiting |
+| rate_limit_max_requests | int | Maximum number of requests per window |
+| rate_limit_window_seconds | int | Time window for rate limiting in seconds |
+| rate_limit_strategy | str | Rate limiting strategy (fixed, sliding, token_bucket) |
+| load_from_env | bool | Whether to load configuration from environment variables |
+
+## Environment Variables
+
+All configuration options can be set through environment variables:
+
+```
+KEYCLOAK_URL=https://your-keycloak-server.com/auth
+KEYCLOAK_REALM=your-realm
+CLIENT_ID=your-client-id
+CLIENT_SECRET=your-client-secret
+API_CLIENT_ID=your-api-client-id
+API_CLIENT_SECRET=your-api-client-secret
+API_BASE_URL=https://your-api.com
+SESSION_SECRET=your-session-secret
+SESSION_MAX_AGE=3600
+SESSION_HTTPS_ONLY=true
+SESSION_SAME_SITE=lax
+CORS_ORIGINS=https://domain1.com,https://domain2.com
+CORS_CREDENTIALS=true
+SSL_ENABLED=true
+SSL_CERT_FILE=/path/to/cert.pem
+SSL_KEY_FILE=/path/to/key.pem
+SSL_VERIFY=true  # Can be 'true', 'false', or path to a certificate
+
+# Development settings
+DEVELOPMENT_MODE=false
+ALLOW_HTTP=false
+JWKS_CACHE_TTL=3600
+JWKS_FILE=/path/to/local/jwks.json
+ON_SSL_ERROR=raise  # Options: 'raise', 'warn', or 'ignore'
+DEBUG_ENDPOINTS_ENABLED=false
+
+# Enhanced features
+VALIDATION_METHOD=jwt  # Options: 'jwt', 'introspection', 'both'
+METRICS_ENABLED=false
+HEALTH_ROUTE=/health/keycloak
+INTROSPECTION_CACHE_TTL=300
+RATE_LIMIT_ENABLED=false
+RATE_LIMIT_MAX_REQUESTS=100
+RATE_LIMIT_WINDOW_SECONDS=60
+RATE_LIMIT_STRATEGY=sliding  # Options: 'fixed', 'sliding', 'token_bucket'
+LOG_LEVEL=INFO
+```
+
+## Development Environment Setup
+
+### Working with Self-Signed Certificates or Insecure Environments
+
+When working in development environments, you might encounter SSL certificate issues or need to use HTTP instead of HTTPS. The library provides several options to help with these scenarios:
+
+```python
+auth = KeycloakAuth(
+    app,
+    keycloak_url="http://localhost:8080/auth",  # Notice using HTTP
+    keycloak_realm="your-realm",
+    client_id="your-client-id",
+    client_secret="your-client-secret",
+    
+    # Enable development mode for sensible defaults
+    development_mode=True,
+    
+    # Allow using HTTP for Keycloak URL
+    allow_http=True,
+    
+    # SSL verification options
+    ssl_verify=False,  # Disable verification entirely (insecure, but useful for development)
+    # ssl_verify="/path/to/your/cert.pem",  # Verify against a specific certificate
+    
+    # JWKS caching and offline verification
+    jwks_cache_ttl=3600,  # Cache JWKS for an hour
+    jwks_file="/path/to/local/jwks.json",  # Path to local JWKS file when Keycloak is unreachable
+    
+    # SSL error handling
+    on_ssl_error="warn",  # Warn but don't fail on SSL errors
+    
+    # Enable debugging tools
+    debug_endpoints_enabled=True,
+    
+    # Enable metrics for development monitoring
+    metrics_enabled=True
+)
+```
+
+> **Warning**: These development settings make the system less secure and should **never** be used in production environments.
+
+## Examples
+
+### Verify Tokens Manually
+
+```python
+# Manually verify a token
+@app.post("/verify-token")
+async def verify_token(token: str):
+    try:
+        claims = await auth.verify_token(token)
+        return {
+            "valid": True,
+            "claims": claims
+        }
+    except HTTPException as e:
+        return {
+            "valid": False,
+            "error": e.detail
+        }
+```
+
+### User Information
+
+```python
+# Get detailed user information
+@app.get("/me")
+async def get_user_info(user: User = Depends(auth.get_current_user)):
+    return {
+        "username": user.username,
+        "email": user.email,
+        "full_name": user.full_name,
+        "roles": user.roles,
+        "is_admin": user.has_role("admin")
+    }
+```
+
+## Advanced Usage
+
+### Custom Swagger UI Styling
+
+The package uses a default CSS based on IBM Carbon Design System, but you can provide your own CSS:
+
+```python
+auth = KeycloakAuth(
+    app,
+    keycloak_url="https://your-keycloak-server.com/auth",
+    keycloak_realm="your-realm",
+    client_id="your-client-id",
+    client_secret="your-client-secret",
+    custom_swagger_css="/path/to/your/custom.css"
+)
+```
+
+### Working with SSL Certificates
+
+If your Keycloak instance uses a custom SSL certificate:
+
+```python
+auth = KeycloakAuth(
+    app,
+    keycloak_url="https://your-keycloak-server.com/auth",
+    keycloak_realm="your-realm",
+    client_id="your-client-id",
+    client_secret="your-client-secret",
+    ssl_enabled=True,
+    ssl_cert_file="/path/to/your/cert.pem"
+)
+```
+
+### Implementing Rate Limiting
+
+Configure rate limiting for token validation:
+
+```python
+auth = KeycloakAuth(
+    app,
+    keycloak_url="https://your-keycloak-server.com/auth",
+    keycloak_realm="your-realm",
+    client_id="your-client-id",
+    client_secret="your-client-secret",
+    rate_limit_enabled=True,
+    rate_limit_max_requests=100,
+    rate_limit_window_seconds=60,
+    rate_limit_strategy="sliding"
+)
+```
+
+## Example Applications
+
+Check out the example applications in the `examples` directory:
+
+- `basic_app/` - A simple app showing basic authentication and authorization
+- `enhanced_app/` - A more advanced app demonstrating metrics, debugging, and enhanced validation
+
+## Contributing
+
+Contributions are welcome! See our [Contributing Guidelines](CONTRIBUTING.md) for more details.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [FastAPI](https://fastapi.tiangolo.com/) - Amazing framework for building APIs
+- [Authlib](https://authlib.org/) - Robust OAuth2/OpenID Connect implementation
+- [Keycloak](https://www.keycloak.org/) - Powerful identity and access management
+- [Prometheus](https://prometheus.io/) - Monitoring and alerting toolkit
+- [IBM Carbon Design System](https://carbondesignsystem.com/) - Design inspiration for the Swagger UI
+
+## Author
+
+Harsha ([@c0mpiler](https://github.com/c0mpiler))
