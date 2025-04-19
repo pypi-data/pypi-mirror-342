@@ -1,0 +1,12 @@
+._hrzdvdr_{
+    min-width:5px;
+    max-width:5px;
+    min-height:100%;
+    cursor:ew-resize;
+}
+._vrtdvdr_{
+    min-width:100%;
+    min-height:5px;
+    max-height:5px;
+    cursor:ns-resize;
+}
