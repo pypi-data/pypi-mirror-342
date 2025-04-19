@@ -1,0 +1,20 @@
+[build-system]
+requires = [ "setuptools" ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pylawson"
+description = "Infor Lawson IOS API Wrapper"
+readme = "README.md"
+keywords = [ "infor", "lawson", "erp" ]
+license = "Apache-2.0"
+license-files = [ "LICENSE" ]
+authors = [ { name = "Joe Carey", email = "joe@accountingdatasolutions.com" } ]
+urls = { Homepage = "https://git.accountingdatasolutions.com/indepndnt/pylawson" }
+dynamic = [ "version" ]
+dependencies = [ "beautifulsoup4", "requests" ]
+optional-dependencies.sec_api = [ "clr" ]
+
+[tool.setuptools]
+dynamic.version = { file = "VERSION" }
+packages = [ "pylawson", "pylawson.client" ]
