@@ -1,0 +1,186 @@
+Metadata-Version: 2.4
+Name: openai-redis-vectorstore
+Version: 0.2.2
+Summary: 基于RedisStack向量数据库，集成embeddings和rerank模型，支持二阶段召回，支持添加和删除等管理功能。
+Author: rRR0VrFP
+Maintainer: rRR0VrFP
+License: Apache License, Version 2.0
+Keywords: openai-redis-vectorstore
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PyYAML
+Requires-Dist: langchain-redis
+Requires-Dist: openai
+Requires-Dist: openai-simple-embeddings
+Requires-Dist: openai-simple-rerank
+Requires-Dist: pydantic
+Requires-Dist: python-environment-settings
+Requires-Dist: redis
+Requires-Dist: zenutils
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: maintainer
+Dynamic: requires-dist
+Dynamic: summary
+
+# openai-redis-vectorstore
+
+基于RedisStack向量数据库，集成embeddings和rerank模型，支持二阶段召回，支持添加和删除等管理功能。
+
+## 安装
+
+```shell
+pip install openai-redis-vectorstore
+```
+
+## 依赖说明
+
+- 使用`python-environment-settings`管理配置项。详见该项目的参考文档。
+- 深度依赖于`openai-simple-embeddings`和`openai-simple-rerank`。同时也依赖于两者的配置项。详见这两个项目的参考文档。
+
+## 配置项说明
+
+- OPENAI_REDIS_VECTORSTORE_REDIS_STACK_URL: redis-stack服务器地址。如：redis://localhost:6379/0
+    - 要使用redis-stack向量功能，必须是0号库（否则会报`redis.exceptions.ResponseError: Cannot create index on db != 0`错误）
+    - （配置项别名）
+    - REDIS_STACK_URL
+    - REDIS_URL
+    - REDIS
+
+## 使用
+
+### 将文本插入到向量数据库
+
+*代码：*
+
+```python
+from openai_redis_vectorstore import RedisVectorStore
+
+index_name = str(uuid.uuid4())
+page_id = str(uuid.uuid4())
+rvs = RedisVectorStore(index_name=index_name)
+uid = rvs.insert("hello", metadata={"id": 1}, page_id=page_id)
+assert uid == f"{index_name}:{page_id}"
+```
+
+*说明：*
+
+- id=1表示内容在业务系统中的唯一码。
+- uid表示内容在向量数据库中的唯一码。可以根据uid唯一码，从向量数据库中删除相应内容。
+
+### 搜索向量数据库（多索引支持）
+
+*代码：*
+
+```python
+from openai_redis_vectorstore.base import RedisVectorStore
+
+index_name1 = str(uuid.uuid4())
+index_name2 = str(uuid.uuid4())
+rvs = RedisVectorStore()
+
+# 向1号逻辑库中插入3条数据
+rvs.insert_many(
+    ["开会了", "再见", "你好"],
+    metadatas=[
+        {"id": 1},
+        {"id": 2},
+        {"id": 3},
+    ],
+    index_name=index_name1,
+)
+
+# 向2号逻辑库中插入3条数据
+rvs.insert_many(
+    ["开会去", "好的", "谢谢"],
+    metadatas=[
+        {"id": 1},
+        {"id": 2},
+        {"id": 3},
+    ],
+    index_name=index_name2,
+)
+
+# 从1号和2号逻辑库中搜索关键词并汇总
+# 并要求匹配度不低于指定阈值
+docs = rvs.similarity_search_and_rerank(
+    query="开会",
+    index_names=[index_name1, index_name2],
+    embeddings_score_threshold=0.65,
+    rerank_score_threshold=0.85,
+)
+assert len(docs) == 2
+doc1 = docs[0]
+doc2 = docs[1]
+assert doc1.vs_index_name in [index_name1, index_name2]
+assert doc2.vs_index_name in [index_name1, index_name2]
+assert doc1.vs_rerank_score > doc2.vs_rerank_score
+```
+
+### 搜索向量数据库（kb_id和category过滤条件的支持）
+
+```python
+from openai_redis_vectorstore.base import RedisVectorStore
+
+index_name = str(uuid.uuid4())
+rvs = RedisVectorStore(index_name=index_name)
+rvs.insert("hello", kb_id="k1", category="c1")
+rvs.insert("hi", kb_id="k2", category="c2")
+docs = rvs.similarity_search_with_relevance_scores(
+    "hello",
+    kb_ids=["k1", "k2"],
+    category="c2",
+)
+assert len(docs) == 1
+assert docs[0].vs_page_content == "hi"
+```
+
+## v0.2.x 与 v0.1.x不兼容部分
+
+- v0.2.x使用langchain_redis，不再使用langchain_community。
+- 被索引的文本保存到了text字段，原来是content字段。
+- 被索引的向量保存到了embedding字段，原来是content_vector字段。
+- 由于上述的不兼容性，要求升级后全部重建索引。
+
+## 版本记录
+
+### v0.1.0
+
+- 版本首发。
+
+### v0.1.1
+
+- 修改：搜索一个空向量库时，只在日志中记录WARNING信息并返回空数组。
+
+### v0.1.2
+
+- 修改：`openai_redis_vectorstore.schemas.Document`增加`content`字段。
+
+### v0.1.3
+
+- 修正：查询结果page_content字段没有做反序列化的问题。
+
+### v0.2.0
+
+- 优化：默认配置项与`embeddings/rerank`相关配置项保持一致。
+- 优化：允许`embeddings/rerank`使用不同的`base_url`和`api_key`。
+- 变更（不兼容）：使用`langchain_redis`取代`langchain_community.vectorstores.redis`。
+
+### v0.2.1
+
+- 新增：支持`kb_id`，`category`过滤条件。
+
+### 0.2.2
+
+- 修正：`flush`没有删除索引的问题。
