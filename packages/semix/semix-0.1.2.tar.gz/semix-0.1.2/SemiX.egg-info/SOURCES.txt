@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+SemiX/Transistor.py
+SemiX/__init__.py
+SemiX/diode.py
+SemiX.egg-info/PKG-INFO
+SemiX.egg-info/SOURCES.txt
+SemiX.egg-info/dependency_links.txt
+SemiX.egg-info/requires.txt
+SemiX.egg-info/top_level.txt
+semix.egg-info/PKG-INFO
+semix.egg-info/SOURCES.txt
+semix.egg-info/dependency_links.txt
+semix.egg-info/requires.txt
+semix.egg-info/top_level.txt
+tests/testing_diodetemperature_class_01.py
