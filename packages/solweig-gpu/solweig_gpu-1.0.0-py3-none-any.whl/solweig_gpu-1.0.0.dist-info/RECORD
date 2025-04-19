@@ -1,0 +1,17 @@
+solweig_gpu/__init__.py,sha256=8njO6V4FeETUGRiYgyY1MQjucke2xwBAmwBW4_JZL_U,41
+solweig_gpu/calculate_utci.py,sha256=iHUdvPYuh1wV0YFgNG9W-44g1-8It398O_TZzxG8Ntc,10894
+solweig_gpu/cli.py,sha256=QlO694RmO2tLZWHaFe7YpouZ2Wlpy7YFc5kkSqglJaY,3054
+solweig_gpu/preprocessor.py,sha256=NZlHPS7Ecq3kA-Z9250UcjcSSGVExK72JPq-1ao29VU,30543
+solweig_gpu/shadow.py,sha256=CPKdCElbPbNkoPkzLWShk-gMoQgN-GziRvdPhv0w7Rg,12920
+solweig_gpu/solweig.py,sha256=S2hJQsslT-q1nra6r5ZhkY-PePwUK1Qmw4E77UGaTJ0,91734
+solweig_gpu/solweig_gpu.py,sha256=3Yk4h_9ZNAWEMaxvxaVnkgmoAHTMNVvz21M_I1T2VsQ,3019
+solweig_gpu/solweig_gpu_gui.py,sha256=Fq70WDExvYgekw72USWIrvk8Fn5ChL8RtTBOU2fN_gk,17713
+solweig_gpu/sun_position.py,sha256=t1HfyR8VeDxKFvPvHwVlrD1t3wHGoXTAw0wStHMss6w,37925
+solweig_gpu/utci_process.py,sha256=6ZwFk8geswynlnHDEgPGkDJeqJ7DtzYsesFED9LMAqs,17599
+solweig_gpu/walls_aspect.py,sha256=cLU7PEu_5ypWzosmsbC0ktFuL6FkKuWIUPBvijBDsRM,5574
+solweig_gpu-1.0.0.dist-info/licenses/LICENSE,sha256=WMJUEPR1wPQ_b99mAkTe9tBwul6QgodL1pcr6CRqaUc,1090
+solweig_gpu-1.0.0.dist-info/METADATA,sha256=lGVb6ltjKbwpiUVDNXyvhPUzMKeJP7Ii1EJGIUXpahU,6418
+solweig_gpu-1.0.0.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+solweig_gpu-1.0.0.dist-info/entry_points.txt,sha256=5pRag5vRuvVBBpfjXFEjqD2bcdHpNXgAHuGBWYTYOeA,104
+solweig_gpu-1.0.0.dist-info/top_level.txt,sha256=ZIaGKqWt-zidwz6mNKCDZVeAxgqLT1GZq2oeZry2DRU,12
+solweig_gpu-1.0.0.dist-info/RECORD,,
