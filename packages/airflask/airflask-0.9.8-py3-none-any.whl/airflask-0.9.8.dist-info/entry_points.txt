@@ -1,0 +1,2 @@
+[console_scripts]
+airflask = airflask.__main__:cli
