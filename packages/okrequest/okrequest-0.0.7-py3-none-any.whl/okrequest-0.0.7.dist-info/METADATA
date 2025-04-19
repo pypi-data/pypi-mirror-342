@@ -1,0 +1,28 @@
+Metadata-Version: 2.2
+Name: okrequest
+Version: 0.0.7
+Summary: 一个类似 requests 的 HTTP 客户端库
+Home-page: 
+Author: 
+Author-email: 
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+
+
+安装
+
+```
+pip install -U okrequest -i https://pypi.org/simple  
+```
+
+用法参考 requests 库
+
