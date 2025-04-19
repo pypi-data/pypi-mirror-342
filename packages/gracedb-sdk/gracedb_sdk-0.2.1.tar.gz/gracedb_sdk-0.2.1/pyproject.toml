@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=77", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gracedb-sdk"
+description = "REST API SDK for GraceDB"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+authors = [
+    { name = "Leo Singer", email = "leo.p.singer@nasa.gov" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Physics"
+]
+dependencies = [ "requests-gracedb >= 0.2" ]
+requires-python = ">=3.9"
+dynamic = [ "version" ]
+
+[project.urls]
+source = "https://git.ligo.org/emfollow/gracedb-sdk"
+"Bug Tracker" = "https://git.ligo.org/emfollow/gracedb-sdk/issues"
+"Documentation" = "https://gracedb-sdk.readthedocs.io/"
+"Source Code" = "https://git.ligo.org/emfollow/gracedb-sdk"
+
+[project.optional-dependencies]
+test = [ "pytest" ]
+
+[tool.setuptools_scm]
+version_file = "src/gracedb_sdk/_version.py"
+
+[tool.coverage.run]
+source = [ "gracedb_sdk", "tests" ]

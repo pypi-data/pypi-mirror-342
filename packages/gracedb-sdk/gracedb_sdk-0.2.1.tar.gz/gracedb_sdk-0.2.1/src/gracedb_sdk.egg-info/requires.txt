@@ -1,0 +1,4 @@
+requests-gracedb>=0.2
+
+[test]
+pytest

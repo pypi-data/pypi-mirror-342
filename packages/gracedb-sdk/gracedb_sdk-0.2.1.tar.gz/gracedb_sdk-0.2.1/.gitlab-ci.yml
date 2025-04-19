@@ -1,0 +1,69 @@
+include:
+  - project: computing/gitlab-ci-templates
+    file: python.yml
+
+workflow:
+  auto_cancel:
+    on_job_failure: all
+
+# Build source and binary distributions
+build:
+  image: python
+  extends:
+    - .python:build
+
+.test: &test
+  stage: test
+  extends:
+    - .python:pytest
+  before_script:  # Install robot keytab for integration tests
+    - !reference [".python:pytest", "before_script"]
+    - apt-get update
+    - DEBIAN_FRONTEND=noninteractive apt-get install -y krb5-user
+    # Decode base64-encoded keytab
+    - echo "${ROBOT_KEYTAB}" | base64 -d | install -m 0600 /dev/stdin keytab
+    # Read principal from first entry in keytab
+    - PRINCIPAL=$(klist -k keytab | head -n 4 | tail -n 1 | sed -E 's/^.* +//')
+    # Obtain SciTokens bearer token
+    - kinit $PRINCIPAL -k -t keytab
+    - rm keytab
+    - htgettoken --verbose --vaultserver=vault.ligo.org --issuer=igwn --role=gracedb-sdk-scitoken --credkey=gracedb-sdk-scitoken/robot/git.ligo.org --scopes=gracedb.read
+  variables:
+    TESTS_REQUIRE: htgettoken
+  # Do not run more than one unit test job at once, because GraceDB has race
+  # conditions when multiple clients are creating superevents.
+  resource_group: gracedb-test.ligo.org
+
+test-3.9:
+  image: python:3.9
+  <<: *test
+
+test-3.10:
+  image: python:3.10
+  <<: *test
+
+test-3.11:
+  image: python:3.11
+  <<: *test
+
+test-3.12:
+  image: python:3.12
+  <<: *test
+
+test-3.13:
+  image: python:3.13
+  <<: *test
+
+# Upload package to PyPI.
+# Place your PyPI API token in the repository's GitLab CI secrets.
+pypi:
+  stage: deploy
+  image: python:slim
+  extends:
+    - .python:twine
+  variables:
+    TWINE_PASSWORD: $PYPI_API_TOKEN
+  dependencies:
+    - build
+  only:
+    - tags@emfollow/gracedb-sdk
