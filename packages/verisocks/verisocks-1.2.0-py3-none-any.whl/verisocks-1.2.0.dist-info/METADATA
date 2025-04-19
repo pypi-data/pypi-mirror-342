@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: verisocks
+Version: 1.2.0
+Summary: Python client to communicate with Verisocks server.
+Home-page: https://github.com/jchabloz/verisocks
+Author: jchabloz
+License: MIT
+Requires-Dist: enum34 ; python_version < "3.4"
+
+# Verisocks
+
+This package provides a simple Python client that can be used to interface with
+a Verisocks server instance in an Icarus verilog simulation.
