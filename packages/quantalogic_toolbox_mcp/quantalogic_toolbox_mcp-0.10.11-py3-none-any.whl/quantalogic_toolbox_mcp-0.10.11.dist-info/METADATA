@@ -1,0 +1,13 @@
+Metadata-Version: 2.3
+Name: quantalogic_toolbox_mcp
+Version: 0.10.11
+Summary: A custom MCP Client for Quantalogic
+Author: Your Name
+Author-email: you@example.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: mcp (>=1.6.0,<2.0.0)
