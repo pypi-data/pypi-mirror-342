@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: PolyaCplot
+Version: 0.1
+Requires-Dist: sympy
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pyvista
+Dynamic: requires-dist

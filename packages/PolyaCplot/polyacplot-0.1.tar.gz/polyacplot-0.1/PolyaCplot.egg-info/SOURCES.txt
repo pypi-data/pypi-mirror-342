@@ -1,0 +1,14 @@
+README.md
+setup.py
+PolyaCplot/__init__.py
+PolyaCplot/_main.py
+PolyaCplot/_riemann_sphere.py
+PolyaCplot/_taylor_series.py
+PolyaCplot.egg-info/PKG-INFO
+PolyaCplot.egg-info/SOURCES.txt
+PolyaCplot.egg-info/dependency_links.txt
+PolyaCplot.egg-info/requires.txt
+PolyaCplot.egg-info/top_level.txt
+tests/test_main_functions.py
+tests/test_riemann_sphere.py
+tests/test_taylor_series.py
