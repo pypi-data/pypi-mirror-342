@@ -1,0 +1,11 @@
+setup.py
+src/civic_verifier.egg-info/PKG-INFO
+src/civic_verifier.egg-info/SOURCES.txt
+src/civic_verifier.egg-info/dependency_links.txt
+src/civic_verifier.egg-info/top_level.txt
+src/document_verifier_Silent_Canary/__init__.py
+src/document_verifier_Silent_Canary/face_match.py
+src/document_verifier_Silent_Canary/ocr_text.py
+src/document_verifier_Silent_Canary/qr.py
+src/document_verifier_Silent_Canary/utils.py
+src/document_verifier_Silent_Canary/verifier.py
