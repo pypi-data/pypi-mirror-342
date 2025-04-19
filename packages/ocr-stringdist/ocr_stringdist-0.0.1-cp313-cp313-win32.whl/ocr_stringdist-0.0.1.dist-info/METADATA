@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: ocr_stringdist
+Version: 0.0.1
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: OS Independent
+Summary: String distances considering OCR errors.
+Author: Niklas von Moers <niklasvmoers@protonmail.com>
+Author-email: Niklas von Moers <niklasvmoers@protonmail.com>
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: repository, https://github.com/NiklasvonM/ocr-stringdist
+
+# OCR-Stringdist
+
