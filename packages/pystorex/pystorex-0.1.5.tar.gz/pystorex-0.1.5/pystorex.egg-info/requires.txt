@@ -1,0 +1,7 @@
+reactivex>=1.6
+pydantic>=1.10
+
+[dev]
+twine
+pytest
+black
