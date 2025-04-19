@@ -1,0 +1,10 @@
+aniso8601<11.0.0,>=9.0.0
+attotime<0.3.0,>=0.2.2
+
+[dev]
+black
+coverage
+isort
+pre-commit
+pyenchant
+pylint
