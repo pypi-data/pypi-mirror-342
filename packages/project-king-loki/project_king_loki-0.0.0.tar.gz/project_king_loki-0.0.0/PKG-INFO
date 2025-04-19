@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: project-king-loki
+Version: 0.0.0
+Summary: Intelligent Location-Based Cipher
+Author-email: Soumyo Deep Gupta <deep.main.ac@gmail.com>
+Maintainer-email: Soumyo Deep Gupta <deep.main.ac@gmail.com>
+License-Expression: MIT
+Project-URL: Documentation, https://d33p0st.in/docs/project-king-loki/
+Project-URL: GitHub, https://github.com/d33p0st/project-king-loki
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Dynamic: license-file
+
+# project-king-loki
