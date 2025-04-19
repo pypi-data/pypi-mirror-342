@@ -1,0 +1,14 @@
+git_recap/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+git_recap/fetcher.py,sha256=oRlenzd9OsiBkCtpUgSZGlUoUnVpdkolUZhFOF1USBs,2677
+git_recap/utils.py,sha256=mAGZ6bNklBmE-qpA6RG17_Bka8WRXzjLRAAGS9p3QXk,3646
+git_recap/providers/__init__.py,sha256=njrsu58KB60-wN78P0egm1lkQLIRq_PHLKM4WBt39Os,330
+git_recap/providers/azure_fetcher.py,sha256=PfPEeWTtx1Fqa1jClFPKqXhY5Yvs8MyEkSJkLAl4QvQ,7241
+git_recap/providers/base_fetcher.py,sha256=SS35FP8B9_RwnU6CnMbcV9g5_YRWp7v-S7pwbt402Ng,3067
+git_recap/providers/github_fetcher.py,sha256=rDb00RVy2NMpwv8s8Ry1-UjS6wf1Sh2Ndl0xKOZXMxU,4998
+git_recap/providers/gitlab_fetcher.py,sha256=ch1V9O-MPv5_nyg9yLs6EC9e-yqsFXBXMm6xVevWzuQ,5396
+git_recap/providers/url_fetcher.py,sha256=_4CGHfXt701GUHBjsWiu-2ZMTtNerwp60ZxTQh-Mwtc,8256
+git_recap-0.1.2.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+git_recap-0.1.2.dist-info/METADATA,sha256=USOwnxiUUkGbMt82rPVA2Dw0oAc-YqTl7ow-CvBKyaQ,4721
+git_recap-0.1.2.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+git_recap-0.1.2.dist-info/top_level.txt,sha256=1JUKd3WPB8c3LcD1deIW-1UTmYzA0zJqwugAz72YZ_o,10
+git_recap-0.1.2.dist-info/RECORD,,
