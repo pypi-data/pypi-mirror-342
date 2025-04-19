@@ -1,0 +1,57 @@
+[project]
+name = "dictdatabase"
+version = "2.5.1"
+description = "Easy-to-use database using dicts"
+readme = "README.md"
+authors = [{ name = "Marcel Kröker", email = "kroeker.marcel@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers=[
+	"Programming Language :: Python :: 3",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent",
+	"Intended Audience :: Developers",
+	"Programming Language :: Python",
+	"Topic :: Software Development :: Libraries :: Python Modules"
+]
+requires-python = ">=3.8,<3.14"
+dependencies = [
+    "orjson >= 3.9, <4.0",
+]
+
+
+[dependency-groups]
+dev = [
+    "super-py ~= 0.4.2",
+    "pyinstrument ~= 4.4.0",
+    "pytest-cov ~= 4.0.0",
+    "path-dict ~= 3.0.4",
+    "ruff>=0.11.6",
+]
+
+
+[tool.setuptools]
+packages = ["dictdatabase"]
+license-files = [] # Workaround for https://github.com/astral-sh/uv/issues/9513
+
+
+[tool.uv]
+package = true
+
+
+[tool.ruff]
+show-fixes = true
+line-length = 120
+select = ["ALL"]
+ignore = [
+	"E501", # line length
+	"UP007", # use X | Y for union (not possible in python 3.8)
+    "UP006", # Use typing.Tuple for python 3.8 support
+    "W191", # indentation contains tabs
+    "E741", # ambiguous variable name
+    "COM812", # Trailing comma missing
+]
+
+
+[tool.ruff.format]
+indent-style = "tab"
+quote-style = "double"
