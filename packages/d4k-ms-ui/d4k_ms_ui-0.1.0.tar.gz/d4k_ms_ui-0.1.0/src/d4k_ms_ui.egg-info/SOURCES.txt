@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+src/d4k_ms_ui/__info__.py
+src/d4k_ms_ui/__init__.py
+src/d4k_ms_ui/markdown_page.py
+src/d4k_ms_ui/pagination.py
+src/d4k_ms_ui/release_notes.py
+src/d4k_ms_ui.egg-info/PKG-INFO
+src/d4k_ms_ui.egg-info/SOURCES.txt
+src/d4k_ms_ui.egg-info/dependency_links.txt
+src/d4k_ms_ui.egg-info/requires.txt
+src/d4k_ms_ui.egg-info/top_level.txt
+tests/test_markdown_page.py
+tests/test_pagination.py
+tests/test_release_notes.py
