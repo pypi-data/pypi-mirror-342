@@ -1,0 +1,19 @@
+Metadata-Version: 2.2
+Name: Django-toolbar-auths
+Version: 0.1.2
+Summary: django-authUser
+Home-page: https://github.com/delss28/Django-auths.git
+Author: djangoUser
+Author-email: django4234@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
