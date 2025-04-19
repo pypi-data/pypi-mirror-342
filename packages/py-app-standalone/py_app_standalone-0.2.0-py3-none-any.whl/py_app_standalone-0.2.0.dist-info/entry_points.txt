@@ -1,0 +1,2 @@
+[console_scripts]
+py-app-standalone = py_app_standalone.cli:main
