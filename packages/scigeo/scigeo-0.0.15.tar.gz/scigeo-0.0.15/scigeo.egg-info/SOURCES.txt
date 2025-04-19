@@ -1,0 +1,13 @@
+README.md
+setup.py
+scigeo/__init__.py
+scigeo/climate.py
+scigeo/geobox.py
+scigeo/geoface.py
+scigeo/meteo.py
+scigeo/remotesensing.py
+scigeo.egg-info/PKG-INFO
+scigeo.egg-info/SOURCES.txt
+scigeo.egg-info/dependency_links.txt
+scigeo.egg-info/requires.txt
+scigeo.egg-info/top_level.txt
