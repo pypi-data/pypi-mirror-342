@@ -1,0 +1,28 @@
+[project]
+name = "test-cli-bibul"
+version = "0.1.8"
+description = "CLI pour gérer les images et conteneurs Docker Probayes"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "typer[all]",
+    "jinja2"
+]
+
+[project.scripts]
+test-cli-bibul = "docker_cli.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["docker_cli", "docker_cli.*"]
+
+[tool.setuptools.package-data]
+"docker_cli.docker_logic.conf_files" = ["*"]
+"docker_cli.docker_logic.templates" = ["*"]
+"docker_cli.docker_logic.scripts" = ["*"]
+
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+

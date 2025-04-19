@@ -1,0 +1,58 @@
+Metadata-Version: 2.4
+Name: test-cli-bibul
+Version: 0.1.8
+Summary: CLI pour gérer les images et conteneurs Docker Probayes
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: typer[all]
+Requires-Dist: jinja2
+
+# CLI Tool for Creating and Managing Ready-to-Go Docker Images for ML Projects
+
+## Description
+
+This CLI tool allows the user to easily create and personalize Docker environments for machine learning projects. Features include:
+
+- Docker image base customization
+- GPU/CPU allocation
+- Probayes, LDAP, and SSH configuration
+- Container volume management
+
+## Installation
+
+1. Clone the repository.
+2. Navigate to the `docker_cli/` directory.
+3. Install the required dependencies by running:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+## Usage
+
+### 1. Building a Docker Image
+
+To build a Docker image with your desired configuration, run the following command:
+
+```bash
+python cli.py build --image-name <image-name> [OPTIONAL] --extra-packages '["package1","package2"]' --with-probayes
+```
+Example : 
+```bash
+python cli.py build cli-test-img --base-image python:3.10-slim --with-probayes --extra-packages '["wget","curl"]' 
+```
+
+After executing the command, a Dockerfile will be created. To build the image, use:
+
+```bash
+sudo docker build -t <image_name> .
+```
+
+### 2. Managing Users
+
+Once the image is created, you can run the container and add specific configurations like CPU allocation, GPU settings, and directory mounts. Use the following command:
+
+```bash
+python cli.py run --image-name <image_name> --cpus <number_of_cpus> --ssh-port <ssh_port> --<gpu_option> --workspace <workspace_directory> --data-project <data_project_directory> --data-device <data_device_directory> --model-dir <model_directory>
+
+```
