@@ -1,0 +1,20 @@
+[project]
+name = "workout-builder-streamlit"
+version = "0.1.1"
+description = "A streamlit component for designing workout plans."
+readme = "README.md"
+authors = [
+    { name = "Simon Dierickx", email = "simon.dierickx@ugent.be" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.2.4",
+    "streamlit>=1.44.1",
+]
+
+[project.scripts]
+workout-builder-streamlit = "workout_builder_streamlit:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
