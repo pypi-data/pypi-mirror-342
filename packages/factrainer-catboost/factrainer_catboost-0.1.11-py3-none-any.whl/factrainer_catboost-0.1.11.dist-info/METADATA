@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: factrainer-catboost
+Version: 0.1.11
+Summary: Add your description here
+Author-email: ritsuki1227 <ritsuki1227@gmail.com>
+Requires-Python: <3.14,>=3.12
+Requires-Dist: catboost>=1.2.7
+Requires-Dist: factrainer-base
