@@ -1,0 +1,10 @@
+preempt/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+preempt/common.py,sha256=U6Hvub2fU0cSUFyR8pagD0Dpiq0BXofoUV5cNQTsP9Y,471
+preempt/conversation.py,sha256=IeilxXVdLvoiS_7f5uEPDR7hj5nj_POy5NhB6Jma5do,101644
+preempt/names_dataset.json,sha256=zqeEwRg3iqqOZGodPIXNnkHfsLb7Rh-Nhhet-2Wyxn0,94859
+preempt/ner.py,sha256=-pUrqdzAtYrJ9pnugUipwxoLXl_026OfdUuHXpi-0r0,3504
+preempt/sanitizer.py,sha256=uurUE1FXcMqHDbLGk1ByTy9V6J-TsGtE0NIVVmO8gwQ,23845
+preempt/utils.py,sha256=IQFDnN4ohrr9_vV5f8YOApBgYIwJCDe1YFmemIXHKWA,9936
+preempt-0.1.23.dist-info/METADATA,sha256=PI0gyp8WPXkfclJ-iyI8Qdw9es2mdthf0zWwdkrWpN4,6878
+preempt-0.1.23.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+preempt-0.1.23.dist-info/RECORD,,
