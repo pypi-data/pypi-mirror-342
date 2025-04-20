@@ -1,0 +1,15 @@
+requests>=2.22.0
+
+[all]
+bitarray>=1.5.3
+PyExecJS>=1.5.1
+pymongo>=3.10.1
+redis-py-cluster>=2.1.0
+webdriver-manager>=4.0.0
+playwright
+selenium>=3.141.0
+
+[render]
+webdriver-manager>=4.0.0
+playwright
+selenium>=3.141.0
