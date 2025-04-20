@@ -1,0 +1,14 @@
+setup.py
+AutoxJS.egg-info/PKG-INFO
+AutoxJS.egg-info/SOURCES.txt
+AutoxJS.egg-info/dependency_links.txt
+AutoxJS.egg-info/top_level.txt
+autojs/__init__.py
+autojs/__main__.py
+autojs/core.py
+autojs/examples.py
+autojs/file_runner.js
+autojs/locator_caller.js
+autojs/recorder_caller.js
+autojs/sensor_caller.js
+autojs/string_runner.js
