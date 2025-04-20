@@ -1,0 +1,3 @@
+[console_scripts]
+mediakiller = media_killer:run
+mediascout = media_scout:run
