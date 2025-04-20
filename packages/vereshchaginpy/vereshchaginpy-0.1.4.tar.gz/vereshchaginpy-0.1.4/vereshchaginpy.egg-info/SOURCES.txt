@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+tests/test_core.py
+vereshchaginpy/__init__.py
+vereshchaginpy/vereshchagin_core.py
+vereshchaginpy/vereshchagin_figures.py
+vereshchaginpy/vereshchagin_pairs.py
+vereshchaginpy/vereshchagin_visualise.py
+vereshchaginpy.egg-info/PKG-INFO
+vereshchaginpy.egg-info/SOURCES.txt
+vereshchaginpy.egg-info/dependency_links.txt
+vereshchaginpy.egg-info/requires.txt
+vereshchaginpy.egg-info/top_level.txt
