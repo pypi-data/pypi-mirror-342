@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: signalkit
+Version: 1.1.1
+Summary: Structured, UUID-based signal orchestration utilities for Python using Blinker
+Author-email: KMRH47 <kmrh47@pm.me>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: blinker
+
+# SignalKit
+
+SignalKit is a lightweight Python signaling library built upon the robust [Blinker](https://github.com/pallets-eco/blinker) library. It provides a simple yet flexible way to dispatch signals and handle responses, automatically adapting to your handler function signatures.
+
+## Installation
+`pip install signalkit`
+
+## Usage Example
+
+```python
+# define event model
+class Event:
+    def __init__(self, text: str):
+        self.text = text
+
+# define handler
+def handle_event(sender, event: Event) -> str:
+    return event.text.upper()
+
+# use CoolSignal
+from signalkit import CoolSignal
+
+signal = CoolSignal()
+signal.connect(handle_event)
+
+event = Event("hello world")
+response = signal.send(sender=None, event=event)
+print(result) # 'HELLO WORLD'
+```
