@@ -1,0 +1,17 @@
+py_whatsapp_cloudbot-0.1.3.1.dist-info/licenses/LICENSE,sha256=46mU2C5kSwOnkqkw9XQAJlhBL2JAf1_uCD8lVcXyMRg,7652
+wa_cloud/__init__.py,sha256=janO9wRHmIAnVZ8WksBjK1FoC7JiDi7N06p6shAmais,3198
+wa_cloud/application.py,sha256=I8ht9LAqjo5coxUmt74E73Ip7lPpH_RXRIkUIiZY_sY,12099
+wa_cloud/bot.py,sha256=bHWtwI5C7Xm20hNG8UPGe3atIaXK5S93zYS2-0e1Bg0,49244
+wa_cloud/constants.py,sha256=20avBZ-KbZNEztKseJjJAEJ9dzEYN3CN6T_tBgzPpj8,4956
+wa_cloud/error.py,sha256=AqxSoMRNNOI6v-V1szSm2NU3REk8ofD6ijBzr4jZCC0,3040
+wa_cloud/http_client.py,sha256=KDPOrPtxesPQh8ErnbE0XvH2jap4NQEC4xSudQIfefQ,5366
+wa_cloud/models.py,sha256=j0qdNlybEJSy0bmfXmTa3MsBE1ZEPsJ7l8LdPaDpF5Y,44625
+wa_cloud/webhooks.py,sha256=RzF6H8hrpsopvU27MaadMpm0RzCCwivhjMqK3OrDpbY,9075
+wa_cloud/ext/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+wa_cloud/ext/basehandler.py,sha256=dNMbN1XwSaoGF3rF7sKblKiJOxM7f3_mer57askmO1g,3818
+wa_cloud/ext/filters.py,sha256=yAIG1zfhjnQphlfmxh-Dp7_uSMP5doIXr5326Z6Z7vg,10762
+wa_cloud/ext/messagehandler.py,sha256=xxLDNInwtw-YJUJrFI612URPjsJoblsEM3BAy-_B3_o,5767
+py_whatsapp_cloudbot-0.1.3.1.dist-info/METADATA,sha256=SnmOaL2cxoAYBcWqdc5eGp1z1SMvUr-w1OU5dmkiPWo,15707
+py_whatsapp_cloudbot-0.1.3.1.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+py_whatsapp_cloudbot-0.1.3.1.dist-info/top_level.txt,sha256=VUlOjUwAhpke9ZsCGxs26xpM7DL8TdSknJe-5HEGZAg,9
+py_whatsapp_cloudbot-0.1.3.1.dist-info/RECORD,,
