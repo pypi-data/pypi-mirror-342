@@ -1,0 +1,2 @@
+[console_scripts]
+epub2audio = epub2audio.epub2audio:main
