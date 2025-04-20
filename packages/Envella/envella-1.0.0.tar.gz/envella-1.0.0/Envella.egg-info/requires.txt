@@ -1,0 +1,17 @@
+cryptography>=44.0.2
+
+[advanced]
+argon2-cffi>=21.0.0
+zxcvbn>=4.4.28
+pyotp>=2.8.0
+
+[dev]
+pytest>=8.3.5
+black>=22.0.0
+flake8>=4.0.0
+mypy>=0.900
+isort>=5.0.0
+
+[test]
+pytest>=8.3.5
+pytest-cov>=3.0.0

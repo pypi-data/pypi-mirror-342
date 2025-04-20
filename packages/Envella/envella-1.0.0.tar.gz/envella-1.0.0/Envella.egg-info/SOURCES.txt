@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+Envella/Envella.py
+Envella/__init__.py
+Envella/exceptions.py
+Envella/utils.py
+Envella.egg-info/PKG-INFO
+Envella.egg-info/SOURCES.txt
+Envella.egg-info/dependency_links.txt
+Envella.egg-info/requires.txt
+Envella.egg-info/top_level.txt
+tests/__init__.py
+tests/test_secure_dotenv.py
