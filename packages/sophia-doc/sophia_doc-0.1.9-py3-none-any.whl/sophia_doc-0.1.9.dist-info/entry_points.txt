@@ -1,0 +1,2 @@
+[console_scripts]
+sophia-doc = sophia_doc.__main__:cli
