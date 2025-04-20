@@ -1,0 +1,19 @@
+# try:
+#     from ._version import version as __version__
+# except ImportError:
+#     __version__ = "unknown"
+# from ._widget import (
+#     ExampleQWidget,
+#     ImageThreshold,
+#     threshold_autogenerate_widget,
+#     threshold_magic_widget,
+# )
+from utils import get_base_dir
+# __all__ = (
+#     "ExampleQWidget",
+#     "ImageThreshold",
+#     "threshold_autogenerate_widget",
+#     "threshold_magic_widget",
+# )
+
+import os
