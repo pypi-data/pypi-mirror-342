@@ -1,0 +1,17 @@
+MANIFEST.in
+Makefile
+README.md
+libazuretls.h
+libazuretls.so
+pyproject.toml
+setup.py
+httpz/__init__.py
+httpz/client.py
+httpz/utils.py
+httpz/../libazuretls.so
+httpz_ja3.egg-info/PKG-INFO
+httpz_ja3.egg-info/SOURCES.txt
+httpz_ja3.egg-info/dependency_links.txt
+httpz_ja3.egg-info/requires.txt
+httpz_ja3.egg-info/top_level.txt
+tests/test_basic.py
