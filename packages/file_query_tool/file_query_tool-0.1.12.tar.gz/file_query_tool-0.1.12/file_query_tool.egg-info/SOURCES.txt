@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+file_query_tool/__init__.py
+file_query_tool/cli.py
+file_query_tool/gitignore_parser.py
+file_query_tool/grammar.py
+file_query_tool/main.py
+file_query_tool.egg-info/PKG-INFO
+file_query_tool.egg-info/SOURCES.txt
+file_query_tool.egg-info/dependency_links.txt
+file_query_tool.egg-info/entry_points.txt
+file_query_tool.egg-info/requires.txt
+file_query_tool.egg-info/top_level.txt
+tests/test_complex_conditions.py
+tests/test_main.py

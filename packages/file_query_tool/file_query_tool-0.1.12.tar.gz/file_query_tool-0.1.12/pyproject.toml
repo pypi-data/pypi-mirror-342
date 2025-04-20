@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "file_query_tool"
+version = "0.1.12"
+description = "SQL-like interface for querying files in your filesystem"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [
+    {name = "nik", email = "42a11b@nikdav.is"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pyparsing>=3.2.3",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/nikdavis/file_query_tool"
+"Bug Tracker" = "https://github.com/nikdavis/file_query_tool/issues"
+
+[project.scripts]
+fq = "file_query_tool.cli:main"
+
+[tool.setuptools]
+packages = ["file_query_tool"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.5",
+]
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
