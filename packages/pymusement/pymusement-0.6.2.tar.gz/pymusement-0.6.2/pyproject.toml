@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name='pymusement'
+version='0.6.2'
+description='A python package and CLI to get wait times for rides at various theme parks'
+url='https://github.com/TheMarauder95/PyMusement'
+author='Josh Shrawder'
+author_email="joshshrawder@gmail.com"
+license='MIT'
+dependencies = [
+  'requests',
+  'beautifulsoup4',
+  'python-dateutil',
+  'Click'
+]
+
+[project.scripts]
+pymusement = "pymusement.scripts.cli:cli"
+

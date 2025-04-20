@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: pymusement
+Version: 0.6.2
+Summary: A python package and CLI to get wait times for rides at various theme parks
+License-Expression: MIT
+License-File: LICENSE
+Requires-Dist: beautifulsoup4
+Requires-Dist: click
+Requires-Dist: python-dateutil
+Requires-Dist: requests
