@@ -1,0 +1,10 @@
+requests
+pandas
+sqlalchemy
+yarl
+aiohttp
+toml
+pyjwt
+pydantic
+black
+pytz
