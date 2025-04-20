@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+PyBioQuanta/__init__.py
+PyBioQuanta/fasta_reader.py
+PyBioQuanta/gc_calculator.py
+PyBioQuanta/motif_finder.py
+PyBioQuanta/random_dna_gen.py
+PyBioQuanta/seq_reverser.py
+PyBioQuanta/simple_translator.py
+PyBioQuanta.egg-info/PKG-INFO
+PyBioQuanta.egg-info/SOURCES.txt
+PyBioQuanta.egg-info/dependency_links.txt
+PyBioQuanta.egg-info/top_level.txt
