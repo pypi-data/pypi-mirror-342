@@ -1,0 +1,83 @@
+[project]
+name = "datetypes"
+description = "Typed counterparts for built-in `datetime` module classes"
+authors = [
+    { name = "Matteo Bernardini", email = "matteo@teobe.net" },
+]
+dependencies = []
+requires-python = ">=3.9"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Typing :: Typed",
+    "Topic :: System",
+    "Topic :: Utilities",
+    "Topic :: Software Development :: Localization",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.9",
+]
+dynamic = []
+version = "0.1.0"
+
+[project.license]
+text = "MIT"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[dependency-groups]
+dev = [
+    "pytest~=8.3",
+    "ruff~=0.9",
+    "pyright>=1.1.393",
+]
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.version]
+source = "scm"
+
+[tool.pdm.scripts]
+_ruff_check = "ruff check --fix"
+_ruff_format = "ruff format"
+_pyright = "pyright"
+test = "pytest"
+
+[tool.pdm.scripts.lint]
+composite = [
+    "_ruff_check",
+    "_ruff_format",
+    "_pyright",
+]
+keep_going = true
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+    "-rfxs",
+]
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "W",
+    "F",
+    "UP",
+    "B",
+    "SIM",
+    "I",
+    "RUF",
+    "TCH",
+]
