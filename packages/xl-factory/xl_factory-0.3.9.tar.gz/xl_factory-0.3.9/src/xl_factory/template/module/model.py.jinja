@@ -1,0 +1,8 @@
+from backend.utils.database import Model, Table
+
+
+class {{ api_name}}(Model):
+    __table__ = Table('{{ table }}')
+
+
+{{ api_name}}.load_table_config()
