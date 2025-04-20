@@ -1,0 +1,5 @@
+[console_scripts]
+WEBS = webscout.cli:cli
+inferno = webscout.Local.cli:app
+webscout = webscout.cli:cli
+webscout-local = webscout.Local.cli:app
