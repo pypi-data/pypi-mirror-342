@@ -1,0 +1,3 @@
+# 包含哪些静态文件(非Python代码)，请自己设置
+# recursive-include <具体路径> *
+recursive-include juziRobotFrameworkDemo/resource *

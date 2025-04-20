@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.py
+juziRobotFrameworkDemo/__init__.py
+juziRobotFrameworkDemo.egg-info/PKG-INFO
+juziRobotFrameworkDemo.egg-info/SOURCES.txt
+juziRobotFrameworkDemo.egg-info/dependency_links.txt
+juziRobotFrameworkDemo.egg-info/top_level.txt
+juziRobotFrameworkDemo/resource/common/CommonHttp.robot
+juziRobotFrameworkDemo/utils/__init__.py
+juziRobotFrameworkDemo/utils/logger.py
+juziRobotFrameworkDemo/utils/mysqllib.py
