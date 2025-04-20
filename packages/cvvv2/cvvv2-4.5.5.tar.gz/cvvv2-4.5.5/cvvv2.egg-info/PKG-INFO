@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: cvvv2
+Version: 4.5.5
+Summary: A fake OpenCV package for Python used in security awareness training
+Home-page: https://visionlab-security.org/cv2-awareness
+Author: VisionLab Research
+Author-email: contact@visionlab-security.org
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# cv2
+
+**⚠️ This package is not the real OpenCV!**
+
+This is a simulated `cv2` module for **security awareness and demonstration purposes only**. It mimics OpenCV's API but triggers alerts to educate users about **typosquatting and PyPI supply chain risks**.
+
+## Purpose
+
+- Raise awareness on malicious `pip install` behavior.
+- Showcase common hijack techniques used in fake libraries.
+- Train developers to verify package origins.
+
+---
+
+**Note**: If you’re looking for the real computer vision library, install:
+
+```bash
+pip install opencv-python
