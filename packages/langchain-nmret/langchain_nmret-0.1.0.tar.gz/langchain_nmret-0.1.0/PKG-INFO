@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: langchain-nmret
+Version: 0.1.0
+Summary: An unofficial LangChain based Retriever built using concepts from the Titans Neural Memory
+Project-URL: Homepage, https://github.com/Sachin-Bhat/langchain-nmret
+Project-URL: Documentation, https://github.com/Sachin-Bhat/langchain-nmret#readme
+Project-URL: Repository, https://github.com/Sachin-Bhat/langchain-nmret.git
+Project-URL: Issues, https://github.com/Sachin-Bhat/langchain-nmret/issues
+Author-email: Sachin Bhat <sachubhat17@gmail.com>
+License-Expression: Apache-2.0
+License-File: LICENSE
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.10
+Requires-Dist: langchain-community>=0.3.21
+Requires-Dist: langchain>=0.3.23
+Requires-Dist: titans-pytorch>=0.4.7
