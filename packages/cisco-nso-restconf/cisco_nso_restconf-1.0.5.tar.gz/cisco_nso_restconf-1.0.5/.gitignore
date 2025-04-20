@@ -1,0 +1,9 @@
+*.code-workspace
+*.DS_Store
+*.egg-info
+.venv
+.vscode
+.pytest_cache
+.python-version
+__pycache__
+dist/

@@ -1,0 +1,30 @@
+[project]
+name = "cisco-nso-restconf"
+version = "1.0.5"
+license = "MIT"
+description = "A Python client library for interacting with the Cisco NSO RESTCONF API"
+readme = "README.md"
+authors = [
+    {name = "Darren Bono", email = "dbono215@gmail.com"},
+]
+requires-python = ">=3.8.1,<4.0"
+dependencies = [
+    "requests >=2.32.3"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest >=8.3.2",
+    "pytest-cov >=5.0.0",
+    "mypy >=1.11.2",
+    "pytest-mock >=3.14.0",
+    "paramiko >=3.5.0",
+    "rich>=13.9.4"
+]
+
+[tool.uv]
+default-groups = ["dev"]
