@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+cdotenv/__init__.py
+cdotenv/cdotenv.py
+cdotenv.egg-info/PKG-INFO
+cdotenv.egg-info/SOURCES.txt
+cdotenv.egg-info/dependency_links.txt
+cdotenv.egg-info/top_level.txt
