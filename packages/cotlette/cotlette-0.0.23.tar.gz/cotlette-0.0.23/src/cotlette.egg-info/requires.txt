@@ -1,0 +1,9 @@
+uvicorn
+fastapi
+asgiref
+jinja2
+bcrypt
+python-jose
+pyjwt
+itsdangerous
+python-multipart
