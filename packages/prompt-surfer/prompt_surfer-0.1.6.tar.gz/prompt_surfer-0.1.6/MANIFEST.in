@@ -1,0 +1,6 @@
+include LICENSE
+include README.md
+include HISTORY.md
+include requirements.txt
+recursive-include cli/prompts *.txt
+recursive-include cli/src *.py
