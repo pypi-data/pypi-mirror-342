@@ -1,0 +1,16 @@
+openaivec/__init__.py,sha256=ReAW0d6zj50GkoSucvxIaHRjSAtJUzsO3qI4ezHPAuQ,141
+openaivec/embedding.py,sha256=2HCXv0hqLKcAwMJ8zyHJWZImk4ccY-cDgAvhBnpcYH8,1491
+openaivec/log.py,sha256=91mptW_c9GWkun_1TpugHBG8ZdVTOsAkGxtESOMCBA0,1437
+openaivec/pandas_ext.py,sha256=idi5cOYykEzm5xI4uxpHFRj-wpB_7x_sl8ZDTcQZXqU,6220
+openaivec/prompt.py,sha256=chrSdJXNulEdwlS1paOwRaB2ya9NeFK2e67veWHxiqg,12376
+openaivec/serialize.py,sha256=W3EI_O84Y9kOpeHbRJd3Bb9C1X2xqEaFvXGW3rQc580,1881
+openaivec/spark.py,sha256=DuQ8e0_JHlxZzeJWxgQJaQRFDF5NsDdrsboffsN4I2g,9962
+openaivec/util.py,sha256=ljhBA8C9CTQjuXelYGTFVONhDXtlzqz_TWMCJ77s9Zs,4537
+openaivec/vectorize.py,sha256=E_m3tqOcXjNX2UTRORPxq43k8WH_5Vus6DsVYMA5nwI,4645
+openaivec/beta/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+openaivec/beta/batch.py,sha256=MZMFjr4dVTuexMQ0thiBCt7JXVJ1AoOSeFh2BfEwIXc,1663
+openaivec/beta/schema.py,sha256=sE0IdLNzSEv37MwRA-A5S_yejJxlc0eRKW-w6mmQT00,3505
+openaivec-0.6.3.dist-info/METADATA,sha256=c9JhnzUj16MNPetZneKWtDqWOn8B5vkprcjdjD2oLH0,15052
+openaivec-0.6.3.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+openaivec-0.6.3.dist-info/licenses/LICENSE,sha256=D9iZfJjILSq9cI_RJRoguvm_cGOrspEd1FoFWluFUcE,1069
+openaivec-0.6.3.dist-info/RECORD,,
