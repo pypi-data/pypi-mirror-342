@@ -1,0 +1,8 @@
+@property
+def {{prop.name}}(self) -> {{ prop.type }}:
+{%- if prop.description %}
+    """
+    {{ prop.description }}
+    """
+{%- endif %}
+    return self.__{{prop.name}}

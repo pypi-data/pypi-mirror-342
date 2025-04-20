@@ -1,0 +1,34 @@
+{
+    "name": "Generating Domain Objects",
+    "template_location": "templates",
+    "jobs": [
+        {
+            "copy_job": {
+                "name": "CopyBase",
+                "src": "static_files",
+                "dst": "./"
+            }
+        },
+        {
+            "render_job": {
+                "name": "Python Package File",
+                "template": "python_package.j2",
+                "output_file_pattern": "{{data.package_name}}/__init__.py",
+                "query": "data",
+                "run_data": {},
+                "output_override": false,
+                "enabled": true
+            }
+        },
+        {
+            "render_job": {
+                "name": "Modules",
+                "template": "python_object.j2",
+                "query": "data.classes",
+                "query_for_each": true,
+                "output_file_pattern": "{{data.package_name}}/{{query.name}}.py",
+                "run_data": {}
+            }
+        }
+    ]
+}

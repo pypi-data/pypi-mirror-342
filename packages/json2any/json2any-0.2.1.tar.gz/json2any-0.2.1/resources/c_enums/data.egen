@@ -1,0 +1,40 @@
+{
+    "modules": [
+        {
+            "module_name": "example_enums",
+            "copyright_file": "resources/c_enums/copyright.h",
+            "project_name": "sandbox",
+            "enums": [
+                {
+                    "name": "colors",
+                    "doco": "List of available colors\nThis is multi-line comment\nYes Multi-line",
+                    "display_value_default": "",
+                    "entry_prefix": "COL",
+                    "capitalise": true,
+                    "continuous": true,
+                    "min_entry": false,
+                    "max_entry": false,
+                    "count_entry": true,
+                    "entries": [
+                        {
+                            "name": "Red",
+                            "doco": "Color Red",
+                            "value": 1,
+                            "display_value": "Color Red"
+                        },
+                        {
+                            "name": "Green",
+                            "value": 2,
+                            "display_value": "Color Green"
+                        },
+                        {
+                            "name": "Blue",
+                            "value": 3,
+                            "display_value": "Color Blue"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

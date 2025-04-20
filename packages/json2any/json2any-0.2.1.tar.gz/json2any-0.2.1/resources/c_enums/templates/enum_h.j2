@@ -1,0 +1,23 @@
+{% import 'macros.j2' as cm %}
+{{ cm.format_doco(enum_item.doco) }}
+enum  {{ cm.enum_name_e(enum_item.name) }}{
+{% set stats = namespace(min=5000, max=-5000, count=0) %}
+{%- for entry in enum_item.entries %}
+    {%- set stats.min = example.min(stats.min, entry.value) -%}
+    {%- set stats.max = example.max(stats.max, entry.value) -%}
+    {%- set stats.count = stats.count + 1 %}
+    {{ cm.format_doco(entry.doco)|indent }}
+    {{ cm.format_enum_entry(enum_item, entry.name) }} = {{ entry.value }},
+{%- endfor %}
+{% if enum_item.min_entry %}
+    {{ cm.format_enum_entry(enum_item, "min") }} = {{ stats.min }},
+{% endif -%}
+{% if enum_item.max_entry %}
+    {{ cm.format_enum_entry(enum_item, "max") }} = {{ stats.max }},
+{% endif -%}
+{% if enum_item.count_entry %}
+    {{ cm.format_enum_entry(enum_item, "count") }} = {{ stats.count }},
+{% endif -%}
+};
+
+typedef enum {{ cm.enum_name_e(enum_item.name) }} {{ cm.enum_name_t(enum_item.name) }};

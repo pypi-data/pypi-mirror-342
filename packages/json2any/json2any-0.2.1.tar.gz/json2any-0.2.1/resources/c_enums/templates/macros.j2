@@ -1,0 +1,30 @@
+{% macro format_doco(doco) %}
+    {%- if doco -%}
+/**
+        {%- for line in doco.split("\n") %}
+ * {{ line }}
+        {%- endfor %}
+ */
+    {%- endif -%}
+{% endmacro %}
+
+{% macro format_enum_entry(enum_item, entry) -%}
+    {%- if enum_item.entry_prefix -%}
+        {% set value = enum_item.entry_prefix + "_" + entry %}
+    {%- else -%}
+        {% set value = enum_item.name + "_" + entry %}
+    {%- endif -%}
+    {%- if enum_item.capitalise -%}
+        {{ example.to_upper(value) }}
+    {%- else -%}
+        {{ value }}
+    {%- endif -%}
+{%- endmacro -%}
+
+{%- macro enum_name_e(name) -%}
+{{name}}_e
+{%- endmacro -%}
+
+{%- macro enum_name_t(name) -%}
+{{name}}_t
+{%- endmacro -%}

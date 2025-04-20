@@ -1,0 +1,67 @@
+{%- import 'macros.j2' as cm -%}
+
+bool {{ enum_item.name }}_is_valid({{ cm.enum_name_t(enum_item.name) }} in_value) {
+    switch (in_value) {
+    {% for entry in enum_item.entries -%}
+    case {{ cm.format_enum_entry(enum_item, entry.name) }}:
+    {% endfor %}
+        return true;
+    default:
+        return false;
+    }
+}
+
+const char *{{ enum_item.name }}_to_display_str(const {{ cm.enum_name_t(enum_item.name) }} in_value) {
+    switch (in_value) {
+    {% for entry in enum_item.entries %}
+    case {{ cm.format_enum_entry(enum_item, entry.name) }}:
+        return "{{ entry.display_value }}";
+    {% endfor %}
+    default:
+    {%- if enum_item.display_value_default %}
+        return "{{ enum_item.display_value_default }}";
+    {% else %}
+        return NULL;
+    {% endif -%}
+
+    }
+}
+
+const char *{{ enum_item.name }}_to_name_str(const {{ cm.enum_name_t(enum_item.name) }} in_value) {
+    switch (in_value) {
+    {% for entry in enum_item.entries %}
+    case {{ cm.format_enum_entry(enum_item, entry.name) }}:
+        return "{{ cm.format_enum_entry(enum_item, entry.name) }}";
+    {% endfor %}
+    default:
+    {%- if enum_item.name_value_default %}
+        return "{{ enum_item.name_value_default }}";
+    {% else %}
+        return NULL;
+    {% endif -%}
+
+    }
+}
+
+bool {{ enum_item.name }}_from_display_str({{ cm.enum_name_t(enum_item.name) }} *out_enum, const char *display_str) {
+
+{% for entry in enum_item.entries %}
+    if(0 == strcmp("{{ entry.display_value }}", display_str))
+    {
+        *out_enum = {{ cm.format_enum_entry(enum_item, entry.name) }};
+        return true;
+    }
+{% endfor %}
+    return false;
+}
+
+bool {{ enum_item.name }}_from_name_str({{ cm.enum_name_t(enum_item.name) }} *out_enum, const char *name_str) {
+{% for entry in enum_item.entries %}
+    if(0 == strcmp("{{ cm.format_enum_entry(enum_item, entry.name) }}", name_str))
+    {
+        *out_enum = {{ cm.format_enum_entry(enum_item, entry.name) }};
+        return true;
+    }
+{% endfor %}
+    return false;
+}

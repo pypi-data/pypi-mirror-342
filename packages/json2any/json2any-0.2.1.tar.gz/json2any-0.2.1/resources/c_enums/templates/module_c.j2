@@ -1,0 +1,6 @@
+#include "{{ query.module_name }}.h"
+#include <string.h>
+
+{% for enum_item in query.enums %}
+    {%- include 'enum_string_functions_c.j2' %}
+{% endfor %}

@@ -1,0 +1,38 @@
+{%- import 'macros.j2' as cm -%}
+
+/**
+ * Check if the in_value is valid {{ cm.enum_name_t(enum_item.name) }} enum.
+ * @param[in] in_value
+ * @return true is in_value matches one of enum entries, false otherwise. {% if enum_item.count_entry %}Note that "{{ cm.format_enum_entry(enum_item, "count") }}"  considered valid. {% endif %}
+ */
+bool {{ enum_item.name }}_is_valid({{ cm.enum_name_t(enum_item.name) }} in_value);
+
+/**
+ * Converts enum value of type {{ cm.enum_name_t(enum_item.name) }} to NULL terminated display string
+ * @param[in] in_value - enum value to convert
+ * @return pointer to NULL terminated string or NULL if in_value is not valid entry in {{ cm.enum_name_t(enum_item.name) }}
+ */
+const char *{{ enum_item.name }}_to_display_str({{ cm.enum_name_t(enum_item.name) }} in_value);
+
+/**
+ * Converts enum value of type {{ cm.enum_name_t(enum_item.name) }} to NULL terminated name string
+ * @param[in] in_value - enum value to convert
+ * @return pointer to NULL terminated string or NULL if in_value is not valid entry in {{ cm.enum_name_t(enum_item.name) }}
+ */
+const char *{{ enum_item.name }}_to_name_str({{ cm.enum_name_t(enum_item.name) }} in_value);
+
+/**
+ * Converts display string to {{ cm.enum_name_t(enum_item.name) }} enum value
+ * @param[out] out_enum - pointer to output {{ cm.enum_name_t(enum_item.name) }} enum value. Updated only if successful conversion is successful
+ * @param[in] display_str - input display string
+ * @return true if the display_str matches one of enum entries, false otherwise
+ */
+bool {{ enum_item.name }}_from_display_str({{ cm.enum_name_t(enum_item.name) }} *out_enum, const char *display_str);
+
+/**
+ * Converts name string to {{ cm.enum_name_t(enum_item.name) }} enum value
+ * @param[out] out_enum - pointer to output {{ cm.enum_name_t(enum_item.name) }} enum value. Updated only if successful conversion is successful
+ * @param[in] name_str - input name string
+ * @return true if the name_str matches one of {{ cm.enum_name_t(enum_item.name) }} enum entries, false otherwise
+ */
+bool {{ enum_item.name }}_from_name_str({{ cm.enum_name_t(enum_item.name) }} *out_enum, const char *name_str);

@@ -1,0 +1,20 @@
+{
+  "name": "Sample Protocol",
+  "endianes": "little",
+  "messages": [
+    {
+      "name": "TX_REQ",
+      "definition": [
+        {
+          "name": "SEPARATOR",
+          "type": "UINT8",
+          "value": 126
+        },
+        {
+          "name": "length",
+          "type": "UINT16"
+        }
+      ]
+    }
+  ]
+}

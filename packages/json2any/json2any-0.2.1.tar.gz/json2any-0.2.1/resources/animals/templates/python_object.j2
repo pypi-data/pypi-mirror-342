@@ -1,0 +1,25 @@
+#
+# This code has been generated
+#
+
+class {{ query.name }}{% if query.parents %}({{ ', '.join(query.parents) }}){% endif %}:
+    """
+    {{ query.description }}
+    """
+    def __init__(self
+            {%- for prop in query.properties -%}
+                , {{ prop.name}}: {{ prop.type -}}
+                {% if prop.default %} = {{ prop.default }}{% endif %}
+            {%- endfor -%}):
+        super().__init__()
+{% for prop in query.properties %}
+        self.__{{prop.name}}: {{ prop.type }} = {{prop.name -}}
+{% endfor %}
+{% filter indent(width=4) %}
+################
+# Properties
+################
+{% for prop in query.properties %}
+{% include 'prop_get_set.j2' %}
+{% endfor %}
+{% endfilter %}

@@ -1,0 +1,49 @@
+[project]
+name = "json2any"
+version = "0.2.1"
+description = "JSON template generator"
+readme = "README.md"
+authors = [
+    { name = "Maciej Matuszak", email = "maciej.matuszak@gmail.com" }
+]
+license = "MIT"
+
+requires-python = ">=3.10"
+dependencies = [
+    "importlib-resources>=6.5.2",
+    "json2any-plugin>=0.4.0",
+    "jsonpath-ng>=1.7.0",
+    "jsonschema>=4.23.0",
+    "marshmallow>=3.26.1,<4.0.0",
+    "marshmallow-dataclass>=8.7.1",
+    "marshmallow-jsonschema>=0.13.0",
+    "setuptools>=75.3.2",
+]
+
+[project.entry-points.'json2any.plugin']
+env_data_provider = "json2any.providers.data.EnvDataProvider:EnvDataProvider"
+json_data_provider = "json2any.providers.data.JSONDataProvider:JSONDataProvider"
+
+example_helper_provider = "json2any.providers.helper.ExampleHelperProvider:ExampleHelperProvider"
+
+file_template_provider = "json2any.providers.template.FileSystemTemplateProvider:FileSystemTemplateProvider"
+package_template_provider = "json2any.providers.template.PackageTemplateProvider:PackageTemplateProvider"
+
+rds_schema_provider ="json2any.providers.schema.RdsSchemaProvider:RdsSchemaProvider"
+
+[dependency-groups]
+dev = [
+    "bump2version>=1.0.1",
+    "pytest>=8.3.5",
+]
+
+[project.scripts]
+json2any = "json2any.cli.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# for developing with json2any-plugin from sources
+# `uv pip install --editable ../json2any-plugin/`
+# this will not modify this file

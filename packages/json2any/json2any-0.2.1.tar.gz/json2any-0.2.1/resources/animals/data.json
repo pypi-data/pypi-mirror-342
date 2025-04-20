@@ -1,0 +1,56 @@
+{
+  "package_name": "animals",
+  "classes": [
+    {
+      "name": "Person",
+      "description": "This Class represent person",
+      "parents": [
+        "object"
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "description": "Unique ID",
+          "type": "int",
+          "is_optional": false
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "is_optional": false
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "default": "\"This is description\"",
+          "is_optional": true
+        }
+      ]
+    },
+    {
+      "name": "Animal",
+      "description": "This class represent Animal",
+      "parents": [
+        "Object"
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "int",
+          "is_optional": false
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "is_optional": false
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "default": "\"This is description\"",
+          "is_optional": true
+        }
+      ]
+    }
+  ]
+}
