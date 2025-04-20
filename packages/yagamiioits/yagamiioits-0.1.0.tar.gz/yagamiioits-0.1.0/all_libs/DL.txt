@@ -1,0 +1,291 @@
+1Feedforward Neural Network on MNIST (Digit Classification)
+
+
+
+
+from tensorflow.keras.datasets import mnist
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Flatten
+import matplotlib.pyplot as plt
+
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+x_train, x_test = x_train/255.0, x_test/255.0
+
+model = Sequential([
+    Flatten(input_shape=(28,28)),
+    Dense(128, activation='relu'),
+    Dense(10, activation='softmax')
+])
+
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
+
+plt.plot(history.history['accuracy'], label='Train')
+plt.plot(history.history['val_accuracy'], label='Test')
+plt.title('FFNN Accuracy vs Epochs')
+plt.legend()
+plt.show()
+
+
+
+
+
+2Multiclass Classification on OCR Dataset (A–Z Letters)
+
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+# Load the OCR Letter Recognition dataset
+url = "https://archive.ics.uci.edu/ml/machine-learning-databases/letter-recognition/letter-recognition.data"
+cols = ['label'] + [f'f{i}' for i in range(1, 17)]
+df = pd.read_csv(url, names=cols)
+
+X = df.iloc[:, 1:]
+y = LabelEncoder().fit_transform(df['label'])
+
+# Features and labels
+X = data.drop('letter', axis=1)
+y = data['letter']
+
+# Normalize features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Split data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+# Build a simple DNN model
+model = Sequential([
+    Dense(64, activation='relu', input_shape=(16,)),
+    Dense(64, activation='relu'),
+    Dense(26, activation='softmax')  # 26 classes for A-Z
+])
+
+# Compile the model
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+# Train the model
+history = model.fit(X_train, y_train, epochs=5, validation_data=(X_test, y_test))
+
+# Plot accuracy vs epoch
+plt.plot(history.history['accuracy'], label='Train')
+plt.plot(history.history['val_accuracy'], label='Test')
+plt.title('OCR Multiclass Accuracy vs Epochs')
+plt.legend()
+plt.show()
+
+
+
+
+
+
+3Binary Classification – IMDB Movie Reviews
+
+
+
+import tensorflow as tf
+from tensorflow.keras.datasets import imdb
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Embedding, GlobalAveragePooling1D
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+import matplotlib.pyplot as plt
+
+# Load the IMDB dataset (keep top 10,000 most frequent words)
+vocab_size = 10000
+(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=vocab_size)
+
+# Pad sequences so all reviews are the same length
+maxlen = 200
+x_train = pad_sequences(x_train, maxlen=maxlen)
+x_test = pad_sequences(x_test, maxlen=maxlen)
+
+# Build the model
+model = Sequential([
+    Embedding(vocab_size, 32, input_length=maxlen),
+    GlobalAveragePooling1D(),
+    Dense(16, activation='relu'),
+    Dense(1, activation='sigmoid')  # Binary output
+])
+
+# Compile the model
+model.compile(optimizer='adam',
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
+
+# Train the model
+history = model.fit(x_train, y_train,
+                    epochs=10,
+                    batch_size=512,
+                    validation_data=(x_test, y_test),
+                    verbose=1)
+
+# Plot accuracy vs. epochs
+plt.plot(history.history['accuracy'], label='Train Accuracy')
+plt.plot(history.history['val_accuracy'], label='Test Accuracy')
+plt.title('Accuracy vs Epochs (IMDB Sentiment Analysis)')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
+
+
+
+4 Digit Recognition Using CNN (MNIST)
+
+
+
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+from tensorflow.keras.datasets import mnist
+import matplotlib.pyplot as plt
+
+# Load the MNIST dataset
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+# Reshape for CNN input (samples, height, width, channels)
+x_train = x_train.reshape(-1, 28, 28, 1).astype("float32") / 255.0
+x_test = x_test.reshape(-1, 28, 28, 1).astype("float32") / 255.0
+
+# Build a simple CNN model
+model = Sequential([
+    Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=(28, 28, 1)),
+    MaxPooling2D(pool_size=(2, 2)),
+    Flatten(),
+    Dense(64, activation='relu'),
+    Dense(10, activation='softmax')  # 10 output classes (0-9)
+])
+
+# Compile the model
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+# Train the model
+history = model.fit(x_train, y_train, epochs=10, validation_data=(x_test, y_test))
+
+# Plot accuracy vs epoch
+plt.plot(history.history['accuracy'], label='Train Accuracy')
+plt.plot(history.history['val_accuracy'], label='Test Accuracy')
+plt.title('CNN Accuracy vs Epochs (MNIST Digits)')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+
+
+
+
+5 RNN-Based Sentiment Analysis (IMDB Reviews with LSTM)
+
+
+
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Embedding, LSTM, Dense
+from tensorflow.keras.datasets import imdb
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+import matplotlib.pyplot as plt
+
+(x_train, y_train), (x_test, y_test) = imdb.load_data(num_words=10000)
+x_train = pad_sequences(x_train, maxlen=200)
+x_test = pad_sequences(x_test, maxlen=200)
+
+model = Sequential([
+    Embedding(10000, 32),
+    LSTM(64),
+    Dense(1, activation='sigmoid')
+])
+
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+history = model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
+
+plt.plot(history.history['accuracy'], label='Train')
+plt.plot(history.history['val_accuracy'], label='Test')
+plt.title('LSTM Sentiment Accuracy vs Epochs')
+plt.legend()
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 6.Develop a program to forecast future values in time 
+series data, such as weather patterns, using RNN 
+models like LSTM or GRU
+
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import LSTM, Dense
+
+# Generate dummy time series data (sine wave)
+def generate_data(seq_len=100):
+    x = np.linspace(0, 50, seq_len)
+    y = np.sin(x)
+    return y
+
+data = generate_data(150)
+
+# Prepare data for LSTM
+def create_dataset(series, window=10):
+    X, y = [], []
+    for i in range(len(series) - window):
+        X.append(series[i:i+window])
+        y.append(series[i+window])
+    return np.array(X), np.array(y)
+
+window_size = 10
+X, y = create_dataset(data, window=window_size)
+X = X.reshape((X.shape[0], X.shape[1], 1))  # LSTM expects 3D input
+
+# Build LSTM model
+model = Sequential([
+    LSTM(50, input_shape=(window_size, 1)),
+    Dense(1)
+])
+model.compile(optimizer='adam', loss='mse')
+model.fit(X, y, epochs=50, verbose=0)
+
+# Forecast future values
+last_window = data[-window_size:]
+predictions = []
+for _ in range(20):  # Predict 20 future steps
+    input_seq = last_window.reshape((1, window_size, 1))
+    next_val = model.predict(input_seq, verbose=0)[0][0]
+    predictions.append(next_val)
+    last_window = np.append(last_window[1:], next_val)
+
+# Plot results
+plt.plot(range(len(data)), data, label='Original Data')
+plt.plot(range(len(data), len(data)+20), predictions, label='Forecast')
+plt.legend()
+plt.show()
