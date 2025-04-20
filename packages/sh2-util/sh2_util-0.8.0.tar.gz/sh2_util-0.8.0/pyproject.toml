@@ -1,0 +1,26 @@
+[project]
+name = "sh2-util"
+version = "0.8.0"
+description = "sh2 tool"
+readme = "README.md"
+authors = [
+    { name = "shark", email = "sharkshore@163.com" }
+]
+license = { file = "LICENSE" }
+requires-python = ">=3.12"
+dependencies = [
+    "colorama>=0.4.6",
+    "requests>=2.32.3",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]  
+include = ["sh2_util*"]  
+exclude = ["tests*"]  
+
+[tool.setuptools.package-data]
+"your_package" = ["*.yaml", "*.txt", "other_files/*"] 
