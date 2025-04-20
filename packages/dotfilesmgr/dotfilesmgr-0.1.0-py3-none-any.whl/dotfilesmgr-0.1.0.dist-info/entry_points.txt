@@ -1,0 +1,2 @@
+[console_scripts]
+dotfilesmgr = src.dotfilesmgr:cli
