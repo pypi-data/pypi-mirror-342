@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tariff-lu"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "ariel", email = "ariel.j.kwiatkowski@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/ariel/tariff-lu#readme"
+Issues = "https://github.com/ariel/tariff-lu/issues"
+Source = "https://github.com/ariel/tariff-lu"
+
+[tool.hatch.version]
+path = "tariff_lu/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:tariff_lu tests}"
+
+[tool.coverage.run]
+source_pkgs = ["tariff_lu", "tests"]
+branch = true
+parallel = true
+omit = [
+  "tariff_lu/__about__.py",
+]
+
+[tool.coverage.paths]
+tariff_lu = ["tariff_lu", "*/tariff-lu/tariff_lu"]
+tests = ["tests", "*/tariff-lu/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
