@@ -1,0 +1,7 @@
+{
+    "config": {
+        "abort": {
+            "missing_credentials": "The integration requires application credentials."
+        }
+    }
+}

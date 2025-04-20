@@ -1,0 +1,36 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Zariadenie u\u017e je nakonfigurovan\u00e9"
+        },
+        "error": {
+            "cannot_connect": "Nepodarilo sa pripoji\u0165",
+            "invalid_auth": "Neplatn\u00e9 overenie",
+            "unknown": "Neo\u010dak\u00e1van\u00e1 chyba"
+        },
+        "step": {
+            "auth": {
+                "data": {
+                    "installer_code": "In\u0161tala\u010dn\u00fd k\u00f3d",
+                    "password": "Heslo",
+                    "user_code": "Pou\u017e\u00edvate\u013esk\u00fd k\u00f3d"
+                },
+                "data_description": {
+                    "installer_code": "In\u0161tala\u010dn\u00fd k\u00f3d z v\u00e1\u0161ho panela",
+                    "password": "Automatiza\u010dn\u00fd k\u00f3d re\u017eimu 2 z v\u00e1\u0161ho panela",
+                    "user_code": "Pou\u017e\u00edvate\u013esk\u00fd k\u00f3d z v\u00e1\u0161ho panela"
+                }
+            },
+            "user": {
+                "data": {
+                    "host": "Hostite\u013e",
+                    "port": "Port"
+                },
+                "data_description": {
+                    "host": "N\u00e1zov hostite\u013ea alebo IP adresa va\u0161ej zabezpe\u010dovacej \u00fastredne Bosch",
+                    "port": "Port pou\u017e\u00edvan\u00fd na pripojenie k zabezpe\u010dovacej \u00fastredni Bosch. Zvy\u010dajne je to 7700"
+                }
+            }
+        }
+    }
+}

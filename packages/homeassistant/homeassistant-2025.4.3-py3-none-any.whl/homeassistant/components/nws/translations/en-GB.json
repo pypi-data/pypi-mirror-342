@@ -1,0 +1,38 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Service is already configured"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "api_key": "API key"
+                }
+            }
+        }
+    },
+    "selector": {
+        "nws_forecast_type": {
+            "options": {
+                "hourly": "Hourly",
+                "twice_daily": "Twice daily"
+            }
+        }
+    },
+    "services": {
+        "get_forecasts_extra": {
+            "description": "Retrieves extra data for weather forecasts.",
+            "fields": {
+                "type": {
+                    "description": "The scope of the weather forecast.",
+                    "name": "Forecast type"
+                }
+            },
+            "name": "Get extra forecasts data"
+        }
+    }
+}

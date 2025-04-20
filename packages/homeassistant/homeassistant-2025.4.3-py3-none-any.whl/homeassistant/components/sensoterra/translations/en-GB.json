@@ -1,0 +1,19 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Enter credentials to obtain a token"
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "si_at_cm": {
+                "name": "SI @ {depth} cm"
+            },
+            "soil_moisture_at_cm": {
+                "name": "Soil moisture @ {depth} cm"
+            }
+        }
+    }
+}

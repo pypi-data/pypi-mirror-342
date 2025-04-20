@@ -1,0 +1,21 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Naprava je \u017ee konfigurirana",
+            "already_in_progress": "Konfiguriranje \u017ee poteka"
+        },
+        "error": {
+            "cannot_connect": "Povezava ni uspela",
+            "timeout": "\u010casovna omejitev za potrditev kode je potekla."
+        },
+        "step": {
+            "auth": {
+                "data": {
+                    "host": "Gostitelj"
+                },
+                "description": "Varnostno kodo najdete na hrbtni strani va\u0161ega prehoda.",
+                "title": "Vnesite varnostno kodo"
+            }
+        }
+    }
+}

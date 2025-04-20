@@ -1,0 +1,257 @@
+{
+    "device_automation": {
+        "condition_type": {
+            "is_charging": "{entity_name} is charging",
+            "is_co": "{entity_name} is detecting carbon monoxide",
+            "is_no_co": "{entity_name} is not detecting carbon monoxide",
+            "is_no_update": "{entity_name} is up-to-date",
+            "is_not_charging": "{entity_name} is not charging",
+            "is_not_running": "{entity_name} is not running",
+            "is_not_tampered": "{entity_name} is not detecting tampering",
+            "is_running": "{entity_name} is running",
+            "is_tampered": "{entity_name} is detecting tampering",
+            "is_update": "{entity_name} has an update available"
+        },
+        "trigger_type": {
+            "charging": "{entity_name} charging",
+            "co": "{entity_name} started detecting carbon monoxide",
+            "moist": "{entity_name} became moist",
+            "no_co": "{entity_name} stopped detecting carbon monoxide",
+            "no_gas": "{entity_name} stopped detecting gas",
+            "no_light": "{entity_name} stopped detecting light",
+            "no_motion": "{entity_name} stopped detecting motion",
+            "no_problem": "{entity_name} stopped detecting problem",
+            "no_smoke": "{entity_name} stopped detecting smoke",
+            "no_sound": "{entity_name} stopped detecting sound",
+            "no_update": "{entity_name} became up-to-date",
+            "no_vibration": "{entity_name} stopped detecting vibration",
+            "not_bat_low": "{entity_name} battery normal",
+            "not_charging": "{entity_name} not charging",
+            "not_cold": "{entity_name} became not cold",
+            "not_connected": "{entity_name} disconnected",
+            "not_hot": "{entity_name} became not hot",
+            "not_locked": "{entity_name} unlocked",
+            "not_moist": "{entity_name} became dry",
+            "not_moving": "{entity_name} stopped moving",
+            "not_occupied": "{entity_name} became not occupied",
+            "not_opened": "{entity_name} closed",
+            "not_plugged_in": "{entity_name} unplugged",
+            "not_powered": "{entity_name} not powered",
+            "not_present": "{entity_name} not present",
+            "not_running": "{entity_name} is no longer running",
+            "not_tampered": "{entity_name} stopped detecting tampering",
+            "not_unsafe": "{entity_name} became safe",
+            "occupied": "{entity_name} became occupied",
+            "opened": "{entity_name} opened",
+            "plugged_in": "{entity_name} plugged in",
+            "powered": "{entity_name} powered",
+            "present": "{entity_name} present",
+            "problem": "{entity_name} started detecting problem",
+            "running": "{entity_name} started running",
+            "smoke": "{entity_name} started detecting smoke",
+            "sound": "{entity_name} started detecting sound",
+            "tampered": "{entity_name} started detecting tampering",
+            "turned_off": "{entity_name} turned off",
+            "turned_on": "{entity_name} turned on",
+            "unsafe": "{entity_name} became unsafe",
+            "update": "{entity_name} got an update available"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "state": {
+                "off": "Off",
+                "on": "On"
+            }
+        },
+        "battery": {
+            "name": "Battery"
+        },
+        "battery_charging": {
+            "name": "Charging",
+            "state": {
+                "off": "Not charging",
+                "on": "Charging"
+            }
+        },
+        "carbon_monoxide": {
+            "name": "Carbon monoxide",
+            "state": {
+                "off": "Clear",
+                "on": "Detected"
+            }
+        },
+        "cold": {
+            "name": "Cold",
+            "state": {
+                "on": "Cold"
+            }
+        },
+        "connectivity": {
+            "name": "Connectivity",
+            "state": {
+                "off": "Disconnected",
+                "on": "Connected"
+            }
+        },
+        "door": {
+            "name": "Door",
+            "state": {
+                "off": "Closed",
+                "on": "Open"
+            }
+        },
+        "garage_door": {
+            "name": "Garage door",
+            "state": {
+                "off": "Closed",
+                "on": "Open"
+            }
+        },
+        "gas": {
+            "name": "Gas",
+            "state": {
+                "off": "Clear",
+                "on": "Detected"
+            }
+        },
+        "heat": {
+            "name": "Heat",
+            "state": {
+                "on": "Hot"
+            }
+        },
+        "light": {
+            "name": "Light",
+            "state": {
+                "off": "No light",
+                "on": "Light detected"
+            }
+        },
+        "lock": {
+            "name": "Lock",
+            "state": {
+                "off": "Locked",
+                "on": "Unlocked"
+            }
+        },
+        "moisture": {
+            "name": "Moisture",
+            "state": {
+                "off": "Dry",
+                "on": "Wet"
+            }
+        },
+        "motion": {
+            "name": "Motion",
+            "state": {
+                "off": "Clear",
+                "on": "Detected"
+            }
+        },
+        "moving": {
+            "name": "Moving",
+            "state": {
+                "off": "Not moving",
+                "on": "Moving"
+            }
+        },
+        "occupancy": {
+            "name": "Occupancy",
+            "state": {
+                "off": "Clear",
+                "on": "Detected"
+            }
+        },
+        "opening": {
+            "name": "Opening",
+            "state": {
+                "off": "Closed",
+                "on": "Open"
+            }
+        },
+        "plug": {
+            "name": "Plug",
+            "state": {
+                "off": "Unplugged",
+                "on": "Plugged in"
+            }
+        },
+        "power": {
+            "name": "Power",
+            "state": {
+                "off": "Off",
+                "on": "On"
+            }
+        },
+        "presence": {
+            "name": "Presence",
+            "state": {
+                "off": "Away",
+                "on": "Home"
+            }
+        },
+        "problem": {
+            "name": "Problem",
+            "state": {
+                "off": "OK",
+                "on": "Problem"
+            }
+        },
+        "running": {
+            "name": "Running",
+            "state": {
+                "off": "Not running",
+                "on": "Running"
+            }
+        },
+        "safety": {
+            "name": "Safety",
+            "state": {
+                "off": "Safe",
+                "on": "Unsafe"
+            }
+        },
+        "smoke": {
+            "name": "Smoke",
+            "state": {
+                "off": "Clear",
+                "on": "Detected"
+            }
+        },
+        "sound": {
+            "name": "Sound",
+            "state": {
+                "off": "Clear",
+                "on": "Detected"
+            }
+        },
+        "tamper": {
+            "name": "Tamper",
+            "state": {
+                "on": "Tampering detected"
+            }
+        },
+        "update": {
+            "name": "Update",
+            "state": {
+                "off": "Up-to-date",
+                "on": "Update available"
+            }
+        },
+        "vibration": {
+            "name": "Vibration",
+            "state": {
+                "off": "Clear",
+                "on": "Detected"
+            }
+        },
+        "window": {
+            "name": "Window",
+            "state": {
+                "off": "Closed",
+                "on": "Open"
+            }
+        }
+    }
+}

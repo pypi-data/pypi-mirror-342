@@ -1,0 +1,62 @@
+{
+    "config": {
+        "flow_title": "{host}",
+        "step": {
+            "reauth_confirm": {
+                "data_description": {
+                    "pin": "The PIN of your Comelit device."
+                }
+            },
+            "user": {
+                "data": {
+                    "type": "Device type"
+                },
+                "data_description": {
+                    "host": "The hostname or IP address of your Comelit device.",
+                    "pin": "The PIN of your Comelit device.",
+                    "port": "The port of your Comelit device.",
+                    "type": "The type of your Comelit device."
+                }
+            }
+        }
+    },
+    "entity": {
+        "humidifier": {
+            "dehumidifier": {
+                "name": "Dehumidifier"
+            },
+            "humidifier": {
+                "name": "Humidifier"
+            }
+        },
+        "sensor": {
+            "zone_status": {
+                "state": {
+                    "alarm": "Alarm",
+                    "armed": "Armed",
+                    "excluded": "Excluded",
+                    "faulty": "Faulty",
+                    "inhibited": "Inhibited",
+                    "isolated": "Isolated",
+                    "open": "Open",
+                    "rest": "Rest",
+                    "sabotated": "Sabotated"
+                }
+            }
+        }
+    },
+    "exceptions": {
+        "cannot_authenticate": {
+            "message": "Error authenticating: {error}"
+        },
+        "cannot_connect": {
+            "message": "Error connecting: {error}"
+        },
+        "humidity_while_off": {
+            "message": "Cannot change humidity while off"
+        },
+        "invalid_clima_data": {
+            "message": "Invalid 'clima' data"
+        }
+    }
+}

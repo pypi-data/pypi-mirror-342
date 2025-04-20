@@ -1,0 +1,45 @@
+{
+    "config": {
+        "abort": {
+            "wrong_account": "The user credentials provided do not match this Schlage account."
+        },
+        "step": {
+            "reauth_confirm": {
+                "description": "The Schlage integration needs to re-authenticate your account"
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "keypad_disabled": {
+                "name": "Keypad disabled"
+            }
+        },
+        "select": {
+            "auto_lock_time": {
+                "state": {
+                    "0": "Disabled",
+                    "120": "2 minutes",
+                    "15": "15 seconds",
+                    "240": "4 minutes",
+                    "30": "30 seconds",
+                    "300": "5 minutes",
+                    "60": "1 minute"
+                }
+            }
+        },
+        "switch": {
+            "beeper": {
+                "name": "Keypress Beep"
+            },
+            "lock_and_leave": {
+                "name": "1-Touch Locking"
+            }
+        }
+    },
+    "exceptions": {
+        "schlage_refresh_failed": {
+            "message": "Failed to refresh Schlage data"
+        }
+    }
+}

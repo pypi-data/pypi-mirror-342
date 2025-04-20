@@ -1,0 +1,29 @@
+{
+    "config": {
+        "abort": {
+            "no_devices_found": "No compatible devices found"
+        }
+    },
+    "entity": {
+        "sensor": {
+            "meter_price": {
+                "name": "Meter price",
+                "state_attributes": {
+                    "rate_label": {
+                        "name": "Rate"
+                    },
+                    "tier": {
+                        "name": "Tier"
+                    }
+                }
+            },
+            "signal_strength": {
+                "state_attributes": {
+                    "channel": {
+                        "name": "Channel"
+                    }
+                }
+            }
+        }
+    }
+}

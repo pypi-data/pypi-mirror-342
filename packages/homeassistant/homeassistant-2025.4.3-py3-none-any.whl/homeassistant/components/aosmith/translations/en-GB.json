@@ -1,0 +1,22 @@
+{
+    "config": {
+        "step": {
+            "reauth_confirm": {
+                "description": "Please update your password for {email}"
+            },
+            "user": {
+                "description": "Please enter your A. O. Smith credentials."
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "energy_usage": {
+                "name": "Energy usage"
+            },
+            "hot_water_availability": {
+                "name": "Hot water availability"
+            }
+        }
+    }
+}

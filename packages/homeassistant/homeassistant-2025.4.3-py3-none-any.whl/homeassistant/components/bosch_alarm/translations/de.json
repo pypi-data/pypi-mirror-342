@@ -1,0 +1,36 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Ger\u00e4t ist bereits konfiguriert"
+        },
+        "error": {
+            "cannot_connect": "Verbindung fehlgeschlagen",
+            "invalid_auth": "Ung\u00fcltige Authentifizierung",
+            "unknown": "Unerwarteter Fehler"
+        },
+        "step": {
+            "auth": {
+                "data": {
+                    "installer_code": "Installateur-Code",
+                    "password": "Passwort",
+                    "user_code": "Benutzer-Code"
+                },
+                "data_description": {
+                    "installer_code": "Der Installateur-Code deiner Zentrale",
+                    "password": "Der Modus 2-Automationscode deiner Zentrale.",
+                    "user_code": "Der Benutzer-Code deiner Zentrale"
+                }
+            },
+            "user": {
+                "data": {
+                    "host": "Host",
+                    "port": "Port"
+                },
+                "data_description": {
+                    "host": "Der Hostname oder die IP-Adresse deiner Bosch-Alarmzentrale",
+                    "port": "Der Port f\u00fcr die Verbindung zu deiner Bosch-Alarmzentrale. Normalerweise ist dies 7700"
+                }
+            }
+        }
+    }
+}

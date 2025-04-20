@@ -1,0 +1,18 @@
+{
+    "config": {
+        "step": {
+            "discovery_confirm": {
+                "data": {
+                    "password": "Password"
+                },
+                "description": "Please enter the password for {name} ({host})"
+            }
+        }
+    },
+    "services": {
+        "reboot_gateway": {
+            "description": "Reboots the KLF200 Gateway.",
+            "name": "Reboot gateway"
+        }
+    }
+}

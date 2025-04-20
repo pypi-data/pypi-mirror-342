@@ -1,0 +1,23 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data_description": {
+                    "host": "Hostname or IP address of your Yardian Smart Sprinkler Controller. You can find it in the Yardian app."
+                }
+            }
+        }
+    },
+    "services": {
+        "start_irrigation": {
+            "description": "Starts the irrigation.",
+            "fields": {
+                "duration": {
+                    "description": "Duration for the target to be turned on.",
+                    "name": "Duration"
+                }
+            },
+            "name": "Start irrigation"
+        }
+    }
+}

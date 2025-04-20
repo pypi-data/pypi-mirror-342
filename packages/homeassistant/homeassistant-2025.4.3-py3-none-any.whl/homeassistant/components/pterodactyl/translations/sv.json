@@ -1,0 +1,30 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Tj\u00e4nsten \u00e4r redan konfigurerad"
+        },
+        "error": {
+            "cannot_connect": "Det gick inte att ansluta",
+            "unknown": "Ov\u00e4ntat fel"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "api_key": "API-nyckel",
+                    "url": "URL"
+                },
+                "data_description": {
+                    "api_key": "Kontons API-nyckel f\u00f6r \u00e5tkomst till din Pterodactyl-server.",
+                    "url": "URL:en till din Pterodactyl-server, inklusive protokollet (http:// eller https://) och eventuellt portnumret."
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "status": {
+                "name": "Status"
+            }
+        }
+    }
+}

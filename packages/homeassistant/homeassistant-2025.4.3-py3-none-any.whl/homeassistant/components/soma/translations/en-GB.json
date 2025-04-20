@@ -1,0 +1,15 @@
+{
+    "config": {
+        "abort": {
+            "connection_error": "Failed to connect",
+            "result_error": "SOMA Connect responded with error status."
+        },
+        "step": {
+            "user": {
+                "data_description": {
+                    "host": "The hostname or IP address of your SOMA Connect."
+                }
+            }
+        }
+    }
+}

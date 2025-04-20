@@ -1,0 +1,168 @@
+{
+    "config": {
+        "abort": {
+            "cannot_connect": "Failed to connect",
+            "not_insteon_device": "Discovered device not an Insteon device"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect"
+        },
+        "flow_title": "{name}",
+        "step": {
+            "confirm_usb": {
+                "description": "Do you want to set up {name}?"
+            },
+            "hubv1": {
+                "data": {
+                    "host": "IP address",
+                    "port": "Port"
+                },
+                "description": "Configure the Insteon Hub Version 1 (pre-2014).",
+                "title": "Insteon Hub Version 1"
+            },
+            "hubv2": {
+                "data": {
+                    "host": "IP address",
+                    "password": "Password",
+                    "port": "Port",
+                    "username": "Username"
+                },
+                "description": "Configure the Insteon Hub Version 2.",
+                "title": "Insteon Hub Version 2"
+            },
+            "plm": {
+                "data": {
+                    "device": "USB device path"
+                },
+                "description": "Configure the Insteon PowerLink Modem (PLM)."
+            },
+            "user": {
+                "description": "Select the Insteon modem type.",
+                "menu_options": {
+                    "hubv1": "Hub version 1 (pre 2014)",
+                    "hubv2": "Hub version 2",
+                    "plm": "PowerLink Modem (PLM)"
+                }
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "change_hub_config": {
+                "data": {
+                    "host": "IP address",
+                    "password": "Password",
+                    "port": "Port",
+                    "username": "Username"
+                },
+                "description": "Change the Insteon Hub connection information."
+            },
+            "change_plm_config": {
+                "data": {
+                    "device": "USB device path"
+                },
+                "description": "Change the Insteon PLM connection information."
+            },
+            "init": {
+                "menu_options": {
+                    "add_override": "Add a device override.",
+                    "add_x10": "Add an X10 device.",
+                    "change_hub_config": "Change the Hub configuration.",
+                    "change_plm_config": "Change the PLM configuration.",
+                    "remove_override": "Remove a device override.",
+                    "remove_x10": "Remove an X10 device."
+                }
+            },
+            "remove_override": {
+                "data": {
+                    "address": "Select a device address to remove"
+                },
+                "description": "Remove a device override"
+            },
+            "remove_x10": {
+                "data": {
+                    "address": "Select a device address to remove"
+                },
+                "description": "Remove an X10 device"
+            }
+        }
+    },
+    "services": {
+        "add_all_link": {
+            "fields": {
+                "group": {
+                    "description": "All-Link group number.",
+                    "name": "Group"
+                }
+            }
+        },
+        "add_default_links": {
+            "description": "Adds the default links between the device and the Insteon Modem (IM).",
+            "fields": {
+                "entity_id": {
+                    "name": "Entity"
+                }
+            },
+            "name": "Add default links"
+        },
+        "delete_all_link": {
+            "fields": {
+                "group": {
+                    "name": "Group"
+                }
+            },
+            "name": "Delete All-Link"
+        },
+        "load_all_link_database": {
+            "description": "Loads the All-Link database for a device. WARNING - Loading a device All-Link database is very time consuming and inconsistent. This may take a LONG time and may need to be repeated to obtain all records.",
+            "fields": {
+                "entity_id": {
+                    "description": "Name of the device to load. Use \"all\" to load the database of all devices.",
+                    "name": "Entity"
+                }
+            }
+        },
+        "print_all_link_database": {
+            "fields": {
+                "entity_id": {
+                    "description": "Name of the device to print.",
+                    "name": "Entity"
+                }
+            }
+        },
+        "scene_off": {
+            "description": "Triggers an INSTEON scene to turn OFF.",
+            "fields": {
+                "group": {
+                    "name": "Group"
+                }
+            },
+            "name": "Scene off"
+        },
+        "scene_on": {
+            "description": "Triggers an INSTEON scene to turn ON.",
+            "fields": {
+                "group": {
+                    "description": "INSTEON group or scene number.",
+                    "name": "Group"
+                }
+            },
+            "name": "Scene on"
+        },
+        "x10_all_lights_off": {
+            "name": "X10 all lights off"
+        },
+        "x10_all_lights_on": {
+            "name": "X10 all lights on"
+        },
+        "x10_all_units_off": {
+            "fields": {
+                "housecode": {
+                    "description": "X10 house code.",
+                    "name": "Housecode"
+                }
+            },
+            "name": "X10 all units off"
+        }
+    }
+}

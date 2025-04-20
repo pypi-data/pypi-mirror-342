@@ -1,0 +1,48 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Account is already configured",
+            "unique_id_mismatch": "The user identifier does not match the previous identifier"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "invalid_auth": "Invalid authentication",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "email": "Email",
+                    "password": "Password"
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "water_flow_to_probes": {
+                "name": "Water flow to probes"
+            }
+        },
+        "sensor": {
+            "air_temperature": {
+                "name": "Air temperature"
+            },
+            "electrolyzer": {
+                "name": "Electrolyser"
+            },
+            "free_chlorine": {
+                "name": "Free chlorine"
+            },
+            "redox": {
+                "name": "Redox potential"
+            },
+            "salinity": {
+                "name": "Salinity"
+            },
+            "water_temperature": {
+                "name": "Water temperature"
+            }
+        }
+    }
+}

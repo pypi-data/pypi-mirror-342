@@ -1,0 +1,39 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Account is already configured"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "invalid_auth": "Invalid authentication"
+        },
+        "step": {
+            "reauth_confirm": {
+                "description": "The Jellyfin integration needs to re-authenticate your account"
+            },
+            "user": {
+                "data": {
+                    "url": "URL",
+                    "username": "Username"
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "watching": {
+                "name": "Active clients",
+                "unit_of_measurement": "clients"
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "audio_codec": "Audio codec"
+                }
+            }
+        }
+    }
+}

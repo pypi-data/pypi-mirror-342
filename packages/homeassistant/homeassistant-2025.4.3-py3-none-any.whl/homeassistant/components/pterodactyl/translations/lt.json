@@ -1,0 +1,30 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Paslauga jau sukonfig\u016bruota"
+        },
+        "error": {
+            "cannot_connect": "Nepavyko prisijungti",
+            "unknown": "Netik\u0117ta klaida"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "api_key": "API raktas",
+                    "url": "URL"
+                },
+                "data_description": {
+                    "api_key": "Paskyros API raktas, skirtas pasiekti j\u016bs\u0173 Pterodactyl server\u012f.",
+                    "url": "J\u016bs\u0173 Pterodactyl serverio URL, \u012fskaitant protokol\u0105 (http:// arba https://) ir pasirinktinai prievado numer\u012f."
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "status": {
+                "name": "B\u016bsena"
+            }
+        }
+    }
+}

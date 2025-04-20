@@ -1,0 +1,29 @@
+{
+    "config": {
+        "abort": {
+            "invalid_ip_address": "Invalid IP address."
+        },
+        "step": {
+            "user": {
+                "data_description": {
+                    "host": "The hostname or IP address of the device you want to ping."
+                },
+                "description": "Ping allows you to check the availability of a host.",
+                "title": "Add Ping"
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "consider_home": "Consider home interval",
+                    "count": "Ping count"
+                },
+                "data_description": {
+                    "consider_home": "Seconds to wait till marking a device tracker as not home after not being seen."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Dispositivo j\u00e1 configurado"
+        },
+        "error": {
+            "cannot_connect": "A liga\u00e7\u00e3o falhou",
+            "invalid_auth": "Autentica\u00e7\u00e3o inv\u00e1lida",
+            "unknown": "Erro inesperado"
+        },
+        "step": {
+            "auth": {
+                "data": {
+                    "installer_code": "C\u00f3digo do instalador",
+                    "password": "Palavra-passe",
+                    "user_code": "C\u00f3digo de utilizador"
+                },
+                "data_description": {
+                    "installer_code": "O c\u00f3digo do instalador do seu painel",
+                    "password": "O c\u00f3digo de automatiza\u00e7\u00e3o Modo 2 do seu painel",
+                    "user_code": "O c\u00f3digo de utilizador do seu painel"
+                }
+            },
+            "user": {
+                "data": {
+                    "host": "Anfitri\u00e3o",
+                    "port": "Porta"
+                },
+                "data_description": {
+                    "host": "O nome do anfitri\u00e3o ou o endere\u00e7o IP do seu painel de alarme Bosch",
+                    "port": "A porta utilizada para ligar ao seu painel de alarme Bosch. Normalmente \u00e9 a 7700"
+                }
+            }
+        }
+    }
+}

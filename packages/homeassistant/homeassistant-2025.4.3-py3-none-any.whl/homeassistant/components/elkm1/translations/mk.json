@@ -1,0 +1,46 @@
+{
+    "services": {
+        "alarm_arm_home_instant": {
+            "fields": {
+                "code": {
+                    "name": "\u041a\u043e\u0434"
+                }
+            }
+        },
+        "alarm_arm_night_instant": {
+            "fields": {
+                "code": {
+                    "name": "\u041a\u043e\u0434"
+                }
+            }
+        },
+        "alarm_arm_vacation": {
+            "fields": {
+                "code": {
+                    "name": "\u041a\u043e\u0434"
+                }
+            }
+        },
+        "alarm_bypass": {
+            "fields": {
+                "code": {
+                    "name": "\u041a\u043e\u0434"
+                }
+            }
+        },
+        "alarm_clear_bypass": {
+            "fields": {
+                "code": {
+                    "name": "\u041a\u043e\u0434"
+                }
+            }
+        },
+        "sensor_zone_bypass": {
+            "fields": {
+                "code": {
+                    "name": "\u041a\u043e\u0434"
+                }
+            }
+        }
+    }
+}

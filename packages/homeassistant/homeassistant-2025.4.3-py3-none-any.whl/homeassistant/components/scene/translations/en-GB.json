@@ -1,0 +1,54 @@
+{
+    "exceptions": {
+        "entity_not_dynamically_created": {
+            "message": "The scene {entity_id} is not created with action `scene.create`."
+        },
+        "entity_not_scene": {
+            "message": "{entity_id} is not a valid entity ID of a scene."
+        }
+    },
+    "services": {
+        "apply": {
+            "description": "Activates a scene with configuration.",
+            "fields": {
+                "entities": {
+                    "description": "List of entities and their target state.",
+                    "name": "Entities state"
+                },
+                "transition": {
+                    "description": "Time it takes the devices to transition into the states defined in the scene.",
+                    "name": "Transition"
+                }
+            },
+            "name": "Apply"
+        },
+        "create": {
+            "description": "Creates a new scene.",
+            "fields": {
+                "scene_id": {
+                    "description": "The entity ID of the new scene.",
+                    "name": "Scene entity ID"
+                }
+            },
+            "name": "Create"
+        },
+        "delete": {
+            "description": "Deletes a dynamically created scene.",
+            "name": "Delete"
+        },
+        "reload": {
+            "description": "Reloads the scenes from the YAML-configuration."
+        },
+        "turn_on": {
+            "description": "Activates a scene.",
+            "fields": {
+                "transition": {
+                    "description": "Time it takes the devices to transition into the states defined in the scene.",
+                    "name": "Transition"
+                }
+            },
+            "name": "Activate"
+        }
+    },
+    "title": "Scene"
+}

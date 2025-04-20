@@ -1,0 +1,12 @@
+{
+    "config": {
+        "flow_title": "{name}"
+    },
+    "entity": {
+        "sensor": {
+            "cpm": {
+                "name": "Counts per minute"
+            }
+        }
+    }
+}

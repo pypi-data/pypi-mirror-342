@@ -1,0 +1,60 @@
+{
+    "config": {
+        "flow_title": "{name}",
+        "step": {
+            "password": {
+                "title": "Password required"
+            },
+            "zeroconf_confirm": {
+                "description": "Do you want to add ROMY Vacuum Cleaner {name} to Home Assistant?"
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "docked": {
+                "name": "Robot docked"
+            },
+            "dustbin_present": {
+                "name": "Dustbin present"
+            },
+            "water_tank_empty": {
+                "name": "Water tank empty"
+            },
+            "water_tank_present": {
+                "name": "Water tank present"
+            }
+        },
+        "sensor": {
+            "dustbin_sensor": {
+                "name": "Dustbin dirt level"
+            },
+            "total_area_cleaned": {
+                "name": "Total cleaned area"
+            },
+            "total_cleaning_time": {
+                "name": "Total cleaning time"
+            },
+            "total_distance_driven": {
+                "name": "Total distance driven"
+            },
+            "total_number_of_cleaning_runs": {
+                "name": "Total cleaning runs"
+            }
+        },
+        "vacuum": {
+            "romy": {
+                "state_attributes": {
+                    "fan_speed": {
+                        "state": {
+                            "default": "Default",
+                            "intensive": "Intensive",
+                            "silent": "Silent",
+                            "super_silent": "Super silent"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

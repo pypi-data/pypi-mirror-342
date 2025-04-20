@@ -1,0 +1,32 @@
+{
+    "config": {
+        "error": {
+            "url_error": "The URL could not be opened."
+        },
+        "step": {
+            "reconfigure": {
+                "data": {
+                    "url": "URL"
+                },
+                "description": "Update your configuration information for {name}."
+            }
+        }
+    },
+    "issues": {
+        "import_yaml_error_url_error": {
+            "title": "The Feedreader YAML configuration import failed"
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "max_entries": "Maximum feed entries"
+                },
+                "data_description": {
+                    "max_entries": "The maximum number of entries to extract from each feed."
+                }
+            }
+        }
+    }
+}

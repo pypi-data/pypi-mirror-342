@@ -1,0 +1,15 @@
+{
+    "entity": {
+        "binary_sensor": {
+            "pending_notification": {
+                "name": "Ongelezen melding"
+            },
+            "pump": {
+                "name": "Pompstatus"
+            },
+            "salt": {
+                "name": "Zout laag"
+            }
+        }
+    }
+}

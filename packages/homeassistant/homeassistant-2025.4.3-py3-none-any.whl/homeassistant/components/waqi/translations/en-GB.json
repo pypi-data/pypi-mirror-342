@@ -1,0 +1,40 @@
+{
+    "config": {
+        "step": {
+            "map": {
+                "description": "Select a location to get the closest measuring station."
+            },
+            "station_number": {
+                "data": {
+                    "station_number": "Measuring station number"
+                }
+            },
+            "user": {
+                "data": {
+                    "method": "How do you want to select a measuring station?"
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "dominant_pollutant": {
+                "name": "Dominant pollutant",
+                "state": {
+                    "neph": "Nephelometry"
+                }
+            },
+            "neph": {
+                "name": "Visibility using nephelometry"
+            }
+        }
+    },
+    "selector": {
+        "method": {
+            "options": {
+                "map": "Select nearest from point on the map",
+                "station_number": "Enter a station number"
+            }
+        }
+    }
+}

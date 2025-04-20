@@ -1,0 +1,157 @@
+{
+    "config": {
+        "step": {
+            "alarm_control_panel": {
+                "data": {
+                    "arm_away": "Arm away action",
+                    "arm_custom_bypass": "Arm custom bypass action",
+                    "arm_home": "Arm home action",
+                    "arm_night": "Arm night action",
+                    "arm_vacation": "Arm holiday action",
+                    "code_arm_required": "Code arm required",
+                    "code_format": "Code format",
+                    "disarm": "Disarm action",
+                    "trigger": "Trigger action"
+                },
+                "title": "Template alarm control panel"
+            },
+            "binary_sensor": {
+                "data": {
+                    "device_class": "Device class",
+                    "name": "Name",
+                    "state": "State template"
+                },
+                "title": "Template binary sensor"
+            },
+            "button": {
+                "data": {
+                    "press": "Actions on press"
+                },
+                "title": "Template button"
+            },
+            "image": {
+                "title": "Template image"
+            },
+            "number": {
+                "data": {
+                    "max": "Maximum value",
+                    "min": "Minimum value",
+                    "set_value": "Actions on set value",
+                    "step": "Step value"
+                },
+                "title": "Template number"
+            },
+            "select": {
+                "data": {
+                    "options": "Available options",
+                    "select_option": "Actions on select"
+                },
+                "title": "Template select"
+            },
+            "sensor": {
+                "data": {
+                    "device_class": "Device class",
+                    "name": "Name",
+                    "state": "State template",
+                    "state_class": "State class",
+                    "unit_of_measurement": "Unit of measurement"
+                },
+                "data_description": {
+                    "device_id": "Select a device to link to this entity."
+                },
+                "title": "Template sensor"
+            },
+            "switch": {
+                "data": {
+                    "turn_off": "Actions on turn off",
+                    "turn_on": "Actions on turn on",
+                    "value_template": "Value template"
+                },
+                "data_description": {
+                    "value_template": "Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful."
+                },
+                "title": "Template switch"
+            },
+            "user": {
+                "description": "This helper allows you to create helper entities that define their state using a template.",
+                "menu_options": {
+                    "alarm_control_panel": "Template an alarm control panel",
+                    "binary_sensor": "Template a binary sensor",
+                    "button": "Template a button",
+                    "image": "Template an image",
+                    "number": "Template a number",
+                    "select": "Template a select",
+                    "sensor": "Template a sensor",
+                    "switch": "Template a switch"
+                },
+                "title": "Template helper"
+            }
+        }
+    },
+    "exceptions": {
+        "code_format_template_error": {
+            "message": "Error evaluating code format template \"{code_format_template}\" for {entity_id}: {cause}"
+        }
+    },
+    "options": {
+        "step": {
+            "binary_sensor": {
+                "data": {
+                    "state": "State template"
+                },
+                "title": "Template binary sensor"
+            },
+            "sensor": {
+                "data": {
+                    "state": "State template"
+                }
+            }
+        }
+    },
+    "selector": {
+        "alarm_control_panel_code_format": {
+            "options": {
+                "no_code": "No code format",
+                "number": "Number",
+                "text": "Text"
+            }
+        },
+        "binary_sensor_device_class": {
+            "options": {
+                "battery": "Battery"
+            }
+        },
+        "sensor_device_class": {
+            "options": {
+                "sulphur_dioxide": "Sulphur dioxide",
+                "temperature": "Temperature",
+                "timestamp": "Timestamp",
+                "volatile_organic_compounds": "Volatile organic compounds",
+                "volatile_organic_compounds_parts": "Volatile organic compounds",
+                "voltage": "Voltage",
+                "volume": "Volume",
+                "volume_storage": "Stored volume",
+                "water": "Water",
+                "weight": "Weight",
+                "wind_speed": "Wind speed"
+            }
+        },
+        "sensor_state_class": {
+            "options": {
+                "measurement": "Measurement",
+                "total": "Total",
+                "total_increasing": "Total increasing"
+            }
+        },
+        "sensor_unit_of_measurement": {
+            "options": {
+                "none": "No unit of measurement"
+            }
+        }
+    },
+    "services": {
+        "reload": {
+            "description": "Reloads template entities from the YAML-configuration."
+        }
+    }
+}

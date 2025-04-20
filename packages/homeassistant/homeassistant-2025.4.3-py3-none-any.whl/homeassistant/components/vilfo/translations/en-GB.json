@@ -1,0 +1,24 @@
+{
+    "config": {
+        "error": {
+            "invalid_host": "Invalid hostname or IP address"
+        },
+        "step": {
+            "user": {
+                "data_description": {
+                    "host": "Hostname or IP address of your Vilfo router."
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "boot_time": {
+                "name": "Boot time"
+            },
+            "load": {
+                "name": "Load"
+            }
+        }
+    }
+}

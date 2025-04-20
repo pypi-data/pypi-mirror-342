@@ -1,0 +1,36 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Enheten \u00e4r redan konfigurerad"
+        },
+        "error": {
+            "cannot_connect": "Det gick inte att ansluta",
+            "invalid_auth": "Ogiltig autentisering",
+            "unknown": "Ov\u00e4ntat fel"
+        },
+        "step": {
+            "auth": {
+                "data": {
+                    "installer_code": "Installat\u00f6rskod",
+                    "password": "L\u00f6senord",
+                    "user_code": "Anv\u00e4ndarkod"
+                },
+                "data_description": {
+                    "installer_code": "Installat\u00f6rskoden fr\u00e5n din panel",
+                    "password": "Mode 2-automationskoden fr\u00e5n din panel",
+                    "user_code": "Anv\u00e4ndarkoden fr\u00e5n din panel"
+                }
+            },
+            "user": {
+                "data": {
+                    "host": "V\u00e4rd",
+                    "port": "Port"
+                },
+                "data_description": {
+                    "host": "V\u00e4rdnamnet eller IP-adressen f\u00f6r din Bosch larmpanel",
+                    "port": "Porten som anv\u00e4nds f\u00f6r att ansluta till din Bosch larmpanel. Detta \u00e4r vanligtvis 7700"
+                }
+            }
+        }
+    }
+}

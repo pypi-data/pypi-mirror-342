@@ -1,0 +1,118 @@
+{
+    "config": {
+        "abort": {
+            "no_hardware_available": "No radio hardware connected to deCONZ",
+            "updated_instance": "Updated deCONZ instance with new host address"
+        },
+        "error": {
+            "linking_not_possible": "Couldn't link with the gateway"
+        },
+        "step": {
+            "hassio_confirm": {
+                "description": "Do you want to configure Home Assistant to connect to the deCONZ gateway provided by the add-on {addon}?",
+                "title": "deCONZ Zigbee gateway via Home Assistant add-on"
+            },
+            "manual_input": {
+                "data": {
+                    "host": "Host",
+                    "port": "Port"
+                },
+                "data_description": {
+                    "host": "The hostname or IP address of your deCONZ host."
+                }
+            },
+            "user": {
+                "data": {
+                    "host": "Select discovered deCONZ gateway"
+                }
+            }
+        }
+    },
+    "device_automation": {
+        "trigger_subtype": {
+            "both_buttons": "Both buttons",
+            "bottom_buttons": "Bottom buttons",
+            "button_1": "First button",
+            "button_2": "Second button",
+            "button_3": "Third button",
+            "button_4": "Fourth button",
+            "button_5": "Fifth button",
+            "button_6": "Sixth button",
+            "button_7": "Seventh button",
+            "button_8": "Eighth button",
+            "dim_down": "Dim down",
+            "dim_up": "Dim up",
+            "left": "Left",
+            "right": "Right",
+            "top_buttons": "Top buttons",
+            "turn_off": "Turn off",
+            "turn_on": "Turn on"
+        },
+        "trigger_type": {
+            "remote_button_double_press": "\"{subtype}\" double clicked",
+            "remote_button_long_press": "\"{subtype}\" continuously pressed",
+            "remote_button_long_release": "\"{subtype}\" released after long press",
+            "remote_button_quadruple_press": "\"{subtype}\" quadruple clicked",
+            "remote_button_quintuple_press": "\"{subtype}\" quintuple clicked",
+            "remote_button_rotated": "Button rotated \"{subtype}\"",
+            "remote_button_rotated_fast": "Button rotated fast \"{subtype}\"",
+            "remote_button_short_press": "\"{subtype}\" pressed",
+            "remote_button_short_release": "\"{subtype}\" released",
+            "remote_button_triple_press": "\"{subtype}\" triple clicked",
+            "remote_gyro_activated": "Device shaken"
+        }
+    },
+    "options": {
+        "step": {
+            "deconz_devices": {
+                "data": {
+                    "allow_new_devices": "Allow automatic addition of new devices"
+                }
+            }
+        }
+    },
+    "services": {
+        "configure": {
+            "description": "Configures attributes of either a device endpoint in deCONZ or the deCONZ service itself.",
+            "fields": {
+                "bridgeid": {
+                    "description": "Unique string for each deCONZ hardware. It can be found as part of the integration name. Useful if you run multiple deCONZ integrations.",
+                    "name": "Bridge identifier"
+                },
+                "data": {
+                    "description": "JSON object with what data you want to alter.",
+                    "name": "Configuration payload"
+                },
+                "entity": {
+                    "description": "Represents a specific device endpoint in deCONZ.",
+                    "name": "Entity"
+                },
+                "field": {
+                    "description": "String representing a full path to deCONZ endpoint (when entity is not specified) or a subpath of the device path for the entity (when entity is specified).",
+                    "name": "Path"
+                }
+            },
+            "name": "Configure"
+        },
+        "device_refresh": {
+            "description": "Refreshes available devices from deCONZ.",
+            "fields": {
+                "bridgeid": {
+                    "description": "Unique string for each deCONZ hardware. It can be found as part of the integration name. Useful if you run multiple deCONZ integrations.",
+                    "name": "Bridge identifier"
+                }
+            },
+            "name": "Device refresh"
+        },
+        "remove_orphaned_entries": {
+            "description": "Cleans up device and entity registry entries orphaned by deCONZ.",
+            "fields": {
+                "bridgeid": {
+                    "description": "Unique string for each deCONZ hardware. It can be found as part of the integration name. Useful if you run multiple deCONZ integrations.",
+                    "name": "Bridge identifier"
+                }
+            },
+            "name": "Remove orphaned entries"
+        }
+    }
+}
