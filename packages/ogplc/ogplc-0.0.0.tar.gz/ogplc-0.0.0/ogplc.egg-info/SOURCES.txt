@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+ogplc/__init__.py
+ogplc.egg-info/PKG-INFO
+ogplc.egg-info/SOURCES.txt
+ogplc.egg-info/dependency_links.txt
+ogplc.egg-info/entry_points.txt
+ogplc.egg-info/requires.txt
+ogplc.egg-info/top_level.txt
