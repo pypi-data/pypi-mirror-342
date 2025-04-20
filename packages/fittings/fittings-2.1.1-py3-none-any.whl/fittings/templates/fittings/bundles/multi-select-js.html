@@ -1,0 +1,9 @@
+{% load tags %}
+{% load static %}
+{% settings_value "AVOID_CDN" as AVOID_CDN %}
+
+{% if AVOID_CDN %}
+    <script src="{% static 'fittings/ajax/libs/multi-select/0.9.12/js/jquery.multi-select.js' %}"></script>
+{% else %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/js/jquery.multi-select.js" integrity="sha256-JU2QMhOvXGZtWxxkQTEgpVjdPHMYMuVYbYzNqfsioNw=" crossorigin="anonymous"></script>
+{% endif %}

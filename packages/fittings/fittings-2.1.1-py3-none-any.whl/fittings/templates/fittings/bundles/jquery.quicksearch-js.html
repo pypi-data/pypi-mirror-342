@@ -1,0 +1,9 @@
+{% load tags %}
+{% load static %}
+{% settings_value "AVOID_CDN" as AVOID_CDN %}
+
+{% if AVOID_CDN %}
+    <script src="{% static 'fittings/ajax/libs/jquery.quicksearch/2.4.0/jquery.quicksearch.min.js' %}"></script>
+{% else %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.quicksearch/2.4.0/jquery.quicksearch.min.js" integrity="sha256-hD1kpQcVntR40eMx9uED+E4HAjD2OJkLIFcP6ukVd+g=" crossorigin="anonymous"></script>
+{%  endif %}
