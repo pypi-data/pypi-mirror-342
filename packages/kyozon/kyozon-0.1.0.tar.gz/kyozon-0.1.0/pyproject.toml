@@ -1,0 +1,14 @@
+[project]
+name = "kyozon"
+version = "0.1.0"
+description = "Do not use. Placeholder."
+readme = "README.md"
+authors = [
+    { name = "Benjamin Beilharz", email = "b@ben.graphics" }
+]
+requires-python = ">=3.11"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
