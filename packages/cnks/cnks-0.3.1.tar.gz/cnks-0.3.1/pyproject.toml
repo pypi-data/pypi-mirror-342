@@ -1,0 +1,31 @@
+[project]
+name = "cnks"
+version = "0.3.1"
+description = "中国知网搜索与引文处理系统"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+    "playwright>=1.40.0",
+    "python-dotenv>=1.0.0",
+]
+
+[[project.authors]]
+name = "bai-z-l"
+email = "b@iziliang.com"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+cnks = "src.main:main"       # 现在只启动server
+cnks-server = "src.server:main"
+cnks-worker-test = "src.worker:main"  # 仅用于测试目的
+cnks-client = "src.client:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.setuptools]
+packages = ["src"]

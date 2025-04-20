@@ -1,0 +1,28 @@
+2025-04-20 14:58:37,356 - cnks.main - INFO - 正在启动CNKS系统...
+2025-04-20 14:58:37,360 - cnks.server - INFO - Server logging to: C:\Users\ptelegion\1st_cursor_proj\cnks\cnks_server.log
+2025-04-20 14:58:37,716 - cnks.worker - INFO - Worker logging to: C:\Users\ptelegion\1st_cursor_proj\cnks\cnks_worker.log
+2025-04-20 14:58:37,716 - cnks.searcher - INFO - Searcher logging to: C:\Users\ptelegion\1st_cursor_proj\cnks\cnks_searcher.log
+2025-04-20 14:58:37,756 - cnks.citzer - INFO - Citzer logging to: C:\Users\ptelegion\1st_cursor_proj\cnks\cnks_citzer.log
+2025-04-20 14:58:37,757 - cnks.cache - INFO - Cache logging to: C:\Users\ptelegion\1st_cursor_proj\cnks\cnks_cache.log
+2025-04-20 14:58:37,765 - cnks.searcher - INFO - Searcher初始化完成
+2025-04-20 14:58:37,765 - cnks.citzer - INFO - Citzer初始化完成
+2025-04-20 14:58:37,765 - cnks.cache - DEBUG - Cache initialized with default file: cache.json
+2025-04-20 14:58:37,765 - cnks.worker - INFO - Worker初始化完成
+2025-04-20 14:58:37,765 - cnks.main - INFO - 服务器导入成功，正在启动...
+2025-04-20 14:58:37,766 - cnks.server - INFO - 正在启动CNKS服务器
+2025-04-20 14:58:37,766 - cnks.server - INFO - 检测到标准输入/输出流，启动MCP标准服务器
+2025-04-20 14:58:37,776 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2025-04-20 15:00:24,132 - cnks.main - INFO - 正在启动CNKS系统...
+2025-04-20 15:00:24,135 - cnks.server - INFO - Server logging to: C:\Users\ptelegion\1st_cursor_proj\cnks\cnks_server.log
+2025-04-20 15:00:24,485 - cnks.worker - INFO - Worker logging to: C:\Users\ptelegion\1st_cursor_proj\cnks\cnks_worker.log
+2025-04-20 15:00:24,485 - cnks.searcher - INFO - Searcher logging to: C:\Users\ptelegion\1st_cursor_proj\cnks\cnks_searcher.log
+2025-04-20 15:00:24,520 - cnks.citzer - INFO - Citzer logging to: C:\Users\ptelegion\1st_cursor_proj\cnks\cnks_citzer.log
+2025-04-20 15:00:24,521 - cnks.cache - INFO - Cache logging to: C:\Users\ptelegion\1st_cursor_proj\cnks\cnks_cache.log
+2025-04-20 15:00:24,522 - cnks.searcher - INFO - Searcher初始化完成
+2025-04-20 15:00:24,522 - cnks.citzer - INFO - Citzer初始化完成
+2025-04-20 15:00:24,522 - cnks.cache - DEBUG - Cache initialized with default file: cache.json
+2025-04-20 15:00:24,522 - cnks.worker - INFO - Worker初始化完成
+2025-04-20 15:00:24,522 - cnks.main - INFO - 服务器导入成功，正在启动...
+2025-04-20 15:00:24,523 - cnks.server - INFO - 正在启动CNKS服务器
+2025-04-20 15:00:24,523 - cnks.server - INFO - 检测到标准输入/输出流，启动MCP标准服务器
+2025-04-20 15:00:24,533 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
