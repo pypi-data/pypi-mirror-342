@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.py
+Vectoriz.egg-info/PKG-INFO
+Vectoriz.egg-info/SOURCES.txt
+Vectoriz.egg-info/dependency_links.txt
+Vectoriz.egg-info/requires.txt
+Vectoriz.egg-info/top_level.txt
+tests/__init__.py
+tests/app.py
+tests/files_tests.py
+vectoriz/__init__.py
+vectoriz/files.py
+vectoriz/token_transformer.py
+vectoriz/vector_db.py
