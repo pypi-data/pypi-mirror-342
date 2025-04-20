@@ -1,0 +1,2 @@
+[console_scripts]
+ffix = ffix.cli:main
