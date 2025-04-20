@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-mem = mcp_mem.__main__:main
