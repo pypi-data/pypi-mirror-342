@@ -1,0 +1,59 @@
+Metadata-Version: 2.4
+Name: thonny-friendly
+Version: 0.0.7
+Summary: A plug-in which offers primitive support (for now ) for Friendly_traceback python package in Thonny IDE .
+Home-page: https://github.com/selmen2004/thonny-friendly
+Author: Selmen Arous
+Author-email: Selmen Arous <selmen.arous@gmail.com>
+License: GPL version 3
+Keywords: Friendly,Friendly_traceback,beginner,Tunisia,School,Teaching,Education
+Platform: Windows
+Platform: macOS
+Platform: Linux
+Classifier: Environment :: MacOS X
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: X11 Applications
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: Freeware
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Education
+Classifier: Topic :: Software Development
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+Requires-Dist: thonny>=3.2.1
+Requires-Dist: friendly_traceback
+Dynamic: author
+Dynamic: home-page
+Dynamic: platform
+Dynamic: requires-python
+
+## Introduction :
+
+"thonny-friendly" is a plug-in for Thonny IDE that offers primitive support (for now ) for [Friendly_traceback](https://github.com/friendly-traceback/friendly-traceback) python package .
+
+![thonny_friendly](https://github.com/user-attachments/assets/282a0444-6d01-498c-bf3a-fa3ba3919995)
+
+## Installation : 
+
+``pip install thonny_friendly ``
+
+or
+
+![image](https://github.com/user-attachments/assets/c85fd0f8-cd90-44bf-bc21-31bef3cf60d0)
+
+
+
