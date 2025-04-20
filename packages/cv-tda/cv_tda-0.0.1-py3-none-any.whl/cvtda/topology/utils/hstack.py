@@ -1,0 +1,30 @@
+import typing
+
+import numpy
+
+
+def deduce_depth(data):
+    if isinstance(data, numpy.ndarray) or isinstance(data, list):
+        return deduce_depth(data[0]) + 1
+    return 0
+
+def hstack(data: typing.List[numpy.ndarray], force_numpy: bool):
+    if force_numpy:
+        return numpy.hstack(data)
+    else:
+        if len(data) == 0: return []
+        data = [ item for item in data if len(item) > 0 ]
+        assert len(set([ len(item) for item in data ])) == 1
+
+        for i in range(len(data)):
+            if deduce_depth(data[i]) == 3:
+                data[i] = numpy.expand_dims(data[i], 1)
+
+            if deduce_depth(data[i]) != 4:
+                print(type(data[i]))
+                print(len(data[i]))
+                print(data[i].shape)
+
+            assert deduce_depth(data[i]) == 4, f"Bad depth: {deduce_depth(data[i])}"
+
+        return [ sum([ list(item[i]) for item in data ], []) for i in range(len(data[0])) ]
