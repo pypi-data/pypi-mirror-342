@@ -1,0 +1,11 @@
+langchain
+langchain-community
+langchain-openai
+langchain-anthropic
+langchain-pinecone
+openai
+pinecone
+anthropic
+python-dotenv
+tiktoken
+tqdm
