@@ -1,0 +1,14 @@
+torch
+tqdm
+transformers
+numpy
+scikit-learn
+pydantic
+regex
+langsmith
+
+[dev]
+check-manifest
+
+[test]
+coverage
