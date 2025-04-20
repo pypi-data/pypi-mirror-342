@@ -1,0 +1,3 @@
+[console_scripts]
+tpm=commands.cli:app
+
