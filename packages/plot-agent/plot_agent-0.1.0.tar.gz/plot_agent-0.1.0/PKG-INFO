@@ -1,0 +1,71 @@
+Metadata-Version: 2.4
+Name: plot-agent
+Version: 0.1.0
+Summary: An AI-powered data visualization assistant using Plotly
+Home-page: https://github.com/andrewm4894/plot-agent
+Author: Andre
+Author-email: andrewm4894 <andrewm4894@gmail.com>
+Project-URL: Homepage, https://github.com/andrewm4894/plot-agent
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# Plot Agent
+
+An AI-powered data visualization assistant that helps users create Plotly visualizations in Python.
+
+## Installation
+
+You can install the package using pip:
+
+```bash
+pip install plot-agent
+```
+
+## Usage
+
+Here's a simple example of how to use Plot Agent:
+
+```python
+import pandas as pd
+from plot_agent import PlotlyAgent
+
+# Create a sample dataframe
+df = pd.DataFrame({
+    'x': [1, 2, 3, 4, 5],
+    'y': [10, 20, 30, 40, 50]
+})
+
+# Initialize the agent
+agent = PlotlyAgent()
+
+# Set the dataframe
+agent.set_df(df)
+
+# Process a visualization request
+response = agent.process_message("Create a line plot of x vs y")
+```
+
+## Features
+
+- AI-powered visualization generation
+- Support for various Plotly chart types
+- Automatic data preprocessing
+- Interactive visualization capabilities
+- Integration with LangChain for advanced AI capabilities
+
+## Requirements
+
+- Python 3.8 or higher
+- Dependencies are automatically installed with the package
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 
