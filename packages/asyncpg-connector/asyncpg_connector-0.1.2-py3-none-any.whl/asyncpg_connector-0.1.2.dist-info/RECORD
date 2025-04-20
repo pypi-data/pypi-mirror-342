@@ -1,0 +1,10 @@
+asyncpg_connector/__init__.py,sha256=X_aeRaNM2QwaKjt2VH8KFbmbOpD7OKyLHQqusmEhMZk,52
+asyncpg_connector/error/__init__.py,sha256=QffRoY4owuzY3TRqdfbOHI4rJbDJHxkiGnBehzDZNto,73
+asyncpg_connector/error/error_models.py,sha256=jTZECcFsAwVFrEoIfD64jrN6vdJlWjMka76CJcLVmPE,101
+asyncpg_connector/main.py,sha256=uQp8v88Cq57BZRQHc0jJRERyINCnqG1HzGkZcX2ikhg,916
+asyncpg_connector/model/__init__.py,sha256=sbo0YuE6f1uYVQ3JQQC_4DEhHZvCmNjyxFefk0BDtm0,59
+asyncpg_connector/model/models.py,sha256=ROMB-Htic8kJ7hwxWJf2sg9wQyxWmkNc_B7yt_N4-Xc,229
+asyncpg_connector-0.1.2.dist-info/LICENSE,sha256=_oz3lgAk4qFUAsFdDb20nN4R9A5ADKv3sF2vA87i_sA,1059
+asyncpg_connector-0.1.2.dist-info/METADATA,sha256=NTc-t2xroV7rxqsUpUq11SxVzsONCBbVOao9txTQTdU,4269
+asyncpg_connector-0.1.2.dist-info/WHEEL,sha256=sP946D7jFCHeNz5Iq4fL4Lu-PrWrFsgfLXbbkciIZwg,88
+asyncpg_connector-0.1.2.dist-info/RECORD,,
