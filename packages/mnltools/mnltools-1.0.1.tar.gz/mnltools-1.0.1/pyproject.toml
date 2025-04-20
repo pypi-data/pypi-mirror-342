@@ -1,0 +1,35 @@
+[project]
+name = "mnltools"
+version = "1.0.1"
+description = "Python tools for the Mario & Luigi games."
+authors = [
+    {name = "Dimitar Dimitrov",email = "dmtrdmtrov@gmail.com"}
+]
+license = {text = "GPL-3.0-or-later"}
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "mnllib (>=0.2.0,<0.3.0)",
+    "ndspy (>=4.2.0,<5.0.0)",
+    "tqdm (>=4.67.1,<5.0.0)",
+]
+
+[project.urls]
+repository = "https://github.com/MnL-Modding/mnltools.py"
+
+[project.scripts]
+mnl-nds-unpack = "mnltools.nds.unpacker:main"
+mnl-nds-pack = "mnltools.nds.packer:main"
+dsp2rsd = "mnltools.dt.dsp2rsd:main"
+mnl-dt-sounddata-repack = "mnltools.dt.sound.repacker:main"
+
+[tool.poetry]
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.1"
+mypy = "^1.11.2"
+types-tqdm = "^4.67.0.20250319"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
