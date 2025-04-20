@@ -1,0 +1,14 @@
+{% load i18n %}
+{% translate "Hello," %}
+
+{% translate "You requested a magic link to log in to your account. Please click the link below to log in:" %}
+
+{{ magic_link_url }}
+
+{% blocktranslate with expiry_time=expiry_time %}This link will expire in {{ expiry_time }} minutes. If you did not request this link, you can safely ignore this email.{% endblocktranslate %}
+
+{% translate "Thank you," %}
+{% translate "The Django Solomon Team" %}
+
+---
+{% translate "This email was sent by Django Solomon." %}

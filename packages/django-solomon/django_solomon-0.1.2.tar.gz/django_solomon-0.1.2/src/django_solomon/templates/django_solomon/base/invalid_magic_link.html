@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% translate "Invalid Magic Link" %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{% translate "Invalid Magic Link" %}</h1>
+        <p>{% translate "The magic link you clicked is invalid or has expired." %}</p>
+        <p>{% translate "Please request a new magic link to log in." %}</p>
+
+        <a href="{% url 'django_solomon:login' %}" class="btn btn-primary">
+            {% translate "Request New Magic Link" %}
+        </a>
+    </div>
+{% endblock content %}
