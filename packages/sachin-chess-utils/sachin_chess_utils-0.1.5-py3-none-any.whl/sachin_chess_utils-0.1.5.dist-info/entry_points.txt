@@ -1,0 +1,3 @@
+[console_scripts]
+sachin_hello = sachin_chess_utils:hello
+
