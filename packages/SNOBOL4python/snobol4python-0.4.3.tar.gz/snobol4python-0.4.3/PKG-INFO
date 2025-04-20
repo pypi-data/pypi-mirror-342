@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: SNOBOL4python
+Version: 0.4.3
+Summary: A Python library for SNOBOL4-style pattern matching with regular expressions
+Author-email: Lon Jones Cherryholmes <lcherryh@yahoo.com>
+License-Expression: GPL-3.0-or-later
+Project-URL: Homepage, https://github.com/LCherryholmes/SNOBOL4python
+Project-URL: Repository, https://github.com/LCherryholmes/SNOBOL4python
+Project-URL: Issues, https://github.com/LCherryholmes/SNOBOL4python/issues
+Keywords: python,SNOBOL,SNOBOL4,string pattern matching
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# SNOBOL4python
+
+SNOBOL4python is a Python library for performing SNOBOL4-style pattern matching.
