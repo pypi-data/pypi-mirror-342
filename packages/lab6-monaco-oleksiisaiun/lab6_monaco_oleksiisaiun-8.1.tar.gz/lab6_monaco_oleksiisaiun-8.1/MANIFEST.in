@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+include src/lab6_monaco_oleksiisaiun/data/abbreviations.txt
+include src/lab6_monaco_oleksiisaiun/data/start.log
+include src/lab6_monaco_oleksiisaiun/data/end.log
