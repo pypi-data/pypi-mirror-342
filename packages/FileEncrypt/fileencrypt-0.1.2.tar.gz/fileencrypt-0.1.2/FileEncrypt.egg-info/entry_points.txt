@@ -1,0 +1,2 @@
+[console_scripts]
+fileencrypt = fileencrypt.cli:main
