@@ -1,0 +1,8 @@
+uvicorn
+numpy
+fastapi
+onnxruntime==1.21.0
+pydantic
+coremltools
+scikit-learn
+requests
