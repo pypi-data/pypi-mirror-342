@@ -1,0 +1,16 @@
+[project]
+name = "scikit-learn-som"
+version = "0.0.2"
+description = ""
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "scikit-learn>=1.6.1",
+]
+
+[dependency-groups]
+dev = [
+    "ipython>=9.1.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.1",
+]
