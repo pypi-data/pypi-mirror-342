@@ -1,0 +1,16 @@
+README.md
+setup.py
+Faxina.egg-info/PKG-INFO
+Faxina.egg-info/SOURCES.txt
+Faxina.egg-info/dependency_links.txt
+Faxina.egg-info/top_level.txt
+faxina/__init__.py
+faxina/components.py
+faxina/core.py
+faxina/input_controller.py
+faxina/math3d.py
+faxina/objects.py
+faxina/render.py
+faxina/scene.py
+faxina/scenegraph.py
+faxina/sceneloader.py
