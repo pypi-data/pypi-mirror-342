@@ -1,0 +1,13 @@
+aminoscribe/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aminoscribe/aminoscribe.py,sha256=sX9vwuHgHmeRKeTaiR4wDgap6kH-HiCSZ-s3t9ntI2Y,8685
+aminoscribe/generate_template.py,sha256=Wca8NKnMYSg_CqVwozq42j_3PIRqsVFhQVQAW_5-SoU,2306
+aminoscribe/data/UP000005640_9606.fasta,sha256=UlNVcK3DYPGIdu-c0RUIiCHoiLGMK6H_gMworpUe-L4,13682797
+aminoscribe/data/amplitude_noise.csv,sha256=nkM-cIPwOoL9P_s8MqeKkZ5vf2txDFlPg-0-ELNIa8E,4438
+aminoscribe/data/sequences.pickle,sha256=8gl3aMgrdK9QM-HgvNO68EVuQEdoIZ0FGwzoZQOgOts,11995797
+aminoscribe/data/step_durations_in_ms.csv,sha256=0zdWlbFpUP7b-ayxC1mEQjiTciERRXego_V8AUv7nrs,2031
+aminoscribe/data/step_sizes_in_aa.csv,sha256=QXbwqKZ4YHK-Z6cClNmSuP7_zTcQcGWRAq4eCgZcnVs,98
+aminoscribe-0.3.0.dist-info/licenses/LICENSE,sha256=UWuW7RkpS9l22_r0nYSP0_NT6GBSseO7YY82lRWc-zs,813
+aminoscribe-0.3.0.dist-info/METADATA,sha256=jE6TjjKsdq70R99zjDeZzSQIbYaEOPmk4-nxaVUugd0,4287
+aminoscribe-0.3.0.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+aminoscribe-0.3.0.dist-info/top_level.txt,sha256=HguCvynBpibmIvGIIWbhg6ExEYeNEezQyqOtQICSSac,12
+aminoscribe-0.3.0.dist-info/RECORD,,
