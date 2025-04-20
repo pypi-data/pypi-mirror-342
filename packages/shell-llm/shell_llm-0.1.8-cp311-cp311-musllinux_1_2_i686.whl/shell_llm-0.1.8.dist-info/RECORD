@@ -1,0 +1,15 @@
+__main__.py,sha256=hFrSgTXAi97nvC-3peXErlSkwuDw6PWgFDzmR7zTANk,207
+completions.py,sha256=cxUqfvQQQClhs7cFU5GX2vhg8t13Kwc84E_-3Nd0XZQ,7864
+core.cpython-311-i386-linux-musl.so,sha256=duRMFS6Zyv-464sY306LKfl0c9zAbT0ArqonskB2MxE,47920
+error_handler.py,sha256=vVfSG1GX5w03GdNwEglY8fSVOmwjnLW9kz7ZnNLmiNI,4042
+formatters.py,sha256=gHWfFysZMO6nNYJwPv32rZMJY7O3lQWM0eHA5I4Hetk,2495
+llm.py,sha256=9Nx856FeBhPoGs2d7nDF_Gcyp9bVKGGUV5YFYJ3aNBk,12683
+models.py,sha256=t8anrXJyVesuSozYCCKfqsxbbiCExVXIlPDYPcuaO0E,789
+shell.py,sha256=6MczMz9VuNxTMS13d0a4_pRi01qdWKfyo_Ej5iZ97-E,11778
+ui.py,sha256=lOM8PcAFbxfUY5WeDINS1pxyEo7bOOSIJ72Fh9tCGN8,1736
+utils.py,sha256=8Ooc8peGWjWUBeGJk_rsHENL03k724-jQn4Em-CHVBw,1720
+shell_llm-0.1.8.dist-info/METADATA,sha256=0kQbJgxQ8f8X9agu_ScMFt7oJBZHEyYfeV-FkQtJ77U,8175
+shell_llm-0.1.8.dist-info/WHEEL,sha256=syr86pcT3Cl0FpIgpcFPtgZItPzayA2Bmuv28YP3HSo,110
+shell_llm-0.1.8.dist-info/entry_points.txt,sha256=X2tam6yapHGFHMOMo-wnwUwulOSj46y799GEILtt7kE,41
+shell_llm-0.1.8.dist-info/top_level.txt,sha256=qEBzM3IXHoboeCManSS1QKJBebbJziZuX66ae_oUkMo,86
+shell_llm-0.1.8.dist-info/RECORD,,
