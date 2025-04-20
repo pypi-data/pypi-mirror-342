@@ -1,0 +1,154 @@
+{
+    "1": {
+        "WETH": {
+            "name": "Wrapped Ether",
+            "symbol": "WETH",
+            "decimals": 18,
+            "contract": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+            "price_usd": 3000
+        },
+        "USDC": {
+            "name": "USD Coin",
+            "symbol": "USDC",
+            "decimals": 6,
+            "contract": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+            "price_usd": 1
+        },
+        "USDT": {
+            "name": "Tether USD",
+            "symbol": "USDT",
+            "decimals": 6,
+            "contract": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+            "price_usd": 1
+        },
+        "DAI": {
+            "name": "Dai Stablecoin",
+            "symbol": "DAI",
+            "decimals": 18,
+            "contract": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "price_usd": 1
+        },
+        "WBTC": {
+            "name": "Wrapped Bitcoin",
+            "symbol": "WBTC",
+            "decimals": 8,
+            "contract": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+            "price_usd": 100000
+        }
+    },
+    "56": {
+        "WBNB": {
+            "name": "Wrapped BNB",
+            "symbol": "WBNB",
+            "decimals": 18,
+            "contract": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+            "price_usd": 600
+        },
+        "USDT": {
+            "name": "Tether USD",
+            "symbol": "USDT",
+            "decimals": 18,
+            "contract": "0x55d398326f99059fF7e78C43F4FB61e37e505fB7",
+            "price_usd": 1
+        },
+        "BUSD": {
+            "name": "Binance USD",
+            "symbol": "BUSD",
+            "decimals": 18,
+            "contract": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+            "price_usd": 1
+        }
+    },
+    "137": {
+        "WMATIC": {
+            "name": "Wrapped Matic",
+            "symbol": "WMATIC",
+            "decimals": 18,
+            "contract": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+            "price_usd": 0.3
+        },
+        "USDC": {
+            "name": "USD Coin (PoS)",
+            "symbol": "USDC",
+            "decimals": 6,
+            "contract": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+            "price_usd": 1
+        },
+        "USDT": {
+            "name": "Tether USD (PoS)",
+            "symbol": "USDT",
+            "decimals": 6,
+            "contract": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+            "price_usd": 1
+        }
+    },
+    "42161": {
+        "WETH": {
+            "name": "Wrapped Ether",
+            "symbol": "WETH",
+            "decimals": 18,
+            "contract": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+            "price_usd": 3000
+        },
+        "USDC": {
+            "name": "USD Coin (Arb1)",
+            "symbol": "USDC",
+            "decimals": 6,
+            "contract": "0xFF970A61A04b1cA14834A43f5dE4533EBDDB5CC8",
+            "price_usd": 1
+        },
+        "USDT": {
+            "name": "Tether USD (Arb1)",
+            "symbol": "USDT",
+            "decimals": 6,
+            "contract": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+            "price_usd": 1
+        }
+    },
+    "10": {
+        "WETH": {
+            "name": "Wrapped Ether",
+            "symbol": "WETH",
+            "decimals": 18,
+            "contract": "0x4200000000000000000000000000000000000006",
+            "price_usd": 3000
+        },
+        "USDC": {
+            "name": "USD Coin",
+            "symbol": "USDC",
+            "decimals": 6,
+            "contract": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+            "price_usd": 1
+        },
+        "USDT": {
+            "name": "Tether USD",
+            "symbol": "USDT",
+            "decimals": 6,
+            "contract": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+            "price_usd": 1
+        }
+    },
+    "43114": {
+        "WAVAX": {
+            "name": "Wrapped AVAX",
+            "symbol": "WAVAX",
+            "decimals": 18,
+            "contract": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+            "price_usd": 33
+        },
+        "USDC": {
+            "name": "USD Coin",
+            "symbol": "USDC",
+            "decimals": 6,
+            "contract": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+            "price_usd": 1
+        },
+        "USDT": {
+            "name": "Tether USD",
+            "symbol": "USDT",
+            "decimals": 6,
+            "contract": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+            "price_usd": 1
+        }
+    }
+}
