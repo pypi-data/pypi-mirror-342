@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+cliete_cjax.egg-info/PKG-INFO
+cliete_cjax.egg-info/SOURCES.txt
+cliete_cjax.egg-info/dependency_links.txt
+cliete_cjax.egg-info/requires.txt
+cliete_cjax.egg-info/top_level.txt
+gradio_client_configc/__init__.py
+gradio_client_configc/cover.py
+gradio_client_configc/i2vgen.py
+gradio_client_configc/t2vgen.py
