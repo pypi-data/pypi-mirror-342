@@ -1,0 +1,14 @@
+vlcsync/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+vlcsync/cli.py,sha256=ssoMtW_DorOs0QK5-mEqm6itQQQVci86B8OA2Ed4Nw0,2005
+vlcsync/cli_utils.py,sha256=hXSljymGPU5AzFr706Ea-81wxkVCYLhZY-ug-JExZ0E,883
+vlcsync/main.py,sha256=An0NQ4jy3mfygwxko_UA3Sdwri9yidcUTTCP3SoyrpI,303
+vlcsync/syncer.py,sha256=x9w0LWmCUtFlMFTi01q8BBos0d9fwUpOQMo0dko6n_0,3854
+vlcsync/vlc.py,sha256=dBrg2TYQswhewtUveBilp0jadfMQAMRZkqgBukUK3F0,8528
+vlcsync/vlc_finder.py,sha256=7BXhOeJG8lRqYJ7dbrLU3Ps8ghUPh666YkAZjNom-cw,2770
+vlcsync/vlc_socket.py,sha256=WQAtNoitc49sst0oRG0bEuTkgw6a2TJXVE9iSWQaMa0,1850
+vlcsync/vlc_state.py,sha256=8RpmxVS_zijqYw9rxpmnN5QwM3Sk1FmqgTxgCH3U8kU,3133
+vlcsync-0.3.1.dist-info/entry_points.txt,sha256=2m_39oATnFzf5kuvlhkayyWSmW0tUefyNk9dVP4A7B0,45
+vlcsync-0.3.1.dist-info/LICENSE.md,sha256=Q6ik40IpumjnuWfS1c69jnEyxAPTBV2v04DesGSgLPM,1074
+vlcsync-0.3.1.dist-info/WHEEL,sha256=DA86_h4QwwzGeRoz62o1svYt5kGEXpoUTuTtwzoTb30,83
+vlcsync-0.3.1.dist-info/METADATA,sha256=UWdLvYjpLAGk9KC_0pGnDrpF9dEdwZM6qs9cmrj-qrs,4258
+vlcsync-0.3.1.dist-info/RECORD,,
