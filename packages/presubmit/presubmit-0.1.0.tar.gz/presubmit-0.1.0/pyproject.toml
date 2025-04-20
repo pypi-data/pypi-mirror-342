@@ -1,0 +1,13 @@
+[project]
+name = "presubmit"
+version = "0.1.0"
+description = "A simple pre-submission checks utility"
+authors = [{ name = "Presubmit", email = "usepresubmit@gmail.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"

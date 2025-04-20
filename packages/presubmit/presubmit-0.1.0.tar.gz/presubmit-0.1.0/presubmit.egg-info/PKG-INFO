@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: presubmit
+Version: 0.1.0
+Summary: A simple pre-submission checks utility
+Author: Presubmit
+Author-email: Presubmit <usepresubmit@gmail.com>
+License: MIT
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# presubmit
+
+A simple pre-submission checks utility for your projects.
