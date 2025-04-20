@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "fastapi-appattest"
+version = "0.1.0"
+description = "FastAPI extension that provides App Attest support (secure, easy to use, and lightweight)"
+authors = ["Piyush Raj <hello@piyushraj.org>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "fastapi_appattest" }]
+homepage = "https://github.com/0x48piraj/fastapi-appattest"
+repository = "https://github.com/0x48piraj/fastapi-appattest"
+keywords = ["fastapi", "api", "security", "Apple", "iOS", "device-attestation"]
+classifiers = [
+    "Framework :: FastAPI",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "0.108.0"
+httpx = "0.28.1"
+python-jose = "3.4.0"
+pydantic = "2.10.6"
+pydantic-settings = "2.8.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
