@@ -1,0 +1,10 @@
+stampix/auspostgen/__init__.py,sha256=R9xOYoYrWKcfO5zvTeGC3m_eDNOvxMd8CocQs2tLufo,22
+stampix/auspostgen/generator.py,sha256=0qRiamQTbDoyMvWjSMllTPcshj4q4720uu9ymF_WV4s,7036
+stampix/auspostgen/_c/CMakeLists.txt,sha256=fn063_BQSK8MT1y0ntTcUooBbjMrKLuJifljL7NqvXU,743
+stampix/auspostgen/_c/auspost.c,sha256=aX5BAasJjUgBzY2jJbx2mvRiZpcqfHIDrmTasQf4kr4,30504
+stampix/auspostgen/_c/auspost.dylib,sha256=vDXWSRbbsob3YRJWabYTvKq-pZI9LjI96G_p7YRd9ds,51168
+stampix/auspostgen/_c/auspost.so,sha256=wKR3xRAwWBxRM3HeMlcqQGyz6T3egE3d9Yh2S5rpGrU,67728
+stampix_auspostgen-0.0.7.dist-info/METADATA,sha256=FciJ7rnJ4dp7eaMf4nIIGeAHzsL5TnVCEG1xX7FonO4,1987
+stampix_auspostgen-0.0.7.dist-info/WHEEL,sha256=WPF160MwjKAEeDKACpCCUqtFoceC-WBrmZOtN3Y1mlg,156
+stampix_auspostgen-0.0.7.dist-info/RECORD,,
+stampix_auspostgen-0.0.7.dist-info/licenses/LICENCE.txt,sha256=Z_R0qA8dBa_UBMGgM1fEedm0wV7CBqwIBaBEOu4iT5w,1077
