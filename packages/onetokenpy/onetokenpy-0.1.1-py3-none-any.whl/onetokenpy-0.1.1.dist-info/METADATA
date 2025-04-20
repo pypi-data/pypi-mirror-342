@@ -1,0 +1,102 @@
+Metadata-Version: 2.4
+Name: onetokenpy
+Version: 0.1.1
+Summary: A library for running local LLM classification tasks on data
+Author-email: Maxime Rivest <mrive052@gmail.com>
+License: Apache-2.0
+Project-URL: Homepage, https://github.com/maximerivest/onetokenpy
+Project-URL: Bug Tracker, https://github.com/maximerivest/onetokenpy/issues
+Keywords: llm,classification,onetoken,ai
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas>=1.3.0
+Requires-Dist: huggingface-hub>=0.17.0
+Requires-Dist: llama-cpp-python>=0.2.0
+Provides-Extra: gpu
+Requires-Dist: vllm>=0.8.4; extra == "gpu"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: isort>=5.0.0; extra == "dev"
+Requires-Dist: ruff>=0.0.282; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest>=7.0.0; extra == "test"
+Dynamic: license-file
+
+# onetokenpy
+
+A Python library for running LLM classification tasks on data. Supports both GPU (using vLLM), CPU (using llama.cpp) inference, and remote.
+
+## Installation
+
+### Basic Installation (CPU only)
+Installs the package with CPU support using `llama-cpp-python`.
+```bash
+pip install onetokenpy
+```
+
+### GPU Support
+If you have a CUDA-compatible GPU and want to use vLLM for faster inference:
+```bash
+pip install "onetokenpy[gpu]"
+```
+
+## Usage
+
+```python
+import onetokenpy as ot
+import pandas as pd
+
+# Create a sample dataframe
+df = pd.DataFrame({
+    'postal_codes': ['H2X 1Y1', '12345', 'ABC123', 'K1A 0B1']
+})
+
+# Classify the postal codes using the default CPU model
+# (google/gemma-3-1b-it-qat-q4_0-gguf)
+result = ot.classify(
+    df,
+    "Classify this {postal_codes} as whether it is a correctly formatted Canadian postal code. Answer only by Yes or No"
+)
+
+print(result)
+```
+
+## Features
+
+- Run local LLM classification tasks on pandas DataFrames or lists of strings.
+- Automatic backend selection (GPU if available and `[gpu]` extra installed, otherwise CPU).
+- Uses vLLM for GPU inference (requires `pip install "onetokenpy[gpu]"`).
+- Uses llama.cpp via `llama-cpp-python` for CPU inference.
+- Downloads required models (GGUF for llama.cpp, standard HF format for vLLM) automatically via `huggingface_hub`.
+- Returns results as a pandas DataFrame including original data, classifications, and generated prompts.
+
+## Requirements
+
+- Python 3.8+
+- `pandas`
+- `llama-cpp-python` (for CPU support, installed by default)
+- `huggingface-hub` (for model downloading, installed by default)
+- For GPU support: 
+    - CUDA-compatible GPU
+    - `vllm` (install via `pip install "onetokenpy[gpu]"`)
+
+## License
+
+MIT License
+
+## Author
+
+Maxime Rivest (mrive052@gmail.com) 
