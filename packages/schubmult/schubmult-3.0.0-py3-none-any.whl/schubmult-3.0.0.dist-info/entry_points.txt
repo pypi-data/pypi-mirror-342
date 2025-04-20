@@ -1,0 +1,5 @@
+[console_scripts]
+schubmult_double = schubmult.scripts.schubmult_double:main
+schubmult_py = schubmult.scripts.schubmult_py:main
+schubmult_q = schubmult.scripts.schubmult_q:main
+schubmult_q_double = schubmult.scripts.schubmult_q_double:main
