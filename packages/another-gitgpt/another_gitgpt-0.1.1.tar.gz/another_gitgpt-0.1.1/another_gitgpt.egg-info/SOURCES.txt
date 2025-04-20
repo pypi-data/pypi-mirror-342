@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+another_gitgpt.egg-info/PKG-INFO
+another_gitgpt.egg-info/SOURCES.txt
+another_gitgpt.egg-info/dependency_links.txt
+another_gitgpt.egg-info/entry_points.txt
+another_gitgpt.egg-info/requires.txt
+another_gitgpt.egg-info/top_level.txt
+gitgpt/__init__.py
+gitgpt/cli.py
+gitgpt/core.py
