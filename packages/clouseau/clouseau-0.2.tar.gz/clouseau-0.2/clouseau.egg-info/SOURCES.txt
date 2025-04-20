@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+clouseau/__init__.py
+clouseau/inspector.py
+clouseau/io_utils.py
+clouseau/jax_utils.py
+clouseau/torch_utils.py
+clouseau.egg-info/PKG-INFO
+clouseau.egg-info/SOURCES.txt
+clouseau.egg-info/dependency_links.txt
+clouseau.egg-info/requires.txt
+clouseau.egg-info/top_level.txt
+tests/test_docs.py
+tests/test_inspector.py
