@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grassland-dt"
+version = "0.1.0"
+description = "A FAIR-aware DevOps prototype for ecosystem digital twins (grassland pollinators)"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+  {name = "Jazzley Louisville", email = "jazzleybeatz@gmail.com"},
+]
+keywords = ["digital-twin", "DevOps", "FAIR", "ecosystem", "biodiversity", "pollinators"]
+classifiers = [
+"Development Status :: 3 - Alpha",
+"Intended Audience :: Science/Research",
+"License :: OSI Approved :: MIT License",
+"Programming Language :: Python :: 3.11",
+"Operating System :: OS Independent",
+]
+dependencies = [
+  "pandas",
+  "geopandas",
+  "xarray",
+  "rasterio",
+  "scikit-learn",
+  "rpy2",
+  "pygbif",
+  "cdsapi",
+  "dvc",
+  "cookiecutter",
+  "jupyterlab",
+  "shapely",
+  "pyproj",
+  "joblib",
+]
+
+[project.urls]
+"Homepage"         = "https://github.com/JazzleyLouisville/grassland-dt"
+"Documentation"    = "https://github.com/JazzleyLouisville/grassland-dt#readme"
+"Source"           = "https://github.com/JazzleyLouisville/grassland-dt"
+"Issue Tracker"    = "https://github.com/JazzleyLouisville/grassland-dt/issues"

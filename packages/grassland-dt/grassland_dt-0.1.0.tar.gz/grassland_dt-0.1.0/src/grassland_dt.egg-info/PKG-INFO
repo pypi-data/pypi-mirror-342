@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: grassland-dt
+Version: 0.1.0
+Summary: A FAIR-aware DevOps prototype for ecosystem digital twins (grassland pollinators)
+Author-email: Jazzley Louisville <jazzleybeatz@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/JazzleyLouisville/grassland-dt
+Project-URL: Documentation, https://github.com/JazzleyLouisville/grassland-dt#readme
+Project-URL: Source, https://github.com/JazzleyLouisville/grassland-dt
+Project-URL: Issue Tracker, https://github.com/JazzleyLouisville/grassland-dt/issues
+Keywords: digital-twin,DevOps,FAIR,ecosystem,biodiversity,pollinators
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: geopandas
+Requires-Dist: xarray
+Requires-Dist: rasterio
+Requires-Dist: scikit-learn
+Requires-Dist: rpy2
+Requires-Dist: pygbif
+Requires-Dist: cdsapi
+Requires-Dist: dvc
+Requires-Dist: cookiecutter
+Requires-Dist: jupyterlab
+Requires-Dist: shapely
+Requires-Dist: pyproj
+Requires-Dist: joblib
+Dynamic: license-file
+
+[![fair-software.eu](https://img.shields.io/badge/fair--software.eu-%E2%97%8F%20%20%E2%97%8B%20%20%E2%97%8B%20%20%E2%97%8B%20%20%E2%97%8B-red)](https://fair-software.eu)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15249204.svg)](https://doi.org/10.5281/zenodo.15249204)
+[![FAIR‑software checklist](https://img.shields.io/badge/FAIR--software%20checklist-✓%20%20✓%20%20✓%20%20✓%20%20✓-green)](https://fair-software.eu/checklist/)
