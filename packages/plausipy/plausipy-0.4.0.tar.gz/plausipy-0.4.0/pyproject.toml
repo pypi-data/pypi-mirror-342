@@ -1,0 +1,51 @@
+[project]
+name = "plausipy"
+version = "0.4.0"
+description = "Plausipy is a Python package that provides insightful usage information while prioritizing user privacy. It empowers users by giving them control over their data and emphasizes transparency to build trust between developers and users. Ideal for applications that aim to balance analytics with responsible data management, Plausipy promotes ethical data handling as the standard."
+readme = "README.md"
+authors = [
+    { name = "Leonard Nürnberg", email = "leonard.nuernberg@moontec.de" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "prompt-toolkit>=3.0.50",
+    "psutil>=6.1.1",
+    "qrcode>=8.0",
+    "requests>=2.32.3",
+    "safe-exit>=0.1.2",
+    "tabulate>=0.9.0",
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Topic :: Software Development :: Libraries"
+]
+
+[project.scripts]
+plausipy = "plausipy.cli:cli"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "ruff>=0.11.2",
+]
+
+[tool.ruff.lint]
+select = ["F", "E", "I", "S", "B"]
+ignore = ["E501", "S101"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+skip-magic-trailing-comma = false
+line-ending = "auto"
