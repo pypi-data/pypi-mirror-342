@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+src/test/test.py
+src/wallapy/__init__.py
+src/wallapy/check.py
+src/wallapy/config.py
+src/wallapy/exceptions.py
+src/wallapy/fetch_api.py
+src/wallapy/request_handler.py
+src/wallapy/utils.py
+src/wallapy.egg-info/PKG-INFO
+src/wallapy.egg-info/SOURCES.txt
+src/wallapy.egg-info/dependency_links.txt
+src/wallapy.egg-info/requires.txt
+src/wallapy.egg-info/top_level.txt
