@@ -1,0 +1,951 @@
+import argparse
+import sys
+import os
+from .client import NGPTClient
+from .config import load_config, get_config_path, load_configs, add_config_entry, remove_config_entry
+from . import __version__
+
+# ANSI color codes for terminal output
+COLORS = {
+    "reset": "\033[0m",
+    "bold": "\033[1m",
+    "cyan": "\033[36m",
+    "green": "\033[32m", 
+    "yellow": "\033[33m",
+    "blue": "\033[34m",
+    "magenta": "\033[35m",
+    "gray": "\033[90m",
+    "bg_blue": "\033[44m",
+    "bg_cyan": "\033[46m"
+}
+
+# Check if ANSI colors are supported
+def supports_ansi_colors():
+    """Check if the current terminal supports ANSI colors."""
+    import os
+    import sys
+    
+    # If not a TTY, probably redirected, so no color
+    if not sys.stdout.isatty():
+        return False
+        
+    # Windows specific checks
+    if sys.platform == "win32":
+        try:
+            # Windows 10+ supports ANSI colors in cmd/PowerShell
+            import ctypes
+            kernel32 = ctypes.windll.kernel32
+            
+            # Try to enable ANSI color support
+            kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+            
+            # Check if TERM_PROGRAM is set (WSL/ConEmu/etc.)
+            if os.environ.get('TERM_PROGRAM') or os.environ.get('WT_SESSION'):
+                return True
+                
+            # Check Windows version - 10+ supports ANSI natively
+            winver = sys.getwindowsversion()
+            if winver.major >= 10:
+                return True
+                
+            return False
+        except Exception:
+            return False
+    
+    # Most UNIX systems support ANSI colors
+    return True
+
+# Initialize color support
+HAS_COLOR = supports_ansi_colors()
+
+# If we're on Windows, use brighter colors that work better in PowerShell
+if sys.platform == "win32" and HAS_COLOR:
+    COLORS["magenta"] = "\033[95m"  # Bright magenta for metavars
+    COLORS["cyan"] = "\033[96m"     # Bright cyan for options
+
+# If no color support, use empty color codes
+if not HAS_COLOR:
+    for key in COLORS:
+        COLORS[key] = ""
+
+# Custom help formatter with color support
+class ColoredHelpFormatter(argparse.HelpFormatter):
+    """Help formatter that properly handles ANSI color codes without breaking alignment."""
+    
+    def __init__(self, prog):
+        # Import modules needed for terminal size detection
+        import re
+        import textwrap
+        import shutil
+        
+        # Get terminal size for dynamic width adjustment
+        try:
+            self.term_width = shutil.get_terminal_size().columns
+        except:
+            self.term_width = 80  # Default if we can't detect terminal width
+        
+        # Calculate dynamic layout values based on terminal width
+        self.formatter_width = self.term_width - 2  # Leave some margin
+        
+        # For very wide terminals, limit the width to maintain readability
+        if self.formatter_width > 120:
+            self.formatter_width = 120
+            
+        # Calculate help position based on terminal width (roughly 1/3 of width)
+        self.help_position = min(max(20, int(self.term_width * 0.33)), 36)
+        
+        # Initialize the parent class with dynamic values
+        super().__init__(prog, max_help_position=self.help_position, width=self.formatter_width)
+        
+        # Calculate wrap width based on remaining space after help position
+        self.wrap_width = self.formatter_width - self.help_position - 5
+        
+        # Set up the text wrapper for help text
+        self.ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+        self.wrapper = textwrap.TextWrapper(width=self.wrap_width)
+        
+    def _strip_ansi(self, s):
+        """Strip ANSI escape sequences for width calculations"""
+        return self.ansi_escape.sub('', s)
+        
+    def _colorize(self, text, color, bold=False):
+        """Helper to consistently apply color with optional bold"""
+        if bold:
+            return f"{COLORS['bold']}{COLORS[color]}{text}{COLORS['reset']}"
+        return f"{COLORS[color]}{text}{COLORS['reset']}"
+        
+    def _format_action_invocation(self, action):
+        if not action.option_strings:
+            # For positional arguments
+            metavar = self._format_args(action, action.dest.upper())
+            return self._colorize(metavar, 'cyan', bold=True)
+        else:
+            # For optional arguments with different color for metavar
+            if action.nargs != argparse.SUPPRESS:
+                default = self._get_default_metavar_for_optional(action)
+                args_string = self._format_args(action, default)
+                
+                # Color option name and metavar differently
+                option_part = ', '.join(action.option_strings)
+                colored_option = self._colorize(option_part, 'cyan', bold=True)
+                
+                if args_string:
+                    # Make metavars more visible with brackets and color
+                    # If HAS_COLOR is False, brackets will help in PowerShell
+                    if not HAS_COLOR:
+                        # Add brackets to make metavars stand out even without color
+                        formatted_args = f"<{args_string}>"
+                    else:
+                        # Use color for metavar
+                        formatted_args = self._colorize(args_string, 'magenta')
+                    
+                    return f"{colored_option} {formatted_args}"
+                else:
+                    return colored_option
+            else:
+                return self._colorize(', '.join(action.option_strings), 'cyan', bold=True)
+        
+    def _format_usage(self, usage, actions, groups, prefix):
+        usage_text = super()._format_usage(usage, actions, groups, prefix)
+        
+        # Replace "usage:" with colored version
+        colored_usage = self._colorize("usage:", 'green', bold=True)
+        usage_text = usage_text.replace("usage:", colored_usage)
+        
+        # We won't color metavars in usage text as it breaks the formatting
+        # Just return with the colored usage prefix
+        return usage_text
+    
+    def _join_parts(self, part_strings):
+        """Override to fix any potential formatting issues with section joins"""
+        return '\n'.join([part for part in part_strings if part])
+        
+    def start_section(self, heading):
+        # Remove the colon as we'll add it with color
+        if heading.endswith(':'):
+            heading = heading[:-1]
+        heading_text = f"{self._colorize(heading, 'yellow', bold=True)}:"
+        super().start_section(heading_text)
+            
+    def _get_help_string(self, action):
+        # Add color to help strings
+        help_text = action.help
+        if help_text:
+            return help_text.replace('(default:', f"{COLORS['gray']}(default:") + COLORS['reset']
+        return help_text
+        
+    def _wrap_help_text(self, text, initial_indent="", subsequent_indent="  "):
+        """Wrap long help text to prevent overflow"""
+        if not text:
+            return text
+            
+        # Strip ANSI codes for width calculation
+        clean_text = self._strip_ansi(text)
+        
+        # If the text is already short enough, return it as is
+        if len(clean_text) <= self.wrap_width:
+            return text
+            
+        # Handle any existing ANSI codes
+        has_ansi = text != clean_text
+        wrap_text = clean_text
+        
+        # Wrap the text
+        lines = self.wrapper.wrap(wrap_text)
+        
+        # Add indentation to all but the first line
+        wrapped = lines[0]
+        for line in lines[1:]:
+            wrapped += f"\n{subsequent_indent}{line}"
+            
+        # Re-add the ANSI codes if they were present
+        if has_ansi and text.endswith(COLORS['reset']):
+            wrapped += COLORS['reset']
+            
+        return wrapped
+        
+    def _format_action(self, action):
+        # For subparsers, just return the regular formatting
+        if isinstance(action, argparse._SubParsersAction):
+            return super()._format_action(action)
+            
+        # Get the action header with colored parts (both option names and metavars)
+        # The coloring is now done in _format_action_invocation
+        action_header = self._format_action_invocation(action)
+        
+        # Format help text
+        help_text = self._expand_help(action)
+        
+        # Get the raw lengths without ANSI codes for formatting
+        raw_header_len = len(self._strip_ansi(action_header))
+        
+        # Calculate the indent for the help text
+        help_position = min(self._action_max_length + 2, self._max_help_position)
+        help_indent = ' ' * help_position
+        
+        # If the action header is too long, put help on the next line
+        if raw_header_len > help_position:
+            # An action header that's too long gets a line break
+            # Wrap the help text with proper indentation
+            wrapped_help = self._wrap_help_text(help_text, subsequent_indent=help_indent)
+            line = f"{action_header}\n{help_indent}{wrapped_help}"
+        else:
+            # Standard formatting with proper spacing
+            padding = ' ' * (help_position - raw_header_len)
+            # Wrap the help text with proper indentation
+            wrapped_help = self._wrap_help_text(help_text, subsequent_indent=help_indent)
+            line = f"{action_header}{padding}{wrapped_help}"
+            
+        # Handle subactions
+        if action.help is argparse.SUPPRESS:
+            return line
+            
+        if not action.help:
+            return line
+            
+        return line
+
+# Optional imports for enhanced UI
+try:
+    from prompt_toolkit import prompt as pt_prompt
+    from prompt_toolkit.styles import Style
+    from prompt_toolkit.key_binding import KeyBindings
+    from prompt_toolkit.formatted_text import HTML
+    from prompt_toolkit.layout.containers import HSplit, Window
+    from prompt_toolkit.layout.layout import Layout
+    from prompt_toolkit.layout.controls import FormattedTextControl
+    from prompt_toolkit.application import Application
+    from prompt_toolkit.widgets import TextArea
+    from prompt_toolkit.layout.margins import ScrollbarMargin
+    from prompt_toolkit.filters import to_filter
+    from prompt_toolkit.history import InMemoryHistory
+    import shutil
+    HAS_PROMPT_TOOLKIT = True
+except ImportError:
+    HAS_PROMPT_TOOLKIT = False
+
+def show_config_help():
+    """Display help information about configuration."""
+    print(f"\n{COLORS['green']}{COLORS['bold']}Configuration Help:{COLORS['reset']}")
+    print(f"  1. {COLORS['cyan']}Create a config file at one of these locations:{COLORS['reset']}")
+    if sys.platform == "win32":
+        print(f"     - {COLORS['yellow']}%APPDATA%\\ngpt\\ngpt.conf{COLORS['reset']}")
+    elif sys.platform == "darwin":
+        print(f"     - {COLORS['yellow']}~/Library/Application Support/ngpt/ngpt.conf{COLORS['reset']}")
+    else:
+        print(f"     - {COLORS['yellow']}~/.config/ngpt/ngpt.conf{COLORS['reset']}")
+    
+    print(f"  2. {COLORS['cyan']}Format your config file as JSON:{COLORS['reset']}")
+    print(f"""{COLORS['yellow']}     [
+       {{
+         "api_key": "your-api-key-here",
+         "base_url": "https://api.openai.com/v1/",
+         "provider": "OpenAI",
+         "model": "gpt-3.5-turbo"
+       }},
+       {{
+         "api_key": "your-second-api-key",
+         "base_url": "http://localhost:1337/v1/",
+         "provider": "Another Provider",
+         "model": "different-model"
+       }}
+     ]{COLORS['reset']}""")
+    
+    print(f"  3. {COLORS['cyan']}Or set environment variables:{COLORS['reset']}")
+    print(f"     - {COLORS['yellow']}OPENAI_API_KEY{COLORS['reset']}")
+    print(f"     - {COLORS['yellow']}OPENAI_BASE_URL{COLORS['reset']}")
+    print(f"     - {COLORS['yellow']}OPENAI_MODEL{COLORS['reset']}")
+    
+    print(f"  4. {COLORS['cyan']}Or provide command line arguments:{COLORS['reset']}")
+    print(f"     {COLORS['yellow']}ngpt --api-key your-key --base-url https://api.example.com --model your-model \"Your prompt\"{COLORS['reset']}")
+    
+    print(f"  5. {COLORS['cyan']}Use --config-index to specify which configuration to use or edit:{COLORS['reset']}")
+    print(f"     {COLORS['yellow']}ngpt --config-index 1 \"Your prompt\"{COLORS['reset']}")
+    
+    print(f"  6. {COLORS['cyan']}Use --config without arguments to add a new configuration:{COLORS['reset']}")
+    print(f"     {COLORS['yellow']}ngpt --config{COLORS['reset']}")
+    print(f"     Or specify an index to edit an existing configuration:")
+    print(f"     {COLORS['yellow']}ngpt --config --config-index 1{COLORS['reset']}")
+    print(f"  7. {COLORS['cyan']}Remove a configuration at a specific index:{COLORS['reset']}")
+    print(f"     {COLORS['yellow']}ngpt --config --remove --config-index 1{COLORS['reset']}")
+    print(f"  8. {COLORS['cyan']}List available models for the current configuration:{COLORS['reset']}")
+    print(f"     {COLORS['yellow']}ngpt --list-models{COLORS['reset']}")
+
+def check_config(config):
+    """Check config for common issues and provide guidance."""
+    if not config.get("api_key"):
+        print(f"{COLORS['yellow']}{COLORS['bold']}Error: API key is not set.{COLORS['reset']}")
+        show_config_help()
+        return False
+        
+    # Check for common URL mistakes
+    base_url = config.get("base_url", "")
+    if base_url and not (base_url.startswith("http://") or base_url.startswith("https://")):
+        print(f"{COLORS['yellow']}Warning: Base URL '{base_url}' doesn't start with http:// or https://{COLORS['reset']}")
+    
+    return True
+
+def interactive_chat_session(client, web_search=False, no_stream=False, temperature=0.7, top_p=1.0, max_length=None, log_file=None, preprompt=None):
+    """Run an interactive chat session with conversation history."""
+    # Get terminal width for better formatting
+    try:
+        term_width = shutil.get_terminal_size().columns
+    except:
+        term_width = 80  # Default fallback
+    
+    # Improved visual header with better layout
+    header = f"{COLORS['cyan']}{COLORS['bold']}🤖 nGPT Interactive Chat Session 🤖{COLORS['reset']}"
+    print(f"\n{header}")
+    
+    # Create a separator line - use a consistent separator length for all lines
+    separator_length = min(40, term_width - 10)
+    separator = f"{COLORS['gray']}{'─' * separator_length}{COLORS['reset']}"
+    print(separator)
+    
+    # Group commands into categories with better formatting
+    print(f"\n{COLORS['cyan']}Navigation:{COLORS['reset']}")
+    print(f"  {COLORS['yellow']}↑/↓{COLORS['reset']} : Browse input history")
+    
+    print(f"\n{COLORS['cyan']}Session Commands:{COLORS['reset']}")
+    print(f"  {COLORS['yellow']}history{COLORS['reset']} : Show conversation history")
+    print(f"  {COLORS['yellow']}clear{COLORS['reset']}   : Reset conversation")
+    print(f"  {COLORS['yellow']}exit{COLORS['reset']}    : End session")
+    
+    print(f"\n{separator}\n")
+    
+    # Initialize log file if provided
+    log_handle = None
+    if log_file:
+        try:
+            import datetime
+            timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            log_handle = open(log_file, 'a', encoding='utf-8')
+            log_handle.write(f"\n--- nGPT Session Log: {sys.argv} ---\n")
+            log_handle.write(f"Started at: {timestamp}\n\n")
+            print(f"{COLORS['green']}Logging conversation to: {log_file}{COLORS['reset']}")
+        except Exception as e:
+            print(f"{COLORS['yellow']}Warning: Could not open log file: {str(e)}{COLORS['reset']}")
+            log_handle = None
+    
+    # Custom separator - use the same length for consistency
+    def print_separator():
+        print(f"\n{separator}\n")
+    
+    # Initialize conversation history
+    system_prompt = preprompt if preprompt else "You are a helpful assistant."
+    conversation = []
+    system_message = {"role": "system", "content": system_prompt}
+    conversation.append(system_message)
+    
+    # Log system prompt if logging is enabled
+    if log_handle and preprompt:
+        log_handle.write(f"System: {system_prompt}\n\n")
+        log_handle.flush()
+    
+    # Initialize prompt_toolkit history
+    prompt_history = InMemoryHistory() if HAS_PROMPT_TOOLKIT else None
+    
+    # Decorative chat headers with rounded corners
+    def user_header():
+        return f"{COLORS['cyan']}{COLORS['bold']}╭─ 👤 You {COLORS['reset']}"
+    
+    def ngpt_header():
+        return f"{COLORS['green']}{COLORS['bold']}╭─ 🤖 nGPT {COLORS['reset']}"
+    
+    # Function to display conversation history
+    def display_history():
+        if len(conversation) <= 1:  # Only system message
+            print(f"\n{COLORS['yellow']}No conversation history yet.{COLORS['reset']}")
+            return
+            
+        print(f"\n{COLORS['cyan']}{COLORS['bold']}Conversation History:{COLORS['reset']}")
+        print(separator)
+        
+        # Skip system message
+        message_count = 0
+        for i, msg in enumerate(conversation):
+            if msg["role"] == "system":
+                continue
+                
+            if msg["role"] == "user":
+                message_count += 1
+                print(f"\n{user_header()}")
+                print(f"{COLORS['cyan']}│ [{message_count}] {COLORS['reset']}{msg['content']}")
+            elif msg["role"] == "assistant":
+                print(f"\n{ngpt_header()}")
+                print(f"{COLORS['green']}│ {COLORS['reset']}{msg['content']}")
+        
+        print(f"\n{separator}")  # Consistent separator at the end
+    
+    # Function to clear conversation history
+    def clear_history():
+        nonlocal conversation
+        conversation = [{"role": "system", "content": system_prompt}]
+        print(f"\n{COLORS['yellow']}Conversation history cleared.{COLORS['reset']}")
+        print(separator)  # Add separator for consistency
+    
+    try:
+        while True:
+            # Get user input
+            if HAS_PROMPT_TOOLKIT:
+                # Custom styling for prompt_toolkit
+                style = Style.from_dict({
+                    'prompt': 'ansicyan bold',
+                    'input': 'ansiwhite',
+                })
+                
+                # Create key bindings for Ctrl+C handling
+                kb = KeyBindings()
+                @kb.add('c-c')
+                def _(event):
+                    event.app.exit(result=None)
+                    raise KeyboardInterrupt()
+                
+                # Get user input with styled prompt - using proper HTML formatting
+                user_input = pt_prompt(
+                    HTML("<ansicyan><b>╭─ 👤 You:</b></ansicyan> "),
+                    style=style,
+                    key_bindings=kb,
+                    history=prompt_history
+                )
+            else:
+                user_input = input(f"{user_header()}: {COLORS['reset']}")
+            
+            # Check for exit commands
+            if user_input.lower() in ('exit', 'quit', 'bye'):
+                print(f"\n{COLORS['green']}Ending chat session. Goodbye!{COLORS['reset']}")
+                break
+            
+            # Check for special commands
+            if user_input.lower() == 'history':
+                display_history()
+                continue
+            
+            if user_input.lower() == 'clear':
+                clear_history()
+                continue
+            
+            # Skip empty messages but don't raise an error
+            if not user_input.strip():
+                continue
+            
+            # Add user message to conversation
+            user_message = {"role": "user", "content": user_input}
+            conversation.append(user_message)
+            
+            # Log user message if logging is enabled
+            if log_handle:
+                log_handle.write(f"User: {user_input}\n")
+                log_handle.flush()
+            
+            # Print assistant indicator with formatting
+            if not no_stream:
+                print(f"\n{ngpt_header()}: {COLORS['reset']}", end="", flush=True)
+            else:
+                print(f"\n{ngpt_header()}: {COLORS['reset']}", flush=True)
+            
+            # Get AI response with conversation history
+            response = client.chat(
+                prompt=user_input,
+                messages=conversation,
+                stream=not no_stream,
+                web_search=web_search,
+                temperature=temperature,
+                top_p=top_p,
+                max_length=max_length
+            )
+            
+            # Add AI response to conversation history
+            if response:
+                assistant_message = {"role": "assistant", "content": response}
+                conversation.append(assistant_message)
+                
+                # Print response if not streamed
+                if no_stream:
+                    print(response)
+                
+                # Log assistant response if logging is enabled
+                if log_handle:
+                    log_handle.write(f"Assistant: {response}\n\n")
+                    log_handle.flush()
+            
+            # Print separator between exchanges
+            print_separator()
+            
+    except KeyboardInterrupt:
+        print(f"\n\n{COLORS['green']}Chat session ended by user. Goodbye!{COLORS['reset']}")
+    except Exception as e:
+        print(f"\n{COLORS['yellow']}Error during chat session: {str(e)}{COLORS['reset']}")
+        # Print traceback for debugging if it's a serious error
+        import traceback
+        traceback.print_exc()
+    finally:
+        # Close log file if it was opened
+        if log_handle:
+            log_handle.write(f"\n--- End of Session ---\n")
+            log_handle.close()
+
+def main():
+    # Colorize description - use a shorter description to avoid line wrapping issues
+    description = f"{COLORS['cyan']}{COLORS['bold']}nGPT{COLORS['reset']} - Interact with AI language models via OpenAI-compatible APIs"
+    parser = argparse.ArgumentParser(description=description, formatter_class=ColoredHelpFormatter)
+    
+    # Add custom error method with color
+    original_error = parser.error
+    def error_with_color(message):
+        parser.print_usage(sys.stderr)
+        parser.exit(2, f"{COLORS['bold']}{COLORS['yellow']}error: {COLORS['reset']}{message}\n")
+    parser.error = error_with_color
+    
+    # Custom version action with color
+    class ColoredVersionAction(argparse.Action):
+        def __call__(self, parser, namespace, values, option_string=None):
+            print(f"{COLORS['green']}{COLORS['bold']}nGPT{COLORS['reset']} version {COLORS['yellow']}{__version__}{COLORS['reset']}")
+            parser.exit()
+    
+    # Version flag
+    parser.add_argument('-v', '--version', action=ColoredVersionAction, nargs=0, help='Show version information and exit')
+    
+    # Config options
+    config_group = parser.add_argument_group('Configuration Options')
+    config_group.add_argument('--config', nargs='?', const=True, help='Path to a custom config file or, if no value provided, enter interactive configuration mode to create a new config')
+    config_group.add_argument('--config-index', type=int, default=0, help='Index of the configuration to use or edit (default: 0)')
+    config_group.add_argument('--remove', action='store_true', help='Remove the configuration at the specified index (requires --config and --config-index)')
+    config_group.add_argument('--show-config', action='store_true', help='Show the current configuration(s) and exit')
+    config_group.add_argument('--all', action='store_true', help='Show details for all configurations (requires --show-config)')
+    config_group.add_argument('--list-models', action='store_true', help='List all available models for the current configuration and exit')
+    
+    # Global options
+    global_group = parser.add_argument_group('Global Options')
+    global_group.add_argument('--api-key', help='API key for the service')
+    global_group.add_argument('--base-url', help='Base URL for the API')
+    global_group.add_argument('--model', help='Model to use')
+    global_group.add_argument('--web-search', action='store_true', 
+                      help='Enable web search capability (Note: Your API endpoint must support this feature)')
+    global_group.add_argument('-n', '--no-stream', action='store_true',
+                      help='Return the whole response without streaming')
+    global_group.add_argument('--temperature', type=float, default=0.7,
+                      help='Set temperature (controls randomness, default: 0.7)')
+    global_group.add_argument('--top_p', type=float, default=1.0,
+                      help='Set top_p (controls diversity, default: 1.0)')
+    global_group.add_argument('--max_length', type=int, 
+                      help='Set max response length in tokens')
+    global_group.add_argument('--log', metavar='FILE',
+                      help='Set filepath to log conversation to (For interactive modes)')
+    global_group.add_argument('--preprompt', 
+                      help='Set preprompt')
+    
+    # Mode flags (mutually exclusive)
+    mode_group = parser.add_argument_group('Modes (mutually exclusive)')
+    mode_exclusive_group = mode_group.add_mutually_exclusive_group()
+    mode_exclusive_group.add_argument('-i', '--interactive', action='store_true', help='Start an interactive chat session')
+    mode_exclusive_group.add_argument('-s', '--shell', action='store_true', help='Generate and execute shell commands')
+    mode_exclusive_group.add_argument('-c', '--code', action='store_true', help='Generate code')
+    mode_exclusive_group.add_argument('-t', '--text', action='store_true', help='Enter multi-line text input (submit with Ctrl+D)')
+    # Note: --show-config is handled separately and implicitly acts as a mode
+    
+    # Language option for code mode
+    parser.add_argument('--language', default="python", help='Programming language to generate code in (for code mode)')
+    
+    # Prompt argument
+    parser.add_argument('prompt', nargs='?', default=None, help='The prompt to send')
+    
+    args = parser.parse_args()
+    
+    # Validate --all usage
+    if args.all and not args.show_config:
+        parser.error("--all can only be used with --show-config")
+
+    # Handle interactive configuration mode
+    if args.config is True:  # --config was used without a value
+        config_path = get_config_path()
+        
+        # Handle configuration removal if --remove flag is present
+        if args.remove:
+            # Validate that config_index is explicitly provided
+            if '--config-index' not in sys.argv:
+                parser.error("--remove requires explicitly specifying --config-index")
+            
+            # Show config details before asking for confirmation
+            configs = load_configs(str(config_path))
+            
+            # Check if index is valid
+            if args.config_index < 0 or args.config_index >= len(configs):
+                print(f"Error: Configuration index {args.config_index} is out of range. Valid range: 0-{len(configs)-1}")
+                return
+            
+            # Show the configuration that will be removed
+            config = configs[args.config_index]
+            print(f"Configuration to remove (index {args.config_index}):")
+            print(f"  Provider: {config.get('provider', 'N/A')}")
+            print(f"  Model: {config.get('model', 'N/A')}")
+            print(f"  Base URL: {config.get('base_url', 'N/A')}")
+            print(f"  API Key: {'[Set]' if config.get('api_key') else '[Not Set]'}")
+            
+            # Ask for confirmation
+            try:
+                print("\nAre you sure you want to remove this configuration? [y/N] ", end='')
+                response = input().lower()
+                if response in ('y', 'yes'):
+                    remove_config_entry(config_path, args.config_index)
+                else:
+                    print("Configuration removal cancelled.")
+            except KeyboardInterrupt:
+                print("\nConfiguration removal cancelled by user.")
+            
+            return
+        
+        # Regular config addition/editing (existing code)
+        # If --config-index was not explicitly specified, create a new entry by passing None
+        # This will cause add_config_entry to create a new entry at the end of the list
+        # Otherwise, edit the existing config at the specified index
+        config_index = None if args.config_index == 0 and '--config-index' not in sys.argv else args.config_index
+        
+        # Load existing configs to determine the new index if creating a new config
+        configs = load_configs(str(config_path))
+        if config_index is None:
+            print(f"Creating new configuration at index {len(configs)}")
+        else:
+            print(f"Editing existing configuration at index {config_index}")
+        
+        add_config_entry(config_path, config_index)
+        return
+    
+    # Load configuration using the specified index (needed for active config display)
+    active_config = load_config(args.config, args.config_index)
+    
+    # Command-line arguments override config settings for active config display
+    # This part is kept to ensure the active config display reflects potential overrides,
+    # even though the overrides don't affect the stored configurations displayed with --all.
+    if args.api_key:
+        active_config["api_key"] = args.api_key
+    if args.base_url:
+        active_config["base_url"] = args.base_url
+    if args.model:
+        active_config["model"] = args.model
+    
+    # Show config if requested
+    if args.show_config:
+        config_path = get_config_path(args.config)
+        configs = load_configs(args.config)
+        
+        print(f"Configuration file: {config_path}")
+        print(f"Total configurations: {len(configs)}")
+        print(f"Active configuration index: {args.config_index}")
+
+        if args.all:
+            # Show details for all configurations
+            print("\nAll configuration details:")
+            for i, cfg in enumerate(configs):
+                active_str = '(Active)' if i == args.config_index else ''
+                print(f"\n--- Configuration Index {i} {active_str} ---")
+                print(f"  API Key: {'[Set]' if cfg.get('api_key') else '[Not Set]'}")
+                print(f"  Base URL: {cfg.get('base_url', 'N/A')}")
+                print(f"  Provider: {cfg.get('provider', 'N/A')}")
+                print(f"  Model: {cfg.get('model', 'N/A')}")
+        else:
+            # Show active config details and summary list
+            print("\nActive configuration details:")
+            print(f"  API Key: {'[Set]' if active_config.get('api_key') else '[Not Set]'}")
+            print(f"  Base URL: {active_config.get('base_url', 'N/A')}")
+            print(f"  Provider: {active_config.get('provider', 'N/A')}")
+            print(f"  Model: {active_config.get('model', 'N/A')}")
+            
+            if len(configs) > 1:
+                print("\nAvailable configurations:")
+                for i, cfg in enumerate(configs):
+                    active_marker = "*" if i == args.config_index else " "
+                    print(f"[{i}]{active_marker} {cfg.get('provider', 'N/A')} - {cfg.get('model', 'N/A')} ({'[API Key Set]' if cfg.get('api_key') else '[API Key Not Set]'})")
+        
+        return
+    
+    # For interactive mode, we'll allow continuing without a specific prompt
+    if not args.prompt and not (args.shell or args.code or args.text or args.interactive or args.show_config or args.list_models):
+        parser.print_help()
+        return
+        
+    # Check configuration (using the potentially overridden active_config)
+    if not args.show_config and not args.list_models and not check_config(active_config):
+        return
+    
+    # Initialize client using the potentially overridden active_config
+    client = NGPTClient(**active_config)
+    
+    try:
+        # Handle listing models
+        if args.list_models:
+            print("Retrieving available models...")
+            models = client.list_models()
+            if models:
+                print(f"\nAvailable models for {active_config.get('provider', 'API')}:")
+                print("-" * 50)
+                for model in models:
+                    if "id" in model:
+                        owned_by = f" ({model.get('owned_by', 'Unknown')})" if "owned_by" in model else ""
+                        current = " [active]" if model["id"] == active_config["model"] else ""
+                        print(f"- {model['id']}{owned_by}{current}")
+                print("\nUse --model MODEL_NAME to select a specific model")
+            else:
+                print("No models available or could not retrieve models.")
+            return
+        
+        # Handle modes
+        if args.interactive:
+            # Interactive chat mode
+            interactive_chat_session(client, web_search=args.web_search, no_stream=args.no_stream,
+                                   temperature=args.temperature, top_p=args.top_p, 
+                                   max_length=args.max_length, log_file=args.log, preprompt=args.preprompt)
+        elif args.shell:
+            if args.prompt is None:
+                try:
+                    print("Enter shell command description: ", end='')
+                    prompt = input()
+                except KeyboardInterrupt:
+                    print("\nInput cancelled by user. Exiting gracefully.")
+                    sys.exit(130)
+            else:
+                prompt = args.prompt
+                
+            command = client.generate_shell_command(prompt, web_search=args.web_search, 
+                                                 temperature=args.temperature, top_p=args.top_p,
+                                                 max_length=args.max_length)
+            if not command:
+                return  # Error already printed by client
+                
+            print(f"\nGenerated command: {command}")
+            
+            try:
+                print("Do you want to execute this command? [y/N] ", end='')
+                response = input().lower()
+            except KeyboardInterrupt:
+                print("\nCommand execution cancelled by user.")
+                return
+                
+            if response == 'y' or response == 'yes':
+                import subprocess
+                try:
+                    try:
+                        print("\nExecuting command... (Press Ctrl+C to cancel)")
+                        result = subprocess.run(command, shell=True, check=True, capture_output=True, text=True)
+                        print(f"\nOutput:\n{result.stdout}")
+                    except KeyboardInterrupt:
+                        print("\nCommand execution cancelled by user.")
+                except subprocess.CalledProcessError as e:
+                    print(f"\nError:\n{e.stderr}")
+                    
+        elif args.code:
+            if args.prompt is None:
+                try:
+                    print("Enter code description: ", end='')
+                    prompt = input()
+                except KeyboardInterrupt:
+                    print("\nInput cancelled by user. Exiting gracefully.")
+                    sys.exit(130)
+            else:
+                prompt = args.prompt
+                
+            generated_code = client.generate_code(prompt, args.language, web_search=args.web_search,
+                                              temperature=args.temperature, top_p=args.top_p,
+                                              max_length=args.max_length)
+            if generated_code:
+                print(f"\nGenerated code:\n{generated_code}")
+            
+        elif args.text:
+            if args.prompt is not None:
+                prompt = args.prompt
+            else:
+                try:
+                    if HAS_PROMPT_TOOLKIT:
+                        print("\033[94m\033[1m" + "Multi-line Input Mode" + "\033[0m")
+                        print("Press Ctrl+D to submit, Ctrl+C to exit")
+                        print("Use arrow keys to navigate, Enter for new line")
+                        
+                        # Create key bindings
+                        kb = KeyBindings()
+                        
+                        # Explicitly bind Ctrl+D to exit
+                        @kb.add('c-d')
+                        def _(event):
+                            event.app.exit(result=event.app.current_buffer.text)
+                            
+                        # Explicitly bind Ctrl+C to exit
+                        @kb.add('c-c')
+                        def _(event):
+                            event.app.exit(result=None)
+                            print("\nInput cancelled by user. Exiting gracefully.")
+                            sys.exit(130)
+                        
+                        # Get terminal dimensions
+                        term_width, term_height = shutil.get_terminal_size()
+                        
+                        # Create a styled TextArea
+                        text_area = TextArea(
+                            style="class:input-area",
+                            multiline=True,
+                            wrap_lines=True,
+                            width=term_width - 10,
+                            height=min(15, term_height - 10),
+                            prompt=HTML("<ansicyan><b>> </b></ansicyan>"),
+                            scrollbar=True,
+                            focus_on_click=True,
+                            lexer=None,
+                        )
+                        text_area.window.right_margins = [ScrollbarMargin(display_arrows=True)]
+                        
+                        # Create a title bar
+                        title_bar = FormattedTextControl(
+                            HTML("<ansicyan><b> nGPT Multi-line Editor </b></ansicyan>")
+                        )
+                        
+                        # Create a status bar with key bindings info
+                        status_bar = FormattedTextControl(
+                            HTML("<ansiblue><b>Ctrl+D</b></ansiblue>: Submit | <ansiblue><b>Ctrl+C</b></ansiblue>: Cancel | <ansiblue><b>↑↓←→</b></ansiblue>: Navigate")
+                        )
+                        
+                        # Create the layout
+                        layout = Layout(
+                            HSplit([
+                                Window(title_bar, height=1),
+                                Window(height=1, char="─", style="class:separator"),
+                                text_area,
+                                Window(height=1, char="─", style="class:separator"),
+                                Window(status_bar, height=1),
+                            ])
+                        )
+                        
+                        # Create a style
+                        style = Style.from_dict({
+                            "separator": "ansicyan",
+                            "input-area": "fg:ansiwhite",
+                            "cursor": "bg:ansiwhite fg:ansiblack",
+                        })
+                        
+                        # Create and run the application
+                        app = Application(
+                            layout=layout,
+                            full_screen=False,
+                            key_bindings=kb,
+                            style=style,
+                            mouse_support=True,
+                        )
+                        
+                        prompt = app.run()
+                        
+                        if not prompt or not prompt.strip():
+                            print("Empty prompt. Exiting.")
+                            return
+                    else:
+                        # Fallback to standard input with a better implementation
+                        print("Enter your multi-line prompt (press Ctrl+D to submit):")
+                        print("Note: Install 'prompt_toolkit' package for an enhanced input experience")
+                        
+                        # Use a more robust approach for multiline input without prompt_toolkit
+                        lines = []
+                        while True:
+                            try:
+                                line = input()
+                                lines.append(line)
+                            except EOFError:  # Ctrl+D was pressed
+                                break
+                        
+                        prompt = "\n".join(lines)
+                        if not prompt.strip():
+                            print("Empty prompt. Exiting.")
+                            return
+                        
+                except KeyboardInterrupt:
+                    print("\nInput cancelled by user. Exiting gracefully.")
+                    sys.exit(130)
+            
+            print("\nSubmission successful. Waiting for response...")
+            
+            # Create messages array with preprompt if available
+            messages = None
+            if args.preprompt:
+                messages = [
+                    {"role": "system", "content": args.preprompt},
+                    {"role": "user", "content": prompt}
+                ]
+                
+            response = client.chat(prompt, stream=not args.no_stream, web_search=args.web_search,
+                               temperature=args.temperature, top_p=args.top_p,
+                               max_tokens=args.max_length, messages=messages)
+            if args.no_stream and response:
+                print(response)
+            
+        else:
+            # Default to chat mode
+            if args.prompt is None:
+                try:
+                    print("Enter your prompt: ", end='')
+                    prompt = input()
+                except KeyboardInterrupt:
+                    print("\nInput cancelled by user. Exiting gracefully.")
+                    sys.exit(130)
+            else:
+                prompt = args.prompt
+                
+            # Create messages array with preprompt if available
+            messages = None
+            if args.preprompt:
+                messages = [
+                    {"role": "system", "content": args.preprompt},
+                    {"role": "user", "content": prompt}
+                ]
+                
+            response = client.chat(prompt, stream=not args.no_stream, web_search=args.web_search,
+                               temperature=args.temperature, top_p=args.top_p,
+                               max_tokens=args.max_length, messages=messages)
+            if args.no_stream and response:
+                print(response)
+    
+    except KeyboardInterrupt:
+        print("\nOperation cancelled by user. Exiting gracefully.")
+        # Make sure we exit with a non-zero status code to indicate the operation was cancelled
+        sys.exit(130)  # 130 is the standard exit code for SIGINT (Ctrl+C)
+    except Exception as e:
+        print(f"Error: {e}")
+        sys.exit(1)  # Exit with error code
+
+if __name__ == "__main__":
+    main() 
