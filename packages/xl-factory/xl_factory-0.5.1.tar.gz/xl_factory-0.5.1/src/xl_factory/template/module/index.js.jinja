@@ -1,0 +1,25 @@
+import API from '@xilonglab/vue-api'
+import dataYaml from './data.yaml'
+
+const that = class {{ english | capitalize }} extends API { }
+
+dataYaml.columns = API.convertColumns(dataYaml.columns, column => {
+    switch (column.prop) {
+        case '':
+            column.map = {}
+            column.search.options = []
+            column.form.options = []
+            break
+    }
+    return column
+})
+
+export default that.build('/api/{{ api_path }}', {
+    dataYaml,
+    variables: {
+    },
+    functions: {
+    },
+    classes: {
+    }
+})
