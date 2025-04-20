@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+src/pdfitdown/__init__.py
+src/pdfitdown/pdfconversion.py
+src/pdfitdown/pdfitdown_cli.py
+src/pdfitdown/pdfitdown_ui.py
+src/pdfitdown.egg-info/PKG-INFO
+src/pdfitdown.egg-info/SOURCES.txt
+src/pdfitdown.egg-info/dependency_links.txt
+src/pdfitdown.egg-info/entry_points.txt
+src/pdfitdown.egg-info/requires.txt
+src/pdfitdown.egg-info/top_level.txt
+tests/test.py
+tests/test_dir_conversion.py
+tests/test_multiple_conversion.py
+tests/test_ui.py
