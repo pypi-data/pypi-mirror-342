@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: smemhack
+Version: 5.0
+Summary: A Python library to automate online homework tasks with AI and system control.
+Home-page: UNKNOWN
+Author: Dickily
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Requires-Dist: tensorflow
+Requires-Dist: pyautogui
+Requires-Dist: pyperclip
+Requires-Dist: numpy
+
+UNKNOWN
+
+
