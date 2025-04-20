@@ -1,0 +1,17 @@
+[project]
+name = "monstrelib"
+version = "0.1.0"
+description = "Une mini bibliothèque qui fait des additions comme un monstre"
+authors = [
+    { name="Mohamed Echcharif EL JAZOULI", email="charif.eljazouli@email.com" }
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.7"
+
+[project.urls]
+Homepage = "https://github.com/Charifjaz/monstrelib"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
