@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: dotfilesmgr
+Version: 0.1.2
+Summary: Simple tool to manage your dotfiles
+Project-URL: Repository, https://github.com/J0schu/dotfilemgr
+Project-URL: Issues, https://github.com/J0schu/dotfilemgr/issues
+Project-URL: Changelog, https://github.com/J0schu/dotfilemgr/releases
+Author: J0schu
+License-Expression: MIT
+Requires-Python: >=3.8
+Requires-Dist: colorama
+Requires-Dist: toml
+Description-Content-Type: text/markdown
+
+## Dotfilesmgr
+Simple tool to manage your dotfiles.
+### Installation
+```bash
+pip install dotfilesmgr
+```
+### Configutation
+```toml
+[settings]
+mirror = "/home/<your_name>/.dotfile_mirror"
+
+[[files]]
+source = "/home/<your_name>/dotfiles/kitty"
+destination = "/home/<your_name>/.config/kitty"
+type = "dir"
+
+[[files]]
+source = "/home/<your_name>/dotfiles/.condarc"
+destination = "/home/<your_name>/.condarc"
+type = "file"
+```
+#### TODO's
+- better configuration
+- documentation
+- better terminal output
