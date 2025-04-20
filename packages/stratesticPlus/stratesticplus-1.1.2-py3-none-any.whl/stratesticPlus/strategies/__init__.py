@@ -1,0 +1,5 @@
+from stratestic.strategies.moving_average import MovingAverage, MovingAverageCrossover, MovingAverageConvergenceDivergence
+from stratestic.strategies.mean_reversion import BollingerBands
+from stratestic.strategies.trend import Momentum
+from stratesticPlus.strategies.ichimoku import IchimokuCloud
+from stratestic.strategies.machine_learning import MachineLearning
