@@ -1,0 +1,3 @@
+# Statistical Tests Package
+
+A Python package for performing common statistical hypothesis tests...
