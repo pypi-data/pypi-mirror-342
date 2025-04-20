@@ -1,0 +1,16 @@
+stv_pytree/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+stv_pytree/main.py,sha256=Yx0RTa-kYd_vXc3oarg-iRs9oypnA0bDi_tyVtdkhPo,2263
+stv_pytree/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+stv_pytree/core/stv_parse.py,sha256=8Az1y-E-esXnPmB754mGaWEyi3pMM4enWbDTsJw6EkU,1397
+stv_pytree/core/tree.py,sha256=EfzkehHAF7d9Hnv6Di8bWPefRrSMF2Cx3tW4OeAWz-Y,3929
+stv_pytree/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+stv_pytree/utils/change_text.py,sha256=JPW86eokTrXShLaPEheoXaO7H-Ct9ztw303hd-Ynd6E,1887
+stv_pytree/utils/colors.py,sha256=XiMnILATQyCodWte-GWmiz3ZX8lCTQDV8gVOFFy_EhE,571
+stv_pytree/utils/lang_utils.py,sha256=pVvfaVJwB2dUAzqDQVsB5R6dzWLCg3PpvTLWT7uPds0,1399
+stv_pytree/utils/lic.py,sha256=86xsAWmMsv0eI_XzudQuG9KEjLImdkrvjZCyUJBni8I,1147
+stv_pytree/utils/utils.py,sha256=upXQM0QCdwvSBizmLeQqoIQw-3L3RB30ET0b5z0lFTc,193
+stv_pytree-0.0.5.dist-info/METADATA,sha256=3YD24denLWTk8LE-YFDJmm1AUqK9IT7YhL0YS6pm9uo,2967
+stv_pytree-0.0.5.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+stv_pytree-0.0.5.dist-info/entry_points.txt,sha256=e-yJpa411ZJmCFUXMsya9biJmoSqomqbwUU0P8DIjPM,48
+stv_pytree-0.0.5.dist-info/top_level.txt,sha256=j2VeHZ9jZCgJc9B9_Ob7cGY3FSdAAme4nLW3FEZSthI,11
+stv_pytree-0.0.5.dist-info/RECORD,,
