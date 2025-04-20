@@ -1,0 +1,2 @@
+[console_scripts]
+pyplus = pyplus.__init__:main
