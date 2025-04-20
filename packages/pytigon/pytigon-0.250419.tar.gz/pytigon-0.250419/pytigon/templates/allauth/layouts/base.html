@@ -1,0 +1,45 @@
+{% extends "theme.html"|translate:lang %}
+{% load exfiltry %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% load account %}
+{% load exsyntax %}
+{% block all %}
+          {% with NO_CHECK_AUTH=True SHOW_LOGIN_WIN=False show_form=False fragment=all %}
+                {{ block.super }}
+          {% endwith %}
+{% endblock %}
+{% block body %}
+        {% block body_body_start %}
+                {{ block.super }}
+        {% endblock %}
+        {% block login_background %}
+                {{ block.super }}
+        {% endblock %}
+        <div class="container login-container" data-bs-theme="dark">
+                <div class="row align-items-center">
+                        <div class="col"></div>
+                        <div class="col-lg-6 col-xl-5">
+                                <div class="card text-bg-dark mb-3">
+                                        <div class="card-header">
+                                                {{prj_title|upper}}
+                                        </div>
+                                        <div class="card-body">
+                                                {% block content %}{% endblock %}
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col"></div>
+                </div>
+        </div>
+        {% block body_desktop_cd %}{% endblock %}
+        {% block body_body_end %}
+                {{ block.super }}
+        {% endblock %}
+{% endblock %}
+{% block nav %}
+{% endblock %}
+{% block body_footer_scripts %}
+{% endblock %}
+{% block page_footer %}{% endblock %}
+

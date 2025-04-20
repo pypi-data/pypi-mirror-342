@@ -1,0 +1,36 @@
+% extends "theme.html"|translate:lang
+
+% load exfiltry
+% load django_bootstrap5
+% load i18n
+% load account
+% load exsyntax
+
+%% all
+     % with NO_CHECK_AUTH=True SHOW_LOGIN_WIN=False show_form=False fragment=all: 
+        {{ block.super }}
+
+%% body
+    %% body_body_start
+        {{ block.super }}
+    %% login_background
+        {{ block.super }}
+    div class=container login-container,,,data-bs-theme=dark
+        div class=row align-items-center
+            div class=col
+            div class=col-lg-6 col-xl-5
+                div class=card text-bg-dark mb-3
+                    div class=card-header
+                        {{prj_title|upper}}
+                    div class=card-body                
+                        %% content
+            div class=col
+    %% body_desktop_cd
+    %% body_body_end
+        {{ block.super }}
+
+%% nav
+
+%% body_footer_scripts
+    
+%% page_footer
