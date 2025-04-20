@@ -1,0 +1,269 @@
+{% extends "admin/base_site.html" %}
+
+{% block extrahead %}
+<style>
+  :root {
+    --primary-color: #6366f1;
+    --primary-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
+    --primary-dark: #5852c5;
+    --text-color: #1e293b;
+    --secondary-text: #64748b;
+    --background-color: #b5bbc2;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --accent-light: #eff6ff;
+    --success-color: #10b981;
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+  }
+
+  .tfa-container {
+    max-width: 480px;
+    margin: 1rem auto;
+    padding: 0;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 5px 10px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+  }
+
+  .tfa-header {
+    background: var(--primary-gradient);
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .tfa-header h1 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .tfa-header::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+  }
+
+  .tfa-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  .tfa-instructions {
+    text-align: center;
+    line-height: 1;
+    color: var(--secondary-text);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .tfa-qr-container {
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: fit-content;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .tfa-qr-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .tfa-qr-container img {
+    max-width: 140px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .tfa-qr-container::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: var(--primary-gradient);
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0.1;
+  }
+
+  .tfa-secret-key {
+    background-color: var(--accent-light);
+    padding: 0.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    text-align: center;
+  }
+
+  .tfa-secret-key p {
+    margin: 0 0 0.75rem 0;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+  }
+
+  .tfa-secret-key code {
+    display: block;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border: 1px dashed var(--primary-color);
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.95rem;
+    color: var(--primary-dark);
+    word-break: break-all;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  }
+
+  .tfa-button-container {
+    text-align: center;
+    margin-top: 0.75rem;
+  }
+
+  .tfa-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 2rem;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tfa-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+  }
+
+  .tfa-button:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+    color: white;
+  }
+
+  .tfa-button:hover::before {
+    left: 100%;
+  }
+
+  .tfa-security-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.0rem;
+    color: var(--success-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .tfa-security-badge svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+
+  /* Responsive styles */
+  @media (max-width: 520px) {
+    .tfa-container {
+      margin: 1.5rem 1rem;
+    }
+
+    .tfa-content {
+      padding: 1.5rem;
+    }
+
+    .tfa-header h1 {
+      font-size: 1.3rem;
+    }
+
+    .tfa-qr-container {
+      padding: 1.25rem;
+    }
+
+    .tfa-qr-container img {
+      max-width: 160px;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="tfa-container">
+  <div class="tfa-header">
+    <h1>Set up Two-Factor Authentication</h1>
+  </div>
+
+  <div class="tfa-content">
+    <div class="tfa-instructions">
+      <p>Scan this QR code with your authenticator app to enable two-factor authentication for your account.</p>
+    </div>
+
+    <div class="tfa-qr-container">
+      <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code for 2FA setup"/>
+    </div>
+
+    <div class="tfa-secret-key">
+      <p>Your secret key (save this in a safe place):</p>
+      <code>{{ secret }}</code>
+    </div>
+
+    <div class="tfa-button-container">
+      <a href="{% url 'admin-2fa-verify-setup' %}" class="tfa-button">Continue to Verification</a>
+    </div>
+
+    <div class="tfa-security-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        <path d="M9 12l2 2 4-4"></path>
+      </svg>
+      <span>Secure authentication protocol</span>
+      
+    </div>
+    <div class="tfa-security-badge" style="margin-top: -15px;">
+      <span>Created by <a style="color:#10b981;" target="_blank" href="https://himosoft.com.bd">HIMOSOFT</a></span>
+    </div>
+    
+  </div>
+</div>
+{% endblock %}

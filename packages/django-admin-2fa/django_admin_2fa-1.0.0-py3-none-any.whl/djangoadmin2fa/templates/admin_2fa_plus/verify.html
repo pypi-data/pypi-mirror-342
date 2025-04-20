@@ -1,0 +1,391 @@
+{% extends "admin/base_site.html" %}
+
+{% block extrahead %}
+<style>
+  :root {
+    --primary-color: #6366f1;
+    --primary-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
+    --primary-dark: #4f46e5;
+    --text-color: #1e293b;
+    --secondary-text: #64748b;
+    --background-color: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --accent-light: #eff6ff;
+    --error-color: #ef4444;
+    --link-color: #6366f1;
+    --input-focus: rgba(99, 102, 241, 0.25);
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+  }
+
+  .tfa-container {
+    max-width: 480px;
+    margin: 2.5rem auto;
+    padding: 0;
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 5px 10px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+  }
+
+  .tfa-header {
+    background: var(--primary-gradient);
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .tfa-header h1 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .tfa-header::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+  }
+
+  .tfa-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 2rem;
+  }
+
+  .tfa-instructions {
+    text-align: center;
+    line-height: 1.6;
+    color: var(--secondary-text);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .tfa-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .tfa-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .tfa-form-group label {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .tfa-form-group label svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary-color);
+  }
+
+  .tfa-form-group input[type="text"] {
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1.25rem;
+    letter-spacing: 4px;
+    text-align: center;
+    font-family: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    background-color: white;
+    color: var(--text-color);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  }
+
+  .tfa-form-group input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px var(--input-focus);
+    transform: translateY(-2px);
+  }
+
+  .tfa-recovery-link {
+    text-align: center;
+    font-size: 0.95rem;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+
+  .tfa-recovery-link a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    position: relative;
+    display: inline-block;
+  }
+
+  .tfa-recovery-link a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--link-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+
+  .tfa-recovery-link a:hover {
+    color: var(--primary-dark);
+  }
+
+  .tfa-recovery-link a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .tfa-checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    padding: 0.75rem;
+    background-color: var(--accent-light);
+    border-radius: 10px;
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    transition: all 0.2s ease;
+  }
+
+  .tfa-checkbox-group:hover {
+    background-color: rgba(99, 102, 241, 0.1);
+  }
+
+  .tfa-checkbox-group label {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .tfa-checkbox-group svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary-color);
+    flex-shrink: 0;
+  }
+
+  .tfa-checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+    border-radius: 4px;
+    border: 2px solid var(--primary-color);
+  }
+
+  .tfa-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    position: relative;
+    overflow: hidden;
+    margin-top: 0.5rem;
+  }
+
+  .tfa-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+  }
+
+  .tfa-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+  }
+
+  .tfa-button:hover::before {
+    left: 100%;
+  }
+
+  .tfa-button svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 0.5rem;
+  }
+
+  .tfa-messages {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tfa-message {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background-color: var(--error-color);
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .tfa-message svg {
+    width: 18px;
+    height: 18px;
+  }
+  .tfa-security-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 0.5rem;
+    color: var(--secondary-text);
+    font-size: 0.85rem;
+    text-align: center;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive styles */
+  @media (max-width: 520px) {
+    .tfa-container {
+      margin: 1.5rem 1rem;
+    }
+
+    .tfa-content {
+      padding: 1.5rem;
+    }
+
+    .tfa-header h1 {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="tfa-container">
+  <div class="tfa-header">
+    <h1>Two-Factor Authentication</h1>
+  </div>
+
+  <div class="tfa-content">
+    <div class="tfa-instructions">
+      <p>Please enter the verification code from your authenticator app to continue.</p>
+    </div>
+
+    <form method="post" class="tfa-form">
+      {% csrf_token %}
+
+      <div class="tfa-form-group">
+        <label for="id_token">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path>
+            <path d="M12 12v-4"></path>
+            <path d="M12 12h4"></path>
+          </svg>
+          Verification Code:
+        </label>
+        {{ form.token }}
+      </div>
+
+      {% if show_recovery %}
+        <p class="tfa-recovery-link">
+          Lost access to your authenticator app? <a href="{% url 'admin-2fa-recovery' %}">Use a recovery code</a>
+        </p>
+      {% endif %}
+
+      <div class="tfa-checkbox-group">
+        <input type="checkbox" id="id_trust_device" name="trust_device" {% if trust_form.trust_device.value %}checked{% endif %}>
+        <label for="id_trust_device">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12" y2="18"></line>
+          </svg>
+          Remember this device for 30 days
+        </label>
+      </div>
+
+      <button type="submit" class="tfa-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+          <polyline points="10 17 15 12 10 7"></polyline>
+          <line x1="15" y1="12" x2="3" y2="12"></line>
+        </svg>
+        Verify and Continue
+      </button>
+    </form>
+    <div class="tfa-security-badge" style="margin-top: 15px;">
+      <span>Created by <a style="color:#10b981;" target="_blank" href="https://himosoft.com.bd">HIMOSOFT</a></span>
+    </div>
+    {% if messages %}
+      <ul class="tfa-messages">
+        {% for message in messages %}
+          <li class="tfa-message">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            {{ message }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
