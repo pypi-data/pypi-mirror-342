@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+pytelefonipapi/__init__.py
+pytelefonipapi/api.py
+pytelefonipapi/decorators.py
+pytelefonipapi/exception.py
+pytelefonipapi/models.py
+pytelefonipapi.egg-info/PKG-INFO
+pytelefonipapi.egg-info/SOURCES.txt
+pytelefonipapi.egg-info/dependency_links.txt
+pytelefonipapi.egg-info/not-zip-safe
+pytelefonipapi.egg-info/requires.txt
+pytelefonipapi.egg-info/top_level.txt
