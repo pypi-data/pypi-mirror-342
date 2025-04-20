@@ -1,0 +1,3 @@
+class A:
+    class Nested:
+        def method_a(self): ...
