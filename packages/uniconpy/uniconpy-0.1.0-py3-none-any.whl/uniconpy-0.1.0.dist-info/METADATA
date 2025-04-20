@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: uniconpy
+Version: 0.1.0
+Summary: Descrição do pacote
+Project-URL: Homepage, https://github.com/seu-usuario/meu-pacote
+Author-email: MatComp <tutor@matcomp.com.br>
+License: MIT
+License-File: LICENCE.md
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# -*- coding: utf-8 -*-
+
+
