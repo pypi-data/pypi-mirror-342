@@ -1,0 +1,4 @@
+hvac>=2.3.0
+loguru>=0.7.3
+pydantic>=2.10.6
+pydantic-settings>=2.7.1
