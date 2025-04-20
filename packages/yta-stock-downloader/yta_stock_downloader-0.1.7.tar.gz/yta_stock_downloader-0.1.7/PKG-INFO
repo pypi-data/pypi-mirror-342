@@ -1,0 +1,24 @@
+Metadata-Version: 2.3
+Name: yta-stock-downloader
+Version: 0.1.7
+Summary: Youtube Autonomous stock utils are here.
+Author: danialcala94
+Author-email: danielalcalavalera@gmail.com
+Requires-Python: >=3.9
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: requests (>=2.32.3,<3.0.0)
+Requires-Dist: yta_general_utils (>=0.0.251,<0.1.0)
+Description-Content-Type: text/markdown
+
+# Youtube Autónomo Stock Utils
+
+The stock software we need to interact with the *Youtube Autónomo* project.
+
+This project needs:
+- Variable _PEXELS_API_KEY_ need to be set to be able to fetch and download Pexels videos and images.
+- Variable _PIXABAY_API_KEY_ need to be set to be able to fetch and download Pixabay videos and images.
