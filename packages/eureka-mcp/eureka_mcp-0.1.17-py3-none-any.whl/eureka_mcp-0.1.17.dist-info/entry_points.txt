@@ -1,0 +1,2 @@
+[console_scripts]
+eureka-mcp = mcpeureka.main:main
