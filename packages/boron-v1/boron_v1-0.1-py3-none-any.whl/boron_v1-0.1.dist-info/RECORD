@@ -1,0 +1,14 @@
+boron/__init__.py,sha256=ZWXYeKCAnzZpTNoaW_Z-A92i85-xnuxUQLBIkEe4_Uk,149
+boron/builder.py,sha256=NIQ4afcPGRjvt6LzlWXnFTkwKKL48YwMIn63Lq3H-d0,14724
+boron/c_lib.dll,sha256=0auAv6gspJP-IASqeTe5RuUAnKztnRPaoULWiYMC3lU,54687
+boron/cli.py,sha256=MRdTLKeAy2XG8peDMGSEudktQ2dTPOLsTVn44We0xko,80
+boron/lineage.py,sha256=d0jlMd-tSoVC4TZG8911MpIhA74KluPJ_Nz44kbhwhw,2492
+src/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/py/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/py/greet.py,sha256=W6HYvdO7ZEcnZ4yk_48HQ4F9Z9TNtWeIwoRXGz0FqrI,150
+boron_v1-0.1.dist-info/LICENSE,sha256=hSoWWVwwhs-FWVClN3gNa2yqB5XQXkYGjzOE3dnWmKw,1091
+boron_v1-0.1.dist-info/METADATA,sha256=IHb8Gy-Lw_xF6zB0y313_e-y5kuXuKIMmdvCsouHzrc,1249
+boron_v1-0.1.dist-info/WHEEL,sha256=PZUExdf71Ui_so67QXpySuHtCi3-J3wvF4ORK6k_S8U,91
+boron_v1-0.1.dist-info/entry_points.txt,sha256=xfPum8QsfekFUpvqIWgbsmjcZQI0EimvdH2DWjlMGg8,45
+boron_v1-0.1.dist-info/top_level.txt,sha256=JEsfQqb0_J2DdAafWbeQg8VHXYBmiOc3BnLNsRYq2AU,10
+boron_v1-0.1.dist-info/RECORD,,
