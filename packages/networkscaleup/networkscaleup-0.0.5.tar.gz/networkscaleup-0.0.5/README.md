@@ -1,0 +1,31 @@
+This package fits several different **Network Scale-Up Models (NSUM)** to **Aggregated Relational Data (ARD)**. ARD represents survey responses to questions of the form: *"How many X’s do you know?"*, where respondents report how many people they know in different subpopulations.
+
+Specifically, if Nᵢ respondents are asked about Nₖ subpopulations, then the ARD is an Nᵢ times Nₖ matrix, where the *(i, j)* element represents how many people respondent *i* reports knowing in subpopulation *j*.
+
+NSUM leverages these responses to estimate the unknown size of **hard-to-reach populations**.
+
+## PIMLE
+
+The plug-in MLE (PIMLE) estimator from Killworth, P. D., Johnsen, E. C., McCarty, C., Shelley, G. A., and Bernard, H. R. (1998) 
+is a two-stage estimator that first estimates the degrees for each respondent dᵢ by maximizing the following likelihood for each respondent:
+<div align="center">
+ <i><strong>L(dᵢ; y, {Nₖ}) = ∏ₖ₌₁ᴸ [ (⁽ᵈⁱ⁾⁄₍ʸⁱₖ₎) × (Nₖ / N)<sup>yᵢₖ</sup> × (1 − Nₖ / N)<sup>dᵢ − yᵢₖ</sup> ],</strong></i>
+</div>
+
+Where: *L* is the number of 
+subpopulations with known sizes *Nₖ*. *yᵢₖ* is the number of people respondent *i* reports knowing in subpopulation *k*. *(⁽ᵈⁱ⁾⁄₍ʸⁱₖ₎)* is the binomial coefficient. 
+In the second stage, the model plugs in the estimated *dᵢ* into the equation: 
+<div align="center">
+<i><strong>yᵢₖ / dᵢ = Nₖ / N </strong></i>
+</div>
+and solves for the unknown *Nₖ* for each respondent. 
+These estimates are then averaged to obtain a single estimate of *Nₖ*. Summary: Stage 1 estimates *dᵢ* using: 
+
+<div align="center"><i><strong>dᵢ = N × (∑ₖ₌₁ᴸ yᵢₖ) / (∑ₖ₌₁ᴸ Nₖ)</strong></i>
+</div>
+
+ Stage 2 estimates 
+the unknown subpopulation size *Nₖ* with:
+
+<div align="center"><i><strong> Nₖᴾᴵᴹᴸᴱ = (N / n) × ∑ᵢ₌₁ⁿ (yᵢₖ / dᵢ)</strong></i>
+</div>
