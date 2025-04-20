@@ -1,0 +1,16 @@
+# Environnement virtuel
+.venv/
+env/
+
+# Fichiers compilés
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Fichiers de logs ou temporaires
+*.log
+.DS_Store

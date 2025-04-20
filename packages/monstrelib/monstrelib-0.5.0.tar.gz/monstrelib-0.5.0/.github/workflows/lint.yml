@@ -1,0 +1,37 @@
+name: Lint monstrelib 🧼
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Checkout du code
+      uses: actions/checkout@v3
+
+    - name: 🐍 Installer Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.11"
+
+    - name: ⚙️ Installer uv + linters
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        uv pip install --system flake8 black isort
+
+    - name: 🔎 Lint avec flake8
+      run: |
+        flake8 monsterlib/
+
+    - name: 🧼 Vérifier format avec black
+      run: |
+        black --check monsterlib/
+
+    - name: 📦 Vérifier tri des imports avec isort
+      run: |
+        isort monsterlib/ --check-only

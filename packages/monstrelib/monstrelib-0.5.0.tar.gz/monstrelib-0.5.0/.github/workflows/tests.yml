@@ -1,0 +1,42 @@
+name: Tests monstrelib 🧪
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10"]
+
+    steps:
+    - name: 📥 Checkout le code
+      uses: actions/checkout@v3
+
+    - name: 📦 Installer Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: ⚙️ Installer uv et les dépendances
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        uv pip install --system ".[dev]"
+
+    - name: ✅ Lancer les tests*
+      working-directory: .
+      run: |
+        python -m pytest --cov=monsterlib --cov-report=term-missing --cov-report=xml
+
+    - name: 📤 Upload coverage to Codecov
+      uses: codecov/codecov-action@v4
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}  # facultatif pour les dépôts publics
+        files: coverage.xml
+        flags: unittests
+        name: codecov-monstrelib

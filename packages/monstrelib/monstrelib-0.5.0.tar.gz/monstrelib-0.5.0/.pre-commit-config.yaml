@@ -1,0 +1,20 @@
+repos:
+  - repo: local
+    hooks:
+      - id: black
+        name: Black (local)
+        entry: python -m black
+        language: system
+        types: [python]
+
+      - id: isort
+        name: isort (local)
+        entry: python -m isort
+        language: system
+        types: [python]
+
+      - id: flake8
+        name: flake8 (local)
+        entry: python -m flake8
+        language: system
+        types: [python]
