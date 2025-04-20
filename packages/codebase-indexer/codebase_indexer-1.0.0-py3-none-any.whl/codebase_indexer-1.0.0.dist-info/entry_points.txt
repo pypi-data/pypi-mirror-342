@@ -1,0 +1,3 @@
+[console_scripts]
+codebase-indexer = src.main:main
+indexer = src.main:main
