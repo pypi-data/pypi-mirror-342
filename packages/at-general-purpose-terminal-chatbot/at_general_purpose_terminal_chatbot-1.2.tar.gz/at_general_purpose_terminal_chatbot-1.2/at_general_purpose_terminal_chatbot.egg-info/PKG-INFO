@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: at-general_purpose_terminal_chatbot
+Version: 1.2
+Summary: Chatbot for general purpose tasks using LangChain and OpenAI API
+Home-page: https://github.com/arthur-timoteo/general_purpose_terminal_chatbot/tree/feature-python_31012-langchain_0214/python/3.10.12/langchain/0.2.14
+Author: Arthur Timoteo
+Author-email: arthur.timoteo@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-python
+Dynamic: summary

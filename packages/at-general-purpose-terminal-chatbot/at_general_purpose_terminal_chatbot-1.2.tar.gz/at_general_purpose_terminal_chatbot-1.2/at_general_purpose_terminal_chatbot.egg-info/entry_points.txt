@@ -1,0 +1,2 @@
+[console_scripts]
+opa = meuprojeto.__main__:main
