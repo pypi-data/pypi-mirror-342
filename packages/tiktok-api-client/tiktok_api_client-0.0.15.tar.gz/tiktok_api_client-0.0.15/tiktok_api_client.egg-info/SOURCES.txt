@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+tiktok_api_client/__init__.py
+tiktok_api_client/main.py
+tiktok_api_client/test_tiktok.py
+tiktok_api_client/utils.py
+tiktok_api_client.egg-info/PKG-INFO
+tiktok_api_client.egg-info/SOURCES.txt
+tiktok_api_client.egg-info/dependency_links.txt
+tiktok_api_client.egg-info/requires.txt
+tiktok_api_client.egg-info/top_level.txt

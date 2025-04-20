@@ -1,0 +1,35 @@
+[project]
+name = "tiktok_api_client"
+version = "0.0.15"
+description = "A Python project for TikTok content publishing"
+authors = [
+    { name = "Emmanuel Anthony", email = "mymi14s@hotmail.com" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+]
+requires-python = ">=3.8"
+dependencies = [
+    # "requests>=2.25",
+]
+keywords = ["tiktok", "api", "video"]
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/mymi14s/tiktok_api_client"
+
+
+[tool.setuptools]
+include-package-data = true
+packages = ["tiktok_api_client"]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
