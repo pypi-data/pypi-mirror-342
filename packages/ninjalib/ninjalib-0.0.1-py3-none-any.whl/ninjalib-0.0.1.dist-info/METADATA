@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: ninjalib
+Version: 0.0.1
+Summary: ninjalib is a data science library
+Author: Invizabel
+Project-URL: Homepage, https://github.com/Invizabel/ninjalib
+Project-URL: Bug Tracker, https://github.com/Invizabel/ninjalib/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+﻿# ninjalib is a data science library
+#
+# import ninjalib
+# new_data = ninjalib(data).flatten_list()
+# new_data = ninjalib(data).flatten_tuple()
+# new_data = ninjalib(data).mean()
+# new_data = ninjalib(data).varint()
