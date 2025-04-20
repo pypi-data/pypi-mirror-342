@@ -1,0 +1,17 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+version.txt
+src/deeprep.egg-info/PKG-INFO
+src/deeprep.egg-info/SOURCES.txt
+src/deeprep.egg-info/dependency_links.txt
+src/deeprep.egg-info/not-zip-safe
+src/deeprep.egg-info/requires.txt
+src/deeprep.egg-info/top_level.txt
+src/dprep/__init__.py
+src/dprep/dpdispatcher_tools.py
+src/dprep/dptb_dpdispatcher.py
+src/dprep/get_pp_orb_info.py
+src/dprep/post_analysis_tools.py

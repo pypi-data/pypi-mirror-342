@@ -1,0 +1,13 @@
+ase
+dpdispatcher
+pandas
+numpy
+matplotlib
+reportlab
+svglib
+scipy
+
+[dev]
+pytest
+black
+flake8
