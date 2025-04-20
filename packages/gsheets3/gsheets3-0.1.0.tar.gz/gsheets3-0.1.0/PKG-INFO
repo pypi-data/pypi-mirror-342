@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: gsheets3
+Version: 0.1.0
+Summary: 
+Author: leomoraesguitar
+Author-email: 123950901+leomoraesguitar@users.noreply.github.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: google-api-python-client (>=2.166.0,<3.0.0)
+Requires-Dist: gspread (>=6.2.0,<7.0.0)
+Description-Content-Type: text/markdown
+
+Este pacote foi criado a partir do django-sheets 
+https://pypi.org/project/django-gsheets/
