@@ -1,0 +1,3 @@
+[console_scripts]
+lunchbox=lunchbox.command:main
+
