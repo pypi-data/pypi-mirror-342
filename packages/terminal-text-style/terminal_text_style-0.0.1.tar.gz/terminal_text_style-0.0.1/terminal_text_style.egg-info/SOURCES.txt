@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+terminal_text_style/__init__.py
+terminal_text_style/style.py
+terminal_text_style/tempCodeRunnerFile.py
+terminal_text_style.egg-info/PKG-INFO
+terminal_text_style.egg-info/SOURCES.txt
+terminal_text_style.egg-info/dependency_links.txt
+terminal_text_style.egg-info/top_level.txt
+tests/test_style.py
