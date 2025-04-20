@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: content-alchemist
+Version: 0.0.2
+Summary: Add your description here
+Requires-Python: >=3.10.6
+Requires-Dist: content-core[docling]>=0.5.0
+Requires-Dist: pip>=25.0.1
+Requires-Dist: python-dotenv>=1.1.0
+Requires-Dist: streamlit>=1.44.1
+Requires-Dist: watchdog>=6.0.0
