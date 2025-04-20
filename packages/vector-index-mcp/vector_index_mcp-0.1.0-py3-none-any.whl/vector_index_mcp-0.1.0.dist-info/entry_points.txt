@@ -1,0 +1,2 @@
+[console_scripts]
+vector-index-mcp = vector_index_mcp.cli:main
