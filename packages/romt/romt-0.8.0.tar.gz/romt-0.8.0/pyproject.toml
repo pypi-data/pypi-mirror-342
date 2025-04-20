@@ -1,0 +1,142 @@
+[tool.poetry]
+name = "romt"
+version = "0.8.0"
+include = [
+  { path = "CHANGES.rst", format="sdist" },
+  { path = "LICENSE.rst", format="sdist" },
+  { path = "README.rst", format="sdist" },
+  { path = "maintainer.rst", format="sdist" },
+  { path = "noxfile.py", format="sdist" },
+  { path = "poetry.lock", format="sdist" },
+  { path = "requirements.txt", format="sdist" },
+  { path = "romt-wrapper.py", format="sdist" },
+]
+description = """\
+  Romt (Rust Offline Mirror Tool) enables mirroring of Rust \
+  programming language tools and crates for use in an offline context.\
+"""
+keywords = ["Rust", "mirror", "toolchain", "crates"]
+authors = ["Michael Henry <drmikehenry@drmikehenry.com>"]
+license = "MIT"
+readme = "README.rst"
+repository = "https://github.com/drmikehenry/romt"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Topic :: Utilities",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    # Include this classifier to prevent accidently publishing private code to PyPI.
+    #   https://pypi.org/classifiers/
+    # "Private :: Do Not Upload",
+]
+
+[tool.poetry.dependencies]
+# Some packages (including `pyinstaller`), constrain their upper bound of Python
+# versions they support.  Without also constraining the upper bound here, Poetry
+# will not allow use of such packages.
+# This unfortuantely conflicts with the good advice given here:
+# - https://iscinumpy.dev/post/bound-version-constraints/
+# But the only alternative would be to drop use of `pyinstaller`.
+python = "^3.9, <3.14"
+
+# GitPython >= 3.0.5 is required to avoid this traceback on Windows:
+#   Exception ignored in: <function Git.AutoInterrupt.__del__ at 0x...>
+# See https://github.com/gitpython-developers/GitPython/issues/935.
+gitpython = "^3.1"
+python-gnupg = "^0.5"
+httpx = "^0.28"
+toml = "^0.10"
+trio = "^0.29"
+
+[tool.poetry.group.nox.dependencies]
+nox-poetry = "*"
+
+[tool.poetry.group.install.dependencies]
+pyinstaller = "^6.13"
+pypiwin32 = {version = "^223", platform = "win32"}
+twine = "*"
+
+[tool.poetry.group.test.dependencies]
+pytest = "*"
+pytest-cov = "*"
+pytest-gitignore = "*"
+
+[tool.poetry.group.type_check.dependencies]
+mypy = "*"
+# As of mypy 0.900, mypy no longer bundles the stubs for third-party libraries
+# that reside in the typeshed project. Add these "types-" packages here if you
+# depend on them (e.g. `types-requests`).
+# See: http://mypy-lang.blogspot.com/2021/06/mypy-0900-released.html
+#      https://github.com/python/typeshed/tree/main/stubs
+types-toml = "*"
+types-setuptools = "*"
+
+[tool.poetry.group.lint.dependencies]
+ruff = "*"
+
+[tool.poetry.scripts]
+romt = "romt.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+##############################################################################
+# Source formatting
+
+[tool.black]
+line-length = 79
+target-version = ["py38"]
+
+##############################################################################
+# Style checking
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+ignore = [
+    "N811",
+    "N812",
+    "N813",
+    "N814",
+]
+select = [
+    "C9",
+    "E",
+    "F",
+    "N",
+    "Q",
+    "W",
+]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+##############################################################################
+# Type checking
+
+[tool.mypy]
+strict = true
+
+[[tool.mypy.overrides]]
+module = [
+    "gnupg"
+]
+ignore_missing_imports = true
+
+##############################################################################
+# Coverage support
+
+[tool.coverage.run]
+branch = true
