@@ -1,0 +1,5 @@
+[console_scripts]
+zcurve-encoder = ZCurvePy.RunZCurveEncoder:main
+zcurve-plotter = ZCurvePy.RunZCurvePlotter:main
+zcurve-plotter-3d = ZCurvePy.RunZCurvePlotter3D:main
+zcurve-segmenter = ZCurvePy.RunZCurveSegmenter:main
