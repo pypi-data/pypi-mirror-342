@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "moni"
+version = "0.1.1"
+description = "check system info"
+authors = ["luzhixing12345 <luzhixing12345@163.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+moni = 'moni.main:main'
