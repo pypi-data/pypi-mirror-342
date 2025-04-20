@@ -1,0 +1,768 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sysame.matrix.mx &mdash; sysame 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=c0b50fd5"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            sysame
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API Reference Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/cube.html">Cube Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/matrix.html">Matrix Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/matsim.html">MATSim Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/plotting.html">Plotting Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/saturn.html">SATURN Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">sysame</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">sysame.matrix.mx</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sysame.matrix.mx</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Module for matrix operations.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">##### IMPORTS #####</span>
+<span class="c1"># Standard imports</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="c1"># Third party imports</span>
+<span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>  <span class="c1"># type: ignore</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">openmatrix</span> <span class="k">as</span> <span class="nn">omx</span>  <span class="c1"># type: ignore</span>
+
+<span class="c1"># Local imports</span>
+<span class="kn">from</span> <span class="nn">sysame.cube</span> <span class="kn">import</span> <span class="n">cube</span>
+
+<span class="c1">##### CONSTANTS #####</span>
+
+<span class="c1">##### CLASSES #####</span>
+
+
+<span class="c1">##### FUNCTIONS #####</span>
+<div class="viewcode-block" id="get_mat_stats">
+<a class="viewcode-back" href="../../../api/matrix.html#sysame.matrix.mx.get_mat_stats">[docs]</a>
+<span class="k">def</span> <span class="nf">get_mat_stats</span><span class="p">(</span>
+    <span class="n">mat_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">voyager_exe</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get stats from Cube .MAT or .OMX file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mat_file : Path</span>
+<span class="sd">        Path to Cube .MAT file or .OMX file</span>
+<span class="sd">    voyager_exe : Optional[Path], optional</span>
+<span class="sd">        Path to Cube Voyager executable, by default None</span>
+<span class="sd">        Needed only if the file is .MAT</span>
+<span class="sd">        and needs to be converted to .OMX</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    stats_df: pl.DataFrame</span>
+<span class="sd">        Stats from Cube .MAT file</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; voyager_exe = Path(&quot;path/to/voyager.exe&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; mat_file = Path(&quot;path/to/matrix.MAT&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; stats_df = get_mat_stats(mat_file, voyager_exe)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check if the file might be a .MAT file and ensure voyager_exe is provided</span>
+    <span class="k">if</span> <span class="n">mat_file</span><span class="o">.</span><span class="n">suffix</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;.MAT&quot;</span> <span class="ow">or</span> <span class="p">(</span>
+        <span class="n">mat_file</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">and</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mat_file</span><span class="si">}</span><span class="s2">.MAT&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">voyager_exe</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;voyager_exe must be provided for .MAT files&quot;</span><span class="p">)</span>
+    <span class="c1"># If file has no extension, check for both .MAT and .OMX extensions</span>
+    <span class="k">if</span> <span class="n">mat_file</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="n">mat_file_with_mat</span> <span class="o">=</span> <span class="n">mat_file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.MAT&quot;</span><span class="p">)</span>
+        <span class="n">mat_file_with_omx</span> <span class="o">=</span> <span class="n">mat_file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.OMX&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">mat_file_with_mat</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">mat_file</span> <span class="o">=</span> <span class="n">mat_file_with_mat</span>
+            <span class="n">cube</span><span class="o">.</span><span class="n">mat_to_omx</span><span class="p">(</span>
+                <span class="n">voyager_exe</span><span class="o">=</span><span class="n">voyager_exe</span> <span class="k">if</span> <span class="n">voyager_exe</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">Path</span><span class="p">(),</span>
+                <span class="n">mat_path</span><span class="o">=</span><span class="n">mat_file</span><span class="p">,</span>
+                <span class="n">omx_path</span><span class="o">=</span><span class="n">mat_file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.OMX&quot;</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">mat_file_with_omx</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="n">mat_file</span> <span class="o">=</span> <span class="n">mat_file_with_omx</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Neither .MAT nor .OMX file for </span><span class="si">{</span><span class="n">mat_file</span><span class="si">}</span><span class="s2"> exists. Please check the file path.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Handle .MAT file</span>
+    <span class="k">elif</span> <span class="n">mat_file</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">&quot;.MAT&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">mat_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;MAT file </span><span class="si">{</span><span class="n">mat_file</span><span class="si">}</span><span class="s2"> does not exist. Please check the file path.&quot;</span>
+            <span class="p">)</span>
+        <span class="n">cube</span><span class="o">.</span><span class="n">mat_to_omx</span><span class="p">(</span>
+            <span class="n">voyager_exe</span><span class="o">=</span><span class="n">voyager_exe</span> <span class="k">if</span> <span class="n">voyager_exe</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">Path</span><span class="p">(),</span>
+            <span class="n">mat_path</span><span class="o">=</span><span class="n">mat_file</span><span class="p">,</span>
+            <span class="n">omx_path</span><span class="o">=</span><span class="n">mat_file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.OMX&quot;</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Handle .OMX file</span>
+    <span class="k">elif</span> <span class="n">mat_file</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">&quot;.OMX&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">mat_file</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;OMX file </span><span class="si">{</span><span class="n">mat_file</span><span class="si">}</span><span class="s2"> does not exist. Please check the file path.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Handle case where the file extension is not .MAT or .OMX</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">mat_file</span><span class="si">}</span><span class="s2"> is not a .MAT or .OMX file. Please check the file path.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Read omx</span>
+    <span class="k">with</span> <span class="n">omx</span><span class="o">.</span><span class="n">open_file</span><span class="p">(</span><span class="n">mat_file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.OMX&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">tabs</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">list_matrices</span><span class="p">()</span>
+        <span class="n">stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">tab</span> <span class="ow">in</span> <span class="n">tabs</span><span class="p">:</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">file</span><span class="p">[</span><span class="n">tab</span><span class="p">][:])</span>
+            <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Shape&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">shape</span>
+            <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Total&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Intras.&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">matrix</span><span class="p">))</span>
+            <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Min.&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+            <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Mean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Max.&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Std.&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+            <span class="c1"># Handle Min &gt; 0, Max &gt; 0, and Std. when there are no positive values</span>
+            <span class="n">positive_values</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="n">matrix</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">positive_values</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Min &gt; 0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">positive_values</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Mean &gt; 0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">positive_values</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Max &gt; 0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">positive_values</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Std. &gt; 0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">positive_values</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Min &gt; 0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Mean &gt; 0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Max &gt; 0&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">stats</span><span class="p">[</span><span class="n">tab</span><span class="p">][</span><span class="s2">&quot;Std. &gt;&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># Close omx</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="c1"># Create df</span>
+    <span class="n">stats_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+    <span class="c1"># Cleanup</span>
+    <span class="n">mat_file</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">&quot;.OMX&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">stats_df</span></div>
+
+
+
+<div class="viewcode-block" id="furness">
+<a class="viewcode-back" href="../../../api/matrix.html#sysame.matrix.mx.furness">[docs]</a>
+<span class="k">def</span> <span class="nf">furness</span><span class="p">(</span>
+    <span class="n">matrix</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">productions</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">attractions</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">max_iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1_000</span><span class="p">,</span>
+    <span class="n">tolerance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-15</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the Furness matrix using an iterative method.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    matrix : np.ndarray</span>
+<span class="sd">        The input matrix to be adjusted.</span>
+<span class="sd">    productions : np.ndarray</span>
+<span class="sd">        The production values for each row.</span>
+<span class="sd">    attractions : np.ndarray</span>
+<span class="sd">        The attraction values for each column.</span>
+<span class="sd">    max_iterations : int, optional</span>
+<span class="sd">        The maximum number of iterations to perform (default is 1,000).</span>
+<span class="sd">    tolerance : float, optional</span>
+<span class="sd">        The convergence tolerance (default is 1e-6).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    matrix: np.ndarray</span>
+<span class="sd">        The adjusted matrix.</span>
+<span class="sd">    convergence_track: list[str]</span>
+<span class="sd">        Track ov convergence stats per iteration</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The Furness method is an iterative technique for adjusting a matrix to match</span>
+<span class="sd">    given row and column totals.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; matrix = np.array([[1, 2], [3, 4]])</span>
+<span class="sd">    &gt;&gt;&gt; productions = np.array([5, 7])</span>
+<span class="sd">    &gt;&gt;&gt; attractions = np.array([3, 9])</span>
+<span class="sd">    &gt;&gt;&gt; result = furness(matrix, productions, attractions)</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(result.sum(axis=0), attractions)</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; np.allclose(result.sum(axis=1), productions)</span>
+<span class="sd">    True</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Convergence track</span>
+    <span class="n">convergence_track</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="c1"># Ensure matrices are floats</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">productions</span> <span class="o">=</span> <span class="n">productions</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">attractions</span> <span class="o">=</span> <span class="n">attractions</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iterations</span><span class="p">):</span>
+        <span class="c1"># Row adjustment</span>
+        <span class="n">row_sums</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Shape (n, 1)</span>
+        <span class="n">row_factors</span> <span class="o">=</span> <span class="n">productions</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">/</span> <span class="n">row_sums</span>  <span class="c1"># Broadcasting (n, 1)</span>
+        <span class="n">matrix</span> <span class="o">*=</span> <span class="n">row_factors</span>
+
+        <span class="c1"># Column adjustment</span>
+        <span class="n">col_sums</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Shape (1, m)</span>
+        <span class="n">col_factors</span> <span class="o">=</span> <span class="n">attractions</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">/</span> <span class="n">col_sums</span>  <span class="c1"># Broadcasting (1, m)</span>
+        <span class="n">matrix</span> <span class="o">*=</span> <span class="n">col_factors</span>
+
+        <span class="c1"># Check convergence</span>
+        <span class="n">row_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">productions</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">col_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">attractions</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="c1"># Convergence track</span>
+        <span class="n">convergence_track</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Its: </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, Row error: </span><span class="si">{</span><span class="n">row_error</span><span class="si">}</span><span class="s2">, Col error: </span><span class="si">{</span><span class="n">col_error</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">row_error</span> <span class="o">&lt;</span> <span class="n">tolerance</span> <span class="ow">and</span> <span class="n">col_error</span> <span class="o">&lt;</span> <span class="n">tolerance</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Furness method did not converge within the maximum iterations.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">convergence_track</span></div>
+
+
+
+<div class="viewcode-block" id="expand_matrix">
+<a class="viewcode-back" href="../../../api/matrix.html#sysame.matrix.mx.expand_matrix">[docs]</a>
+<span class="k">def</span> <span class="nf">expand_matrix</span><span class="p">(</span>
+    <span class="n">mx_df</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">zones_no</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Expand matrix to all possible movements (zones x zones).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mx_df : pl.DataFrame</span>
+<span class="sd">        matrix</span>
+<span class="sd">    zones_no: int</span>
+<span class="sd">        number of model zones</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    expanded_mx : pl.DataFrame</span>
+<span class="sd">        expanded matrix</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import polars as pl</span>
+<span class="sd">    &gt;&gt;&gt; import itertools</span>
+<span class="sd">    &gt;&gt;&gt; mx_df = pl.DataFrame({&quot;origin&quot;: [1, 2], &quot;destination&quot;: [3, 4], &quot;value&quot;: [5, 6]})</span>
+<span class="sd">    &gt;&gt;&gt; expanded_mx.shape</span>
+<span class="sd">    shape: (2, 3)</span>
+<span class="sd">    &gt;&gt;&gt; zones_no = 5</span>
+<span class="sd">    &gt;&gt;&gt; expanded_mx = expand_matrix(mx_df, zones_no)</span>
+<span class="sd">    &gt;&gt;&gt; expanded_mx.shape</span>
+<span class="sd">    shape: (25, 3)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># generate all combination</span>
+    <span class="n">zone_combination</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">zones_no</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">repeat</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+    <span class="c1"># create expanded dataframe</span>
+    <span class="n">expanded_mx</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">zone_combination</span><span class="p">],</span>
+            <span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">zone_combination</span><span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">)</span>
+    <span class="c1"># normalize datatypes</span>
+    <span class="n">d_type_mapping</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">pl</span><span class="o">.</span><span class="n">Int32</span><span class="p">,</span>
+        <span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">pl</span><span class="o">.</span><span class="n">Int32</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Convert columns to the specified data types</span>
+    <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">d_type</span> <span class="ow">in</span> <span class="n">d_type_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">expanded_mx</span> <span class="o">=</span> <span class="n">expanded_mx</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">expanded_mx</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">d_type</span><span class="p">))</span>
+        <span class="n">mx_df</span> <span class="o">=</span> <span class="n">mx_df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">mx_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">d_type</span><span class="p">))</span>
+    <span class="c1"># remove nans</span>
+    <span class="n">mx_df</span> <span class="o">=</span> <span class="n">mx_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">mx_df</span><span class="p">[</span><span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">is_not_null</span><span class="p">())</span>
+    <span class="n">mx_df</span> <span class="o">=</span> <span class="n">mx_df</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">mx_df</span><span class="p">[</span><span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">is_not_null</span><span class="p">())</span>
+    <span class="c1"># merge with the original matrix and fillna with 0</span>
+    <span class="n">expanded_mx</span> <span class="o">=</span> <span class="n">expanded_mx</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">mx_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">fill_null</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;zero&quot;</span><span class="p">)</span>
+    <span class="c1"># remove columns containing &quot;_right&quot;</span>
+    <span class="n">expanded_mx</span> <span class="o">=</span> <span class="n">expanded_mx</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">expanded_mx</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s2">&quot;_right&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">col</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">expanded_mx</span></div>
+
+
+
+<div class="viewcode-block" id="long_mx_2_wide_mx">
+<a class="viewcode-back" href="../../../api/matrix.html#sysame.matrix.mx.long_mx_2_wide_mx">[docs]</a>
+<span class="k">def</span> <span class="nf">long_mx_2_wide_mx</span><span class="p">(</span>
+    <span class="n">mx_df</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">zones_no</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert polars long matrix to numpy wide matrix.</span>
+
+<span class="sd">    Assumes that the long matrix is in the format of [origin, destination, value].</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mx_df : pl.DataFrame</span>
+<span class="sd">        polars long matrix dataframe to convert</span>
+<span class="sd">    zones_no: int</span>
+<span class="sd">        number of model zones</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np_mx : np.ndarray</span>
+<span class="sd">        numpy wide matrix</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import polars as pl</span>
+<span class="sd">    &gt;&gt;&gt; import itertools</span>
+<span class="sd">    &gt;&gt;&gt; mx_df = pl.DataFrame({&quot;origin&quot;: [1, 2], &quot;destination&quot;: [3, 4], &quot;value&quot;: [5, 6]})</span>
+<span class="sd">    &gt;&gt;&gt; zones_no = 5</span>
+<span class="sd">    &gt;&gt;&gt; np_mx = long_mx_2_wide_mx(mx_df, zones_no)</span>
+<span class="sd">    &gt;&gt;&gt; np_mx.shape</span>
+<span class="sd">    (5, 5)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># expand matrix</span>
+    <span class="n">mx_df</span> <span class="o">=</span> <span class="n">expand_matrix</span><span class="p">(</span><span class="n">mx_df</span><span class="p">,</span> <span class="n">zones_no</span><span class="p">)</span>
+    <span class="c1"># reshape to wide polars matrix</span>
+    <span class="n">wide_mx</span> <span class="o">=</span> <span class="n">mx_df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">columns</span><span class="o">=</span><span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">values</span><span class="o">=</span><span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+        <span class="n">aggregate_function</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span>
+    <span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="n">np_mx</span> <span class="o">=</span> <span class="n">wide_mx</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">mx_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">np_mx</span></div>
+
+
+
+<div class="viewcode-block" id="wide_mx_2_long_mx">
+<a class="viewcode-back" href="../../../api/matrix.html#sysame.matrix.mx.wide_mx_2_long_mx">[docs]</a>
+<span class="k">def</span> <span class="nf">wide_mx_2_long_mx</span><span class="p">(</span>
+    <span class="n">mx_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">o_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span>
+    <span class="n">d_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;destination&quot;</span><span class="p">,</span>
+    <span class="n">v_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert numpy wide matrix to polars long matrix.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mx_array : np.array</span>
+<span class="sd">        wide numpy matrix array</span>
+<span class="sd">    o_col : str, optional</span>
+<span class="sd">        name of origin/production column, by default &quot;origin&quot;</span>
+<span class="sd">    d_col : str, optional</span>
+<span class="sd">        name of destination/attraction column, by default &quot;destination&quot;</span>
+<span class="sd">    v_col : str, optional</span>
+<span class="sd">        name of values column, by default &quot;value&quot;</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    mx_df : pl.DataFrame</span>
+<span class="sd">        polars long matrix</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; mx_array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])</span>
+<span class="sd">    &gt;&gt;&gt; mx_df = wide_mx_2_long_mx(mx_array)</span>
+<span class="sd">    &gt;&gt;&gt; mx_df.shape</span>
+<span class="sd">    shape: (3, 3)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get the shape of the matrix</span>
+    <span class="n">num_rows</span><span class="p">,</span> <span class="n">num_cols</span> <span class="o">=</span> <span class="n">mx_array</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="c1"># Reshape the matrix into a 1D array</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">mx_array</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+    <span class="c1"># Create row and column indices for the long DataFrame</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_rows</span><span class="p">),</span> <span class="n">num_cols</span><span class="p">)</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_cols</span><span class="p">),</span> <span class="n">num_rows</span><span class="p">)</span>
+
+    <span class="c1"># Create a polars DataFrame</span>
+    <span class="n">mx_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">o_col</span><span class="p">:</span> <span class="n">rows</span><span class="p">,</span> <span class="n">d_col</span><span class="p">:</span> <span class="n">cols</span><span class="p">,</span> <span class="n">v_col</span><span class="p">:</span> <span class="n">values</span><span class="p">})</span>
+
+    <span class="c1"># adjust zone numbers</span>
+    <span class="n">mx_df</span> <span class="o">=</span> <span class="n">mx_df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">mx_df</span><span class="p">[</span><span class="n">o_col</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">mx_df</span> <span class="o">=</span> <span class="n">mx_df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">mx_df</span><span class="p">[</span><span class="n">d_col</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># cast IDs to int32</span>
+    <span class="n">mx_df</span> <span class="o">=</span> <span class="n">mx_df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">mx_df</span><span class="p">[</span><span class="n">o_col</span><span class="p">]</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Int32</span><span class="p">))</span>
+    <span class="n">mx_df</span> <span class="o">=</span> <span class="n">mx_df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">mx_df</span><span class="p">[</span><span class="n">d_col</span><span class="p">]</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Int32</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">mx_df</span></div>
+
+
+
+<div class="viewcode-block" id="read_omx_to_polars">
+<a class="viewcode-back" href="../../../api/matrix.html#sysame.matrix.mx.read_omx_to_polars">[docs]</a>
+<span class="k">def</span> <span class="nf">read_omx_to_polars</span><span class="p">(</span>
+    <span class="n">omx_file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">o_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span>
+    <span class="n">d_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;destination&quot;</span><span class="p">,</span>
+    <span class="n">limited_tabs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">stack</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">clean_omx</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read OMX file to polars dataframe.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    omx_file_path : Path</span>
+<span class="sd">        full path to the .OMX file</span>
+<span class="sd">    o_col : str, optional</span>
+<span class="sd">        name of origin/production vector header, by default &quot;origin&quot;</span>
+<span class="sd">    d_col : str, optional</span>
+<span class="sd">        name of destination/attraction vector header, by default &quot;destination&quot;</span>
+<span class="sd">    limited_tabs : list[str], optional</span>
+<span class="sd">        if only specific tabs are needed from the omx</span>
+<span class="sd">    stack : bool, optional</span>
+<span class="sd">        if stack then the matrices will be stacked in one vector with</span>
+<span class="sd">        an additional vector referring to each mx tab</span>
+<span class="sd">    clean_omx : bool, optional</span>
+<span class="sd">        whether or not to remove the omx after being read</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    matrix_df : pl.DataFrame</span>
+<span class="sd">        matrix as polars dataframe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create an empty list if limited_tabs is None</span>
+    <span class="n">tab_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">limited_tabs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">limited_tabs</span>
+
+    <span class="n">matrix_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="c1"># open omx</span>
+    <span class="n">omx_mat</span> <span class="o">=</span> <span class="n">omx</span><span class="o">.</span><span class="n">open_file</span><span class="p">(</span><span class="n">omx_file_path</span><span class="p">)</span>
+    <span class="c1"># get matrices</span>
+    <span class="n">omx_tabs</span> <span class="o">=</span> <span class="n">omx_mat</span><span class="o">.</span><span class="n">list_matrices</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tab_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mat_lvl</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">omx_tabs</span><span class="p">):</span>
+            <span class="c1"># get matrix level into a polars df</span>
+            <span class="n">mx_lvl_df</span> <span class="o">=</span> <span class="n">wide_mx_2_long_mx</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">omx_mat</span><span class="p">[</span><span class="n">mat_lvl</span><span class="p">]),</span>
+                <span class="n">o_col</span><span class="p">,</span>
+                <span class="n">d_col</span><span class="p">,</span>
+                <span class="n">mat_lvl</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">stack</span><span class="p">:</span>
+                <span class="n">mx_lvl_df</span> <span class="o">=</span> <span class="n">mx_lvl_df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">lit</span><span class="p">(</span><span class="n">mat_lvl</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;mx&quot;</span><span class="p">))</span>
+                <span class="n">mx_lvl_df</span> <span class="o">=</span> <span class="n">mx_lvl_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="n">mat_lvl</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">})</span>
+                <span class="n">mx_lvl_df</span> <span class="o">=</span> <span class="n">mx_lvl_df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">o_col</span><span class="p">,</span> <span class="n">d_col</span><span class="p">,</span> <span class="s2">&quot;mx&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">])</span>
+                <span class="n">matrix_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">matrix_df</span><span class="p">,</span> <span class="n">mx_lvl_df</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">matrix_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">matrix_df</span><span class="p">,</span> <span class="n">mx_lvl_df</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">matrix_df</span> <span class="o">=</span> <span class="n">matrix_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                        <span class="n">mx_lvl_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="n">o_col</span><span class="p">,</span> <span class="n">d_col</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span>
+                    <span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mat_lvl</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">omx_mat</span><span class="o">.</span><span class="n">list_matrices</span><span class="p">()):</span>
+            <span class="k">if</span> <span class="n">mat_lvl</span> <span class="ow">in</span> <span class="n">tab_list</span><span class="p">:</span>
+                <span class="c1"># get matrix level into a polars df</span>
+                <span class="n">mx_lvl_df</span> <span class="o">=</span> <span class="n">wide_mx_2_long_mx</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">omx_mat</span><span class="p">[</span><span class="n">mat_lvl</span><span class="p">]),</span>
+                    <span class="n">o_col</span><span class="p">,</span>
+                    <span class="n">d_col</span><span class="p">,</span>
+                    <span class="n">mat_lvl</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="k">if</span> <span class="n">stack</span><span class="p">:</span>
+                    <span class="n">mx_lvl_df</span> <span class="o">=</span> <span class="n">mx_lvl_df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">lit</span><span class="p">(</span><span class="n">mat_lvl</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">&quot;mx&quot;</span><span class="p">))</span>
+                    <span class="n">mx_lvl_df</span> <span class="o">=</span> <span class="n">mx_lvl_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="n">mat_lvl</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">})</span>
+                    <span class="n">mx_lvl_df</span> <span class="o">=</span> <span class="n">mx_lvl_df</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="n">o_col</span><span class="p">,</span> <span class="n">d_col</span><span class="p">,</span> <span class="s2">&quot;mx&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">])</span>
+                    <span class="n">matrix_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">matrix_df</span><span class="p">,</span> <span class="n">mx_lvl_df</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">matrix_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">matrix_df</span><span class="p">,</span> <span class="n">mx_lvl_df</span><span class="p">])</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">matrix_df</span> <span class="o">=</span> <span class="n">matrix_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+                            <span class="n">mx_lvl_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="n">o_col</span><span class="p">,</span> <span class="n">d_col</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span>
+                        <span class="p">)</span>
+                <span class="n">counter</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">omx_mat</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="c1"># if removing the omx is needed</span>
+    <span class="k">if</span> <span class="n">clean_omx</span><span class="p">:</span>
+        <span class="n">omx_file_path</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">matrix_df</span></div>
+
+
+
+<div class="viewcode-block" id="read_cube_mat_to_polars">
+<a class="viewcode-back" href="../../../api/matrix.html#sysame.matrix.mx.read_cube_mat_to_polars">[docs]</a>
+<span class="k">def</span> <span class="nf">read_cube_mat_to_polars</span><span class="p">(</span>
+    <span class="n">voyager_exe</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">mat_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">o_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span>
+    <span class="n">d_col</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;destination&quot;</span><span class="p">,</span>
+    <span class="n">limited_tabs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">stack</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">clean_omx</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read Cube .MAT file into polars dataframe.</span>
+
+<span class="sd">    Conversion is done through OMX</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    voyager_exe : Path</span>
+<span class="sd">        path to voyager executable</span>
+<span class="sd">    mat_file : Path</span>
+<span class="sd">        path to Cube matrix file</span>
+<span class="sd">    o_col : str, optional</span>
+<span class="sd">        name of origin/production vector header, by default &quot;origin&quot;</span>
+<span class="sd">    d_col : str, optional</span>
+<span class="sd">        name of destination/attraction vector header, by default &quot;destination&quot;</span>
+<span class="sd">    limited_tabs : list, optional</span>
+<span class="sd">        if only specific tabs are needed from the omx</span>
+<span class="sd">    stack : bool, optional</span>
+<span class="sd">        if stack then the matrices will be stacked in one vector with</span>
+<span class="sd">        an additional vector referring to each mx tab</span>
+<span class="sd">    clean_omx : bool, optional</span>
+<span class="sd">        whether or not to remove the omx after being read, by default True</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    matrix_df : pl.DataFrame</span>
+<span class="sd">        matrix polars dataframe</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create an empty list if limited_tabs is None</span>
+    <span class="n">tab_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">limited_tabs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">limited_tabs</span>
+
+    <span class="c1"># convert mat to omx</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">mat_to_omx</span><span class="p">(</span>
+        <span class="n">voyager_exe</span><span class="p">,</span>
+        <span class="n">mat_file</span><span class="p">,</span>
+        <span class="n">mat_file</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mat_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">.omx&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">matrix_df</span> <span class="o">=</span> <span class="n">read_omx_to_polars</span><span class="p">(</span>
+        <span class="n">omx_file_path</span><span class="o">=</span><span class="n">mat_file</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mat_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">.omx&quot;</span><span class="p">,</span>
+        <span class="n">o_col</span><span class="o">=</span><span class="n">o_col</span><span class="p">,</span>
+        <span class="n">d_col</span><span class="o">=</span><span class="n">d_col</span><span class="p">,</span>
+        <span class="n">limited_tabs</span><span class="o">=</span><span class="n">tab_list</span><span class="p">,</span>
+        <span class="n">stack</span><span class="o">=</span><span class="n">stack</span><span class="p">,</span>
+        <span class="n">clean_omx</span><span class="o">=</span><span class="n">clean_omx</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">d_type_mapping</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">o_col</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">Int32</span><span class="p">,</span>
+        <span class="n">d_col</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">Int32</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Convert columns to the specified data types using the apply function</span>
+    <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">d_type</span> <span class="ow">in</span> <span class="n">d_type_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">matrix_df</span> <span class="o">=</span> <span class="n">matrix_df</span><span class="o">.</span><span class="n">with_columns</span><span class="p">(</span><span class="n">matrix_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">d_type</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">matrix_df</span></div>
+
+
+
+<div class="viewcode-block" id="read_mat_to_array">
+<a class="viewcode-back" href="../../../api/matrix.html#sysame.matrix.mx.read_mat_to_array">[docs]</a>
+<span class="k">def</span> <span class="nf">read_mat_to_array</span><span class="p">(</span>
+    <span class="n">voyager_exe</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">mat_file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
+    <span class="n">limited_tabs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">clean_omx</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read .MAT into a dictionary of arrays</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mat_file : Path</span>
+<span class="sd">        matrix path</span>
+<span class="sd">    cube_path : Path</span>
+<span class="sd">        path to cube voyager executable</span>
+<span class="sd">    limited_tabs : list[str], optional</span>
+<span class="sd">        if only specific tabs are needed from the omx, by default None</span>
+<span class="sd">        matrix tabs to read in</span>
+<span class="sd">    clean_omx : bool, optional</span>
+<span class="sd">       whether or not to remove the omx after being read, by default True</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    array_dict: dict[Any : np.ndarray]</span>
+<span class="sd">        dictionary of matrices in array format</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">limited_tabs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">limited_tabs</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Create a new list if it&#39;s None</span>
+    <span class="c1"># convert mat to omx</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">mat_to_omx</span><span class="p">(</span>
+        <span class="n">voyager_exe</span><span class="p">,</span>
+        <span class="n">mat_file</span><span class="p">,</span>
+        <span class="n">mat_file</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mat_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">.omx&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># create an empty dictionary</span>
+    <span class="n">array_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1"># open omx</span>
+    <span class="n">omx_path</span> <span class="o">=</span> <span class="n">mat_file</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">mat_file</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">.omx&quot;</span>
+    <span class="n">omx_mat</span> <span class="o">=</span> <span class="n">omx</span><span class="o">.</span><span class="n">open_file</span><span class="p">(</span><span class="n">omx_path</span><span class="p">)</span>
+    <span class="c1"># get matrices</span>
+    <span class="k">if</span> <span class="n">limited_tabs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">limited_tabs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">tab_list</span> <span class="o">=</span> <span class="n">omx_mat</span><span class="o">.</span><span class="n">list_matrices</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tab_list</span> <span class="o">=</span> <span class="n">limited_tabs</span>
+
+    <span class="k">for</span> <span class="n">tab</span> <span class="ow">in</span> <span class="n">tab_list</span><span class="p">:</span>
+        <span class="c1"># get matrix level into a polars df</span>
+        <span class="n">array_dict</span><span class="p">[</span><span class="n">tab</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">omx_mat</span><span class="p">[</span><span class="n">tab</span><span class="p">])</span>
+
+    <span class="n">omx_mat</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="c1"># if removing the omx is needed</span>
+    <span class="k">if</span> <span class="n">clean_omx</span><span class="p">:</span>
+        <span class="n">omx_path</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">array_dict</span></div>
+
+
+
+<div class="viewcode-block" id="split_dataframe_into_chunks">
+<a class="viewcode-back" href="../../../api/matrix.html#sysame.matrix.mx.split_dataframe_into_chunks">[docs]</a>
+<span class="k">def</span> <span class="nf">split_dataframe_into_chunks</span><span class="p">(</span>
+    <span class="n">pl_df</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">chunk_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function splits a dataframe to equal size dataframes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pl.DataFrame</span>
+<span class="sd">        given dataframe to split</span>
+<span class="sd">    chunk_size : int</span>
+<span class="sd">        size of each chunk</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    chunks : list[pl.DataFrame]</span>
+<span class="sd">        list of chunk dataframes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># round up to avoid floats</span>
+    <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">)</span>
+    <span class="c1"># split dataframe to equal sizes (= chunk_size)</span>
+    <span class="n">chunks</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">pl_df</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="nb">round</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">)]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">pl_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">round</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">))</span>
+    <span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">chunks</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, sysame.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

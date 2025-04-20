@@ -1,0 +1,968 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sysame.matsim.matsim_network &mdash; sysame 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=c0b50fd5"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            sysame
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API Reference Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/cube.html">Cube Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/matrix.html">Matrix Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/matsim.html">MATSim Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/plotting.html">Plotting Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/saturn.html">SATURN Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">sysame</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">sysame.matsim.matsim_network</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for sysame.matsim.matsim_network</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provides functionality for parsing, manipulating, and visualizing</span>
+<span class="sd">MATSim network XML files. Handles conversion between XML and graph representations.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">##### IMPORTS #####</span>
+<span class="c1"># Standard imports</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">ET</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="c1"># Third-party imports</span>
+<span class="kn">import</span> <span class="nn">polars</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>  <span class="c1"># type: ignore</span>
+
+
+<span class="c1">##### CONSTANTS #####</span>
+<span class="n">DEFAULT_CRS</span> <span class="o">=</span> <span class="s2">&quot;EPSG:4326&quot;</span>  <span class="c1"># Default coordinate reference system</span>
+<span class="c1">##### GLOBALS #####</span>
+
+
+<span class="c1">##### CLASSES #####</span>
+<div class="viewcode-block" id="NetworkParser">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser">[docs]</a>
+<span class="k">class</span> <span class="nc">NetworkParser</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for parsing, manipulating and visualizing MATSim network files.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the NetworkParser.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filepath : Optional[Union[str, Path]], default None</span>
+<span class="sd">            Optional path to a MATSim network XML file. Can be .xml or .xml.gz.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filepath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="k">if</span> <span class="n">filepath</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary to store node data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">links</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary to store link data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>  <span class="c1"># Directed graph representation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary to store network attributes</span>
+
+        <span class="k">if</span> <span class="n">filepath</span> <span class="ow">and</span> <span class="n">Path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">read_network</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_is_gzipped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if a file is gzipped.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filepath : Path</span>
+<span class="sd">            Path to the file to check</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            True if the file is gzipped, False otherwise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">filepath</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.gz&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="NetworkParser.read_network">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.read_network">[docs]</a>
+    <span class="k">def</span> <span class="nf">read_network</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Read a MATSim network XML file and parse it into a NetworkX graph.</span>
+
+<span class="sd">        Supports both plain XML and gzipped XML files (.xml.gz).</span>
+<span class="sd">        Preserves all attributes from the XML file, allowing for custom attributes</span>
+<span class="sd">        beyond the standard MATSim ones.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filepath : Optional[Union[str, Path]], default None</span>
+<span class="sd">            Path to the MATSim network XML file.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        nx.DiGraph</span>
+<span class="sd">            A NetworkX directed graph representing the network.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            When no filepath is provided.</span>
+<span class="sd">        FileNotFoundError</span>
+<span class="sd">            When the specified file doesn&#39;t exist.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">filepath</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">filepath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">filepath</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No filepath provided for reading network.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">filepath</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Network file not found: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Parse XML from file (handle gzipped files)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_gzipped</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filepath</span><span class="p">):</span>
+            <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filepath</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">tree</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tree</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filepath</span><span class="p">)</span>
+
+        <span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+
+        <span class="c1"># Parse network attributes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># Get network name if present</span>
+        <span class="k">if</span> <span class="s2">&quot;name&quot;</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">attrib</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">attrib</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+
+        <span class="c1"># Parse attributes element if it exists</span>
+        <span class="k">for</span> <span class="n">attrs_elem</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;./attributes&quot;</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">attr_elem</span> <span class="ow">in</span> <span class="n">attrs_elem</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;./attribute&quot;</span><span class="p">):</span>
+                <span class="n">attr_name</span> <span class="o">=</span> <span class="n">attr_elem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">attr_name</span><span class="p">:</span>
+                    <span class="c1"># Try to get the text content</span>
+                    <span class="n">attr_value</span> <span class="o">=</span> <span class="n">attr_elem</span><span class="o">.</span><span class="n">text</span>
+                    <span class="k">if</span> <span class="n">attr_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="c1"># Handle common conversions</span>
+                        <span class="k">if</span> <span class="n">attr_value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span><span class="p">:</span>
+                            <span class="n">attr_value</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="k">elif</span> <span class="n">attr_value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;false&quot;</span><span class="p">:</span>
+                            <span class="n">attr_value</span> <span class="o">=</span> <span class="kc">False</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">try</span><span class="p">:</span>
+                                <span class="c1"># Try converting to number</span>
+                                <span class="n">attr_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">attr_value</span><span class="p">)</span>
+                                <span class="c1"># Convert to int if it&#39;s a whole number</span>
+                                <span class="k">if</span> <span class="n">attr_value</span><span class="o">.</span><span class="n">is_integer</span><span class="p">():</span>
+                                    <span class="n">attr_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">attr_value</span><span class="p">)</span>
+                            <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+                                <span class="c1"># Keep as string</span>
+                                <span class="k">pass</span>
+
+                        <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="n">attr_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">attr_value</span>
+
+        <span class="c1"># Set default CRS if not found</span>
+        <span class="k">if</span> <span class="s2">&quot;coordinateReferenceSystem&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;coordinateReferenceSystem&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CRS</span>
+
+        <span class="c1"># Set attributes on the graph</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+        <span class="c1"># Parse nodes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">node_elem</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//node&quot;</span><span class="p">):</span>
+            <span class="n">node_id</span> <span class="o">=</span> <span class="n">node_elem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">node_id</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="c1"># Create a dictionary with all attributes from the node element</span>
+            <span class="n">node_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">node_id</span><span class="p">}</span>
+
+            <span class="c1"># Add all attributes from the XML element</span>
+            <span class="k">for</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span> <span class="ow">in</span> <span class="n">node_elem</span><span class="o">.</span><span class="n">attrib</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">attr_name</span> <span class="o">==</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span>
+                    <span class="k">continue</span>  <span class="c1"># Skip id since we already added it</span>
+
+                <span class="c1"># Try to convert numeric values</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Convert to float if it looks like a number</span>
+                    <span class="n">attr_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">attr_value</span><span class="p">)</span>
+                <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+                    <span class="c1"># Keep as string if not a number</span>
+                    <span class="k">pass</span>
+
+                <span class="n">node_data</span><span class="p">[</span><span class="n">attr_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">attr_value</span>
+
+            <span class="c1"># Ensure x and y coordinates are present and are floats</span>
+            <span class="k">if</span> <span class="s2">&quot;x&quot;</span> <span class="ow">in</span> <span class="n">node_data</span> <span class="ow">and</span> <span class="s2">&quot;y&quot;</span> <span class="ow">in</span> <span class="n">node_data</span><span class="p">:</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">node_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">node_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+                <span class="n">node_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+                <span class="n">node_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+                <span class="n">node_data</span><span class="p">[</span><span class="s2">&quot;coords&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+            <span class="c1"># Parse node attributes if present</span>
+            <span class="k">for</span> <span class="n">attrs_elem</span> <span class="ow">in</span> <span class="n">node_elem</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;./attributes&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">attr_elem</span> <span class="ow">in</span> <span class="n">attrs_elem</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;./attribute&quot;</span><span class="p">):</span>
+                    <span class="n">attr_name</span> <span class="o">=</span> <span class="n">attr_elem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">attr_name</span><span class="p">:</span>
+                        <span class="c1"># Try to get the text content</span>
+                        <span class="n">attr_value</span> <span class="o">=</span> <span class="n">attr_elem</span><span class="o">.</span><span class="n">text</span>
+                        <span class="k">if</span> <span class="n">attr_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="c1"># Handle common conversions</span>
+                            <span class="k">if</span> <span class="n">attr_value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span><span class="p">:</span>
+                                <span class="n">attr_value</span> <span class="o">=</span> <span class="kc">True</span>
+                            <span class="k">elif</span> <span class="n">attr_value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;false&quot;</span><span class="p">:</span>
+                                <span class="n">attr_value</span> <span class="o">=</span> <span class="kc">False</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="k">try</span><span class="p">:</span>
+                                    <span class="c1"># Try converting to number</span>
+                                    <span class="n">attr_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">attr_value</span><span class="p">)</span>
+                                    <span class="c1"># Convert to int if it&#39;s a whole number</span>
+                                    <span class="k">if</span> <span class="n">attr_value</span><span class="o">.</span><span class="n">is_integer</span><span class="p">():</span>
+                                        <span class="n">attr_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">attr_value</span><span class="p">)</span>
+                                <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+                                    <span class="c1"># Keep as string</span>
+                                    <span class="k">pass</span>
+
+                            <span class="n">node_data</span><span class="p">[</span><span class="n">attr_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">attr_value</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_data</span>
+
+            <span class="c1"># Add node to graph with all attributes</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span>
+                <span class="n">node_id</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">node_data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">&quot;coords&quot;</span><span class="p">}</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Parse links</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">links</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">link_elem</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;.//link&quot;</span><span class="p">):</span>
+            <span class="n">link_id</span> <span class="o">=</span> <span class="n">link_elem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">link_id</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">from_node</span> <span class="o">=</span> <span class="n">link_elem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">to_node</span> <span class="o">=</span> <span class="n">link_elem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;to&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">from_node</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">to_node</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="c1"># Create a dictionary with all attributes from the link element</span>
+            <span class="n">link_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">link_id</span><span class="p">,</span> <span class="s2">&quot;from_node&quot;</span><span class="p">:</span> <span class="n">from_node</span><span class="p">,</span> <span class="s2">&quot;to_node&quot;</span><span class="p">:</span> <span class="n">to_node</span><span class="p">}</span>
+
+            <span class="c1"># Add all attributes from the XML element</span>
+            <span class="k">for</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span> <span class="ow">in</span> <span class="n">link_elem</span><span class="o">.</span><span class="n">attrib</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">attr_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">,</span> <span class="s2">&quot;to&quot;</span><span class="p">]:</span>
+                    <span class="k">continue</span>  <span class="c1"># Skip already processed attributes</span>
+
+                <span class="c1"># Handle modes specially</span>
+                <span class="k">if</span> <span class="n">attr_name</span> <span class="o">==</span> <span class="s2">&quot;modes&quot;</span><span class="p">:</span>
+                    <span class="n">link_data</span><span class="p">[</span><span class="s2">&quot;modes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">attr_value</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">attr_value</span> <span class="k">else</span> <span class="p">[]</span>  <span class="c1"># type: ignore</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># Try to convert numeric values</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Convert to float if it looks like a number</span>
+                    <span class="n">attr_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">attr_value</span><span class="p">)</span>
+                <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+                    <span class="c1"># Keep as string if not a number</span>
+                    <span class="k">pass</span>
+
+                <span class="n">link_data</span><span class="p">[</span><span class="n">attr_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">attr_value</span>
+
+            <span class="c1"># Parse link attributes if present</span>
+            <span class="k">for</span> <span class="n">attrs_elem</span> <span class="ow">in</span> <span class="n">link_elem</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;./attributes&quot;</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">attr_elem</span> <span class="ow">in</span> <span class="n">attrs_elem</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;./attribute&quot;</span><span class="p">):</span>
+                    <span class="n">attr_name</span> <span class="o">=</span> <span class="n">attr_elem</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">attr_name</span><span class="p">:</span>
+                        <span class="c1"># Try to get the text content</span>
+                        <span class="n">attr_value</span> <span class="o">=</span> <span class="n">attr_elem</span><span class="o">.</span><span class="n">text</span>
+                        <span class="k">if</span> <span class="n">attr_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                            <span class="c1"># Handle common conversions</span>
+                            <span class="k">if</span> <span class="n">attr_value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span><span class="p">:</span>
+                                <span class="n">attr_value</span> <span class="o">=</span> <span class="kc">True</span>
+                            <span class="k">elif</span> <span class="n">attr_value</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;false&quot;</span><span class="p">:</span>
+                                <span class="n">attr_value</span> <span class="o">=</span> <span class="kc">False</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="k">try</span><span class="p">:</span>
+                                    <span class="c1"># Try converting to number</span>
+                                    <span class="n">attr_value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">attr_value</span><span class="p">)</span>
+                                    <span class="c1"># Convert to int if it&#39;s a whole number</span>
+                                    <span class="k">if</span> <span class="n">attr_value</span><span class="o">.</span><span class="n">is_integer</span><span class="p">():</span>
+                                        <span class="n">attr_value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">attr_value</span><span class="p">)</span>
+                                <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+                                    <span class="c1"># Keep as string</span>
+                                    <span class="k">pass</span>
+
+                            <span class="n">link_data</span><span class="p">[</span><span class="n">attr_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">attr_value</span>
+
+            <span class="c1"># Add standard attributes with default values if not present</span>
+            <span class="n">standard_attrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="s2">&quot;capacity&quot;</span><span class="p">,</span> <span class="s2">&quot;freespeed&quot;</span><span class="p">,</span> <span class="s2">&quot;permlanes&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">standard_attrs</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">attr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">link_data</span><span class="p">:</span>
+                    <span class="n">link_data</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="n">attr</span> <span class="o">!=</span> <span class="s2">&quot;permlanes&quot;</span> <span class="k">else</span> <span class="mf">1.0</span>
+
+            <span class="c1"># Ensure modes exists</span>
+            <span class="k">if</span> <span class="s2">&quot;modes&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">link_data</span><span class="p">:</span>
+                <span class="n">link_data</span><span class="p">[</span><span class="s2">&quot;modes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">links</span><span class="p">[</span><span class="n">link_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">link_data</span>
+
+            <span class="c1"># Add edge to graph with all attributes</span>
+            <span class="n">edge_attrs</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">link_data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;from_node&quot;</span><span class="p">,</span> <span class="s2">&quot;to_node&quot;</span><span class="p">]</span>
+            <span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">from_node</span><span class="p">,</span> <span class="n">to_node</span><span class="p">,</span> <span class="o">**</span><span class="n">edge_attrs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span></div>
+
+
+<div class="viewcode-block" id="NetworkParser.write_network">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.write_network">[docs]</a>
+    <span class="k">def</span> <span class="nf">write_network</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">compress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write the current network to a MATSim XML file.</span>
+
+<span class="sd">        Supports writing to both plain XML and gzipped XML files (.xml.gz).</span>
+<span class="sd">        Preserves all custom attributes when writing to XML.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filepath : Optional[Union[str, Path]], default None</span>
+<span class="sd">            Path where to save the MATSim network XML file.</span>
+<span class="sd">        compress : bool, default False</span>
+<span class="sd">            If True, compress the output file using gzip (.xml.gz).</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            When no filepath is provided and no default filepath is set.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filepath</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">filepath</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No filepath provided for writing network.&quot;</span><span class="p">)</span>
+
+        <span class="n">output_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span> <span class="k">if</span> <span class="n">filepath</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">filepath</span>
+
+        <span class="c1"># Determine if output should be compressed</span>
+        <span class="c1"># Either explicitly requested or path ends with .gz</span>
+        <span class="n">should_compress</span> <span class="o">=</span> <span class="n">compress</span> <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">output_path</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.gz&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">output_path</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Ensure path has .gz extension if compressing</span>
+        <span class="k">if</span> <span class="n">should_compress</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">output_path</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.gz&quot;</span><span class="p">):</span>  <span class="c1"># type: ignore</span>
+            <span class="n">output_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.gz&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Create root element</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;network&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Add network name if present</span>
+        <span class="k">if</span> <span class="s2">&quot;name&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">:</span>
+            <span class="n">root</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]))</span>
+
+        <span class="c1"># Add attributes element if we have network attributes</span>
+        <span class="n">network_attrs</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">&quot;name&quot;</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">network_attrs</span><span class="p">:</span>
+            <span class="n">attrs_elem</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;attributes&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">attr_name</span><span class="p">,</span> <span class="n">attr_value</span> <span class="ow">in</span> <span class="n">network_attrs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">attr_elem</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">attrs_elem</span><span class="p">,</span> <span class="s2">&quot;attribute&quot;</span><span class="p">)</span>
+                <span class="n">attr_elem</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">attr_name</span><span class="p">)</span>
+
+                <span class="c1"># Add class attribute for Java types if needed</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attr_value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="n">attr_elem</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;java.lang.String&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attr_value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+                    <span class="n">attr_elem</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;java.lang.Boolean&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attr_value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                    <span class="n">attr_elem</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;java.lang.Integer&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attr_value</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+                    <span class="n">attr_elem</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;java.lang.Double&quot;</span><span class="p">)</span>
+
+                <span class="c1"># Set the text value</span>
+                <span class="n">attr_elem</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">attr_value</span><span class="p">)</span>
+
+        <span class="n">nodes_elem</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;nodes&quot;</span><span class="p">)</span>
+        <span class="n">links_elem</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;links&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Add nodes with all attributes</span>
+        <span class="k">for</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">node_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Convert all values to strings for XML</span>
+            <span class="n">node_attrs</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">node_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;coords&quot;</span><span class="p">]:</span>  <span class="c1"># Skip coords, it&#39;s derived</span>
+                    <span class="n">node_attrs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+            <span class="c1"># Ensure id is included</span>
+            <span class="n">node_attrs</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_id</span>
+
+            <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">nodes_elem</span><span class="p">,</span> <span class="s2">&quot;node&quot;</span><span class="p">,</span> <span class="n">node_attrs</span><span class="p">)</span>
+
+        <span class="c1"># Add links with all attributes</span>
+        <span class="k">for</span> <span class="n">link_id</span><span class="p">,</span> <span class="n">link_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1"># Convert all values to strings for XML</span>
+            <span class="n">link_attrs</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">link_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;from_node&quot;</span><span class="p">:</span>
+                    <span class="n">link_attrs</span><span class="p">[</span><span class="s2">&quot;from&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;to_node&quot;</span><span class="p">:</span>
+                    <span class="n">link_attrs</span><span class="p">[</span><span class="s2">&quot;to&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;modes&quot;</span><span class="p">:</span>
+                    <span class="n">link_attrs</span><span class="p">[</span><span class="s2">&quot;modes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">elif</span> <span class="n">key</span> <span class="o">!=</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span>  <span class="c1"># Skip id, we&#39;ll add it separately</span>
+                    <span class="n">link_attrs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+            <span class="c1"># Ensure id is included</span>
+            <span class="n">link_attrs</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">link_id</span>
+
+            <span class="n">ET</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">links_elem</span><span class="p">,</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span> <span class="n">link_attrs</span><span class="p">)</span>
+
+        <span class="c1"># Create the XML tree</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">ElementTree</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+
+        <span class="c1"># Write to file (plain or compressed)</span>
+        <span class="k">if</span> <span class="n">should_compress</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+                <span class="n">tree</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">xml_declaration</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">xml_declaration</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># type: ignore</span></div>
+
+
+<div class="viewcode-block" id="NetworkParser.get_crs">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.get_crs">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_crs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the coordinate reference system of the network.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The coordinate reference system (CRS) string, defaults to EPSG:4326 if not specified</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coordinateReferenceSystem&quot;</span><span class="p">,</span> <span class="n">DEFAULT_CRS</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="NetworkParser.set_crs">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.set_crs">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_crs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">crs</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the coordinate reference system of the network.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        crs : str</span>
+<span class="sd">            The coordinate reference system (CRS) string, e.g., &quot;EPSG:4326&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;coordinateReferenceSystem&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">crs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s2">&quot;coordinateReferenceSystem&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">crs</span></div>
+
+
+<div class="viewcode-block" id="NetworkParser.get_attributes">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.get_attributes">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get all network attributes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dict[str, Any]</span>
+<span class="sd">            Dictionary of network attributes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="NetworkParser.set_attribute">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.set_attribute">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set a network attribute.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            Name of the attribute</span>
+<span class="sd">        value : Any</span>
+<span class="sd">            Value of the attribute</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span></div>
+
+
+<div class="viewcode-block" id="NetworkParser.get_nodes_df">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.get_nodes_df">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_nodes_df</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get nodes as a polars DataFrame.</span>
+
+<span class="sd">        All node attributes are included in the DataFrame, including any custom attributes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pl.DataFrame</span>
+<span class="sd">            DataFrame with node data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Convert dictionary to Polars DataFrame</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+        <span class="c1"># Get all unique attribute names across all nodes</span>
+        <span class="n">all_attributes</span><span class="p">:</span> <span class="nb">set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">node_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">all_attributes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">node_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+        <span class="c1"># Remove &#39;coords&#39; as it&#39;s derived from x and y</span>
+        <span class="k">if</span> <span class="s2">&quot;coords&quot;</span> <span class="ow">in</span> <span class="n">all_attributes</span><span class="p">:</span>
+            <span class="n">all_attributes</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;coords&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Initialize data dictionary with all attributes</span>
+        <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">attr</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">all_attributes</span><span class="p">}</span>
+
+        <span class="c1"># Fill data with values from each node</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">node_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">all_attributes</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">node_data</span><span class="p">:</span>
+                    <span class="n">data</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node_data</span><span class="p">[</span><span class="n">attr</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">data</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># Use None for missing attributes</span>
+
+        <span class="c1"># create dataframe and order it</span>
+        <span class="n">nodes_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Utf8</span><span class="p">),</span>  <span class="c1"># Ensure id is string</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Utf8</span><span class="p">),</span>  <span class="c1"># Ensure from_node is string</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Utf8</span><span class="p">),</span>  <span class="c1"># Ensure to_node is string</span>
+            <span class="o">*</span><span class="p">[</span><span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">all_attributes</span> <span class="k">if</span> <span class="n">attr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]],</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">nodes_df</span></div>
+
+
+<div class="viewcode-block" id="NetworkParser.get_links_df">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.get_links_df">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_links_df</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get links as a polars DataFrame.</span>
+
+<span class="sd">        All link attributes are included in the DataFrame, including any custom attributes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pl.DataFrame</span>
+<span class="sd">            DataFrame with link data</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">links</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+        <span class="c1"># Get all unique attribute names across all links</span>
+        <span class="n">all_attributes</span><span class="p">:</span> <span class="nb">set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">link_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="n">all_attributes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">link_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+        <span class="c1"># Initialize data dictionary with all attributes</span>
+        <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">attr</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">all_attributes</span><span class="p">}</span>
+
+        <span class="c1"># Fill data with values from each link</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">link_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">all_attributes</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">link_data</span><span class="p">:</span>
+                    <span class="n">data</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link_data</span><span class="p">[</span><span class="n">attr</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">data</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># Use None for missing attributes</span>
+        <span class="c1"># create dataframe and order it</span>
+        <span class="n">links_df</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Utf8</span><span class="p">),</span>  <span class="c1"># Ensure id is string</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;from_node&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Utf8</span><span class="p">),</span>  <span class="c1"># Ensure from_node is string</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;to_node&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">Utf8</span><span class="p">),</span>  <span class="c1"># Ensure to_node is string</span>
+            <span class="o">*</span><span class="p">[</span>
+                <span class="n">pl</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">all_attributes</span>
+                <span class="k">if</span> <span class="n">attr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;from_node&quot;</span><span class="p">,</span> <span class="s2">&quot;to_node&quot;</span><span class="p">]</span>
+            <span class="p">],</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">links_df</span></div>
+
+
+<div class="viewcode-block" id="NetworkParser.update_from_dfs">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.update_from_dfs">[docs]</a>
+    <span class="k">def</span> <span class="nf">update_from_dfs</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">links_df</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">nodes_df</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the network from modified polars DataFrames.</span>
+
+<span class="sd">        This allows you to make changes to the network data using polars operations,</span>
+<span class="sd">        then synchronize those changes back to the NetworkParser&#39;s internal representation.</span>
+<span class="sd">        Preserves all custom attributes in both nodes and links.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        links_df : pl.DataFrame</span>
+<span class="sd">            DataFrame containing the updated link data. Must contain at least &#39;id&#39;,</span>
+<span class="sd">            &#39;from_node&#39;, and &#39;to_node&#39; columns.</span>
+<span class="sd">        nodes_df : Optional[pl.DataFrame], default None</span>
+<span class="sd">            Optional DataFrame containing the updated node data. Must contain at least</span>
+<span class="sd">            &#39;id&#39;, &#39;x&#39;, and &#39;y&#39; columns.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            When required columns are missing from the DataFrames</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Validate required columns in links_df</span>
+        <span class="n">required_link_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;from_node&quot;</span><span class="p">,</span> <span class="s2">&quot;to_node&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">required_link_cols</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">links_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Required column &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; missing from links DataFrame&quot;</span>
+                <span class="p">)</span>
+
+        <span class="c1"># Update from nodes_df if provided</span>
+        <span class="k">if</span> <span class="n">nodes_df</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Validate required columns in nodes_df</span>
+            <span class="n">required_node_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">required_node_cols</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">nodes_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;Required column &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; missing from nodes DataFrame&quot;</span>
+                    <span class="p">)</span>
+
+            <span class="c1"># Create new nodes dictionary</span>
+            <span class="n">new_nodes</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">nodes_df</span><span class="o">.</span><span class="n">iter_rows</span><span class="p">(</span><span class="n">named</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                <span class="n">node_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
+
+                <span class="c1"># Add all columns as attributes</span>
+                <span class="n">node_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">node_id</span><span class="p">}</span>
+                <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">nodes_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span>  <span class="c1"># Skip id as we already added it</span>
+                        <span class="n">node_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+
+                <span class="c1"># Ensure x and y are present and add coords</span>
+                <span class="k">if</span> <span class="s2">&quot;x&quot;</span> <span class="ow">in</span> <span class="n">node_data</span> <span class="ow">and</span> <span class="s2">&quot;y&quot;</span> <span class="ow">in</span> <span class="n">node_data</span><span class="p">:</span>
+                    <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">node_data</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">])</span>
+                    <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">node_data</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">])</span>
+                    <span class="n">node_data</span><span class="p">[</span><span class="s2">&quot;coords&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+                <span class="n">new_nodes</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_data</span>
+
+            <span class="c1"># Replace the existing nodes dictionary</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="n">new_nodes</span>
+
+        <span class="c1"># Create new links dictionary</span>
+        <span class="n">new_links</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">links_df</span><span class="o">.</span><span class="n">iter_rows</span><span class="p">(</span><span class="n">named</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="n">link_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
+            <span class="n">from_node</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;from_node&quot;</span><span class="p">])</span>
+            <span class="n">to_node</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;to_node&quot;</span><span class="p">])</span>
+
+            <span class="c1"># Add all columns as attributes</span>
+            <span class="n">link_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">link_id</span><span class="p">,</span> <span class="s2">&quot;from_node&quot;</span><span class="p">:</span> <span class="n">from_node</span><span class="p">,</span> <span class="s2">&quot;to_node&quot;</span><span class="p">:</span> <span class="n">to_node</span><span class="p">}</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">links_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;from_node&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;to_node&quot;</span><span class="p">,</span>
+                <span class="p">]:</span>  <span class="c1"># Skip already added columns</span>
+                    <span class="n">link_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+
+            <span class="c1"># Handle modes specially if present</span>
+            <span class="k">if</span> <span class="s2">&quot;modes&quot;</span> <span class="ow">in</span> <span class="n">link_data</span><span class="p">:</span>
+                <span class="n">modes</span> <span class="o">=</span> <span class="n">link_data</span><span class="p">[</span><span class="s2">&quot;modes&quot;</span><span class="p">]</span>
+                <span class="c1"># Handle different ways modes might be stored</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">modes</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="n">link_data</span><span class="p">[</span><span class="s2">&quot;modes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">modes</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+                <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">modes</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                    <span class="n">link_data</span><span class="p">[</span><span class="s2">&quot;modes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="n">new_links</span><span class="p">[</span><span class="n">link_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">link_data</span>
+
+        <span class="c1"># Replace the existing links dictionary</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">links</span> <span class="o">=</span> <span class="n">new_links</span>
+
+        <span class="c1"># Rebuild the graph with updated data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rebuild_graph</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="NetworkParser.from_dataframes">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.from_dataframes">[docs]</a>
+    <span class="k">def</span> <span class="nf">from_dataframes</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">nodes_df</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">links_df</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">attributes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a network from nodes and links DataFrames.</span>
+
+<span class="sd">        This method allows you to completely create or replace a network using</span>
+<span class="sd">        polars DataFrames for nodes and links.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        nodes_df : pl.DataFrame</span>
+<span class="sd">            DataFrame containing node data. Must contain at least &#39;id&#39;, &#39;x&#39;, and &#39;y&#39; columns.</span>
+<span class="sd">        links_df : pl.DataFrame</span>
+<span class="sd">            DataFrame containing link data. Must contain at least &#39;id&#39;, &#39;from_node&#39;, and</span>
+<span class="sd">            &#39;to_node&#39; columns.</span>
+<span class="sd">        attributes : Optional[dict[str, Any]], default None</span>
+<span class="sd">            Optional dictionary of network attributes, including coordinateReferenceSystem</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            When required columns are missing from the DataFrames</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Reset the current network</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">links</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+        <span class="c1"># Set network attributes</span>
+        <span class="k">if</span> <span class="n">attributes</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span> <span class="o">=</span> <span class="n">attributes</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+            <span class="c1"># Ensure CRS is set</span>
+            <span class="k">if</span> <span class="s2">&quot;coordinateReferenceSystem&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s2">&quot;coordinateReferenceSystem&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CRS</span>
+
+            <span class="c1"># Set attributes on the graph</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Initialize with default attributes</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attributes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;coordinateReferenceSystem&quot;</span><span class="p">:</span> <span class="n">DEFAULT_CRS</span><span class="p">}</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="s2">&quot;coordinateReferenceSystem&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_CRS</span>
+
+        <span class="c1"># Update with the new data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_from_dfs</span><span class="p">(</span><span class="n">links_df</span><span class="p">,</span> <span class="n">nodes_df</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NetworkParser.create_from_dataframes">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.create_from_dataframes">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create_from_dataframes</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">nodes_df</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">links_df</span><span class="p">:</span> <span class="n">pl</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="n">attributes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;NetworkParser&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new NetworkParser instance from nodes and links DataFrames.</span>
+
+<span class="sd">        This is a convenience class method to create a network directly from DataFrames</span>
+<span class="sd">        without needing to first create an empty NetworkParser instance.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        nodes_df : pl.DataFrame</span>
+<span class="sd">            DataFrame containing node data. Must contain at least &#39;id&#39;, &#39;x&#39;, and &#39;y&#39; columns.</span>
+<span class="sd">        links_df : pl.DataFrame</span>
+<span class="sd">            DataFrame containing link data. Must contain at least &#39;id&#39;, &#39;from_node&#39;, and</span>
+<span class="sd">            &#39;to_node&#39; columns.</span>
+<span class="sd">        attributes : Optional[dict[str, Any]], default None</span>
+<span class="sd">            Optional dictionary of network attributes, including coordinateReferenceSystem</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        NetworkParser</span>
+<span class="sd">            A new NetworkParser instance with the network built from the DataFrames</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            When required columns are missing from the DataFrames</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">network</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+        <span class="n">network</span><span class="o">.</span><span class="n">from_dataframes</span><span class="p">(</span><span class="n">nodes_df</span><span class="p">,</span> <span class="n">links_df</span><span class="p">,</span> <span class="n">attributes</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">network</span></div>
+
+
+<div class="viewcode-block" id="NetworkParser.add_node">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.NetworkParser.add_node">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">**</span><span class="n">attributes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a new node to the network with arbitrary attributes.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        node_id : str</span>
+<span class="sd">            Unique identifier for the node</span>
+<span class="sd">        x : float</span>
+<span class="sd">            X-coordinate of the node</span>
+<span class="sd">        y : float</span>
+<span class="sd">            Y-coordinate of the node</span>
+<span class="sd">        **attributes</span>
+<span class="sd">            Any additional attributes to store with the node</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If a node with this ID already exists</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">node_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node with ID </span><span class="si">{</span><span class="n">node_id</span><span class="si">}</span><span class="s2"> already exists&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Create node data with all attributes</span>
+        <span class="n">node_data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">node_id</span><span class="p">,</span>
+            <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span>
+            <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
+            <span class="s2">&quot;coords&quot;</span><span class="p">:</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span>
+        <span class="p">}</span>
+        <span class="n">node_data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">attributes</span><span class="p">)</span>
+
+        <span class="c1"># Add to nodes dictionary</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">node_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_data</span>
+
+        <span class="c1"># Add to graph</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span>
+            <span class="n">node_id</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">node_data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">&quot;coords&quot;</span><span class="p">}</span>
+        <span class="p">)</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_rebuild_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Rebuild the NetworkX graph from current nodes and links.</span>
+
+<span class="sd">        This is called after updating the network data to ensure the graph</span>
+<span class="sd">        reflects the current state of nodes and links.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Create a new graph</span>
+        <span class="n">new_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+        <span class="c1"># Add nodes</span>
+        <span class="k">for</span> <span class="n">node_id</span><span class="p">,</span> <span class="n">node_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">new_graph</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span>
+                <span class="n">node_id</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">node_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">node_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Add edges</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">link_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">links</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">from_node</span> <span class="o">=</span> <span class="n">link_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;from_node&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">to_node</span> <span class="o">=</span> <span class="n">link_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;to_node&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Skip invalid links</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="ow">not</span> <span class="n">from_node</span>
+                <span class="ow">or</span> <span class="ow">not</span> <span class="n">to_node</span>
+                <span class="ow">or</span> <span class="n">from_node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span>
+                <span class="ow">or</span> <span class="n">to_node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span>
+            <span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="c1"># Extract standard attributes if available</span>
+            <span class="n">edge_attrs</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">link_data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;from_node&quot;</span><span class="p">,</span> <span class="s2">&quot;to_node&quot;</span><span class="p">]</span>
+            <span class="p">}</span>
+
+            <span class="c1"># Add the edge with all its attributes</span>
+            <span class="n">new_graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">from_node</span><span class="p">,</span> <span class="n">to_node</span><span class="p">,</span> <span class="o">**</span><span class="n">edge_attrs</span><span class="p">)</span>
+
+        <span class="c1"># Replace the old graph</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span> <span class="o">=</span> <span class="n">new_graph</span></div>
+
+
+
+<span class="c1">##### FUNCTIONS #####</span>
+<div class="viewcode-block" id="load_network">
+<a class="viewcode-back" href="../../../api/matsim.html#sysame.matsim.matsim_network.load_network">[docs]</a>
+<span class="k">def</span> <span class="nf">load_network</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NetworkParser</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load a MATSim network file.</span>
+
+<span class="sd">    Supports both plain XML and gzipped XML files (.xml.gz).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filepath : Union[str, Path]</span>
+<span class="sd">        Path to the MATSim network XML file (can be .xml or .xml.gz)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    NetworkParser</span>
+<span class="sd">        NetworkParser instance with loaded network</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        When the specified file doesn&#39;t exist</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Network file not found: </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">NetworkParser</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, sysame.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cube Module &mdash; sysame 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c0b50fd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Matrix Module" href="matrix.html" />
+    <link rel="prev" title="Contributing" href="../contributing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            sysame
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cube Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cube-module-components">Cube Module Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.cube.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Node.id"><code class="docutils literal notranslate"><span class="pre">Node.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Node.stopping"><code class="docutils literal notranslate"><span class="pre">Node.stopping</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Node._string"><code class="docutils literal notranslate"><span class="pre">Node._string</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Node.attrs"><code class="docutils literal notranslate"><span class="pre">Node.attrs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Node.copy"><code class="docutils literal notranslate"><span class="pre">Node.copy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.cube.Line"><code class="docutils literal notranslate"><span class="pre">Line</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Line.nodes"><code class="docutils literal notranslate"><span class="pre">Line.nodes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Line.name"><code class="docutils literal notranslate"><span class="pre">Line.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Line.unquoted"><code class="docutils literal notranslate"><span class="pre">Line.unquoted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Line.NodeLabel"><code class="docutils literal notranslate"><span class="pre">Line.NodeLabel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Line.unquoted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Line.NodeLabel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Line.attrs"><code class="docutils literal notranslate"><span class="pre">Line.attrs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Line.stops"><code class="docutils literal notranslate"><span class="pre">Line.stops</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Line.is_node"><code class="docutils literal notranslate"><span class="pre">Line.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Line.is_stop"><code class="docutils literal notranslate"><span class="pre">Line.is_stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Line.stop_seq"><code class="docutils literal notranslate"><span class="pre">Line.stop_seq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Line.from_string"><code class="docutils literal notranslate"><span class="pre">Line.from_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.Line.copy"><code class="docutils literal notranslate"><span class="pre">Line.copy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.cube.LineFile"><code class="docutils literal notranslate"><span class="pre">LineFile</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.content"><code class="docutils literal notranslate"><span class="pre">LineFile.content</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.content_duplicates_renamed"><code class="docutils literal notranslate"><span class="pre">LineFile.content_duplicates_renamed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.rename_duplicates"><code class="docutils literal notranslate"><span class="pre">LineFile.rename_duplicates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.name_unique"><code class="docutils literal notranslate"><span class="pre">LineFile.name_unique</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.comments"><code class="docutils literal notranslate"><span class="pre">LineFile.comments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.lines"><code class="docutils literal notranslate"><span class="pre">LineFile.lines</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.lines_duplicates_renamed"><code class="docutils literal notranslate"><span class="pre">LineFile.lines_duplicates_renamed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.line_names"><code class="docutils literal notranslate"><span class="pre">LineFile.line_names</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.copy"><code class="docutils literal notranslate"><span class="pre">LineFile.copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.save"><code class="docutils literal notranslate"><span class="pre">LineFile.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.lines_by_attr"><code class="docutils literal notranslate"><span class="pre">LineFile.lines_by_attr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.lines_query"><code class="docutils literal notranslate"><span class="pre">LineFile.lines_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.df"><code class="docutils literal notranslate"><span class="pre">LineFile.df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.from_string"><code class="docutils literal notranslate"><span class="pre">LineFile.from_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.cube.LineFile.read_file"><code class="docutils literal notranslate"><span class="pre">LineFile.read_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.cube.process_cube_routes"><code class="docutils literal notranslate"><span class="pre">process_cube_routes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.cube.network_to_shapefile"><code class="docutils literal notranslate"><span class="pre">network_to_shapefile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.cube.export_network_to_csvs"><code class="docutils literal notranslate"><span class="pre">export_network_to_csvs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.cube.build_network_from_csvs"><code class="docutils literal notranslate"><span class="pre">build_network_from_csvs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.cube.omx_to_mat"><code class="docutils literal notranslate"><span class="pre">omx_to_mat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.cube.mat_to_omx"><code class="docutils literal notranslate"><span class="pre">mat_to_omx()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.cube.parse_cube_zones_character"><code class="docutils literal notranslate"><span class="pre">parse_cube_zones_character()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.cube.parse_sqex_file"><code class="docutils literal notranslate"><span class="pre">parse_sqex_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.line_parser.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Node.id"><code class="docutils literal notranslate"><span class="pre">Node.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Node.stopping"><code class="docutils literal notranslate"><span class="pre">Node.stopping</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Node._string"><code class="docutils literal notranslate"><span class="pre">Node._string</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Node.attrs"><code class="docutils literal notranslate"><span class="pre">Node.attrs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Node.copy"><code class="docutils literal notranslate"><span class="pre">Node.copy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.line_parser.Line"><code class="docutils literal notranslate"><span class="pre">Line</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Line.nodes"><code class="docutils literal notranslate"><span class="pre">Line.nodes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Line.name"><code class="docutils literal notranslate"><span class="pre">Line.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Line.unquoted"><code class="docutils literal notranslate"><span class="pre">Line.unquoted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Line.NodeLabel"><code class="docutils literal notranslate"><span class="pre">Line.NodeLabel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Line.unquoted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Line.NodeLabel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Line.attrs"><code class="docutils literal notranslate"><span class="pre">Line.attrs</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Line.stops"><code class="docutils literal notranslate"><span class="pre">Line.stops</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Line.is_node"><code class="docutils literal notranslate"><span class="pre">Line.is_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Line.is_stop"><code class="docutils literal notranslate"><span class="pre">Line.is_stop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Line.stop_seq"><code class="docutils literal notranslate"><span class="pre">Line.stop_seq</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Line.from_string"><code class="docutils literal notranslate"><span class="pre">Line.from_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.Line.copy"><code class="docutils literal notranslate"><span class="pre">Line.copy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.cube.line_parser.LineFile"><code class="docutils literal notranslate"><span class="pre">LineFile</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.content"><code class="docutils literal notranslate"><span class="pre">LineFile.content</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.content_duplicates_renamed"><code class="docutils literal notranslate"><span class="pre">LineFile.content_duplicates_renamed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.rename_duplicates"><code class="docutils literal notranslate"><span class="pre">LineFile.rename_duplicates()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.name_unique"><code class="docutils literal notranslate"><span class="pre">LineFile.name_unique</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.comments"><code class="docutils literal notranslate"><span class="pre">LineFile.comments</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.lines"><code class="docutils literal notranslate"><span class="pre">LineFile.lines</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.lines_duplicates_renamed"><code class="docutils literal notranslate"><span class="pre">LineFile.lines_duplicates_renamed</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.line_names"><code class="docutils literal notranslate"><span class="pre">LineFile.line_names</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.copy"><code class="docutils literal notranslate"><span class="pre">LineFile.copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.save"><code class="docutils literal notranslate"><span class="pre">LineFile.save()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.lines_by_attr"><code class="docutils literal notranslate"><span class="pre">LineFile.lines_by_attr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.lines_query"><code class="docutils literal notranslate"><span class="pre">LineFile.lines_query()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.df"><code class="docutils literal notranslate"><span class="pre">LineFile.df</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.from_string"><code class="docutils literal notranslate"><span class="pre">LineFile.from_string()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.cube.line_parser.LineFile.read_file"><code class="docutils literal notranslate"><span class="pre">LineFile.read_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matsim.html">MATSim Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saturn.html">SATURN Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysame</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Cube Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/cube.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cube-module">
+<h1>Cube Module<a class="headerlink" href="#cube-module" title="Link to this heading"></a></h1>
+<section id="cube-module-components">
+<span id="module-sysame.cube"></span><h2>Cube Module Components<a class="headerlink" href="#cube-module-components" title="Link to this heading"></a></h2>
+<p id="module-sysame.cube.cube">Module for Cube processes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sysame.cube.cube.Node">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sysame.cube.cube.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#Node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.Node" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Simple node class for representing network nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>string</strong> (<em>str</em><em> or </em><em>int</em>) -- String representation of the node.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) -- Additional attributes to be assigned to the node.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.cube.Node.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#sysame.cube.cube.Node.id" title="Link to this definition"></a></dt>
+<dd><p>Node identifier, absolute value from string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.cube.Node.stopping">
+<span class="sig-name descname"><span class="pre">stopping</span></span><a class="headerlink" href="#sysame.cube.cube.Node.stopping" title="Link to this definition"></a></dt>
+<dd><p>Whether the node is a stopping point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.cube.Node._string">
+<span class="sig-name descname"><span class="pre">_string</span></span><a class="headerlink" href="#sysame.cube.cube.Node._string" title="Link to this definition"></a></dt>
+<dd><p>Internal storage of the original string representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.cube.Node.attrs">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">attrs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.cube.Node.attrs" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary with user-defined attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary of custom attributes excluding internal ones.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.Node.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#Node.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.Node.copy" title="Link to this definition"></a></dt>
+<dd><p>Create a deep copy of the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A new instance that is a deep copy of this node.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sysame.cube.cube.Node" title="sysame.cube.cube.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sysame.cube.cube.</span></span><span class="sig-name descname"><span class="pre">Line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#Line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.Line" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Simple line class representing a sequence of nodes.</p>
+<p>A line is a sequence of nodes with its own properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em><em> of </em><a class="reference internal" href="#sysame.cube.cube.Node" title="sysame.cube.cube.Node"><em>Node</em></a>) -- List of node objects that form the line.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) -- Additional attributes to be assigned to the line.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line.nodes">
+<span class="sig-name descname"><span class="pre">nodes</span></span><a class="headerlink" href="#sysame.cube.cube.Line.nodes" title="Link to this definition"></a></dt>
+<dd><p>List of nodes that form the line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="#sysame.cube.cube.Node" title="sysame.cube.cube.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#sysame.cube.cube.Line.name" title="Link to this definition"></a></dt>
+<dd><p>Name of the line (set via kwargs).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line.unquoted">
+<span class="sig-name descname"><span class="pre">unquoted</span></span><a class="headerlink" href="#sysame.cube.cube.Line.unquoted" title="Link to this definition"></a></dt>
+<dd><p>Class variable that defines values that should not be quoted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line.NodeLabel">
+<span class="sig-name descname"><span class="pre">NodeLabel</span></span><a class="headerlink" href="#sysame.cube.cube.Line.NodeLabel" title="Link to this definition"></a></dt>
+<dd><p>Label to identify nodes in string representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialize a line object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em><em>[</em><a class="reference internal" href="#sysame.cube.cube.Node" title="sysame.cube.cube.Node"><em>Node</em></a><em>]</em>) -- List of node objects that form the line.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) -- Additional attributes to be assigned to the line.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">unquoted</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['T',</span> <span class="pre">'F']</span></em><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">NodeLabel</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'N'</span></em><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line.attrs">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">attrs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.cube.Line.attrs" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary with user-defined attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary of line attributes excluding nodes and internal ones.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line.stops">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stops</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sysame.cube.cube.Node" title="sysame.cube.cube.Node"><span class="pre">Node</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.cube.Line.stops" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of the nodes that are actual stops.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of nodes marked as stopping points.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[<a class="reference internal" href="#sysame.cube.cube.Node" title="sysame.cube.cube.Node">Node</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line.is_node">
+<span class="sig-name descname"><span class="pre">is_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#Line.is_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.Line.is_node" title="Link to this definition"></a></dt>
+<dd><p>Returns True if n is one of the line's nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<a class="reference internal" href="#sysame.cube.cube.Node" title="sysame.cube.cube.Node"><em>Node</em></a><em> or </em><em>int</em>) -- Node or node ID to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the node is part of the line, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line.is_stop">
+<span class="sig-name descname"><span class="pre">is_stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#Line.is_stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.Line.is_stop" title="Link to this definition"></a></dt>
+<dd><p>Returns True if line stops at n.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<a class="reference internal" href="#sysame.cube.cube.Node" title="sysame.cube.cube.Node"><em>Node</em></a><em> or </em><em>int</em>) -- Node or node ID to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the node is a stopping point on the line, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line.stop_seq">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop_seq</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sysame.cube.cube.Line.stop_seq" title="Link to this definition"></a></dt>
+<dd><p>Returns a concatenation of line's stops.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sep</strong> (<em>str</em><em>, </em><em>default=&quot;_&quot;</em>) -- Separator to use between stop IDs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Concatenated string of stop IDs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line.from_string">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potential_seps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#Line.from_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.Line.from_string" title="Link to this definition"></a></dt>
+<dd><p>Parse a string representation into a line object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>string</strong> (<em>str</em>) -- String to parse.</p></li>
+<li><p><strong>potential_seps</strong> (<em>Optional</em><em>[</em><em>list</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>default=None</em>) -- List of potential separators to detect.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parsed line object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#sysame.cube.cube.Line" title="sysame.cube.cube.Line">Line</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> -- If invalid node declarations are found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.Line.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#Line.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.Line.copy" title="Link to this definition"></a></dt>
+<dd><p>Create a deep copy of the line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A new instance that is a deep copy of this line.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sysame.cube.cube.Line" title="sysame.cube.cube.Line">Line</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sysame.cube.cube.</span></span><span class="sig-name descname"><span class="pre">LineFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#LineFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.LineFile" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class representing a file of lines.</p>
+<p>A LineFile is a collection of line objects and comments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>content</strong> (<em>list</em><em> of </em><em>(</em><a class="reference internal" href="#sysame.cube.cube.Line" title="sysame.cube.cube.Line"><em>Line</em></a><em> or </em><em>str</em><em>)</em><em>, </em><em>optional</em>) -- List of line objects and comment strings.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.content">
+<span class="sig-name descname"><span class="pre">content</span></span><a class="headerlink" href="#sysame.cube.cube.LineFile.content" title="Link to this definition"></a></dt>
+<dd><p>List containing line objects and comment strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of (<a class="reference internal" href="#sysame.cube.cube.Line" title="sysame.cube.cube.Line">Line</a> or str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.content_duplicates_renamed">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">content_duplicates_renamed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sysame.cube.cube.Line" title="sysame.cube.cube.Line"><span class="pre">Line</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.cube.LineFile.content_duplicates_renamed" title="Link to this definition"></a></dt>
+<dd><p>Returns the LineFile's content with duplicated NAMEs renamed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Copy of content with renamed lines.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.rename_duplicates">
+<span class="sig-name descname"><span class="pre">rename_duplicates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#LineFile.rename_duplicates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.LineFile.rename_duplicates" title="Link to this definition"></a></dt>
+<dd><p>Changes the LineFile's content to avoid lines with duplicated NAMEs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.name_unique">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name_unique</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#sysame.cube.cube.LineFile.name_unique" title="Link to this definition"></a></dt>
+<dd><p>Returns True if lines' property &quot;NAME&quot; is a unique identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if all line names are unique, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.comments">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">comments</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.cube.LineFile.comments" title="Link to this definition"></a></dt>
+<dd><p>Returns the list of comments in the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>All comments in the file.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.lines">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lines</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#sysame.cube.cube.Line" title="sysame.cube.cube.Line"><span class="pre">Line</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.cube.LineFile.lines" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary of lines by NAME.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary of lines with NAME as key.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, <a class="reference internal" href="#sysame.cube.cube.Line" title="sysame.cube.cube.Line">Line</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.lines_duplicates_renamed">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lines_duplicates_renamed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#sysame.cube.cube.Line" title="sysame.cube.cube.Line"><span class="pre">Line</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.cube.LineFile.lines_duplicates_renamed" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary of lines with duplicated NAMEs renamed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary of lines with NAME as key, duplicates renamed.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, <a class="reference internal" href="#sysame.cube.cube.Line" title="sysame.cube.cube.Line">Line</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.line_names">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">line_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.cube.LineFile.line_names" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of line names as strings.</p>
+<p>Preserves order. May contain duplicates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of line names.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#LineFile.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.LineFile.copy" title="Link to this definition"></a></dt>
+<dd><p>Create a deep copy of the LineFile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A new instance that is a deep copy of this LineFile.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sysame.cube.cube.LineFile" title="sysame.cube.cube.LineFile">LineFile</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_node_attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_line_attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename_duplicates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#LineFile.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.LineFile.save" title="Link to this definition"></a></dt>
+<dd><p>Save the LineFile to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) -- Path to the output file.</p></li>
+<li><p><strong>sort</strong> (<em>bool</em><em>, </em><em>default=False</em>) -- If True, sorts the output.</p></li>
+<li><p><strong>comments</strong> (<em>bool</em><em>, </em><em>default=True</em>) -- If True, includes comments in the output.</p></li>
+<li><p><strong>node_attrs</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) -- List of node attributes to include.</p></li>
+<li><p><strong>exclude_node_attrs</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) -- List of node attributes to omit.</p></li>
+<li><p><strong>line_attrs</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) -- List of line attributes to include.</p></li>
+<li><p><strong>exclude_line_attrs</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) -- List of line attributes to omit.</p></li>
+<li><p><strong>rename_duplicates</strong> (<em>bool</em><em>, </em><em>default=True</em>) -- If True, renames duplicate line names.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.lines_by_attr">
+<span class="sig-name descname"><span class="pre">lines_by_attr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#LineFile.lines_by_attr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.LineFile.lines_by_attr" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of lines having a specific value in an attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>attr</strong> (<em>str</em>) -- Attribute name to check.</p></li>
+<li><p><strong>val</strong> (<em>Any</em>) -- Value to match.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of lines that match the criteria.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#sysame.cube.cube.Line" title="sysame.cube.cube.Line">Line</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.lines_query">
+<span class="sig-name descname"><span class="pre">lines_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#LineFile.lines_query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.LineFile.lines_query" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of lines meeting a SQL-like query.</p>
+<dl class="simple">
+<dt>This relies on pandas DataFrame query:</dt><dd><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.query.html">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.query.html</a></p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>qry</strong> (<em>str</em>) -- SQL-like query string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of lines that match the query.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="#sysame.cube.cube.Line" title="sysame.cube.cube.Line">Line</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.df">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#sysame.cube.cube.LineFile.df" title="Link to this definition"></a></dt>
+<dd><p>Returns a dataframe with the attributes for each line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame containing line attributes as columns.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.from_string">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#LineFile.from_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.LineFile.from_string" title="Link to this definition"></a></dt>
+<dd><p>Create a LineFile from a string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) -- String representation of a line file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parsed LineFile object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#sysame.cube.cube.LineFile" title="sysame.cube.cube.LineFile">LineFile</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.cube.LineFile.read_file">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#LineFile.read_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.LineFile.read_file" title="Link to this definition"></a></dt>
+<dd><p>Read a line file from disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) -- Path to the file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parsed LineFile object from the file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#sysame.cube.cube.LineFile" title="sysame.cube.cube.LineFile">LineFile</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysame.cube.cube.process_cube_routes">
+<span class="sig-prename descclassname"><span class="pre">sysame.cube.cube.</span></span><span class="sig-name descname"><span class="pre">process_cube_routes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voyager_exe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">routes_print_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outputs_routes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#process_cube_routes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.process_cube_routes" title="Link to this definition"></a></dt>
+<dd><p>Parse and format Cube routes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>voyager_exe</strong> (<em>Path</em>) -- Path to voyager executable</p></li>
+<li><p><strong>routes_print_file</strong> (<em>Path</em>) -- Path to Cube routes file</p></li>
+<li><p><strong>outputs_routes_file</strong> (<em>Path</em><em> | </em><em>None</em>) -- Path to output routes file. If None, will use the same path as routes_print_file.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> -- When Cube fails</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysame.cube.cube.network_to_shapefile">
+<span class="sig-prename descclassname"><span class="pre">sysame.cube.cube.</span></span><span class="sig-name descname"><span class="pre">network_to_shapefile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voyager_exe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">links_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projection_string</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#network_to_shapefile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.network_to_shapefile" title="Link to this definition"></a></dt>
+<dd><p>Export Cube network to Links and Nodes shapefiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>voyager_exe</strong> (<em>Path</em>) -- Path to voyager executable</p></li>
+<li><p><strong>network_file</strong> (<em>Path</em>) -- Path to run folder</p></li>
+<li><p><strong>nodes_file</strong> (<em>Path</em>) -- Path to nodes shapefile</p></li>
+<li><p><strong>links_file</strong> (<em>Path</em>) -- Path to links shapefile</p></li>
+<li><p><strong>projection_string</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) -- projection string to use for shapefiles</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> -- When Cube fails</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysame.cube.cube.export_network_to_csvs">
+<span class="sig-prename descclassname"><span class="pre">sysame.cube.cube.</span></span><span class="sig-name descname"><span class="pre">export_network_to_csvs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voyager_exe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">links_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#export_network_to_csvs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.export_network_to_csvs" title="Link to this definition"></a></dt>
+<dd><p>Export Cube network to Links and Nodes CSVs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>voyager_exe</strong> (<em>Path</em>) -- Path to voyager executable</p></li>
+<li><p><strong>network_file</strong> (<em>Path</em>) -- Path to run folder</p></li>
+<li><p><strong>nodes_file</strong> (<em>Path</em>) -- Path to nodes CSV</p></li>
+<li><p><strong>links_file</strong> (<em>Path</em>) -- Path to links CSV</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> -- When Cube fails</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysame.cube.cube.build_network_from_csvs">
+<span class="sig-prename descclassname"><span class="pre">sysame.cube.cube.</span></span><span class="sig-name descname"><span class="pre">build_network_from_csvs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voyager_exe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">links_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">network_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">links_var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_var</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#build_network_from_csvs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.build_network_from_csvs" title="Link to this definition"></a></dt>
+<dd><p>Build Cube network from links and nodes CSVs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>voyager_exe</strong> (<em>Path</em>) -- Path to voyager executable</p></li>
+<li><p><strong>links_file</strong> (<em>Path</em>) -- Path to links CSV</p></li>
+<li><p><strong>nodes_file</strong> (<em>Path</em>) -- Path to nodes CSV</p></li>
+<li><p><strong>network_path</strong> (<em>Path</em>) -- Path to network folder</p></li>
+<li><p><strong>links_var</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) -- List of Links csv variables, must include &quot;A&quot; and &quot;B&quot;</p></li>
+<li><p><strong>nodes_var</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) -- List of Nodes csv variables, must include &quot;N&quot;, &quot;X&quot; and &quot;Y&quot;</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> -- When Cube fails</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysame.cube.cube.omx_to_mat">
+<span class="sig-prename descclassname"><span class="pre">sysame.cube.cube.</span></span><span class="sig-name descname"><span class="pre">omx_to_mat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voyager_exe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omx_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mat_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#omx_to_mat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.omx_to_mat" title="Link to this definition"></a></dt>
+<dd><p>Convert OMX Matrix to Cube MAT matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>voyager_exe</strong> (<em>Path</em>) -- Path to voyager executable</p></li>
+<li><p><strong>omx_path</strong> (<em>Path</em>) -- Path to OMX matrix file</p></li>
+<li><p><strong>mat_path</strong> (<em>Path</em>) -- Path to Cube MAT matrix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> -- When Cube fails</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysame.cube.cube.mat_to_omx">
+<span class="sig-prename descclassname"><span class="pre">sysame.cube.cube.</span></span><span class="sig-name descname"><span class="pre">mat_to_omx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voyager_exe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mat_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omx_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#mat_to_omx"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.mat_to_omx" title="Link to this definition"></a></dt>
+<dd><p>Convert Cube .MAT to OMX Matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>voyager_exe</strong> (<em>Path</em>) -- Path to voyager executable</p></li>
+<li><p><strong>mat_path</strong> (<em>Path</em>) -- Path to Cube MAT matrix</p></li>
+<li><p><strong>omx_path</strong> (<em>Path</em>) -- Path to OMX matrix file</p></li>
+<li><p><strong>compression</strong> (<em>int</em><em>, </em><em>default 0</em>) -- Compression level of output matrix</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>RuntimeError</strong> -- When Cube fails</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysame.cube.cube.parse_cube_zones_character">
+<span class="sig-prename descclassname"><span class="pre">sysame.cube.cube.</span></span><span class="sig-name descname"><span class="pre">parse_cube_zones_character</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cube_range</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#parse_cube_zones_character"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.parse_cube_zones_character" title="Link to this definition"></a></dt>
+<dd><p>Parse Cube format list of zones/ranges into list of zones</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cube_range</strong> (<em>str</em>) -- range of Cube style list/range of zones</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>zones_list</strong> -- list of individual zones</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysame.cube.cube.parse_sqex_file">
+<span class="sig-prename descclassname"><span class="pre">sysame.cube.cube.</span></span><span class="sig-name descname"><span class="pre">parse_sqex_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sqex_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sectors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/cube.html#parse_sqex_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.cube.parse_sqex_file" title="Link to this definition"></a></dt>
+<dd><p>Read Cube's SQEX file and create a lookup dataframe between zones and sectors.</p>
+<p>NOTE: The function currently assumes a full weighting zones&lt;&gt;sectors.
+i.e. if a zone is split weighted across multiple sectors then the function will
+ignore that and take first appearance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sqex_file</strong> (<em>Path</em>) -- path to the sqex file</p></li>
+<li><p><strong>level</strong> (<em>str</em>) -- the zone level either &quot;stn&quot; or &quot;zone&quot;</p></li>
+<li><p><strong>sectors</strong> (<em>str</em>) -- number of sectors</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>sqex_df</strong> -- stn/zone to sectors lookup</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pl.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-sysame.cube.line_parser">Module for parsing Cube linefile into structured dataframes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Node">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sysame.cube.line_parser.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#Node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.Node" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Simple node class for representing network nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>string</strong> (<em>str</em><em> or </em><em>int</em>) -- String representation of the node.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) -- Additional attributes to be assigned to the node.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Node.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#sysame.cube.line_parser.Node.id" title="Link to this definition"></a></dt>
+<dd><p>Node identifier, absolute value from string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Node.stopping">
+<span class="sig-name descname"><span class="pre">stopping</span></span><a class="headerlink" href="#sysame.cube.line_parser.Node.stopping" title="Link to this definition"></a></dt>
+<dd><p>Whether the node is a stopping point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Node._string">
+<span class="sig-name descname"><span class="pre">_string</span></span><a class="headerlink" href="#sysame.cube.line_parser.Node._string" title="Link to this definition"></a></dt>
+<dd><p>Internal storage of the original string representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Node.attrs">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">attrs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.line_parser.Node.attrs" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary with user-defined attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary of custom attributes excluding internal ones.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Node.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#Node.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.Node.copy" title="Link to this definition"></a></dt>
+<dd><p>Create a deep copy of the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A new instance that is a deep copy of this node.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sysame.cube.line_parser.Node" title="sysame.cube.line_parser.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sysame.cube.line_parser.</span></span><span class="sig-name descname"><span class="pre">Line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#Line"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.Line" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Simple line class representing a sequence of nodes.</p>
+<p>A line is a sequence of nodes with its own properties.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em><em> of </em><a class="reference internal" href="#sysame.cube.line_parser.Node" title="sysame.cube.line_parser.Node"><em>Node</em></a>) -- List of node objects that form the line.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) -- Additional attributes to be assigned to the line.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line.nodes">
+<span class="sig-name descname"><span class="pre">nodes</span></span><a class="headerlink" href="#sysame.cube.line_parser.Line.nodes" title="Link to this definition"></a></dt>
+<dd><p>List of nodes that form the line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="#sysame.cube.line_parser.Node" title="sysame.cube.line_parser.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#sysame.cube.line_parser.Line.name" title="Link to this definition"></a></dt>
+<dd><p>Name of the line (set via kwargs).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line.unquoted">
+<span class="sig-name descname"><span class="pre">unquoted</span></span><a class="headerlink" href="#sysame.cube.line_parser.Line.unquoted" title="Link to this definition"></a></dt>
+<dd><p>Class variable that defines values that should not be quoted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line.NodeLabel">
+<span class="sig-name descname"><span class="pre">NodeLabel</span></span><a class="headerlink" href="#sysame.cube.line_parser.Line.NodeLabel" title="Link to this definition"></a></dt>
+<dd><p>Label to identify nodes in string representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>Initialize a line object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>List</em><em>[</em><a class="reference internal" href="#sysame.cube.line_parser.Node" title="sysame.cube.line_parser.Node"><em>Node</em></a><em>]</em>) -- List of node objects that form the line.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) -- Additional attributes to be assigned to the line.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">unquoted</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['T',</span> <span class="pre">'F']</span></em><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">NodeLabel</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'N'</span></em><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line.attrs">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">attrs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.line_parser.Line.attrs" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary with user-defined attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary of line attributes excluding nodes and internal ones.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line.stops">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stops</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sysame.cube.line_parser.Node" title="sysame.cube.line_parser.Node"><span class="pre">Node</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.line_parser.Line.stops" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of the nodes that are actual stops.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of nodes marked as stopping points.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#sysame.cube.line_parser.Node" title="sysame.cube.line_parser.Node">Node</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line.is_node">
+<span class="sig-name descname"><span class="pre">is_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#Line.is_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.Line.is_node" title="Link to this definition"></a></dt>
+<dd><p>Returns True if n is one of the line's nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<a class="reference internal" href="#sysame.cube.line_parser.Node" title="sysame.cube.line_parser.Node"><em>Node</em></a><em> or </em><em>int</em>) -- Node or node ID to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the node is part of the line, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line.is_stop">
+<span class="sig-name descname"><span class="pre">is_stop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#Line.is_stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.Line.is_stop" title="Link to this definition"></a></dt>
+<dd><p>Returns True if line stops at n.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>n</strong> (<a class="reference internal" href="#sysame.cube.line_parser.Node" title="sysame.cube.line_parser.Node"><em>Node</em></a><em> or </em><em>int</em>) -- Node or node ID to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the node is a stopping point on the line, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line.stop_seq">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stop_seq</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#sysame.cube.line_parser.Line.stop_seq" title="Link to this definition"></a></dt>
+<dd><p>Returns a concatenation of line's stops.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sep</strong> (<em>str</em><em>, </em><em>default=&quot;_&quot;</em>) -- Separator to use between stop IDs.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Concatenated string of stop IDs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line.from_string">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">potential_seps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#Line.from_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.Line.from_string" title="Link to this definition"></a></dt>
+<dd><p>Parse a string representation into a line object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>string</strong> (<em>str</em>) -- String to parse.</p></li>
+<li><p><strong>potential_seps</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em><em>, </em><em>default=None</em>) -- List of potential separators to detect.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parsed line object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#sysame.cube.line_parser.Line" title="sysame.cube.line_parser.Line">Line</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>AssertionError</strong> -- If invalid node declarations are found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.Line.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#Line.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.Line.copy" title="Link to this definition"></a></dt>
+<dd><p>Create a deep copy of the line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A new instance that is a deep copy of this line.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sysame.cube.line_parser.Line" title="sysame.cube.line_parser.Line">Line</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sysame.cube.line_parser.</span></span><span class="sig-name descname"><span class="pre">LineFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#LineFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.LineFile" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class representing a file of lines.</p>
+<p>A LineFile is a collection of line objects and comments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>content</strong> (<em>list</em><em> of </em><em>(</em><a class="reference internal" href="#sysame.cube.line_parser.Line" title="sysame.cube.line_parser.Line"><em>Line</em></a><em> or </em><em>str</em><em>)</em><em>, </em><em>optional</em>) -- List of line objects and comment strings.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.content">
+<span class="sig-name descname"><span class="pre">content</span></span><a class="headerlink" href="#sysame.cube.line_parser.LineFile.content" title="Link to this definition"></a></dt>
+<dd><p>List containing line objects and comment strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of (<a class="reference internal" href="#sysame.cube.line_parser.Line" title="sysame.cube.line_parser.Line">Line</a> or str)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.content_duplicates_renamed">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">content_duplicates_renamed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sysame.cube.line_parser.Line" title="sysame.cube.line_parser.Line"><span class="pre">Line</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.line_parser.LineFile.content_duplicates_renamed" title="Link to this definition"></a></dt>
+<dd><p>Returns the LineFile's content with duplicated NAMEs renamed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Copy of content with renamed lines.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.rename_duplicates">
+<span class="sig-name descname"><span class="pre">rename_duplicates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#LineFile.rename_duplicates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.LineFile.rename_duplicates" title="Link to this definition"></a></dt>
+<dd><p>Changes the LineFile's content to avoid lines with duplicated NAMEs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.name_unique">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name_unique</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#sysame.cube.line_parser.LineFile.name_unique" title="Link to this definition"></a></dt>
+<dd><p>Returns True if lines' property &quot;NAME&quot; is a unique identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if all line names are unique, False otherwise.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.comments">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">comments</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.line_parser.LineFile.comments" title="Link to this definition"></a></dt>
+<dd><p>Returns the list of comments in the file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>All comments in the file.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.lines">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lines</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#sysame.cube.line_parser.Line" title="sysame.cube.line_parser.Line"><span class="pre">Line</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.line_parser.LineFile.lines" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary of lines by NAME.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary of lines with NAME as key.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, <a class="reference internal" href="#sysame.cube.line_parser.Line" title="sysame.cube.line_parser.Line">Line</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.lines_duplicates_renamed">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lines_duplicates_renamed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#sysame.cube.line_parser.Line" title="sysame.cube.line_parser.Line"><span class="pre">Line</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.line_parser.LineFile.lines_duplicates_renamed" title="Link to this definition"></a></dt>
+<dd><p>Returns a dictionary of lines with duplicated NAMEs renamed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary of lines with NAME as key, duplicates renamed.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dict[str, <a class="reference internal" href="#sysame.cube.line_parser.Line" title="sysame.cube.line_parser.Line">Line</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.line_names">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">line_names</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sysame.cube.line_parser.LineFile.line_names" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of line names as strings.</p>
+<p>Preserves order. May contain duplicates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of line names.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>List[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#LineFile.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.LineFile.copy" title="Link to this definition"></a></dt>
+<dd><p>Create a deep copy of the LineFile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A new instance that is a deep copy of this LineFile.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#sysame.cube.line_parser.LineFile" title="sysame.cube.line_parser.LineFile">LineFile</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">comments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_node_attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_line_attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rename_duplicates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#LineFile.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.LineFile.save" title="Link to this definition"></a></dt>
+<dd><p>Save the LineFile to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) -- Path to the output file.</p></li>
+<li><p><strong>sort</strong> (<em>bool</em><em>, </em><em>default=False</em>) -- If True, sorts the output.</p></li>
+<li><p><strong>comments</strong> (<em>bool</em><em>, </em><em>default=True</em>) -- If True, includes comments in the output.</p></li>
+<li><p><strong>node_attrs</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) -- List of node attributes to include.</p></li>
+<li><p><strong>exclude_node_attrs</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) -- List of node attributes to omit.</p></li>
+<li><p><strong>line_attrs</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) -- List of line attributes to include.</p></li>
+<li><p><strong>exclude_line_attrs</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) -- List of line attributes to omit.</p></li>
+<li><p><strong>rename_duplicates</strong> (<em>bool</em><em>, </em><em>default=True</em>) -- If True, renames duplicate line names.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.lines_by_attr">
+<span class="sig-name descname"><span class="pre">lines_by_attr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#LineFile.lines_by_attr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.LineFile.lines_by_attr" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of lines having a specific value in an attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>attr</strong> (<em>str</em>) -- Attribute name to check.</p></li>
+<li><p><strong>val</strong> (<em>Any</em>) -- Value to match.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of lines that match the criteria.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#sysame.cube.line_parser.Line" title="sysame.cube.line_parser.Line">Line</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.lines_query">
+<span class="sig-name descname"><span class="pre">lines_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#LineFile.lines_query"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.LineFile.lines_query" title="Link to this definition"></a></dt>
+<dd><p>Returns a list of lines meeting a SQL-like query.</p>
+<dl class="simple">
+<dt>This relies on pandas DataFrame query:</dt><dd><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.query.html">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.query.html</a></p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>qry</strong> (<em>str</em>) -- SQL-like query string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of lines that match the query.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#sysame.cube.line_parser.Line" title="sysame.cube.line_parser.Line">Line</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.df">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">df</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#sysame.cube.line_parser.LineFile.df" title="Link to this definition"></a></dt>
+<dd><p>Returns a dataframe with the attributes for each line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame containing line attributes as columns.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.from_string">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#LineFile.from_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.LineFile.from_string" title="Link to this definition"></a></dt>
+<dd><p>Create a LineFile from a string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) -- String representation of a line file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parsed LineFile object.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#sysame.cube.line_parser.LineFile" title="sysame.cube.line_parser.LineFile">LineFile</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.cube.line_parser.LineFile.read_file">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/cube/line_parser.html#LineFile.read_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.cube.line_parser.LineFile.read_file" title="Link to this definition"></a></dt>
+<dd><p>Read a line file from disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em>) -- Path to the file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parsed LineFile object from the file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#sysame.cube.line_parser.LineFile" title="sysame.cube.line_parser.LineFile">LineFile</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../contributing.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="matrix.html" class="btn btn-neutral float-right" title="Matrix Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, sysame.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

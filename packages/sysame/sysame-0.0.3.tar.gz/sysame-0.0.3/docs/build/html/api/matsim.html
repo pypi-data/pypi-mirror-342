@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="python" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MATSim Module &mdash; sysame 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c0b50fd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plotting Module" href="plotting.html" />
+    <link rel="prev" title="Matrix Module" href="matrix.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            sysame
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api.html">API Reference Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="cube.html">Cube Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrix.html">Matrix Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MATSim Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#matsim-module-components">MATSim Module Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser"><code class="docutils literal notranslate"><span class="pre">NetworkParser</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.read_network"><code class="docutils literal notranslate"><span class="pre">NetworkParser.read_network()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.write_network"><code class="docutils literal notranslate"><span class="pre">NetworkParser.write_network()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.get_crs"><code class="docutils literal notranslate"><span class="pre">NetworkParser.get_crs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.set_crs"><code class="docutils literal notranslate"><span class="pre">NetworkParser.set_crs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.get_attributes"><code class="docutils literal notranslate"><span class="pre">NetworkParser.get_attributes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.set_attribute"><code class="docutils literal notranslate"><span class="pre">NetworkParser.set_attribute()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.get_nodes_df"><code class="docutils literal notranslate"><span class="pre">NetworkParser.get_nodes_df()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.get_links_df"><code class="docutils literal notranslate"><span class="pre">NetworkParser.get_links_df()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.update_from_dfs"><code class="docutils literal notranslate"><span class="pre">NetworkParser.update_from_dfs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.from_dataframes"><code class="docutils literal notranslate"><span class="pre">NetworkParser.from_dataframes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.create_from_dataframes"><code class="docutils literal notranslate"><span class="pre">NetworkParser.create_from_dataframes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser.add_node"><code class="docutils literal notranslate"><span class="pre">NetworkParser.add_node()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sysame.matsim.matsim_network.load_network"><code class="docutils literal notranslate"><span class="pre">load_network()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="saturn.html">SATURN Module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">sysame</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MATSim Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/matsim.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="matsim-module">
+<h1>MATSim Module<a class="headerlink" href="#matsim-module" title="Link to this heading"></a></h1>
+<section id="matsim-module-components">
+<span id="module-sysame.matsim"></span><h2>MATSim Module Components<a class="headerlink" href="#matsim-module-components" title="Link to this heading"></a></h2>
+<p id="module-sysame.matsim.matsim_network">Provides functionality for parsing, manipulating, and visualizing
+MATSim network XML files. Handles conversion between XML and graph representations.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sysame.matsim.matsim_network.</span></span><span class="sig-name descname"><span class="pre">NetworkParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for parsing, manipulating and visualizing MATSim network files.</p>
+<p>Initialize the NetworkParser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em><em>]</em><em>, </em><em>default None</em>) -- Optional path to a MATSim network XML file. Can be .xml or .xml.gz.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.read_network">
+<span class="sig-name descname"><span class="pre">read_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.read_network"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.read_network" title="Link to this definition"></a></dt>
+<dd><p>Read a MATSim network XML file and parse it into a NetworkX graph.</p>
+<p>Supports both plain XML and gzipped XML files (.xml.gz).
+Preserves all attributes from the XML file, allowing for custom attributes
+beyond the standard MATSim ones.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em><em>]</em><em>, </em><em>default None</em>) -- Path to the MATSim network XML file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A NetworkX directed graph representing the network.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nx.DiGraph</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> -- When no filepath is provided.</p></li>
+<li><p><strong>FileNotFoundError</strong> -- When the specified file doesn't exist.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.write_network">
+<span class="sig-name descname"><span class="pre">write_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.write_network"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.write_network" title="Link to this definition"></a></dt>
+<dd><p>Write the current network to a MATSim XML file.</p>
+<p>Supports writing to both plain XML and gzipped XML files (.xml.gz).
+Preserves all custom attributes when writing to XML.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em><em>]</em><em>, </em><em>default None</em>) -- Path where to save the MATSim network XML file.</p></li>
+<li><p><strong>compress</strong> (<em>bool</em><em>, </em><em>default False</em>) -- If True, compress the output file using gzip (.xml.gz).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> -- When no filepath is provided and no default filepath is set.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.get_crs">
+<span class="sig-name descname"><span class="pre">get_crs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.get_crs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.get_crs" title="Link to this definition"></a></dt>
+<dd><p>Get the coordinate reference system of the network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The coordinate reference system (CRS) string, defaults to EPSG:4326 if not specified</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.set_crs">
+<span class="sig-name descname"><span class="pre">set_crs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.set_crs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.set_crs" title="Link to this definition"></a></dt>
+<dd><p>Set the coordinate reference system of the network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>crs</strong> (<em>str</em>) -- The coordinate reference system (CRS) string, e.g., &quot;EPSG:4326&quot;</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.get_attributes">
+<span class="sig-name descname"><span class="pre">get_attributes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.get_attributes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.get_attributes" title="Link to this definition"></a></dt>
+<dd><p>Get all network attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dictionary of network attributes</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.set_attribute">
+<span class="sig-name descname"><span class="pre">set_attribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.set_attribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.set_attribute" title="Link to this definition"></a></dt>
+<dd><p>Set a network attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- Name of the attribute</p></li>
+<li><p><strong>value</strong> (<em>Any</em>) -- Value of the attribute</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.get_nodes_df">
+<span class="sig-name descname"><span class="pre">get_nodes_df</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.get_nodes_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.get_nodes_df" title="Link to this definition"></a></dt>
+<dd><p>Get nodes as a polars DataFrame.</p>
+<p>All node attributes are included in the DataFrame, including any custom attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame with node data</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pl.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.get_links_df">
+<span class="sig-name descname"><span class="pre">get_links_df</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.get_links_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.get_links_df" title="Link to this definition"></a></dt>
+<dd><p>Get links as a polars DataFrame.</p>
+<p>All link attributes are included in the DataFrame, including any custom attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame with link data</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pl.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.update_from_dfs">
+<span class="sig-name descname"><span class="pre">update_from_dfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">links_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.update_from_dfs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.update_from_dfs" title="Link to this definition"></a></dt>
+<dd><p>Update the network from modified polars DataFrames.</p>
+<p>This allows you to make changes to the network data using polars operations,
+then synchronize those changes back to the NetworkParser's internal representation.
+Preserves all custom attributes in both nodes and links.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>links_df</strong> (<em>pl.DataFrame</em>) -- DataFrame containing the updated link data. Must contain at least 'id',
+'from_node', and 'to_node' columns.</p></li>
+<li><p><strong>nodes_df</strong> (<em>Optional</em><em>[</em><em>pl.DataFrame</em><em>]</em><em>, </em><em>default None</em>) -- Optional DataFrame containing the updated node data. Must contain at least
+'id', 'x', and 'y' columns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> -- When required columns are missing from the DataFrames</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.from_dataframes">
+<span class="sig-name descname"><span class="pre">from_dataframes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">links_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.from_dataframes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.from_dataframes" title="Link to this definition"></a></dt>
+<dd><p>Create a network from nodes and links DataFrames.</p>
+<p>This method allows you to completely create or replace a network using
+polars DataFrames for nodes and links.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes_df</strong> (<em>pl.DataFrame</em>) -- DataFrame containing node data. Must contain at least 'id', 'x', and 'y' columns.</p></li>
+<li><p><strong>links_df</strong> (<em>pl.DataFrame</em>) -- DataFrame containing link data. Must contain at least 'id', 'from_node', and
+'to_node' columns.</p></li>
+<li><p><strong>attributes</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em><em>, </em><em>default None</em>) -- Optional dictionary of network attributes, including coordinateReferenceSystem</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> -- When required columns are missing from the DataFrames</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.create_from_dataframes">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_from_dataframes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">links_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.create_from_dataframes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.create_from_dataframes" title="Link to this definition"></a></dt>
+<dd><p>Create a new NetworkParser instance from nodes and links DataFrames.</p>
+<p>This is a convenience class method to create a network directly from DataFrames
+without needing to first create an empty NetworkParser instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes_df</strong> (<em>pl.DataFrame</em>) -- DataFrame containing node data. Must contain at least 'id', 'x', and 'y' columns.</p></li>
+<li><p><strong>links_df</strong> (<em>pl.DataFrame</em>) -- DataFrame containing link data. Must contain at least 'id', 'from_node', and
+'to_node' columns.</p></li>
+<li><p><strong>attributes</strong> (<em>Optional</em><em>[</em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em><em>, </em><em>default None</em>) -- Optional dictionary of network attributes, including coordinateReferenceSystem</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new NetworkParser instance with the network built from the DataFrames</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser" title="sysame.matsim.matsim_network.NetworkParser">NetworkParser</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> -- When required columns are missing from the DataFrames</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.NetworkParser.add_node">
+<span class="sig-name descname"><span class="pre">add_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">attributes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#NetworkParser.add_node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.NetworkParser.add_node" title="Link to this definition"></a></dt>
+<dd><p>Add a new node to the network with arbitrary attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node_id</strong> (<em>str</em>) -- Unique identifier for the node</p></li>
+<li><p><strong>x</strong> (<em>float</em>) -- X-coordinate of the node</p></li>
+<li><p><strong>y</strong> (<em>float</em>) -- Y-coordinate of the node</p></li>
+<li><p><strong>**attributes</strong> -- Any additional attributes to store with the node</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> -- If a node with this ID already exists</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sysame.matsim.matsim_network.load_network">
+<span class="sig-prename descclassname"><span class="pre">sysame.matsim.matsim_network.</span></span><span class="sig-name descname"><span class="pre">load_network</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sysame/matsim/matsim_network.html#load_network"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sysame.matsim.matsim_network.load_network" title="Link to this definition"></a></dt>
+<dd><p>Load a MATSim network file.</p>
+<p>Supports both plain XML and gzipped XML files (.xml.gz).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>Path</em><em>]</em>) -- Path to the MATSim network XML file (can be .xml or .xml.gz)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>NetworkParser instance with loaded network</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#sysame.matsim.matsim_network.NetworkParser" title="sysame.matsim.matsim_network.NetworkParser">NetworkParser</a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>FileNotFoundError</strong> -- When the specified file doesn't exist</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="matrix.html" class="btn btn-neutral float-left" title="Matrix Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="plotting.html" class="btn btn-neutral float-right" title="Plotting Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, sysame.com.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
