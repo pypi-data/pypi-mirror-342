@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "bayesline-api"
+version = "0.0.12post1"
+description = ""
+authors = []
+packages = [
+  {include = "bayesline", from = "src"}
+]
+
+[tool.poetry_bumpversion.file."src/bayesline/api/__init__.py"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.6.3"
+polars = "^1.23.0"
+
+[tool.poetry.group.test.dependencies]
+noop = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+pytest-asyncio = "^0.24.0"
+coverage = {extras = ["toml"], version = "^7.6.12"}
+pytest-cov = "^6.0.0"
+black = "^25.1.0"
+flake8 = "^7.1.1"
+flake8-bandit = "^4.1.1"
+flake8-black = "^0.3.6"
+flake8-bugbear = "^24.12.12"
+flake8-isort = "^6.1.2"
+flake8-eradicate = "^1.5.0"
+flake8-docstrings = "*"
+mypy = "^1.15.0"
+isort = "^6.0.0"
+
+[tool.poetry.group.mypy.dependencies]
+pandas-stubs = "^2.2.3.241126"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["bayesline"]
+
+[tool.coverage.report]
+show_missing = false
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
