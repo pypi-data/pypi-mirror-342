@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: eureka-mcp
+Version: 0.1.16
+Summary: Eureka MCP - search Spring Cloud Eureka servers for debugging
+Author-email: czyhandsome <czyhandsome@foxmail.com>
+License: MIT
+Keywords: eureka,mcp,protocol,server,spring-cloud
+Requires-Python: >=3.12
+Requires-Dist: mcp-python>=0.1.4
+Requires-Dist: requests>=2.32.3
+Description-Content-Type: text/markdown
+
+# MCP Eureka Server
+
+A specialized MCP server that searches Spring Cloud Eureka servers for debugging services.
+
+## Installation
+
+```bash
+pip install eureka-mcp
+```
+
+## Usage
+
+```bash
+# Run the server directly
+eureka-mcp
+
+# Or using uvx
+uvx eureka-mcp
+``` 
