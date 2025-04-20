@@ -1,0 +1,26 @@
+[project]
+name = "evlog"
+version = "0.1.5"
+authors = [
+        { name="Jeffrey Serio", email="hyperreal@moonshadow.dev" },
+]
+description = "A utility for logging daily events and tasks."
+readme = "README.md"
+requires-python = ">=3.10"
+classififers = [
+             "Programming Language :: Python :: 3",
+             "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+             "Operating System :: OS Independent",
+]
+dependencies = ["jsonschema>=4.17.0", "rich>=12.6.0"]
+
+[project.scripts]
+elog = "evlog:main"
+
+[project.urls]
+Homepage = "https://git.hyperreal.coffee/hyperreal/daily-event-logger"
+Issues = "https://git.hyperreal.coffee/hyperreal/daily-event-logger/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
