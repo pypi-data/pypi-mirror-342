@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: django-contentor-video-processor
+Version: 0.7.0
+Summary: A reusable Django app for integrating video processing capabilities to your video models
+Author-email: Taha Yusuf Kömür <tahayusufkomur@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/tahayusufkomur/django-contentor-video-processor
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: django>=3.2
+Dynamic: license-file
