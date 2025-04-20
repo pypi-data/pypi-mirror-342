@@ -1,0 +1,2 @@
+[ckan.plugins]
+iiif = ckanext.iiif.plugin:IIIFPlugin
