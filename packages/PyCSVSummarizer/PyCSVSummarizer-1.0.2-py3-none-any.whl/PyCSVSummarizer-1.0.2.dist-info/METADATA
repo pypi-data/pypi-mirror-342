@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: PyCSVSummarizer
+Version: 1.0.2
+Summary: A lightweight tool to summarize CSV files using various features.
+Author: Md. Ismiel Hossen Abir
+Author-email: ismielabir1971@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: License
+
+# PyCSVSummarizer
+
+A simple Python package to **summarize CSV files** using various features.
+
+---
+
+## Features
+- Total Rows and Columns
+- Column Names
+- File Size
+- Estimated Memory Usage
+- Null Counts and Percentages
+- Duplicate Rows
+- Top Frequent Values
+- Unique Values Per Column
+- Numeric vs Categorical Columns
+- Basic Stats (mean, min, max)
+- Columns with Constant Values
+- Largest Columns by Memory
+
+---
+
+## Installation
+
+```bash
+pip install PyCSVSummarizer
+```
+
+## Usage
+
+```bash
+from PyCSVSummarizer import CSVSummarize
+
+CSVSummarize('path_to_your_file.csv')
+```
