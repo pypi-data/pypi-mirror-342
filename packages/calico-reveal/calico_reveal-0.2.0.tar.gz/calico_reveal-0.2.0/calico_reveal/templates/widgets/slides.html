@@ -1,0 +1,51 @@
+{% if object.metadata.reveal_css %}
+  {% for css in object.metadata.reveal_css %}
+    <link rel="stylesheet" href="{% static_or_not css %}">
+  {% endfor %}
+{% else %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reset.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/theme/black.min.css">
+{% endif %}
+
+{% if object.metadata.reveal_js %}
+  {% for js in object.metadata.reveal_js %}
+    <script defer src="{% static_or_not js %}"></script>
+  {% endfor %}
+{% else %}
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/reveal.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.1/plugin/markdown/markdown.min.js"></script>
+{% endif %}
+
+<div class="reveal">
+	<div class="slides">
+    <section
+      data-markdown 
+      data-separator="{{object.metadata.reveal_separator|default:'^\r?\n---\r?\n$'}}"
+      data-separator-notes="{{object.metadata.reveal_separator_notes|default:'notes?:'}}"
+      {% if object.metadata.reveal_separator_vertical %}data-separator-vertical="{{object.metadata.reveal_separator_vertical}}"{% endif %}
+    >
+      <textarea data-template>
+        {{section.content|raw_include}}
+      </textarea>
+    </object.metadata>
+	</div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    Reveal.initialize({
+      hash: {%if object.metadata.reveal_no_hash == "True" %}false{% else %}true{% endif %},
+      history: {%if object.metadata.reveal_no_history == "True" %}false{% else %}true{% endif %},
+      width: {{object.metadata.reveal_width|default:1920}},
+      height: {{object.metadata.reveal_height|default:1080}},
+      margin: {{object.metadata.reveal_margin|default:0.05}},
+      minScale: {{object.metadata.reveal_min_scale|default:0.1}},
+      maxScale: {{object.metadata.reveal_max_scale|default:4}},
+      embedded: true,
+      plugins: [
+        {{object.metadata.reveal_plugins|default:'RevealMarkdown'}}
+      ],
+    });
+  });
+</script>

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "calico-reveal"
+version = "0.2.0"
+description = "A Calico plugin for a reveal.js widget"
+readme = "README.md"
+authors = [{name = "Emma Delescolle"}]
+license = {text = "MIT"}
+classifiers = [
+    "Framework :: Django :: 5",
+    "License :: OSI Approved :: MIT License"
+]
+dependencies = [
+    "calico_ssg",
+]
+
+[project.urls]
+Homepage = "https://calico-ssg.com"
+
+[project.entry-points.djp]
+calico_reveal = "calico_reveal"
+
+[tool.setuptools.package-data]
+"*" = ["*.html", "*.js", "*.css"]

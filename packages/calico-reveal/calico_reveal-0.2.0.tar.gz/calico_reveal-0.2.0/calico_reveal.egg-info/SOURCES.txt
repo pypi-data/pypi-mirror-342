@@ -1,0 +1,12 @@
+.gitignore
+README.md
+pyproject.toml
+calico_reveal/__init__.py
+calico_reveal/apps.py
+calico_reveal.egg-info/PKG-INFO
+calico_reveal.egg-info/SOURCES.txt
+calico_reveal.egg-info/dependency_links.txt
+calico_reveal.egg-info/entry_points.txt
+calico_reveal.egg-info/requires.txt
+calico_reveal.egg-info/top_level.txt
+calico_reveal/templates/widgets/slides.html
