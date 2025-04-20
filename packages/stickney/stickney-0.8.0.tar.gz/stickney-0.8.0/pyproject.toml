@@ -1,0 +1,116 @@
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[project]
+authors = [
+    { name = "Lura Skye", email = "fuyukaii@proton.me" },
+]
+requires-python = ">=3.13"
+dependencies = [
+    "wsproto>=1.2.0",
+    "anyio>=4.1.0",
+    "attrs>=23.1.0",
+]
+name = "stickney"
+dynamic = []
+description = "Asynchronous websockets library"
+readme = "README.rst"
+version = "0.8.0"
+
+[project.license]
+text = "LGPL-3.0-or-later"
+
+[dependency-groups]
+dev = [
+    "trio>=0.22.2",
+    "pytest>=7.4.3",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.5",
+    "mypy>=1.7.0",
+    "pyright<2.0.0,>=1.1.339",
+]
+
+[tool.pdm.version]
+source = "scm"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "trio>=0.22.2",
+    "pytest>=7.4.3",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.5",
+    "mypy>=1.7.0",
+    "pyright>=1.1.339",
+]
+
+[tool.pdm.build]
+includes = [
+    "src/stickney",
+]
+
+[tool.pyright]
+pythonVersion = "3.13"
+include = [
+    "src",
+    "tests",
+]
+typeCheckingMode = "strict"
+reportImplicitOverride = "warning"
+reportUnusedVariable = false
+reportIncompatibleVariableOverride = false
+reportPrivateUsage = false
+
+[tool.ruff]
+target-version = "py313"
+respect-gitignore = true
+src = [
+    "src/stickney",
+    "tests/",
+]
+line-length = 100
+indent-width = 4
+output-format = "full"
+preview = true
+
+[tool.ruff.lint]
+select = [
+    "RUF",
+    "F",
+    "E",
+    "W",
+    "I",
+    "UP",
+    "B",
+    "Q",
+    "YTT",
+    "PYI",
+    "SIM",
+    "RET",
+    "PERF",
+    "PIE",
+    "SIM",
+    "C4",
+    "FA",
+    "ICN",
+    "PYI",
+    "PT",
+    "RET",
+    "D201",
+    "D204",
+    "D211",
+    "D419",
+]
+ignore = [
+    "W291",
+    "W293",
+    "UP038",
+    "RUF036",
+    "SIM108",
+    "W391",
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
