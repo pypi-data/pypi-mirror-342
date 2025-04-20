@@ -1,0 +1,15 @@
+funJplot/__init__.py,sha256=6QbkUo6kpIJzayXFR9VIhlBa49fT5NXHbSKndrw3UqE,384
+funJplot/base.py,sha256=2QnCZPf9DJiKmKxnUMDqE1BmrWQAeXMRAdcVRO2drX8,1739
+funJplot/matrix/__init__.py,sha256=-LIvXRpn7sxtEF5SgAsmUeu5otEREb8N-9ga6w-oMdk,88
+funJplot/matrix/geometrics_transpose.py,sha256=gvT1-JWtD95qRTHcJCX3S_NZfyks4Df48Dqt1RuMVLE,4993
+funJplot/parametric_curves/__init__.py,sha256=JswNP_sHAGIi4uBQRC58CaJ35O2scKf0BQ5T7A7DE0s,254
+funJplot/parametric_curves/base.py,sha256=1c9rybX6Ey9JZVghsMU3fyQ9Lsl74QzBaHNHlPKealg,3217
+funJplot/parametric_curves/curves.py,sha256=ZUfS10E7PyuGW_JtyHm4nnzCzUbUZAvrhZlzRkCrmeY,3149
+funJplot/parametric_curves/curves3d.py,sha256=Tl5nUZllSmOTBZx8CU-W9kG40X8JqcUpgRfskywgETc,2130
+funJplot/utils/data_retriving_tools.py,sha256=h7pBesX5WBAxX-1oOfIZMQHOHcca4rt9C5YUe0Cw3SA,6303
+funJplot/utils/test.py,sha256=mhr1uFX3-fojwMhFyTEdsnWw0-8vDWWqwoffknkkJrs,8234
+funjplot-0.0.0.5.dist-info/licenses/LICENSE,sha256=5A5BC5sXebEn3IKeVB2Tr8z3WTL28bMOL06EFaxhH4s,1073
+funjplot-0.0.0.5.dist-info/METADATA,sha256=BtoAnufSxZg_xU55wvQ-dPj5tYrAmgzkrg4gKFUVwXs,6565
+funjplot-0.0.0.5.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+funjplot-0.0.0.5.dist-info/top_level.txt,sha256=reeK3f7S3j0HFyS20aheDoWLTLWl7RBwMJJIi0SMJ7E,9
+funjplot-0.0.0.5.dist-info/RECORD,,
