@@ -1,0 +1,52 @@
+Metadata-Version: 2.4
+Name: yesdomaininfo
+Version: 2.0.0
+Summary: Professional Domain Investigation Tool
+Home-page: https://github.com/yesvanshzoffical/yesdomainfinder
+Author: YesVanshz
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: dnspython
+Requires-Dist: python-whois
+Requires-Dist: rich
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# YesDomainInfo 🔍
+
+A Professional Domain Investigation Tool — powered by Python!
+
+---
+
+## 🌐 About
+
+**YesDomainInfo** is a lightweight and powerful Python package designed to help developers, sysadmins, and cybersecurity researchers fetch domain information easily.
+
+Whether you’re validating domains, checking ownership, or performing security checks, `YesDomainInfo` simplifies the process into one command.
+
+---
+
+## ⚡ Features
+
+- Fetch WHOIS data of any domain.
+- Get DNS records (A, MX, NS, TXT, etc.).
+- Check domain availability.
+- Rich CLI output with colored formatting.
+- Lightweight, fast and beginner-friendly.
+
+---
+
+## 💻 Installation
+
+Install directly via pip:
+
+```bash
+pip install yesdomaininfo
