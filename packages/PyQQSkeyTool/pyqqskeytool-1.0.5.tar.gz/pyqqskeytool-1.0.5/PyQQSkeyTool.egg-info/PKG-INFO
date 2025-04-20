@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: PyQQSkeyTool
+Version: 1.0.5
+Summary: ****
+Home-page: https://github.com/sun589/PyQQSkeyTool
+Author: sun589
+Author-email: goodluck1787@outlook.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+License-File: LICENSE
+Requires-Dist: requests>=2.25.1
+Requires-Dist: urlextract>=1.6.0
