@@ -1,0 +1,28 @@
+[project]
+name = "bayesian_g_estimator"
+version = "0.1.0"
+description = "Estimate latent traits with Bayesian methods."
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+  { name = "Joseph Bronski", email = "josephbronski7@protonmail.com" }
+]
+requires-python = ">=3.7"
+dependencies = [
+  "matplotlib>=3.0",
+  "numpy>=1.18",
+  "scipy>=1.4"
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/bayesian_g_estimator"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

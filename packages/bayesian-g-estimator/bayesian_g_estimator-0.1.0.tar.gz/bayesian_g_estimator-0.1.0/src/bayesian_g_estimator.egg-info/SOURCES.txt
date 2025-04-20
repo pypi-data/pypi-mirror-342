@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/bayesian_g_estimator/__init__.py
+src/bayesian_g_estimator/core.py
+src/bayesian_g_estimator.egg-info/PKG-INFO
+src/bayesian_g_estimator.egg-info/SOURCES.txt
+src/bayesian_g_estimator.egg-info/dependency_links.txt
+src/bayesian_g_estimator.egg-info/requires.txt
+src/bayesian_g_estimator.egg-info/top_level.txt
