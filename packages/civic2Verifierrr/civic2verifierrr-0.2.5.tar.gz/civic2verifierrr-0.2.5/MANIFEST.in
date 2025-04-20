@@ -1,0 +1,1 @@
+recursive-include src/document_verifier_Silent_Canary *.pt *.yaml *.json

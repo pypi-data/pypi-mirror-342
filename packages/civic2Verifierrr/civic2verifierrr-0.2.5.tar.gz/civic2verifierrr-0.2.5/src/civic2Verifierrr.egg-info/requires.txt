@@ -1,0 +1,11 @@
+opencv-python
+numpy
+pillow
+pytesseract
+face_recognition
+scikit-image
+cmake
+dlib
+ultralytics==8.0.20
+scipy
+opencv-contrib-python
