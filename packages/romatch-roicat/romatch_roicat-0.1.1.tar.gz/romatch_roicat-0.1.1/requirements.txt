@@ -1,0 +1,15 @@
+torch
+einops
+torchvision
+# opencv-python
+opencv-contrib-python-headless
+kornia
+# albumentations  ## Appears to not be used. Removing because it has a opencv dependency
+loguru
+tqdm
+matplotlib
+h5py
+wandb
+timm
+poselib
+#xformers # Optional, used for memefficient attention
