@@ -1,0 +1,5 @@
+[console_scripts]
+micli = miservice.cli:micli
+
+[gui_scripts]
+
