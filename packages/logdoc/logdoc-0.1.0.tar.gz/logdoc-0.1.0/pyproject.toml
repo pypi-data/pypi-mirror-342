@@ -1,0 +1,23 @@
+[project]
+name = "logdoc"
+version = "0.1.0"
+description = "CLI tool for injecting logging and documentation headers into Python files"
+authors = [{name = "Jan Janssens", email = "jan@byterider.be"}]
+dependencies = ["typer[all]"]
+readme = "README.md"
+requires-python = ">=3.8"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+addopts = "--cov=logdoc --cov-report=term-missing"
+
+[tool.ruff]
+line-length = 100
+
+
+

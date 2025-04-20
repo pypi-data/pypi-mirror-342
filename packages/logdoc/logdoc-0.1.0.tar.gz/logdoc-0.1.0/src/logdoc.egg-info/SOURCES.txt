@@ -1,0 +1,17 @@
+pyproject.toml
+src/logdoc/__init__.py
+src/logdoc/cli.py
+src/logdoc/logger.py
+src/logdoc.egg-info/PKG-INFO
+src/logdoc.egg-info/SOURCES.txt
+src/logdoc.egg-info/dependency_links.txt
+src/logdoc.egg-info/requires.txt
+src/logdoc.egg-info/top_level.txt
+src/logdoc/core/__init__.py
+src/logdoc/core/fix_headers.py
+src/logdoc/core/header_injector.py
+src/logdoc/errors/__init__.py
+src/logdoc/errors/logdoc_exceptions.py
+src/logdoc/utils/__init__.py
+src/logdoc/utils/filemeta.py
+tests/test_smoke.py
