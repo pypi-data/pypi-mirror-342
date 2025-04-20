@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: recipe2org
+Version: 0.0.3
+Summary: Scrape a recipe any site supported by recipe-scrapers and convert it to an org file
+Author: scott
+License-Expression: GPL-3.0
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Requires-Dist: recipe-scrapers
+Description-Content-Type: text/markdown
+
+# recipe2org
+
+Convert recipe site recipes to org files for use in org-mode.
