@@ -1,0 +1,5 @@
+__import__("os").system("clear") if __import__("platform").system == "Windows" else __import__("os").system("clear")
+print("IT APPEARS YOU\nHAVE REACHED\n\n   AN END.")
+print("\nof course, the end of pip :3")
+print("welp, congrats! scrolling down to this project in https://pypi.org/simple must be pretty boring, right?")
+print("meanwhile, check out my github: https://github.com/tjf1dev")
