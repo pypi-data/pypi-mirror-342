@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-rag-MiniLM = mcp_server_rag_MiniLM.server:main
