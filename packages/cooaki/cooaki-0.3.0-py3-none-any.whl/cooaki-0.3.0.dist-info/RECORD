@@ -1,0 +1,13 @@
+cooaki-0.3.0.dist-info/METADATA,sha256=EmcRC_2uUilWxPSF6MQmwi6HrVxphRmBdRBJTMYrUxo,3281
+cooaki-0.3.0.dist-info/WHEEL,sha256=tSfRZzRHthuv7vxpI4aehrdN9scLjk-dCJkPLzkHxGg,90
+cooaki-0.3.0.dist-info/entry_points.txt,sha256=6OYgBcLyFCUgeqLgnvMyOJxPCWzgy7se4rLPKtNonMs,34
+cooaki-0.3.0.dist-info/licenses/LICENSE,sha256=gPUiJ9TSIxT1ttYJOGCkZBk1ikEIeCLbUvTf1PU_pAE,1065
+cooaki/__init__.py,sha256=qA0n753cRq2wMSHfSpaybIEm_oYUN23kYSTgji_bHMA,449
+cooaki/__main__.py,sha256=dE4OhbykVPGIX1SryIh5PnoJSsAsl9fn9acPW6cJQj0,4332
+cooaki/akinator/__init__.py,sha256=UNLT1lqdbXhhDQLGtpCtWfaflaVIlSfO8P_MLQbOwB0,253
+cooaki/akinator/base.py,sha256=yBDi2f2GYcB2lFZqjuxnr6yTQhGp3AV0qDENZnHOYMg,7664
+cooaki/akinator/httpx.py,sha256=7Ap0f8mr4OqWGtXrVEa427zgw9IC_O_5bXATwxixXQU,3440
+cooaki/akinator/playwright.py,sha256=nE1DdO630JWatLOWBCNNpFYuostkCpYboBhq9RbBc-k,3295
+cooaki/const.py,sha256=XB2Scza-MIg2Tacd-PcqjoDbdmtPWioEgin43tGFM0k,894
+cooaki/errors.py,sha256=7Aeuxml6JRo_0GVXRGD_uzf9nhlsx4OlpSZ34PGs_QE,89
+cooaki-0.3.0.dist-info/RECORD,,
