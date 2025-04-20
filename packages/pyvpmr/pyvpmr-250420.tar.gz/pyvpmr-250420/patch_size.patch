@@ -1,0 +1,50 @@
+diff --git a/Eigen/src/SVD/BDCSVD.h b/Eigen/src/SVD/BDCSVD.h
+index 6b85d1d5a..f7d023c7a 100644
+--- a/Eigen/src/SVD/BDCSVD.h
++++ b/Eigen/src/SVD/BDCSVD.h
+@@ -30,6 +30,10 @@
+ // IWYU pragma: private
+ #include "./InternalHeaderCheck.h"
+ 
++#include <tbb/parallel_reduce.h>
++
++static tbb::affinity_partitioner ap;
++
+ #ifdef EIGEN_BDCSVD_DEBUG_VERBOSE
+ #include <iostream>
+ #endif
+@@ -805,6 +809,16 @@ template <typename MatrixType, int Options>
+ typename BDCSVD<MatrixType, Options>::RealScalar BDCSVD<MatrixType, Options>::secularEq(
+     RealScalar mu, const ArrayRef& col0, const ArrayRef& diag, const IndicesRef& perm, const ArrayRef& diagShifted,
+     RealScalar shift) {
++  return tbb::parallel_deterministic_reduce(
++      tbb::blocked_range<Index>(Index(0), perm.size()), RealScalar(1),
++      [&](const tbb::blocked_range<Index>& r, RealScalar running_total) {
++        for (auto i = r.begin(); i < r.end(); ++i) {
++          Index j = perm(i);
++          running_total += (col0(j) / (diagShifted(j) - mu)) * (col0(j) / (diag(j) + shift + mu));
++        }
++        return running_total;
++      },
++      std::plus<>());
+   Index m = perm.size();
+   RealScalar res = Literal(1);
+   for (Index i = 0; i < m; ++i) {
+@@ -1155,10 +1169,13 @@ void BDCSVD<MatrixType, Options>::computeSingVecs(const ArrayRef& zhat, const Ar
+       if (m_compV) V.col(k) = VectorType::Unit(n, k);
+     } else {
+       U.col(k).setZero();
+-      for (Index l = 0; l < m; ++l) {
+-        Index i = perm(l);
+-        U(i, k) = zhat(i) / (((diag(i) - shifts(k)) - mus(k))) / ((diag(i) + singVals[k]));
+-      }
++      tbb::parallel_for(
++          Index(0), m,
++          [&](const Index l) {
++            Index i = perm(l);
++            U(i, k) = zhat(i) / (((diag(i) - shifts(k)) - mus(k))) / ((diag(i) + singVals[k]));
++          },
++          ap);
+       U(n, k) = Literal(0);
+       U.col(k).normalize();
+ 
