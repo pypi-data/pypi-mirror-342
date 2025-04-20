@@ -1,0 +1,164 @@
+Metadata-Version: 2.4
+Name: mcp-mem
+Version: 0.1.0
+Summary: An MCP server implementing memory solution for data-rich applications
+Home-page: https://github.com/ddkang1/mcp-mem
+Author: Don Kang
+Author-email: Don Kang <donkang34@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2025 MCP Memory Team
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/ddkang1/mcp-mem
+Project-URL: Bug Tracker, https://github.com/ddkang1/mcp-mem/issues
+Project-URL: Documentation, https://github.com/ddkang1/mcp-mem#readme
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: mcp>=1.2.0
+Requires-Dist: uvicorn>=0.15.0
+Requires-Dist: starlette>=0.17.1
+Requires-Dist: hipporag>=0.1.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.18.0; extra == "dev"
+Requires-Dist: black>=22.1.0; extra == "dev"
+Requires-Dist: isort>=5.10.1; extra == "dev"
+Requires-Dist: mypy>=0.931; extra == "dev"
+Requires-Dist: flake8>=4.0.1; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# MCP Memory
+
+A Model Context Protocol (MCP) server implementing memory solutions for data-rich applications with efficient knowledge graph capabilities.
+
+## Overview
+
+This MCP server implements a memory solution for data-rich applications that involve searching information from many sources including uploaded files. It uses HippoRAG internally to manage memory through an efficient knowledge graph.
+
+## Features
+
+- **Session-based Memory**: Create and manage memory for specific chat sessions
+- **Efficient Knowledge Graph**: Uses HippoRAG for advanced memory management
+- **Multiple Transport Support**: Works with both stdio and SSE transports
+- **Search Capabilities**: Search information from various sources including uploaded files
+
+## Installation
+
+Install from PyPI:
+
+```bash
+pip install mcp-mem
+```
+
+Or install from source:
+
+```bash
+git clone https://github.com/ddkang1/mcp-mem.git
+cd mcp-mem
+pip install -e .
+```
+
+## Usage
+
+You can run the MCP server directly:
+
+```bash
+mcp-mem
+```
+
+By default, it uses stdio transport. To use SSE transport:
+
+```bash
+mcp-mem --sse
+```
+
+You can also specify host and port for SSE transport:
+
+```bash
+mcp-mem --sse --host 127.0.0.1 --port 3001
+```
+
+## Configuration
+
+To use this tool with Claude in Windsurf, add the following configuration to your MCP config file:
+
+```json
+"memory": {
+    "command": "/path/to/mcp-mem",
+    "args": [],
+    "type": "stdio",
+    "pollingInterval": 30000,
+    "startupTimeout": 30000,
+    "restartOnFailure": true
+}
+```
+
+The `command` field should point to the directory where you installed the python package using pip.
+
+## Available Tools
+
+The MCP server provides the following tools:
+
+- **create_memory**: Create a new memory for a given chat session
+- **store_memory**: Add memory to a specific session
+- **retrieve_memory**: Retrieve memory from a specific session
+
+## Development
+
+### Installation for Development
+
+```bash
+git clone https://github.com/ddkang1/mcp-mem.git
+cd mcp-mem
+pip install -e ".[dev]"
+```
+
+### Running Tests
+
+```bash
+pytest
+```
+
+### Code Style
+
+This project uses Black for formatting, isort for import sorting, and flake8 for linting:
+
+```bash
+black src tests
+isort src tests
+flake8 src tests
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
