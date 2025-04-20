@@ -1,0 +1,33 @@
+[project]
+name = "colordoll"
+version = "0.1.5"
+description = "Colorize text and data structures in the terminal with ANSI escape codes and themed decorators."
+authors = [
+    { name = "kai gouthro", email = "777603+kaigouthro@users.noreply.github.com" },
+]
+dependencies = [
+    "setuptools>=78.1.1",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+]
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+Homepage = "https://github.com/kaigouthro/colordoll"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true
+package-dir = "src"
