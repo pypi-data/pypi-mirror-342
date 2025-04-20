@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+django_ignite.egg-info/PKG-INFO
+django_ignite.egg-info/SOURCES.txt
+django_ignite.egg-info/dependency_links.txt
+django_ignite.egg-info/entry_points.txt
+django_ignite.egg-info/requires.txt
+django_ignite.egg-info/top_level.txt
+ignite/__init__.py
+ignite/cli.py
+ignite/env_manager.py
+ignite/project_creator.py
+ignite/utils.py

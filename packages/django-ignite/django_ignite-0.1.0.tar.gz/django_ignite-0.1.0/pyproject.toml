@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-ignite"
+version = "0.1.0"
+description = "CLI tool to scaffold Django projects with modern practices"
+authors = [{ name = "Nazmul Hassan", email = "nazmul.naaz96@gmail.com" }]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "click>=8.0",
+    "InquirerPy>=0.3",
+    "rich>=13.0"
+]
+
+[project.scripts]
+django-ignite = "ignite.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/HassanNazmul/django-ignite"
+Repository = "https://github.com/HassanNazmul/django-ignite"
+Issues = "https://github.com/HassanNazmul/django-ignite"
