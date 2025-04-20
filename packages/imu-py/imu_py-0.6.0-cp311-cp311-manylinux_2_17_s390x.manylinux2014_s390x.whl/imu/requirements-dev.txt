@@ -1,0 +1,14 @@
+# requirements-dev.txt
+
+black
+darglint
+mypy
+pytest
+ruff
+
+# For testing CAN
+python-can
+pyserial
+
+# For plotting
+matplotlib
