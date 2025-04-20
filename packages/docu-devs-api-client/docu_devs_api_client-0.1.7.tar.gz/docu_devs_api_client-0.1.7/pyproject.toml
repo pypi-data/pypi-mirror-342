@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "docu-devs-api-client"
+version = "0.1.7"
+description = "A client library for accessing DocuDevs API"
+authors = ["pj@docudevs.ai"]
+readme = "README.md"
+packages = [
+    {include = "docudevs"},
+]
+include = ["CHANGELOG.md", "docudevs/py.typed"]
+
+[tool.poetry.dependencies]
+python = "<4.0,>=3.9"
+click = "^8.0.0"
+httpx = ">=0.20.0,<0.28.1"
+asyncio = "^3.4.3"
+attrs = ">=21.3.0"
+python-dateutil = "^2.8.0"
+
+[tool.poetry.dev-dependencies]
+openapi-python-client = "^0.24.2"
+pytest = "^8.3.5"
+pytest-asyncio = "^0.26.0"
+ruff = "^0.11.2"
+mypy = "^1.15.0"
+
+[tool.poetry.scripts]
+docudevs = "docudevs.cli:cli"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "B", "I"]
+ignore = []
+target-version = "py39"
+
+[tool.ruff.isort]
+known-first-party = ["docudevs"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
