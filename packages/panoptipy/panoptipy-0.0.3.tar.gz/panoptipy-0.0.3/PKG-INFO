@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: panoptipy
+Version: 0.0.3
+Summary: A Python Package for Static Code Quality Assessment
+Author-email: Anonymous <anon@anon.gmail.com>
+License-Expression: MIT
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click>=8.1.8
+Requires-Dist: gitpython>=3.1.44
+Requires-Dist: loguru>=0.7.3
+Requires-Dist: nbstripout>=0.8.1
+Requires-Dist: pluggy>=1.5.0
+Requires-Dist: pre-commit>=4.2.0
+Requires-Dist: pyarrow>=19.0.1
+Requires-Dist: pydoclint>=0.6.6
+Requires-Dist: quartodoc>=0.9.1
+Requires-Dist: rich>=14.0.0
+Requires-Dist: ruff>=0.11.5
+Requires-Dist: toml>=0.10.2
+Requires-Dist: validate-pyproject[all]>=0.24.1
+Dynamic: license-file
+
+# panoptipy
+
+A Python Package for Static Code Quality Assessment. Use it to analyse your repos and assess their quality.
+
+> ⚠️ Under development; use not currently recommended
+
+![panoptipy logo](docs/logo.svg)
