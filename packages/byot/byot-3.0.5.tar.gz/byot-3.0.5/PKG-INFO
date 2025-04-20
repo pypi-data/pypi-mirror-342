@@ -1,0 +1,20 @@
+Metadata-Version: 2.2
+Name: byot
+Version: 3.0.5
+Summary: Build Your Own Tests.
+Home-page: https://launchpad.net/byot
+Author: Vincent Ladeuil
+Author-email: v.ladeuil+lp@free.fr
+License: GPLv3
+License-File: COPYING
+Requires-Dist: distro
+Requires-Dist: pep8
+Requires-Dist: pyflakes
+Requires-Dist: python-subunit
+Requires-Dist: testtools
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
