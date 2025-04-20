@@ -1,0 +1,2 @@
+[console_scripts]
+nacos-config-mcp = mcpnacos_config.main:main
