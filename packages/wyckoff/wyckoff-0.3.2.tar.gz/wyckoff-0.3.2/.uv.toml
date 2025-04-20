@@ -1,0 +1,8 @@
+[tool]
+name = "uv"
+
+[venv]
+location = ".venv"
+
+[python]
+version = "3.12"
