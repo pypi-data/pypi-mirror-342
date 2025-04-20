@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: lab6_monaco_oleksiisaiun
+Version: 8.1
+Summary: The Python application that implements Monaco Racing Report in OOP format
+Author-email: Oleksii Saiun <oleksiisaiun@example.com>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: black==25.1.0
+Requires-Dist: click==8.1.8
+Requires-Dist: exceptiongroup==1.2.2
+Requires-Dist: flake8==7.1.2
+Requires-Dist: iniconfig==2.1.0
+Requires-Dist: mccabe==0.7.0
+Requires-Dist: mypy-extensions==1.0.0
+Requires-Dist: packaging==24.2
+Requires-Dist: pathspec==0.12.1
+Requires-Dist: platformdirs==4.3.7
+Requires-Dist: pluggy==1.5.0
+Requires-Dist: pycodestyle==2.12.1
+Requires-Dist: pyflakes==3.2.0
+Requires-Dist: pytest==8.3.5
+Requires-Dist: tomli==2.2.1
+Requires-Dist: typing-extensions==4.13.0
+Dynamic: license-file
+
+# Python_Lab_6_OOP_monaco_report
+It's the Python app that implements Monaco Racing Report in OOP format
+
+uv pip install oleksiisaiun_lab6_monaco
+
+
+
+# How publish a package to PyPi using uv from a local computer:
+#1. Go to root folder of this package:
+#2. Run command
+uv build
+uv publish --token [YOUR_PYPI_TOKEN]
