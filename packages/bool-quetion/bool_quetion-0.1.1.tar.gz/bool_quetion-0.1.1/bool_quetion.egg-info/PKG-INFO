@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: bool_quetion
+Version: 0.1.1
+Summary: Módulo para preguntar por sí o por no
+Author-email: Pablo Alejandro Carravetti <gpablinux@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/pablinet/bool_quetion
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# bool_quetion
+Módulo para preguntar por sí o por no
