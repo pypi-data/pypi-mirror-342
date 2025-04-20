@@ -1,0 +1,41 @@
+{
+  "mcpServers": {
+    "e-stat-local": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/hnakano/mygithub/estat-mcp-server/src/estat_mcp_server",
+        "run",
+        "server.py"
+      ],
+      "env": {
+        "E_STAT_APP_ID": "72e856426d4054b9fc2c3237f16f232008d95420"
+      },
+      "disabled": false,
+      "alwaysAllow": []
+    },
+    "e-stat": {
+      "command": "uvx",
+      "args": [
+        "estat-mcp-server"
+      ],
+      "env": {
+        "E_STAT_APP_ID": "72e856426d4054b9fc2c3237f16f232008d95420"
+      },
+      "disabled": true,
+      "alwaysAllow": []
+    },
+    "chroma": {
+      "command": "uvx",
+      "args": [
+        "chroma-mcp",
+        "--client-type",
+        "persistent",
+        "--data-dir",
+        "/Users/hnakano/mygithub/estat-mcp-server/chroma"
+      ],
+      "disabled": true,
+      "alwaysAllow": []
+    }
+  }
+}
