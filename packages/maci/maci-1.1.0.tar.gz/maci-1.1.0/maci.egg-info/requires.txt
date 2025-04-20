@@ -1,0 +1,5 @@
+pyyaml>=5.4
+tomli>=2.0.1
+tomli-w>=1.0.0
+defusedxml>=0.7.1
+xmltodict>=0.13.0
