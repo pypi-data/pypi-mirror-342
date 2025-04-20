@@ -1,0 +1,2 @@
+[console_scripts]
+ptig = pytigon.pytigon_run:run

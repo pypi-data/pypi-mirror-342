@@ -1,0 +1,264 @@
+% extends 'theme/desktop_base.html'
+
+% load exfiltry
+% load exsyntax
+% load static
+% load catch
+
+%% ext_js_scripts
+    {{block.super}}
+    {% jscript_link 'jquery_plugins/sidebar-menu/sidebar-menu.js' %}
+
+%% theme_css_links
+    {{block.super}}
+    {% css_link 'jquery_plugins/sidebar-menu/sidebar-menu.css' %}
+
+%% menu_start
+    div class=control-sidebar-bg
+
+
+%% menu
+    div class=sidebarmenu 
+        sys-sidebarmenu type={% if 'smartfon' in client_type %}smartfon{% else %}desktop{% endif %}
+            sys-perfectscrollbar
+            aside class=main-sidebar collapse show,,,id=menu,,,role=dialog
+                div sidebar-menu
+                    ul class=sidebar-menu
+                        li class=bg-primary
+                            a href={{base_path}},,,class=logo txt3d text-white,,,style=white-space:nowrap;,,,target=_top
+                                %% logo
+                                    span class=logo-lg
+                                        % if prj_title|length > 20:
+                                            small...{{prj_title}}
+                                        % else:
+                                            {{prj_title}}
+                        
+                        % for item_info in app_manager|args:prj|call:"get_main_tools_app_items_width_perm":
+                            % ifchanged item_info.app_name
+                                % if not forloop.first:
+                                    </ul></li>
+                                <li class="treeview {% if forloop.first %}active{% endif %}">
+                                <a href="#">
+                                    % if item_info.icon|penultimate_elem:"<=":
+                                        {% icon item_info.icon|penultimate_elem:"<="|append_str:" fa-lg" %}
+                                    % else:
+                                        {% icon "fa-arrow-circle-right fa-lg" %}
+                                    <span>{{item_info.app_title}}</span>
+                                    {% icon "fa-angle-left fa-lg pull-right" %}
+
+                                </a>
+                                <ul class="treeview-menu sidebar-submenu">
+
+                            li
+                                a href={{base_path}}{{item_info.url|append_get_param:"fragment=page"}},,,class=menu-href ladda-button,,,target=_parent,,,data-bs-toggle=tooltip,,,title={{item_info.description}}
+                                    % if item_info.icon|last_elem:"<=":
+                                        % if standard_web_browser:
+                                            {% icon item_info.icon|last_elem:"<="|append_str:" fa-lg tablet_menu_icon" width=22 %}
+                                        % else:
+                                            {{item_info.icon}}
+                                    % else:
+                                        {% icon "arrow-circle-right" width=22 %}
+
+                                    {{item_info.description}}
+
+                            % if forloop.last:
+                                </ul></li>
+
+                        % for item_info in app_manager|args:prj|call:"get_not_main_tools_app_items_width_perm":
+                            % ifchanged item_info.app_name
+                                % ifchanged item_info.module_title:
+                                    % if not forloop.first:
+                                        </ul></li>
+                                % if not forloop.first:
+                                    </ul></li>
+
+                            % ifchanged item_info.app_name
+                                % ifchanged item_info.module_title
+                                    <li class="treeview">
+                                    <a href="#">
+                                        % if item_info.icon|penultimate_elem:"<=":
+                                            {% icon item_info.icon|penultimate_elem:"<="|append_str:" fa-lg" %}
+                                        % else:
+                                            {% icon "fa-arrow-circle-right fa-lg" %}
+                                        <span>{{item_info.module_title}}</span>
+                                        {% icon "fa-angle-left fa-lg pull-right" %}
+                                    </a>
+                                    <ul class="treeview-menu sidebar-submenu">
+                                        
+                                % if item_info.module_title == item_info.app_title:
+                                    <li class="treeview-merged">
+                                % else:
+                                    <li class="treeview">
+                                % if item_info.module_title != item_info.app_title:
+                                    <a href="#">
+                                        % if item_info.icon|penultimate_elem:"<=":
+                                            {% icon item_info.icon|penultimate_elem:"<="|append_str:" fa-lg" %}
+                                        % else:
+                                            {% icon "fa-arrow-circle-right fa-lg" %}
+                                        <span>{{item_info.app_title}}</span>
+                                        {% icon "fa-angle-left fa-lg pull-right" %}
+
+                                    </a>
+                                % if item_info.module_title == item_info.app_title:
+                                    <ul class="list-unstyled">
+                                % else:
+                                    <ul class="treeview-menu sidebar-submenu">
+
+                            li
+                                a href={{base_path}}{{item_info.url|append_get_param:"fragment=page"}},,,class=menu-href ladda-button,,,target=_parent,,,data-bs-toggle=tooltip,,,title={{item_info.description}}
+                                    % if item_info.icon|last_elem:"<=":
+                                        % if standard_web_browser:
+                                            {% icon item_info.icon|last_elem:"<="|append_str:" fa-lg tablet_menu_icon" width=22 %}
+                                        % else:
+                                            {{item_info.icon}}
+                                    % else:
+                                        {% icon "arrow-circle-right" width=22 %}
+                                    span...{{item_info.description}}
+
+                            % if forloop.last
+                                </ul></li></ul></li>
+
+%% menu_end
+
+%% body_start
+    % if form_ext or not show_form:
+        %if user.is_authenticated:
+            <body bgcolor="#{{color_body}}">
+        % else:
+            {{block.super}}
+        <div class="content-wrapper">
+
+%% body_end
+    % if form_ext or not show_form:
+        </div>
+    {{block.super}}
+
+
+%% body_body_start
+    <section class="body-body d-flex flex-row">
+
+%% body_init
+    <section id="panel" class="d-flex flex-column flex-grow-1">
+    header class=main-header win-header bg-primary
+
+        nav class=navbar navbar-toggleable-md bg-primary
+            % if ie:
+                img src={% get_static_prefix %}images/reload/reload.gif,,,id=loading-indicator,,,style=display:none
+            % else:
+                i class=fa fa-refresh fa-pulse fa-2x fa-fw text-info,,,id=loading-indicator,,,style=display:none
+
+            button class=main-sidebar-toggle sidebar-toggle {% if 'smartfon' in client_type %}auto-hide{% endif %},,,role=button,,,title=Toggle navigation
+                {% icon "fa-bars fa-lg" %}
+
+            % comment:
+                img src={% get_static_prefix %}images/reload/reload.svg,,,id=loading-indicator
+
+            % comment:
+                a href=#,,,class=sidebar-toggle,,,role=button,,,title=Toggle navigation
+                    {% icon "fa-bars fa-lg" %}
+
+
+            % if not NO_TABS and application_type == 'modern':
+                div class=navbar-nav tabbable,,,id=tab_tabs2
+                    ul class=nav nav-tabs,,,role=tablist,,,id=tabs2
+
+            ptig-frame src={{base_path}}schsys/messages/,,,timeout=7
+
+            div class=navbar-collapse align-self-end
+                ul class=nav
+                    % if settings.SEARCH_PATH:
+                        li id=search,,,class=nav-item search
+                            form action={{base_path}}schsys/search/,,,title=_(Search results),,,target=_parent
+                                {% csrf_token %}
+                                div class=input-group mt-1
+                                    div class=form-outline
+                                        input type=search,,,class=form-control form-control-sm text-body,,,placeholder=_(Search),,,name=q
+                                    button type=button,,,class=btn btn-primary btn-sm
+                                        {% icon "fa-search fa-lg" %}
+                                % comment:
+                                    div class=input-group mt-1
+                                        input class=form-control form-control-sm bg-transparent,,,placeholder=_(Search),,,name=q
+                                        span class=input-group-append
+                                            button class=btn btn-outline-secondary,,,type=button
+                                                {% icon "fa-search fa-lg" %}
+
+                    %% drop_down_blocks
+                    % if user.is_authenticated:
+                        li class=nav-item dropdown user user-menu
+                            a href=#,,,class=dropdown-toggle,,,data-bs-toggle=dropdown
+                                {% icon "fa-user fa-lg" %}
+                                span class=hidden-sm-down...{{user.username}}
+                            div class=dropdown-menu dropdown-menu-lg-end,,,style=width:470px
+                                div class=dropdown-block
+                                    p class=text-xl-center
+                                        i class=fa fa-info-circle fa-5x
+                                    table class=table table-hover
+                                        tr
+                                            th...username:
+                                            td...{{user.username}}
+                                        tr
+                                            th...first name:
+                                            td...{{user.first_name}}
+                                        tr
+                                            th...last name:
+                                            td...{{user.last_name}}
+                                        tr
+                                            th...email:
+                                            td...{{user.email}}
+                                        % if user.profile.get_active_variant_description:
+                                            tr
+                                                th colspan=2
+                                                    .active profile:
+                                                    strong...{{user.profile.get_active_variant_description}}
+                                                    br
+                                                    br
+                                                    p...switch to other profile:
+                                                    % if user.profile.get_variant_count:
+                                                        % for variant_name in user.profile.get_all_variants:
+                                                            button type=button,,,class=btn {% if variant_name == user.profile.get_active_variant_description %}btn-warning{% endif %},,,href={{base_path}}schsys/change_profile_variant/{{variant_name}}/,,,target=_top...{{variant_name}}
+                                        tr
+                                            th...last login:
+                                            td...{{user.last_login|isoformat}}
+                                        tr
+                                            th...date joined:
+                                            td...{{user.date_joined|isoformat}}
+
+                                nav class=navbar navbar-expand-sm navbar-dark bg-primary
+                                    button class=navbar-toggler,,,type="button,,,data-bs-toggle=collapse,,,data-bs-target=#navbar_setup
+                                        span class=navbar-toggler-icon
+                                    div class=collapse navbar-collapse,,,id=navbar_setup
+                                        ul class=navbar-nav mr-auto
+                                            % if settings.CAN_CHANGE_PASSWORD and request.user|user_can_change_password:
+                                                li class=nav-item active
+                                                    a class=nav-link,,,href=#,,,data-bs-toggle=modal,,,data-bs-target=#change_passwd..._(Change password)
+                                            % if user.is_superuser:
+                                                li class=nav-item
+                                                    a class=nav-link,,,href={{base_path}}schmanage/,,,target=_top,,,title=_(Manage)..._(Manage)
+                                            %% system_menu
+
+
+                        %if user and user.get_username != 'auto':
+                            li class=nav-item dropdown user user-menu
+                                a class=system_menu,,,href={{base_path}}schsys/do_logout/,,,target=_top,,,title=_(Logout)
+                                    {% icon "fa-power-off fa-lg" %}
+                    % else:
+                        li class=nav-item dropdown user user-menu
+                            a class=system_menu,,,href={{base_path}}{% if settings.ALLAUTH and standard_web_browser %}accounts/login/{% else %}schsys/login/{% endif %},,,target=_top,,,title=_(Login)
+                                {% icon "fa-sign-in fa-lg" %}
+    {{block.super}}
+
+%% tabs
+    % if application_type != 'modern':
+        {{block.super}}
+    % else:
+        % if not NO_TABS and application_type == 'modern':
+            div class=tab-content win-content d-flex flex-column flex-grow-1,,,id=tabs2_content
+        % with NO_TABS=True:
+            {{block.super}}
+
+%% body_footer
+    {{block.super}}
+    {% module_link '_schcomponents/components/sys-components.js' %}
+    </section>
+
+%% loading-indicator:

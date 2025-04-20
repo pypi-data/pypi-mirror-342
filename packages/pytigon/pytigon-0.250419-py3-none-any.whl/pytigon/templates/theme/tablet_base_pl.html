@@ -1,0 +1,342 @@
+{% extends 'theme/desktop_base.html' %}
+{% load exfiltry %}
+{% load exsyntax %}
+{% load static %}
+{% load catch %}
+{% block ext_js_scripts %}
+        {{block.super}}
+        {% jscript_link 'jquery_plugins/sidebar-menu/sidebar-menu.js' %}
+{% endblock %}
+{% block theme_css_links %}
+        {{block.super}}
+        {% css_link 'jquery_plugins/sidebar-menu/sidebar-menu.css' %}
+{% endblock %}
+{% block menu_start %}
+        <div class="control-sidebar-bg">
+        </div>
+{% endblock %}
+{% block menu %}
+        <div class="sidebarmenu">
+                <sys-sidebarmenu type="{% if 'smartfon' in client_type %}smartfon{% else %}desktop{% endif %}">
+                        <sys-perfectscrollbar></sys-perfectscrollbar>
+                        <aside class="main-sidebar collapse show" id="menu" role="dialog">
+                                <div sidebar-menu>
+                                        <ul class="sidebar-menu">
+                                                <li class="bg-primary">
+                                                        <a href="{{base_path}}" class="logo txt3d text-white" style="white-space:nowrap;" target="_top">
+                                                                {% block logo %}
+                                                                        <span class="logo-lg">
+                                                                                {% if prj_title|length > 20 %}
+                                                                                        <small>{{prj_title}}</small>
+                                                                                  {% else %}
+                                                                                        {{prj_title}}
+                                                                                {% endif %}
+                                                                        </span>
+                                                                {% endblock %}
+                                                        </a>
+                                                </li>
+                                                {% for item_info in app_manager|args:prj|call:"get_main_tools_app_items_width_perm" %}
+                                                        {% ifchanged item_info.app_name %}
+                                                                {% if not forloop.first %}
+                                                                        </ul></li>
+                                                                {% endif %}
+                                                                <li class="treeview {% if forloop.first %}active{% endif %}">
+                                                                <a href="#">
+                                                                        {% if item_info.icon|penultimate_elem:"<=" %}
+                                                                                {% icon item_info.icon|penultimate_elem:"<="|append_str:" fa-lg" %}
+                                                                          {% else %}
+                                                                                {% icon "fa-arrow-circle-right fa-lg" %}
+                                                                        {% endif %}
+                                                                        <span>{{item_info.app_title}}</span>
+                                                                        {% icon "fa-angle-left fa-lg pull-right" %}
+                                                                </a>
+                                                                <ul class="treeview-menu sidebar-submenu">
+                                                        {% endifchanged %}
+                                                        <li>
+                                                                <a href="{{base_path}}{{item_info.url|append_get_param:"fragment=page"}}" class="menu-href ladda-button" target="_parent" data-bs-toggle="tooltip" title="{{item_info.description}}">
+                                                                        {% if item_info.icon|last_elem:"<=" %}
+                                                                                {% if standard_web_browser %}
+                                                                                        {% icon item_info.icon|last_elem:"<="|append_str:" fa-lg tablet_menu_icon" width=22 %}
+                                                                                  {% else %}
+                                                                                        {{item_info.icon}}
+                                                                                {% endif %}
+                                                                          {% else %}
+                                                                                {% icon "arrow-circle-right" width=22 %}
+                                                                        {% endif %}
+                                                                        {{item_info.description}}
+                                                                </a>
+                                                        </li>
+                                                        {% if forloop.last %}
+                                                                </ul></li>
+                                                        {% endif %}
+                                                {% endfor %}
+                                                {% for item_info in app_manager|args:prj|call:"get_not_main_tools_app_items_width_perm" %}
+                                                        {% ifchanged item_info.app_name %}
+                                                                {% ifchanged item_info.module_title %}
+                                                                        {% if not forloop.first %}
+                                                                                </ul></li>
+                                                                        {% endif %}
+                                                                {% endifchanged %}
+                                                                {% if not forloop.first %}
+                                                                        </ul></li>
+                                                                {% endif %}
+                                                        {% endifchanged %}
+                                                        {% ifchanged item_info.app_name %}
+                                                                {% ifchanged item_info.module_title %}
+                                                                        <li class="treeview">
+                                                                        <a href="#">
+                                                                                {% if item_info.icon|penultimate_elem:"<=" %}
+                                                                                        {% icon item_info.icon|penultimate_elem:"<="|append_str:" fa-lg" %}
+                                                                                  {% else %}
+                                                                                        {% icon "fa-arrow-circle-right fa-lg" %}
+                                                                                {% endif %}
+                                                                                <span>{{item_info.module_title}}</span>
+                                                                                {% icon "fa-angle-left fa-lg pull-right" %}
+                                                                        </a>
+                                                                        <ul class="treeview-menu sidebar-submenu">
+                                                                {% endifchanged %}
+                                                                {% if item_info.module_title == item_info.app_title %}
+                                                                        <li class="treeview-merged">
+                                                                  {% else %}
+                                                                        <li class="treeview">
+                                                                {% endif %}
+                                                                {% if item_info.module_title != item_info.app_title %}
+                                                                        <a href="#">
+                                                                                {% if item_info.icon|penultimate_elem:"<=" %}
+                                                                                        {% icon item_info.icon|penultimate_elem:"<="|append_str:" fa-lg" %}
+                                                                                  {% else %}
+                                                                                        {% icon "fa-arrow-circle-right fa-lg" %}
+                                                                                {% endif %}
+                                                                                <span>{{item_info.app_title}}</span>
+                                                                                {% icon "fa-angle-left fa-lg pull-right" %}
+                                                                        </a>
+                                                                {% endif %}
+                                                                {% if item_info.module_title == item_info.app_title %}
+                                                                        <ul class="list-unstyled">
+                                                                  {% else %}
+                                                                        <ul class="treeview-menu sidebar-submenu">
+                                                                {% endif %}
+                                                        {% endifchanged %}
+                                                        <li>
+                                                                <a href="{{base_path}}{{item_info.url|append_get_param:"fragment=page"}}" class="menu-href ladda-button" target="_parent" data-bs-toggle="tooltip" title="{{item_info.description}}">
+                                                                        {% if item_info.icon|last_elem:"<=" %}
+                                                                                {% if standard_web_browser %}
+                                                                                        {% icon item_info.icon|last_elem:"<="|append_str:" fa-lg tablet_menu_icon" width=22 %}
+                                                                                  {% else %}
+                                                                                        {{item_info.icon}}
+                                                                                {% endif %}
+                                                                          {% else %}
+                                                                                {% icon "arrow-circle-right" width=22 %}
+                                                                        {% endif %}
+                                                                        <span>
+                                                                        {{item_info.description}}
+                                                                        </span>
+                                                                </a>
+                                                        </li>
+                                                        {% if forloop.last %}
+                                                                </ul></li></ul></li>
+                                                        {% endif %}
+                                                {% endfor %}
+                                        </ul>
+                                </div>
+                        </aside>
+                </sys-sidebarmenu>
+        </div>
+{% endblock %}
+{% block menu_end %}
+{% endblock %}
+{% block body_start %}
+        {% if form_ext or not show_form %}
+                {% if user.is_authenticated %}
+                        <body bgcolor="#{{color_body}}">
+                  {% else %}
+                        {{block.super}}
+                {% endif %}
+                <div class="content-wrapper">
+        {% endif %}
+{% endblock %}
+{% block body_end %}
+        {% if form_ext or not show_form %}
+                </div>
+        {% endif %}
+        {{block.super}}
+{% endblock %}
+{% block body_body_start %}
+        <section class="body-body d-flex flex-row">
+{% endblock %}
+{% block body_init %}
+        <section id="panel" class="d-flex flex-column flex-grow-1">
+        <header class="main-header win-header bg-primary">
+                <nav class="navbar navbar-toggleable-md bg-primary">
+                        {% if ie %}
+                                <img src="{% get_static_prefix %}images/reload/reload.gif" id="loading-indicator" style="display:none"></img>
+                          {% else %}
+                                <i class="fa fa-refresh fa-pulse fa-2x fa-fw text-info" id="loading-indicator" style="display:none">
+                                </i>
+                        {% endif %}
+                        <button class="main-sidebar-toggle sidebar-toggle {% if 'smartfon' in client_type %}auto-hide{% endif %}" role="button" title="Toggle navigation">
+                                {% icon "fa-bars fa-lg" %}
+                        </button>
+                        {% comment %}
+                                <img src="{% get_static_prefix %}images/reload/reload.svg" id="loading-indicator">
+                                </img>
+                        {% endcomment %}
+                        {% comment %}
+                                <a href="#" class="sidebar-toggle" role="button" title="Toggle navigation">
+                                        {% icon "fa-bars fa-lg" %}
+                                </a>
+                        {% endcomment %}
+                        {% if not NO_TABS and application_type == 'modern' %}
+                                <div class="navbar-nav tabbable" id="tab_tabs2">
+                                        <ul class="nav nav-tabs" role="tablist" id="tabs2">
+                                        </ul>
+                                </div>
+                        {% endif %}
+                        <ptig-frame src="{{base_path}}schsys/messages/" timeout="7">
+                        </ptig-frame>
+                        <div class="navbar-collapse align-self-end">
+                                <ul class="nav">
+                                        {% if settings.SEARCH_PATH %}
+                                                <li id="search" class="nav-item search">
+                                                        <form action="{{base_path}}schsys/search/" title="Search results" target="_parent">
+                                                                {% csrf_token %}
+                                                                <div class="input-group mt-1">
+                                                                        <div class="form-outline">
+                                                                                <input type="search" class="form-control form-control-sm text-body" placeholder="Search" name="q" />
+                                                                        </div>
+                                                                        <button type="button" class="btn btn-primary btn-sm">
+                                                                                {% icon "fa-search fa-lg" %}
+                                                                        </button>
+                                                                </div>
+                                                                {% comment %}
+                                                                        <div class="input-group mt-1">
+                                                                                <input class="form-control form-control-sm bg-transparent" placeholder="Search" name="q" />
+                                                                                <span class="input-group-append">
+                                                                                        <button class="btn btn-outline-secondary" type="button">
+                                                                                                {% icon "fa-search fa-lg" %}
+                                                                                        </button>
+                                                                                </span>
+                                                                        </div>
+                                                                {% endcomment %}
+                                                        </form>
+                                                </li>
+                                        {% endif %}
+                                        {% block drop_down_blocks %}{% endblock %}
+                                        {% if user.is_authenticated %}
+                                                <li class="nav-item dropdown user user-menu">
+                                                        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                                                                {% icon "fa-user fa-lg" %}
+                                                                <span class="hidden-sm-down">{{user.username}}</span>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-lg-end" style="width:470px">
+                                                                <div class="dropdown-block">
+                                                                        <p class="text-xl-center">
+                                                                                <i class="fa fa-info-circle fa-5x"></i>
+                                                                        </p>
+                                                                        <table class="table table-hover">
+                                                                                <tr>
+                                                                                        <th>username:</th>
+                                                                                        <td>{{user.username}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                        <th>first name:</th>
+                                                                                        <td>{{user.first_name}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                        <th>last name:</th>
+                                                                                        <td>{{user.last_name}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                        <th>email:</th>
+                                                                                        <td>{{user.email}}</td>
+                                                                                </tr>
+                                                                                {% if user.profile.get_active_variant_description %}
+                                                                                        <tr>
+                                                                                                <th colspan="2">
+                                                                                                        active profile:
+                                                                                                        <strong>{{user.profile.get_active_variant_description}}</strong>
+                                                                                                        <br />
+                                                                                                        <br />
+                                                                                                        <p>switch to other profile:</p>
+                                                                                                        {% if user.profile.get_variant_count %}
+                                                                                                                {% for variant_name in user.profile.get_all_variants %}
+                                                                                                                        <button type="button" class="btn {% if variant_name == user.profile.get_active_variant_description %}btn-warning{% endif %}" href="{{base_path}}schsys/change_profile_variant/{{variant_name}}/" target="_top">{{variant_name}}</button>
+                                                                                                                {% endfor %}
+                                                                                                        {% endif %}
+                                                                                                </th>
+                                                                                        </tr>
+                                                                                {% endif %}
+                                                                                <tr>
+                                                                                        <th>last login:</th>
+                                                                                        <td>{{user.last_login|isoformat}}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                        <th>date joined:</th>
+                                                                                        <td>
+                                                                                        {{user.date_joined|isoformat}}
+                                                                                        </td>
+                                                                                </tr>
+                                                                        </table>
+                                                                </div>
+                                                                <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+                                                                        <button class="navbar-toggler" type=""button" data-bs-toggle="collapse" data-bs-target="#navbar_setup">
+                                                                                <span class="navbar-toggler-icon"></span>
+                                                                        </button>
+                                                                        <div class="collapse navbar-collapse" id="navbar_setup">
+                                                                                <ul class="navbar-nav mr-auto">
+                                                                                        {% if settings.CAN_CHANGE_PASSWORD and request.user|user_can_change_password %}
+                                                                                                <li class="nav-item active">
+                                                                                                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#change_passwd">Change password</a>
+                                                                                                </li>
+                                                                                        {% endif %}
+                                                                                        {% if user.is_superuser %}
+                                                                                                <li class="nav-item">
+                                                                                                        <a class="nav-link" href="{{base_path}}schmanage/" target="_top" title="Manage">Manage</a>
+                                                                                                </li>
+                                                                                        {% endif %}
+                                                                                        {% block system_menu %}
+                                                                                        {% endblock %}
+                                                                                </ul>
+                                                                        </div>
+                                                                </nav>
+                                                        </div>
+                                                </li>
+                                                {% if user and user.get_username != 'auto' %}
+                                                        <li class="nav-item dropdown user user-menu">
+                                                                <a class="system_menu" href="{{base_path}}schsys/do_logout/" target="_top" title="Logout">
+                                                                        {% icon "fa-power-off fa-lg" %}
+                                                                </a>
+                                                        </li>
+                                                {% endif %}
+                                          {% else %}
+                                                <li class="nav-item dropdown user user-menu">
+                                                        <a class="system_menu" href="{{base_path}}{% if settings.ALLAUTH and standard_web_browser %}accounts/login/{% else %}schsys/login/{% endif %}" target="_top" title="Login">
+                                                                {% icon "fa-sign-in fa-lg" %}
+                                                        </a>
+                                                </li>
+                                        {% endif %}
+                                </ul>
+                        </div>
+                </nav>
+        </header>
+        {{block.super}}
+{% endblock %}
+{% block tabs %}
+        {% if application_type != 'modern' %}
+                {{block.super}}
+          {% else %}
+                {% if not NO_TABS and application_type == 'modern' %}
+                        <div class="tab-content win-content d-flex flex-column flex-grow-1" id="tabs2_content"></div>
+                {% endif %}
+                {% with NO_TABS=True %}
+                        {{block.super}}
+                {% endwith %}
+        {% endif %}
+{% endblock %}
+{% block body_footer %}
+        {{block.super}}
+        {% module_link '_schcomponents/components/sys-components.js' %}
+        </section>
+{% endblock %}
+{% block loading-indicator: %}{% endblock %}
+

@@ -1,0 +1,47 @@
+Metadata-Version: 2.4
+Name: pytigon
+Version: 0.250419
+Summary: Pytigon
+Author: Sławomir Chołaj
+Author-email: slawomir.cholaj@gmail.com
+License: LGPLv3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3
+License-File: LICENSE
+Requires-Dist: pytigon-lib
+Requires-Dist: asgiref
+Requires-Dist: polib
+Requires-Dist: whitenoise
+Requires-Dist: diskcache
+Requires-Dist: pscript
+Requires-Dist: dj-database-url
+Requires-Dist: dj-email-url
+Requires-Dist: django-bootstrap5
+Requires-Dist: django-cors-headers
+Requires-Dist: django_select2
+Requires-Dist: django-widget-tweaks
+Requires-Dist: django-cancan
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

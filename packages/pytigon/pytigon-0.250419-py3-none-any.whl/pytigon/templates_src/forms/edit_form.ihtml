@@ -1,0 +1,6 @@
+% extends "page.html"
+
+%% body
+    % with show_form=True
+        {{ block.super }}
+        
