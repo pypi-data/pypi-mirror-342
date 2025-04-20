@@ -1,0 +1,34 @@
+Metadata-Version: 2.3
+Name: yta-audio
+Version: 0.0.33
+Summary: Youtube Autonomous Audio Module.
+Author: danialcala94
+Author-email: danielalcalavalera@gmail.com
+Requires-Python: ==3.9
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Requires-Dist: coqui-tts (>=0.25.3,<1.0.0)
+Requires-Dist: deepfilternet (>=0.5.6,<1.0.0)
+Requires-Dist: elevenlabs (>=0.2.26,<1.0.0)
+Requires-Dist: faster_whisper (>=1.0.2,<2.0.0)
+Requires-Dist: gtts (>=2.5.1,<3.0.0)
+Requires-Dist: librosa (>=0.10.0,<1.0.0)
+Requires-Dist: moviepy (>=2.0.0,<3.0.0)
+Requires-Dist: onnxruntime (>=1.17.0,<1.19.0)
+Requires-Dist: pedalboard (>=0.7.4,<1.0.0)
+Requires-Dist: pydub (>=0.25.1,<1.0.0)
+Requires-Dist: pyttsx3 (>=2.90,<3.0)
+Requires-Dist: scamp (>=0.9.1.post9,<1.0.0)
+Requires-Dist: soundfile (>=0.12.1,<1.0.0)
+Requires-Dist: torch (>=2.3.0,<3.0.0)
+Requires-Dist: torchaudio (>=2.3.0,<3.0.0)
+Requires-Dist: whisper_timestamped (>=1.14.2,<2.0.0)
+Requires-Dist: yta_general_utils (>=0.0.251,<0.1.0)
+Description-Content-Type: text/markdown
+
+# Youtube Autonomous Audio Module
+
+The Audio module.
+
+This project needs:
+- to_fill_this
