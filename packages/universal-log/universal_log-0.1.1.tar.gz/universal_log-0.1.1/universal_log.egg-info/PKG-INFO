@@ -1,0 +1,48 @@
+Metadata-Version: 2.4
+Name: universal-log
+Version: 0.1.1
+Summary: Universal logger that adds console.log, System.out.println, and more globally to Python.
+Home-page: https://github.com/yourusername/universal-log
+Author: Your Name
+Author-email: your@email.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Typing :: Typed
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# ðŸ”Š Universal Logger for Python
+
+Write logs in Python using styles from other programming languages like JavaScript, Java, C#, Bash, and more â€” **without needing imports**.
+
+---
+
+## âœ¨ Supported Global Functions
+
+- `console.log()` â€” JavaScript
+- `System.out.println()` â€” Java
+- `Console.WriteLine()` â€” C#
+- `echo()`, `sh_echo()` â€” Bash / Shell / PHP
+- `puts()` â€” Ruby
+- `fmt.Println()` â€” Go
+- `println_rust()` â€” Rust-style
+
+---
+
+## ðŸ§ª Example
+
+```python
+console.log("Hello JS style")
+System.out.println("Java style")
+Console.WriteLine("C# style")
+echo("Echo")
+puts("Puts")
+fmt.Println("Go style")

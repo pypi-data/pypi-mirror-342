@@ -1,0 +1,10 @@
+README.md
+setup.py
+universal_log/__init__.py
+universal_log/__init__.pyi
+universal_log/py.typed
+universal_log/sitecustomize.py
+universal_log.egg-info/PKG-INFO
+universal_log.egg-info/SOURCES.txt
+universal_log.egg-info/dependency_links.txt
+universal_log.egg-info/top_level.txt
