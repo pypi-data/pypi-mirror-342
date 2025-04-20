@@ -1,0 +1,37 @@
+Metadata-Version: 2.4
+Name: noted-fuadizza
+Version: 0.1.0
+Summary: CLI untuk mengelola catatan harian
+Home-page: https://github.com/username/noted
+Author: Nama Kamu
+Author-email: email@domain.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typer[all]
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Noted
+
+Noted adalah aplikasi CLI untuk mengelola catatan harian. Dengan Noted, kamu bisa:
+- Menambahkan catatan
+- Mengedit dan menghapus catatan
+- Melihat daftar catatan
+
+## Instalasi
+
+```bash
+pipx install noted
+
