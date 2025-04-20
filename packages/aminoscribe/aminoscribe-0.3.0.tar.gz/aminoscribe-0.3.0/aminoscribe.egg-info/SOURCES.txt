@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+aminoscribe/__init__.py
+aminoscribe/aminoscribe.py
+aminoscribe/generate_template.py
+aminoscribe.egg-info/PKG-INFO
+aminoscribe.egg-info/SOURCES.txt
+aminoscribe.egg-info/dependency_links.txt
+aminoscribe.egg-info/requires.txt
+aminoscribe.egg-info/top_level.txt
+aminoscribe/data/UP000005640_9606.fasta
+aminoscribe/data/amplitude_noise.csv
+aminoscribe/data/sequences.pickle
+aminoscribe/data/step_durations_in_ms.csv
+aminoscribe/data/step_sizes_in_aa.csv

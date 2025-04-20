@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aminoscribe"
+version = "0.3.0"
+authors = [{ name = "Melissa Queen", email = "melq@cs.washington.edu"}]
+maintainers = [{ name = "Melissa Queen", email = "melq@cs.washington.edu"}]
+description = "Amino Scribe is a Python package for generating nanopore squiggles based on protein sequences."
+readme = "README.md"
+license = "CC-BY-NC-4.0"
+dependencies = [
+        "pandas",
+        "numpy",
+        "scipy"]
+
+[tool.setuptools.package-data] 
+"aminoscribe" = ["data/*.csv", "data/*.pickle"]
+
