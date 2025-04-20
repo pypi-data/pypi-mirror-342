@@ -1,0 +1,11 @@
+                 **A markdown renderer for modern terminals**
+                 ##### Usage examples:
+
+                 ``` bash
+                 sd [filename]
+                 cat README.md | sd
+                 stdbuf -oL llm chat | sd
+                 ```
+
+                 If no filename is provided and no input is piped, this help message is displayed.
+
