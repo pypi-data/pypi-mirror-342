@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+yt_dlp_plugins/postprocessor/stash.py
+yt_dlp_stash.egg-info/PKG-INFO
+yt_dlp_stash.egg-info/SOURCES.txt
+yt_dlp_stash.egg-info/dependency_links.txt
+yt_dlp_stash.egg-info/requires.txt
+yt_dlp_stash.egg-info/top_level.txt
