@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "project-king-loki"
+version = "0.0.1"
+description = "Intelligent Location-Based Cipher"
+requires-python = ">=3.13"
+readme = {file = "README.md", content-type = "text/markdown"}
+license = "MIT"
+authors = [
+    {name = "Soumyo Deep Gupta", email = "deep.main.ac@gmail.com"}
+]
+maintainers = [
+    {name = "Soumyo Deep Gupta", email = "deep.main.ac@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Operating System :: MacOS :: MacOS X",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+license-files = ["LICENSE.md"]
+dependencies = ['requests', 'cryptography']
+keywords = ['loki', 'king-loki', 'king', 'loki', 'location-based-cipher', 'cipher', 'location', 'based']
+
+[tool.setuptools.package-data]
+KingLoki = ["**/*.pyi", "**/*.so"]
+
+[tool.setuptools]
+packages = {find = {where = ["src"]}}
+
+[project.urls]
+Documentation = "https://d33p0st.in/docs/project-king-loki/"
+GitHub = "https://github.com/d33p0st/project-king-loki"
