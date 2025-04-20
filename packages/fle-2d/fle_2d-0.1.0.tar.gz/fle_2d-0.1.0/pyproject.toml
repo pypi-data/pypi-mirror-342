@@ -1,0 +1,21 @@
+[project]
+name = "fle_2d"
+version = "0.1.0"
+authors = [
+  { name="Nicholas F. Marshall"},
+]
+description = "Fast expansion into harmonics on the disk"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
