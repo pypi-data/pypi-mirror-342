@@ -1,0 +1,2 @@
+[console_scripts]
+bootstrap-mcp = bootstrap_mcp.__main__:cli
