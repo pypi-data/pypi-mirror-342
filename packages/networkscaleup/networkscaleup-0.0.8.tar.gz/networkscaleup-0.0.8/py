@@ -1,0 +1,24 @@
+from setuptools import setup, find_packages
+
+setup(
+    name="networkscaleup",  
+    version='0.0.7',           
+    packages=find_packages(where='src'),  
+    package_dir={'': 'src'},   
+    install_requires=[         
+        'numpy',
+        'pandas',
+    ],
+    author='Sarah Nagy', 'Ian Laga',        # Your name or organization
+    author_email='s.nagy.4343@gmail.com', 'ian.laga@montana.edu'  # Your email address
+    description='A Python package for network scale-up models',  # Short description of the package
+    long_description=open('README.md').read(),  # Read long description from README.md
+    long_description_content_type='text/markdown',  # Specify markdown format
+    url='https://github.com/yourusername/killworth-package',  # Project URL
+    classifiers=[              # Classifiers help users find your package on PyPI
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: MIT License',  # Or your chosen license
+        'Operating System :: OS Independent',
+    ],
+    python_requires='>=3.6',  # Minimum Python version supported
+)
