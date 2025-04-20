@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: cafe-ai
+Version: 0.0.1
+Summary: A Python package for building the causal forecasting engine.
+Author-email: Yuan He <yuanhe.cs.ai@gmail.com>, Moy Yuan <moy.zhangdie.yuan@gmail.com>
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# cafe
+Causal forcasting engine
