@@ -1,0 +1,2 @@
+[console_scripts]
+boron = boron.builder:main
