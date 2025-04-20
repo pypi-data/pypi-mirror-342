@@ -1,0 +1,12 @@
+LICENSE.txt
+README.txt
+setup.py
+QuantumSolve/__init__.py
+QuantumSolve/cs_eq.py
+QuantumSolve/math_eq.py
+QuantumSolve/physics_eq.py
+QuantumSolve/statistics_eq_.py
+quantumsolve.egg-info/PKG-INFO
+quantumsolve.egg-info/SOURCES.txt
+quantumsolve.egg-info/dependency_links.txt
+quantumsolve.egg-info/top_level.txt

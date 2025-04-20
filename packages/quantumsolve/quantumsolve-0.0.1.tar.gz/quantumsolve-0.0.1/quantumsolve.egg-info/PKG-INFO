@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: quantumsolve
+Version: 0.0.1
+Summary: Famous math, physics, stats, and CS equations as Python functions.
+Home-page: 
+Author: Md Muzahidul Islam
+Author-email: muzahidsife@gmail.com
+License: MIT
+Keywords: calculator equations math physics statistics computer science
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/plain
+License-File: LICENSE.txt
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: summary
+
+# Equations 🧮⚙️📊💻
+
+This Python package includes 25+ of the most common and widely used equations in:
+- Mathematics
+- Physics
+- Statistics & Probability
+- Computer Science
+
+## Install
+```bash
+pip install famous_equations
+
+
+# Changelog
+
+## Version 0.0.1
+- Initial release.
+- Added 25 famous equations from math, physics, stats, and CS.
