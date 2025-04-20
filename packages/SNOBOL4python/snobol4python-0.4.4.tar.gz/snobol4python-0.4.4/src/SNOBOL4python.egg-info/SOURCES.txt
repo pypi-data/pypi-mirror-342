@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.cfg
+src/SNOBOL4python/SNOBOL4functions.py
+src/SNOBOL4python/SNOBOL4patterns.py
+src/SNOBOL4python/__init__.py
+tests/test_01.py
+tests/test_arbno.py
+tests/test_json.py
+tests/test_re_simple.py
