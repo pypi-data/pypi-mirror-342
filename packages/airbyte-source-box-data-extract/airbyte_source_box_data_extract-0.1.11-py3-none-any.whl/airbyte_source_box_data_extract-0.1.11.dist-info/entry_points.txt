@@ -1,0 +1,3 @@
+[console_scripts]
+source-box-data-extract=source_box_data_extract.run:run
+

@@ -1,0 +1,11 @@
+main.py,sha256=6Hz9aqzhQ3i9W-h41uaXkNxw6dST7R3NlAkaCZNNUKw,145
+source_box_data_extract/__init__.py,sha256=yctz_B2O-fxY1u-iyX9TPMxDh2jaz8EFWBDyHTdeLKk,140
+source_box_data_extract/box_api.py,sha256=1LotoUwhw55Ok6YyOVY_K8t42IUAKto7Mc9dXyaEBXw,9670
+source_box_data_extract/run.py,sha256=WlRCWHKrrl-iJtKtT5O5UVGZ8kYIw8qC1oyMEDtYZAY,241
+source_box_data_extract/schemas.py,sha256=1q2P4UqrfdlLcWxMDG3NNzgC7mNLbPhdEe5KzZ4mXYk,6560
+source_box_data_extract/source.py,sha256=OI5CL3N8Se0CYFvYZ_9EBUA86j7xNKfSsteDVW6_LEs,10937
+source_box_data_extract/spec.yaml,sha256=mJMz4xPlnFvP-2j5A1AtVa5pIHaV8EdEmAAN2zJmj38,2287
+airbyte_source_box_data_extract-0.1.11.dist-info/METADATA,sha256=hzzaLusIbBbDyB-n6wDK_K2JX6tqfs5Cql4pjt01d3k,5862
+airbyte_source_box_data_extract-0.1.11.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+airbyte_source_box_data_extract-0.1.11.dist-info/entry_points.txt,sha256=aYO_w--5SRbKnvde-d469CxAy4o6_slHMC3qjPhXD8g,75
+airbyte_source_box_data_extract-0.1.11.dist-info/RECORD,,
