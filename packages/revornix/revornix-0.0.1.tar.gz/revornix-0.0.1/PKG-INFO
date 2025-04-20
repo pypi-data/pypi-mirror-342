@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: revornix
+Version: 0.0.1
+Summary: The python lib for revornix project
+Home-page: https://github.com/Alndaly/revornix-python-lib
+Author: Kinda Hall
+Author-email: 1142704468@qq.com
+Maintainer: Kinda Hall
+Maintainer-email: 1142704468@qq.com
+Keywords: pip,tools
+Platform: any
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: typer
+Requires-Dist: httpx
+Requires-Dist: tqdm
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: maintainer
+Dynamic: maintainer-email
+Dynamic: platform
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Revornix
+
+Revornix的Python接口

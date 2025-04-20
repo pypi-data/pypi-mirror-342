@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+bin/__init__.py
+bin/main.py
+common/__init__.py
+common/ai.py
+revornix.egg-info/PKG-INFO
+revornix.egg-info/SOURCES.txt
+revornix.egg-info/dependency_links.txt
+revornix.egg-info/entry_points.txt
+revornix.egg-info/requires.txt
+revornix.egg-info/top_level.txt
