@@ -1,0 +1,12 @@
+django_finance_12bucks-0.1.0.dist-info/licenses/LICENSE,sha256=rgGlrvlCgOZwvZjr3SCMrgmrvb7OmqV1BgQe8Y0lb1U,41
+migrations/0001_initial.py,sha256=ODk5QC_nYmH0z0XIy9D2AoUBQxEL1KAd_D4N25Q_few,6619
+migrations/0002_miles.py,sha256=4sFVqznnQSc-tJlZyJze9Po4uoFOHB7ua0plopKhG28,1695
+migrations/0003_mileagerate.py,sha256=9dSF8zZajgIOgNiyGnOTS8m1U-89DGZxmCCnHtNW_e4,683
+migrations/0004_alter_transaction_receipt.py,sha256=hLxXcKyqh_DlXXRdhX8Mpb50HcfZDG6PloDRogV2UR0,417
+migrations/0005_remove_invoiceitem_invoice_numb_invoiceitem_invoice_and_more.py,sha256=1LfmJBQfbxixNLWxd3dzbNAFmtx8PM_TWrQRfoAYilM,1013
+migrations/0006_alter_invoice_options_alter_invoiceitem_invoice_and_more.py,sha256=d-dha9_Unx6wMrnphFbINfj5HDk5R4HQQ73g4yrhGm4,1017
+migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_finance_12bucks-0.1.0.dist-info/METADATA,sha256=t7VrVEPTcgzslXq35YKjkc7XfamJuVY5moaIjLsRZI8,3421
+django_finance_12bucks-0.1.0.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+django_finance_12bucks-0.1.0.dist-info/top_level.txt,sha256=7Vfp3vCAN7rl4-1zzPa-_BHJXDWnajxHlyMCiJbvhvM,11
+django_finance_12bucks-0.1.0.dist-info/RECORD,,
