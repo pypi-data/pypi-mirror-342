@@ -1,0 +1,4 @@
+[console_scripts]
+ast_sip_check = rsclib.ast_probe:sip_check
+rsclib-hexdump = rsclib.hexdump:hexdump_cmd
+rsclib-unhexdump = rsclib.hexdump:unhexdump_cmd

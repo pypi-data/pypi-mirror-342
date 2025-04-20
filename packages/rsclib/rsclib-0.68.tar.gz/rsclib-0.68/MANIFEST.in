@@ -1,0 +1,6 @@
+include README.rst
+include README.html
+include test2_exec.py
+include test_exec.py
+include test_ipt.py
+include test_ipt2.py
