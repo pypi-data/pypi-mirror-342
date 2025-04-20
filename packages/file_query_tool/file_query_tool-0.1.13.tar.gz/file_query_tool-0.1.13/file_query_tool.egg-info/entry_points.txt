@@ -1,0 +1,2 @@
+[console_scripts]
+fq = file_query_tool.cli:main
