@@ -1,0 +1,8 @@
+.venv/*
+cavs_style/bitmap_cmaps.conf
+bitmap_cmaps.conf
+dist/*
+build_scripts/bitmap_cmaps.conf
+build_scripts/fonts/*
+*__pycache__*
+cavs_style/fonts/*
