@@ -1,0 +1,2 @@
+echo include README.md > MANIFEST.in
+echo include LICENSE >> MANIFEST.in

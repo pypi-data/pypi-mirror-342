@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: fei_cpp_library
+Version: 0.1.5
+Summary: A C++/Python hybrid library
+Home-page: https://github.com/x24181242/CloudTaskManager
+Author: Fei Dong
+Author-email: x24181242@student.ncirl.ie
+Project-URL: Documentation, https://github.com/x24181242/CloudTaskManager
+Project-URL: Source, https://github.com/x24181242/CloudTaskManager
+Keywords: cpp,python,hybrid
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.25.1
+Requires-Dist: boto3>=1.16.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+README.md 
