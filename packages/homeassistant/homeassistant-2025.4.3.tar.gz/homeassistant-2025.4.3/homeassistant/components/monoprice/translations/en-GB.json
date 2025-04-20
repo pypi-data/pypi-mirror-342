@@ -1,0 +1,19 @@
+{
+    "options": {
+        "step": {
+            "init": {
+                "title": "Configure sources"
+            }
+        }
+    },
+    "services": {
+        "restore": {
+            "description": "Restores a snapshot of the media player zone.",
+            "name": "Restore"
+        },
+        "snapshot": {
+            "description": "Takes a snapshot of the media player zone.",
+            "name": "Snapshot"
+        }
+    }
+}

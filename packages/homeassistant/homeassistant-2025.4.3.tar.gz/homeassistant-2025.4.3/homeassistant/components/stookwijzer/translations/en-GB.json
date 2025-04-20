@@ -1,0 +1,40 @@
+{
+    "config": {
+        "error": {
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "location": "Location"
+                },
+                "data_description": {
+                    "location": "Use the map to set the location for Stookwijzer."
+                },
+                "description": "Select the location you want to receive the Stookwijzer information for."
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "advice": {
+                "name": "Advice code",
+                "state": {
+                    "code_orange": "Orange",
+                    "code_red": "Red",
+                    "code_yellow": "Yellow"
+                }
+            }
+        }
+    },
+    "exceptions": {
+        "no_data_received": {
+            "message": "No data received from Stookwijzer."
+        }
+    },
+    "issues": {
+        "location_migration_failed": {
+            "title": "Migration of your location failed"
+        }
+    }
+}

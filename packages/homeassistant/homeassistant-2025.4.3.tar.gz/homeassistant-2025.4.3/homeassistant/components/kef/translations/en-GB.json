@@ -1,0 +1,62 @@
+{
+    "services": {
+        "set_desk_db": {
+            "description": "Sets the \"Desk mode\" slider of the speaker in dB.",
+            "fields": {
+                "db_value": {
+                    "description": "Value of the slider."
+                }
+            },
+            "name": "Set desk dB"
+        },
+        "set_high_hz": {
+            "description": "Sets the \"High-pass mode\" slider of the speaker in Hz.",
+            "fields": {
+                "hz_value": {
+                    "name": "Hertz value"
+                }
+            },
+            "name": "Set high hertz"
+        },
+        "set_mode": {
+            "description": "Sets the mode of the speaker.",
+            "fields": {
+                "bass_extension": {
+                    "description": "Bass extension."
+                },
+                "desk_mode": {
+                    "description": "Desk mode.",
+                    "name": "Desk mode"
+                },
+                "high_pass": {
+                    "name": "High pass"
+                },
+                "phase_correction": {
+                    "description": "Phase correction.",
+                    "name": "Phase correction"
+                },
+                "sub_polarity": {
+                    "description": "Sub polarity.",
+                    "name": "Subwoofer polarity"
+                },
+                "wall_mode": {
+                    "description": "Wall mode.",
+                    "name": "Wall mode"
+                }
+            },
+            "name": "Set mode"
+        },
+        "set_treble_db": {
+            "description": "Sets desk the \"Treble trim\" slider of the speaker in dB.",
+            "name": "Set treble dB"
+        },
+        "set_wall_db": {
+            "description": "Sets the \"Wall mode\" slider of the speaker in dB.",
+            "name": "Set wall dB"
+        },
+        "update_dsp": {
+            "description": "Updates all DSP settings.",
+            "name": "Update DSP"
+        }
+    }
+}

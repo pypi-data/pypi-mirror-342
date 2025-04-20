@@ -1,0 +1,37 @@
+{
+    "config": {
+        "abort": {
+            "reauth_successful": "Herauthenticatie geslaagd"
+        },
+        "error": {
+            "cannot_connect": "Kan geen verbinding maken",
+            "invalid_auth": "Ongeldige authenticatie",
+            "unknown": "Onverwachte fout"
+        },
+        "flow_title": "{name}",
+        "step": {
+            "reauth_confirm": {
+                "data": {
+                    "api_token": "API-token",
+                    "description": "Verifieer opnieuw met je Cloudflare-account."
+                }
+            },
+            "records": {
+                "data": {
+                    "records": "Records"
+                }
+            },
+            "user": {
+                "data": {
+                    "api_token": "API-token"
+                },
+                "title": "Verbinden met Cloudflare"
+            },
+            "zone": {
+                "data": {
+                    "zone": "Zone"
+                }
+            }
+        }
+    }
+}

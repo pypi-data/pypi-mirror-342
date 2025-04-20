@@ -1,0 +1,47 @@
+{
+    "config": {
+        "abort": {
+            "reauth_invalid_user": "Reauthenticate must use the same account."
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "ding": {
+                "name": "Doorbell ding"
+            },
+            "image_capture": {
+                "name": "Image capture"
+            }
+        },
+        "button": {
+            "wake": {
+                "name": "Wake"
+            }
+        },
+        "event": {
+            "doorbell": {
+                "state_attributes": {
+                    "event_type": {
+                        "state": {
+                            "ring": "Ring"
+                        }
+                    }
+                }
+            },
+            "motion": {
+                "state_attributes": {
+                    "event_type": {
+                        "state": {
+                            "motion": "Motion"
+                        }
+                    }
+                }
+            }
+        },
+        "sensor": {
+            "operator": {
+                "name": "Operator"
+            }
+        }
+    }
+}

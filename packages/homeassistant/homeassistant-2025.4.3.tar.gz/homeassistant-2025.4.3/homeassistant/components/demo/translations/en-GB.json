@@ -1,0 +1,75 @@
+{
+    "entity": {
+        "climate": {
+            "ubercool": {
+                "state_attributes": {
+                    "swing_horizontal_mode": {
+                        "state": {
+                            "off": "Off",
+                            "rangefull": "Full range"
+                        }
+                    },
+                    "swing_mode": {
+                        "state": {
+                            "1": "1",
+                            "2": "2",
+                            "3": "3",
+                            "off": "Off"
+                        }
+                    }
+                }
+            }
+        },
+        "event": {
+            "push": {
+                "state_attributes": {
+                    "event_type": {
+                        "state": {
+                            "pressed": "Pressed"
+                        }
+                    }
+                }
+            }
+        },
+        "fan": {
+            "demo": {
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "on": "On",
+                            "smart": "Smart"
+                        }
+                    }
+                }
+            }
+        },
+        "sensor": {
+            "thermostat_mode": {
+                "name": "Thermostat mode",
+                "state": {
+                    "away": "Away",
+                    "comfort": "Comfort",
+                    "eco": "Eco",
+                    "sleep": "Sleep"
+                }
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "options_1": {
+                "data": {
+                    "constant": "Constant"
+                },
+                "submit": "Save!"
+            }
+        }
+    },
+    "services": {
+        "randomize_device_tracker_data": {
+            "description": "Demonstrates using a device tracker to see where devices are located.",
+            "name": "Randomise device tracker data"
+        }
+    },
+    "title": "Demo"
+}

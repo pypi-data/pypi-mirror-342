@@ -1,0 +1,18 @@
+{
+    "config": {
+        "step": {
+            "ups": {
+                "data": {
+                    "alias": "NUT server UPS namme"
+                },
+                "title": "Kies de NUT server om in UPS \u00fat te l\u00eazen"
+            },
+            "user": {
+                "data_description": {
+                    "host": "De hostnamme of IP-adres fan dyn NUT server."
+                },
+                "description": "Ferbine mei de NUT server"
+            }
+        }
+    }
+}

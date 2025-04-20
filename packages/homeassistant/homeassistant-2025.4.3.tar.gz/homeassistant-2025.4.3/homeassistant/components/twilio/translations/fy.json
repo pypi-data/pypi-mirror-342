@@ -1,0 +1,7 @@
+{
+    "config": {
+        "create_entry": {
+            "default": "Om eveneminten nei de Home Assistant te ferstjoeren, moatte jo [Webhooks with Twilio] ({twilio_url}) ynstelle. \n\nFolje de folgjende ynfo yn: \n\n- URL: `{webhook_url}` \n- Metoade: POST \n- Ynh\u00e2ldstype: appplication / x-www-form-urlencoded\n\nSjoch [de dokumintaasje] ({docs_url}) foar ynformaasje oer it konfigurearjen fan automatisearringen om ynkommende gegevens te ferwurkjen."
+        }
+    }
+}

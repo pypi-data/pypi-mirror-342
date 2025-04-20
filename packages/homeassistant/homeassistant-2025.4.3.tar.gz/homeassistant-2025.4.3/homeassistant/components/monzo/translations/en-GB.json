@@ -1,0 +1,29 @@
+{
+    "config": {
+        "abort": {
+            "wrong_account": "Wrong account: The credentials provided do not match this Monzo account."
+        },
+        "step": {
+            "await_approval_confirmation": {
+                "data": {
+                    "confirm": "I've approved"
+                },
+                "description": "Before proceeding, open your Monzo app and approve the request from Home Assistant.",
+                "title": "Confirm in Monzo app"
+            },
+            "reauth_confirm": {
+                "description": "The Monzo integration needs to re-authenticate your account"
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "balance": {
+                "name": "Balance"
+            },
+            "total_balance": {
+                "name": "Total balance"
+            }
+        }
+    }
+}

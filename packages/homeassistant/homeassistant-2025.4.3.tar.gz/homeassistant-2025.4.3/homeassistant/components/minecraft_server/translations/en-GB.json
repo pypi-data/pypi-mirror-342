@@ -1,0 +1,50 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data": {
+                    "address": "Server address"
+                },
+                "data_description": {
+                    "address": "The hostname, IP address or SRV record of your Minecraft server, optionally including the port."
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "status": {
+                "name": "Status"
+            }
+        },
+        "sensor": {
+            "edition": {
+                "name": "Edition"
+            },
+            "game_mode": {
+                "name": "Game mode"
+            },
+            "latency": {
+                "name": "Latency"
+            },
+            "map_name": {
+                "name": "Map name"
+            },
+            "motd": {
+                "name": "World message"
+            },
+            "players_max": {
+                "name": "Players max"
+            },
+            "players_online": {
+                "name": "Players online"
+            },
+            "protocol_version": {
+                "name": "Protocol version"
+            },
+            "version": {
+                "name": "Version"
+            }
+        }
+    }
+}

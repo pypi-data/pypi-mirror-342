@@ -1,0 +1,30 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Slu\u017eba je ji\u017e nastavena"
+        },
+        "error": {
+            "cannot_connect": "Nepoda\u0159ilo se p\u0159ipojit",
+            "unknown": "Neo\u010dek\u00e1van\u00e1 chyba"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "api_key": "Kl\u00ed\u010d API",
+                    "url": "URL"
+                },
+                "data_description": {
+                    "api_key": "Kl\u00ed\u010d API \u00fa\u010dtu pro p\u0159\u00edstup k va\u0161emu serveru Pterodactyl.",
+                    "url": "Adresa URL va\u0161eho serveru Pterodactyl, v\u010detn\u011b protokolu (http:// nebo https://) a p\u0159\u00edpadn\u011b \u010d\u00edsla portu."
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "status": {
+                "name": "Stav"
+            }
+        }
+    }
+}

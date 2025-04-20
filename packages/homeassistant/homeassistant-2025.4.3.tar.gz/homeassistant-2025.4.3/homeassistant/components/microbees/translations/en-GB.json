@@ -1,0 +1,8 @@
+{
+    "config": {
+        "abort": {
+            "reauth_successful": "Re-authentication was successful",
+            "wrong_account": "You can only reauthenticate this entry with the same microBees account."
+        }
+    }
+}

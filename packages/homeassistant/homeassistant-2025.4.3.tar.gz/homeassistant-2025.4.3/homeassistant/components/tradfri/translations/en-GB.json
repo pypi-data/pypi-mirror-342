@@ -1,0 +1,27 @@
+{
+    "config": {
+        "abort": {
+            "already_in_progress": "Configuration flow is already in progress"
+        },
+        "error": {
+            "cannot_authenticate": "Cannot authenticate, is Gateway paired with another server like e.g. Homekit?"
+        },
+        "step": {
+            "auth": {
+                "data_description": {
+                    "host": "Hostname or IP address of your Tr\u00e5dfri gateway."
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "aqi": {
+                "name": "Air quality"
+            },
+            "filter_life_remaining": {
+                "name": "Filter time left"
+            }
+        }
+    }
+}

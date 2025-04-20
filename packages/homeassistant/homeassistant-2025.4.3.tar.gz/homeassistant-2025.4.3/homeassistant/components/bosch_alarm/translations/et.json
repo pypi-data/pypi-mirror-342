@@ -1,0 +1,36 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Seade on juba h\u00e4\u00e4lestatud"
+        },
+        "error": {
+            "cannot_connect": "\u00dchendamine nurjus",
+            "invalid_auth": "Tuvastamine nurjus",
+            "unknown": "Ootamatu t\u00f5rge"
+        },
+        "step": {
+            "auth": {
+                "data": {
+                    "installer_code": "Paigaldaja kood",
+                    "password": "Salas\u00f5na",
+                    "user_code": "Kasutaja kood"
+                },
+                "data_description": {
+                    "installer_code": "Paigaldaja kood paneelilt",
+                    "password": "Re\u017eiimi 2 automatiseerimiskood paneelilt",
+                    "user_code": "Paneeli kasutajakood"
+                }
+            },
+            "user": {
+                "data": {
+                    "host": "Host",
+                    "port": "Port"
+                },
+                "data_description": {
+                    "host": "Boschi h\u00e4irekeskuse hostinimi v\u00f5i IP-aadress",
+                    "port": "Port mida kasutatakse Boschi h\u00e4irekeskusega \u00fchendamiseks. Tavaliselt on see 7700"
+                }
+            }
+        }
+    }
+}

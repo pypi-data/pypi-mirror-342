@@ -1,0 +1,9 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "Please select a location to use for weather forecasting."
+            }
+        }
+    }
+}

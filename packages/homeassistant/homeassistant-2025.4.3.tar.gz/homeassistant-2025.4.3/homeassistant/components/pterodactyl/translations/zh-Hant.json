@@ -1,0 +1,30 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "\u670d\u52d9\u5df2\u7d93\u8a2d\u5b9a\u5b8c\u6210"
+        },
+        "error": {
+            "cannot_connect": "\u9023\u7dda\u5931\u6557",
+            "unknown": "\u672a\u9810\u671f\u932f\u8aa4"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "api_key": "API \u91d1\u9470",
+                    "url": "\u7db2\u5740"
+                },
+                "data_description": {
+                    "api_key": "\u5b58\u53d6 Pterodactyl \u4f3a\u670d\u5668\u7684\u5e33\u865f API \u91d1\u9470\u3002",
+                    "url": "Pterodactyl \u4f3a\u670d\u5668\u7db2\u5740\u3001\u5305\u62ec\u5354\u5b9a (http:// \u6216 https://) \u53ca\u9078\u9805\u9023\u63a5\u57e0\u865f\u78bc\u3002"
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "status": {
+                "name": "\u72c0\u614b"
+            }
+        }
+    }
+}

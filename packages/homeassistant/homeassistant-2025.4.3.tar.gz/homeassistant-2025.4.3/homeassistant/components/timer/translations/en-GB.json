@@ -1,0 +1,60 @@
+{
+    "entity_component": {
+        "_": {
+            "name": "Timer",
+            "state": {
+                "active": "Active",
+                "idle": "Idle",
+                "paused": "Paused"
+            },
+            "state_attributes": {
+                "duration": {
+                    "name": "Duration"
+                },
+                "editable": {
+                    "name": "Managed via UI",
+                    "state": {
+                        "false": "No",
+                        "true": "Yes"
+                    }
+                },
+                "finishes_at": {
+                    "name": "Finishes at"
+                },
+                "remaining": {
+                    "name": "Remaining"
+                },
+                "restore": {
+                    "name": "Restore"
+                }
+            }
+        }
+    },
+    "services": {
+        "cancel": {
+            "name": "Cancel"
+        },
+        "change": {
+            "fields": {
+                "duration": {
+                    "name": "Duration"
+                }
+            },
+            "name": "Change"
+        },
+        "finish": {
+            "name": "Finish"
+        },
+        "reload": {
+            "description": "Reloads timers from the YAML-configuration."
+        },
+        "start": {
+            "fields": {
+                "duration": {
+                    "name": "Duration"
+                }
+            }
+        }
+    },
+    "title": "Timer"
+}

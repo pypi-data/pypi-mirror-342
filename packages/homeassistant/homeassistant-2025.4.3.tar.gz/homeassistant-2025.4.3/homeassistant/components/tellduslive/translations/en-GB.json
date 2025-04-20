@@ -1,0 +1,44 @@
+{
+    "config": {
+        "abort": {
+            "authorize_url_timeout": "Timeout generating authorise URL.",
+            "unknown": "Unexpected error",
+            "unknown_authorize_url_generation": "Unknown error generating an authorise URL."
+        },
+        "error": {
+            "invalid_auth": "Invalid authentication"
+        },
+        "step": {
+            "auth": {
+                "title": "Authenticate with TelldusLive"
+            },
+            "user": {
+                "data": {
+                    "host": "Host"
+                },
+                "data_description": {
+                    "host": "Hostname or IP address to Tellstick Net or Tellstick ZNet for local API."
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "dew_point": {
+                "name": "Dew point"
+            },
+            "uv": {
+                "name": "UV"
+            },
+            "wind_average": {
+                "name": "Wind average"
+            },
+            "wind_direction": {
+                "name": "Wind direction"
+            },
+            "wind_gust": {
+                "name": "Wind gust"
+            }
+        }
+    }
+}

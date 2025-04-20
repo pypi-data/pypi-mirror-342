@@ -1,0 +1,27 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data": {
+                    "country": "Country",
+                    "language": "Language"
+                }
+            }
+        }
+    },
+    "entity": {
+        "calendar": {
+            "discount_games": {
+                "name": "Discount games"
+            },
+            "free_games": {
+                "name": "Free games",
+                "state_attributes": {
+                    "games": {
+                        "name": "Games"
+                    }
+                }
+            }
+        }
+    }
+}

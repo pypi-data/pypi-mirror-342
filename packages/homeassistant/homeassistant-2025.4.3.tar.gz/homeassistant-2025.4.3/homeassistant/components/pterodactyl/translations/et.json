@@ -1,0 +1,30 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Teenus on juba seadistatud"
+        },
+        "error": {
+            "cannot_connect": "\u00dchendamine nurjus",
+            "unknown": "Ootamatu t\u00f5rge"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "api_key": "API v\u00f5ti",
+                    "url": "URL"
+                },
+                "data_description": {
+                    "api_key": "Konto API v\u00f5ti Pterodactyl'i serverile juurdep\u00e4\u00e4suks.",
+                    "url": "Pterodactyl-serveri URL, sealhulgas protokoll (http:// v\u00f5i https://) ja valikuliselt ka pordi number."
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "status": {
+                "name": "Olek"
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "entity_component": {
+        "_": {
+            "state_attributes": {
+                "faces": {
+                    "name": "Faces"
+                },
+                "total_faces": {
+                    "name": "Total faces"
+                }
+            }
+        }
+    },
+    "services": {
+        "scan": {
+            "description": "Processes an image immediately.",
+            "name": "Scan"
+        }
+    }
+}

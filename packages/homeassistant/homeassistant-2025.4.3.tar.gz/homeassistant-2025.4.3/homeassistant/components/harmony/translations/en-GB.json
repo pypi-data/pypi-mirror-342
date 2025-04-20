@@ -1,0 +1,36 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data_description": {
+                    "host": "The hostname or IP address of your Logitech Harmony Hub."
+                }
+            }
+        }
+    },
+    "entity": {
+        "select": {
+            "activities": {
+                "name": "Activities",
+                "state": {
+                    "power_off": "Power Off"
+                }
+            }
+        }
+    },
+    "services": {
+        "change_channel": {
+            "fields": {
+                "channel": {
+                    "description": "Channel number to change to.",
+                    "name": "Channel"
+                }
+            },
+            "name": "Change channel"
+        },
+        "sync": {
+            "description": "Syncs the remote's configuration.",
+            "name": "Sync"
+        }
+    }
+}
