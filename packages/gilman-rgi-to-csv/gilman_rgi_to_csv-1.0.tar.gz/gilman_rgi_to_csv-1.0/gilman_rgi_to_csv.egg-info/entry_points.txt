@@ -1,0 +1,2 @@
+[console_scripts]
+gilman_rgi_to_csv = gilman_rgi_to_csv.main:main

@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: gilman_rgi_to_csv
+Version: 1.0
+Summary: A tool to convert tab-delimited RGI files to CSV format
+Home-page: https://github.com/yourusername/gilman_rgi_to_csv
+Author: Your Name
+Author-email: your_email@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+
+# gilman_rgi_to_csv
+
+A command-line tool to convert a tab-delimited RGI file to CSV file.
+
+## Installation
+
+To install globally via pip:
+
+```bash
+pip install gilman_rgi_to_csv
