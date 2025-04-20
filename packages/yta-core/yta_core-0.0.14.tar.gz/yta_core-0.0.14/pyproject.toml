@@ -1,0 +1,30 @@
+[project]
+name = "yta-core"
+version = "0.0.14"
+description = "Youtube Autonomous Core"
+authors = [
+    {name = "danialcala94",email = "danielalcalavalera@gmail.com"}
+]
+readme = "README.md"
+requires-python = "==3.9"
+dependencies = [
+    "yta_general_utils (>=0.0.251,<0.1.0)",
+    "yta_audio (>=0.0.32, <0.1.0)",
+    "yta_stock_downloader (>=0.1.7,<1.0.0)",
+    "yta_shortcodes (>=0.0.8,<1.0.0)",
+    "yta_audio (>=0.0.32,<1.0.0)",
+    "yta_youtube (>=0.0.21,<1.0.0)",
+    "yta_youtube_enhanced (>=0.0.5,<1.0.0)",
+    "yta_multimedia (>=0.1.136,<1.0.0)",
+    # I think I can remove 'moviepy' from here, but it is working now so... in the future :P
+    "moviepy (>=2.0.0,<3.0.0)",
+    "yta_mongo (>=0.0.4,<1.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "yta_core", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
