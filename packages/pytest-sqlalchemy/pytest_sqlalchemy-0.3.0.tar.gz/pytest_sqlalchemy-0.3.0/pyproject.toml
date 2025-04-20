@@ -1,0 +1,69 @@
+[project]
+name = "pytest-sqlalchemy"
+version = "0.3.0"
+description = "pytest plugin with sqlalchemy related fixtures"
+authors = [
+    { name = "Torsten Irländer", email = "torsten.irlaender@googlemail.com" }
+]
+license = {text = "MIT"}
+readme = "README.rst"
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Topic :: Software Development :: Testing",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "coverage>=7.8.0",
+    "pytest>=8.0",
+    "sqlalchemy>=1.4",
+    "SQLAlchemy-Utils>=0.41",
+]
+
+[project.urls]
+Homepage = "https://github.com/pytest-dev/pytest-sqlalchemy"
+
+[project.entry-points.pytest11]
+sqlalchemy = "pytest_sqlalchemy"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0",
+    "pytest-xdist>=3.6.1",
+    "ruff>=0.11.4",
+]
+docs = [
+    "furo>=2024.8.6",
+    # work around https://github.com/astral-sh/uv/issues/12737
+    "sphinx>=7.4.7",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.coverage.run]
+source = ["pytest_sqlalchemy", "tests"]
+parallel = true
+
+[tool.hatch.build.targets.sdist]
+# paranoidly only include the package in the sdist: https://github.com/pypa/hatch/issues/304
+packages = ["src/pytest_sqlalchemy"]
+
+[tool.mypy]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[[tool.mypy.overrides]]
+module = "sqlalchemy_utils.*"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+norecursedirs = ["tests/examples"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.format]
+quote-style = "preserve"
