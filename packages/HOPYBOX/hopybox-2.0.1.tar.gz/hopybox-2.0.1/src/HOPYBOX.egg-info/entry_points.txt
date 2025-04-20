@@ -1,0 +1,3 @@
+[console_scripts]
+HOPYBOX = hopybox.__main__:start
+hopybox = hopybox.__main__:start

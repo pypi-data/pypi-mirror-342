@@ -1,0 +1,90 @@
+Metadata-Version: 2.4
+Name: HOPYBOX
+Version: 2.0.1
+Summary: An open-source and practical command box.
+Author-email: HOStudio <hostudio.hopybox@foxmail.com>
+License-Expression: GPL-3.0-or-later
+Project-URL: Homepage, https://github.com/HOStudio123/HOPYBOX
+Project-URL: Issues, https://github.com/HOStudio123/HOPYBOX/issues
+Project-URL: Documentation, https://hopybox.readthedocs.io
+Keywords: hopybox,box,ho,py,command,tool
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bs4
+Requires-Dist: sympy
+Requires-Dist: pyotp>=2.9.0
+Requires-Dist: requests
+Requires-Dist: rich>=13.0.0
+Requires-Dist: psutil>=5.8.0
+Requires-Dist: prompt_toolkit<3.10,>=3.0.47
+Requires-Dist: cryptography>=41.0.0
+Requires-Dist: cohere
+Dynamic: license-file
+
+# HOPYBOX
+## Introduction
+An open-source and practical command box, it was made in python language, so I named it `HOPYBOX`.
+## Installion
+Install with `pip` or your favorite PyPI package manager.
+```sh
+$ python -m pip install hopybox
+```
+## Run
+Run the following command to run `HOPYBOX` in the terminal:
+```sh
+$ python -m hopybox
+```
+or like these
+```sh
+$ hopybox
+```
+```python
+>>> from hopybox import __main__
+>>> __main__.start()
+```
+## Import all methods
+```python
+>>> from hopybox import *
+```
+## Usage
+See built-in help in the program
+```sh
+HOPYBOX/Program:help
+```
+## Update
+Enter in the `HOPYBOX` console:
+```sh
+HOPYBOX/Program:update
+```
+or like this
+```sh
+$ pip install -U hopybox
+```
+## License
+```
+Copyright (c) 2022-2025 HOStudio123 (hostudio.hopybox@foxmail.com)
+
+HOPYBOX is an open-source command box released under the GPL Version 3 license. 
+
+This means that you are free to use, distribute, and modify the software, but you must comply with the terms and conditions of the GPL Version 3 license. 
+
+The software is provided free of charge, but WITHOUT ANY WARRANTY, including the implied warranties of MERCHANTABILITY and FITNESS FOR A PARTICULAR PURPOSE. 
+
+You can visit <https://www.gnu.org/licenses/> to view the details of the GPL Version 3 license.
+```
+
+## Docs
+The [HOPYBOX Documentation](https://hopybox.readthedocs.io) can give you detailed more instructions on how to use it.  
+
+## Stargazers over time
+[![Stargazers over time](https://starchart.cc/HOStudio123/HOPYBOX.svg?variant=adaptive)](https://starchart.cc/HOStudio123/HOPYBOX)
