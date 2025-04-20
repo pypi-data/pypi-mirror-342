@@ -1,0 +1,652 @@
+﻿var adbottomzscsmethods = {
+    queryparam: { 'tpcode': '', 'tptitle': '', 'tpkw': '', 'pagesize': 7 },
+    defaultAdData: {
+      "topAds":[{"ztcode":"","logo":"https://search.cnki.net/adfiles/ad/rencai/t_img.png","organName":"岗位推荐","organPos":"","organLocal":"","salary":"","url":"http://rencai.cnki.net"}],
+      "leftAds":[{"ztcode":"","logo":"https://search.cnki.net/adfiles/ad/rencai/rc_logo.png","organName":"知网人才","organPos":"","organLocal":"","salary":"","url":"http://rencai.cnki.net"}],
+      "rightAds":[{"ztcode":"G114","logo":"https://search.cnki.net/adfiles/ad/rencai/295-112_cnki.jpg","organName":"同方知网","organPos":"人式智能与大数据算法专家|大模型高级工程师","organLocal":"","salary":"面议","url":"https://rencai.cnki.net/#/findPosition/companyDetails?id=86"},
+        {"ztcode":"G114","logo":"https://search.cnki.net/adfiles/ad/rencai/295-112_hzny.jpg","organName":"汇智（北京）能源有限公司","organPos":"汇智（北京）能源有限公司岗位招聘","organLocal":"","salary":"面议","url":"https://rencai.cnki.net/#/findPosition/companyDetails?id=106"},
+        {"ztcode":"G114","logo":"https://search.cnki.net/adfiles/ad/rencai/295-112_sdykd.jpg","organName":"首都医科大学附属北京胸科医院","organPos":"首都医科大学附属北京胸科医院面向2024年应届毕业生.(含社会人员)公开招聘","organLocal":"","salary":"面议","url":"https://rencai.cnki.net/#/findNotice/noticeDetail?noticeId=104&id=97"}
+      ],
+    },
+    adimgitem: null,
+    hasaddcss: false,
+    adimgitems: [],
+    parseQueryParam: function () {
+        try {
+            var uniqueScriptFileName = "R021.js?";
+            var zhuantiParamsName = "sc";
+            var titleParamsName = "st";
+            var kwParamsName = "kw";
+            var tpcode = "";
+            var CurrZTCodes = adbottomzscsfuns.GetScriptSrcQueryString(uniqueScriptFileName, zhuantiParamsName);
+            if (CurrZTCodes) {
+                tpcode = CurrZTCodes.split(';')[0];
+            }
+            var tptitle = adbottomzscsfuns.GetScriptSrcQueryString(uniqueScriptFileName, titleParamsName);
+            if (tptitle == null || tptitle.length == 0) {
+                tptitle = $(".wx-tit h1").text() == undefined ? "" : $(".wx-tit h1").text();
+            }
+            if (tptitle) {
+                tptitle = tptitle.replace(/(<([^>]+)>)/ig, "").replace(/\ +/g, "");
+            }
+            var tpkw = adbottomzscsfuns.GetScriptSrcQueryString(uniqueScriptFileName, kwParamsName);
+            if (tpkw == null || tpkw.length == 0) {
+                tpkw = $(".row .keywords").text() == undefined ? "" : $(".row .keywords").text();
+            }
+            if (tpkw) {
+                tpkw = tpkw.replace(/(<([^>]+)>)/ig, "").replace(/\ +/g, "").replace(/[\r\n]/g, "");
+            }
+            this.queryparam.tpcode = tpcode;
+            this.queryparam.tptitle = tptitle;
+            this.queryparam.tpkw = tpkw;
+            this.verifyZjcode(tpcode);
+        } catch (e) { }
+    },
+    parseStr2Date: function (strtime, defaultime) {
+        if (defaultime == undefined) {
+            defaultime = new Date(2020, 1, 1);
+        }
+        var sdate = null;
+        try {
+            sdate = new Date(Date.parse(strtime.replace(/-/g, "/")));
+        } catch (e) {
+            sdate = defaultime;
+        }
+        return sdate;
+    },
+    compareDate_day: function (date1, date2) {
+        if (date1 == null || date2 == null) {
+            return -1;
+        }
+        //var odate1 = new Date(date1.getYear(), date1.getMonth(), date1.getDay());
+        //var odate2 = new Date(date2.getYear(), date2.getMonth(), date2.getDay());
+        if (date1 >= date2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    },
+    verifyZjcode: function (zjcode) {
+        if (zjcode == undefined) {
+            return null;
+        }
+        try {
+            // console.log(zjcode);
+            zjcode = zjcode.replace(/\s*/g, "");
+            if (zjcode.length == 0) {
+                return null;
+            }
+            var zjcodearrs = zjcode.split(';');
+            var nowzjcode = '';
+            if (zjcodearrs.length >= 1) {
+                nowzjcode = zjcodearrs[0];
+            }
+            if (nowzjcode.length == 0) {
+                return null;
+            }
+            var nowdate = new Date();
+            var resobj = null;
+            var that = this;
+            // for (var i = 0; i < that.adimgitems.length; i++) {
+            //     var item = that.adimgitems[i];
+            //     if (item.status != 1) {
+            //         continue;
+            //     }
+            //     if (item.zjcode && item.zjcode.indexOf(nowzjcode + ';') != -1) {
+            //         var startdate = that.parseStr2Date(item.starttime);
+            //         var enddate = that.parseStr2Date(item.endtime);
+            //         if (startdate == null || enddate == null) {
+            //             continue;
+            //         }
+            //         var verifyStart = that.compareDate_day(nowdate, startdate);
+            //         var verifyend = that.compareDate_day(enddate, nowdate);
+            //         if (verifyStart == 1 && verifyend == 1) {
+            //             resobj = item;
+            //             that.adimgitem = item;
+            //             break;
+            //         }
+            //     }
+            // }
+            return resobj;
+        } catch (e) { }
+        return null;
+    },
+    parseAdImg2Html: function (imgitem) {
+        try {
+            if (imgitem) {
+                return '<a href="' + imgitem.href + '" target="_blank" class="r-ad" title="' + imgitem.name + '" style="width:635px;height:90px;overflow:hidden;"><img src="' + imgitem.imgsrc + '" alt="' + imgitem.name + '" style="border: -2px solid #e4e4e4;" width="635" height="90"></a>';
+            } else {
+                return '';
+            }
+        } catch (e) { }
+        return '';
+    },
+    appendObj2AdElement: function (arr) {
+        // 右边图片
+        // var imgUrl = './img/rc_pub.png'
+        // $('#publicizeImg').attr('src', imgUrl);
+
+        var str = ''
+        var result = []
+        var sliderNum = 0
+        if (arr.length % 3 != 0) {
+            sliderNum = Math.ceil(arr.length / 3)
+        } else {
+            sliderNum = arr.length / 3
+        }
+        var ind = 0
+        //如果只有三个职位，则不显示左右箭头
+        if (arr.length <= 3) {
+            $('#arrowL').css("display", "none");
+            $('#arrowR').css("display", "none");
+        }
+        for (var i = 0, len = arr.length; i < len; i += 3) {
+            result.push(arr.slice(i, i + 3));
+        }
+        for (var i = 0; i < result.length; i++) {
+            str += '<div class="rc-item"><div class="layui-row layui-col-space10">'
+            for (var k = 0; k < result[i].length; k++) {
+                var salary = result[i][k].salary;
+                var salaryHtml = "";
+                var salaryUrl = result[i][k].url;
+                if(salaryUrl == null || salaryUrl.length == 0){
+                    salaryUrl = "https://rencai.cnki.net";
+                }
+                if (salary && salary.length > 0) {
+                    var salaryArr = salary.split(",");
+                    for (var l = 0; l < salaryArr.length; l++) {
+                        if (salaryArr[l].length == 0) {
+                            continue;
+                        }
+                        salaryHtml += '<span title="' + salaryArr[l] + '">' + salaryArr[l] + '</span>';
+                    }
+                    if (salaryHtml.length > 10) {
+                        salaryHtml = '<span class="organ-s">' + salaryHtml + '</span>';
+                    }
+                }
+                str += '<div class="layui-col-xs4 rc-item-one"><div class="grid-demo grid-demo-bg1"><a href="'
+                    + salaryUrl +
+                    '" target="_blank" class="grid-demo-ah"><div class="i-top">'
+                    + '<span class="organ-info"><p class="organ-n" title="' + result[i][k].organPos + '">'
+                    + result[i][k].organPos +
+                    '</p><p class="organ-f">'
+                    + salaryHtml
+                    + '</p></span></div>'
+                    + '<div class="i-bottom">'
+                    + '<p class="organ-organ" title="' + result[i][k].organName + '"><span class="organ-sp"><img src="'+ result[i][k].logo +'" alt="" class="organ-l"></span> '
+                    + '<span class="organ-pos"> ' + result[i][k].organName + '</span><p>'
+                    + '<span class="organ-local" title="' + result[i][k].organLocal + '"><img src="https://search.cnki.net/adfiles/ad/rencai/local.png" alt="' + result[i][k].organLocal + '"/>'
+                    + result[i][k].organLocal +
+                    '</span></div></a></div></div> '
+            }
+            str += '</div></div>'
+        }
+        $('#swiper-warp').append(str)
+        var threeMail = $('.rc-item').outerWidth(true)
+        $(window).resize(function () {
+            threeMail = $('.rc-item').outerWidth(true)
+            $('#swiper-warp').css("left", "-" + (threeMail * ind) + "px");
+        });
+
+        //向左
+        $("#arrowL").click(function () {
+            $('#arrowL').css("display", "block");
+            if (ind <= 0) {
+                $('#swiper-warp').css("left", "-" + (threeMail * (sliderNum - 1)) + "px");
+                ind = sliderNum - 1
+                return
+            }
+            ind--
+            $('#swiper-warp').css("left", "-" + (threeMail * ind) + "px");
+        });
+
+        //向右
+        $("#arrowR").click(function () {
+            $('#arrowR').css("display", "block");
+            if (ind === sliderNum - 1) {
+                $('#swiper-warp').css("left", "0px");
+                ind = 0
+                return
+            }
+            ind++
+            $('#swiper-warp').css("left", "-" + (threeMail * ind) + "px");
+        });
+    },
+    appendObj2AdTitle: function (objitem) {
+        if (objitem == null || objitem == undefined || objitem.length == 0) return "";
+        var html = "";
+        html += '    <span class="t-text">' + objitem[0].organName + '</span>' +
+            '    <a href="' + objitem[0].url + '" target="_blank"><img src="' + objitem[0].logo + '" alt="" class="t-img"></a>';
+        return html;
+    },
+    appendObj2AdLeft: function (objitem) {
+        if (objitem == null || objitem == undefined || objitem.length == 0) return "";
+        var html = "";
+        html += '        <div class="grid-demo grid-demo-bg1">' +
+            '          <a href="' + objitem[0].url + '" class="rc-logo" target="_blank" title="' + objitem[0].organName + '">' +
+            '            <img src="' + objitem[0].logo + '" alt="">' +
+            '          </a>' +
+            '        </div>';
+        return html;
+    },
+    appendObj2AdRight: function (objitem) {
+        if (objitem == null || objitem == undefined || objitem.length == 0) return "";
+        var html = "";
+        html += '        <div class="grid-demo" id="kcmsa_bottom_right_ad">' +
+            '          <a href="' + objitem[0].url + '" target="_blank" class="rc-pub">' +
+            '            <img src="' + objitem[0].logo + '" alt="' + objitem[0].organName + '" id="publicizeImg">' +
+            '          </a>' +
+            '        </div>';
+        return html;
+    },
+    getContentFramworkHtml: function () {
+        var html = '<div class="publicize">' +
+            '  <p class="pub-title" id="r021_topAds">' +
+            // '    <span class="t-text">岗位推荐</span>' +
+            // '    <img src="https://member.cnki.net/images/rencai/t_img.png" alt="" class="t-img">' +
+            '  </p>' +
+            '  <div class="pub-main">' +
+            '    <div class="layui-row">' +
+            '      <div class="layui-col-xs2" id="r021_leftAds">' +
+            // '        <div class="grid-demo grid-demo-bg1">' +
+            // '          <a href="http://rencai.cnki.net" class="rc-logo" target="_blank" title="知网人才">' +
+            // '            <img src="https://member.cnki.net/images/rencai/rc_logo.png" alt="">' +
+            // '          </a>' +
+            // '        </div>' +
+            '      </div>' +
+            '      <div class="layui-col-xs8" id="r021_centerAds">' +
+            '        <div class="grid-demo grid-demo-bg1">' +
+            '          <div class="pub-carousel">' +
+            '            <div class="pub-carousel-item">' +
+            '              <div class="pub-swiper-warp" id="swiper-warp"></div>' +
+            '            </div>' +
+            '            <div class="pub-arrow arrow-l" lay-type="sub" id="arrowL"></div>' +
+            '            <div class="pub-arrow arrow-r" lay-type="add" id="arrowR"></div>' +
+            '          </div>' +
+            '        </div>' +
+            '      </div>' +
+            '      <div class="layui-col-xs2" id="r021_rightAds">' +
+            // '        <div class="grid-demo">' +
+            // '          <a href="https://rencai.cnki.net/#/findNotice/noticeDetail?noticeId=97&id=88" target="_blank" class="rc-pub">' +
+            // '            <img src="https://search.cnki.net/adfiles/ad/rencai/295-112_qufu.jpg" alt="" id="publicizeImg">' +
+            // '          </a>' +
+            // '        </div>' +
+            '      </div>' +
+            '    </div>' +
+            '  </div>' +
+            '</div>';
+        return html;
+    },
+    getaditemsByZtCode: function (ztcode, maxnum, aditems) {
+        maxnum = maxnum === undefined ? 9 : maxnum;
+        var aditemsArr = [];
+        // if (ztcode == undefined || ztcode.length < 4 || maxnum == 0) {
+        //     return [];
+        // }
+        // ztcode = ztcode.substring(0, 4).toUpperCase();
+        // for (var i = 0; i < aditems.length; i++) {
+        //     if (aditems[i].ztcode == ztcode) {
+        //         aditemsArr.push(aditems[i]);
+        //     }
+        // }
+        // if (maxnum == -1 || aditemsArr.length <= maxnum) {
+        //     return aditemsArr;
+        // }
+        aditemsArr = this.shuffle(aditems);
+        var aditemsArrRandom = aditemsArr.slice(0, maxnum);
+        return aditemsArrRandom;
+    },
+    shuffle: function(array){
+        //.sort(() => Math.random() - 0.5) 
+        var len = array.length;
+        for(var i=0; i<len-1; i++){
+            var index = parseInt(Math.random()*(len-1));
+            var temp = array[index];
+            array[index] = array[len-i-1];
+            array[len-i-1] = temp;
+        }
+        return array;
+    }
+}
+var adbottomzscsfuns = {
+    //解析出参数
+    GetScriptSrcQueryString: function(jsfilename, name) {
+        if (name == null || name == "")
+            return null;
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var dscriptSrc = adbottomzscsfuns.FindScriptSrc(jsfilename);
+        var scriptsrc = dscriptSrc.substr(dscriptSrc.indexOf("?") + 1);
+        var r = scriptsrc.match(reg);
+        if (r != null) return decodeURIComponent(r[2]); return null;
+    },
+    //测试方法，从当前url获取tcode参数值
+    GetCurrentQueryString: function(name) {
+        if (name == null || name == "")
+            return null;
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var dscriptSrc = location.href;
+        var scriptsrc = dscriptSrc.substr(dscriptSrc.indexOf("?") + 1);
+        var r = scriptsrc.match(reg);
+        if (r != null) return decodeURIComponent(r[2]); return null;
+    },
+    FindScriptSrc: function(jsfilename) {
+        var src = "";
+        var scriptArr = document.scripts;
+        for (var i = 0; i < scriptArr.length; i++) {
+            if (scriptArr[i].src.indexOf(jsfilename) > -1) {
+                src = scriptArr[i].src;
+                break;
+            }
+        }
+        return src;
+    },
+    //广告列表数据,需要修改广告，请在这里修改每一个数组元素及排序
+    adListData: function() {
+        var imghost = "https://search.cnki.net/";
+        if (typeof init_adhost === 'function') {
+            imghost = init_adhost().imghost;
+        }
+        var list = {
+            "rem": "广告列表",
+            "ad_list": [
+                {
+                    "name": "历史是个商学院",
+                    "url": "https://zwwh.cnki.net/detail/bookDetail/DZ2005110109",
+                    "img": imghost + "adfiles/ad/2020/lunbotu/lishi09.jpg",
+                    "ord": 1
+                }
+            ]
+        };
+        adbottomzscsfuns.supportMapInLowerBrowser();
+
+        var temarr = addefaultlist.ad_list;
+        try {
+            //辅助生成不重复的随机数
+            var numarr = [];
+            for (var i = 0; i < temarr.length; i++) {
+                numarr.push(i);
+            }
+
+            //ord重新赋值随机数
+            temarr.admap(function (item) {
+
+                //numarr的长度，一直在变化，每次都会删除一个元素，长度减去1
+                //在此处一定要使用Math.floor
+                var index = Math.floor(Math.random() * numarr.length);//numarr.indexOf(val);
+                if (index > -1) {
+                    item.ord = numarr[index];//将下标对应的值取出来赋值给当前元素的ord
+                    numarr.splice(index, 1);//删除元素
+                }
+
+            });
+            //调试：输出排序后的数组
+            // for(var a = 0;a<temarr.length;a++){
+            // adbottomzscsfuns.consoleAd(temarr[a].name+";"+temarr[a].ord);
+            // }
+
+            //根据ord重新排序，实现随机乱序效果
+            temarr.sort(adbottomzscsfuns.adSortBy);
+        }
+        catch (e) {
+            adbottomzscsfuns.consoleAd("adbottom:" + e);
+        }
+        return temarr;
+    },
+    //广告排序函数
+    adSortBy: function(a, b) {
+        return a.ord - b.ord
+    },
+    requestAdListData: function(tpcode, adsHtmlBanner, adsHtmlFooter, tptitle, tpkw) {
+        if (isNull(tpcode)) {
+            // tpcode = "Z999";
+            // tpcode = "E056";
+        }
+        tptitle = tptitle == undefined ? "" : encodeURIComponent(tptitle);
+        tpkw = tpkw == undefined ? "" : encodeURIComponent(tpkw);
+        // var adReqUrl = 'http://localhost:8091/Test/bar/adrencai.json?code=' + tpcode + '&n=' + Math.random();
+        // var adReqUrl = 'https://search.cnki.net/adfiles/ad/rencai/adrencai.json?code=' + tpcode + '&n=' + Math.random();
+        var adReqUrl = 'https://search.cnki.net/talent/services/common/getJobs?majorCode=' + tpcode + '&n=' + Math.random();
+        try {
+            $.ajax({
+                url: adReqUrl,
+                type: "POST",
+                dataType: "json",
+                // jsonp: "callback",
+                success: function (resdata) {
+                    console.log(resdata);
+                    if(resdata && resdata.code && resdata.code != "200" && resdata.data && resdata.data.length == 0) {
+                        $("#dz-carousel").hide();
+                        return false;
+                    }
+                    var contentFramworkHtml = adbottomzscsmethods.getContentFramworkHtml();
+                    adbottomzscsfuns.RenderAdHtml(contentFramworkHtml)
+                    var adContentElement = null
+                    var maxCheckTimes = 100;
+                    var checkTimes = 0;
+                    while (adContentElement == null || adContentElement.length == 0) {
+                        checkTimes++;
+                        if (checkTimes > maxCheckTimes) {
+                            break;
+                        }
+                        adContentElement = $(".dz-carousel .publicize");
+                    }
+                    if (adContentElement == null || adContentElement.length == 0) {
+                        $("#dz-carousel").hide();
+                        return false;
+                    }
+
+                    if (adbottomzscsmethods.defaultAdData.topAds) {
+                        var topAdsHtml = adbottomzscsmethods.appendObj2AdTitle(adbottomzscsmethods.defaultAdData.topAds);
+                        $("#dz-carousel .publicize #r021_topAds").append(topAdsHtml);
+                    }
+                    if (adbottomzscsmethods.defaultAdData.leftAds) {
+                        var leftAdsHtml = adbottomzscsmethods.appendObj2AdLeft(adbottomzscsmethods.defaultAdData.leftAds);
+                        $("#dz-carousel .publicize #r021_leftAds").append(leftAdsHtml);
+                    }
+                    if (adbottomzscsmethods.defaultAdData.rightAds) {
+                        var rightAdsHtml = adbottomzscsmethods.appendObj2AdRight(adbottomzscsmethods.defaultAdData.rightAds);
+                        $("#dz-carousel .publicize #r021_rightAds").append(rightAdsHtml);
+                    }
+                    if (resdata.data) {
+                        var adItemArr = adbottomzscsmethods.getaditemsByZtCode(tpcode, 9, resdata.data);
+                        if (!adItemArr || adItemArr.length == 0) {
+                            $("#dz-carousel").hide();
+                        } else {
+                            adbottomzscsmethods.appendObj2AdElement(adItemArr);
+                        }
+                    }
+                    //加载广告系统广告
+                    adbottomzscsfuns.addAdSysAd(tpcode);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    adbottomzscsfuns.consoleAd(XMLHttpRequest.status + XMLHttpRequest.statusText + " " + XMLHttpRequest.readyState + " " + textStatus);
+                    $("#dz-carousel").hide();
+                }
+            });
+        }
+        catch (e) {
+            adbottomzscsfuns.consoleAd(e);
+            $("#dz-carousel").hide();
+        }
+    },
+    addAdSysAd: function (tpcode){
+        var orgHtml = '';
+        try{
+            if (isNull(tpcode)) {
+                tpcode = "A002";
+            }
+            orgHtml = $('#kcmsa_bottom_right_ad').html();
+            $('#kcmsa_bottom_right_ad').html('');
+            var timestamp = Date.parse(new Date());
+            var t = timestamp + Math.round(Math.random() * 100000);
+            var adurl = 'https://ad.cnki.net/gadssource/js/spacead.js?adpot=0302004&zt='+tpcode+'&t='+t+'&w=0&h=112&pe=kcmsa_bottom_right_ad&s=1&wcss=1';
+            var adScript = document.createElement("script");
+            adScript.type = 'text/javascript';
+            adScript.src = adurl;
+            document.head.appendChild(adScript);    
+        } catch (e){
+            $('#kcmsa_bottom_right_ad').html(orgHtml);
+        }
+    },    
+    isNotNull: function (ele) {
+        if (typeof ele === 'undefined') {//先判断类型
+            return false;
+        } else if (ele == null) {
+            return false;
+        } else if (ele == '') {
+            return false;
+        }
+        return true;
+    },
+    //修改图片的绝对路径
+    updateAdListData: function(datalist) {
+        var imghost = "https://search.cnki.net/adfiles/ad/knsimg/";
+        if (typeof init_adhost === 'function') {
+            imghost = init_adhost().imghost;
+        }
+        for (i = 0; i < datalist.length; i++) {
+            datalist[i].img = imghost + datalist[i].img;
+        }
+        return datalist;
+    },
+    //广告列表的动态生成
+    adListMidHtml: function(adlist) {
+        var _adMidHtml = "";
+        _adMidHtml += '      <ul class="imageList">{#1}';
+        for (var i = 0; i < adlist.length; i++) {
+            _adMidHtml += '        <li><a href="' + adlist[i].url + '" title="' + adlist[i].name + '" target="_blank"><img src="' + adlist[i].img + '" alt="" /></a></li>{#1}';
+        }
+        _adMidHtml += '      </ul>{#1}';
+        return _adMidHtml;
+    },
+    RenderAdHtml: function (adsHtml) {
+        //使用正则，替换多次
+        var reg1 = new RegExp('{#1}', "g")
+        $("#dz-carousel").append(adsHtml.replace(reg1, '\n'));
+        $(".dz-carousel").css("margin-top", "-20px");
+        $(".dz-carousel").css("padding", "0 0 20px 0");
+        $(".dz-carousel").css("min-width", "1200px");
+        //添加左右箭头的无限循环轮播效果
+        //carousel("#dz-carousel", 2400, 400);
+    },
+    //输出广告的样式表
+    adcss: function() {
+        try {
+            var aditem = null;
+            if (typeof (adbottomzscsmethods) != undefined) {
+                aditem = adbottomzscsmethods.adimgitem;
+            }
+            var newcss = '';
+            newcss = '<style type="text/css">#dz-carousel .publicize{width:100%;padding:0 39px;min-width:1200px;font-family:"Microsoft yahei";background-color:#f6f7f9;box-sizing:border-box;margin:0}#dz-carousel .publicize .foot-pub{height:150px;width:100%;font-size:0;padding:44px 0}#dz-carousel .publicize .pub-a{display:inline-block;height:100%;width:49%}#dz-carousel .publicize .foot-pub .pub-img{width:100%;height:100%}#dz-carousel .publicize .foot-pub .pub-a:nth-last-child(1){margin-left:2%}#dz-carousel .publicize a{text-decoration:none}#dz-carousel .publicize .pub-title{font-size:16px;font-family:Microsoft YaHei;font-weight:bold;color:#333333;padding:33px 0 15px;margin:0}#dz-carousel .publicize .pub-title .t-text{vertical-align:middle}#dz-carousel .publicize .pub-title .t-img{margin-left:12px;vertical-align:middle}#dz-carousel .publicize .pub-main{width:100%;height:144px;background-color:#FFFFFF;border:1px solid #E6E6E6;box-sizing:border-box;padding:15px 20px 0}#dz-carousel .publicize .layui-row:after,#dz-carousel .publicize .layui-row:before{content:"";display:block;clear:both}#dz-carousel .publicize .layui-col-xs1{position:relative;display:block;box-sizing:border-box;float:left;width:13.66666667%}#dz-carousel .publicize .layui-col-xs2{position:relative;display:block;box-sizing:border-box;float:left;width:16.66666667%}#dz-carousel .publicize .layui-col-xs4{position:relative;display:block;box-sizing:border-box;float:left;width:33.33333333%}#dz-carousel .publicize .layui-col-xs6{position:relative;display:block;box-sizing:border-box;float:left;width:50%}#dz-carousel .publicize .layui-col-xs8{position:relative;display:block;box-sizing:border-box;float:left;width:66.66666667%}#dz-carousel .publicize .layui-col-xs12{position:relative;display:block;box-sizing:border-box;float:left;width:100%}#dz-carousel .publicize .rc-logo{display:inline-block;margin-top:22px;border-right:1px solid #E5E5E5;padding-right:30px;box-sizing:border-box;height:57px;width:100%;text-align:center}#dz-carousel .publicize .rc-logo img{max-width:100%;height:100%}#dz-carousel .publicize .pub-carousel{width:100%;height:112px;background-color:#FFFFFF;position:relative;left:0;top:0}#dz-carousel .publicize .pub-carousel .pub-carousel-item{position:relative;width:100%;height:100%;overflow:hidden}#dz-carousel .publicize .pub-swiper-warp{position:absolute;width:100%;white-space:nowrap;left:0;box-sizing:border-box;height:120px;font-size:0;-webkit-transition:all .2s ease-in-out .1s;transition:all .2s ease-in-out .1s}#dz-carousel .publicize .rc-item{padding:0 60px;box-sizing:border-box;overflow:hidden;display:inline-block;height:112px;width:100%}#dz-carousel .publicize .layui-col-space10{margin:-5px}#dz-carousel .publicize .layui-col-space10>*{padding:5px}#dz-carousel .publicize .grid-demo-ah{display:block;padding:10px 13px;box-sizing:border-box;height:112px;border:1px solid #F0F0F0;border-radius:10px}#dz-carousel .publicize .i-top{padding-bottom:7px;border-bottom:1px solid #F0F0F0}#dz-carousel .publicize .i-top .organ-info{display:inline-block;width:100%;vertical-align:middle}#dz-carousel .publicize .organ-n{font-size:16px;font-weight:bold;color:#333333;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;margin:0 0 7px;vertical-align:middle}#dz-carousel .publicize .organ-f{text-overflow:ellipsis;overflow:hidden;word-wrap:break-word;word-break:break-all;vertical-align:middle;margin:0;font-size:14px;font-weight:400;color:#333333}#dz-carousel .publicize .organ-f .organ-tip{width:57px;height:19px;line-height:19px;text-align:center;background:#FFEFF0;border:1px solid #FEC3BD;border-radius:2px;box-sizing:border-box;font-size:12px;font-weight:400;color:#FF4631;display:inline-block;vertical-align:middle}#dz-carousel .publicize .i-bottom{padding-top:12px}#dz-carousel .publicize .organ-organ{width:70%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;float:left}#dz-carousel .publicize .i-bottom .organ-sp{width:20px;height:20px;display:inline-block;vertical-align:middle;background:#fff;position:relative;border-radius:50%;overflow:hidden;margin-right:5px}#dz-carousel .publicize .i-bottom .organ-l{width:100%;height:100%}#dz-carousel .publicize .i-bottom .organ-pos{font-size:14px;font-weight:400;color:#A29E9C;vertical-align:middle;width:203px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#dz-carousel .publicize .organ-local{width:29%;font-size:14px;font-weight:400;color:#999999;vertical-align:middle;display:inline-block;text-overflow:ellipsis;overflow:hidden;word-wrap:break-word;word-break:break-all;white-space:nowrap;padding-left:13px;box-sizing:border-box;text-align:right;float:right}#dz-carousel .publicize .organ-local img{width:13px;height:13px;vertical-align:middle}#dz-carousel .publicize .organ-i{vertical-align:middle}#dz-carousel .publicize .organ-s{font-size:14px;font-weight:400;display:inline-block;width:100%;color:#ff6400;text-overflow:ellipsis;overflow:hidden;word-wrap:break-word;white-space:nowrap;word-break:break-all;vertical-align:middle;text-align:left}#dz-carousel .publicize .organ-s span{display:inline-block;padding:2px 3px;text-align:center;color:#ff6400;margin-right:5px;background-color:#FFF7F0}#dz-carousel .publicize .organ-s span:nth-last-child(1){margin-right:0}#dz-carousel .publicize .pub-arrow{opacity:1;position:absolute;top:50%;margin-top:-15px;width:18px;height:25px;border:none;-webkit-transition-duration:.3s;transition-duration:.3s;cursor:pointer}#dz-carousel .publicize .arrow-l{background-image:url("https://search.cnki.net/adfiles/ad/rencai/arrow_l.png");background-repeat:no-repeat;background-size:18px 25px;left:20px}#dz-carousel .publicize .arrow-r{background-image:url("https://search.cnki.net/adfiles/ad/rencai/arrow_r.png");background-repeat:no-repeat;background-size:18px 25px;right:20px}#dz-carousel .publicize .grid-demo{overflow:hidden}#dz-carousel .publicize .rc-pub{display:inline-block;height:112px;box-sizing:border-box;width:100%}#dz-carousel .publicize .rc-pub img{width:100%;height:100%}</style>';
+
+            // var _hmt = _hmt || [];
+            // var hm = document.createElement("style");
+            // hm.innerHTML = newcss;
+            // var s = document.getElementsByTagName("style")[0];
+            // s.parentNode.insertBefore(hm, s);
+
+            document.writeln(newcss);
+            adbottomzscsmethods.hasaddcss = true;
+        } catch (e) { }
+    },
+    supportMapInLowerBrowser: function() {
+        try {
+            //Array.prototype扩展可以让IE6-IE8浏览器也支持map方法：
+            if (typeof Array.prototype.admap != "function") {
+                Array.prototype.admap = function (fn, context) {
+                    var arr = [];
+                    if (typeof fn === "function") {
+                        for (var k = 0, length = this.length; k < length; k++) {
+                            arr.push(fn.call(context, this[k], k, this));
+                        }
+                    }
+                    return arr;
+                };
+            }
+
+            if (!Array.prototype.adfilter) {
+                Array.prototype.adfilter = function (fun) {
+                    var len = this.length;
+                    if (typeof fun != "function") {
+                        throw new TypeError();
+                    }
+                    var res = new Array();
+                    var thisp = arguments[1];
+                    for (var i = 0; i < len; i++) {
+                        if (i in this) {
+                            var val = this[i];
+                            if (fun.call(thisp, val, i, this)) {
+                                res.push(val);
+                            }
+                        }
+                    }
+                    return res;
+                };
+            }
+        }
+        catch (e) {
+            adbottomzscsfuns.consoleAd("adbottom:" + e);
+        }
+    },
+    consoleAd: function(val) {
+        if (console.log) {
+            console.log("adbottom:" + val);
+        }
+    }
+};
+!(function WriteADs() {
+    if (typeof (adbottomzscsmethods) != 'undefined' && adbottomzscsmethods.parseQueryParam) {
+        adbottomzscsmethods.parseQueryParam();
+    }
+    adbottomzscsfuns.adcss();
+    var hasloadAD_r201 = false;
+    $(window).scroll(function () {
+        try {
+            if (typeof (adbottomzscsmethods) != 'undefined' && !adbottomzscsmethods.hasaddcss) {
+                return false;
+            }
+            var t = 0;
+            document.documentElement && document.documentElement.scrollTop ? t = document.documentElement.scrollTop : document.body && (t = document.body.scrollTop);
+            var s = 0;
+            s = document.body.clientHeight && document.documentElement.clientHeight ? Math.min(document.body.clientHeight, document.documentElement.clientHeight) : Math.max(document.body.clientHeight, document.documentElement.clientHeight);
+            var e = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
+                i = e - s - t;
+            if (i < 100 && !hasloadAD_r201) {
+                hasloadAD_r201 = true;
+                setTimeout(function () {
+                    try {
+                        var adsHtml = "";
+
+                        //header,{#0}:轮播图HTML，{#1}：换行符
+                        //var adsHtmlBanner = '    <div class="banner">{#1}{#0}{#1}    </div>{#1}';
+                        var adsHtmlBanner = '<div class="relatives">{#1}{#0}{#1}</div>{#1}';
+
+                        //mid core content
+
+                        //footer
+                        var adsHtmlFooter = "";
+                        adsHtmlFooter += '      <div class="btns">{#1}';
+                        adsHtmlFooter += '        <span class="leftBtn"></span>{#1}';
+                        adsHtmlFooter += '        <span class="rightBtn"></span>{#1}';
+                        adsHtmlFooter += '      </div>{#1}';
+
+                        var queryparam = adbottomzscsmethods.queryparam;
+
+                        //测试，从当前页面的url中读取专题代码
+                        //tpcode=adbottomzscsfuns.GetCurrentQueryString("tcode");
+                        //动态获取数据并渲染到指定位置
+                        adbottomzscsfuns.requestAdListData(queryparam.tpcode, adsHtmlBanner, adsHtmlFooter, queryparam.tptitle, queryparam.tpkw);
+
+                        //var cnzz_protocol = (('https:' == document.location.protocol) ? ' https://' : ' http://');
+                        //adsHtml+="<div style='display:none;'><span id='cnzz_stat_icon_3258975'></span><script src='" + cnzz_protocol + "s22.cnzz.com/stat.php?id=3258975&show=pic1' type='text/javascript'></script></div>";
+                        //输出css样式
+                        // adbottomzscsfuns.adcss();
+                    }
+                    catch (e) {
+                        adbottomzscsfuns.consoleAd(e);
+                    }
+                }, 100);
+            }
+        } catch (e) { }
+    });
+})();

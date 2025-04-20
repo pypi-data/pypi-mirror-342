@@ -1,0 +1,5 @@
+[console_scripts]
+cnks = src.main:main
+cnks-client = src.client:main
+cnks-server = src.server:main
+cnks-worker-test = src.worker:main
