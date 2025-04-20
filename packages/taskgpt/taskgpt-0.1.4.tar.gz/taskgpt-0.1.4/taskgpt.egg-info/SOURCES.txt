@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+setup.py
+taskgpt/__init__.py
+taskgpt/agent.py
+taskgpt/cli.py
+taskgpt/setup_env.py
+taskgpt.egg-info/PKG-INFO
+taskgpt.egg-info/SOURCES.txt
+taskgpt.egg-info/dependency_links.txt
+taskgpt.egg-info/entry_points.txt
+taskgpt.egg-info/requires.txt
+taskgpt.egg-info/top_level.txt
