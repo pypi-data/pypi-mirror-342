@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: web3_validators
+Version: 2.0.0
+Summary: A utility package for transferring crypto assets across different blockchains
+Home-page: https://github.com/zeus
+Author: zeus
+Author-email: zeus@protonmail.com
+License: UNKNOWN
+Description: # web3_validators
+        
+        A utility package for transferring crypto assets across different blockchains.
+        
+        ## Installation
+        
+        ```bash
+        pip install web3_validators
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
