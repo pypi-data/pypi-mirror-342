@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: wetsuite
+Version: 1.0.1
+Summary: A library that helps to explore dutch legal data, and to apply language processing on it
+Home-page: https://github.com/WetSuiteLeiden/wetsuite-core.git
+Author: Wetsuite team
+Author-email: alewijnse.bart+wetsuite@gmail.com
+License: UNKNOWN
+Project-URL: Project home, https://wetsuite.nl
+Project-URL: API docs, https://wetsuite.knobs-dials.com/apidocs/
+Project-URL: Source code, https://github.com/WetSuiteLeiden/wetsuite-core.git
+Description: A library that helps to explore dutch legal data, and to apply language processing on it. This is the library code, you are probably more interested in some notebooks that use it, at https://github.com/WetSuiteLeiden/example-notebooks or the website that introduces it, http://wetsuite.nl
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: License :: OSI Approved :: European Union Public Licence 1.2 (EUPL 1.2)
+Requires-Python: >=3
+Provides-Extra: cpu
+Provides-Extra: gpu
