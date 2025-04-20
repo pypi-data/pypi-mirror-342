@@ -1,0 +1,11 @@
+[project]
+name = "matrix-transcriber"
+version = "0.0.1"
+description = "A Matrix bot that transcribes audio messages"
+readme = "README.md"
+requires-python = ">=3.9, <3.11"
+dependencies = [
+    "matrix-nio[e2e]>=0.25.2",
+    "openai-whisper",
+]
+
