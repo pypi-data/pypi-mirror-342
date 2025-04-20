@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/colormap_complex/__init__.py
+src/colormap_complex/main.py
+src/colormap_complex/py.typed
+src/colormap_complex.egg-info/PKG-INFO
+src/colormap_complex.egg-info/SOURCES.txt
+src/colormap_complex.egg-info/dependency_links.txt
+src/colormap_complex.egg-info/top_level.txt
+tests/test_main.py
