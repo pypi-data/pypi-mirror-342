@@ -1,0 +1,6 @@
+[console_scripts]
+spcc-assembler = spcc_tools.assembler.two_pass:main
+spcc-first = spcc_tools.cfg.first:main
+spcc-follow = spcc_tools.cfg.follow:main
+spcc-lexcount = spcc_tools.lexical.counter:main
+spcc-macro = spcc_tools.macro.expander:main

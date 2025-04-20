@@ -1,0 +1,16 @@
+spcc_tools/__init__.py,sha256=wowFi8C2G9NLvCVXWQ5d4Tk4RiSwiBEwG80XihgjaUU,399
+spcc_tools/assembler/__init__.py,sha256=_T_Wy9kY5q80DM4D-TrIZhiEMvoT5SToMiULcPQsH2g,107
+spcc_tools/assembler/two_pass.py,sha256=gWjnGuuDxT2KWGPuwhMsOD7zHhwlxvtJrwKPKkovOh4,15885
+spcc_tools/cfg/__init__.py,sha256=sWL_hhBY07oPhzGni31_07YkWxIskExpfO1gipOWDK0,157
+spcc_tools/cfg/first.py,sha256=G3xfLjifLM2fObXfAvO33aakPyVtIFotjLY_F36mvqA,6613
+spcc_tools/cfg/follow.py,sha256=7Vpwd2iJbK5wy_687bANTvVZv2ky0cSg97HUA7zI4lU,5340
+spcc_tools/lexical/__init__.py,sha256=pzUY5Hli5OG2x8hXB-xrKCDqroWfm8knJ1wsJMUTEe8,155
+spcc_tools/lexical/counter.py,sha256=3UV1hPw0HKr5VBc9T9-Z3Pkmtx4kzXgKHwgMJ5n0IGI,3605
+spcc_tools/macro/__init__.py,sha256=CvG-bjfcz2Mw3hdJ7E7d0duvNOB95e2HNkwk-42Vvqg,137
+spcc_tools/macro/expander.py,sha256=7KvlJth5vmHcBxOlNrRswffFmeDvlWgS7LyHvEk2JgQ,3705
+spcc_tools-0.1.0.dist-info/licenses/LICENSE,sha256=x_DRnKC7tB0HIPlcFdIBNqd_NVRSOzxnDFKkfhiKZss,1087
+spcc_tools-0.1.0.dist-info/METADATA,sha256=BEY0lJ7XEApgGVOnTtxIkNAoga1ZRN4ENiMdBZW4cbs,2957
+spcc_tools-0.1.0.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+spcc_tools-0.1.0.dist-info/entry_points.txt,sha256=B55IDG4uu3SbtA_Z52POBqZz4twEgCd8_5sjVoWsL2M,242
+spcc_tools-0.1.0.dist-info/top_level.txt,sha256=sA7-NITpviuRq0ciSzV_G2N7gWstMOE4eOwU9yb-fZA,11
+spcc_tools-0.1.0.dist-info/RECORD,,
