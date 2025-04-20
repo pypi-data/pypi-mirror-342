@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+StellarPolAnalyzer/__init__.py
+StellarPolAnalyzer/alignment.py
+StellarPolAnalyzer/astrometry.py
+StellarPolAnalyzer/detection.py
+StellarPolAnalyzer/pairing.py
+StellarPolAnalyzer/photometry.py
+StellarPolAnalyzer/pipeline.py
+StellarPolAnalyzer/utils.py
+StellarPolAnalyzer/visualization.py
+StellarPolAnalyzer.egg-info/PKG-INFO
+StellarPolAnalyzer.egg-info/SOURCES.txt
+StellarPolAnalyzer.egg-info/dependency_links.txt
+StellarPolAnalyzer.egg-info/requires.txt
+StellarPolAnalyzer.egg-info/top_level.txt
