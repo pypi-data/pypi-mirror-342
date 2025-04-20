@@ -1,0 +1,6 @@
+beautifulsoup4>=4.13.0
+
+[dev]
+black==25.1.0
+pytest
+python-dotenv
