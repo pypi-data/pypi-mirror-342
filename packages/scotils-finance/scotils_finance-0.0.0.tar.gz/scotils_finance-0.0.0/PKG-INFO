@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: scotils-finance
+Version: 0.0.0
+Summary: Financial utilities for the scotils namespace
+Author: Scott Caratozzolo
+License-Expression: MIT
+Project-URL: Homepage, https://gitlab.com/caratozzoloxyz/public/scotils
+Project-URL: Repository, https://gitlab.com/caratozzoloxyz/public/scotils
+Project-URL: Issues, https://gitlab.com/caratozzoloxyz/public/scotils/-/issues
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+scotils-finance
+Financial utilities for the scotils namespace.
+Installation
+pip install scotils-finance
+
+Usage
+from scotils.finance import calculate_roi
+print(calculate_roi(100, 120))  # Output: 20.0
+
+License
+MIT

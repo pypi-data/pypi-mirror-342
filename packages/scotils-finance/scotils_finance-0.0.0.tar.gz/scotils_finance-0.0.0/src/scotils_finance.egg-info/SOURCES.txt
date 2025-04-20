@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+src/scotils_finance.egg-info/PKG-INFO
+src/scotils_finance.egg-info/SOURCES.txt
+src/scotils_finance.egg-info/dependency_links.txt
+src/scotils_finance.egg-info/top_level.txt
+tests/test_gambling.py
