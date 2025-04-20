@@ -1,0 +1,286 @@
+/* Chat History Component Styles */
+.chat-history-pane {
+    background-color: var(--bg-chat-history-pane);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    flex: 0 1 auto;
+    border-top-left-radius: 0 !important;
+}
+
+/* Chat History Header */
+.chat-history-header {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: var(--bg-chat-history-header);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.chat-history-header > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align buttons to the left */
+    gap: 10px; /* Space between buttons */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    width: 100%; /* Ensure full width for horizontal layout */
+}
+
+.new-chat-button {
+    margin-left: auto;
+    font-size: 1rem;
+}
+
+/* Style for Header Buttons */
+.chat-history-header .input-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.chat-history-header .input-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.chat-history-header .input-button .icon {
+    width: 20px;
+    height: 20px;
+    filter: var(--icon-filter);
+    transition: filter 0.3s ease;
+}
+
+/* Chat History List */
+.chat-history-list {
+    list-style: none;
+    padding: 10px 15px;
+    margin: 0;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Chat History Items */
+.chat-history-item {
+    position: relative;
+    padding: 5px 8px;
+    margin-bottom: 5px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: normal;
+    transition: background-color var(--transition-duration);
+}
+
+.chat-history-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+/* Details and Summaries */
+.chat-history-pane details {
+    padding: 5px 8px;
+    cursor: pointer;
+    transition: background-color var(--transition-duration);
+    background-color: var(--bg-chat-history-pane);
+}
+
+.chat-history-pane details[open] {
+    background-color: var(--bg-message-other);
+}
+
+.chat-history-pane summary {
+    font-weight: normal;
+    font-size: 0.95rem;
+    cursor: pointer;
+    list-style: none;
+    display: block;
+    position: relative;
+}
+
+/* Hide Default Disclosure Triangle */
+.chat-history-pane summary::-webkit-details-marker {
+    display: none;
+}
+
+.chat-history-pane summary::marker {
+    display: none;
+}
+
+/* Custom Indicator (Down/Up Arrow) */
+.chat-history-pane summary::after {
+    content: '▼';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.chat-history-pane details[open] summary::after {
+    content: '▲';
+}
+
+/* Default State: Hide Details Content */
+.chat-history-pane details:not([open]) > *:not(summary) {
+    display: none;
+}
+
+/* Open State: Show Details Content */
+.chat-history-pane details[open] > *:not(summary) {
+    display: block;
+}
+
+.chat-history-pane details {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+/* Chat History Text */
+.chat-history-pane p {
+    margin: 10px 0 0;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Chat Item Time and Tools */
+.chat-item-time {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Updated: Chat Item Tools */
+.chat-item-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+/* Updated: Container for Tag Buttons and Delete Button */
+.chat-item-tags {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+}
+
+/* New Addition: Push Delete Button to the Right */
+.chat-item-tags .delete-chat-btn {
+    margin-left: auto;
+}
+
+/* Style for Each Tag Button */
+.tag-button {
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    color: #333;
+}
+
+.tag-button:hover {
+    background-color: #c0c0c0;
+    transform: translateY(-2px);
+}
+
+/* Style for Add Tag Button */
+.add-tag-btn {
+    background-color: #d0d0d0;
+}
+
+/* Ensure the delete button remains on the right */
+.toolbar-btn.delete-chat-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toolbar-btn.delete-chat-btn .trash-icon {
+    filter: var(--icon-filter);
+    transition: filter 0.3s ease;
+}
+
+.toolbar-btn.delete-chat-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Read More Link */
+.read-more {
+    color: var(--button-primary);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 600px) {
+    .chat-history-pane {
+        flex: 1;
+        width: 100%;
+    }
+
+    .side-panes {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 10px;
+    }
+
+    .chat-item-tags {
+        flex-wrap: wrap;
+    }
+
+    .chat-item-tools {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toolbar-btn.delete-chat-btn {
+        margin-top: 5px;
+    }
+
+    .chat-history-pane summary::after {
+        font-size: 0.7rem;
+    }
+
+    .chat-history-header .input-button {
+        padding: 6px;
+    }
+
+    .chat-history-header .input-button .icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* CSS Variables for Theming */
+:root {
+    --bg-chat-history-pane: #050505;
+    --border-color: #888888;
+    --text-secondary: #555555;
+    --bg-message-other: #999999;
+    --icon-color: #007bff;
+    --button-primary: #007bff;
+    --transition-duration: 0.3s;
+    --icon-filter: none;
+}
