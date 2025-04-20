@@ -1,0 +1,2 @@
+[console_scripts]
+ascii-maze-benchmark = ascii_maze_benchmark:cli
