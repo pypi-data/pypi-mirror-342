@@ -1,0 +1,93 @@
+Metadata-Version: 2.4
+Name: oxvox
+Version: 0.7.0
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: numpy
+Requires-Dist: numpy-indexed
+Requires-Dist: pytest
+License-File: LICENSE
+Summary: Performant operations on array & pointcloud data, written in Rust
+Keywords: nearest,neighbour,pointcloud,array,ndarray,python
+Author: Hamish Morgan <ham430@gmail.com>
+Author-email: Hamish Morgan <ham430@gmail.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Source Code, https://github.com/hacmorgan/oxvox
+
+# OxVox - **Ox**idised **Vox**elised Operations on Arrays
+
+[![PyPI](https://img.shields.io/pypi/v/cibuildwheel.svg)](https://pypi.org/project/oxvox/)
+[![Actions Status](https://github.com/hacmorgan/oxvox/workflows/CI/badge.svg)](https://github.com/hacmorgan/oxvox/actions)
+
+A collection of operations on arrays and pointclouds implemented in Rust
+
+
+## Installation
+### Precompiled (from PyPI, recommended)
+```
+pip install oxvox
+```
+
+### Manual
+Checkout this repo and enter a virtual environment, then run
+```
+maturin develop --release
+```
+
+
+## Usage
+Basic usage, query a block of query points in **sparse** mode:
+```
+import numpy as np
+from oxvox.nns import OxVoxNNS
+
+NUM_POINTS = 100_000
+TEST_POINTS = np.random.random((NUM_POINTS, 3))
+
+indices, distances = OxVoxNNS(
+    search_points=TEST_POINTS,
+    max_dist=0.05,
+).find_neighbours(
+    query_points=TEST_POINTS,
+    num_neighbours=1000,
+    sparse=True,
+)
+```
+
+More complex usage, using a single NNS object for multiple *exact* mode queries (e.g. to distribute the `nns` object and perform queries in parallel, or to query from a large number of query points in batches/chunks)
+```
+# same imports and test data as above
+
+nns = ox_vox_nns.OxVoxNNS(TEST_POINTS, 0.1)
+
+for query_points_chunk in query_points_chunks:
+    chunk_indices, chunk_distances = nns.find_neighbours(
+        query_points=query_points_chunk,
+        num_neighbours=1,
+        sparse=False,
+    )
+```
+
+
+## Tests
+All test files are executable for spot-testing functionality
+
+To run all tests:
+```
+make test
+```
+
+
+## Performance
+As a rough heuristic:
+
+- Open3D will edge out OxVox on **easier data**, e.g. uniformally distributed points, though OxVox does outperform SciPy and SKLearn's KDTree implementations
+- OxVox in exact mode will outperform even Open3D on harder inputs, e.g. with clusters of very dense points
+- OxVox in sparse mode or with `epsilon > 0.0` will dramatically outperform KDTrees too. This is not really a fair comparison, but if you don't strictly need the exact `k` nearest neighbours it can be very helpful
+
+See `performance_test_ox_vox_nns.py` for test code.
+
+More thorough tests and interactive visualisations are still being developed to help a prospective user decide quickly if OxVox is worth trying
+
