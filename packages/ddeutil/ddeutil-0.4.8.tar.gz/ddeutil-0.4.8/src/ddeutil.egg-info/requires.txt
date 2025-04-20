@@ -1,0 +1,16 @@
+
+[all]
+ujson==5.10.0
+python-dateutil==2.9.0.post0
+types-python-dateutil==2.9.0.20241206
+psutil==7.0.0
+
+[checksum]
+ujson==5.10.0
+
+[dateutil]
+python-dateutil==2.9.0.post0
+types-python-dateutil==2.9.0.20241206
+
+[memory]
+psutil==7.0.0
