@@ -1,0 +1,6 @@
+include README.md
+include setup.cfg
+include LICENSE
+include pyproject.toml
+include IM-COOL-BOOY-FM
+recursive-include IM_COOL_BOOY_FM *.py
