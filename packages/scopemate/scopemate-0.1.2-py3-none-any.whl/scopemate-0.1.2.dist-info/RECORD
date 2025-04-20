@@ -1,0 +1,17 @@
+scopemate/__init__.py,sha256=sMbeuIqGXqrO47d1LD4gk6r5cLHuZmRtVXR797c8K2s,472
+scopemate/__main__.py,sha256=nPNZe_QEoOHQ_hXf17w72BHz1UFPKuW2g3whTLwuM8E,195
+scopemate/breakdown.py,sha256=mwIDzf7m2GHVkDrRmMyeS8v2pNd99U3vlcPCtOajvs0,21048
+scopemate/cli.py,sha256=qh6iFleQc8Bld0iptyUgRm5Ga3GtZsvE6Y-q6vbm3dk,6891
+scopemate/core.py,sha256=wpXCpb5Kdpqul9edNCx2Da94137XCc1w-3KQc9-Tf3s,700
+scopemate/engine.py,sha256=8yQoxSECJCGuNSIwS-qFoaOGM1iaZ-y4Lo7k5Q6v-mk,16992
+scopemate/interaction.py,sha256=SeqQVME0MATK-m-M7T9nNHkcJ_VCRhlqydL_vQaSMWk,10893
+scopemate/llm.py,sha256=k_1FQdg_TRt_51Yu_g_PjO0pBnmFmWHoK_-KEPGlASM,15526
+scopemate/models.py,sha256=Q3SUoHu_4RejDAocEr83I00wGvxhDoJ1COVqjPsr4DQ,7738
+scopemate/storage.py,sha256=uV1-7IdwJwBENeNoO9Y3WwUUXd-jA2NvKdiERGGhmV8,11642
+scopemate/task_analysis.py,sha256=Mic0FOOy_BWI1_5TQmh__39miOcZBZ7mTUcCkv1DvkI,14967
+scopemate-0.1.2.dist-info/licenses/LICENSE,sha256=4fqQFK5AkkXmg6FBG9Wr06gCR7BMQl02TvsPYt-YL6s,1076
+scopemate-0.1.2.dist-info/METADATA,sha256=APn2Igy4cl3jhcP9gh6gwOHnBLMnN3CPsL4MrvDVabc,11774
+scopemate-0.1.2.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+scopemate-0.1.2.dist-info/entry_points.txt,sha256=XXusGEDxI6NlrYmSBcPDtjV3QvsHWVWPSrt4zD4UcLg,49
+scopemate-0.1.2.dist-info/top_level.txt,sha256=riMrI_jMCfZMb7-ecWBwqOBLdUsnPOxSu2Pgvqx7Too,10
+scopemate-0.1.2.dist-info/RECORD,,
