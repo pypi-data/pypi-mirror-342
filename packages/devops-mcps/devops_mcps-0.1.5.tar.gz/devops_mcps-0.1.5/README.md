@@ -1,0 +1,111 @@
+# DevOps MCP Server
+
+A FastMCP-based MCP server providing DevOps tools and integrations.
+
+## Features
+
+- GitHub repository search and management
+- File content retrieval from repositories
+- Issue tracking and management
+- Code search functionality
+
+## Installation
+
+```bash
+pip install devops-mcps
+```
+
+## Usage
+
+Run the MCP server:
+```bash
+devops-mcps
+```
+
+## Configuration
+
+### Environment Variables
+Set environment variables:
+```bash
+export GITHUB_PERSONAL_ACCESS_TOKEN=your_token_here
+```
+
+### JSON Configuration
+Create a `config.json` file:
+```json
+{
+  "github": {
+    "access_token": "your_token_here",
+    "api_url": "https://api.github.com"
+  },
+  "server": {
+    "port": 8000,
+    "debug": false
+  }
+}
+```
+
+## UVX Configuration
+
+Install UVX tools:
+```bash
+uvx install
+```
+
+Run with UVX:
+```bash
+uvx run devops-mcps
+```
+
+## Docker Configuration
+
+Build the Docker image:
+```bash
+docker build -t devops-mcps .
+```
+
+Run the container:
+```bash
+docker run -p 8000:8000 devops-mcps
+```
+
+## VSCode Configuration
+
+### UVX Way
+1. Install the UVX extension in VSCode
+2. Create a `.vscode/settings.json` file:
+```json
+{
+  "uvx.command": "devops-mcps",
+  "uvx.port": 8000
+}
+```
+3. Press F5 to start debugging
+
+### Docker Way
+
+```json
+"devops-mcps": {
+  "command": "docker",
+  "args": [
+    "run",
+    "-i",
+    "huangjien/devops-mcps:latest"
+  ],
+  "env": {
+    "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+  }
+}
+```
+1. Reopen in Container
+
+## Development
+
+Install development dependencies:
+```bash
+pip install -e .[dev]
+```
+
+## License
+
+MIT
