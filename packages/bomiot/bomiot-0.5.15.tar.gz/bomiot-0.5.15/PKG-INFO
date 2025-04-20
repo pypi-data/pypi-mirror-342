@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: bomiot
+Version: 0.5.15
+Summary: One workspace for you to do you python app
+Home-page: https://github.com/Bomiot/Bomiot
+Keywords: Bomiot,bomiot
+Author: Bomiot
+Author-email: Singosgu@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: daphne (>=4.1.2,<4.2.0)
+Requires-Dist: django (>=4.2.16,<4.3.0)
+Requires-Dist: django-apscheduler (>=0.7.0,<0.8.0)
+Requires-Dist: django-cors-headers (>=4.4.0,<4.5.0)
+Requires-Dist: django-filter (>=24.3,<24.4)
+Requires-Dist: djangorestframework (>=3.15.2,<3.16.0)
+Requires-Dist: djangorestframework-csv (>=3.0.2,<3.1.0)
+Requires-Dist: openpyxl (>=3.1.5,<3.2.0)
+Requires-Dist: orjson (>=3.10.7,<3.11.0)
+Requires-Dist: pandas (>=2.2.3,<2.3.0)
+Requires-Dist: pyjwt (>=2.10.1)
+Requires-Dist: pypistats (>=1.9.0,<2.0.0)
+Requires-Dist: tomlkit (>=0.13.2,<0.14.0)
+Requires-Dist: twisted[http2,tls] (>=24.7.0,<24.8.0)
+Requires-Dist: watchdog (>=6.0.0,<6.1.0)
+Project-URL: Repository, https://github.com/Bomiot/Bomiot
+Description-Content-Type: text/markdown
+
+# Bomiot
+Bomiot
+
