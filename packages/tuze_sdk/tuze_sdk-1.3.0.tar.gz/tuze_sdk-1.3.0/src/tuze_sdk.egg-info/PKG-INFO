@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: tuze_sdk
+Version: 1.3.0
+Summary: tuze_sdk
+Author-email: shark <sharkshore@163.com>
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: colorama>=0.4.6
+Requires-Dist: requests>=2.32.3
