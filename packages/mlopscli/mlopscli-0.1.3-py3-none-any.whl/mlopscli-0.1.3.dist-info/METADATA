@@ -1,0 +1,32 @@
+Metadata-Version: 2.3
+Name: mlopscli
+Version: 0.1.3
+Summary: CLI to turn DS scripts to composable pipelines.
+Author: Himanshu Bajpai
+Requires-Python: >=3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Provides-Extra: dashboard
+Requires-Dist: bumpversion (>=0.6.0)
+Requires-Dist: matplotlib (>=3.10.1)
+Requires-Dist: networkx (>=3.4.2)
+Requires-Dist: psutil (>=6.0.0)
+Requires-Dist: pyyaml (>=6.0.2)
+Requires-Dist: streamlit (>=1.34.0) ; extra == "dashboard"
+Requires-Dist: typer (>=0.15.2)
+Description-Content-Type: text/markdown
+
+# mlopscli 🚀
+
+A CLI tool to turn DS Python scripts + YAML config into an executable ML pipeline.
+
+## Usage
+
+1. Write your scripts (`data_prep.py`, `train_model.py`, `evaluate_model.py`)
+2. Define them in a `job_order.yaml` with the dependencies.
+3. Install the mlops cli : `pip install mlopscli`
+4. Run the command: `mlopscli execute --job prepare_train_pipeline --job_config job_order.yaml`
+

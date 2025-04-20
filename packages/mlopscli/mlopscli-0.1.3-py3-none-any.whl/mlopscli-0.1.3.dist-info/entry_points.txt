@@ -1,0 +1,3 @@
+[console_scripts]
+mlopscli=mlopscli.cli:app
+
