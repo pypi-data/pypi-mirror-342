@@ -1,0 +1,9 @@
+*
+!uv.lock
+!pyproject.toml
+!LICENSE
+!/easterobot/*.py
+!/easterobot/commands/*.py
+!/easterobot/resources
+!README.rst
+!entrypoint.sh
