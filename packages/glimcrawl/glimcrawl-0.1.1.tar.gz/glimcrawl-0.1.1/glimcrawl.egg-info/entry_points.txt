@@ -1,0 +1,2 @@
+[console_scripts]
+glimcrawl = glimcrawl.cli:main
