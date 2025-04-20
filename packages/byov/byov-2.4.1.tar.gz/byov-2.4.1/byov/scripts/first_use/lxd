@@ -1,0 +1,30 @@
+#!/bin/sh -e
+
+# Configure lxd in a script separate from ./install-lxd or the running user
+# may not be part (yet) of the lxd group. Past attempts at doing both in the
+# same script ~randomly failed and the diagnosis was around missing rights
+# for the running user.
+
+# Make all containers use the lxd bridge which give them NAT'ed (ip v4 and v6)
+# internet access via the host
+lxc network create lxdbr0 || true
+
+# The following disables ipv6 on the whole bridge and from there all ipv6 in
+# containers
+
+# CHECK: Can we keep a more standard bridge to build a less invasive derived
+# image (see ../create -lxd-debian-image) ? -- vila 2024-09-13
+
+# lxc network set lxdbr0 ipv6.nat=false ipv6.address=none ipv6.routing=false
+
+lxc network attach-profile lxdbr0 default eth0 || true
+# For user mounts in lxd containers, 'root' needs to be able to handle uid
+# 1000 (first created "normal" user on ubuntu (and probably elsewhere) in
+# the id mapping). This is probably either {vm.user} or `host.user`
+# depending on use... id -u will do for now
+echo "root:$(id -u):1" | sudo tee -a /etc/subuid
+echo "root:$(id -g):1" | sudo tee -a /etc/subgid
+
+
+# FIXME: vila 2023-10-06 this should be parametrized so vila@papitor is
+# supported to start with (keeping in mind the ci-breezy host use case).

@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# This script create glance images from previously downloaded images
+
+# Credentials are acquired when the vm is created
+export OS_USERNAME="{nova.username}"
+export OS_PASSWORD="{nova.password}"
+export OS_REGION_NAME="{nova.region_name}"
+export OS_TENANT_NAME="{nova.tenant_name}"
+export OS_AUTH_URL="{nova.auth_url}"
+
+set -x
+
+cd ~/images
+
+# Get the images we care about
+
+# Create images used by tests
+
+PREFIX="byov/cloudimg/"
+for SERIES in  zesty yakkety xenial trusty precise
+do
+    for ARCH in amd64 i386
+    do
+        BASE_NAME=$SERIES-$ARCH.img
+        IMG_NAME=$PREFIX$BASE_NAME
+        glance image-delete $IMG_NAME
+        glance image-create --name $IMG_NAME --file $BASE_NAME --disk-format qcow2 --container-format bare --is-public True
+        # FIXME: xenial wants the following but fails with a 404
+        # -- vila 2016-05-19
+        # glance image-create --name $IMG_NAME --file $BASE_NAME --disk-format qcow2 --container-format bare --visibility public
+    done
+done

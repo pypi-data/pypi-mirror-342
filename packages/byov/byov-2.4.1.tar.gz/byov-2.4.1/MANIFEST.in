@@ -1,0 +1,5 @@
+include COPYING
+include NEWS.rst
+include README.rst
+include byov/scripts/*
+include byov/scripts/first_use/*

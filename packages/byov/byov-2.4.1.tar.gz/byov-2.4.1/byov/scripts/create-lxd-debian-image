@@ -1,0 +1,89 @@
+#!/bin/sh -ex
+
+# CHECK: Can we let ipv6 ll go ? -- vila 2024-09-13
+# CHECK: Can we build a less invasive derived image ? -- vila 2024-09-13
+# FIXME: Trying to disable ipv6 completely is getting out of hands. It
+# seems better to let ipv6 come as-is but check an ipv4 is still exposed and
+# get its ip from dhcp. Bonus points if non routable ipv6 addresses are
+# used. -- vila 2024-09-11
+
+# This script creates a debian image with tweaks to make it usable with
+# byov. Most importantly, this inject an eth0 network interface which is
+# defined in the default lxd profile.
+
+# Various problems were encountered when no ip v4 address is available (root
+# causes unclear) and several attempts have been made:
+# - netplan.io: seems well supported for systemd and cloud-init
+# - dhclient -4: More or less solves the problem manually but is lost on reboot
+# - /etc/network/interfaces.d/eth0: solve the issues but there is a race
+#   with systemd / dbus initialisation.
+
+RELEASE=${1:-trixie}
+ARCH=amd64
+VM=debian-$RELEASE-$ARCH
+APT_OPTIONS="--option=Dpkg::Options::=--force-confold --option=Dpkg::options::=--force-unsafe-io --assume-yes --quiet --no-install-recommends"
+PACKAGES="ssh sudo haveged"
+BASE_IMAGE=$VM-base-image
+METADATA=$VM-metadata
+
+
+lxc delete --force $VM || true
+lxc launch images:debian/$RELEASE/cloud/$ARCH $VM
+
+IFPATH=/etc/network/interfaces.d/eth0
+lxc exec $VM -- mkdir -p $(dirname $IFPATH)
+cat <<EON | lxc exec $VM -- tee $IFPATH
+auto eth0
+iface eth0 inet dhcp
+      inet6 manual
+EON
+
+CTPATH=/etc/sysctl.d/noipv6.conf
+cat <<EOCT | lxc exec $VM -- tee $CTPATH
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.eth0.disable_ipv6 = 1
+EOCT
+
+PROPATH=/etc/apt/apt.conf.d/01proxy
+lxc exec $VM -- mkdir -p $(dirname $PROPATH)
+cat <<EOP | lxc exec $VM -- tee $PROPATH
+Acquire::http::Proxy "http://192.168.0.12:3142";
+EOP
+
+
+# let systemd starts properly
+
+# there is a race between dbus and systemd (starting dbus !) which makes the
+# `is-system-running` fail, complaining about dbus missing. But at least we
+# don't need to sleep for any arbitrary duration.
+#lxc exec $VM -- /bin/sh -c 'while ! systemctl is-system-running --wait; do sleep 0.1; done'
+# Disable apt timers or 'apt-get' can be blocked and fail
+#lxc exec $VM -- systemctl status dbus.service
+#lxc exec $VM -- journalctl -u dbus.service
+lxc exec $VM -- sysctl -p $CTPATH
+lxc exec $VM -- sysctl -a -r net.ipv6.*disable_ipv6
+sleep 1
+# Get an ipv4 first
+lxc exec $VM -- dhclient -4
+lxc exec $VM -- ip addr show
+lxc exec $VM -- getent hosts free.fr
+lxc exec $VM -- systemctl restart systemd-resolved
+lxc exec $VM -- systemctl restart systemd-networkd
+lxc exec $VM -- sysctl -p $CTPATH
+lxc exec $VM -- ip addr show
+
+lxc exec $VM -- systemctl disable apt-daily.timer
+lxc exec $VM -- systemctl disable apt-daily-upgrade.timer
+lxc exec $VM -- ip addr show
+# Get an ipv4 first
+#lxc exec $VM -- dhclient -4
+lxc exec $VM -- apt-get update
+lxc exec $VM -- apt-get install $APT_OPTIONS $PACKAGES
+lxc exec $VM -- systemctl enable ssh
+lxc exec $VM -- systemctl start ssh
+lxc stop --force $VM
+lxc image delete debian/$RELEASE/$ARCH || true
+lxc publish $VM --alias debian/$RELEASE/$ARCH
+lxc delete $VM

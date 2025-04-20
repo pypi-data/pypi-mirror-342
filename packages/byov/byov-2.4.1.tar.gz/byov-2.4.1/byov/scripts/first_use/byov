@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+# This script configure byov on a host for a given user after its first
+# install with the most common defaults.
+
+# FIXME: Only if the key doesn't exist ? Or only if byov config ssh.key
+# is not set ? -- vila 2017-01-14
+(cd ~/.ssh && ssh-keygen -f id_rsa -N '' -t rsa)

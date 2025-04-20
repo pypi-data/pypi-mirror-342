@@ -1,0 +1,23 @@
+#!/bin/sh -x
+
+# This script download lxd cloud images from cloud-images.ubuntu.com
+
+# Get the images we care about
+
+for SERIES in xenial trusty precise
+do
+    for ARCH in amd64 i386
+    do
+        lxc image copy ubuntu:$(printf '%c' ${SERIES})/$ARCH local:\
+            --alias byov/cloudimg/$SERIES/$ARCH
+    done
+done
+
+for SERIES in yakkety
+do
+    for ARCH in amd64 i386
+    do
+        lxc image copy ubuntu:$(printf '%c' ${SERIES})/$ARCH local:\
+            --alias byov/cloudimg/$SERIES/$ARCH
+    done
+done

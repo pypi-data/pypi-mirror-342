@@ -1,0 +1,3 @@
+#!/bin/sh -ex
+# Something is wrong in recent ubuntu versions blocking cloud-init at startup
+systemctl stop snapd.seeded.service snapd.service snapd.socket

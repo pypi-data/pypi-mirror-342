@@ -1,0 +1,24 @@
+#!/bin/sh -ex
+
+# This script download cloud images from cloud-images.ubuntu.com
+
+mkdir -p ~/images
+cd ~/images
+
+# Get the images we care about
+
+for SERIES in xenial trusty precise
+do
+    for ARCH in amd64 i386
+    do
+        wget http://cloud-images.ubuntu.com/$SERIES/current/$SERIES-server-cloudimg-$ARCH-disk1.img --output-document $SERIES-$ARCH.img
+    done
+done
+
+for SERIES in zesty yakkety
+do
+    for ARCH in amd64 i386
+    do
+        wget http://cloud-images.ubuntu.com/$SERIES/current/$SERIES-server-cloudimg-$ARCH.img --output-document $SERIES-$ARCH.img
+    done
+done

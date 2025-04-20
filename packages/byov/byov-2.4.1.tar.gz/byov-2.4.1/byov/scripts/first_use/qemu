@@ -1,0 +1,42 @@
+#!/bin/sh -ex
+
+# TESTMISSSING: Exercise this script in a qemu and see if the inner qemu is
+# setup properly -- vila 2019-09-16
+# This script configure qemu on a host after its first install with the most
+# common defaults.
+
+# FIXME: Document bridge creation ? -- vila 2019-09-12
+# https://wiki.archlinux.org/index.php/QEMU#Creating_bridge_manually
+
+BRIDGE=br0
+
+# Re-invoke as root if needed
+if [ $(id -u) -ne "0" ]; then
+   exec sudo $0 $*
+fi
+
+# Bridge networking
+
+# Set sticky bit for the bridge helper so regular users get access to the
+# bridge when creating tap interfaces
+chmod u+s /usr/lib/qemu/qemu-bridge-helper
+
+# Allow existing bridge
+BRIDGE_CONF_PATH=/etc/qemu/bridge.conf
+cat <<EOF > $BRIDGE_CONF_PATH
+allow $BRIDGE
+EOF
+chmod 0644 $BRIDGE_CONF_PATH
+
+# CHECK: the iptables change below doesn't survive reboots -- 2019-11-13
+# FIXME: This has since be automated in different places so find a better
+# way to pacakage it so it can be installed in vms. -- vila 2024-12-14
+# Forward across the bridge
+export RULE="FORWARD -m physdev --physdev-is-bridged -j ACCEPT"
+iptables -C $RULE 2> /dev/null || iptables -I $RULE
+
+# Following https://en.wikipedia.org/wiki/MAC_address each host should
+# define a unique prefix setting at least the local bit (aka
+# 02:00:00:00:00:00). Each guest can then use its process id to populate the
+# NIC (the last 3 bytes) part to obtain a unique MAC address. That means
+# 256**3 (16.777.216) possible addresses per host.

@@ -1,0 +1,20 @@
+#!/bin/sh -e
+
+# Setup a temporary vm to create an arch-specific image suitable for byov
+# Usage:
+# ./scripts/bootstrap-scaleway-image
+# ./scripts/bootstrap-scaleway-image xenial amd64 -xs
+# ./scripts/bootstrap-scaleway-image xenial arm64
+# ./scripts/bootstrap-scaleway-image xenial armhf
+# ./scripts/bootstrap-scaleway-image bionic
+
+RELEASE=${1:-xenial}
+ARCH=${2:-amd64}
+SUFFIX=${3:-}
+
+BYOV_OPTS="-Ovm.architecture=$ARCH"
+VM=image-builder-scw-$RELEASE-$ARCH$SUFFIX
+
+./byovm setup $BYOV_OPTS -Ovm.poweroff=true --force $VM
+./byovm publish $BYOV_OPTS $VM
+./byovm teardown $BYOV_OPTS $VM

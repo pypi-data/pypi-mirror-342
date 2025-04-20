@@ -1,0 +1,20 @@
+#!/bin/sh -ex
+# Uninstall lxd the way it was installed. in ./install-lxd)
+# Ideally this allows testing the scripts on a "live" host
+
+# FIXME: ListOption(delim=' *') -- vila 2018-10-12
+APT_COMMAND=$(echo {apt.command} | sed -e 's/,/ /g')
+
+
+# FIXME: vila 2023-10-10 It's probably better to delete all existing
+# containers, images and volumes.
+
+sudo systemctl stop lxd.service lxd.socket || true
+$APT_COMMAND purge {lxd.install.packages} || true
+
+# FIXME: vila 2023-10-10 Something sticks blocking the zfs pool deletion
+# (Possibly remains of containers). Investigate in a qemu to debug and fix
+
+sudo modprobe zfs # So we get kernel version if it fails
+sudo zpool destroy -f {lxd.install.storage.pool} || true
+

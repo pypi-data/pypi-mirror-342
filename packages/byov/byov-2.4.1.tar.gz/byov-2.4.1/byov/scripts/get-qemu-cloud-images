@@ -1,0 +1,43 @@
+#!/bin/sh -ex
+
+# This script download cloud images from cloud-images.ubuntu.com
+
+# A cloud image source provide images for a given distribution, several
+# releases and architectures. Downloaded images are kept in a cache under
+# user control. Once downloaded, the image is converted to create an image
+# under the
+# {qemu.images.dir}/cloudimg/{vm.distribution}/{vm.release}/{vm.architecture}
+# hierarchy which can be used as a {vm.backing} value.
+
+# vms create their images under {qemu.images.dir}/local/{vm.name}
+
+BASE_URL=
+
+mkdir -p {qemu.images.dir}
+cd {qemu.images.dir}
+
+# Get the images we care about
+
+for RELEASE in focal bionic xenial
+do
+    # FIXME: Could that be some qemu.images.architectures coming from
+    # /etc/byov to set which architectures are locally supported
+    # -- vila 2019-10-28
+    # FIXME: Possible default for qemu.architectures would be uname -m (can
+    # of worms as that means x86_64 instead of amd64 ;-) -- vila 2019-10-28
+    for ARCH in amd64
+    do
+        IMAGE_NAME={qemu.images.dir}/cloudimg/{vm.distribution}/{vm.release}/{vm.architecture}
+        wget --progress=dot:mega http://cloud-images.ubuntu.com/$RELEASE/current/$RELEASE-server-cloudimg-$ARCH-disk1.img --output-document $RELEASE-$ARCH.img
+        qemu-img convert -O qcow2 $RELEASE-$ARCH.img $IMAGE_NAME
+        qemu-img resize $IMAGE_NAME {vm.disk_size}
+    done
+done
+
+for SERIES in zesty yakkety
+do
+    for ARCH in amd64 i386
+    do
+        wget http://cloud-images.ubuntu.com/$SERIES/current/$SERIES-server-cloudimg-$ARCH.img --output-document $SERIES-$ARCH.img
+    done
+done

@@ -1,0 +1,19 @@
+#!/bin/sh -ex
+# This file is part of Build Your Own Virtual machine.
+#
+# Copyright 2018 Vincent Ladeuil.
+
+APT_COMMAND=$(echo {apt.command} | sed -e 's/,/ /g')
+
+# We don't want the script to query us when apt upgrading This reduces the
+# race window without completely closing it though. That's the trade-off to
+# just use the unminimize script.
+
+# FIXME: Is is really necessary to start with a minimized image ? Ideally
+# scaleway should propose both images -- vila 2018-06-07
+$APT_COMMAND upgrade
+
+# Move the sudoers file installed by cloud-init, it's in the way
+rm /etc/sudoers
+# The 'Ubuntu Bionic Beaver' on scaleway is minimized
+echo Y | unminimize

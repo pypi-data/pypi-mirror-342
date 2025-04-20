@@ -1,0 +1,23 @@
+#!/bin/sh -ex
+# Install lxd in a separate script so that configuring can happen in a
+# different one (./lxd) with its own connection, ensuring the connected user
+# is part of the lxd group. Past attempts at doing both in the same script
+
+# FIXME: ListOption(delim=' *') -- vila 2018-10-12 Aka, commands looks more
+# natural with spaces than with commas.
+APT_COMMAND=$(echo {apt.command} | sed -e 's/,/ /g')
+
+$APT_COMMAND install $PACKAGES
+
+# FIXME: vila 2023-20-06 anything other than vila@papitor shouldn't just
+# work
+# Ensure {vm.user} can use lxd
+if [ -z "$(getent passwd {vm.user})" ] ; then
+    sudo adduser {vm.user} lxd
+fi
+
+# lxd initial setup
+sudo systemctl start lxd
+sudo zpool create lxd /dev/disk/by-partlabel/{lxd.install.storage.device}
+sudo lxd init --auto --storage-backend {lxd.install.storage.backend}    \
+ --storage-pool {lxd.install.storage.pool}

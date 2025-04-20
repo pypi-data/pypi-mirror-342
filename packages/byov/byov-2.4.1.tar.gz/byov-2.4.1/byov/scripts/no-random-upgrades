@@ -1,0 +1,11 @@
+#!/bin/sh -ex
+# Something is wrong in recent ubuntu versions blocking cloud-init at startup
+systemctl stop snapd.seeded.service snapd.service snapd.socket
+# noble test containers slow down tests by minutes sitting in
+# /usr/bin/python3/usr/share/unattended-upgrades/unattended-upgrade-shutdown
+# --wait-for-signal
+HEY_YOU=unattended-upgrades
+systemctl stop $HEY_YOU
+systemctl disable $HEY_YOU
+apt-get purge --yes $HEY_YOU
+
