@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="preconnect" href="{{ mount_path }}">
+    <link rel="dns-prefetch" href="{{ url_for('static', path='favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', path='favicon.ico') }}">
+    <!-- Social Media Preview Tags -->
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:image" content="{{ url_for('static', path=preview_image) }}">
+    <meta property="og:type" content="website">
+    <style>
+        /* Set background color for the entire viewport */
+        html {
+            background: var(--background);
+            min-height: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+            margin: 0;
+            background: var(--background);
+            color: var(--text-color);
+            padding: clamp(.5rem, 2vw, 1rem);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+
+        body.visible {
+            opacity: 1;
+        }
+
+        .terminal-container {
+            position: relative;
+            width: 100%;
+            flex: 1;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* Terminal starts hidden and fades in when loaded */
+        #terminal {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            visibility: hidden;
+        }
+
+        #terminal.loaded {
+            visibility: visible;
+            animation: fadeIn 0.4s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        #loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .error {
+            color: #ff3e3e;
+            text-align: center;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: rgba(255, 62, 62, 0.1);
+            border-radius: 4px;
+        }
+    </style>
+    <!-- Theme data storage -->
+    <script id="theme-data" type="application/json">
+        {{ theme | tojson | safe }}
+    </script>
+    <!-- Apply theme immediately to reduce flash of unstyled content -->
+    <script>
+        (function () {
+            const themeData = JSON.parse(document.getElementById('theme-data').textContent);
+            Object.entries(themeData).forEach(function (entry) {
+                const [key, value] = entry;
+                if (value) {
+                    document.documentElement.style.setProperty(`--${key}`, value);
+                }
+            });
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="loading">Initializing terminal...</div>
+    <div class="terminal-container">
+        <iframe id="terminal" src="{{ mount_path }}"></iframe>
+    </div>
+
+    <!-- Main script moved to end of body -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const terminal = document.getElementById('terminal');
+            const loading = document.getElementById('loading');
+
+            // Get current protocol for websocket connections
+            const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            console.log(`Using ${protocol} for WebSocket connections`);
+
+            // Track if terminal sizing is complete
+            let terminalSizingComplete = false;
+
+            function injectStyles() {
+                try {
+                    const doc = terminal.contentDocument || terminal.contentWindow.document;
+
+                    // First, inject a style to hide the terminal until sizing is complete
+                    const hideStyle = doc.createElement('style');
+                    hideStyle.id = 'hide-until-sized';
+                    hideStyle.textContent = `
+                        /* Hide terminal elements until sizing is complete */
+                        .xterm {
+                            visibility: hidden !important;
+                        }
+                    `;
+                    doc.head.appendChild(hideStyle);
+
+                    // Now add our regular styles
+                    const style = doc.createElement('style');
+                    style.textContent = `
+                        .xterm-viewport {
+                            overflow: hidden !important;
+                        }
+                        .terminal.xterm {
+                            display: flex !important;
+                            justify-content: center !important;
+                            align-items: center !important;
+                        }
+                        /* Ensure font size is appropriate on all devices */
+                        .xterm .xterm-text-layer {
+                            font-size: 16px !important;
+                        }
+                        .xterm .xterm-rows {
+                            font-size: 16px !important;
+                        }
+                        /* Improve touch interaction */
+                        @media (max-width: 768px) {
+                            .xterm .xterm-text-layer {
+                                font-size: 18px !important;
+                            }
+                            .xterm .xterm-rows {
+                                font-size: 18px !important;
+                            }
+                        }
+                    `;
+                    doc.head.appendChild(style);
+
+                    // Add viewport meta tag to iframe if missing
+                    if (!doc.querySelector('meta[name="viewport"]')) {
+                        const meta = doc.createElement('meta');
+                        meta.name = "viewport";
+                        meta.content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
+                        doc.head.appendChild(meta);
+                    }
+
+                    // Function to reveal terminal once sizing is complete
+                    function revealTerminal() {
+                        if (terminalSizingComplete) {
+                            const hideStyle = doc.getElementById('hide-until-sized');
+                            if (hideStyle) {
+                                hideStyle.remove();
+                                console.log("Terminal revealed after sizing");
+                            }
+                        }
+                    }
+
+                    // Inject our early initialization script
+                    const earlyScript = doc.createElement('script');
+                    earlyScript.textContent = `
+                        // This script runs as soon as possible
+                        (function() {
+                            // Set up a MutationObserver to detect when terminal elements are added
+                            const observer = new MutationObserver(function(mutations) {
+                                for (const mutation of mutations) {
+                                    if (mutation.addedNodes && mutation.addedNodes.length) {
+                                        for (const node of mutation.addedNodes) {
+                                            if (node.classList && node.classList.contains('xterm')) {
+                                                console.log("Terminal element detected via MutationObserver");
+                                                window.__terminalElementDetected = true;
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                            
+                            // Start observing document body for terminal elements
+                            observer.observe(document.body, { childList: true, subtree: true });
+                        })();
+                    `;
+                    doc.head.appendChild(earlyScript);
+
+                    // Inject our main terminal sizing script
+                    const script = doc.createElement('script');
+                    script.textContent = `
+                        // Main terminal sizing script
+                        (function() {
+                            // FONT SIZE CONFIGURATION - CHANGE THIS VALUE TO ADJUST SIZE
+                            const DESKTOP_FONT_SIZE = 20; // Change this value to adjust size
+                            
+                            // Track sizing status
+                            let sizingComplete = false;
+                            
+                            // Function to mark sizing as complete and signal the parent window
+                            function markSizingComplete() {
+                                if (!sizingComplete) {
+                                    sizingComplete = true;
+                                    console.log("Terminal sizing complete");
+                                    window.parent.postMessage({ type: 'terminal-sizing-complete' }, '*');
+                                    
+                                    // Find and remove the hiding style
+                                    const hideStyle = document.getElementById('hide-until-sized');
+                                    if (hideStyle) {
+                                        hideStyle.remove();
+                                    }
+                                }
+                            }
+                            
+                            // Function to adjust font size based on device
+                            function adjustTerminalFontSize() {
+                                // Check if on desktop
+                                const isDesktop = window.innerWidth >= 769;
+                                
+                                // Skip sizing for mobile
+                                if (!isDesktop) {
+                                    markSizingComplete();
+                                    return;
+                                }
+                                
+                                // Get the ttyd terminal instance
+                                if (window.term) {
+                                    try {
+                                        console.log("Applying desktop font size: " + DESKTOP_FONT_SIZE + "px");
+                                        
+                                        // Try to set font size, multiple approaches
+                                        if (typeof window.term.setOption === 'function') {
+                                            window.term.setOption('fontSize', DESKTOP_FONT_SIZE);
+                                            console.log("Set terminal font size via term.setOption");
+                                        } 
+                                        else if (window.term.options && typeof window.term.options === 'object') {
+                                            window.term.options.fontSize = DESKTOP_FONT_SIZE;
+                                            console.log("Set terminal font size via term.options");
+                                        }
+                                        
+                                        // Force resize to apply changes
+                                        if (typeof window.term.fit === 'function') {
+                                            window.term.fit();
+                                            console.log("Called term.fit()");
+                                        }
+                                        else if (typeof window.term.resize === 'function') {
+                                            // Get current dimensions
+                                            const cols = window.term.cols || 80;
+                                            const rows = window.term.rows || 24;
+                                            window.term.resize(cols, rows);
+                                            console.log("Called term.resize()");
+                                        }
+                                        
+                                        // Mark sizing as complete
+                                        setTimeout(markSizingComplete, 50);
+                                    } catch (e) {
+                                        console.warn("Error adjusting terminal font size:", e);
+                                        markSizingComplete(); // Mark complete even if there's an error
+                                    }
+                                }
+                            }
+                            
+                            // Try to detect terminal as early as possible
+                            function detectAndAdjustTerminal() {
+                                // Check if term object is available directly
+                                if (window.term) {
+                                    console.log("Terminal object found directly");
+                                    adjustTerminalFontSize();
+                                    return true;
+                                }
+                                
+                                // Check for ttyd.terminal
+                                if (window.ttyd && window.ttyd.terminal) {
+                                    console.log("Found ttyd.terminal object");
+                                    window.term = window.ttyd.terminal;
+                                    adjustTerminalFontSize();
+                                    return true;
+                                }
+                                
+                                // Look through global objects for terminal-like object
+                                for (const key in window) {
+                                    if (window[key] && 
+                                        typeof window[key] === 'object' && 
+                                        (
+                                            (window[key].options && window[key].options.fontSize) ||
+                                            (typeof window[key].setOption === 'function')
+                                        )
+                                    ) {
+                                        console.log("Found potential terminal object:", key);
+                                        window.term = window[key];
+                                        adjustTerminalFontSize();
+                                        return true;
+                                    }
+                                }
+                                
+                                return false;
+                            }
+                            
+                            // Start immediate detection
+                            if (!detectAndAdjustTerminal()) {
+                                // If not found, set up detection with different strategies
+                                
+                                // Strategy 1: Poll for terminal object
+                                const pollInterval = setInterval(function() {
+                                    if (detectAndAdjustTerminal()) {
+                                        clearInterval(pollInterval);
+                                    }
+                                }, 20); // Check very frequently
+                                
+                                // Strategy 2: Use DOM events to detect terminal creation
+                                if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                                    // Document already loaded, check if terminal element exists
+                                    if (document.querySelector('.terminal') || document.querySelector('.xterm')) {
+                                        console.log("Terminal element found in DOM");
+                                        detectAndAdjustTerminal();
+                                    }
+                                }
+                                
+                                // Strategy 3: Listen for terminal-specific objects
+                                const termCheckInterval = setInterval(function() {
+                                    if (window.__terminalElementDetected) {
+                                        console.log("Terminal element detected, checking for terminal object");
+                                        if (detectAndAdjustTerminal()) {
+                                            clearInterval(termCheckInterval);
+                                        }
+                                    }
+                                }, 20);
+                                
+                                // Safety fallback - if sizing not complete after 3 seconds, mark it as complete anyway
+                                setTimeout(function() {
+                                    if (!sizingComplete) {
+                                        console.warn("Terminal sizing timed out, marking as complete");
+                                        markSizingComplete();
+                                    }
+                                }, 3000);
+                            }
+                            
+                            // Re-adjust on window resize
+                            window.addEventListener('resize', function() {
+                                // Only resize if we have previously detected the terminal
+                                if (window.term) {
+                                    setTimeout(adjustTerminalFontSize, 100);
+                                }
+                            });
+                        })();
+                    `;
+                    doc.head.appendChild(script);
+
+                    // Listen for message from iframe when sizing is complete
+                    window.addEventListener('message', function (event) {
+                        if (event.data && event.data.type === 'terminal-sizing-complete') {
+                            console.log("Received sizing complete message from iframe");
+                            terminalSizingComplete = true;
+                            revealTerminal();
+                        }
+                    });
+
+                    return true;
+                } catch (err) {
+                    console.error("Style injection error:", err);
+                    return false;
+                }
+            }
+
+            function focusTerminal() {
+                try {
+                    // Focus the iframe
+                    terminal.focus();
+                    // Try to focus the terminal element inside the iframe
+                    const terminalDoc = terminal.contentDocument || terminal.contentWindow.document;
+                    // Find focusable elements in the iframe - first try terminal-specific elements
+                    const terminalElement = terminalDoc.querySelector('.xterm-helper-textarea') ||
+                        terminalDoc.querySelector('.xterm-textarea') ||
+                        terminalDoc.querySelector('.terminal');
+                    if (terminalElement) {
+                        terminalElement.focus();
+                    }
+                } catch (err) {
+                    console.warn('Could not auto-focus terminal:', err);
+                }
+            }
+
+            // Set up event listeners
+            window.addEventListener('focus', focusTerminal);
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('#terminal')) {
+                    focusTerminal();
+                }
+            });
+
+            terminal.onload = function () {
+                // Inject styles
+                injectStyles();
+
+                // Body fade-in first
+                setTimeout(function () {
+                    document.body.classList.add('visible');
+                    if (loading) {
+                        loading.style.display = 'none';
+                    }
+
+                    // Terminal fade-in second, but only after sizing is complete or timeout
+                    const waitForSizing = setInterval(function () {
+                        if (terminalSizingComplete) {
+                            clearInterval(waitForSizing);
+                            terminal.classList.add('loaded');
+                            // Focus after everything is visible
+                            setTimeout(focusTerminal, 300);
+                        }
+                    }, 50);
+
+                    // Fallback timeout - don't wait forever
+                    setTimeout(function () {
+                        if (!terminalSizingComplete) {
+                            console.warn("Terminal sizing timeout - showing terminal anyway");
+                            clearInterval(waitForSizing);
+                            terminalSizingComplete = true;
+                            terminal.classList.add('loaded');
+                            setTimeout(focusTerminal, 300);
+                        }
+                    }, 3000);
+                }, 200);
+            };
+
+            terminal.onerror = function () {
+                const error = document.createElement('div');
+                error.className = 'error';
+                error.textContent = 'Failed to load terminal. Please refresh the page.';
+                document.body.appendChild(error);
+                if (loading) {
+                    loading.style.display = 'none';
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>
