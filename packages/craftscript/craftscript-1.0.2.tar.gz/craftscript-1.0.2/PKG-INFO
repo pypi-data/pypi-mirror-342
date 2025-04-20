@@ -1,0 +1,48 @@
+Metadata-Version: 2.4
+Name: craftscript
+Version: 1.0.2
+Summary: Minecraft数据包与KubeJS脚本生成工具
+Home-page: https://github.com/yourusername/craftscript
+Author: Your Name
+Author-email: your.email@example.com
+Keywords: minecraft,datapack,kubejs,modding
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Software Development :: Code Generators
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-python
+Dynamic: summary
+
+# CraftScript
+
+![License](https://img.shields.io/badge/License-MIT-green)
+
+Minecraft 数据包与 KubeJS 脚本生成框架
+
+## 功能特性
+
+- 🛠️ 生成原版数据包
+- ⚡ 导出 KubeJS 6 脚本
+- 📦 支持自定义物品/方块/配方
+- 🧩 模块化设计易扩展
+
+## 安装
+
+```bash
+pip install craftscript
