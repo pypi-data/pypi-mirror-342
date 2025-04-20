@@ -1,0 +1,43 @@
+numpy>=1.21.0
+pandas>=1.0.0
+Pillow>=4.1.1
+torch>=1.4.0
+torchvision>=0.6.0
+
+[all]
+Jinja2>=3.0
+black==25.1.0
+identify>=1.4.20
+myst-parser
+pre-commit>=3.2.0
+pypandoc>=1.6.3
+sphinx-autobuild
+sphinx>=6.0.0
+sphinx_rtd_theme
+sphinxcontrib-googleanalytics>=0.4
+
+[all:python_version < "3.6"]
+watchdog<1.0.0
+
+[all:python_version >= "3.6"]
+readthedocs-sphinx-search
+
+[dev]
+black==25.1.0
+identify>=1.4.20
+pre-commit>=3.2.0
+
+[docs]
+Jinja2>=3.0
+myst-parser
+pypandoc>=1.6.3
+sphinx>=6.0.0
+sphinx-autobuild
+sphinx_rtd_theme
+sphinxcontrib-googleanalytics>=0.4
+
+[docs:python_version < "3.6"]
+watchdog<1.0.0
+
+[docs:python_version >= "3.6"]
+readthedocs-sphinx-search
