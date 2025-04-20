@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: hyqt
+Version: 0.0.6
+Summary: A helper library for python Qt
+Home-page: https://github.com/jcyrss/hyqt
+Download-URL: https://pypi.python.org/pypi/hyqt
+Author: baiyueheiyu 白月黑羽
+Author-email: jcyrss@gmail.com
+License: Apache License 2.0
+Keywords: hyqt
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: pyside6
+
+## Introduction
+
+`hyqt` is a generic open source python Qt helper library.
+
+
+
+
+##  Installation
+
+hyqt requires Python 3.10 or newer.
+
+simply run:
+
+```py
+pip install hyqt
+```
