@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+aadish/__init__.py
+aadish/__main__.py
+aadish.egg-info/PKG-INFO
+aadish.egg-info/SOURCES.txt
+aadish.egg-info/dependency_links.txt
+aadish.egg-info/requires.txt
+aadish.egg-info/top_level.txt
