@@ -1,0 +1,135 @@
+Metadata-Version: 2.4
+Name: butrand
+Version: 0.0.1
+Summary: Fast and chaotic random number generator based on butterfly effect
+Home-page: https://github.com/OmeraGod/butrand
+Author: Bùi Phong Phú
+Author-email: omerasutvailworkit@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+# 🦋 butrand
+
+**`butrand`** là một thư viện Python nhỏ gọn giúp sinh số ngẫu nhiên (PRNG) với tính hỗn loạn cao, dựa trên **hiệu ứng cánh bướm** (butterfly effect) và **logistic map**, kết hợp **SHA‑256** để tăng cường entropy.
+
+---
+
+## 🚀 Giới thiệu
+
+Trình sinh số ngẫu nhiên tiêu chuẩn của Python (`random`) đã rất mạnh mẽ, nhưng đôi khi ta muốn một PRNG:
+
+- Độ nhạy cao với seed (một thay đổi rất nhỏ của seed dẫn đến chuỗi kết quả hoàn toàn khác biệt).
+- Phân phối xấp xỉ đều nhưng dựa trên lý thuyết hỗn loạn.
+- Dễ tái hiện (deterministic nếu đặt seed) để phục vụ mô phỏng.
+
+`butrand` đáp ứng các yêu cầu này bằng cách:
+
+1. **Sinh hai chuỗi hỗn loạn** `x` và `y` song song qua logistic map.
+2. **Trộn** hai giá trị (`x + y + x*y`) để mở rộng dãy.
+3. **Băm** kết quả bằng SHA‑256 và lấy 64 bit đầu (16 hex digit) thành số nguyên.
+4. **Quy đổi** về float hoặc integer tùy hàm `random()` hoặc `randint(a,b)`.
+
+---
+
+## 🧠 Phân tích chi tiết thuật toán
+
+### 1. Logistic map
+
+Phương trình logistic map:
+> xₙ₊₁ = r · xₙ · (1 − xₙ)
+
+- Với r≈3.99, hệ bước vào vùng hỗn loạn, cực kỳ nhạy với giá trị ban đầu `x₀`.
+- Dòng tương tự cho yₙ.
+
+### 2. Trộn và băm
+
+- Tại mỗi bước:
+  1. Cập nhật x, y qua `_logistic_step()`.
+  2. Tính `mixed = (x + y + x*y) mod 1`.
+  3. Băm SHA‑256 của chuỗi `f"{mixed:.16f}{counter}"`.
+  4. Lấy 16 ký tự hex đầu → 64 bits → `int_val`.
+  5. `random() = int_val / 0xFFFFFFFFFFFFFFFF` ∈ [0,1).
+
+Điều này giúp:
+- **Giảm bias**: trộn hai chuỗi.
+- **Tăng entropy**: SHA‑256 phá vỡ mối quan hệ tuyến tính.
+- **Tái hiện**: với cùng seed & counter, chuỗi giống hệt.
+
+---
+
+## 📦 Cài đặt
+
+```bash
+    pip install butrand
+```
+> Lưu ý: `butrand` yêu cầu Python 3.7 trở lên.
+
+git clone https://github.com/OmeraGod/butrand.git
+cd butrand
+pip install -e .
+
+## 🧪 Hướng dẫn sử dụng
+
+### 1. Import thư viện:
+```python
+from butrand import BetterRand
+
+# Với seed cố định, giúp kết quả luôn lặp lại
+rng = BetterRand(seed=2025)
+```
+- Nếu không truyền seed, BetterRand() sẽ tự động lấy thời gian hiện tại (ms).
+### 2. random()
+```python
+# Trả về float trong [0,1)
+for _ in range(5):
+    print(rng.random())
+```
+Giải thích:
+- Mỗi lần gọi, x và y được cập nhật qua logistic map, trộn & băm → giá trị mới cực kỳ hỗn loạn.
+
+### 3. randint(a, b)
+```python
+# Trả về integer trong [a,b]
+print([rng.randint(10, 20) for _ in range(5)])
+```
+Giải thích:
+- randint tận dụng random() để phân phối đồng đều trên khoảng [a, b].
+### 4. Ví dụ đầy đủ
+```python
+from butrand import BetterRand
+
+rng = BetterRand(seed=12345)
+
+print("Floats:", [f"{rng.random():.6f}" for _ in range(5)])
+print("Ints 1–10:", [rng.randint(1, 10) for _ in range(5)])
+```
+Ví dụ đầu ra (mỗi lần seed=12345):
+```
+Floats: ['0.102632', '0.982467', '0.985985', '0.004041', '0.024338']
+Ints 1–10: [2, 10, 10, 1, 2]
+```
+## 📈 Ứng dụng
+- **Mô phỏng**: cần chuỗi ngẫu nhiên có tính hỗn loạn cao.
+- **Game**: sinh vật, bản đồ, sự kiện bất ngờ.
+- **Nghiên cứu**:  thử nghiệm PRNG mới, phân tích hỗn loạn.
+
+## 🔐 License
+Phân phối theo giấy phép MIT. Xem chi tiết trong file LICENSE.
+## 👨‍💻 Tác giả
+
+**Bùi Phong Phú** — Developer  
+📧 [omerasutvailworkit@gmail.com](mailto:omerasutvailworkit@gmail.com)  
+💻 [GitHub – OmeraGod](https://github.com/OmeraGod)  

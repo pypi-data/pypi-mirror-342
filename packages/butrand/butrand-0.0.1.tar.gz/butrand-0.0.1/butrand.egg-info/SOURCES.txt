@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+butrand/__init__.py
+butrand/core.py
+butrand.egg-info/PKG-INFO
+butrand.egg-info/SOURCES.txt
+butrand.egg-info/dependency_links.txt
+butrand.egg-info/top_level.txt
+tests/test_core.py
