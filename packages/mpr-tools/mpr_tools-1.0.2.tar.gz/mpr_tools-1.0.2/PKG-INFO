@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: mpr-tools
+Version: 1.0.2
+Summary: Common tools for several scenarios
+Author-email: José Froylán Málaga Cardoza <plokoon1987@gmail.com>
+Requires-Python: >=3.10.16
+Requires-Dist: pyyaml>=6.0.2
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: build; extra == 'dev'
+Requires-Dist: flake8; extra == 'dev'
+Requires-Dist: pylint; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Provides-Extra: sec
+Requires-Dist: bandit; extra == 'sec'
+Requires-Dist: pip-audit; extra == 'sec'
+Requires-Dist: safety; extra == 'sec'
+Description-Content-Type: text/markdown
+
+# MprTools

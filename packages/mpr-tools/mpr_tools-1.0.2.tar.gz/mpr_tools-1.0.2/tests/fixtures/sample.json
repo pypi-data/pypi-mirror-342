@@ -1,0 +1,10 @@
+{
+	"test_yaml": {
+		"level1_a": {
+			"level2_a": "hello"
+		},
+		"level1_b": {
+			"level2_b": "bye"
+		}
+	}
+}
