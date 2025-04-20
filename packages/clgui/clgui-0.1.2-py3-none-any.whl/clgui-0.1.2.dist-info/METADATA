@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: clgui
+Version: 0.1.2
+Summary: Command-line gui library for python
+Author: TitusHM
+Author-email: TitusHM <contact@titushm.dev>
+Project-URL: Homepage, https://github.com/titushm/clgui
+Project-URL: Bug Tracker, https://github.com/titushm/clgui/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: LICENSE.txt
+Requires-Dist: keyboard>=0.13.5
+Requires-Dist: colorama>=0.4.6
+Dynamic: author
+Dynamic: license-file
+
+# clgui
+
+Command-Line-GUI
+
+# How to use
+Up and down arrow keys control the selected element.
+Escape will enter preview mode which will select an element inside the layout to switch between lists.
+# [Documentation](docs.md)
