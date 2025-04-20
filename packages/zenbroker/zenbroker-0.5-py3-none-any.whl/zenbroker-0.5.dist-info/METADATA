@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: zenbroker
+Version: 0.5
+Summary: UNKNOWN
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pydantic<3.0.0,>=2.0.0
+Requires-Dist: httpx<1.0.0,>=0.28.0
+
+UNKNOWN
+
