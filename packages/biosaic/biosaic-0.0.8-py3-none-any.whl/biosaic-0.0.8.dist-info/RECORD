@@ -1,0 +1,16 @@
+biosaic/__init__.py,sha256=45m1F69zwzAA63xXYHCP9J7t-5SMWizgxqObH8s_DTs,246
+biosaic/bpe.py,sha256=s13s5tkjjLXIx9a6CMC4nBhhe_YKh7bJfUuMqQ7HZlE,9933
+biosaic/kmer.py,sha256=4wk2Gs2bbdfRjKttTC7XiN_KqWAysEk1AP7OIWQbBjw,5049
+biosaic/main.py,sha256=wU4ts6gwAdxruDYsmSQtVkf0AIw7JuTf-YP9v6JjDCI,1640
+biosaic/process.py,sha256=nznWprSbEgnojF_FVZtfc9Q_l5RDr8uKyFhorr3zJUI,2593
+biosaic/auto/dataset.py,sha256=XkMVUsVv-DXcm5Z8XGQP5Gu7q2uoNzfDKUM_pX7Pygg,4918
+biosaic/auto/embedder.py,sha256=DIUqO89TezcmfdTHaTFWrVnE6UnfwlCBFsyDRPFjRQs,2978
+biosaic/auto/model.py,sha256=gTAZ0WapLZSDq_QdWaH1OiqU5_lbxP3puEp5PUNV6yA,2489
+biosaic/auto/run.py,sha256=j6YcVeo6beSiFV0C893bqRX1NfGFC0iLBV9ozi_7v3M,7116
+biosaic/auto/tokenizer.py,sha256=a9COnt6MQHOutjZGwTRQtN45hfXno6LqNkGzMBnh7FI,4460
+biosaic-0.0.8.dist-info/licenses/LICENSE,sha256=zFVnxlrvlzOZv0ntMQL7uq9L5LYVDfbhAkts3RBnfqM,1093
+tests/test_kmer.py,sha256=bm56FE7uvlYoPa4Br31ZqljxpU_h-6vO-8k5jzSjyRY,15514
+biosaic-0.0.8.dist-info/METADATA,sha256=Cs5ZjM3KmABAV3d9PWrolCOoLDNsVstQ1n91W1gbjsA,5537
+biosaic-0.0.8.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+biosaic-0.0.8.dist-info/top_level.txt,sha256=8zsONlz8viQkhpe53UyV-nN2luxiEzu0lQSnSpAoOjU,14
+biosaic-0.0.8.dist-info/RECORD,,
