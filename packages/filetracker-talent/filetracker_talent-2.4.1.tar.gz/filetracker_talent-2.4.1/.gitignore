@@ -1,0 +1,14 @@
+build
+dist
+
+.eggs
+.tox
+.coverage*
+.pytest_cache
+.idea
+
+*.egg-info
+*.egg
+*.pyc
+
+result
