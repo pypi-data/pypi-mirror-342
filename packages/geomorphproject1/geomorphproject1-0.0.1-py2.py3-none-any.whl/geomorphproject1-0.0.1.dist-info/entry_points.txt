@@ -1,0 +1,2 @@
+[console_scripts]
+geomorphproject1 = geomorphproject1.cli:main
