@@ -1,0 +1,18 @@
+from pydantic import BaseModel, Field
+from maleo_foundation.models.enums import BaseEnums
+from maleo_foundation.models.schemas.general import BaseGeneralSchemas
+from maleo_foundation.models.types import BaseTypes
+from maleo_foundation.models.extended_types import ExtendedTypes
+
+class BaseParameterSchemas:
+    class Filters(BaseModel):
+        filters:BaseTypes.ListOfStrings = Field([], description="Filters for date range, e.g. 'created_at|from::<ISO_DATETIME>|to::<ISO_DATETIME>'.")
+
+    class DateFilters(BaseModel):
+        date_filters:ExtendedTypes.ListOfDateFilters = Field([], description="Date filters to be applied")
+
+    class Sorts(BaseModel):
+        sorts:BaseTypes.ListOfStrings = Field(["id.asc"], description="Sorting columns in 'column_name.asc' or 'column_name.desc' format.")
+
+    class SortColumns(BaseModel):
+        sort_columns:ExtendedTypes.ListOfSortColumns = Field([BaseGeneralSchemas.SortColumn(name="id", order=BaseEnums.SortOrder.ASC)], description="List of columns to be sorted")
