@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: chercher-plugin-pdf
+Version: 0.1.0
+Summary: Chercher plugin for PDF files.
+Author-email: dnlzrgz <contact@dnlzrgz.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/dnlzrgz/chercher-plugin-pdf
+Project-URL: Changelog, https://github.com/dnlzrgz/chercher-plugin-pdf/releases
+Project-URL: Issues, https://github.com/dnlzrgz/chercher-plugin-pdf/issues
+Project-URL: CI, https://github.com/dnlzrgz/chercher-plugin-pdf/actions
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: chercher>=0.1.7
+Requires-Dist: pymupdf>=1.25.5
+Dynamic: license-file
+
+# chercher-plugin-pdf
