@@ -1,0 +1,2 @@
+[console_scripts]
+recipe2org = recipe2org.main:main
