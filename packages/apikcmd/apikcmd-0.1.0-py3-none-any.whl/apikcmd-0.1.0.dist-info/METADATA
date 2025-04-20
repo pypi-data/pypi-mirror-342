@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: apikcmd
+Version: 0.1.0
+Summary: A simple command interface for REST API CRUD operations
+Home-page: https://github.com/yourusername/apikcmd
+Author: KC
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# apikcmd
+
+A simple Python utility for interacting with a RESTful API from the command line. Supports GET, POST, PUT, DELETE operations.
+
+## Installation
+
+```bash
+pip install apikcmd
