@@ -1,0 +1,2 @@
+[console_scripts]
+phpgp = phpgp.cli:cli

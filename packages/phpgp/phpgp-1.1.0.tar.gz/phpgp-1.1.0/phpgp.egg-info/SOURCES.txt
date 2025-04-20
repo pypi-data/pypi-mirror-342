@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+phpgp/__init__.py
+phpgp/cli.py
+phpgp/server.py
+phpgp/utils.py
+phpgp.egg-info/PKG-INFO
+phpgp.egg-info/SOURCES.txt
+phpgp.egg-info/dependency_links.txt
+phpgp.egg-info/entry_points.txt
+phpgp.egg-info/requires.txt
+phpgp.egg-info/top_level.txt
