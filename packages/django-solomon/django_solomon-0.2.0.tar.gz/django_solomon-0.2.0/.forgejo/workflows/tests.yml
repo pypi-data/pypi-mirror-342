@@ -1,0 +1,45 @@
+name: Run Tests with tox and tox-uv
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python-version: '3.10'
+            django-versions: 'django40,django41,django42,django50,django51,django52'
+          - python-version: '3.11'
+            django-versions: 'django41,django42,django50,django51,django52'
+          - python-version: '3.12'
+            django-versions: 'django42,django50,django51,django52'
+          - python-version: '3.13'
+            django-versions: 'django51,django52'
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install tox tox-uv
+
+      - name: Test with tox and tox-uv
+        run: |
+          # Convert Python version to tox format (e.g., 3.10 -> py310)
+          PY_VERSION=py$(echo ${{ matrix.python-version }} | tr -d '.')
+
+          # Run tox with tox-uv for faster dependency resolution
+          # The --uv flag is automatically used when tox-uv is installed
+          tox -e $(echo ${{ matrix.django-versions }} | tr ',' '\n' | xargs -I{} echo {}-$PY_VERSION | tr '\n' ',') --parallel auto
