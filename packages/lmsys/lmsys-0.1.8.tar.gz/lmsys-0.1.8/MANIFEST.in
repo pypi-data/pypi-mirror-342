@@ -1,0 +1,6 @@
+exclude tests/*
+exclude .env
+exclude venv/*
+
+exclude e2b_plan.md
+exclude e2b_docs.md
