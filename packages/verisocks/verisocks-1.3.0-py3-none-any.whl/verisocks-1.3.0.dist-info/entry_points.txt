@@ -1,0 +1,2 @@
+[console_scripts]
+vsl-wizard = verisocks.cli.wizard:main
