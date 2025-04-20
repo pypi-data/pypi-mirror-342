@@ -1,0 +1,59 @@
+Metadata-Version: 2.3
+Name: gnnepcsaft-mcp-server
+Version: 0.1.2
+Summary: Model Context Protocol server for GNNePCSAFT tools
+License: GNU General Public License v3.0
+Author: wildsonbbl
+Author-email: wil_bbl@hotmail.com
+Requires-Python: >=3.10
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: feos (>=0.8.0,<0.9.0)
+Requires-Dist: gnnepcsaft (>=0.2.4)
+Requires-Dist: mcp (>=1.6.0,<2.0.0)
+Requires-Dist: numpy (>=2.2.4,<3.0.0)
+Requires-Dist: onnxruntime (>=1.21.0,<2.0.0)
+Requires-Dist: rdkit (>=2024.9.6,<2025.0.0)
+Requires-Dist: si-units (>=0.11.0,<0.12.0)
+Description-Content-Type: text/markdown
+
+# GNNEPCSAFT MCP Server
+
+## Overview
+
+This is the Model Context Protocol ([MCP](https://modelcontextprotocol.io/introduction)) server implementation for [GNNePCSAFT](https://github.com/wildsonbbl/gnnepcsaft) tools. The server handles communication and context management between models and clients using the MCP protocol.
+
+## Features
+
+- Model context management
+- Protocol handling for model communication
+- Client request processing
+- Context state synchronization
+
+## Installation
+
+You're gonna need [uvx](https://docs.astral.sh/uv/).
+
+## Usage
+
+stdio config to start the MCP server:
+
+```json
+{
+  "mcpServers": {
+    "gnnepcsaft": {
+      "command": "uvx",
+      "args": ["--from", "gnnepcsaft-mcp-server", "gnnepcsaftmcp"]
+    }
+  }
+}
+```
+
+## License
+
+GNU General Public License v3.0
+
