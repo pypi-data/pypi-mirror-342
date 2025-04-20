@@ -1,0 +1,2 @@
+[console_scripts]
+yesdomaininfo = yesdomainfinder.cli:main
