@@ -1,0 +1,2 @@
+[console_scripts]
+sysinit-term = sysinit.cli:app

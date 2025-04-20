@@ -1,0 +1,10 @@
+pytest-mock>=3.14.0
+pyyaml>=6.0.2
+typer[all]>=0.9.0
+
+[dev]
+black>=25.1.0
+pytest>=8.3.5
+build
+twine
+ipython>=7.0
