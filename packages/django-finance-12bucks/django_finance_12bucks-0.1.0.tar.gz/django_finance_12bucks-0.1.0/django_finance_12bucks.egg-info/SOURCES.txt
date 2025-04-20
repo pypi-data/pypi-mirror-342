@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+django_finance_12bucks.egg-info/PKG-INFO
+django_finance_12bucks.egg-info/SOURCES.txt
+django_finance_12bucks.egg-info/dependency_links.txt
+django_finance_12bucks.egg-info/requires.txt
+django_finance_12bucks.egg-info/top_level.txt
+migrations/0001_initial.py
+migrations/0002_miles.py
+migrations/0003_mileagerate.py
+migrations/0004_alter_transaction_receipt.py
+migrations/0005_remove_invoiceitem_invoice_numb_invoiceitem_invoice_and_more.py
+migrations/0006_alter_invoice_options_alter_invoiceitem_invoice_and_more.py
+migrations/__init__.py
