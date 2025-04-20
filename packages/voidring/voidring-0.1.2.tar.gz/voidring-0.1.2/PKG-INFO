@@ -1,0 +1,18 @@
+Metadata-Version: 2.3
+Name: voidring
+Version: 0.1.2
+Summary: Inspired by the infinite void of mystical storage rings, VoidRing brings immortal-grade durability to modern applications. This Python binding unleashes RocksDB's battle-tested storage core through a cultivator-friendly interface.
+Author: arcstep
+Author-email: 43801@qq.com
+Requires-Python: >=3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: pydantic (>=2.11.2,<3.0.0)
+Requires-Dist: rocksdict (>=0.3.25,<0.4.0)
+Description-Content-Type: text/markdown
+
+# voidring
+VoidRing - A RocksDB-powered KV Storage Engine with Spatial Compression
+
