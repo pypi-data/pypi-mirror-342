@@ -1,0 +1,2 @@
+[console_scripts]
+py-buzz-demo = demo.main:main[cli]
