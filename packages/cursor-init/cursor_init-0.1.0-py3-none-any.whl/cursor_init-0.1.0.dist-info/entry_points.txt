@@ -1,0 +1,2 @@
+[console_scripts]
+cursor-init = cursor_init.cli:app
