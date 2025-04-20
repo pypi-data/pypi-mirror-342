@@ -1,0 +1,22 @@
+[project]
+name = "mlopscli"
+version = "0.1.0"
+description = "CLI to turn DS scripts to composable pipelines."
+authors = [
+    {name = "Himanshu Bajpai"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+"typer>=0.15.2",
+"pyyaml>=6.0.2",
+"networkx>=3.4.2",
+"matplotlib>=3.10.1"
+]
+
+[tool.poetry.scripts]
+mlopscli = "mlopscli.cli:app"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
