@@ -1,0 +1,6 @@
+[zarr.codecs]
+imagecodecs_deflate = virtual_tiff.imagecodecs:Deflate
+imagecodecs_delta = virtual_tiff.imagecodecs:Delta
+imagecodecs_floatpred = virtual_tiff.imagecodecs:FloatPred
+imagecodecs_lzw = virtual_tiff.imagecodecs:LZW
+imagecodecs_zstd = virtual_tiff.imagecodecs:Zstd

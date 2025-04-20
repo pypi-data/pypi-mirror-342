@@ -1,0 +1,10 @@
+virtual_tiff/__init__.py,sha256=xjvRuevoU5YMQCxySxH6XRQxebsSY3RRlDy9ZX4XRO8,256
+virtual_tiff/constants.py,sha256=GZ_vmuXgKn_aCUFjgUX45ht_p3qeqB9oe9ND_RZD91g,1727
+virtual_tiff/imagecodecs.py,sha256=TAu46KrJJAkytZJWFpV02V-732zaojG3DO3mFtntqvg,8222
+virtual_tiff/reader.py,sha256=Wi22NMzVCOgAGRt_pnnzrYKCtQeLk1UxdWgV84O4RiY,6517
+virtual_tiff/vendor/xarray/zarr.py,sha256=P-JZoIox4aanMrKKnfTGyQiTL6HCA6KMHutBPUIP9Mc,1975
+virtual_tiff-0.1.0b1.dist-info/METADATA,sha256=DTskLeUFnBrmCajygeyrsrzWVJ3R7wQ2H615NlY28Rw,2778
+virtual_tiff-0.1.0b1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+virtual_tiff-0.1.0b1.dist-info/entry_points.txt,sha256=YNVxAoNMVBLQOsZ7AfqYqaiUEHh5GCPTdDRWyc-Kr_o,275
+virtual_tiff-0.1.0b1.dist-info/licenses/LICENSE.txt,sha256=VjZ_G4cOWgcKvY10FcUHu5zflhTXB9zKTuviOJXg_eA,1120
+virtual_tiff-0.1.0b1.dist-info/RECORD,,
