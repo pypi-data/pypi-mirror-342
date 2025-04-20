@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: agrigee_lite
+Version: 0.0.8
+Summary: Because using satellite data shouldn't require rocket science, neither in code nor in hardware.
+Project-URL: Homepage, https://mateuspinto.github.io/agrigee_lite/
+Project-URL: Repository, https://github.com/mateuspinto/agrigee_lite
+Project-URL: Documentation, https://mateuspinto.github.io/agrigee_lite/
+Author-email: Mateus Pinto da Silva <mateus.p.silva@ufv.br>
+License-File: LICENSE
+Keywords: python
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: <4.0,>=3.10
+Requires-Dist: anyio>=4.9.0
+Requires-Dist: earthengine-api>=1.5.7
+Requires-Dist: geopandas>=1.0.1
+Requires-Dist: pandera>=0.23.1
+Requires-Dist: pyarrow>=19.0.1
+Requires-Dist: smart-open>=7.1.0
+Requires-Dist: topojson>=1.9
+Requires-Dist: tqdm>=4.67.1
+Requires-Dist: uvloop>=0.21.0
+Description-Content-Type: text/markdown
+
+# AgriGEE.lite

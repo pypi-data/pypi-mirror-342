@@ -1,0 +1,231 @@
+import json
+import os
+import random
+import string
+
+import ee
+import geopandas as gpd
+import numpy as np
+import pandas as pd
+from topojson import Topology
+
+
+def ee_get_date_value(stats: ee.Dictionary, ee_img: ee.Image, date_types: list[str] | None = None) -> ee.Dictionary:
+    if date_types is None:
+        date_types = ["doy"]
+
+    for n, date_type in enumerate(date_types):
+        if date_type == "doy":
+            stats = stats.set(f"{n + 1:02}_doy", ee_img.date().getRelative("day", "year").add(1))
+        elif date_type == "year":
+            stats = stats.set(f"{n + 2:02}_year", ee_img.date().get("year"))
+        elif date_type == "fyear":
+            stats = stats.set(f"{n + 3:02}_fyear", ee_img.date().getFraction("year").add(ee_img.date().get("year")))
+        else:
+            raise ValueError(f"Unknown date_type: '{date_type}'")
+
+    return stats
+
+
+def ee_map_bands_and_doy(
+    ee_img: ee.Image,
+    ee_geometry: ee.Geometry,
+    ee_feature: ee.Feature,
+    pixel_size: int,
+    subsampling_max_pixels: ee.Number,
+    reducer: ee.Reducer,
+    date_types: list[str] | None,
+    round_int_16: bool = False,
+) -> ee.Feature:
+    ee_img = ee.Image(ee_img)
+    ee_stats = ee_img.reduceRegion(
+        reducer=reducer,
+        geometry=ee_geometry,
+        scale=pixel_size,
+        maxPixels=subsampling_max_pixels,
+        bestEffort=True,
+    ).map(lambda _, value: ee.Number(ee.Algorithms.If(ee.Algorithms.IsEqual(value, None), 0, value)))
+
+    if round_int_16:
+        ee_stats = ee_stats.map(lambda _, value: ee.Number(value).round().int16())
+
+    ee_stats = ee_get_date_value(ee_stats, ee_img, date_types)
+    ee_stats = ee_stats.set("00_indexnum", ee_feature.get("00_indexnum"))
+
+    return ee.Feature(None, ee_stats)
+
+
+def ee_map_valid_pixels(img: ee.Image, ee_geometry: ee.Geometry, pixel_size: int) -> ee.Image:
+    mask = ee.Image(img).select([0]).gt(0)
+
+    valid_pixels = ee.Number(
+        mask.rename("valid")
+        .reduceRegion(
+            reducer=ee.Reducer.count(),
+            geometry=ee_geometry,
+            scale=pixel_size,
+            maxPixels=1e8,
+            bestEffort=True,
+        )
+        .get("valid")
+    )
+
+    return ee.Image(img.set("ZZ_USER_VALID_PIXELS", valid_pixels))
+
+
+def ee_cloud_probability_mask(img: ee.Image, threshold: float, invert: bool = False) -> ee.Image:
+    mask = img.select(["cloud"]).gte(threshold) if invert else img.select(["cloud"]).lt(threshold)
+
+    return img.updateMask(mask).select(img.bandNames().remove("cloud"))
+
+
+def ee_gdf_to_feature_collection(gdf: gpd.GeoDataFrame, simplify: bool = True) -> ee.FeatureCollection:
+    gdf = gdf.copy()
+    gdf = gdf[["geometry", "start_date", "end_date"]]
+
+    gdf["00_indexnum"] = gdf.index.values.astype(int)
+    gdf["start_date"] = gdf["start_date"].dt.strftime("%Y-%m-%d")
+    gdf["end_date"] = gdf["end_date"].dt.strftime("%Y-%m-%d")
+
+    if simplify:
+        topo = Topology(gdf, prequantize=False)
+        topo = topo.toposimplify(0.001, prevent_oversimplify=True)
+        gdf = topo.to_gdf()
+
+    geo_json = os.path.join(os.getcwd(), "".join(random.choice(string.ascii_lowercase) for i in range(6)) + ".geojson")  # noqa: S311
+    gdf = gdf.to_crs(4326)
+    gdf.to_file(geo_json, driver="GeoJSON")
+
+    with open(os.path.abspath(geo_json), encoding="utf-8") as f:
+        json_dict = json.load(f)
+
+    if json_dict["type"] == "FeatureCollection":
+        for feature in json_dict["features"]:
+            if feature["geometry"]["type"] != "Point":
+                feature["geometry"]["geodesic"] = True
+        features = ee.FeatureCollection(json_dict)
+
+    os.remove(geo_json)
+
+    return features
+
+
+def ee_img_to_numpy(ee_img: ee.Image, ee_geometry: ee.Geometry, scale: int) -> np.ndarray:
+    ee_img = ee.Image(ee_img)
+    ee_geometry = ee.Geometry(ee_geometry).bounds()
+
+    projection = ee.Projection("EPSG:4326").atScale(scale).getInfo()
+    chip_size = round(ee_geometry.perimeter(0.1).getInfo() / (4 * scale))
+
+    scale_y = -projection["transform"][0]
+    scale_x = projection["transform"][4]
+
+    list_of_coordinates = ee.Array.cat(ee_geometry.coordinates(), 1).getInfo()
+
+    x_min = list_of_coordinates[0][0]
+    y_max = list_of_coordinates[2][1]
+    coordinates = [x_min, y_max]
+
+    chip_size = 1 if chip_size == 0 else chip_size
+
+    img_in_bytes = ee.data.computePixels({
+        "expression": ee_img,
+        "fileFormat": "NUMPY_NDARRAY",
+        "grid": {
+            "dimensions": {"width": chip_size, "height": chip_size},
+            "affineTransform": {
+                "scaleX": scale_x,
+                "scaleY": scale_y,
+                "translateX": coordinates[0],
+                "translateY": coordinates[1],
+            },
+            "crsCode": projection["crs"],
+        },
+    })
+
+    img_in_array = np.array(img_in_bytes.tolist()).astype(np.float32)
+    img_in_array[np.isinf(img_in_array)] = 0
+    img_in_array[np.isnan(img_in_array)] = 0
+
+    return img_in_array
+
+
+def ee_get_tasks_status() -> pd.DataFrame:
+    tasks = ee.data.listOperations()
+    records = []
+    for op in tasks:
+        metadata = op.get("metadata", {})
+
+        record = {
+            "attempt": metadata.get("attempt"),
+            "create_time": metadata.get("createTime"),
+            "description": metadata.get("description"),
+            "destination_uris": metadata.get("destinationUris", [None])[0],
+            "done": op.get("done"),
+            "end_time": metadata.get("endTime"),
+            "name": op.get("name"),
+            "priority": metadata.get("priority"),
+            "progress": metadata.get("progress"),
+            "script_uri": metadata.get("scriptUri"),
+            "start_time": metadata.get("startTime"),
+            "state": metadata.get("state"),
+            "total_batch_eecu_usage_seconds": metadata.get("batchEecuUsageSeconds", 0.0),
+            "type": metadata.get("type"),
+            "update_time": metadata.get("updateTime"),
+        }
+        records.append(record)
+
+    df = pd.DataFrame(records)
+    df["create_time"] = pd.to_datetime(df.create_time, format="mixed")
+    df["end_time"] = pd.to_datetime(df.end_time, format="mixed")
+    df["start_time"] = pd.to_datetime(df.start_time, format="mixed")
+    df["update_time"] = pd.to_datetime(df.update_time, format="mixed")
+
+    df["estimated_cost_usd_tier_1"] = (df.total_batch_eecu_usage_seconds / (60 * 60)) * 0.40
+    df["estimated_cost_usd_tier_2"] = (df.total_batch_eecu_usage_seconds / (60 * 60)) * 0.28
+    df["estimated_cost_usd_tier_3"] = (df.total_batch_eecu_usage_seconds / (60 * 60)) * 0.16
+
+    return df
+
+
+def ee_get_reducers(reducer_names: list[str] | None = None) -> ee.Reducer:  # noqa: C901
+    if reducer_names is None:
+        reducer_names = ["median"]
+
+    names = [n.lower() for n in reducer_names]
+
+    pct_vals = sorted({int(n[1:]) for n in names if n.startswith("p")})
+
+    reducers = []
+    for n in names:
+        if n == "min":
+            reducers.append(ee.Reducer.min())
+        elif n == "max":
+            reducers.append(ee.Reducer.max())
+        elif n == "mean":
+            reducers.append(ee.Reducer.mean())
+        elif n == "median":
+            reducers.append(ee.Reducer.median())
+        elif n == "kurt":
+            reducers.append(ee.Reducer.kurtosis())
+        elif n == "skew":
+            reducers.append(ee.Reducer.skew())
+        elif n == "std":
+            reducers.append(ee.Reducer.stdDev())
+        elif n == "var":
+            reducers.append(ee.Reducer.variance())
+        elif n == "mode":
+            reducers.append(ee.Reducer.mode())
+        elif n.startswith("p"):
+            continue
+        else:
+            raise ValueError(f"Unknown reducer: '{n}'")  # noqa: TRY003
+
+    if pct_vals:
+        reducers.append(ee.Reducer.percentile(pct_vals))
+
+    reducer = reducers[0]
+    for r in reducers[1:]:
+        reducer = reducer.combine(r, None, True)
+
+    return reducer
