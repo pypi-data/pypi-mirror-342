@@ -1,0 +1,3 @@
+[console_scripts]
+moni=moni.main:main
+
