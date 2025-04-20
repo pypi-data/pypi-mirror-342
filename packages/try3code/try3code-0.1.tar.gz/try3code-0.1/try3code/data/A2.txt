@@ -1,0 +1,50 @@
+# A2
+# Develop a text classification model that can effectively identify, extract features, and classify documents from the 20 Newsgroups dataset into one of the 20 predefined categories using  pattern recognition techniques.
+# Import required libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
+
+# Step 1: Load the dataset
+newsgroups = fetch_20newsgroups(subset='all', shuffle=True, random_state=42)
+X = newsgroups.data
+y = newsgroups.target
+target_names = newsgroups.target_names
+
+# Step 2: Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Step 3: Feature Extraction using TF-IDF (Pattern Recognition Technique)
+vectorizer = TfidfVectorizer(stop_words='english', max_df=0.5)
+X_train_tfidf = vectorizer.fit_transform(X_train)
+X_test_tfidf = vectorizer.transform(X_test)
+
+# Step 4: Model Training using Naive Bayes
+model = MultinomialNB()
+model.fit(X_train_tfidf, y_train)
+
+# Step 5: Prediction
+y_pred = model.predict(X_test_tfidf)
+
+# Step 6: Evaluation
+print("Accuracy:", accuracy_score(y_test, y_pred))
+print("\nClassification Report:\n", classification_report(y_test, y_pred, target_names=target_names))
+
+# Step 7: Confusion Matrix Visualization
+conf_mat = confusion_matrix(y_test, y_pred)
+plt.figure(figsize=(12, 10))
+sns.heatmap(conf_mat, annot=False, cmap='Blues', xticklabels=target_names, yticklabels=target_names)
+plt.title("Confusion Matrix - 20 Newsgroups")
+plt.xlabel("Predicted")
+plt.ylabel("True")
+plt.xticks(rotation=90)
+plt.yticks(rotation=0)
+plt.tight_layout()
+plt.show()
