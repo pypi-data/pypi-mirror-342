@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://www.huangjien.com"
+Repository = "https://github.com/huangjien/devops-mcps"
+
+[project]
+name = "devops-mcps"
+version = "0.2.7"
+description = "A FastMCP-based MCP server for DevOps"
+authors = [{ name = "Jien Huang", email = "huangjien@gmail.com" }]
+readme = "README.md"
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+]
+
+keywords = [
+    "devops",
+    "mcp",
+    "python",
+    "cli",
+]
+
+dependencies = [
+    "fastmcp>=2.2.0",
+    "httpx",
+    "pydantic",
+    "python-dotenv",
+    "toml"
+]
+requires-python = ">=3.12"
+
+[project.scripts]
+devops-mcps = "devops_mcps.core:main"
+devops-mcps-sse = "devops_mcps.core:main_sse"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.uv]
+dev-dependencies = ["pyright>=1.1.389", "ruff>=0.7.4"]
