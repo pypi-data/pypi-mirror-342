@@ -1,0 +1,10 @@
+[project]
+name = "chatmux"
+version = "0.1.3"
+description = "Convert between common LLM chat schemas"
+readme = "README.md"
+requires-python = ">=3.10.14"
+dependencies = [
+    "pillow==10.4.0",
+    "pydantic>=2.11.3",
+]
