@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: networkscaleup
+Version: 0.0.2
+Summary: Network Scale-Up Models for Aggregated Relational Data
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Issues, https://github.com/pypa/sampleproject/issues
+Author-email: "Sarah Nagy, Ian Laga" <s.nagy.4343@gmail.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+This package fits several different **Network Scale-Up Models (NSUM)** to **Aggregated Relational Data (ARD)**. ARD represents survey responses to questions of the form: *"How many X’s do you know?"*, where respondents report how many people they know in different subpopulations.
+
+Specifically, if Nᵢ respondents are asked about Nₖ subpopulations, then the ARD is an Nᵢ times Nₖ matrix, where the *(i, j)* element represents how many people respondent *i* reports knowing in subpopulation *j*.
+
+NSUM leverages these responses to estimate the unknown size of **hard-to-reach populations**.
