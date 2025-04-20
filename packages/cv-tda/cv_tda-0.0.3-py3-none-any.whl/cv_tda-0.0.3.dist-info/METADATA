@@ -1,0 +1,41 @@
+Metadata-Version: 2.4
+Name: cv-tda
+Version: 0.0.3
+Summary: A Library to Solve Various Computer Vision Problems Using Topological Data Analysis
+Author-email: Aleksandr Abramov <ggttpo100ajiex@yandex.ru>
+License-Expression: MIT
+Project-URL: Repository, https://github.com/TTPO100AJIEX/CVTDA
+Keywords: topological data analysis,computer vision,algebraic topology,image analysis,classification,face recognition,topological features
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Requires-Python: <3.11,>=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: giotto-tda==0.6.2
+Requires-Dist: gudhi
+Requires-Dist: joblib
+Requires-Dist: scikit-learn
+Requires-Dist: scikit-image
+Requires-Dist: tqdm
+Provides-Extra: classification
+Requires-Dist: catboost; extra == "classification"
+Requires-Dist: xgboost; extra == "classification"
+Requires-Dist: matplotlib; extra == "classification"
+Requires-Dist: pandas; extra == "classification"
+Requires-Dist: torch; extra == "classification"
+Requires-Dist: torchvision; extra == "classification"
+Requires-Dist: torchph==0.0.0; extra == "classification"
+Provides-Extra: face-recognition
+Requires-Dist: pytorch-metric-learning==2.8.1; extra == "face-recognition"
+Requires-Dist: matplotlib; extra == "face-recognition"
+Requires-Dist: torch; extra == "face-recognition"
+Requires-Dist: torchvision; extra == "face-recognition"
+Requires-Dist: torchph==0.0.0; extra == "face-recognition"
+
+# Computer Vision With Topological Data Analysis
+
+TO BE DONE
