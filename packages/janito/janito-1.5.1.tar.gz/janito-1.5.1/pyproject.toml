@@ -1,0 +1,41 @@
+[project]
+name = "janito"
+version = "1.5.1"
+description = "A Natural Programming Language Agent,"
+authors = [
+    { name = "João Pinto", email = "joao.pinto@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "beautifulsoup4",
+    "docstring-parser",
+    "flask",
+    "jinja2",
+    "openai",
+    "pathspec",
+    "prompt_toolkit",
+    "requests",
+    "rich"
+]
+license = { text = "MIT" }
+readme = "README.md"
+keywords = ["agent", "framework", "tools", "automation"]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+homepage = "https://github.com/joaompinto/janito"
+repository = "https://github.com/joaompinto/janito"
+
+[project.scripts]
+janito = "janito.__main__:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+"janito.agent.templates" = ["system_instructions.j2"]
