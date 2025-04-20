@@ -1,0 +1,8 @@
+flask
+pymongo
+pytz
+PyJWT
+httpx
+eventlet
+flask-socketio
+tqdm
