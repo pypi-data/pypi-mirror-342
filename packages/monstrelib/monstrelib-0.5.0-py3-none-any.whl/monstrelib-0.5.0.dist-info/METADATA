@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: monstrelib
+Version: 0.5.0
+Summary: Une mini bibliothèque qui fait des additions comme un monstre
+Author-email: Mohamed Echcharif EL JAZOULI <charif.eljazouli@email.com>
+License: MIT
+Project-URL: Homepage, https://github.com/Charifjaz/monstrelib
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+
+# monstrelib
+
+![Tests](https://github.com/Charifjaz/monstrelib/actions/workflows/tests.yml/badge.svg?branch=main)
+[![codecov](https://codecov.io/gh/Charifjaz/monstrelib/branch/main/graph/badge.svg)](https://codecov.io/gh/Charifjaz/monstrelib)
+
+Une petite librairie Python pour tester CI/CD 😎
