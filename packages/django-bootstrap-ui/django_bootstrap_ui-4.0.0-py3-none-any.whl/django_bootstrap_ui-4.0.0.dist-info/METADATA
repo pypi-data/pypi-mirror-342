@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: django-bootstrap-ui
+Version: 4.0.0
+Summary: django-bootstrap-ui simplifies the integration of the popular Bootstrap UI framework
+Home-page: https://gitlab.com/texperience/django-bootstrap-ui
+Author: Timo Rieber
+Author-email: trieber@texperience.de
+License: ISC License (ISCL)
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 4.2
+Classifier: Framework :: Django :: 5.0
+Classifier: Framework :: Django :: 5.1
+Classifier: Framework :: Django :: 5.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: django<5.3,>=4.2
+Provides-Extra: building
+Requires-Dist: mkdocs-material<10.0,>=9.4; extra == "building"
+Provides-Extra: development
+Requires-Dist: mkdocs-material<10.0,>=9.4; extra == "development"
+Requires-Dist: flake8<7.0,>=6.0; extra == "development"
+Requires-Dist: tox<4.0,>=3.28; extra == "development"
+Provides-Extra: linting
+Requires-Dist: flake8<7.0,>=6.0; extra == "linting"
+Provides-Extra: testing
+Requires-Dist: tox<4.0,>=3.28; extra == "testing"
+
+# Welcome to django-bootstrap-ui
+
+[![Pipeline][pipeline-badge]][pipeline-link]
+[![Docs][docs-badge]][docs-link]
+[![PyPI][pypi-badge]][pypi-link]
+[![License][license-badge]][license-link]
+
+[pipeline-badge]: https://gitlab.com/texperience/django-bootstrap-ui/badges/master/pipeline.svg?ignore_skipped=true
+[pipeline-link]: https://gitlab.com/texperience/django-bootstrap-ui/pipelines
+[pypi-badge]: https://img.shields.io/pypi/v/django-bootstrap-ui.svg
+[pypi-link]: https://pypi.python.org/pypi/django-bootstrap-ui
+[license-badge]: https://img.shields.io/pypi/l/django-bootstrap-ui.svg
+[license-link]: http://en.wikipedia.org/wiki/ISC_license
+[docs-badge]: https://img.shields.io/badge/docs-stable-brightgreen.svg
+[docs-link]: https://django-bootstrap-ui.texperience.de
+
+django-bootstrap-ui simplifies the integration of the popular [Bootstrap UI framework][bootstrap]. It is written in [Python][python] and built on the [Django web framework][django]. Give it a try and head over to the [documentation][docs-link]!
+
+[bootstrap]: http://getbootstrap.com/
+[django]: https://www.djangoproject.com/
+[python]: https://www.python.org/
+
+## Basic features
+
+* Basic HTML5 template
+* Extensive and up-to-date documentation
+* Mainstream Python and Django support
+
+## Bootstrap 5 features
+
+* Full-featured Bootstrap 5 template (5.3.2)
+* Integrated Google material design icon font
+
+## Bootstrap 4 features
+
+* Full-featured Bootstrap 4 template (4.6.2)
+* Integrated Google material design icon font
+
+## Bootstrap 3 features
+
+* Full-featured Bootstrap 3 template (3.4.1)
+* Latest Font Awesome integration (4.7.0)
+
+## Technical requirements
+
+New feature releases frequently add support for newer versions of underlying technologies and drop support for older ones. The compatible versions of Django and Python currently are:
+
+| Release | Django                          | Python                           |
+|---------|---------------------------------|----------------------------------|
+| 4+      | 4.2 LTS, 5.0, 5.1, 5.2 LTS      | 3.8, 3.9, 3.10, 3.11, 3.12, 3.13 |
+| 3+      | 2.2 LTS, 3.0, 3.1, 3.2 LTS, 4.0 | 3.7, 3.8, 3.9, 3.10              |
+| 2+      | 2.2 LTS, 3.0, 3.1, 3.2 LTS, 4.0 | 3.6, 3.7, 3.8, 3.9, 3.10         |
+
+For more details, which combinations of Django and Python are supported, please refer to our `tox.ini` or read the [Django installation FAQ][django-install].
+
+[django-install]: https://docs.djangoproject.com/en/dev/faq/install/
