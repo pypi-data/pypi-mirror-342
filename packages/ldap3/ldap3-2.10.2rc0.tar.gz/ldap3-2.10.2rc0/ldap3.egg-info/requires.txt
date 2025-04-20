@@ -1,0 +1,8 @@
+pyasn1>=0.4.6
+pycryptodomex
+
+[:os_name != "nt"]
+gssapi
+
+[:os_name == "nt"]
+winkerberos
