@@ -1,0 +1,25 @@
+[project]
+name = "exptree"
+version = "0.1.0"
+description = "Track your ML experiments, data and other artifacts with minimal overhead and configs. A light, easy Experiment tracking framework"
+authors = [
+    {name = "Nishanth",email = "nishanthkc009@gmail.com"}
+]
+license = {text = "Apache-2.0 license"}
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "ipywidgets (>=8.1.5,<9.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "jupyter (>=1.1.1,<2.0.0)",
+    "notebook (>=7.3.3,<8.0.0)",
+    "networkx (==3.2)",
+    "scikit-learn (>=1.6.1,<2.0.0)",
+    "pytest (>=8.3.5,<9.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
