@@ -1,0 +1,4 @@
+include README.md
+include LICENSE
+recursive-include flask_metrics_visitors/templates *
+recursive-include flask_metrics_visitors/static * 
