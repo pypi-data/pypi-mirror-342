@@ -1,0 +1,4 @@
+[console_scripts]
+eet = eet_toolkit.redmailer_gui:main
+eet-read = eet_toolkit.redmail:read_emails_cli
+eet-send = eet_toolkit.redmail:send_emails_cli
