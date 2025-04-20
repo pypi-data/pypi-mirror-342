@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: napari-dpr
+Version: 0.1.0
+Summary: Napari plugin for DPR
+Author-email: JenuC <jenu.chacko@wisc.edu>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/jenuc/napari-dpr
+Project-URL: Bug Tracker, https://github.com/jenuc/napari-dpr/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: napari
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: napari>=0.4.15
+Requires-Dist: numpy>=1.24.3
+Requires-Dist: scipy>=1.10.1
+Requires-Dist: matplotlib>=3.7.2
+Requires-Dist: cython>=0.29.0
+Requires-Dist: setuptools>=42.0.0
+Requires-Dist: tifffile
+Requires-Dist: pillow
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: build; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Requires-Dist: cibuildwheel; extra == "dev"

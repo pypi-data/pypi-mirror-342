@@ -1,0 +1,14 @@
+napari_dpr/__init__.py,sha256=HFUdQMoqtTsOemML-GXsGoAC8q-EGgfAbqgQzhqfRwY,165
+napari_dpr/_widget.py,sha256=_4c3sK7JQGcBR97SHkh8EkSULcw_O0IE9kaRXY-lT44,2933
+napari_dpr/dpr.py,sha256=6pNcqYCI7HQXJv2nU33ZFyhEJu4Po5Fo3xG5Z1L8WIc,5267
+napari_dpr/dpr_core.cp310-win_amd64.pyd,sha256=XSPkw-7w569QoqQytaG7Qr2c-4tefdOF91GfzsoSI94,102912
+napari_dpr/dpr_core.cp311-win_amd64.pyd,sha256=jNnBf1NOD5TDAa5nWIQxU0vX4Ab_I7abPuRO-WywYFo,103424
+napari_dpr/dpr_core.cp312-win_amd64.pyd,sha256=UWnFnnQhb-OQtgTBq-KsWNDA1V0RLkE5cnL3t3eChco,102400
+napari_dpr/dpr_core.cp39-win_amd64.pyd,sha256=YnljIT3EbCAuhz1w2pHmi4HfIj7xUb7wUNtoLnFAcOY,102912
+napari_dpr/dpr_core.cpp,sha256=fijGJvSO3RHFqsfgiGJrzetKozYK2kYrS-YO48H7uVg,621646
+napari_dpr/dpr_core.pyx,sha256=GGnCR37RnWW_IDBHwuqrCevCUJHo5p7cNhQyKUQlvIs,3804
+napari_dpr/run.dpr.py,sha256=NDr2QhzYMjr0ZqudspgzOCZhMxaqRrbejwaS7lPs6_4,2427
+napari_dpr-0.1.0.dist-info/METADATA,sha256=jQQWu1SNBmqgAre6eFK7ep7k0ujRiFJ35wniF54tWYY,1207
+napari_dpr-0.1.0.dist-info/WHEEL,sha256=wtBQCQglBFOecpGS5EGnKK_Vb7B0KxTvBpQoiSy-jL0,101
+napari_dpr-0.1.0.dist-info/top_level.txt,sha256=i9hH6jDl1Ge8GHx1LoWvm1k5DLu4b7-59b5ceuaWxuI,11
+napari_dpr-0.1.0.dist-info/RECORD,,
