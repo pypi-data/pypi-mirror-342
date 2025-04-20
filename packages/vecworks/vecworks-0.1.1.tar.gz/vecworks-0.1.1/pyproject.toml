@@ -1,0 +1,70 @@
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vecworks"
+description = "Framework to procedurally query vector stores"
+
+version = "0.1.1"
+
+authors = [
+    { name = "Rosaia B.V." }
+]
+
+requires-python = ">=3.12"
+
+dependencies = [
+    "numpy",
+    "pypeworks>=0.1.0",
+    "requests>=2.32.3",
+    "scikit-learn>=1.5.1",
+    "scipy>=1.14.0",
+    "sparse>=0.15.4"
+]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries"
+]
+
+keywords = [
+    "vectors",
+    "semantic text matching",
+    "document classification",
+    "RAG"
+]
+
+readme = "README.md"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/rosaia/vecworks"
+
+[project.optional-dependencies]
+fasttext = [
+    "fasttext>=0.9.3",
+    "compress-fasttext>=0.1.5"
+]
+
+openai = [
+    "openai>=1.65.0"
+]
+
+pgvector = [
+    "SQLAlchemy>=2.0.38"
+]
+
+sbert = [
+    "sentence-transformers>=3.3.0"
+]
+
+server = [
+    "fastapi",
+    "pydantic",
+    "uvicorn"
+]
