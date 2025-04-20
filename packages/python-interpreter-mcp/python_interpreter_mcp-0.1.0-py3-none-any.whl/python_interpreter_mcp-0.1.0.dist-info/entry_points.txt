@@ -1,0 +1,2 @@
+[console_scripts]
+python-interpreter-mcp = python_interpreter_mcp:main
