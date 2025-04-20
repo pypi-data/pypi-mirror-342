@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: quantumsolve
+Version: 0.0.3
+Summary: Famous math, physics, stats, and CS equations as Python functions.
+Home-page: 
+Author: Md Muzahidul Islam
+Author-email: muzahidsife@gmail.com
+License: MIT
+Keywords: calculator equations math physics statistics computer science
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/plain
+License-File: LICENSE.txt
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: summary
+
+# QuantumSolve  
+
+Welcome to **QuantumSolve**, a Python package that brings the power of **famous equations** to your fingertips! Whether you're a student, researcher, or just a curious mind, QuantumSolve simplifies complex concepts in **Mathematics**, **Physics**, **Statistics**, and **Computer Science** with ease. 🚀
+
+## Equations Included 
+
+This package includes **80+ widely used equations** across various domains:
+
+- **Mathematics** ➡️ From algebra to calculus, we’ve got it all.
+- **Physics** ➡️ Formulas for mechanics, thermodynamics, and more.
+- **Statistics & Probability** ➡️ Essential equations for data analysis and prediction.
+- **Computer Science** ➡️ Key algorithms and complexity formulas.
+
+### Install 🛠️
+Install the package via pip:
+
+```bash
+pip install quantumsolve
