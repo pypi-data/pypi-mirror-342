@@ -1,0 +1,54 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "glimcrawl"
+version = "0.1.2"
+description = "A powerful Google image crawler that supports batch downloading, image processing, and proxy settings"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Duckweeds7", email = "root@duckweeds7.com"}
+]
+keywords = ["image", "crawler", "google", "download", "process"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "playwright>=1.41.2",
+    "aiohttp>=3.9.1",
+    "Pillow>=10.0.0",
+    "loguru>=0.7.2",
+    "typer>=0.9.0",
+    "rich>=13.7.0",
+]
+
+[project.urls]
+Homepage = "https://gitee.com/duckweeds7/glimcrawl"
+Repository = "https://gitee.com/duckweeds7/glimcrawl"
+Documentation = "https://gitee.com/duckweeds7/glimcrawl#readme"
+Issues = "https://gitee.com/duckweeds7/glimcrawl/issues"
+Changelog = "https://gitee.com/duckweeds7/glimcrawl/blob/master/CHANGELOG.md"
+
+[project.scripts]
+glimcrawl = "glimcrawl.cli:app"
+
+[tool.hatch.build]
+include = [
+    "glimcrawl/**/*.py",
+]
+exclude = [
+    "tests/**",
+    "docs/**",
+    ".github/**",
+] 
