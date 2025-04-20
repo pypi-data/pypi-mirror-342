@@ -1,0 +1,97 @@
+[project]
+name = "pfeed"
+version = "0.0.5"
+description = "Data pipeline for algo-trading, getting and storing both real-time and historical data made easy."
+license = "Apache-2.0"
+authors = [
+    {name = "Stephen Yau", email = "softwareentrepreneer+pfeed@gmail.com"}
+]
+readme = "README.md"
+keywords = ["trading", "algo-trading", "data pipeline", "ETL", "data lake", "data warehouse", "data integration", "historical data", "live data", "data streaming", "data engineering"]
+classifiers = [
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Information Technology",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Software Development :: Libraries",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pfund (>=0.0.2,<0.1.0)",
+    "rich (>=13.9.4,<15.0.0)",
+    "tqdm (>=4.67.1,<5.0.0)",
+    "pyarrow (>=18.0.0,<19.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "polars (>=1.27.1,<2.0.0)",
+    "duckdb (>=1.2.2,<2.0.0)",
+    "pandera (>=0.23.1,<0.24.0)",
+    "pydantic (>=2.11.3,<3.0.0)",
+    "narwhals (>=1.35.0,<2.0.0)",
+    "yfinance (>=0.2.55,<0.3.0)",
+    "zstandard (>=0.23.0,<0.24.0)",
+    "beautifulsoup4 (>=4.13.3,<5.0.0)",
+]
+
+[project.optional-dependencies]
+core = [
+    "cloudpathlib[s3,gs,azure] (>=0.21.0,<0.22.0)",
+    "minio (>=7.2.15,<8.0.0)",
+    "deltalake (>=0.25.5,<0.26.0)",
+    "ray (>=2.44.1,<3.0.0)",
+    "prefect (>=3.3.4,<4.0.0) ; python_version < '3.14.0'",
+    "bytewax (>=0.21.1,<0.22.0)",
+    "confluent-kafka (>=2.8.2,<3.0.0)",
+]
+databento = ["databento (>=0.50.0,<0.51.0) ; python_version < '4.0.0'"]
+# polygon = ["polygon-api-client (>=1.14.4,<2.0.0) ; python_version < '4.0.0'"]
+fmp = ["fmp-api-client (>=0.0.1,<0.1.0)"]
+dask = ["dask[complete,dataframe] (>=2025.3.0,<2026.0.0)", "coiled (>=1.89.0,<2.0.0)"]
+spark = ["pyspark[connect,pandas-on-spark,sql] (>=3.5.3,<4.0.0)"]
+
+[project.scripts]
+pfeed = "pfeed.main:run_cli"
+
+[project.urls]
+homepage = "https://pfund.ai"
+repository = "https://github.com/PFund-Software-Ltd/pfeed"
+documentation = "https://pfeed-docs.pfund.ai"
+
+[tool.poetry]
+include = ['logging.yml', 'docker-compose.yml']
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+pfund = {path = "../pfund", develop = true}
+mtflow = {path = "../mtflow", develop = true}
+pfolio = {path = "../pfolio", develop = true}
+pfund-plot = {path = "../pfund-plot", develop = true}
+pfund-plugins = {path = "../pfund-plugins", develop = true, extras = ["llm"]}
+fmp-api-client = {path = "../fmp-api-client", develop = true}
+mypy = "^1.11.2"
+ruff = "^0.6.9"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.3"
+pytest-cov = "^6.0.0"
+pytest-mock = "^3.14.0"
+pytest-xdist = "^3.6.1"
+tox = "^4.23.2"
+faker = "^33.1.0"
+bandit = "^1.7.10"
+pre-commit = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

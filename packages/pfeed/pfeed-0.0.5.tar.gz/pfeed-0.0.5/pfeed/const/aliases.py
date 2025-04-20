@@ -1,0 +1,7 @@
+ALIASES = {
+    'YF': 'YAHOO_FINANCE',
+    'FRD': 'FIRSTRATE_DATA',
+    'DBT': 'DATABENTO',
+    'FMP': 'FINANCIAL_MODELING_PREP',
+}
+BIDIRECTIONAL_ALIASES = {**ALIASES, **{v: k for k, v in ALIASES.items()}}
