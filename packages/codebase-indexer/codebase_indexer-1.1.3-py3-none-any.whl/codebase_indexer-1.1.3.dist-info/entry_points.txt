@@ -1,0 +1,4 @@
+[console_scripts]
+code-indexer = bin.codebase_indexer:main
+codebase-indexer = bin.codebase_indexer:main
+indexer = bin.codebase_indexer:main
