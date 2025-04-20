@@ -1,0 +1,108 @@
+Metadata-Version: 2.4
+Name: pletyvo
+Version: 0.0.0a5
+Summary: Implementation of the client and protocols of the Pletyvo decentralized platform in Python
+License: MIT License
+        
+        Copyright (c) 2024-2025 Osyah
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://pletyvo.osyah.com
+Project-URL: Documentation, https://pletyvo.osyah.com
+Project-URL: Repository, https://github.com/osyah/py-pletyvo.git
+Project-URL: Issues, https://github.com/osyah/py-pletyvo/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: setuptools~=71.0.4
+Requires-Dist: aiohttp~=3.10.6
+Requires-Dist: attrs~=24.2.0
+Requires-Dist: cryptography~=43.0.3
+Requires-Dist: blake3~=0.4.1
+Requires-Dist: classes>=0.4.1
+Requires-Dist: uuid-utils>=0.10.0
+Dynamic: license-file
+
+> [!WARNING] 
+> This is an unstable version. Changes may be backwards incompatible
+
+# `py-pletyvo`
+
+Implementation of the client and protocols of [the Pletyvo decentralized platform](https://pletyvo.osyah.com/) in Python.
+
+Чому це важливо? [Плетиво: децентралізовані застосунки](https://osyah.com/stattya/pletyvo-detsentralizovani-zastosunky/)
+
+## Install
+
+```bash
+pip install -U pletyvo
+```
+
+## Usage
+
+```py
+from pletyvo.client import http
+from pletyvo.protocol import dapp, delivery
+
+
+signer: dapp.abc.Signer = dapp.ED25519.gen()
+
+# Двигун який буде використовуватися для запитів.
+# 
+engine: http.abc.HTTPClient = http.HTTPDefault(
+    config=http.Config(
+        url="http://testnet.pletyvo.osyah.com",
+    ),
+)
+
+
+service = http.HTTPService._(
+    engine=engine,
+    signer=signer,
+)
+
+async def main() -> None:
+    for event in await service.dapp.events.get():
+        print(event.body.data)
+```
+
+Перш ніж користувач зможе взаємодіяти з децентралізованими застосунками, йому необхідно згенерувати пару криптографічних ключів, які надалі будуть використовуватися для підпису його вхідних даних.
+
+```py
+from pletyvo.protocol import dapp
+
+signer: dapp.abc.Signer = dapp.ED25519.gen()
+```
+
+Пара криптографічних ключів можуть генеруватися багатьма способами, але оптимальний для більшості — це використання мнемонічної фрази. В такому разі користувачу доведеться зберігати мнемонічну фразу в таємниці, оскільки її розкриття іншим несе під собою надання доступу до його облікового запису, що ймовірно призведе до неприємних наслідків.
+
+![](docs/service-graph.svg)
+
+Варто зазначити, що використання криптографії є цілком безпечним методом, тому що тільки користувач володіє доступом до власних даних, а будь-яка їх компрометація є безглуздою, оскільки кожний може перевірити автентичність завдяки підпису.
