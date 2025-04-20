@@ -1,0 +1,16 @@
+include README.md
+include VERSION
+include requirements.txt
+
+recursive-include core *.py
+include gpt.py
+
+global-exclude *.pyc __pycache__ *.log .env
+
+prune .git
+prune .github
+prune venv
+prune .venv
+prune build
+prune dist
+prune tests
