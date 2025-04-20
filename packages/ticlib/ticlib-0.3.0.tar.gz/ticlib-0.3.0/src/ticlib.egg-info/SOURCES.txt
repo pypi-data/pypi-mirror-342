@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+src/ticlib/__init__.py
+src/ticlib/ticlib.py
+src/ticlib/ticlib.pyi
+src/ticlib.egg-info/PKG-INFO
+src/ticlib.egg-info/SOURCES.txt
+src/ticlib.egg-info/dependency_links.txt
+src/ticlib.egg-info/top_level.txt
+tests/tests.py
