@@ -1,0 +1,171 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "JobDescriptor": {
+            "properties": {
+                "copy_job": {
+                    "type": "object",
+                    "$ref": "#/definitions/CopyJobDescriptor",
+                    "description": "Copy job",
+                    "default": {
+                        "dst": ".",
+                        "output_override": true,
+                        "enabled": true
+                    }
+                },
+                "render_job": {
+                    "type": "object",
+                    "$ref": "#/definitions/RenderJobDescriptor",
+                    "description": "Rendering job",
+                    "default": {
+                        "query": null,
+                        "query_for_each": false,
+                        "output_file_pattern": null,
+                        "output_override": true,
+                        "run_data": null,
+                        "enabled": true
+                    }
+                }
+            },
+            "type": "object",
+            "additionalProperties": false
+        },
+        "CopyJobDescriptor": {
+            "properties": {
+                "dst": {
+                    "title": "dst",
+                    "type": "string"
+                },
+                "enabled": {
+                    "title": "enabled",
+                    "type": "boolean",
+                    "default": true
+                },
+                "name": {
+                    "title": "name",
+                    "type": "string"
+                },
+                "output_override": {
+                    "title": "output_override",
+                    "type": "boolean",
+                    "default": true
+                },
+                "src": {
+                    "title": "src",
+                    "type": "string",
+                    "description": "Name of the template file"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "src"
+            ],
+            "additionalProperties": false
+        },
+        "RenderJobDescriptor": {
+            "properties": {
+                "enabled": {
+                    "title": "enabled",
+                    "type": "boolean",
+                    "default": true
+                },
+                "name": {
+                    "title": "name",
+                    "type": "string"
+                },
+                "output_file_pattern": {
+                    "title": "output_file_pattern",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null
+                },
+                "output_override": {
+                    "title": "output_override",
+                    "type": "boolean",
+                    "default": true
+                },
+                "query": {
+                    "title": "query",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Name of the template file"
+                },
+                "query_for_each": {
+                    "title": "query_for_each",
+                    "type": "boolean",
+                    "default": false
+                },
+                "run_data": {
+                    "title": "run_data",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null
+                },
+                "template": {
+                    "title": "template",
+                    "type": "string",
+                    "description": "Name of the template file"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "template"
+            ],
+            "additionalProperties": false
+        },
+        "Json2AnyDescriptor": {
+            "properties": {
+                "jobs": {
+                    "title": "jobs",
+                    "type": "array",
+                    "description": "Job descriptors",
+                    "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/JobDescriptor"
+                    }
+                },
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "Name of the Generator run - for debugging purposes"
+                },
+                "template_location": {
+                    "title": "template_location",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Location of templates - format depends on Template Provider used"
+                },
+                "template_provider": {
+                    "title": "template_provider",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": "FileSystem",
+                    "description": "Template Provider to use"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "$ref": "#/definitions/Json2AnyDescriptor",
+    "$id": "https://gitlab.com/json2any/json2any/rds_v1",
+    "title": "json2any Runs description schema",
+    "description": "Describes how the templates and data are put together to generate output"
+}

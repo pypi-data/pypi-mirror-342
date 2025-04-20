@@ -1,0 +1,10 @@
+[console_scripts]
+json2any = json2any.cli.main:main
+
+[json2any.plugin]
+env_data_provider = json2any.providers.data.EnvDataProvider:EnvDataProvider
+example_helper_provider = json2any.providers.helper.ExampleHelperProvider:ExampleHelperProvider
+file_template_provider = json2any.providers.template.FileSystemTemplateProvider:FileSystemTemplateProvider
+json_data_provider = json2any.providers.data.JSONDataProvider:JSONDataProvider
+package_template_provider = json2any.providers.template.PackageTemplateProvider:PackageTemplateProvider
+rds_schema_provider = json2any.providers.schema.RdsSchemaProvider:RdsSchemaProvider

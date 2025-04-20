@@ -1,0 +1,198 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "JobDescriptor": {
+            "properties": {
+                "copy_job": {
+                    "type": "object",
+                    "$ref": "#/definitions/CopyJobDescriptor",
+                    "description": "Copy job descriptor. If set then the \"render_job\" should not be populated.",
+                    "default": {
+                        "dst": ".",
+                        "output_override": true,
+                        "enabled": true
+                    }
+                },
+                "render_job": {
+                    "type": "object",
+                    "$ref": "#/definitions/RenderJobDescriptor",
+                    "description": "Rendering job descriptor. If set then the \"copy_job\" should not be populated.",
+                    "default": {
+                        "templates_path": null,
+                        "query": null,
+                        "query_for_each": false,
+                        "output_file_pattern": null,
+                        "output_override": true,
+                        "run_data": null,
+                        "enabled": true
+                    }
+                }
+            },
+            "type": "object",
+            "additionalProperties": false
+        },
+        "CopyJobDescriptor": {
+            "properties": {
+                "dst": {
+                    "title": "dst",
+                    "type": "string",
+                    "description": "Destination path/file"
+                },
+                "enabled": {
+                    "title": "enabled",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Whatever the Job is enabled"
+                },
+                "name": {
+                    "title": "name",
+                    "type": "string"
+                },
+                "output_override": {
+                    "title": "output_override",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Allow to override output file"
+                },
+                "src": {
+                    "title": "src",
+                    "type": "string",
+                    "description": "Source path/file"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "src"
+            ],
+            "additionalProperties": false
+        },
+        "RenderJobDescriptor": {
+            "properties": {
+                "enabled": {
+                    "title": "enabled",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Whatever the Job is enabled"
+                },
+                "name": {
+                    "title": "name",
+                    "type": "string"
+                },
+                "output_file_pattern": {
+                    "title": "output_file_pattern",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Optional output file pattern as Jinja2 template"
+                },
+                "output_override": {
+                    "title": "output_override",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Automatically override output file if set, Otherwise error will be thrown if file already exists"
+                },
+                "query": {
+                    "title": "query",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "JSONPath Next-Generation query to run on data loaded"
+                },
+                "query_for_each": {
+                    "title": "query_for_each",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If set to true the result of the query is expected to be a list and template is rendered for each item in list.Otherwise the output of the query  is rendered once using template"
+                },
+                "run_data": {
+                    "title": "run_data",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Arbitrary data to pass to Jinja2 template. The data will be mounted under \"run_data\" key"
+                },
+                "template": {
+                    "title": "template",
+                    "type": "string",
+                    "description": "Name of the Jinja2 template file"
+                },
+                "templates_path": {
+                    "title": "templates_path",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Optional path to templates. This is relative to \"Json2AnyDescriptor.template_location\""
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "template"
+            ],
+            "additionalProperties": false
+        },
+        "Json2AnyDescriptor": {
+            "properties": {
+                "data_schema_id": {
+                    "title": "data_schema_id",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Optional data schema to use for validation"
+                },
+                "jobs": {
+                    "title": "jobs",
+                    "type": "array",
+                    "description": "Job descriptors",
+                    "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/JobDescriptor"
+                    }
+                },
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "Name of the Generator run - for debugging purposes"
+                },
+                "template_location": {
+                    "title": "template_location",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Location of templates - format depends on Template Provider used"
+                },
+                "template_provider": {
+                    "title": "template_provider",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "Template Provider to use"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "additionalProperties": false
+        }
+    },
+    "$ref": "#/definitions/Json2AnyDescriptor",
+    "$id": "https://gitlab.com/json2any/json2any/rds_v3",
+    "title": "json2any Runs description schema",
+    "description": "Describes how the templates and data are put together to generate output"
+}

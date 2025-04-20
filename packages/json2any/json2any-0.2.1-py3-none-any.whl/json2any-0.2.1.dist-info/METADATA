@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: json2any
+Version: 0.2.1
+Summary: JSON template generator
+Author-email: Maciej Matuszak <maciej.matuszak@gmail.com>
+License-Expression: MIT
+Requires-Python: >=3.10
+Requires-Dist: importlib-resources>=6.5.2
+Requires-Dist: json2any-plugin>=0.4.0
+Requires-Dist: jsonpath-ng>=1.7.0
+Requires-Dist: jsonschema>=4.23.0
+Requires-Dist: marshmallow-dataclass>=8.7.1
+Requires-Dist: marshmallow-jsonschema>=0.13.0
+Requires-Dist: marshmallow<4.0.0,>=3.26.1
+Requires-Dist: setuptools>=75.3.2
+Description-Content-Type: text/markdown
+
+# Introduction
+
+`json2Any` is highly customisable command line utility for text/code generation.
+
+# Features
+
+* Multi template execution
+* Jinja2 template engine behind scene
+* data query capability
+* Multiple data sources
+* Flexible data source mapping
+* Easily bring in your own data format
+* Easily bring in your own template loader
+* Easily bring in your own helper function

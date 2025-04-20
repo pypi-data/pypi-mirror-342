@@ -1,0 +1,2 @@
+class DataLoaderException(Exception):
+    pass
