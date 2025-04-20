@@ -1,0 +1,3 @@
+[console_scripts]
+romt=romt.cli:main
+
