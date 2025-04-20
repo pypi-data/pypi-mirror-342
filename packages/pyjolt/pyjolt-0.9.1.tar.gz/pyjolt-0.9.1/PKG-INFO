@@ -1,0 +1,79 @@
+Metadata-Version: 2.4
+Name: pyjolt
+Version: 0.9.1
+Summary: A batteries included async-first python webframework
+Project-URL: Homepage, https://github.com/MarkoSterk/PyJolt
+Project-URL: Issues, https://github.com/MarkoSterk/PyJolt/issues
+Author-email: MarkoSterk <marko_sterk@hotmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.12
+Requires-Dist: aiofiles>=24.1.0
+Requires-Dist: aiohttp>=3.11.12
+Requires-Dist: aiosqlite>=0.20.0
+Requires-Dist: alembic>=1.14.0
+Requires-Dist: anyio>=4.8.0
+Requires-Dist: asgi-lifespan>=2.1.0
+Requires-Dist: asyncpg>=0.30.0
+Requires-Dist: bcrypt>=4.2.1
+Requires-Dist: certifi>=2024.12.14
+Requires-Dist: cffi>=1.17.1
+Requires-Dist: click>=8.1.8
+Requires-Dist: cryptography>=44.0.0
+Requires-Dist: greenlet>=3.1.1
+Requires-Dist: h11>=0.14.0
+Requires-Dist: httpcore>=1.0.7
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: idna>=3.10
+Requires-Dist: jinja2>=3.1.5
+Requires-Dist: mako>=1.3.8
+Requires-Dist: markupsafe>=3.0.2
+Requires-Dist: marshmallow-jsonschema>=0.13.0
+Requires-Dist: marshmallow>=3.25.1
+Requires-Dist: motor>=3.7.0
+Requires-Dist: packaging>=24.2
+Requires-Dist: pycparser>=2.22
+Requires-Dist: pydantic>=2.10.6
+Requires-Dist: pyjwt>=2.10.1
+Requires-Dist: pytest-asyncio>=0.25.2
+Requires-Dist: pytest>=8.3.4
+Requires-Dist: python-dotenv>=1.0.1
+Requires-Dist: redis<5.0,>=4.2
+Requires-Dist: requests>=2.32.3
+Requires-Dist: setuptools>=75.8.0
+Requires-Dist: sniffio>=1.3.1
+Requires-Dist: sqlalchemy>=2.0.37
+Requires-Dist: uvicorn>=0.34.0
+Requires-Dist: websockets>=14.2
+Requires-Dist: werkzeug>=3.1.3
+Provides-Extra: ai-interface
+Requires-Dist: docstring-parser>=0.16; extra == 'ai-interface'
+Requires-Dist: numpy>=2.2.2; extra == 'ai-interface'
+Requires-Dist: openai>=1.61.1; extra == 'ai-interface'
+Requires-Dist: pgvector>=0.3.6; extra == 'ai-interface'
+Requires-Dist: sentence-transformers>=3.4.1; extra == 'ai-interface'
+Requires-Dist: torch>=2.6.0; extra == 'ai-interface'
+Provides-Extra: cache
+Requires-Dist: redis<5.0,>=4.2; extra == 'cache'
+Provides-Extra: desktop-ui
+Requires-Dist: pillow>=11.1.0; extra == 'desktop-ui'
+Requires-Dist: pystray>=0.19.5; extra == 'desktop-ui'
+Requires-Dist: pywebview>=5.4; extra == 'desktop-ui'
+Provides-Extra: full
+Requires-Dist: apscheduler>=3.11.0; extra == 'full'
+Requires-Dist: docstring-parser>=0.16; extra == 'full'
+Requires-Dist: numpy>=2.2.2; extra == 'full'
+Requires-Dist: openai>=1.61.1; extra == 'full'
+Requires-Dist: pgvector>=0.3.6; extra == 'full'
+Requires-Dist: pillow>=11.1.0; extra == 'full'
+Requires-Dist: pystray>=0.19.5; extra == 'full'
+Requires-Dist: pywebview>=5.4; extra == 'full'
+Requires-Dist: redis<5.0,>=4.2; extra == 'full'
+Requires-Dist: sentence-transformers>=3.4.1; extra == 'full'
+Requires-Dist: torch>=2.6.0; extra == 'full'
+Provides-Extra: rate-limiter
+Requires-Dist: redis<5.0,>=4.2; extra == 'rate-limiter'
+Provides-Extra: scheduler
+Requires-Dist: apscheduler>=3.11.0; extra == 'scheduler'
