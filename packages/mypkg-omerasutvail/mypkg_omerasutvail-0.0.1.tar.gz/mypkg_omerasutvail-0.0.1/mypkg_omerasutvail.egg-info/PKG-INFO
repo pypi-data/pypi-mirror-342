@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: mypkg_omerasutvail
+Version: 0.0.1
+Summary: A simple greeting package
+Author: Bùi Phong Phú
+Author-email: omerasutvailworkit@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+# mypkg
+
+This is a simple example package to say hello!
