@@ -1,0 +1,85 @@
+[project]
+name = "cogclassifier"
+dynamic = ["version"]
+description = "A tool for classifying prokaryote protein sequences into COG functional category"
+authors = [{ name = "moshi4", email = "" }]
+license = "MIT"
+readme = "README.md"
+keywords = [
+    "COG",
+    "bioinformatics",
+    "genomics",
+    "functional-annotation",
+    "functional-analysis",
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.27.1",
+    "pandas>=2.0.0",
+    "altair>=5.0.0",
+    "pydantic>=2.11.3",
+    "typer>=0.15.2",
+    "vl-convert-python>=1.7.0",
+]
+
+[project.urls]
+repository = "https://github.com/moshi4/COGclassifier/"
+
+[project.scripts]
+COGclassifier = "cogclassifier.scripts.cogclassifier:app"
+plot_cog_count_barchart = "cogclassifier.scripts.plot_cog_count_barchart:app"
+plot_cog_count_piechart = "cogclassifier.scripts.plot_cog_count_piechart:app"
+
+[tool.hatch.version]
+path = "src/cogclassifier/__init__.py"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "ruff>=0.11.0",
+    "pre-commit>=4.2.0",
+    "pytest>=8.0.0",
+    "pytest-cov>=6.0.0",
+    "ipykernel>=6.13.0",
+]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov=src --tb=long -vv --cov-report=xml --cov-report=term"
+testpaths = ["tests"]
+
+[tool.ruff]
+include = ["src/**.py", "tests/**.py"]
+line-length = 88
+
+# Lint Rules: https://docs.astral.sh/ruff/rules/
+[tool.ruff.lint]
+select = [
+    "F", # pyflakes
+    "E", # pycodestyle (Error)
+    "W", # pycodestyle (Warning)
+    "I", # isort
+    "D", # pydocstyle
+]
+ignore = [
+    "D100", # Missing docstring in public module
+    "D101", # Missing docstring in public class
+    "D104", # Missing docstring in public package
+    "D105", # Missing docstring in magic method
+    "D205", # 1 blank line required between summary line and description
+    "D400", # First line should end with a period
+    "D401", # First line should be in imperative mood
+    "D403", # First word of the first line should be properly capitalized
+    "D415", # First line should end with a period, question mark, or exclamation point
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[build-system]
+requires = ["hatchling==1.26.3"]
+build-backend = "hatchling.build"
