@@ -1,0 +1,15 @@
+bluebook/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bluebook/fl.py,sha256=25ZPePtVKO7czIMATcFiVOB6h08zD29FpTnrHJFNnrs,5973
+bluebook/generator.py,sha256=rw1-xpM_bV1rg_BGUp4HQ_TSSCY7JKI8vvA3AwJxx_c,5943
+bluebook/static/images/book.png,sha256=yNqfhnDjVEmC4V3pZNfbr9e1Me3go01eJCGXFesv2pk,2206
+bluebook/static/images/book.svg,sha256=X8TTNclj_Poq5E1V6C51eGt1TU1Oxj7bEUOL4apgt2s,863
+bluebook/static/styles.css,sha256=Pbxtv_h8M3P7VWvzUNNc-fVSJ0XAZK3il-MBwqIab9I,2627
+bluebook/templates/base.html.j2,sha256=GvRUQy64znMnQLptEN13lGJLQlD2BQjPiKAmi4qGB_4,1344
+bluebook/templates/check.html.j2,sha256=k_t16Vo14oll3v7eSUwLMWFJEnnvore-Q1c2Y160-Ac,1588
+bluebook/templates/root.html.j2,sha256=MBxHeetdAOenhCNcVwQcyrnXR0lDXizhav_Na2WLzZQ,1021
+bluebook/templates/token_prompt.html.j2,sha256=klYZ0L1v3hKUcqnhHTO2kJb-HN75hVmmfx25kehGUA4,1129
+student_bluebook-0.3.2.dist-info/LICENSE,sha256=rNw9xsfcmvujl4Ysu7pg3uUCAhWPSBTJGTrzzD8PfpA,35149
+student_bluebook-0.3.2.dist-info/METADATA,sha256=hQABhDHJ72THDoRGcWZn6cjSHhZXLwEqfl9KgnGez2A,2027
+student_bluebook-0.3.2.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+student_bluebook-0.3.2.dist-info/entry_points.txt,sha256=bB_fQJfwsmzidYf_uMJ1b4htS-KmKbodc7jFHUx4REY,49
+student_bluebook-0.3.2.dist-info/RECORD,,
