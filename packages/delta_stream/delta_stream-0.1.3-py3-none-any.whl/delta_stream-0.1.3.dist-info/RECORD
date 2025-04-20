@@ -1,0 +1,15 @@
+delta_stream/__init__.py,sha256=L1QRUNNjYLP8RtG1FhagsMu7y248cnk7J9OzGifAOoQ,320
+delta_stream/_compute_deltas.py,sha256=j88uA-cqNgAAKWQEtxlfuk2-8R3aiCak_wSad7bUkU8,4510
+delta_stream/_defaults.py,sha256=lfic69MVYh1HVdSAW0p7itoat-q35I15tm4OA8Xuqto,7779
+delta_stream/_errors.py,sha256=qND9K8evCriZo77bq4-sqX_-9MKibjXm6jR6VKWJP8U,356
+delta_stream/_finish_json.py,sha256=VULIo3BKn-g9e8NLKVyFUni2y3qCIw6MG1t4Y7YParo,4791
+delta_stream/_generate_model.py,sha256=JTUSk0TONxdPcXAJuflcMY3Xfyi6KoBnd2-nU6nRhlQ,2749
+delta_stream/_model_builder.py,sha256=o_Nt_olLbEf-YdYnsF7kdq6amJ7WeJy-nYa0CeO-b24,11164
+delta_stream/_parser_state.py,sha256=yp22ADRyaw_TDk-CA1MJxTsPPIJWjKUdXx-ojVPoWCE,417
+delta_stream/_schema.py,sha256=8Hei7w4-DwtInhxkgCDdvdnKJj0mj3is_uyyGKFz1Ek,5599
+delta_stream/_types.py,sha256=Gry7tCTAPyHmeaE1tlVv94Ilrl86n-0gA8A4v-UbBM8,1202
+delta_stream/stream_parser.py,sha256=0c7fiIg-nvwDZOtPGBsKX9bn2CqbbJL3MMqT0Erx8wg,14671
+delta_stream-0.1.3.dist-info/LICENSE,sha256=gHt12zEpFyBYwkWHv-tFHbVi98HM3uwMFdKioo1Lk2A,1068
+delta_stream-0.1.3.dist-info/METADATA,sha256=hIWwGerWI8Uj2Fig1mFOK1ZzaS3P8HPjny58757HE2Q,8594
+delta_stream-0.1.3.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+delta_stream-0.1.3.dist-info/RECORD,,
