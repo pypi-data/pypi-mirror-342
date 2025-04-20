@@ -1,0 +1,23 @@
+[project]
+name = "tuze_sdk"
+version = "1.5.0"
+description = "tuze_sdk"
+readme = "README.md"
+authors = [
+    { name = "shark", email = "sharkshore@163.com" }
+]
+license = { file = "LICENSE" }
+requires-python = ">=3.12"
+dependencies = [
+    "colorama>=0.4.6",
+    "requests>=2.32.3",
+]
+
+
+[tool.setuptools.packages.find]
+where = ["src"]  
+include = ["tuze_sdk"]  
+exclude = ["tests*"]  
+
+[tool.setuptools.package-data]
+"your_package" = ["*.yaml", "*.txt", "other_files/*"] 
