@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+phishscan/__init__.py
+phishscan/cli.py
+phishscan/email_processor.py
+phishscan/phishing_detector.py
+phishscan/phishing_keywords.txt
+phishscan.egg-info/PKG-INFO
+phishscan.egg-info/SOURCES.txt
+phishscan.egg-info/dependency_links.txt
+phishscan.egg-info/entry_points.txt
+phishscan.egg-info/requires.txt
+phishscan.egg-info/top_level.txt
