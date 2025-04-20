@@ -1,0 +1,70 @@
+[project]
+name = "sophia-doc"
+version = "0.1.9"
+description = "A python package to automatically generate API documents for Python modules."
+authors = [{ name = "st1020", email = "me@st1020.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+keywords = ["sophia-doc", "documentation", "doc", "pydoc", "markdown"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Documentation",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Text Processing",
+    "Topic :: Text Processing :: Markup",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.9"
+dependencies = ["docstring_parser>=0.16", "typing-extensions>=4.7.1"]
+
+[project.urls]
+Homepage = "https://github.com/st1020/sophia-doc"
+Source = "https://github.com/st1020/sophia-doc"
+
+[project.scripts]
+sophia-doc = "sophia_doc.__main__:cli"
+
+[tool.uv]
+dev-dependencies = ["ruff"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "C90",     # mccabe
+    "FBT",     # flake8-boolean-trap
+    "COM",     # flake8-commas
+    "ANN401",  # Dynamically typed expressions (typing.Any) are disallowed
+    "PGH003",  # Use specific rule codes when ignoring type issues
+    "PLR0912", # Too many branches
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.pyright]
+pythonVersion = "3.9"
+pythonPlatform = "All"
+typeCheckingMode = "strict"
+reportCallInDefaultInitializer = true
+reportImplicitOverride = true
+reportImportCycles = true
+reportMissingSuperCall = true
+reportPropertyTypeMismatch = true
+reportShadowedImports = true
+reportUninitializedInstanceVariable = true
+reportUnnecessaryTypeIgnoreComment = true
+
+[tool.hatch.build.targets.sdist]
+include = ["/README.md", "/sophia_doc"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
