@@ -1,0 +1,25 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "cython>=0.29.24"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "javapy"
+version = "2.0.1"
+authors = [
+    {name = "Eternals", email = "eternals.tolong@gmail.com"}
+]
+description = "Paket Python berperforma tinggi tanpa dependensi eksternal"
+readme = "README.md"  # Pastikan file ini ada
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = "https://github.com/Eternals-Satya/javapy"
