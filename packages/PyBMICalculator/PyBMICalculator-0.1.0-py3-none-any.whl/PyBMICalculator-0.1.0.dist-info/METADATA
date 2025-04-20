@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: PyBMICalculator
+Version: 0.1.0
+Summary: A simple BMI Calculator that calculates and categorizes BMI based on weight and height.
+Author: Md. Ismiel Hossen Abir
+Author-email: ismielabir1971@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: License
+
+# PyBMICalculator
+
+**PyBMICalculator** is a simple Python package to calculate Body Mass Index (BMI) and categorize it based on health standards.
+
+## Installation
+
+To install **PyBMICalculator**:
+
+```bash
+pip install PyBMICalculator
+```
+
+## Usage
+
+```bash
+from PyBMICalculator import get_bmi_category
+
+weight = 70  
+height = 1.75
+
+result = get_bmi_category(weight, height)
+print(result)
+```
