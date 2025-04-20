@@ -1,0 +1,22 @@
+[project]
+name = "dataidea"
+version = "0.1.17"
+description = "dataidea package"
+authors = [{ name = "jumashafara", email = "jumashafara0@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "pandas (>=2.2.3,<3.0.0)",
+    "yt-dlp (>=2025.3.31,<2026.0.0)",
+    "numpy (>=2.2.5,<3.0.0)",
+    "scikit-learn (>=1.6.1,<2.0.0)",
+    "plotly (>=6.0.1,<7.0.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "rich (>=14.0.0,<15.0.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
