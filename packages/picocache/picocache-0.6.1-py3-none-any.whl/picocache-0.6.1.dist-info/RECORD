@@ -1,0 +1,11 @@
+picocache/__init__.py,sha256=ZmI926bJVdz0EkCvGihjO2aOhOps-L9Wj4YiIP12B-w,615
+picocache/base.py,sha256=0BEKNrzypbSEnOZ7swhIlJWuJMr70pwanpBi7R6C7Iw,4903
+picocache/django.py,sha256=Hsomlb4o74RguQwRy2E_xOHO-MJYkZkg2l0EYUZnpJk,1642
+picocache/redis.py,sha256=xQO_fRp5d4cKDcatIY3eHixa8R4BIjGCq7QRPV2b1PE,1279
+picocache/sqlalchemy.py,sha256=fPvYq_9RuYdAz7i0R8-FBAxTgX605nASABFwv-m2yBM,3097
+picocache/sqlite.py,sha256=zOi7SZXJoYukGO9LVFf6-bsWvqs1lYr4ZnaVGS_6sXY,2558
+picocache/utils.py,sha256=mLMevUTTwIUm_QL4yV34xYpm7qsWXrltS00lZyKjN3A,1111
+picocache-0.6.1.dist-info/licenses/LICENSE,sha256=QdBf51J2-amLw5q8cZbDQyE4r31f7JSW2x4dY7qZqeM,1067
+picocache-0.6.1.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+picocache-0.6.1.dist-info/METADATA,sha256=TGLTUyuZ1DfZQ8CvSX_gZuu6xUmfYS2DCmn8YSAuXJI,4457
+picocache-0.6.1.dist-info/RECORD,,
