@@ -1,0 +1,320 @@
+{% extends "metrics/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">24 Hour Visits</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-3">
+                    <div>
+                        <h6>Total Visits</h6>
+                        <h3>{{ visits_24h }}</h3>
+                    </div>
+                    <div>
+                        <h6>Unique Visits</h6>
+                        <h3>{{ unique_visits_24h }}</h3>
+                    </div>
+                </div>
+                <canvas id="visits24hChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">7 Day Visits</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-3">
+                    <div>
+                        <h6>Total Visits</h6>
+                        <h3>{{ visits_7d }}</h3>
+                    </div>
+                    <div>
+                        <h6>Unique Visits</h6>
+                        <h3>{{ unique_visits_7d }}</h3>
+                    </div>
+                </div>
+                <canvas id="visits7dChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">24 Hour Unique Visits</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="uniqueVisits24hChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">7 Day Unique Visits</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="uniqueVisits7dChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Visitor Locations</h5>
+            </div>
+            <div class="card-body">
+                <div id="map" style="height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Top Referrers</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="referrersChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">Recent Visits</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table" id="visitsTable">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>IP</th>
+                        <th>Country</th>
+                        <th>City</th>
+                        <th>Referrer</th>
+                        <th>User Agent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center" id="pagination">
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Initialize charts
+const visits24hCtx = document.getElementById('visits24hChart').getContext('2d');
+const visits7dCtx = document.getElementById('visits7dChart').getContext('2d');
+const uniqueVisits24hCtx = document.getElementById('uniqueVisits24hChart').getContext('2d');
+const uniqueVisits7dCtx = document.getElementById('uniqueVisits7dChart').getContext('2d');
+const referrersCtx = document.getElementById('referrersChart').getContext('2d');
+
+// Initialize map
+const map = L.map('map').setView([0, 0], 2);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+// Function to format time in local timezone
+function formatLocalTime(timestamp) {
+    const date = new Date(timestamp);
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+// Function to format date in local timezone
+function formatLocalDate(timestamp) {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString([], { year: 'numeric', month: '2-digit', day: '2-digit' });
+}
+
+// Function to load chart data
+function loadChartData() {
+    fetch('/metrics/chart-data')
+        .then(response => response.json())
+        .then(data => {
+            // 24-hour chart
+            new Chart(visits24hCtx, {
+                type: 'line',
+                data: {
+                    labels: data.hourly.map(d => formatLocalTime(d.timestamp)),
+                    datasets: [{
+                        label: 'Total Visits',
+                        data: data.hourly.map(d => d.visits),
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }, {
+                        label: 'Unique Visits',
+                        data: data.hourly.map(d => d.unique_visits),
+                        borderColor: 'rgb(255, 99, 132)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                return `${data.datasets[tooltipItem.datasetIndex].label}: ${tooltipItem.yLabel}`;
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 7-day chart
+            new Chart(visits7dCtx, {
+                type: 'line',
+                data: {
+                    labels: data.daily.map(d => formatLocalDate(d.timestamp)),
+                    datasets: [{
+                        label: 'Total Visits',
+                        data: data.daily.map(d => d.visits),
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }, {
+                        label: 'Unique Visits',
+                        data: data.daily.map(d => d.unique_visits),
+                        borderColor: 'rgb(255, 99, 132)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                return `${data.datasets[tooltipItem.datasetIndex].label}: ${tooltipItem.yLabel}`;
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 24-hour unique visits chart
+            new Chart(uniqueVisits24hCtx, {
+                type: 'bar',
+                data: {
+                    labels: data.hourly.map(d => formatLocalTime(d.timestamp)),
+                    datasets: [{
+                        label: 'Unique Visits',
+                        data: data.hourly.map(d => d.unique_visits),
+                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                return `Unique Visits: ${tooltipItem.yLabel}`;
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 7-day unique visits chart
+            new Chart(uniqueVisits7dCtx, {
+                type: 'bar',
+                data: {
+                    labels: data.daily.map(d => formatLocalDate(d.timestamp)),
+                    datasets: [{
+                        label: 'Unique Visits',
+                        data: data.daily.map(d => d.unique_visits),
+                        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                return `Unique Visits: ${tooltipItem.yLabel}`;
+                            }
+                        }
+                    }
+                }
+            });
+        });
+}
+
+// Function to load visits data
+function loadVisits(page = 1) {
+    fetch(`/metrics/data?page=${page}`)
+        .then(response => response.json())
+        .then(data => {
+            const tbody = document.querySelector('#visitsTable tbody');
+            tbody.innerHTML = '';
+            
+            data.visits.forEach(visit => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${new Date(visit.timestamp).toLocaleString()}</td>
+                    <td>${visit.ip}</td>
+                    <td>${visit.country}</td>
+                    <td>${visit.city}</td>
+                    <td>${visit.referrer || 'Direct'}</td>
+                    <td>${visit.user_agent}</td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            // Update pagination
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            for (let i = 1; i <= data.pages; i++) {
+                const li = document.createElement('li');
+                li.className = `page-item ${i === data.current_page ? 'active' : ''}`;
+                li.innerHTML = `<a class="page-link" href="#" onclick="loadVisits(${i})">${i}</a>`;
+                pagination.appendChild(li);
+            }
+        });
+}
+
+// Load initial data
+loadChartData();
+loadVisits();
+</script>
+{% endblock %} 

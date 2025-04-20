@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+flask_metrics_visitors/__init__.py
+flask_metrics_visitors/models.py
+flask_metrics_visitors/utils.py
+flask_metrics_visitors.egg-info/PKG-INFO
+flask_metrics_visitors.egg-info/SOURCES.txt
+flask_metrics_visitors.egg-info/dependency_links.txt
+flask_metrics_visitors.egg-info/requires.txt
+flask_metrics_visitors.egg-info/top_level.txt
+flask_metrics_visitors/static/js/session-tracker.js
+flask_metrics_visitors/templates/metrics/base.html
+flask_metrics_visitors/templates/metrics/dashboard.html
+flask_metrics_visitors/templates/metrics/session_analytics.html
