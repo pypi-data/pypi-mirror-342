@@ -1,0 +1,3 @@
+[console_scripts]
+surfgram-cli=surfgram_cli.main:app
+
