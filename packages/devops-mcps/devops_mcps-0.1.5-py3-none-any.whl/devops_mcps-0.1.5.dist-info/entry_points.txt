@@ -1,0 +1,2 @@
+[console_scripts]
+devops-mcps = devops_mcps.core:main
