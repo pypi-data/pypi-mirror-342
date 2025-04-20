@@ -1,0 +1,15 @@
+mat_io-0.1.0.dist-info/licenses/LICENSE,sha256=3eG6rdX7GzVIZAHa68k0_RwGGj2sV2aQTl4vkAxRnsk,1500
+matio/__init__.py,sha256=alDs8VH2T0-EKghKcWFEG6tkQMU2gywJ9USwTalX1Ro,64
+matio/class_parser.py,sha256=8rMKeELx3N_i37LZxqwwitomAZgmlRQV-COPH-II2Rs,7528
+matio/readmat.py,sha256=TGFRAQmDMrW3Uf9CBV6ls4pkL6b3x-EzoWrszMU0Nsg,5878
+matio/subsystem.py,sha256=ZpCY64JqwtjjfWHHAPybEzEG8XqKmK3GDX4sB5C8KPk,16809
+tests/test_mcos/test_datetime/test_datetime.py,sha256=3RPf40-FR6R7fEgNwI3ib0sKSH_HMcaRC-B1iH6AEMI,3963
+tests/test_mcos/test_duration/test_duration.py,sha256=Mln7Jikmcdl4pm0ALsHn--VxO7MHvuuycy1sBwbS0SA,4065
+tests/test_mcos/test_enum/test_enum.py,sha256=AlXyJuoDKZ4at_ilAw4N7aAki6f8bvrj3-Mq0fciqr0,11363
+tests/test_mcos/test_simple/test_simple.py,sha256=B58ceSfwyDX9H9XdnVRRmf2_zgB1jM7BwjxUfdaA9mc,3676
+tests/test_mcos/test_string/test_string.py,sha256=8iY6NSOQak-ygHIBha5VbnqijLQveDgGlpnvktAdv_s,1910
+tests/test_mcos/test_user_defined/test_user_defined.py,sha256=zMOAKguOfeZbW5tRpheIgMzDm66iRqSJammuSv0eYQA,11865
+mat_io-0.1.0.dist-info/METADATA,sha256=vDrbaeGODI7UezO6Np1wkQ7Ro8F9LONl8xFNXuCsRJM,424
+mat_io-0.1.0.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+mat_io-0.1.0.dist-info/top_level.txt,sha256=a9FvGlmtaSGtrFo7kwnadgp0vO0XHYJEMqOqv74RBwg,12
+mat_io-0.1.0.dist-info/RECORD,,
