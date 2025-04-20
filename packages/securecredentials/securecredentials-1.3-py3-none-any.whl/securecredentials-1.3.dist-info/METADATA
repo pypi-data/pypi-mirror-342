@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: securecredentials
+Version: 1.3
+Summary: SecureCredentials is a lightweight Python package that encrypts and securely stores key-value pairs on disk, enabling easy and secure retrieval.
+Project-URL: Homepage, https://github.com/rohitlal125555/securecredentials
+Project-URL: Issues, https://github.com/rohitlal125555/securecredentials/issues
+Author-email: Rohit Lal <rohitlal.125555@gmail.com>
+License-File: LICENSE
+Keywords: authentication,credential encryption,credential manager,cryptography,data security,encrypted credentials,encrypted store,encryption,key-value store,local encryption,password encryption,password store,python security,secure environment,secure key store,secure password management,secure storage,securecredentials,security
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Security
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.4
+Requires-Dist: cryptography
+Requires-Dist: python-dotenv
+Description-Content-Type: text/markdown
+
+# SecureCredentials
+
+SecureCredentials is a lightweight Python package designed to securely store key-value pairs, such as passwords 
+or other sensitive information, on disk. By leveraging strong encryption, the package ensures that your sensitive 
+data remains safe while providing convenient access for everyday use.
+
+📖 **Full Documentation**:  
+👉 [https://github.com/rohitlal125555/securecredentials](https://github.com/rohitlal125555/securecredentials)
