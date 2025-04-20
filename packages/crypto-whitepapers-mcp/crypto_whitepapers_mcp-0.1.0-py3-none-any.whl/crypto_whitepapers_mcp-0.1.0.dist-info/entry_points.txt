@@ -1,0 +1,2 @@
+[console_scripts]
+crypto-whitepapers-mcp = crypto_whitepapers_mcp.cli:main
