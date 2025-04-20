@@ -1,0 +1,21 @@
+{
+    "recommendations": [
+        "charliermarsh.ruff",
+        "davidanson.vscode-markdownlint",
+        "donjayamanne.githistory",
+        "formulahendry.github-actions",
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens",
+        "gruntfuggly.todo-tree",
+        "jasonnutter.vscode-codeowners",
+        "matangover.mypy",
+        "mateuszchudyk.hexinspector",
+        "ms-python.debugpy",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-vscode.hexeditor",
+        "omartawfik.github-actions-vscode",
+        "redhat.vscode-yaml",
+        "tamasfe.even-better-toml",
+    ]
+}

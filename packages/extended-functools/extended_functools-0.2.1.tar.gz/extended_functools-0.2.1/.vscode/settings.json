@@ -1,0 +1,12 @@
+{
+    "ruff.enable": true,
+    "ruff.configuration": "${workspaceFolder}/pyproject.toml",
+    "ruff.lineLength": 120,
+    "mypy.runUsingActiveInterpreter": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "python.envFile": "${workspaceFolder}/.env",
+    "python.missingPackage.severity": "Warning",
+    "python.testing.pytestEnabled": true,
+    "markdownlint.run": "onType",
+    "markdownlint.config": {},
+}
