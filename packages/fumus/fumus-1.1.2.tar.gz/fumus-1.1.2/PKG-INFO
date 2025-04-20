@@ -1,0 +1,31 @@
+Metadata-Version: 2.3
+Name: fumus
+Version: 1.1.2
+Summary: Functional musings
+Home-page: https://github.com/kaliv0/fumus
+Keywords: query,functional,processing,collections,fluent API,queries
+Author: kaliv0
+Author-email: kaloyan.ivanov88@gmail.com
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Project-URL: Documentation, https://fumus.readthedocs.io/en/latest
+Project-URL: Repository, https://github.com/kaliv0/fumus
+Description-Content-Type: text/markdown
+
+<p align="center">
+  <img src="https://github.com/kaliv0/fumus/blob/main/assets/fumus.gif?raw=true" width="400" alt="Fumus">
+</p>
+
+# FUMUS
+## Functional Musings in Python
+
+
+![Python 3.x](https://img.shields.io/badge/python-3.12-blue?style=flat-square&logo=Python&logoColor=white)
+[![tests](https://img.shields.io/github/actions/workflow/status/kaliv0/fumus/ci.yml)](https://github.com/kaliv0/fumus/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/fumus.svg)](https://pypi.org/project/fumus/)
+[![docs](https://readthedocs.org/projects/fumus/badge/?version=latest)](https://fumus.readthedocs.io/en/latest)
+[![Downloads](https://static.pepy.tech/badge/fumus)](https://pepy.tech/projects/fumus)
+
+<br><b>Yet another <i>functional-style</i> Queries library for processing collections and iterables using <i>fluent APIs</i></b><br>
