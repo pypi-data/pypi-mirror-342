@@ -1,0 +1,96 @@
+Metadata-Version: 2.1
+Name: forstate
+Version: 0.0.2
+Summary: Dispatch methods according to a state value
+Author-email: Salvador Fandiño <sfandino@yahoo.com>
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Project-URL: Home, http://github.com/salva/py-forstate
+
+# forstate
+
+The `forstate` module introduces the `for_state` method decorator,
+designed to facilitate state-specific method dispatching.
+
+This decorator enables the definition of multiple versions of the same
+method, which are dynamically called based on the object's internal
+state, as indicated by its `_state` attribute.
+
+## Installation
+
+You can easily install the `forstate` module via pip. Simply run the
+following command in your terminal:
+
+```
+pip install forstate
+```
+
+## Usage
+
+- Import the `for_state` decorator and, if needed, the `ANY_STATE`
+  marker.
+
+- Decorate your class methods with `@for_state`, specifying the
+  relevant state names for each method. This enables you to define
+  distinct behaviors for the same method name based on the object's
+  current state.
+
+  For instance:
+
+  ```python
+  @for_state("state1")
+  def foo(self, arg):
+      # Implementation for state1
+      pass
+
+  @for_state("state2", "state3")
+  def foo(self, arg):
+      # Implementation for state2 and state3
+      pass
+  ```
+
+- Utilize the `ANY_STATE` marker to designate fallback methods that
+  will be invoked when no specific version of a method is defined for
+  the current state.
+
+### Example
+
+```python
+from forstate import for_state, ANY_STATE
+
+class MyStatefulObject:
+    def __init__(self):
+        self._state = "state0"  # Initial state
+
+    @for_state("state1")
+    def action(self):
+        print("Action for state 1")
+
+    @for_state("state2", "state3")
+    def action(self):
+        print("Action for state 2")
+
+    @for_state(ANY_STATE)
+    def action(self):
+        print("Action for any state")
+
+obj = MyStatefulObject()
+
+obj._state = "state1"
+obj.action()  # Output: Action for state 1
+
+obj._state = "state2"
+obj.action()  # Output: Action for state 2
+
+obj._state = "unknown"
+obj.action()  # Output: Action for any state
+```
+
+## Copyright and License
+
+Copyright (c) 2025 Salvador Fandiño (sfandino@yahoo.com)
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+
+
