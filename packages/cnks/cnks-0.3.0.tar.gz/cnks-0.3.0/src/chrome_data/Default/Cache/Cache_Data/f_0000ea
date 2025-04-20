@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="profile2022/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知网研学客户端（原E-Study）</title>
+    <link rel="stylesheet" href="profile2022/css/main.css">
+    <link rel="stylesheet" href="profile2022/css/swiper-3.4.2.min.css">
+    <script src="profile2022/js/jquery-3.6.0.min.js"></script>
+    <script src="profile2022/js/swiper-3.4.2.jquery.min.js"></script>
+    <script src="https://x.cnki.net/Search/common/vue.js"></script>
+    <script type="text/javascript" src="https://picx.cnki.net/search/common/foot.js"></script>
+    <style>
+        .downloadChajian{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 20px 14px 20px 8px;
+            padding-bottom:10px;
+            cursor: pointer;
+        }
+        .menu-box ul li:first-child{
+            cursor: text;
+        }
+        .menu-box ul li:first-child a{
+            cursor: text;
+        }
+        .menu-box ul li:nth-child(2){
+            cursor: text;
+        }
+
+       
+        .menu-box ul li a{
+            padding-bottom: 10px;
+        }
+        .down32Btn{
+            color: #3594ff;
+            /* padding-top: 4px;  */
+            font-size: 12px;
+            line-height: 14px;
+            /* padding-left: 60px;
+            margin-bottom: 10px; */
+        }
+        .down32Btn:hover{
+            color: #f80
+        }
+        .minHeight{
+            min-height: 112px;
+        }
+        .download-box{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 104px;
+            margin-bottom: 10px;
+        }
+        .menu-box ul li:nth-child(2) .download-box{
+            padding-left: 64px;
+        }
+        .download-box .down-nowbtn{
+            width: 80px;
+            height: 32px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid #3594ff;
+            color: #3594ff;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .download-box .down-nowbtn:hover{
+            background: #3594ff;
+            color: #fff;
+        }
+        .download-box .down-span-box{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .download-box .down-span-box span{
+            cursor: pointer;
+            line-height: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="intro-page">
+        <header>
+            <div class="banner-con ">
+                <div class="banner-bg">
+                    <img src="profile2022/images/banner_bg.jpg" alt="">
+                </div>
+                <div class="logo-con">
+                    <h1><img src="profile2022/images/logo.png" alt="logo"></h1>
+                    <div class="btn-group">
+                        <a href="https://x.cnki.net" class="btn-a" target="_blank" rel="noopener noreferrer">进入网页版</a>
+                        <a href="https://www.wjx.cn/jq/47987392.aspx" class="btn-a" target="_blank"
+                            rel="noopener noreferrer">机构/团队使用</a>
+                    </div>
+                </div>
+                <div class="banner-title">
+                    <img src="profile2022/images/pic_t.png" alt="">
+                </div>
+                <div class="swiper-box">
+                    <div class="swiper-container banner-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img class="img1" src="profile2022/images/banner1.jpg" alt="">
+                                <img class="img2" src="profile2022/images/banner2-1.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img class="img1" src="profile2022/images/banner2.jpg" alt="">
+                                <img class="img2" src="profile2022/images/banner2-2.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img class="img1" src="profile2022/images/banner3.jpg" alt="">
+                                <img class="img2" src="profile2022/images/banner2-3.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img class="img1" src="profile2022/images/banner4.jpg" alt="">
+                                <img class="img2" src="profile2022/images/banner2-4.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination banner-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="intro-detail">
+                <div class="menu-box">
+                    <ul>
+                        <li class="minHeight">
+                            <a href="javascript:;">
+                                <img src="profile2022/images/dev1.png" alt="">
+                                <span class="menu-text">
+                                    <h2>Windows6.8.4客户端下载</h2>
+                                    <span>Win10/11</span>
+                                    <span>Word/WPS插件会同步安装</span>
+                                </span>
+                            </a>
+                            <div class="download-box">
+                                <div class="down-nowbtn"  @click.stop="window.location.href='https://piccachex.cnki.net/estudy/CNKIE-Study6.8.4.exe'">立即下载</div>
+                                <div class="down-span-box">
+                                    <span @click.stop="window.location.href='https://piccachex.cnki.net/estudy/CNKIE-Study6.8.4x86.exe';" title="若您的操作系统版本是32位，请下载32位版本安装包" class="down32Btn" >下载32位版本</span>
+                                    <span @click.stop="window.location.href='https://piccachex.cnki.net/estudy/CNKIE-StudyWin7.exe';" title="若您的操作系统版本是Win7/8，请下载该版本安装包" class="down32Btn" >下载V6.7.1版本<span style="color: #999;">(适用Win7/8)</span></span>
+                                </div>
+                                
+                            </div>
+                            
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="profile2022/images/dev2.png" alt="">
+                                <span class="menu-text">
+                                    <h2>Mac4.3.4客户端下载</h2>
+                                    <span>macOS 10.12以上</span>
+                                    <span>Word插件会同步安装</span>
+                                </span>
+                               
+                            </a>
+                            <div class="download-box">
+                                <div class="down-nowbtn" @click="downloadMac">立即下载</div>
+                                <div class="down-span-box">
+                                    <span @click.stop="isShowIntroPop=true" class="down32Btn">查看安装说明</span>
+                                </div>
+                                
+                            </div>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="profile2022/images/dev3.png" alt="">
+                                <span class="menu-text">
+                                    <h2>iPhone移动端下载</h2>
+                                    <span>iOS9.0以上</span>
+                                </span>
+                                <div class="code-box">
+                                    <img src="profile2022/images/ios-ew.png" alt="">
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <img src="profile2022/images/dev4.png" alt="">
+                                <span class="menu-text">
+                                    <h2>Android移动端下载</h2>
+                                    <span>Android7.0以上</span>
+                                </span>
+                                <div class="code-box">
+                                    <img src="profile2022/images/android-ew.png" alt="">
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="downloadChajian" @click="downloadChajian">
+                                <img src="profile2022/images/dev5.png" alt="">
+                                <span class="menu-text">
+                                    <h2>浏览器插件下载</h2> 
+                                    <span>支持Chrome、Edge</span>
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="intro-box">
+                    <div class="func-list">
+                        <div class="func-ul-box">
+                            <ul class="func-ul">
+                                <li>
+                                    <h2>多渠道获取文献</h2>
+                                    <ul class="item-ul">
+                                        <li>
+                                            <div class="item-list">
+                                                <p>内嵌<span class="font-w">多个中英文数据库</span>，可快速检索添加文献</p>
+                                                <p class="tip">CNKI、PubMed、IEEExplore、CrossRef、ScienceDirect、Springer、百度文库、</p>
+                                                <p class="tip">Semantic Scholar、OUP、Wiley等；支持用户自定义添加常用学术搜索网站</p>                                                
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持<span class="font-w">通过DOI</span>等方式添加题录、下载全文；通过BibTex格式信息添加题录</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持导入多种第三方题录格式</p>
+                                                <p class="tip">Endnote、NoteExpress、RIS、BibTex等</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持添加本地文献/文件夹</p>
+                                                <p class="tip">PDF、CAJ、KDH、NH、TEB等格式文献</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>可领取和学习专家梳理的各类<span class="font-w">学科资源包</span></p>
+                                                <p class="tip">专家梳理学科体系，选编学科资源进行汇编和解读</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>可<span class="font-w">订阅期刊、RSS、学科、主题</span>，及时发现最新资源</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持<span class="font-w">批量获取</span>CNKI文献（需账号本身或者所在IP有下载权限）</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>题录信息智能提取</h2>
+                                    <ul class="item-ul">
+                                        <li>
+                                            <div class="item-list">
+                                                <p>已有题录与CNKI<span class="font-w">题录自动匹配</span>，可一键更新</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持<span class="font-w">通过DOI</span>自动获取题录信息</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持英文文献题录信息<span class="font-w">自动提取</span></p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>可自动提取本地上传文献题录信息</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>边记边查的深度学习</h2>
+                                    <ul class="item-ul">
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持多种类型笔记，快速记录思想火花</p>
+                                                <p class="tip">高亮、划线、摘录、批注、文本框等</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持<span class="font-w">文献矩阵</span>和<span
+                                                        class="font-w">专题矩阵</span>，可梳理研究主题的演进脉络</p>
+                                                <p class="tip">通过文献矩阵对同组文献的研究要点进行横向纵向对比分析，发现研究问题、研究思路、研究空白点</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>内嵌<span class="font-w">工具书</span>，随时查询学科名称的释义和规范译名</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>内嵌学术领域最权威的<span class="font-w">翻译</span>工具，边阅读边翻译</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持<span class="font-w">AI专题探究</span>、<span class="font-w">AI研读</span> 和<span
+                                                        class="font-w">AI矩阵</span>等功能</p>
+                                                <p class="tip">通过AI技术快速了解研究基础和文献内容，提高阅读效率</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持<span class="font-w">OCR识别</span>，快速提取图片的文本内容</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持<span class="font-w">自定义书签</span>，可为文献添加个性化目录</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>可添加开题报告标签笔记；支持开题分析</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>全方位、多维度知识管理</h2>
+                                    <ul class="item-ul">
+                                        <li>
+                                            <div class="item-list">
+                                                <p>文献可按专题进行层级分类管理</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>可对专题进行归档、对文献进行专题内/专题间排重等</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>学习笔记可按标签、星标等多种方式管理</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>提供各种筛选查看方式（按标签、时间、专题、文献等）</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>笔记、矩阵等支持导出再学习</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>可<span class="font-w">认领自己的学术成果</span>，并支持免费下载</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>Word插件助力写作和排版</h2>
+                                    <ul class="item-ul">
+                                        <li>
+                                            <div class="item-list">
+                                                <p>提供面向学术等论文写作工具</p>
+                                                <p class="tip">插入和编辑引文、编辑著录格式及布局格式、插入和编辑脚注等</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>支持GB/T7714、MLA、APA引用格式，<font style="color:#3594ff;font-weight:700">7000多个</font>重要中外期刊引文样式</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>专题内的题录和笔记可方便插入文中，<span class="font-w">自动生成引文</span></p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>论文在线投稿</h2>
+                                    <ul class="item-ul">
+                                        <li>
+                                            <div class="item-list">
+                                                <p>完成的论文可以直接选择期刊进行<span class="font-w">线上投稿</span></p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <h2>多设备云同步</h2>
+                                    <ul class="item-ul">
+                                        <li>
+                                            <div class="item-list">
+                                                <p>专题、文献、笔记实时同步</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="item-list">
+                                                <p>一个账号，多台设备，随时随地进行学习</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="func-sale">
+                        <div class="btn-box">
+                            <p>成为知网研学会员，获得更多权益~</p>
+                            <a href="https://x.cnki.net/search/home?value=4" class="btn-a" target="_blank">马上购买会员</a>
+                        </div>
+                        <img src="profile2022/images/func3.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 尾部 -->
+        <footer>
+            <foot v-bind:loged="loged" v-bind:host="host"></foot>
+        </footer>
+
+        <!-- mac下载介绍弹窗 -->
+        <div class="pop-shaw-white" v-show="isShowIntroPop" style="display: none;">
+            <div class="intro-pop-wrap">
+                <div class="intro-swiper-box">
+                    <h3>知网研学（原E-Study） For Mac 安装说明</h3>
+                    <a href="javascript:;" class="icon-close-image closeBlue" @click="isShowIntroPop=false"></a>
+                    <div class="swiper-container intro-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="profile2022/images/yd1.gif" alt="">
+                                <p>步骤一：打开知网研学.dmg文件</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="profile2022/images/yd2.png" alt="" style="height: 313px;">
+                                <p>步骤二：阅读并点击“同意”后，如上图显示</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="profile2022/images/yd3.png" alt="">
+                                <p>步骤三：拖动 “E-Study”至“Application”等待几秒即可在Launchpad(启动台)中找到E-Study程序</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="profile2022/images/yd4.png" alt="">
+                                <!-- <p>步骤四：进入Launchpad找到E-Study程序双击打开，可能出现如上图提示</p> -->
+                                <p>特殊说明1：双击打开E-Study程序时，可能出现如上图提示。</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="profile2022/images/yd5.png" alt="" height="313">
+                                <p>进入系统偏好设置—安全与隐私—选择任何来源即可</p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="profile2022/images/yd6.png" alt="">
+                                <p>
+                                    特殊说明2：MAC OS 10.12版后可能默认没有任何来源这一项，如果你的电脑中看不到这一项， 解决方法如下：
+                                    <br> 1）打开「终端」：应用程序-&gt;实用工具-&gt;终端
+                                </p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="profile2022/images/yd7.png" alt="">
+                                <p>
+                                    2）粘贴下面的命令后，按回车，输入你的系统密码
+                                    <br>sudo spctl --master-disable
+                                </p>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="profile2022/images/yd5.png" alt="" height="313">
+                                <p>3）再次打开安全设置选项，选择任何来源即可。</p>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination intro-pagination"></div>
+                        <div class="swiper-button-prev intro-dot"></div>
+                        <div class="swiper-button-next intro-dot"></div>
+                    </div>
+                    <a href="https://piccachex.cnki.net/estudy/CNKI%20E-Study%20For%20Mac4.3.4.dmg" class="download-a"
+                        @click="isShowIntroPop=false">立即下载</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!--发布提醒弹窗v-show="isShowUpDatePop" style="display: none;"-->
+        <div class="pop-shaw" v-show="isShowUpDatePop" style="display: none;">
+            <div class="update-pop-wrap">
+                <a href="javascript:;" class="icon-close-image" @click="isShowUpDatePop=false"></a>
+                <h2 class="update-pop-ht">知网研学重要通知</h2>
+                <div class="update-pop-con">
+             <p class="update-pop-p update-pop-pl">尊敬的知网研学用户，您好！</p>
+            <p class="update-pop-p update-pop-p2em">我们将于 <b class="cb3594FF">9月17日 0:00 - 9月17日 8:00</b> 进行系统升级，在此期间停止服务，网页端、移动端、桌面端均不能登录（注：如果您之前已登录过桌面端，可继续离线使用）。
+            <b class="cb3594FF">9月17日 8:00 后恢复正常</b>。请您提前安排好自己的学习时间。给您带来的不便请您谅解，感谢您对知网研学平台的支持。 
+</p>
+            <p class="update-pop-p update-pop-pb" style="text-align: right;">知网研学团队</p>
+            <p class="update-pop-p update-pop-pb" style="text-align: right;">2023年9月14日</p>
+                </div>
+            </div>
+        </div>
+        <div class="index-fixed">
+            <div class="index-fix-a">
+                <div class="index-fix-a-svg">
+                    <svg t="1699578960729" class="icon online-animation" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15017" id="mx_n_1699578960730" width="200" height="200"><path d="M927.424 990.496c-18.176-153.792-126.272-280.896-272.384-331.04 90.144-47.488 151.296-139.904 151.296-246.176 0-154.688-129.632-280.096-289.568-280.096-159.936 0-289.6 125.408-289.6 280.096 0 106.304 61.248 198.72 151.424 246.208-143.488 49.28-250.24 172.864-271.136 322.976a26.72 26.72 0 0 0-2.56 11.2l0.288 2.592c0 9.664 5.088 18.144 12.8 23.104a17.92 17.92 0 0 0 11.936 4.544h2.016l1.92 0.096 1.92-0.096h762.976l1.92 0.096c15.36 0 27.84-12.064 27.84-26.912l-0.256-2.496c0-1.44-0.64-2.688-0.832-4.096zM275.744 413.376c0-128.736 107.872-233.088 240.96-233.088 133.056 0 240.96 104.352 240.96 233.088 0 128.704-107.904 233.056-240.96 233.056-133.088 0-240.96-104.32-240.96-233.056z m205.632 277.696a301.76 301.76 0 0 0 35.392 2.304c12.032 0 23.808-0.928 35.424-2.304 158.496 15.04 286.496 129.92 316.352 278.72H165.248c29.856-148.768 157.664-263.68 316.128-278.72z" p-id="15018" fill="#ffffff"></path><path d="M927.648 313.152h-17.664C900.8 112.256 725.92 0.128 512.32 0.128 298.656 0.128 123.84 112.256 114.592 313.152h-18.56c-17.696 0-32.032 13.856-32.032 31.008v168c0 17.12 14.336 31.04 32.064 31.04h31.456c17.696 0 32.032-13.92 32.032-31.04v-24.96a21.76 21.76 0 0 0 0.96-5.6c1.632-43.264 0.64-151.68 0.64-151.68 0-186.464 157.536-284.544 351.136-284.544 193.6 0 351.104 98.08 351.104 284.544 0 0 0.896 111.232-0.64 149.76-0.192 5.312 0.448 9.536 1.376 12.896v19.584c0 17.12 14.336 31.04 32.032 31.04h31.488c17.696 0 32.032-13.92 32.032-31.04v-168c0-17.152-14.336-31.04-32.032-31.04z" p-id="15019" fill="#ffffff"></path></svg>
+                    <span class="index-fix-name">客服</span>
+                </div> 
+                <a href="http://kefu.cnki.net/im/text/10qhwh.html" target="_blank" rel="noopener" class="index-fix-span">在线客服</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    //此处存放需要传递的参数及参数值，如
+                    appid: false,
+                    loged: "",
+                    host: "http://sso.dev.cnki.net/sso",
+                    isShowIntroPop: false, // mac下载安装提示框
+                    isShowUpDatePop: false // 升级提示框 true为显示停服
+                }
+            },
+            methods: {
+                downloadMac(){
+                    window.location.href="https://piccachex.cnki.net/estudy/CNKI%20E-Study%20For%20Mac4.3.4.dmg"
+                },
+                downloadChajian(){
+                    window.location.href="https://piccachex.cnki.net/estudy/ECSP%20Literature%20Collection%20Assistant.zip"
+                    // window.open("https://piccachex.cnki.net/estudy/ECSP%20Literature%20Collection%20Assistant.zip")
+                }
+            },
+            mounted() {
+                // banner轮播
+                var bannerSwiper = new Swiper('.banner-swiper', {
+                    autoplay: 2500,
+                    direction: 'horizontal',
+                    loop: true,
+                    effect: 'fade',
+                    autoplayDisableOnInteraction: false,
+                    pagination: '.banner-pagination',
+                    paginationClickable: true,
+                })
+                $('.banner-swiper').mouseenter(function () {
+                    bannerSwiper.stopAutoplay();
+                }).mouseleave(function () {
+                    bannerSwiper.startAutoplay();
+                })
+
+                // 介绍轮播
+                var introSwiper = new Swiper('.intro-swiper', {
+                    autoplay: false,
+                    direction: 'horizontal',
+                    pagination: '.intro-pagination',
+                    paginationClickable: true,
+                    prevButton: '.swiper-button-prev',
+                    nextButton: '.swiper-button-next',
+                    observer: true, //修改swiper自己或子元素时，自动初始化swiper
+                    observeParents: true //修改swiper的父元素时，自动初始化swiper
+                })
+
+            },
+        
+        })
+
+
+
+    });
+</script>
+
+</html>

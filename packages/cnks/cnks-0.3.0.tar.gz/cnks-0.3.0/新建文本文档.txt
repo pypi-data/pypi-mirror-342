@@ -1,0 +1,30 @@
+                if cssci_checkbox:
+                    # 点击CSSCI复选框
+                    await cssci_checkbox.click()
+                    logger.debug("[DEBUG] 成功勾选CSSCI选项")
+                    
+                    # 等待页面刷新
+                    await page.wait_for_load_state("networkidle")
+                    
+                    result["filter_applied"] = True
+                    result["message"] = "成功勾选CSSCI选项"
+                    return result
+                else:
+                    logger.debug("[DEBUG] 在来源类别区域未找到CSSCI选项")
+                    
+                    # 尝试另一种方式：直接在整个页面中查找CSSCI
+                    cssci_text = await page.query_selector(':text("CSSCI")')
+                    if cssci_text:
+                        # 尝试点击文本附近的复选框
+                        await cssci_text.click()
+                        logger.debug("[DEBUG] 通过文本找到并点击了CSSCI")
+                        await page.wait_for_load_state("networkidle")
+                        
+                        result["filter_applied"] = True
+                        result["message"] = "通过文本找到并点击了CSSCI"
+                        return result
+                    else:
+                        result["message"] = "未找到CSSCI选项"
+                        return result
+            else:
+                logger.debug("[DEBUG] 未找到来源类别区域")
