@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/onetokenpy/__init__.py
+src/onetokenpy/classifier.py
+src/onetokenpy.egg-info/PKG-INFO
+src/onetokenpy.egg-info/SOURCES.txt
+src/onetokenpy.egg-info/dependency_links.txt
+src/onetokenpy.egg-info/requires.txt
+src/onetokenpy.egg-info/top_level.txt
+tests/test_classifier.py
