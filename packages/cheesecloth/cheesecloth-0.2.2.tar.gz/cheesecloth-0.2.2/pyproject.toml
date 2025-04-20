@@ -1,0 +1,72 @@
+[build-system]
+requires = ["maturin>=1.8,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "cheesecloth"
+authors = [{name="ALEA Institute", email="hello@aleainstitute.ai"}]
+description = "High-performance text metrics and filtering for large-scale corpora and pretrain curation"
+license = "MIT"
+homepage = "https://aleainstitute.ai/"
+repository = "https://github.com/alea-institute/cheesecloth"
+keywords = ["alea", "llm", "data", "cheesecloth", "kl3m"]
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Utilities"
+]
+
+dynamic = ["version"]
+dependencies = [
+    "datasets>=3.1.0",
+    "tokenizers>=0.21.0",
+    "tqdm>=4.67.1",
+]
+
+[project.scripts]
+cheesecloth-analyze = "cheesecloth.cli:main"
+[project.optional-dependencies]
+tests = [
+    "pytest",
+]
+[tool.maturin]
+python-source = "python"
+features = ["pyo3/extension-module"]
+exclude = ["tests/*", "python/tests/*", "data/*", "examples/*", "**/.pytest_cache", "**/__pycache__"]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.14.1",
+    "pylint>=3.2.7",
+    "pytest>=8.3.5",
+    "pytest-benchmark>=4.0.0",
+]
+
+[tool.pylint.MASTER]
+ignore-patterns = [""]
+
+[tool.pylint.MESSAGES_CONTROL]
+disable = [
+    "broad-exception-caught",  # W0718: Catching too general exception
+    "line-too-long",           # C0301: Line too long
+]
+
+[tool.pylint."TYPECHECK"]
+# List of members which are set dynamically and missed by pylint inference system
+generated-members = "cheesecloth.*"

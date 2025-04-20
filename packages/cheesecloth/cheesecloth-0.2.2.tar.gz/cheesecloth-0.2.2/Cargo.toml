@@ -1,0 +1,31 @@
+[package]
+name = "cheesecloth"
+version = "0.2.2"
+authors = ["ALEA Institute <hello@aleainstitute.ai>"]
+edition = "2021"
+description = "High-performance text metrics and filtering for large-scale corpora and pretrain curation"
+license = "MIT"
+homepage = "https://aleainstitute.ai/"
+repository = "https://github.com/alea-institute/cheesecloth"
+readme = "README.md"
+keywords = ["alea", "llm", "data", "cheesecloth", "kl3m"]
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "cheesecloth"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+pyo3 = { version = "0.24.0", features = ["extension-module"] }
+rayon = "1.10.0"
+unicode_categories = "0.1.1"
+unicode-segmentation = "1.10.1"
+icu_properties = "1.4.0"
+lru = "0.12.3"
+lazy_static = "1.4.0"
+tokenizers = { version = "0.15.2", features = ["http"] }
+flate2 = "1.0.28"
+regex = "1.10.2"
+thread_local = "1.1.8"
+

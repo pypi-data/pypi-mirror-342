@@ -1,0 +1,23 @@
+include LICENSE
+include README.md
+include CHANGELOG.md
+include Cargo.toml
+include pyproject.toml
+
+# Include Rust source files
+recursive-include src *.rs
+
+# Include Python module files
+recursive-include python *.py *.pyi py.typed
+
+# Specifically exclude tests, examples and large data files
+recursive-exclude python/tests *
+recursive-exclude tests *
+recursive-exclude data *
+recursive-exclude examples *
+
+# Exclude various build artifacts and caches
+recursive-exclude * __pycache__
+recursive-exclude * *.py[cod]
+recursive-exclude * *.so
+recursive-exclude * .pytest_cache
