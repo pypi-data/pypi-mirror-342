@@ -1,0 +1,166 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-stay"
+version = "0.2.1"
+description = "Simple Typed Argparse, Yes"
+readme = "README.md"
+authors = [
+  {name = "Daniel Kramer", email = "drkspace@gmail.com"}
+]
+maintainers = [
+  {name = "Daniel Kramer", email = "drkspace@gmail.com"}
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+
+]
+license = {text = "MIT license"}
+dependencies = [
+  "typing_extensions"
+]
+requires-python = ">= 3.8"
+
+[project.optional-dependencies]
+dev = [
+    "coverage",  # testing
+    "mypy",  # linting
+    "pytest",  # testing
+    "ruff",  # linting
+    "bump-my-version",
+    "pytest-cov",
+    "build",
+    "pytest-random-order",
+    "pre-commit"
+]
+
+[project.urls]
+
+bugs = "https://github.com/drkspace/stay/issues"
+changelog = "https://github.com/drkspace/stay/blob/master/changelog.md"
+homepage = "https://github.com/drkspace/stay"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+"*" = ["*.*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+[tool.ruff.lint]
+
+select = [
+  "ERA",
+  "YTT",
+  "ANN",
+  "S",
+  "FBT",
+  "B",
+  "A",
+  "COM819",
+  "C4",
+  "T100",
+  "EM",
+  "INT",
+  "ISC",
+  "ICN",
+  "LOG",
+  "G",
+  "INP",
+  "PIE",
+  "T20",
+  "PYI",
+  "PT",
+  "Q",
+  "RSE",
+  "RET",
+  "SLF",
+  "SIM",
+  "SLOT",
+  "TID",
+  "I",
+  "ARG",
+  "PTH",
+  "FLY",
+  "N",
+  "PERF",
+  "E",
+  "F",
+  "PL",
+  "PLE",
+  "PLR",
+  "UP",
+  "RUF",
+  "TRY"
+]
+
+ignore = [
+  "FBT001",
+  "FBT002"
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+  "ANN201",
+  "S101",
+  "PLR2004"
+]
+
+# Mypy
+# ----
+
+[tool.mypy]
+files = "."
+
+# Use strict defaults
+strict = true
+warn_unreachable = true
+warn_no_return = true
+
+[[tool.mypy.overrides]]
+# Don't require test functions to include types
+module = "tests.*"
+allow_untyped_defs = true
+disable_error_code = "attr-defined"
+
+
+[tool.bumpversion]
+current_version = "0.2.1"
+parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
+serialize = ["{major}.{minor}.{patch}"]
+search = "{current_version}"
+replace = "{new_version}"
+regex = false
+ignore_missing_version = false
+ignore_missing_files = false
+tag = true
+sign_tags = false
+tag_name = "v{new_version}"
+tag_message = "Bump version: {current_version} → {new_version}"
+allow_dirty = false
+commit = true
+message = "Bump version: {current_version} → {new_version}"
+moveable_tags = []
+commit_args = "--no-verify"
+setup_hooks = []
+pre_commit_hooks = []
+post_commit_hooks = []
+
+
+[tool.coverage.report]
+exclude_also = [
+    'if TYPE_CHECKING:',
+]

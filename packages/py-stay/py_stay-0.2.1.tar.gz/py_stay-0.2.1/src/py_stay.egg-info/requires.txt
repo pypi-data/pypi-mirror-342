@@ -1,0 +1,12 @@
+typing_extensions
+
+[dev]
+coverage
+mypy
+pytest
+ruff
+bump-my-version
+pytest-cov
+build
+pytest-random-order
+pre-commit

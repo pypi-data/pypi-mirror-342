@@ -1,0 +1,13 @@
+AUTHORS.rst
+LICENSE
+README.md
+pyproject.toml
+src/py_stay.egg-info/PKG-INFO
+src/py_stay.egg-info/SOURCES.txt
+src/py_stay.egg-info/dependency_links.txt
+src/py_stay.egg-info/requires.txt
+src/py_stay.egg-info/top_level.txt
+src/stay/__init__.py
+src/stay/py.typed
+src/stay/stay.py
+tests/test_stay.py
