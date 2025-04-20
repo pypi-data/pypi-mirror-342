@@ -1,0 +1,2 @@
+[console_scripts]
+codebundler = codebundler.cli.commands:main
