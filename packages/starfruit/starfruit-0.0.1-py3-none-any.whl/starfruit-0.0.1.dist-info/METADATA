@@ -1,0 +1,53 @@
+Metadata-Version: 2.4
+Name: starfruit
+Version: 0.0.1
+Summary: computer decor
+Project-URL: Documentation, https://starfruit.sh
+Project-URL: Issues, https://github.com/SubstrateLabs/starfruit/issues
+Project-URL: Source, https://github.com/SubstrateLabs/starfruit
+Author-email: Ben G🥦 <ben@substrate.run>
+License-Expression: MIT
+License-File: LICENSE
+Keywords: AI,menu bar,tamagotchi
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.11
+Requires-Dist: dateparser>=1.2.1
+Requires-Dist: dotenv>=0.9.9
+Requires-Dist: fastapi>=0.115.12
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: packaging>=24.0
+Requires-Dist: platformdirs>=4.3.7
+Requires-Dist: polars>=1.26.0
+Requires-Dist: psutil>=7.0.0
+Requires-Dist: pystray>=0.19.5
+Requires-Dist: pywebview>=5.4
+Requires-Dist: rich>=13.9.4
+Requires-Dist: textual>=3.1.0
+Requires-Dist: uvicorn>=0.34.0
+Provides-Extra: dev
+Requires-Dist: pyright>=1.1.350; extra == 'dev'
+Requires-Dist: ruff>=0.3.0; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# starfruit 
+
+> like alien seeds that landed on earth,
+> growing into strange plants.
+> soon they may grow into trees, towering above us.
+> some think they will bear fruit,
+> a strange new abundance.
+> for now, we admire their strange leaves.
+
+try it:
+
+```sh
+$ pipx install starfruit
+$ starfruit
+```
+
+

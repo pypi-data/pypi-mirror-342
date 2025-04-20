@@ -1,0 +1,37 @@
+TabbedContent {
+    margin: 0 0;
+}
+
+#alert-container {
+    margin: 0 0;
+    height: auto;
+    border: round $accent;
+    padding: 1;
+}
+
+#alert-container.hidden {
+    display: none;
+}
+
+#webapp-container Horizontal {
+    align: center middle;
+}
+
+#app-logs {
+    height: 1fr;
+    min-height: 8;
+    overflow-y: scroll;
+    margin-bottom: 1;
+}
+
+#open-log-file-btn {
+    # width: 100%;
+}
+
+#open-webapp-btn {
+    padding: 1;
+    margin: 1;
+    border: round $accent;
+}
+
+
