@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: robo-gestor
+Version: 0.1.0
+Summary: A Python automation utility for interacting with Android devices via uiautomator2.
+Home-page: https://github.com/RohitKumarGit/RoboGestor
+Author: Rohit Kumar
+Author-email: mailrohitkr6@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# 🤖 RoboGestor
+
+RoboGestor is a Python automation utility built around `uiautomator2` to interact with Android devices programmatically.  
+It allows you to automate common tasks like launching apps, interacting with UI elements, checking text visibility, toggling switches, and sending shell commands to your connected device.
+
+---
+
+## 🚀 Features
+
+- 📱 Connect to Android devices via USB or IP
+- 🔓 Unlock & Lock the device screen
+- 🧭 App control (start / stop apps)
+- 🔍 Locate and click UI elements based on text
+- ⬆️ Swipe gestures for scrolling and unlocking
+- ✅ Check toggle/switch states (e.g., settings)
+- 🧾 Fetch all visible text on the screen
+- 💻 Execute shell commands on the device
+- 🔼 Scroll to the top of scrollable views
+- 🧠 Smart retries and swipe attempts for finding elements
+
+---
+
+## 🧠 Usage
+
+### 📦 Installation
+
+1. Install dependencies:
+
+```bash
+pip install uiautomator2
+
+

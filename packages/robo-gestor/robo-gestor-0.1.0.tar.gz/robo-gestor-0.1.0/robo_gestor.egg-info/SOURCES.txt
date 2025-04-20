@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+setup.py
+robo_gestor/__init__.py
+robo_gestor/robo_gestor.py
+robo_gestor.egg-info/PKG-INFO
+robo_gestor.egg-info/SOURCES.txt
+robo_gestor.egg-info/dependency_links.txt
+robo_gestor.egg-info/requires.txt
+robo_gestor.egg-info/top_level.txt
