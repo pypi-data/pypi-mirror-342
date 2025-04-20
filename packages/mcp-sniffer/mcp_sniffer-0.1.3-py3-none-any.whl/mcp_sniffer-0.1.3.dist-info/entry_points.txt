@@ -1,0 +1,3 @@
+[console_scripts]
+mcp-sniffer=mcp_sniffer.__main__:main
+
