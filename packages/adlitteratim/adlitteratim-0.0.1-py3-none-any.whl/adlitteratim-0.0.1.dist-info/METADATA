@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: adlitteratim
+Version: 0.0.1
+Summary: CLI tool to manage and test your LLM prompts ad litteratim.
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click
+Requires-Dist: ruamel.yaml
+Dynamic: license-file
+
+# adlitteratim
+
+Manage your LLM prompts **ad litteratim** (letter‑by‑letter), with linting, testing,
+semantic diffs, and CI integration—all via a simple CLI.
+
+## Install
+
+```bash
+pip install adlitteratim
+
+CLI tool to manage and test LLM prompts ad litteratim
