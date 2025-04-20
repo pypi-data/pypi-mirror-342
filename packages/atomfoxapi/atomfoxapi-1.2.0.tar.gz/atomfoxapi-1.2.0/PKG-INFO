@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: atomfoxapi
+Version: 1.2.0
+Summary: ATOM API | R05
+Home-page: https://github.com/mc-c0rp/atomfoxapi
+Author: mc_c0rp
+Author-email: mc.c0rp@icloud.com
+Project-URL: Documentation, https://github.com/mc-c0rp/atomfoxapi/blob/main/README.md
+Requires-Python: >=3.9
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: requires-python
+Dynamic: summary
