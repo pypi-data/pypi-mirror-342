@@ -1,0 +1,17 @@
+blackmagiccoll/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+blackmagiccoll/IR/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+blackmagiccoll/IR/bool.py,sha256=AQtg3du0nQ9ex7GtDy_s6FEheFxuXeFFRWeIA3WIKwA,1244
+blackmagiccoll/IR/cosine_sim.py,sha256=nzp-TrBqC3mOsl6tFD3CNCs4GgVMys_7ZHmUNqCw-SE,1200
+blackmagiccoll/IR/k-means_cluster.py,sha256=wgf2WRVppUfELeAiwDJ4Ij-6uNeEJYxihqCfAm3B4uE,2239
+blackmagiccoll/IR/naive_20_newsgroup.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+blackmagiccoll/IR/pagerank.py,sha256=frsWePTJyu4br4Y9A6kRUv8Y37qAUWG3mkgvv8T8Iuk,520
+blackmagiccoll/IR/precision_racall.py,sha256=p1peIkz-WIWegZWhSHDqUrxeZamLFlx6XO8TF4jN_Mw,674
+blackmagiccoll/IR/q_a_system.py,sha256=glLrESUS5jfQ8-7nxGWBc83jcMyj304pJer71w3Ol64,956
+blackmagiccoll/IR/simple.py,sha256=3-TFTjd4xDXRJN12ZhKg3rFfBQ4VQEmGc6qIFzHQt10,1148
+blackmagiccoll/IR/svm_20_newsgroup.py,sha256=vRdfPB9I5zGn2ZDtrGcvC3UTJSM-gojgHeumPP7KA0A,1391
+blackmagiccoll/IR/text_summary.py,sha256=cKHLznO6UShLQE7W91RiXRjrypEwDG1KzuTSFAhea0I,521
+blackmagiccoll/IR/vector_space.py,sha256=J_lZlDkU-0GYTc8w53bShiqxYGaxJanHENuwaelXKkY,957
+blackmagiccoll-0.1.0.dist-info/METADATA,sha256=_rTNNFOGAv944Y4nfwSsnxNstKveiu7V5DtMyHdqeTk,61
+blackmagiccoll-0.1.0.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+blackmagiccoll-0.1.0.dist-info/top_level.txt,sha256=kBxIGmNkGibFR2O4E0hvqEF9vQ-6EIwCWayn2V-rHPg,15
+blackmagiccoll-0.1.0.dist-info/RECORD,,
