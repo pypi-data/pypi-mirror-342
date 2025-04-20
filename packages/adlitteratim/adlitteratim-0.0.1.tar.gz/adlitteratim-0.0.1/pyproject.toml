@@ -1,0 +1,14 @@
+[project]
+name = "adlitteratim"
+version = "0.0.1"
+description = "CLI tool to manage and test your LLM prompts ad litteratim."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "click",
+  "ruamel.yaml"
+]
+
+[project.scripts]
+adlitteratim = "adlitteratim.cli:main"
+lit          = "adlitteratim.cli:main"

@@ -1,0 +1,3 @@
+[console_scripts]
+adlitteratim = adlitteratim.cli:main
+lit = adlitteratim.cli:main

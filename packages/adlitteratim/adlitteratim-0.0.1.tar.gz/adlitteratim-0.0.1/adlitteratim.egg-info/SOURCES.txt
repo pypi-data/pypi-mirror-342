@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+adlitteratim/__init__.py
+adlitteratim/cli.py
+adlitteratim.egg-info/PKG-INFO
+adlitteratim.egg-info/SOURCES.txt
+adlitteratim.egg-info/dependency_links.txt
+adlitteratim.egg-info/entry_points.txt
+adlitteratim.egg-info/requires.txt
+adlitteratim.egg-info/top_level.txt
