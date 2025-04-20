@@ -1,0 +1,329 @@
+{% extends "metrics/base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Session Duration</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-3">
+                    <div>
+                        <h6>Average Duration (24h)</h6>
+                        <h3 id="avgDuration">Loading...</h3>
+                    </div>
+                </div>
+                <canvas id="durationChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">User Engagement</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between mb-3">
+                    <div>
+                        <h6>Average Clicks (24h)</h6>
+                        <h3 id="avgClicks">Loading...</h3>
+                    </div>
+                </div>
+                <canvas id="clicksChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="card-title mb-0">Session Details</h5>
+        <div>
+            <button id="clearFilter" class="btn btn-sm btn-outline-secondary" style="display: none;">
+                Clear Filter
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table" id="sessionsTable">
+                <thead>
+                    <tr>
+                        <th>Session ID</th>
+                        <th>Start Time</th>
+                        <th>Duration</th>
+                        <th>Clicks</th>
+                        <th>Pages Visited</th>
+                        <th>IP</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <nav aria-label="Page navigation" class="mt-3">
+            <ul class="pagination justify-content-center" id="pagination">
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- URL Details Modal -->
+<div class="modal fade" id="urlDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Page Visit Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table" id="urlDetailsTable">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Initialize charts
+let durationChart = null;
+let clicksChart = null;
+let sessionsTable = null;
+let urlDetailsModal = null;
+let currentSessionId = null;
+
+// Function to format time in local timezone
+function formatLocalTime(timestamp) {
+    const date = new Date(timestamp);
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+// Function to format date in local timezone
+function formatLocalDate(timestamp) {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString([], { year: 'numeric', month: '2-digit', day: '2-digit' });
+}
+
+// Function to format duration
+function formatDuration(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}m ${remainingSeconds}s`;
+}
+
+// Function to update pagination
+function updatePagination(pagination) {
+    const paginationElement = document.getElementById('pagination');
+    paginationElement.innerHTML = '';
+    
+    // Previous button
+    const prevLi = document.createElement('li');
+    prevLi.className = `page-item ${pagination.current_page === 1 ? 'disabled' : ''}`;
+    prevLi.innerHTML = `<a class="page-link" href="#" onclick="loadSessionStats(${pagination.current_page - 1})">Previous</a>`;
+    paginationElement.appendChild(prevLi);
+    
+    // Page numbers
+    for (let i = 1; i <= pagination.pages; i++) {
+        const li = document.createElement('li');
+        li.className = `page-item ${i === pagination.current_page ? 'active' : ''}`;
+        li.innerHTML = `<a class="page-link" href="#" onclick="loadSessionStats(${i})">${i}</a>`;
+        paginationElement.appendChild(li);
+    }
+    
+    // Next button
+    const nextLi = document.createElement('li');
+    nextLi.className = `page-item ${pagination.current_page === pagination.pages ? 'disabled' : ''}`;
+    nextLi.innerHTML = `<a class="page-link" href="#" onclick="loadSessionStats(${pagination.current_page + 1})">Next</a>`;
+    paginationElement.appendChild(nextLi);
+}
+
+// Function to show URL details
+function showUrlDetails(pages) {
+    const tbody = document.querySelector('#urlDetailsTable tbody');
+    tbody.innerHTML = '';
+    
+    pages.forEach(page => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${new Date(page.timestamp).toLocaleString()}</td>
+            <td>${page.url}</td>
+        `;
+        tbody.appendChild(row);
+    });
+    
+    urlDetailsModal.show();
+}
+
+// Function to load session stats
+function loadSessionStats(page = 1) {
+    const url = new URL('/metrics/session-stats', window.location.origin);
+    url.searchParams.set('page', page);
+    if (currentSessionId) {
+        url.searchParams.set('session_id', currentSessionId);
+    }
+    
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            // Update average stats
+            document.getElementById('avgDuration').textContent = formatDuration(data.avg_duration_24h);
+            document.getElementById('avgClicks').textContent = Math.round(data.avg_clicks_24h);
+
+            // Update or create session duration chart
+            if (durationChart) {
+                durationChart.data.labels = data.hourly.map(d => formatLocalTime(d.timestamp));
+                durationChart.data.datasets[0].data = data.hourly.map(d => d.avg_duration);
+                durationChart.update();
+            } else {
+                durationChart = new Chart(document.getElementById('durationChart').getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: data.hourly.map(d => formatLocalTime(d.timestamp)),
+                        datasets: [{
+                            label: 'Average Session Duration',
+                            data: data.hourly.map(d => d.avg_duration),
+                            borderColor: 'rgb(75, 192, 192)',
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return formatDuration(value);
+                                    }
+                                }
+                            }
+                        },
+                        tooltips: {
+                            callbacks: {
+                                label: function(tooltipItem, data) {
+                                    return `Duration: ${formatDuration(tooltipItem.yLabel)}`;
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Update or create clicks chart
+            if (clicksChart) {
+                clicksChart.data.labels = data.hourly.map(d => formatLocalTime(d.timestamp));
+                clicksChart.data.datasets[0].data = data.hourly.map(d => d.avg_clicks);
+                clicksChart.update();
+            } else {
+                clicksChart = new Chart(document.getElementById('clicksChart').getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: data.hourly.map(d => formatLocalTime(d.timestamp)),
+                        datasets: [{
+                            label: 'Average Clicks per Session',
+                            data: data.hourly.map(d => d.avg_clicks),
+                            borderColor: 'rgb(255, 99, 132)',
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        },
+                        tooltips: {
+                            callbacks: {
+                                label: function(tooltipItem, data) {
+                                    return `Clicks: ${Math.round(tooltipItem.yLabel)}`;
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Update or create sessions table
+            if (sessionsTable) {
+                sessionsTable.clear();
+                sessionsTable.rows.add(data.sessions.map(session => [
+                    `<a href="#" onclick="filterBySession('${session.session_id}')">${session.session_id}</a>`,
+                    new Date(session.timestamp).toLocaleString(),
+                    formatDuration(session.session_duration),
+                    session.total_clicks,
+                    `<a href="#" onclick="showUrlDetails(${JSON.stringify(session.pages_visited).replace(/"/g, '&quot;')})">View Pages (${session.pages_visited.length})</a>`,
+                    session.ip,
+                    `${session.city || ''}${session.city && session.country ? ', ' : ''}${session.country || ''}`
+                ]));
+                sessionsTable.draw();
+            } else {
+                sessionsTable = $('#sessionsTable').DataTable({
+                    data: data.sessions.map(session => [
+                        `<a href="#" onclick="filterBySession('${session.session_id}')">${session.session_id}</a>`,
+                        new Date(session.timestamp).toLocaleString(),
+                        formatDuration(session.session_duration),
+                        session.total_clicks,
+                        `<a href="#" onclick="showUrlDetails(${JSON.stringify(session.pages_visited).replace(/"/g, '&quot;')})">View Pages (${session.pages_visited.length})</a>`,
+                        session.ip,
+                        `${session.city || ''}${session.city && session.country ? ', ' : ''}${session.country || ''}`
+                    ]),
+                    columns: [
+                        { title: 'Session ID' },
+                        { title: 'Start Time' },
+                        { title: 'Duration' },
+                        { title: 'Clicks' },
+                        { title: 'Pages Visited' },
+                        { title: 'IP' },
+                        { title: 'Location' }
+                    ],
+                    order: [[1, 'desc']], // Sort by start time descending
+                    pageLength: 10,
+                    responsive: true
+                });
+            }
+
+            // Update pagination
+            updatePagination(data.pagination);
+        });
+}
+
+// Function to filter by session
+function filterBySession(sessionId) {
+    currentSessionId = sessionId;
+    document.getElementById('clearFilter').style.display = 'block';
+    loadSessionStats(1);
+}
+
+// Function to clear filter
+function clearFilter() {
+    currentSessionId = null;
+    document.getElementById('clearFilter').style.display = 'none';
+    loadSessionStats(1);
+}
+
+// Initialize modal
+document.addEventListener('DOMContentLoaded', function() {
+    urlDetailsModal = new bootstrap.Modal(document.getElementById('urlDetailsModal'));
+    document.getElementById('clearFilter').addEventListener('click', clearFilter);
+});
+
+// Load initial data
+loadSessionStats();
+
+// Refresh data every 30 seconds
+setInterval(loadSessionStats, 30000);
+</script>
+{% endblock %} 

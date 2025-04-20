@@ -1,0 +1,11 @@
+flask_metrics_visitors/__init__.py,sha256=RTdqpvWzoNSiwIrx6CmfM6D0MC87jBlpks5uXYEyo30,16581
+flask_metrics_visitors/models.py,sha256=mPOOLGODbUlWmtSRZSnpFsUnxiUSXlj3S8JxXqTRgMg,1115
+flask_metrics_visitors/utils.py,sha256=cdXdkqbydq0yXfXVap9QYwwhcpsbNxbCwhR3rXis6Fo,1424
+flask_metrics_visitors/static/js/session-tracker.js,sha256=vXFWAHAG1QMc_mEDlOzJ2P6s8clldlYRAJ_kzs2Khwc,6763
+flask_metrics_visitors/templates/metrics/base.html,sha256=OTzZ5tFZ3BEWqgghrqlg3cUQlfjDUE_NLjsQFlODvHQ,2258
+flask_metrics_visitors/templates/metrics/dashboard.html,sha256=_Py14E610feub0r0wiaAT0iBttZ9H5rz04E6TqAShOw,11154
+flask_metrics_visitors/templates/metrics/session_analytics.html,sha256=e_w076qKlaVv7WNo66dLM2ykOn3Eb4VKf6EikxjhxGI,12670
+flask_metrics_visitors-0.8.0.dist-info/METADATA,sha256=_VSQ7pxbqK4_Fr5toKJDkIbiWfes56vuDSXYgmGfH-0,6002
+flask_metrics_visitors-0.8.0.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+flask_metrics_visitors-0.8.0.dist-info/top_level.txt,sha256=BC4j9d1ohKPjvhUS0nmj8TQ3vy-jIj6HAm4DcGcHUL4,23
+flask_metrics_visitors-0.8.0.dist-info/RECORD,,
