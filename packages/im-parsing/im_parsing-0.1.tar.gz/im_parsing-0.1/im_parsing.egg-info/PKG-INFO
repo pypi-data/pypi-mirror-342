@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: im-parsing
+Version: 0.1
+Summary: Библиотека для получения статических и динамических html страниц
+Author: Ilia Miheev
+Author-email: statute-wasp-frisk@duck.com
+License: MIT
+License-File: LICENSE.txt
+Requires-Dist: requests
+Requires-Dist: selenium
