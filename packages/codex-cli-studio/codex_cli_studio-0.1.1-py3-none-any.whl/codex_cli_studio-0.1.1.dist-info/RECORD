@@ -1,0 +1,14 @@
+codex_cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+codex_cli/config.py,sha256=97Zh-Mc-M7qINYh0yeJwuXGxiBblZH94XKQMWEIHnaM,3984
+codex_cli/explain.py,sha256=QCgtGaG8svPVLzUanroW2_xvUPixnufWOsIfwA3ME1Y,2364
+codex_cli/main.py,sha256=DVrrPfsDwnQu-tvjv0lSp8hg4lQ7EpKxH_F-JtLxBZ4,6360
+codex_cli/script.py,sha256=P8cFGzko-_iDTbVvk9yPBBR-rFaHMoLYM61m2J9z4wM,4088
+codex_cli/visualize.py,sha256=QyYajvfBaWvM4qlbcZSPMc8wzoZHianyzYl4-59WqP0,9572
+codex_cli/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+codex_cli/core/openai_utils.py,sha256=p4DEY2vC1bSiFOAR-MT8ZnG5sAW0_Co7NYc7g40N7sY,3038
+codex_cli_studio-0.1.1.dist-info/licenses/LICENSE,sha256=JZsj36RtooFbSwYDUxRl86UBARAuDawE4hwnj-Afo3s,1064
+codex_cli_studio-0.1.1.dist-info/METADATA,sha256=xpmeFBRx9MdIne7CjfYNnkmCmQnfGD2SOjXyd-xCV5Y,8240
+codex_cli_studio-0.1.1.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+codex_cli_studio-0.1.1.dist-info/entry_points.txt,sha256=_M2UX1j2SlRz0kCDTTOqbdX8qvt59KKcXtoG5CaLjl8,47
+codex_cli_studio-0.1.1.dist-info/top_level.txt,sha256=wdKT2GyJ4Y_ceJw2IlqGugRVZgo1OkBJPDkF2ORpckA,10
+codex_cli_studio-0.1.1.dist-info/RECORD,,
