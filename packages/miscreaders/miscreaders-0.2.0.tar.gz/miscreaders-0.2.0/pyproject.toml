@@ -1,0 +1,76 @@
+[project]
+name = "miscreaders"
+description = "Parsers for output of various programs"
+readme = "README.md"
+authors = [{name = "Tomas Karabela", email = "tkarabela@seznam.cz"}]
+license = "MIT"
+license-files = ["LICENSE.txt"]
+requires-python = ">=3.10"
+dependencies = [
+    "polars~=1.26",
+    "xlrd~=2.0",
+]
+dynamic = ["version"]
+keywords = ["Loop Habits Tracker", "StayFree", "Moonwatch.rs"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: File Formats",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/tkarabela/miscreaders"
+Repository = "https://github.com/tkarabela/miscreaders.git"
+Issues = "https://github.com/tkarabela/miscreaders/issues"
+Documentation = "https://miscreaders.readthedocs.io"
+
+[project.optional-dependencies]
+docs = [
+    "sphinx~=8.1",
+    "sphinx-rtd-theme~=3.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy~=1.15",
+    "pytest~=8.3",
+    "pytest-cov~=6.1",
+    "pytest-datadir~=1.6",
+    "ruff~=0.11",
+    "sybil[pytest]~=9.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/miscreaders/__init__.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/.github",
+    ".readthedocs.yaml",
+]
+
+[tool.mypy]
+strict = "True"
+mypy_path = "$MYPY_CONFIG_FILE_DIR/src"
+files = "src/**/*.py, tests/*.py"
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = "False"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+    "-p no:doctest",
+]
