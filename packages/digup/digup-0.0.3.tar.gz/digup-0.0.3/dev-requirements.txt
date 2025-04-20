@@ -1,0 +1,6 @@
+pytest
+black
+twine
+ruff
+coverage
+mypy
