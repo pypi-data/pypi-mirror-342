@@ -1,0 +1,5 @@
+Mako>=1.2.0
+PyYAML>=5.0.0
+
+[:python_version < "3.4"]
+enum34

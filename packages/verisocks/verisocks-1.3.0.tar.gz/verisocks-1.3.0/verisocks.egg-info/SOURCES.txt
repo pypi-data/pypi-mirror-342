@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.cfg
+test/test_verisocks.py
+verisocks/__init__.py
+verisocks/utils.py
+verisocks/verisocks.py
+verisocks.egg-info/PKG-INFO
+verisocks.egg-info/SOURCES.txt
+verisocks.egg-info/dependency_links.txt
+verisocks.egg-info/entry_points.txt
+verisocks.egg-info/requires.txt
+verisocks.egg-info/top_level.txt
+verisocks/cli/__init__.py
+verisocks/cli/wizard.py
