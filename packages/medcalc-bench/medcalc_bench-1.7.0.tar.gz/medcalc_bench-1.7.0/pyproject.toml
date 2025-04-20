@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "medcalc-bench"
+version = "1.7.0"
+authors = [
+  { name="zikaixiao", email="zackzikaixiao@gmail.com" },
+]
+description = "A Python package containing implementations of various medical calculators"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Medical Science Apps."
+]
+# Add external dependencies here if needed, for example:
+# dependencies = [
+#     "numpy",
+# ]
+
+[project.urls]
+"Homepage" = "https://github.com/ncbi-nlp/MedCalc-Bench"
+# "Bug Tracker" = "https://github.com/username/project/issues"
+
+# Tell setuptools how to find your package code
+[tool.setuptools.packages.find]
+where = ["."]  # Root directory to search for packages
+include = ["medcalc*"]  # Only include medcalc, find will discover subpackages like medcalc.utils
+exclude = ["__pycache__*", "tests*"]  # Exclude cache and test directories
+namespaces = false

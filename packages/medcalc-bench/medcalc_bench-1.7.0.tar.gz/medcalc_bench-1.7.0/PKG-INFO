@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: medcalc-bench
+Version: 1.7.0
+Summary: A Python package containing implementations of various medical calculators
+Author-email: zikaixiao <zackzikaixiao@gmail.com>
+Project-URL: Homepage, https://github.com/ncbi-nlp/MedCalc-Bench
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# MedCalc Package
+
+A Python package containing implementations of various medical calculators.
+
+This package provides functions for various medical calculations based on the work found in the MedCalc-Bench repository.
+
+Homepage: [https://github.com/ncbi-nlp/MedCalc-Bench](https://github.com/ncbi-nlp/MedCalc-Bench)
+
+## Installation
+
+```bash
+# Installation instructions will be added once the package is uploaded to PyPI
+pip install medcalc-bench
+```
+
+## Usage
+
+```python
+# import medcalc.cardiac_risk_index
+``` 
