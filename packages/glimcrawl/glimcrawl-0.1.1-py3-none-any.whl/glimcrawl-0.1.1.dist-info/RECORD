@@ -1,0 +1,13 @@
+glimcrawl/__init__.py,sha256=hupDGy6D-vIwHzn2QBRHsRKj0RO3lL1bMEp7uMXty2M,305
+glimcrawl/_version.py,sha256=Mmxse1R0ki5tjz9qzU8AQyqUsLt8nTyCAbYQp8R87PU,511
+glimcrawl/cli.py,sha256=ukRYaTeGF_7dP8KBMvnfVsWY90X2rJ5z79vEXYYViB8,1744
+glimcrawl/config.py,sha256=mCGOYzQjZVOoVhGGVBl4gh6xBWmQXxh15VT3u5GLSW4,145
+glimcrawl/google_image.py,sha256=oVBaMrymcDGw7VAayAwqNQd5Gud_mfT7I9cslvYH5oo,18925
+glimcrawl/image_downloader.py,sha256=_sHbX2_LhRqeRnnj-Hl0zUFiGChVyoBkSex0Qkk3NzU,7671
+glimcrawl/image_processor.py,sha256=x3nrcptIorKPwo4lroFNW7wNcPpDsvqreiVvxoAPeig,4975
+glimcrawl-0.1.1.dist-info/licenses/LICENSE,sha256=CAwRya-mV54z9i85lgcHX9LgSBya1oPZ0DcjBM8TmYo,1067
+glimcrawl-0.1.1.dist-info/METADATA,sha256=3jLg17JbNywhXwi-OhgBdjDb-H2qD622-Q65QaoKwew,5478
+glimcrawl-0.1.1.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+glimcrawl-0.1.1.dist-info/entry_points.txt,sha256=DgkgN5n5D5SuVjskNiLy_P_NAfNdPu4HEVrpaFHpkOA,49
+glimcrawl-0.1.1.dist-info/top_level.txt,sha256=Qs0RKsDt_90LTlwJaNUofOcLhCsayj0RKKmfs150iEQ,10
+glimcrawl-0.1.1.dist-info/RECORD,,
