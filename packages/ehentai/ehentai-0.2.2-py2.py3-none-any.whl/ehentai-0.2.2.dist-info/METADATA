@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: ehentai
+Version: 0.2.2
+Summary: Python for viewing e-hentai
+Home-page: https://github.com/Homoarea/hentai
+Author: Homoarea
+Author-email: homoarea114@gmail.com
+License: GNU GPLv3
+Project-URL: Source, https://github.com/Homoarea/hentai
+Requires-Python: >=3.8
+License-File: LICENSE
+License-File: NOTICE
+Requires-Dist: click
+Requires-Dist: curl_cffi
+Requires-Dist: beautifulsoup4
+Requires-Dist: lxml
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
