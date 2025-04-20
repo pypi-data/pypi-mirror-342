@@ -1,0 +1,58 @@
+Metadata-Version: 2.2
+Name: tokenizerz
+Version: 0.0.1a6
+Summary: Minimal BPE tokenizer in Zig
+Home-page: https://github.com/jaco-bro/tokenizer
+Author: J Joe
+Author-email: backupjjoe@gmail.com
+Requires-Python: >=3.12.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ziglang==0.13.0.post1
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Tokenizer
+A Zig library for tokenizing text using PCRE2 regular expressions - now also available as a Python package via `pip`.
+
+## Requirement
+zig v0.13.0
+
+## Install
+```bash
+git clone https://github.com/jaco-bro/tokenizer
+cd tokenizer
+zig build exe --release=fast
+```
+
+## Usage
+- `zig-out/bin/tokenizer_exe [--model MODEL_NAME] COMMAND INPUT` 
+- `zig build run -- [--model MODEL_NAME] COMMAND INPUT` 
+
+```bash
+zig build run -- --encode "hello world"
+zig build run -- --decode "{14990, 1879}"
+zig build run -- --model "phi-4-4bit" --encode "hello world"
+zig build run -- --model "phi-4-4bit" --decode "15339 1917"
+```
+
+## Python (optional)
+Tokenizer is also pip-installable for use from Python:
+```bash
+pip install tokenizerz
+```
+
+Usage:
+```python
+import tokenizerz
+
+tokens = tokenizerz.tokenize("Hello, world!")
+print(tokens)
+```
+

@@ -1,0 +1,5 @@
+[console_scripts]
+bpe = tokenizerz:demo
+
+[distutils.post_install]
+post_install = setup:post_install
