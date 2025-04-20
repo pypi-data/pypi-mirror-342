@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name="gsalary_sdk"
+version="0.0.1"
+
+authors = [
+  { name="Astro", email="astro.dai@globalfreepay.com" },
+]
+
+description="GSalary SDK for Python"
+readme="README.md"
+requires-python=">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = ['cryptography']
+license = "MIT"
+license-files = ["LICENSE*"]
+
+[project.urls]
+Homepage = "https://github.com/gsalary-develop/gsalary-sdk-python"
+Issues = "https://github.com/gsalary-develop/gsalary-sdk-python/issues"
