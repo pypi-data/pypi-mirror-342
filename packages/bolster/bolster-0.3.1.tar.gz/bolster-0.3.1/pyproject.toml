@@ -1,0 +1,156 @@
+[project]
+name = "bolster"
+dynamic = []
+description = "Bolster's Brain, you've been warned"
+authors = [
+    { name = "Andrew Bolster", email = "andrew.bolster@gmail.com" },
+]
+readme = "README.rst"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+keywords = [
+    "bolster",
+    "api",
+    "data science",
+    "data",
+    "data engineering",
+    "data analysis",
+    "data pipeline",
+    "data processing",
+    "data wrangling",
+    "data transformation",
+    "cli",
+    "command line interface",
+    "python",
+]
+requires-python = ">=3.8,<4.0"
+dependencies = [
+    "boto3>=1.37.37",
+    "bs4>=0.0.2",
+    "click>=8.1.8",
+    "click-log>=0.4.0",
+    "dateparser>=1.2.1",
+    "lxml>=5.3.2",
+    "numpy>=1.24.4",
+    "openpyxl>=3.1.5",
+    "pandas>=2.0.3",
+    "pillow>=10.4.0",
+    "psycopg2-binary>=2.9.10",
+    "pytest-cov>=5.0.0",
+    "requests>=2.32.3",
+    "requests-cache>=1.2.1",
+    "scipy>=1.10.1",
+    "tqdm>=4.67.1",
+    "waybackpy>=3.0.6",
+    "xlrd>=2.0.1",
+]
+version = "0.3.1"
+
+[project.urls]
+Homepage = "https://github.com/andrewbolster/bolster"
+Documentation = "https://bolster.readthedocs.io"
+Repository = "https://github.com/andrewbolster/bolster.git"
+"Bug Tracker" = "https://github.com/andrewbolster/bolster/issues"
+
+[project.scripts]
+bolster = "bolster.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "pytest",
+    "ipykernel",
+    "httpx",
+    "pytest-cov",
+    "pytest-mock",
+    "ruff",
+    "nbmake",
+]
+docs = [
+    "Sphinx",
+    "sphinx-click",
+    "sphinx-issues",
+    "nbsphinx",
+    "sphinx-rtd-theme",
+    "sphinx-autodoc-typehints",
+    "sphinx-autoapi",
+    "autoapi",
+    "sphinxcontrib-apidoc",
+    "sphinxcontrib-plantuml",
+    "sphinxcontrib-mermaid",
+    "sphinx-github-changelog",
+    "myst-parser",
+    "sphinx-copybutton",
+]
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm.version]
+source = "file"
+path = "src/bolster/__init__.py"
+
+[tool.pdm.build]
+includes = [
+    "bolster",
+]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+    "src",
+]
+pythonpath = "src"
+addopts = [
+    "--cov=bolster",
+    "--cov-report=term-missing",
+    "--import-mode=importlib",
+    "--doctest-modules",
+    "--doctest-continue-on-failure",
+    "--ignore=notebooks",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+]
+ignore = [
+    "E501",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = [
+    "F401",
+]
+
+[tool.coverage.run]
+source = [
+    "bolster",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "pass",
+]
