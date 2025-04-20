@@ -1,0 +1,8 @@
+mutagen
+
+[beatgrid_analysis]
+librosa
+numpy
+
+[waveform_drawing]
+pillow
