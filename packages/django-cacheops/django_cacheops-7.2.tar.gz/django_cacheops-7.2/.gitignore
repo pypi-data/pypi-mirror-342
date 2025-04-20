@@ -1,0 +1,8 @@
+.idea/
+*.pyc
+dist
+*.egg-info
+build
+sqlite*.db
+.tox
+.cache
