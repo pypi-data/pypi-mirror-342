@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: mtnet
+Version: 0.3.2
+Summary: The most fundamental Python modules for Minh-Tri Pham
+Home-page: https://github.com/inteplus/mtnet
+Author: ['Minh-Tri Pham']
+Project-URL: Documentation, https://mtdoc.readthedocs.io/en/latest/mt.net/mt.net.html
+Project-URL: Source Code, https://github.com/inteplus/mtnet
+License-File: LICENSE
+Requires-Dist: mtbase>=4.32.1
+Requires-Dist: getmac<0.9
+Requires-Dist: netifaces
+Requires-Dist: requests
+Requires-Dist: sshtunnel
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: summary
