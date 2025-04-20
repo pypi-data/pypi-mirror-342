@@ -1,0 +1,46 @@
+Metadata-Version: 2.4
+Name: roleta-automatica-v2
+Version: 0.1.1
+Summary: Automatização do site Blaze usando Selenium para jogar roleta.
+Home-page: https://github.com/autodev/automacao-blaze
+Author: Auto Dev
+Author-email: autodev331@gmail.com
+License: MIT
+Keywords: selenium,automação,roleta,blaze
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: selenium>=4.0.0
+Requires-Dist: webdriver-manager>=3.8.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# automacao-blaze
+
+Automação do site Blaze.bet usando Selenium e WebDriver Manager.
+
+## Instalação
+
+```bash
+pip install roleta-automatica
+```
+
+## Uso
+
+```python
+from roleta_automatica import RoletaBrasileira
+
+bot = RoletaBrasileira("email", "senha", "https://blaze.bet.br/pt/games/roleta-brasileira")
+```
