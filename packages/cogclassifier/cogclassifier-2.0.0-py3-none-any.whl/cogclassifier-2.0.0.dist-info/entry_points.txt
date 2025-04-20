@@ -1,0 +1,4 @@
+[console_scripts]
+COGclassifier = cogclassifier.scripts.cogclassifier:app
+plot_cog_count_barchart = cogclassifier.scripts.plot_cog_count_barchart:app
+plot_cog_count_piechart = cogclassifier.scripts.plot_cog_count_piechart:app
