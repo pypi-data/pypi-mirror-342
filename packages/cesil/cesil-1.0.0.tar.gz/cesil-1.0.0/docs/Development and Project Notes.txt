@@ -1,0 +1,56 @@
+Usage: cesil.py [OPTIONS] SOURCE_FILE
+
+  CESILPlus - CESIL Interpreter (w/ optional language extentions).
+
+    CESIL: Computer Eduction in Schools Instruction Language
+
+    "Plus" language extensions add a STACK, SUBROUTINE support, MODULO
+    division, RANDOM number generation, integer INPUT, ASCII character output,
+    and INC/DEC functions to the language, enabled with the -p | --plus
+    options. Extensions are DISABLED by default.
+
+    "Plus" Mode - Extension instructions:
+
+      MODULO  operand - MODULO division of ACCUMULATOR by operand
+                        (sets ACCUMULATOR to REMAINDER)
+      RANDOM  operand - Generates a RANDOM number between 0 and the
+                        value of operand and puts it in the ACCUMULATOR
+
+      PUSH            - PUSHes the ACCUMULATOR value on to STACK
+      POP             - POPs top value from STACK into the ACCUMULATOR
+
+      INC             - Increments the ACCUMULATOR by 1
+      DEC             - Decrements the ACCUMULATOR by 1
+
+      INPUTN          - Accepts an INTEGER from the CONSOLE and places the
+                        value in the ACCUMULATOR
+
+      OUTCHAR         - Outputs the ACCUMULATOR value as an ASCII character
+
+      JUMPSR  label   - Jumps to SUBROUTINE @ label
+      JSIZERO label   - Jumps to SUBROUTINE @ label if ACCUMULATOR = 0
+      JSINEG  label   - Jumps to SUBROUTINE @ label if ACCUMULATOR < 0
+      RETURN          - Returns from SUBROUTINE and continues execution
+
+Options:
+  -s, --source [t|text|c|card]  Text or Card input.  [default: text]
+  -d, --debug [0|1|2|3|4]       Debug mode/verbosity level.  [default: 0]
+  -p, --plus                    Enables "plus" mode language extensions.
+  --version                     Show the version and exit.
+  --help                        Show this message and exit.
+
+ * Supports "TEXT" (free-er form) and "CARD" (fixed column) source code files.
+ * Adds "Debugging" - effectively two levels of optional state output.
+ * More robust and complete handling of errors.
+ * Proper Command Line Interface (CLI)
+ * PEP-8 Compliant
+ * Adds extensible instruction set, using custom @instruction decorator
+ * Adds ACCUMULATOR overflow exception
+
+ DEBUG MODES:
+
+  0 = No Debugging
+  1 = Summary output
+  2 = Summary output w/ step
+  3 = Verbose output
+  4 = Verbose output w/ step

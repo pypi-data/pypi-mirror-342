@@ -1,0 +1,223 @@
+* Golf Game in CESIL "Plus" - by Ian Michael Dunmore
+*
+*   This game uses "extension" instructions from my "CESIL Plus" implementation
+*   (see: "https://github.com/idunmore/CESIL").
+*
+*   It will NOT run in a "pure" CESIL implementation (nor in *my* implementation
+*   of the "pure" CESIL language).  It REQUIRES specifying the -p | --plus
+*   option at launch (e.g., "python3 CESIL.py -p Golf.ces").
+*
+*   This is not much of a "game", and is really intended to a) exercise some new
+*   instructions (RANDOM, INC/DEC, OUTCHAR and INPUTN), b) illustrate how
+*   many instructions are required in simple instruction sets to achieve
+*   even basic functionality and c) demonstrate some typical assembly-like
+*   programming constructs/techniques.
+
+* Load Character Values for "Graphic" Output.  These are the ASCII values for
+* the characters that will make up the visual display of the game.  They can be
+* changed simply by changing the appropriate value(s) in the DATA section.
+*
+* This also lets us refer to different characters by NAME, rather than VALUE.
+
+        IN
+        STORE    HEAD
+        IN
+        STORE    BODLEG
+        IN
+        STORE    LFLAG
+        IN
+        STORE    RFLAG
+        IN
+        STORE    POLE
+        IN
+        STORE    GRASS
+        IN
+        STORE    BALL
+        IN
+        STORE    HOLE
+
+* Display intro and "instructions"
+
+START   PRINT    "Play GOLF!"
+        LINE
+        LINE
+        PRINT    "Sink the ball in the hole WITHOUT overshooting it and going "
+        PRINT    "out of bounds!"
+        LINE
+
+* Game initialization starts here.  We choose a random position for the "hole",
+* and then make it a minimum of 7 positions from the ball/players position.  We
+* want to assume a console line-length of 80 characters.
+
+START   RANDOM   60
+        ADD      7
+        STORE    DIST       
+        LOAD     0
+        STORE    BALPOS
+        STORE    STROKE
+        JUMPSR   PRTHL
+
+* The main "Game Loop" ...
+
+GMLOOP  LINE
+        LINE
+        PRINT    "Enter shot power: "
+        INPUTN
+        STORE    POWER   * Redraw the hole with the ball in its new position
+        LINE
+        LOAD     STROKE  * Add one to the stroke count
+        INC
+        STORE    STROKE
+        LOAD     BALPOS  * Now apply the shot power and print the new state
+        ADD      POWER
+        STORE    BALPOS
+        JUMPSR   PRTHL
+
+        LOAD     BALPOS  * Not in the hole and not out of bands? Next shot!
+        SUBTRACT DIST
+        JINEG    GMLOOP
+
+* Game Over ... now handle victory/failure/hole-in one ...
+
+        LINE
+        LINE
+
+        LOAD     DIST    * Out of Bounds (Ball past the hole)?
+        SUBTRACT BALPOS
+        JINEG    OOBND
+
+        LOAD     STROKE  * In bounds; if ONE stroke then HOLE IN ONE!
+        SUBTRACT 1
+        JIZERO   HLONE
+
+        PRINT    "You made the hole in " * Not a HOLE in ONE.
+        LOAD     STROKE
+        OUT
+        PRINT    " stroke(s)!"
+        JUMP     PLYAGN
+
+OOBND   PRINT    "You hit the ball OUT of BOUNDS!  You LOSE!!"
+        JUMP     PLYAGN
+
+HLONE   PRINT    "Hole in ONE!!!"
+
+* Play again?
+
+PLYAGN  LINE
+        LINE
+        PRINT    "Play Again? (0 = Yes; any other number = No) "
+        INPUTN
+        JIZERO   START
+        HALT
+
+* Displays the current state of the HOLE, as well as the ball position and
+* STROKE count.
+
+PRTHL   LINE
+        PRINT    "Stroke #"
+        LOAD     STROKE
+        OUT
+        LINE
+        LINE
+
+        LOAD     HEAD    * Output the Head
+        OUTCHAR
+        LOAD     HOLE
+        PUSH
+        LOAD     DIST
+        PUSH
+        JUMPSR   PRTLN   * Skip "DIST" places ...
+        LOAD     LFLAG   * ... and output the FLAG
+        OUTCHAR
+        LINE
+
+        LOAD     BODLEG  * Output the Body
+        OUTCHAR
+        LOAD     HOLE    
+        PUSH
+        LOAD     DIST
+        PUSH
+        JUMPSR   PRTLN   * Skip "DIST" places ...
+        LOAD     POLE    * ... and output the POLE
+        OUTCHAR
+        LINE
+
+        LOAD     BODLEG  * Output the Leg ...
+        OUTCHAR
+
+        LOAD     HOLE    * ... and then distance to the ball.
+        PUSH
+        LOAD     BALPOS
+        PUSH
+        JUMPSR   PRTLN
+
+        LOAD     BALL    * ... and then the ball.
+        OUTCHAR
+        LOAD     HOLE
+        PUSH
+        LOAD     DIST
+        DEC
+        SUBTRACT BALPOS
+        PUSH
+        JUMPSR   PRTLN   * Skip "DIST" -1 places ...
+        LOAD     POLE    * ... and output the POLE
+        OUTCHAR
+        LINE
+
+        LOAD     GRASS   * Output the Grass ...
+        PUSH
+        LOAD     DIST
+        ADD      1       * ... plus 1 to allow for the BODY
+        PUSH        
+        JUMPSR   PRTLN
+
+        LOAD     HOLE    * Output the Hole ...
+        OUTCHAR
+        LOAD     GRASS   * ... and then some more GRASS after it
+        PUSH
+        LOAD     78
+        SUBTRACT DIST      
+        PUSH
+        JUMPSR   PRTLN
+
+        RETURN
+
+* Prints the specified ASCII character as specified number of times, on the same
+* line.  Arguments are supplied on the STACK, in order: number of times to print
+* the character, the ASCII value of the character to print.
+
+PRTLN   POP             * Get the number of times to print the CHARACTER
+        JIZERO   PLCLN  * If ZERO times, then clean up stack and exit.
+        STORE    PNUM
+        POP             * Get the CHARACTER to print
+        STORE    PCHAR
+        LOAD     0
+        STORE    PCNT
+PLOOP   LOAD     PCHAR
+        OUTCHAR
+        LOAD     PCNT
+        INC
+        STORE    PCNT
+        SUBTRACT PNUM
+        JINEG    PLOOP
+        JUMP     PLEXIT
+PLCLN   POP             * Clean up the stack on a ZERO exit
+PLEXIT  RETURN
+
+* DATA Section - Each value here is the ASCII value for one of the characters
+* used in the game's display.  In order these are: the head (HEAD) - "O", the
+* body and legs (BODLEG) - "^", left and right flag values (LFLAG, RFLAG) - "<"
+* ">" (left vs. right are for a future "wind" feature), the pole for the flag
+* (POLE) - "|", the "grass" for the "course" (GRASS) - "#", the ball (BALL)
+* - "o" and the hole (HOLD) - " " (space).
+
+%
+79
+94
+60
+62
+124
+35
+111
+32
+-1

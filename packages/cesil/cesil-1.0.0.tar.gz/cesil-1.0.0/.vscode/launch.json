@@ -1,0 +1,101 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "CESILPlus: Default Test File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "examples/syntax_test.ces"
+            ]
+        },
+        {
+            "name": "CESILPlus: HELP",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--help"
+            ]
+        },
+        {
+            "name": "CESILPlus: Quick CLI Test",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "test.ces",
+                "--plus"
+            ]
+        },
+        {
+            "name": "CESILPlus: 99 Bottles",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "examples/99Beers.ces"
+            ]
+        },
+        {
+            "name": "CESILPlus: STACK Test",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "examples/stack_test.ces",
+                "--plus"
+            ]
+        },
+        {
+            "name": "CESILPlus: SUB Test",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "examples/sub_test.ces",
+                "--plus"
+            ]
+        },
+        {
+            "name": "CESILPlus: CARD Test",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "examples/card_test.ces",
+                "-s", "c"
+            ]
+        },
+        {
+            "name": "CESILPlus: DEBUG Test",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "examples/Stack_test.ces",
+                "--plus",
+                "--debug", "4"
+            ]
+        }
+    ]
+}
