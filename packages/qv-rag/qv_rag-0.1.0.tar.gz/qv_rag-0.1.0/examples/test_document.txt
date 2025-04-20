@@ -1,0 +1,801 @@
+# Sample Test Document for RAG Testing
+
+## Introduction
+This is a sample document designed to test the capabilities of our RAG (Retrieval-Augmented Generation) system. It contains various types of content including text, code snippets, and structured information. The document is structured to test different aspects of text processing, semantic understanding, and content retrieval. This expanded version includes more complex examples and detailed technical content to thoroughly test the system's capabilities.
+
+## Technical Content
+
+### Python Programming
+Python is a high-level programming language known for its simplicity and readability. It's widely used in various domains including web development, data science, and artificial intelligence. Here are some examples:
+
+```python
+# Basic Python example
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("World"))
+
+# Data processing example
+import pandas as pd
+import numpy as np
+
+def process_data(df):
+    # Clean data
+    df = df.dropna()
+    # Calculate statistics
+    stats = df.describe()
+    # Add custom metrics
+    stats['skewness'] = df.skew()
+    stats['kurtosis'] = df.kurtosis()
+    return stats
+
+# Machine learning example
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+
+def train_model(X, y):
+    # Split data
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+    
+    # Train model
+    model = RandomForestClassifier(
+        n_estimators=100,
+        max_depth=10,
+        min_samples_split=5,
+        random_state=42
+    )
+    model.fit(X_train, y_train)
+    
+    # Evaluate
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    report = classification_report(y_test, y_pred)
+    
+    return model, accuracy, report
+
+# Web scraping example
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+def scrape_website(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    data = []
+    for article in soup.find_all('article'):
+        title = article.find('h2').text
+        content = article.find('p').text
+        data.append({'title': title, 'content': content})
+    
+    return pd.DataFrame(data)
+
+# API development example
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from typing import List, Optional
+import uvicorn
+
+app = FastAPI()
+
+class User(BaseModel):
+    id: int
+    name: str
+    email: str
+    role: str
+    skills: List[str]
+    projects: List[dict]
+
+class UserUpdate(BaseModel):
+    name: Optional[str] = None
+    email: Optional[str] = None
+    role: Optional[str] = None
+    skills: Optional[List[str]] = None
+
+@app.get("/users/{user_id}")
+async def get_user(user_id: int):
+    # Implementation here
+    pass
+
+@app.post("/users/")
+async def create_user(user: User):
+    # Implementation here
+    pass
+
+@app.put("/users/{user_id}")
+async def update_user(user_id: int, user_update: UserUpdate):
+    # Implementation here
+    pass
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+```
+
+### Machine Learning
+Machine learning is a subset of artificial intelligence that focuses on building systems that can learn from data. Key concepts include:
+
+#### Supervised Learning
+Supervised learning involves training models on labeled data to make predictions or classifications.
+
+- Classification
+  - Binary classification
+  - Multi-class classification
+  - Multi-label classification
+  - Imbalanced classification
+- Regression
+  - Linear regression
+  - Polynomial regression
+  - Ridge regression
+  - Lasso regression
+- Time series forecasting
+  - ARIMA models
+  - LSTM networks
+  - Prophet
+  - Exponential smoothing
+
+#### Unsupervised Learning
+Unsupervised learning deals with unlabeled data to find patterns and structure.
+
+- Clustering
+  - K-means
+  - Hierarchical clustering
+  - DBSCAN
+  - Gaussian mixture models
+- Dimensionality reduction
+  - PCA
+  - t-SNE
+  - UMAP
+  - Autoencoders
+- Anomaly detection
+  - Isolation Forest
+  - One-class SVM
+  - Local Outlier Factor
+  - Autoencoder-based detection
+
+#### Reinforcement Learning
+Reinforcement learning focuses on training agents to make decisions through trial and error.
+
+- Q-learning
+  - Deep Q-learning
+  - Double Q-learning
+  - Dueling Q-learning
+- Policy gradients
+  - REINFORCE
+  - Actor-Critic
+  - PPO
+  - TRPO
+- Deep Q-networks
+  - DQN
+  - Rainbow DQN
+  - A3C
+  - DDPG
+
+#### Deep Learning
+Deep learning uses neural networks with multiple layers to learn complex patterns.
+
+- Neural networks
+  - Feedforward networks
+  - Recurrent networks
+  - Convolutional networks
+  - Transformer networks
+- Architectures
+  - ResNet
+  - VGG
+  - BERT
+  - GPT
+- Training techniques
+  - Batch normalization
+  - Dropout
+  - Learning rate scheduling
+  - Gradient clipping
+
+### Web Development
+Modern web development involves multiple technologies and frameworks:
+
+#### Frontend Development
+```javascript
+// React component example
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const UserDashboard = () => {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get('/api/users');
+        setUsers(response.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  return (
+    <div className="dashboard">
+      <h1>User Dashboard</h1>
+      <div className="user-grid">
+        {users.map(user => (
+          <UserCard key={user.id} user={user} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// Redux store example
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
+const userReducer = (state = [], action) => {
+  switch (action.type) {
+    case 'SET_USERS':
+      return action.payload;
+    case 'ADD_USER':
+      return [...state, action.payload];
+    default:
+      return state;
+  }
+};
+
+const rootReducer = combineReducers({
+  users: userReducer
+});
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+```
+
+#### Backend Development
+```python
+# FastAPI example with database
+from fastapi import FastAPI, Depends, HTTPException
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, Session
+from pydantic import BaseModel
+from typing import List
+
+SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = "users"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True)
+    email = Column(String, unique=True, index=True)
+    role = Column(String)
+
+class UserCreate(BaseModel):
+    name: str
+    email: str
+    role: str
+
+app = FastAPI()
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+@app.post("/users/", response_model=UserCreate)
+def create_user(user: UserCreate, db: Session = Depends(get_db)):
+    db_user = User(**user.dict())
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user
+
+@app.get("/users/", response_model=List[UserCreate])
+def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    users = db.query(User).offset(skip).limit(limit).all()
+    return users
+```
+
+## Structured Data
+
+### User Information
+```json
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "email": "john@example.com",
+            "role": "developer",
+            "skills": ["Python", "JavaScript", "SQL", "Docker", "AWS"],
+            "projects": [
+                {
+                    "name": "E-commerce Platform",
+                    "technologies": ["React", "Node.js", "MongoDB", "Redis"],
+                    "duration": "6 months",
+                    "description": "Built a scalable e-commerce platform with real-time inventory management",
+                    "responsibilities": [
+                        "Backend API development",
+                        "Database optimization",
+                        "CI/CD pipeline setup"
+                    ]
+                },
+                {
+                    "name": "Data Analytics Dashboard",
+                    "technologies": ["Python", "Pandas", "Plotly", "FastAPI"],
+                    "duration": "3 months",
+                    "description": "Created an interactive dashboard for business analytics",
+                    "responsibilities": [
+                        "Data pipeline development",
+                        "Visualization implementation",
+                        "Performance optimization"
+                    ]
+                }
+            ],
+            "education": {
+                "degree": "Computer Science",
+                "university": "Tech University",
+                "graduation_year": 2020
+            },
+            "certifications": [
+                "AWS Certified Developer",
+                "Google Cloud Professional",
+                "Docker Certified Associate"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Jane Smith",
+            "email": "jane@example.com",
+            "role": "data scientist",
+            "skills": ["Python", "R", "TensorFlow", "PyTorch", "SQL"],
+            "projects": [
+                {
+                    "name": "Customer Segmentation",
+                    "technologies": ["Scikit-learn", "Pandas", "Matplotlib", "Seaborn"],
+                    "duration": "3 months",
+                    "description": "Developed a customer segmentation model using clustering algorithms",
+                    "responsibilities": [
+                        "Data preprocessing",
+                        "Model development",
+                        "Result visualization"
+                    ]
+                },
+                {
+                    "name": "Sentiment Analysis",
+                    "technologies": ["NLTK", "Transformers", "FastAPI", "Docker"],
+                    "duration": "4 months",
+                    "description": "Built a sentiment analysis system for customer feedback",
+                    "responsibilities": [
+                        "NLP pipeline development",
+                        "Model training",
+                        "API deployment"
+                    ]
+                }
+            ],
+            "education": {
+                "degree": "Data Science",
+                "university": "Data University",
+                "graduation_year": 2019
+            },
+            "certifications": [
+                "TensorFlow Developer",
+                "Data Science Professional",
+                "Machine Learning Specialist"
+            ]
+        }
+    ]
+}
+```
+
+### Product Catalog
+| ID | Name | Price | Category | Description | Stock | Specifications | Reviews |
+|----|------|-------|----------|-------------|-------|----------------|---------|
+| 1  | Laptop | 999.99 | Electronics | High-performance laptop with 16GB RAM | 50 | CPU: Intel i7, RAM: 16GB, Storage: 512GB SSD | 4.5/5 (120 reviews) |
+| 2  | Smartphone | 699.99 | Electronics | Latest model with 5G capability | 100 | CPU: Snapdragon 888, RAM: 8GB, Storage: 256GB | 4.7/5 (250 reviews) |
+| 3  | Headphones | 149.99 | Accessories | Noise-cancelling wireless headphones | 75 | Battery: 30h, Bluetooth: 5.0, ANC: Yes | 4.3/5 (80 reviews) |
+| 4  | Monitor | 299.99 | Electronics | 27-inch 4K display | 30 | Resolution: 3840x2160, Refresh: 60Hz, Panel: IPS | 4.6/5 (95 reviews) |
+| 5  | Keyboard | 89.99 | Accessories | Mechanical keyboard with RGB lighting | 45 | Switches: Cherry MX, Layout: TKL, Backlight: RGB | 4.4/5 (65 reviews) |
+| 6  | Mouse | 49.99 | Accessories | Wireless gaming mouse | 60 | DPI: 16000, Buttons: 6, Battery: 50h | 4.2/5 (45 reviews) |
+| 7  | Webcam | 79.99 | Electronics | 1080p streaming webcam | 40 | Resolution: 1920x1080, FPS: 30, Mic: Yes | 4.1/5 (30 reviews) |
+| 8  | SSD | 129.99 | Components | 1TB NVMe SSD | 25 | Capacity: 1TB, Interface: NVMe, Speed: 3500MB/s | 4.8/5 (150 reviews) |
+
+## Web Content
+
+### HTML Structure
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <a href="/">TechStore</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/categories">Categories</a></li>
+                    <li><a href="/deals">Deals</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+                <div class="user-actions">
+                    <a href="/cart" class="cart-icon">Cart (0)</a>
+                    <a href="/account" class="account-icon">Account</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to TechStore</h1>
+                <p>Your one-stop shop for all tech needs</p>
+                <a href="/products" class="cta-button">Shop Now</a>
+            </div>
+        </section>
+        
+        <section class="featured-products">
+            <div class="container">
+                <h2>Featured Products</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="product1.jpg" alt="Laptop">
+                        <h3>High-Performance Laptop</h3>
+                        <p class="price">$999.99</p>
+                        <p class="description">Latest model with 16GB RAM</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <!-- More product cards -->
+                </div>
+            </div>
+        </section>
+        
+        <section class="categories">
+            <div class="container">
+                <h2>Shop by Category</h2>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <img src="electronics.jpg" alt="Electronics">
+                        <h3>Electronics</h3>
+                    </div>
+                    <div class="category-card">
+                        <img src="accessories.jpg" alt="Accessories">
+                        <h3>Accessories</h3>
+                    </div>
+                    <!-- More category cards -->
+                </div>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="container">
+                <h2>Why Choose Us</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <i class="icon-shipping"></i>
+                        <h3>Fast Shipping</h3>
+                        <p>Free shipping on orders over $50</p>
+                    </div>
+                    <div class="feature">
+                        <i class="icon-support"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Always here to help</p>
+                    </div>
+                    <div class="feature">
+                        <i class="icon-guarantee"></i>
+                        <h3>Money-back Guarantee</h3>
+                        <p>30-day return policy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="/about">Our Story</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/press">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/returns">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/cookies">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechStore. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">Facebook</a>
+                    <a href="#" class="social-icon">Twitter</a>
+                    <a href="#" class="social-icon">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="main.js"></script>
+</body>
+</html>
+```
+
+## Long Text Section
+This section contains a longer piece of text to test the chunking capabilities of our RAG system. It includes various topics and concepts that might be relevant for testing semantic search and retrieval.
+
+### Artificial Intelligence
+Artificial Intelligence (AI) is a broad field of computer science focused on creating systems that can perform tasks typically requiring human intelligence. These tasks include visual perception, speech recognition, decision-making, and language translation. AI systems can be categorized into narrow AI, which is designed for specific tasks, and general AI, which aims to perform any intellectual task that a human can do.
+
+Machine learning, a subset of AI, involves training algorithms to learn patterns from data. Deep learning, a further subset of machine learning, uses artificial neural networks with multiple layers to process data. These networks can automatically learn hierarchical representations of data, making them particularly effective for tasks like image and speech recognition.
+
+#### AI Applications
+AI has numerous applications across various industries:
+
+1. Healthcare
+   - Medical image analysis
+   - Drug discovery
+   - Patient monitoring
+   - Disease prediction
+
+2. Finance
+   - Fraud detection
+   - Algorithmic trading
+   - Credit scoring
+   - Risk assessment
+
+3. Manufacturing
+   - Predictive maintenance
+   - Quality control
+   - Supply chain optimization
+   - Robotics
+
+4. Transportation
+   - Autonomous vehicles
+   - Traffic prediction
+   - Route optimization
+   - Fleet management
+
+5. Retail
+   - Personalized recommendations
+   - Inventory management
+   - Customer service chatbots
+   - Price optimization
+
+### Natural Language Processing
+Natural Language Processing (NLP) is a field of artificial intelligence that focuses on the interaction between computers and human language. It involves tasks such as text classification, sentiment analysis, and machine translation. Modern NLP systems often use transformer-based architectures like BERT or GPT, which have revolutionized the field by providing more accurate and context-aware language understanding.
+
+#### NLP Tasks
+Key NLP tasks include:
+
+1. Text Classification
+   - Document categorization
+   - Topic modeling
+   - Spam detection
+   - Sentiment analysis
+
+2. Named Entity Recognition
+   - Person names
+   - Organization names
+   - Location names
+   - Date/time expressions
+
+3. Machine Translation
+   - Neural machine translation
+   - Statistical machine translation
+   - Rule-based translation
+   - Hybrid approaches
+
+4. Question Answering
+   - Reading comprehension
+   - Open-domain QA
+   - Closed-domain QA
+   - Multi-hop QA
+
+5. Text Summarization
+   - Extractive summarization
+   - Abstractive summarization
+   - Multi-document summarization
+   - Query-focused summarization
+
+### Data Science
+Data Science is another important field that combines statistics, programming, and domain knowledge to extract insights from data. It involves various stages including data collection, cleaning, analysis, and visualization. Common tools in data science include Python libraries like NumPy, Pandas, and Scikit-learn.
+
+#### Data Science Workflow
+The data science workflow typically includes:
+
+1. Data Collection and Preprocessing
+   - Data sourcing
+   - Data cleaning
+   - Data transformation
+   - Feature engineering
+
+2. Exploratory Data Analysis
+   - Statistical analysis
+   - Data visualization
+   - Correlation analysis
+   - Outlier detection
+
+3. Model Development
+   - Algorithm selection
+   - Model training
+   - Hyperparameter tuning
+   - Model validation
+
+4. Model Deployment
+   - API development
+   - Containerization
+   - Monitoring
+   - Maintenance
+
+5. Results Communication
+   - Report generation
+   - Dashboard creation
+   - Presentation preparation
+   - Stakeholder communication
+
+### Cloud Computing
+Cloud Computing has become essential for modern applications, providing scalable and reliable infrastructure. Major cloud providers include Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). Each offers various services for computing, storage, and machine learning.
+
+#### Cloud Services
+Key cloud services include:
+
+1. Compute Services
+   - Virtual machines
+   - Container services
+   - Serverless computing
+   - Batch processing
+
+2. Storage Services
+   - Object storage
+   - Block storage
+   - File storage
+   - Archive storage
+
+3. Database Services
+   - Relational databases
+   - NoSQL databases
+   - Data warehouses
+   - Caching services
+
+4. AI/ML Services
+   - Training services
+   - Inference services
+   - Data labeling
+   - Model deployment
+
+5. Networking Services
+   - Load balancing
+   - Content delivery
+   - Virtual networks
+   - DNS services
+
+### DevOps and CI/CD
+DevOps practices combine software development (Dev) and IT operations (Ops) to shorten the development lifecycle and provide continuous delivery of high-quality software. Continuous Integration and Continuous Deployment (CI/CD) pipelines automate the process of building, testing, and deploying applications.
+
+#### DevOps Tools
+Common DevOps tools include:
+
+1. Version Control
+   - Git
+   - GitHub
+   - GitLab
+   - Bitbucket
+
+2. Containerization
+   - Docker
+   - Kubernetes
+   - OpenShift
+   - Rancher
+
+3. Configuration Management
+   - Ansible
+   - Terraform
+   - Puppet
+   - Chef
+
+4. Monitoring
+   - Prometheus
+   - Grafana
+   - Datadog
+   - New Relic
+
+5. Logging
+   - ELK Stack
+   - Fluentd
+   - Graylog
+   - CloudWatch
+
+### Security
+Security is a critical aspect of modern software development and operations. It involves protecting systems, networks, and data from digital attacks.
+
+#### Security Practices
+Key security practices include:
+
+1. Authentication
+   - Multi-factor authentication
+   - OAuth
+   - JWT
+   - SSO
+
+2. Authorization
+   - Role-based access control
+   - Attribute-based access control
+   - Policy-based access control
+   - Zero-trust security
+
+3. Encryption
+   - TLS/SSL
+   - AES
+   - RSA
+   - ECC
+
+4. Security Monitoring
+   - SIEM
+   - IDS/IPS
+   - Vulnerability scanning
+   - Penetration testing
+
+5. Compliance
+   - GDPR
+   - HIPAA
+   - PCI DSS
+   - SOC 2
+
+## Conclusion
+This document serves as a comprehensive test case for evaluating the performance of our RAG system across different types of content and structures. It includes:
+- Plain text
+- Code snippets
+- Structured data (JSON, tables)
+- HTML content
+- Long-form content
+- Various formatting styles
+
+The document is designed to test:
+1. Text chunking capabilities
+2. Semantic search accuracy
+3. Metadata handling
+4. Content type recognition
+5. Query response quality
+6. Technical content understanding
+7. Structured data processing
+8. Code snippet handling
+9. Long-form content analysis
+10. Cross-referencing capabilities
+11. Hierarchical content understanding
+12. Multi-format content processing
+13. Complex data structure handling
+14. Technical terminology recognition
+15. Context preservation across chunks 

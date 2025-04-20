@@ -1,0 +1,21 @@
+[project]
+name = "qv-rag"
+version = "0.1.0"
+description = "A lightweight, modular RAG system using ChromaDB"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "bs4>=0.0.2",
+    "chromadb>=1.0.5",
+    "langchain-community>=0.3.21",
+    "langchain-text-splitters>=0.3.8",
+    "pytest>=8.3.5",
+    "sentence-transformers>=4.1.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/qv_rag"]
