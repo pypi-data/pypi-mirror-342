@@ -1,0 +1,11 @@
+README.md
+setup.py
+translatorai/__init__.py
+translatorai/client.py
+translatorai.egg-info/PKG-INFO
+translatorai.egg-info/SOURCES.txt
+translatorai.egg-info/dependency_links.txt
+translatorai.egg-info/requires.txt
+translatorai.egg-info/top_level.txt
+translatorai/utils/__init__.py
+translatorai/utils/headers.py
