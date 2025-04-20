@@ -1,0 +1,14 @@
+site_name: openaivec documentation
+site_url: https://anaregdesign.github.io/openaivec/
+theme:
+  name: material
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - src
+          docstring_style: google
+          show_submodules: true
