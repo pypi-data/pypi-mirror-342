@@ -1,0 +1,2 @@
+[console_scripts]
+cheesecloth-analyze=cheesecloth.cli:main
