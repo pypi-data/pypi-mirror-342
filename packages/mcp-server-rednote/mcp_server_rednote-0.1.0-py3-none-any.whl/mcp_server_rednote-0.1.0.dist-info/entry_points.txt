@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-rednote = mcp_server_rednote:main
