@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jiki"
+version = "0.1.0"
+description = "A flexible LLM orchestration framework with tool calling capabilities via MCP protocol"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Teilo Millet (teilomillet)"}
+]
+dependencies = [
+    "mcp",
+    "litellm",
+    "pytest",
+    "fastmcp>=2.1.1",
+]
+
+[tool.setuptools]
+packages = ["jiki", "jiki.models", "jiki.tools", "jiki.utils", "jiki.transports", "jiki.prompts", "jiki.resources", "jiki.roots", "jiki.serialization"]
