@@ -1,0 +1,124 @@
+[tool.poetry]
+name = "zodipy"
+version = "1.1.1"
+description = "A Python package for zodiacal light simulations"
+authors = ["Metin San <metinisan@gmail.com>"]
+readme = "README.md"
+license = "GPL-3.0-or-later"
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+keywords = [
+    "astronomy",
+    "astrophysics",
+    "cosmology",
+    "space",
+    "science",
+]
+exclude = ["test.py"]
+
+[tool.poetry.urls]
+documentation = "https://cosmoglobe.github.io/zodipy/"
+repository = "https://github.com/cosmoglobe/zodipy"
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+numpy = "^1.26.4"
+astropy = ">=5.0.1"
+jplephem = "^2.17"
+scipy = "^1.13.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+mypy = "^1.0"
+mkdocs = "^1.5.3"
+pymdown-extensions = "^10.8.1"
+markdown-include = "^0.8.1"
+pre-commit = "^2.19.0"
+coverage = "^7.1.0"
+pytest-cov = "^4.0.0"
+mkdocs-material = "^9.5.21"
+mkdocstrings = "^0.25.1"
+mkdocstrings-python = "^1.7.3"
+ruff = "^0.3.7"
+markdown = "^3.6.0"
+hypothesis = "^6.99.11"
+healpy = "^1.17.1"
+astropy-healpix = "^1.0.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+disable_error_code = ["misc"]
+plugins = "numpy.typing.mypy_plugin"
+overrides = [
+    { module = "astropy.*", ignore_missing_imports = true },
+    { module = "astropy_healpix.*", ignore_missing_imports = true },
+    { module = "scipy.*", ignore_missing_imports = true },
+    { module = "pkg_resources.*", ignore_missing_imports = true },
+]
+exclude = ["_contour.py"]
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::UserWarning",
+    "ignore:.*overflow encountered in expm1.*",
+]
+
+[tool.ruff]
+lint.select = [
+    "F", 
+    "D", 
+    "F", 
+    "E", 
+    "W", 
+    "C", 
+    "B", 
+    "I", 
+    "YTT", 
+    "ANN", 
+    "S", 
+    "BLE", 
+    "A", 
+    "C4", 
+    "EM", 
+    "ISC",
+    "ICN",
+    "G",
+    "INP",
+    "PIE",
+    "T20",
+    "Q",
+    "RET",
+    "SIM",
+    "PLR",
+    "PLW",
+    "TRY",
+    "RUF",
+    "NPY201"
+]
+line-length = 100
+lint.ignore = [
+    "B905",
+    "D100",
+    "D104",
+    "D105",
+    "D107",
+    "ANN101",
+    "PLR0913",
+    "ISC001",
+    "S311",
+]
+exclude = ["work_in_progress/*"]
+lint.pydocstyle.convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
+"docs/*" = ["INP001", "T201", "S101"]
