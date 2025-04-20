@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+include TRADEMARK.md
+recursive-include djangoadmin2fa/static *
+recursive-include djangoadmin2fa/templates *
