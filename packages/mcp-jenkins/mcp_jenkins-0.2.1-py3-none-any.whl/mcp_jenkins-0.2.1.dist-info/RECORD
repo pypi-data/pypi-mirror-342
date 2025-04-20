@@ -1,0 +1,16 @@
+mcp_jenkins/__init__.py,sha256=NqR_f1oGzhW12oHcQV0zDE0Juoa6mw8JkqPPCVIsCBo,1221
+mcp_jenkins/jenkins/__init__.py,sha256=ISXDqewtLc14NOaH7uano7kKw6DHwpDP8iQDaLlqJgM,64
+mcp_jenkins/jenkins/_build.py,sha256=209Pih7sbW5fiwX3-SSqUNQVZdRgT8KPY8Pt5s2VHVE,1535
+mcp_jenkins/jenkins/_client.py,sha256=heY_VsxydSz-KozOqCfVlJzsJBwVwAF2BWNaeCTEkhA,436
+mcp_jenkins/jenkins/_job.py,sha256=u2Xmf3hM3ysxZ0S0kh0Gi0NLJpum6PmC89_kZDRdFIY,2111
+mcp_jenkins/models/build.py,sha256=-jjMIijSSPN8-R7bmJ-wgasr7-iR1SjIqFeGvd42fTE,646
+mcp_jenkins/models/job.py,sha256=koA3UGJRa634kBKtSrkOIOMFHOvZD3KNpoFHalkPinA,607
+mcp_jenkins/server/__init__.py,sha256=_rj2fH6qlZRhld0Q0gvfv734XMl8x4vw2Usk6qJO-0g,1224
+mcp_jenkins/server/build.py,sha256=3JKfvbn-A6dGW1KSyl2VWH3I0zJ6AQuWozZ2TvZrtRE,1696
+mcp_jenkins/server/job.py,sha256=Q1anpFv9UlWGn7on0hiQBAH_d_breZoE2tnGd4ge3gU,1811
+mcp_jenkins-0.2.1.dist-info/licenses/LICENSE,sha256=ZmrQOGcjQEPLbOKqOwr_vI6rJePrh84EGUNjBftJt1c,1063
+mcp_jenkins-0.2.1.dist-info/METADATA,sha256=NvF8vOJSWFzmxN84wgTscZwRbEJjablKs9IxKvZlFi8,4822
+mcp_jenkins-0.2.1.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+mcp_jenkins-0.2.1.dist-info/entry_points.txt,sha256=6wiIZ3iQUEF2_1P5QscKCrwY666PEaNOqVY1IMm2NzU,49
+mcp_jenkins-0.2.1.dist-info/top_level.txt,sha256=As3Eu8tdAOnJe1sKGK5W3msvzGpAL8xQrZCfISIcXlI,12
+mcp_jenkins-0.2.1.dist-info/RECORD,,
