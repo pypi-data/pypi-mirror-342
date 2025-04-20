@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+gangthisisatestbro/__init__.py
+gangthisisatestbro/example.py
+gangthisisatestbro.egg-info/PKG-INFO
+gangthisisatestbro.egg-info/SOURCES.txt
+gangthisisatestbro.egg-info/dependency_links.txt
+gangthisisatestbro.egg-info/top_level.txt
+tests/test_example.py
