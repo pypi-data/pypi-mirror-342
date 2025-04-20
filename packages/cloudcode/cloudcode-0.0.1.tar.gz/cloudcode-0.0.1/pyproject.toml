@@ -1,0 +1,20 @@
+[project]
+name = "cloudcode"
+version = "0.0.1"
+description = "Code the thing that Codes the thing"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Sean Sullivan", email = "sean@lmsystems.ai"}
+]
+dependencies = [
+    "aider-chat>=0.82.1",
+    "e2b-code-interpreter"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+
+[project.urls]
+"Homepage" = "https://cloudcode.ai"

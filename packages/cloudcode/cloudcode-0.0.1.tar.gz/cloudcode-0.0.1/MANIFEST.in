@@ -1,0 +1,26 @@
+exclude tests/*
+exclude .env
+exclude *.env
+exclude venv/*
+exclude venv/
+
+exclude e2b_plan.md
+exclude e2b_docs.md
+
+exclude README_LMSYS.md
+
+exclude *.aider
+exclude .aider*
+
+exclude lmsys.egg-info/
+
+exclude lmsys_backend/*
+exclude lmsys_backend/
+
+exclude __pycache__/
+exclude __pycache__/*
+
+exclude cloudcode.egg-info/
+exclude cloudcode.egg-info/*
+
+exclude
