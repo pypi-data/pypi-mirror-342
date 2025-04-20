@@ -1,0 +1,25 @@
+[project]
+name = "pynvim-python-interpreter"
+version = "1.0.0"
+description = "Neovim pynvim python executable wrapper"
+readme = "README.md"
+authors = [
+    { name = "Michael Henry", email = "drmikehenry@drmikehenry.com" }
+]
+requires-python = ">=3.8"
+dependencies = [
+    "pynvim>=0.5.2",
+]
+
+[project.scripts]
+pynvim-python-interpreter = "pynvim_python_interpreter:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
