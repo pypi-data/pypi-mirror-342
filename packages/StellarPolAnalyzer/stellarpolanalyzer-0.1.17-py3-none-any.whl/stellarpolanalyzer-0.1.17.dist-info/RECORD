@@ -1,0 +1,14 @@
+StellarPolAnalyzer/__init__.py,sha256=fF8ye9S78IYxsnd6EPFWxGJ16FiUKGAOvI2UM1GeLpE,560
+StellarPolAnalyzer/alignment.py,sha256=LhmUp0jmsnRu9aYF89poxL-r3aUZC71h4DoAdDt9VwU,3988
+StellarPolAnalyzer/astrometry.py,sha256=VIELUcIDEPhZtHqVk4XPyliT-HUoqyYbm8M3vaX6EBI,6848
+StellarPolAnalyzer/detection.py,sha256=KDt3xzuFQlQIKeEXSidg11cJJhrexapTt44QCOhMdYg,5628
+StellarPolAnalyzer/pairing.py,sha256=9zHx-82B9t2t1VrvO6uHl7Nc2OOv0d4CwNWxJEmzoVE,5633
+StellarPolAnalyzer/photometry.py,sha256=DrSwL_cdrEW-zbbRrHtfnc-3PoFWnWTSiyUsKqzj1_w,7674
+StellarPolAnalyzer/pipeline.py,sha256=93OJfsI0m5cwwC8oV8wf4onBZ-HXHbbCw0larptboa0,10728
+StellarPolAnalyzer/utils.py,sha256=7Gnh6diXBorxfMkl-Fz_vy7iXbKv7sAYxoQXVm_aG9k,1476
+StellarPolAnalyzer/visualization.py,sha256=iFKHVkQ1fyVaTvb6Nqo2LWLPNHQMDax9P2JX2zxpkn8,9985
+stellarpolanalyzer-0.1.17.dist-info/licenses/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+stellarpolanalyzer-0.1.17.dist-info/METADATA,sha256=879E5MtpZPS24yPEBY2_QYe9NkqLDJfaiLag2sbNh5A,8312
+stellarpolanalyzer-0.1.17.dist-info/WHEEL,sha256=tTnHoFhvKQHCh4jz3yCn0WPTYIy7wXx3CJtJ7SJGV7c,91
+stellarpolanalyzer-0.1.17.dist-info/top_level.txt,sha256=Q43bZLHdtkkwK2l-AADYsAHoEHxnkjkiwGBvrZLW6Fw,19
+stellarpolanalyzer-0.1.17.dist-info/RECORD,,
