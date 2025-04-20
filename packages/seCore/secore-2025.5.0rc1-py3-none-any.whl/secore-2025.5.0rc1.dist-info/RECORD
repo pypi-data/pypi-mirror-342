@@ -1,0 +1,16 @@
+seCore/ConfigSettings.py,sha256=fCKY0BG0v3dnkm45mhhg4CTc5u9-96ScTAO9RPAdT2E,10826
+seCore/CustomLogging.py,sha256=9x1imoJfPe5-D1O-jzfGlX8J6zFH39_NYkJ5IPAshXo,2510
+seCore/Encryption.py,sha256=OQfxWQQ6JmX_3B4dp2No7UgL8eE_RuObxwflrzeh-2o,6840
+seCore/HttpRest.py,sha256=reMN2HyvmubfMYkw3QAEa5ija2MwyHyzlFff-t4NL2I,6674
+seCore/KeyManager.py,sha256=onTr5EsvFRC_QcUXqhO_SO3Clqa_RImS2f-2c8p1Qbs,3405
+seCore/ProjectRoot.py,sha256=95jH2WLxe1Kt0YsXyVuSj7beTGU5jFKIe9iU8_f4Df0,2601
+seCore/PyVersions.py,sha256=6azTlDdQpVWjKSKyuQa-spoOm2jg8aDJxtEf2zsITWA,6413
+seCore/__about__.py,sha256=IUtRM2pW5SMKCJzj1XslWgm_pb1KQRxxMHT3q0H8Y70,103
+seCore/__init__.py,sha256=0LKNoS71K32jjmuzC46D2VrMGvIQikbIlO6Unm1MzRM,41
+seCore/templates/ConfigSettings.py,sha256=hW1-3twvHR5ka9t6vvO3dkL3aAMH3Fn7gpeUI9Cn1wo,2940
+seCore/templates/Keys.py,sha256=L_4f_llYg62jDlGUw2ERd67Ry-irsGTWghktEQEteYs,2703
+seCore/templates/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+secore-2025.5.0rc1.dist-info/METADATA,sha256=ncI7bUWOLA9MXsuwOBxy3d3nSjkq_QO-NZScNyLxEPY,12105
+secore-2025.5.0rc1.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+secore-2025.5.0rc1.dist-info/top_level.txt,sha256=JXYR_-KFiWF4W9bTf7Esk0EY-IN0sgUGaos7BdgGgyM,7
+secore-2025.5.0rc1.dist-info/RECORD,,
