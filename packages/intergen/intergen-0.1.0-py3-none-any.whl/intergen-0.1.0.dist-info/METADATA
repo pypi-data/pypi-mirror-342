@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: intergen
+Version: 0.1.0
+Summary: INTERGEN: Interactive Neural Generalization Framework
+Home-page: https://github.com/yourusername/intergen
+Author: Mustafa Ekmekci
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: tensorflow
+Requires-Dist: scikit-learn
+
+# INTERGEN: Interactive Neural Generalization
+
+INTERGEN is a novel ensemble learning framework that allows multiple neural networks to interact and synthesize their weights based on performance metrics like RÂ².
+
+## Features
+- Neural-to-neural interaction
+- RÂ²-based weight fusion
+- Visualization support (heatmap, violin plot, bar plot)
+- Modular architecture
+
+## Installation
+
+## Usage
+Check out `demo.py` for an example.
