@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+recursive-include finance/static *
+recursive-include finance/templates *
+recursive-include finance/migrations *
