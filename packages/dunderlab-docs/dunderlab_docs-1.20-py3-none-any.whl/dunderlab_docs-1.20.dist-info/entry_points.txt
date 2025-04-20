@@ -1,0 +1,2 @@
+[console_scripts]
+dunderlab_docs = dunderlab.docs.scripts.dunderlab_docs:main
