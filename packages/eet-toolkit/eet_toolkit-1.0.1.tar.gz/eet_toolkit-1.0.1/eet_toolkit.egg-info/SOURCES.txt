@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+eet_toolkit/__init__.py
+eet_toolkit/redmail.py
+eet_toolkit/redmailer_gui.py
+eet_toolkit.egg-info/PKG-INFO
+eet_toolkit.egg-info/SOURCES.txt
+eet_toolkit.egg-info/dependency_links.txt
+eet_toolkit.egg-info/entry_points.txt
+eet_toolkit.egg-info/requires.txt
+eet_toolkit.egg-info/top_level.txt
+eet_toolkit/samples/accounts.json
+eet_toolkit/samples/oauth2_tokens.json
+eet_toolkit/samples/targets.txt
+eet_toolkit/samples/template.html
