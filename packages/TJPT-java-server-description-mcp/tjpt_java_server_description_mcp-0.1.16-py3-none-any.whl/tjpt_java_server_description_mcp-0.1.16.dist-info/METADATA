@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: TJPT-java-server-description-mcp
+Version: 0.1.16
+Summary: Description MCP - declarative & instructive messages to guide LLMs
+Author-email: czyhandsome <czyhandsome@foxmail.com>
+License: MIT
+Keywords: description,llm,mcp,protocol,server
+Requires-Python: >=3.12
+Requires-Dist: mcp-python>=0.1.4
+Description-Content-Type: text/markdown
+
+# MCP Description Server
+
+A description server for MCP that provides declarative & instructive messages to guide LLMs.
+
+## Installation
+
+```bash
+pip install czyhandsome-description-mcp
+```
+
+## Usage
+
+```bash
+# Run the server directly
+mcpdescription
+
+# Or using uvx
+uvx --from czyhandsome-description-mcp mcpdescription
+``` 
