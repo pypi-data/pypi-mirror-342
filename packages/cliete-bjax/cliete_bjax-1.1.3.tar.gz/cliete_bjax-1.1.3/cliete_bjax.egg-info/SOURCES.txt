@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+cliete_bjax.egg-info/PKG-INFO
+cliete_bjax.egg-info/SOURCES.txt
+cliete_bjax.egg-info/dependency_links.txt
+cliete_bjax.egg-info/requires.txt
+cliete_bjax.egg-info/top_level.txt
+gradio_clilent_configb/__init__.py
+gradio_clilent_configb/cover.py
+gradio_clilent_configb/i2vgen.py
+gradio_clilent_configb/t2vgen.py
