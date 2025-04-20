@@ -1,0 +1,4 @@
+include bin/conservation
+include README.md
+include LICENSE
+recursive-include conservation/lib *
