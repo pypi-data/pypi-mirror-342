@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link href={% static "commons/css/testResultsTreeView.css" %} rel="stylesheet" type="text/css">
+{% endblock extra_css %}
+
+<!-- Stop the sidebar from scrolling with the main content, add the styles-->
+<!-- <div style="overlfow:auto; height:0px"> -->
+{% block content %}
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm topbar fixed-top secondNavbarStyle">
+        <div class="playbookNavbarInline">
+            <a href="#" data-toggle="modal" data-target="#createPlaybookModal" onclick="">Create Testcase Profile</a>&emsp;&emsp;
+            <a href="#" data-toggle="modal" data-target="#deletePlaybookModal">Delete Playbook</a>&emsp;&emsp;
+        </div>
+    </nav>
+
+    <!-- table-responsive -->
+    <div class="row"> 
+        <div id="insertTestcases"></div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block extra_js %}
+    <script type="module" src="{% static 'commons/js/testcases.js' %}"></script>
+{% endblock extra_js %}
