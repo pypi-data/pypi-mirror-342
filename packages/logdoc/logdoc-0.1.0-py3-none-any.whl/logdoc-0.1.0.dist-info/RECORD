@@ -1,0 +1,14 @@
+logdoc/__init__.py,sha256=2ytIWyNdAA3lR8D0P3jjslZSYHRG61lBMR_Xh1wrFgs,26
+logdoc/cli.py,sha256=qjRqIL51XWVAz5y4H3_JX3b9WxaF5XBOEfR0LlA5Tis,2027
+logdoc/logger.py,sha256=16KJNf6pffxY23Nn27ev3jUQ6ev9IvJbj2ZOsozx_lE,394
+logdoc/core/__init__.py,sha256=T4g7ZhHm_T5BsJU60p5LcMgIgNyIL7aPPQLpa2S6ZdM,26
+logdoc/core/fix_headers.py,sha256=gNO-j4FAIYjThlKNT1LtDW5nR3VaeFbHp3KU7e31bNE,1482
+logdoc/core/header_injector.py,sha256=uhahNnVZDKRPX6nz9Mzw4Klr4bT3smmkREj3zxA_gwU,3135
+logdoc/errors/__init__.py,sha256=4z4ykF4UxjFSP-gox3hlXQG84pZh2inkLzdK7xWALvM,28
+logdoc/errors/logdoc_exceptions.py,sha256=UhTARDqmyBvVpa0Grys_ARuaU3p6n1USHr8K2_RAEqo,427
+logdoc/utils/__init__.py,sha256=3phqNZjqUdW2om-TxLiy5wE7-hvEHYYbW766oQhQeQ8,27
+logdoc/utils/filemeta.py,sha256=nAMfD_e33QyxnnG_O0RECGcZPWHqUedvIqgHJZLJJAo,259
+logdoc-0.1.0.dist-info/METADATA,sha256=WqDmJ90EMn5Y2SP3CbFS2FmeCyTaLjoouNu2Rd_jXdY,269
+logdoc-0.1.0.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+logdoc-0.1.0.dist-info/top_level.txt,sha256=QwqFLzYKfOoLSYadWACw2KjLXgOmOw4NcC0XVzoymp0,7
+logdoc-0.1.0.dist-info/RECORD,,
