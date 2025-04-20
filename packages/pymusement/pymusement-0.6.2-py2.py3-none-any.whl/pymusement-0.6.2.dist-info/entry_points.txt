@@ -1,0 +1,2 @@
+[console_scripts]
+pymusement = pymusement.scripts.cli:cli
