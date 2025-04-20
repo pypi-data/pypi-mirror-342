@@ -1,0 +1,25 @@
+# Include license and readme
+include LICENSE
+include README.md
+
+# Include configuration examples if you have any
+# include *.yaml
+# include *.yml
+
+# Include documentation source but exclude build artifacts
+recursive-include docs *.md *.rst *.txt *.py *.yml
+recursive-exclude docs/_build *
+recursive-exclude docs/site *
+
+# Include examples
+recursive-include examples *.py *.md *.txt
+
+# Include test files (useful for someone who might fork your repo)
+# recursive-include tests *.py *.yaml *.json
+
+# Exclude any bytecode, cache, or build directories
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.so
+global-exclude .git*
+global-exclude .DS_Store
