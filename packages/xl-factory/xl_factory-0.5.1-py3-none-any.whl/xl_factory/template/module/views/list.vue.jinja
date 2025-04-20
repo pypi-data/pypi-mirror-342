@@ -1,0 +1,27 @@
+<script setup>
+import api from '#/{{ api_path }}'
+
+const { params, obj } = api.init()
+</script>
+
+
+<template>
+    <xl-data-view
+        v-bind="api"
+        :callback="() => handlers.save()"
+        >
+        <template #columns>
+            <xl-col l="操作" v-slot="{ row }">
+                <xl-edit-button type="primary" @click="() => api.onSave(row)"/>
+                <xl-delete-button type="danger" @click="() => api.onDelete(row)"/>
+            </xl-col>
+        </template>
+     </xl-data-view>
+</template>
+
+
+<style lang="less">
+.{{ english }} {
+   
+}
+</style>
