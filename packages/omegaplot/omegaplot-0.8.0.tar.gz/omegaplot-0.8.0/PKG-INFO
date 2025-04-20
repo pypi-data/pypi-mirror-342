@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: omegaplot
+Version: 0.8.0
+Summary: The last plotting package you'll ever need.
+Home-page: https://github.com/pkgw/omegaplot/
+Author: Peter Williams
+Author-email: peter@newton.cx
+License: GPLv3
+Keywords: astronomy science
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+License-File: COPYING
+License-File: AUTHORS
+Requires-Dist: numpy>=1.10
+Requires-Dist: pycairo>=1.14
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+This is a Cairo-based plotting package. It's got a ton of great features,
+    but it's also totally undocumented. 
