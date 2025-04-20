@@ -1,0 +1,58 @@
+Metadata-Version: 2.4
+Name: leneda-client
+Version: 0.2.0
+Summary: Python client for the Leneda energy data platform
+Home-page: https://github.com/fedus/leneda-client
+Author: fedus
+Author-email: fedus@dillendapp.eu
+Project-URL: Bug Reports, https://github.com/yourusername/leneda-client/issues
+Project-URL: Source, https://github.com/yourusername/leneda-client
+Project-URL: Documentation, https://github.com/yourusername/leneda-client#readme
+Keywords: leneda,energy,api,client
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.25.0
+Requires-Dist: python-dateutil>=2.8.2
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Leneda API Client
+
+[![PyPI version]](https://pypi.org/project/leneda-client/)
+[![Python versions]](https://pypi.org/project/leneda-client/)
+[![License]](https://github.com/fedus/leneda-client/blob/main/LICENSE)
+
+A Python client for interacting with the Leneda energy data platform API.
+
+## Overview
+
+This client provides a simple interface to the Leneda API, which allows users to:
+
+- Retrieve metering data for specific time ranges
+- Get aggregated metering data (hourly, daily, weekly, monthly, or total)
+- Create metering data access requests
+- Use predefined OBIS code constants for easy reference
+
+## Installation
+
+```bash
+pip install leneda-client
