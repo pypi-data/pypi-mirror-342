@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+clixify/__init__.py
+clixify/base.py
+clixify/client.py
+clixify/folder.py
+clixify/list.py
+clixify/space.py
+clixify/task.py
+clixify/team.py
+clixify.egg-info/PKG-INFO
+clixify.egg-info/SOURCES.txt
+clixify.egg-info/dependency_links.txt
+clixify.egg-info/requires.txt
+clixify.egg-info/top_level.txt
+clixify/utils/__init__.py
+clixify/utils/exceptions.py
