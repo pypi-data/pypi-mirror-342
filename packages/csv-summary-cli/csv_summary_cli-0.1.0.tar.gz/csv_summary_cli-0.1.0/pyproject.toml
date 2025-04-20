@@ -1,0 +1,15 @@
+[project]
+name = "csv-summary-cli"
+version = "0.1.0"
+description = "A CLI tool to summarize CSV files with basic stats"
+authors = [{name = "Madhur Dixit", email = "madhurdixit37@gmail.com"}]
+license = "MIT"
+readme = "README.md"
+dependencies = []
+
+[project.scripts]
+csv-summary = "csv_summary.cli:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
