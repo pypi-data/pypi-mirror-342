@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: nacos-config-mcp
+Version: 0.1.1
+Summary: Nacos Config MCP - manage Nacos configuration servers for debugging
+Author-email: czyhandsome <czyhandsome@foxmail.com>
+License: MIT
+Keywords: config,mcp,nacos,protocol,server
+Requires-Python: >=3.12
+Requires-Dist: mcp-python>=0.1.4
+Description-Content-Type: text/markdown
+
+# Nacos Config MCP
+
+A Microservice Client Protocol (MCP) server for managing Nacos configuration servers.
+
+## Installation
+
+```bash
+pip install nacos-config-mcp
+```
+
+## Usage
+
+Run the server:
+
+```bash
+nacos-config-mcp
+```
+
+## Features
+
+Currently supports:
+- Getting version information
+
+More features will be added in future releases.
+
+## License
+
+MIT 
