@@ -1,0 +1,2 @@
+[console_scripts]
+xm = xm.cli:main
