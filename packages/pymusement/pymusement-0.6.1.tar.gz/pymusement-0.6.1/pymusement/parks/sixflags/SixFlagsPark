@@ -1,0 +1,70 @@
+import requests
+import datetime
+import hmac
+import base64
+import re
+import hashlib
+import json
+from pymusement.park import Park
+from pymusement.ride import Ride
+from pymusement.show import Show
+SHARED_HEADERS = {
+    'Accept'                          : 'application/json',
+    'Accept-Language'                 : 'en-US',
+    'X-UNIWebService-AppVersion'      : '1.2.1',
+    'X-UNIWebService-Platform'        : 'Android',
+    'X-UNIWebService-PlatformVersion' : '4.4.2',
+    'X-UNIWebService-Device'          : 'samsung SM-N9005',
+    'X-UNIWebService-ServiceVersion'  : '1',
+    'User-Agent'                      : 'Dalvik/1.6.0 (Linux; U; Android 4.4.2; SM-N9005 Build/KOT49H)',
+    'Connection'                      : 'keep-alive',
+    'Accept-Encoding'                 : 'gzip'
+  }
+
+WAIT_URL = 'https://api.sixflags.net/mobileapi/v1/park/{0}/rideStatus'
+
+META_URL = 'https://api.sixflags.net/mobileapi/v1/park/{0}/ride'
+
+HOURS_URL = ''
+
+
+class SixFlagsPark(Park):
+    def __init__(self):
+        super(SixFlagsPark, self).__init__()
+   
+    
+    def _buildPark(self):
+        token = self._get_token()
+        ride_page = self._get_request(token, WAIT_URL)
+        metadata_page = self._get_request(token, META_URL)
+        
+        
+       
+       
+        for ride in ride_page['Results']:
+            self._make_attraction(ride, metadata_page['rides'])
+    
+        
+
+    def _make_attraction(self, ride, meta):
+        attraction = Ride()
+        
+        
+        
+        self.addRide(attraction)
+
+    
+
+
+    def _get_request(self, token, url):
+        headers={'Authorization': 'Bearer '+ token}
+        r = requests.get(url, headers=headers)
+        return r.json()
+
+    def _get_token(self):
+        headers = {
+            'Authorization':'Basic MEExQ0RGNjctMjQ3Ni00Q0IyLUFCM0ItMTk1MTNGMUY3NzQ3Ok10WEVKU0hMUjF5ekNTS3FBSVZvWmt6d2ZDUUFUNEIzTVhIZ20rZVRHU29xSkNBRDRXUHlIUnlYK0drcFZYSHJBNU9ZdUFKRHYxU3p3a3UxWS9sM0Z3PT0='
+        }
+        data={"grant_type":"client_credentials","scope":"mobileApp"}
+        r = requests.post('https://api.sixflags.net/Authentication/identity/connect/token', headers=headers,data=data)
+        return r.json()['access_token']
