@@ -1,0 +1,3 @@
+[console_scripts]
+vedro-httpx = vedro_httpx.__main__:main
+vedro_httpx = vedro_httpx.__main__:main
