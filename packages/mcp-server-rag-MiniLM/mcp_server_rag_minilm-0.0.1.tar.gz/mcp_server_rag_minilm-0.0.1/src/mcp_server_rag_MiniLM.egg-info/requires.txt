@@ -1,0 +1,4 @@
+click>=8.1.7
+mcp>=1.0.0
+chromadb==0.6.3
+sentence-transformers==3.3.1
