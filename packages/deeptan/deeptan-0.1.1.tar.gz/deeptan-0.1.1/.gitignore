@@ -1,0 +1,28 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+venv_*
+*.sif
+sandbox*/
+
+# Test results
+.vscode/
+.tmp*
+target/
+logs/
+test_*/
+comparison/
+profile*.svg
+perf*.svg
+lightning_logs/
+optimized_data/
+*.npy
+*.npz
+*.zip
