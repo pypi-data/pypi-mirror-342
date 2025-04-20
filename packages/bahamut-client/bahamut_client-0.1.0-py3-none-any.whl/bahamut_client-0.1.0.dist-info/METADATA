@@ -1,0 +1,36 @@
+Metadata-Version: 2.4
+Name: bahamut-client
+Version: 0.1.0
+Summary: Client library for the followthemoney statement data server.
+Project-URL: Documentation, https://github.com/opensanctions/bahamut/
+Project-URL: Repository, https://github.com/opensanctions/bahamut.git
+Project-URL: Issues, https://github.com/opensanctions/bahamut/issues
+Author-email: OpenSanctions <info@opensanctions.org>
+License-Expression: MIT
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.11
+Requires-Dist: followthemoney==3.*
+Requires-Dist: grpcio>=1.70.0
+Requires-Dist: nomenklatura==3.*
+Provides-Extra: dev
+Requires-Dist: black==25.1.0; extra == 'dev'
+Requires-Dist: build; extra == 'dev'
+Requires-Dist: coverage>=4.1; extra == 'dev'
+Requires-Dist: flake8>=2.6.0; extra == 'dev'
+Requires-Dist: grpcio-tools>=1.70.0; extra == 'dev'
+Requires-Dist: isort==6.0.1; extra == 'dev'
+Requires-Dist: mypy; extra == 'dev'
+Requires-Dist: protoletariat; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: ruff<1.0.0,>=0.4.0; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Requires-Dist: wheel>=0.29.0; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# zahir client library
+
