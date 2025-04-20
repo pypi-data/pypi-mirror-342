@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vector-index-mcp"
+version = "0.1.0"
+description = "MCP Server for Software Project Indexing & Semantic Search"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+  { name="Elisei Shchukin", email="yelis.chuk@gmail.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "watchdog",
+    "sentence-transformers",
+    "transformers",
+    "lancedb",
+    "python-dotenv",
+    "pydantic",
+    "tiktoken",
+    "pathspec",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/synonymouse/vector-index-mcp"
+"Bug Tracker" = "https://github.com/synonymouse/vector-index-mcp/issues"
+
+[project.scripts]
+vector-index-mcp = "vector_index_mcp.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "httpx",
+    "pytest-asyncio",
+    "ruff",
+]
