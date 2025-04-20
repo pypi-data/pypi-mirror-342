@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools >= 78.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "noaa-cdo-api"
+version = "0.0.3"
+description = "A NOAA NCEI API wrapper for weather data"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICEN[CS]E"]
+authors = [{ name = "fxf8", email = "fuex9follets@gmail.com" }]
+requires-python = ">=3.12"
+dependencies = [
+    "aiohttp>=3.11.14",
+    "aiolimiter>=1.2.1",
+    "requests>=2.32.3",
+    "rich>=14.0.0",
+    "setuptools>=78.1.0",
+    "yarl>=1.18.3",
+]
+
+[project.urls]
+Homepgae = "https://github.com/fxf8/noaa-cdo-api"
+Documentation = "https://fxf8.github.io/noaa-cdo-api/noaa_api.html"
+Issues = "https://github.com/fxf8/noaa-cdo-api/issues"
+
+[dependency-groups]
+dev = [
+    "debugpy>=1.8.13",
+    "dotenv>=0.9.9",
+    "ipython>=9.0.2",
+    "mypy>=1.15.0",
+    "pdoc>=15.0.1",
+    "ruff>=0.11.2",
+    "twine>=6.1.0",
+]
+
+[tool.ruff]
+extend-exclude = ["tests/", "**/*.pyi"]
+
+[tool.ruff.lint]
+select = [
+    "F",   # pyflakes
+    "E",   # pycodestyle
+    "W",   # pycodestyle
+    "UP",  # pyupgrade
+    "I",   # Sort imports
+    "N",   # pep8-naming
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+    "C4",  # flake8-comprehensions
+    "PIE", # flake8-pie
+    "Q",   # flake8-quotes
+]
+
+[tool.setuptools]
+packages = ["noaa_cdo_api", "manual_tests"]
