@@ -1,0 +1,16 @@
+include LICENSE
+include README.md
+include requirements.txt
+include .env.example
+include install.sh
+include easy-install.sh
+include install-windows.bat
+recursive-include docs *
+recursive-exclude venv *.*
+recursive-exclude logs *.*
+recursive-exclude .git *.*
+recursive-exclude __pycache__ *.*
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *~
+global-exclude *.so
