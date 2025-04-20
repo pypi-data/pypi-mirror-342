@@ -1,0 +1,62 @@
+Metadata-Version: 2.4
+Name: is_is_odd
+Version: 0.0.1
+Summary: check if the given module is is-odd
+Home-page: https://github.com/anamoyee/is_is_odd
+Author: anamoyee
+License: WTFPL
+Project-URL: Source, https://github.com/anamoyee/is_is_odd
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Typing :: Typed
+Classifier: Topic :: Utilities
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Microsoft :: MS-DOS
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: is-odd
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+> # check if the given module is is-odd
+
+## Install
+---
+Install with [pip](https://pypi.org/project/pip/):
+```sh
+pip install is-is-odd
+```
+
+## Usage
+---
+```python
+import is_is_odd
+import is_odd
+
+print(is_is_odd(is_odd)) #=> True
+
+print(is_is_odd(lambda: None)) #=> False
+
+print(is_is_odd(lambda: print("I'm is_odd"))) #=> False
+```
+
+## Why
+---
+some modules are not is-odd but they might make you think they're is-odd, this package helps you identifies these modules with a simple interface
+
