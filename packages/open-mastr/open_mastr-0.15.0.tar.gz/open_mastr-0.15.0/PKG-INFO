@@ -1,0 +1,238 @@
+Metadata-Version: 2.4
+Name: open_mastr
+Version: 0.15.0
+Summary: A package that provides an interface for downloading and processing the data of the Marktstammdatenregister (MaStR)
+Author: Hülk Ludwig, Pleßmann Guido, Muschner Christoph, Kotthoff Florian, Tepe Deniz, Amme Jonathan, Open Energy Family
+Maintainer: Florian Kotthoff, Christoph Muschner
+Maintainer-email: Jonathan Amme <jonathan.amme@rl-institut.de>, Ludwig Hülk <datenzentrum@rl-institut.de>
+License: AGPL-3.0-or-later
+Project-URL: Homepage, https://github.com/OpenEnergyPlatform/open-MaStR
+Project-URL: Documentation, https://open-mastr.readthedocs.io/
+Project-URL: Repository, https://github.com/OpenEnergyPlatform/open-MaStR
+Project-URL: Bug Tracker, https://github.com/OpenEnergyPlatform/open-MaStR/issues
+Project-URL: Changelog, https://github.com/OpenEnergyPlatform/open-MaStR/blob/production/CHANGELOG.md
+Keywords: Markstammdatenregister,Energy,Dataset,Solar,Wind,Energy-data,OEP,OpenEnergyFamily
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: GIS
+Requires-Python: <4,>=3.9
+Description-Content-Type: text/x-rst
+License-File: LICENSE.md
+Requires-Dist: pandas>=2.2.2
+Requires-Dist: numpy
+Requires-Dist: sqlalchemy>=2.0
+Requires-Dist: psycopg2-binary
+Requires-Dist: zeep
+Requires-Dist: tqdm
+Requires-Dist: requests
+Requires-Dist: keyring
+Requires-Dist: pyyaml
+Requires-Dist: xmltodict
+Provides-Extra: dev
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: pylint; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-dependency; extra == "dev"
+Requires-Dist: xmltodict; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: bump2version; extra == "dev"
+Requires-Dist: mkdocstrings[python]; extra == "dev"
+Requires-Dist: mkdocs-material; extra == "dev"
+Requires-Dist: mkdocs-include-markdown-plugin; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Dynamic: license-file
+
+
+.. image:: https://raw.githubusercontent.com/OpenEnergyPlatform/open-MaStR/refs/heads/production/docs/images/README_HeaderThreePartners.svg
+    :align: left
+    :target: https://github.com/OpenEnergyPlatform/open-MaStR
+    :alt: MaStR logo
+
+==========
+open-mastr
+==========
+
+**A package that provides an interface for downloading and processing the Marktstammdatenregister (MaStR)**
+
+.. list-table::
+   :widths: 10, 50
+
+   * - License
+     - |badge_license|
+   * - Documentation
+     - |badge_rtd|
+   * - Tests
+     - |badge_ci|
+   * - Publication
+     - |badge_pypi| |badge_joss|
+   * - Data Publication
+     - |badge_zenodo|
+   * - Development
+     - |badge_issue_open| |badge_issue_closes| |badge_pr_open| |badge_pr_closes|
+   * - Community
+     - |badge_contributing| |PyPI download month| |Total PyPI downloads|
+   
+
+.. contents::
+    :depth: 2
+    :local:
+    :backlinks: top
+
+Introduction
+============
+
+The `Marktstammdatenregister (MaStR) <https://www.marktstammdatenregister.de/MaStR>`_ is a German register 
+provided by the German Federal Network Agency (Bundesnetzagentur / BNetza) that keeps track of all power and gas units located in Germany.
+
+The MaStR data can be
+ 
+#. browsed and filtered `online <https://www.marktstammdatenregister.de/MaStR>`_
+#. taken from `daily provided dumps <https://www.marktstammdatenregister.de/MaStR/Datendownload>`_
+#. be accessed via the `web service <https://www.marktstammdatenregister.de/MaStRHilfe/subpages/webdienst.html>`_
+
+| The python package ``open-mastr`` provides an interface for accessing the data. 
+| It contains methods to download and parse the xml files (bulk) and the SOAP web service (API).
+| In this repository we are developing methods to analyze, validate and enrich the data.
+| We want to collect and compile post processing scripts to improve data quality.
+
+
+Documentation
+=============
+
+| The documentation is in `Material for Mkdocs <https://squidfunk.github.io/mkdocs-material/>`_ markdown format in the ``doc`` sub-folder of the repository.
+| Find the `documentation <https://open-mastr.readthedocs.io/en/latest/>`_ hosted on ReadTheDocs.
+
+| The original API documentation can be found on the `Webhilfe des Marktstammdatenregisters <https://www.marktstammdatenregister.de/MaStRHilfe/subpages/webdienst.html>`_.
+
+
+Installation
+============
+
+| It is recommended to use a virtual python environment, for example `conda <https://docs.conda.io/en/latest/miniconda.html>`_ or `virtualenv <https://virtualenv.pypa.io/en/latest/installation.html>`_.
+| The package is intended to be used with ``Python >=3.8``.
+
+
+PyPI
+----
+
+Install the current release of ``open-mastr`` with ``pip``:
+
+.. code-block:: python
+
+    pip install open-mastr
+
+GitHub
+------
+
+For development, clone this repository manually.
+
+.. code-block:: python
+
+    git clone git@github.com:OpenEnergyPlatform/open-MaStR.git
+    cd open-MaStR
+
+Setup the conda environment with
+
+.. code-block:: python
+
+    conda env create -f environment.yml
+
+Install the package with
+
+.. code-block:: python
+
+    pip install "open_mastr[dev]"
+
+
+Examples of Usage
+==================
+These projects already use open-mastr:
+
+- `PV- und Windflächenrechner <https://www.agora-energiewende.de/service/pv-und-windflaechenrechner/>`_
+- `Wasserstoffatlas <https://wasserstoffatlas.de/>`_
+- `EE-Status App <https://ee-status.de/>`_
+- `Digiplan Anhalt <https://digiplan.rl-institut.de/>`_
+- `Data Quality Assessment of the MaStR <https://marktstammdaten.kotthoff.dev/>`_
+- `EmPowerPlan <https://epp.rl-institut.de/>`_
+- `Goal100 Monitor <https://goal100.org/monitor>`_
+
+If you want to see your project in this list, write an  
+`Issue <https://github.com/OpenEnergyPlatform/open-MaStR/issues>`_ or add
+changes in a `Pull Request <https://github.com/OpenEnergyPlatform/open-MaStR/pulls>`_.
+
+External Resources
+===================
+Besides open-mastr, some other resources exist that ease the process of working with the Marktstammdatenregister:
+- If you are interested in browsing the MaStR online, check out the github organisation `Marktstammdatenregister.dev <https://github.com/marktstammdatenregister-dev>`_.
+- The `bundesAPI/Marktstammdaten-API <https://github.com/bundesAPI/marktstammdaten-api>`_ is another implementation to access data via an official API.
+
+Collaboration
+=============
+| Everyone is invited to develop this repository with good intentions.
+| Please follow the workflow described in the `CONTRIBUTING.md <https://github.com/OpenEnergyPlatform/open-MaStR/blob/production/CONTRIBUTING.md>`_.
+
+
+License and Citation
+====================
+
+Software
+--------
+
+| This repository is licensed under the **GNU Affero General Public License v3.0 or later** (AGPL-3.0-or-later).
+| See `LICENSE.md <https://github.com/OpenEnergyPlatform/open-MaStR/blob/production/LICENSE.md>`_ for rights and obligations.
+| See the *Cite this repository* function or `CITATION.cff <https://github.com/OpenEnergyPlatform/open-MaStR/blob/production/CITATION.cff>`_ for citation of this repository.
+| Copyright: `open-MaStR <https://github.com/OpenEnergyPlatform/open-MaStR/>`_ © `Reiner Lemoine Institut <https://reiner-lemoine-institut.de/>`_ © `fortiss <https://www.fortiss.org/>`_ © `OFFIS <https://www.offis.de/>`_  | `AGPL-3.0-or-later <https://www.gnu.org/licenses/agpl-3.0.txt>`_
+
+Data
+----
+| The data has the license **Datenlizenz Deutschland – Namensnennung – Version 2.0** (DL-DE-BY-2.0)
+| Copyright: `Marktstammdatenregister <https://www.marktstammdatenregister.de/MaStR>`_ - © Bundesnetzagentur für Elektrizität, Gas, Telekommunikation, Post und Eisenbahnen | `DL-DE-BY-2.0 <https://www.govdata.de/dl-de/by-2-0>`_
+
+
+.. |badge_license| image:: https://img.shields.io/github/license/OpenEnergyPlatform/open-MaStR
+    :target: LICENSE.txt
+    :alt: License
+
+.. |badge_rtd| image:: https://readthedocs.org/projects/open-mastr/badge/?style=flat
+    :target: https://open-mastr.readthedocs.io/en/latest/
+    :alt: Read the Docs
+
+.. |badge_ci| image:: https://github.com/OpenEnergyPlatform/open-MaStR/actions/workflows/ci-production.yml/badge.svg
+    :target: https://github.com/OpenEnergyPlatform/open-MaStR/actions?query=workflow%3ACI
+    :alt: GitHub Actions
+
+.. |badge_pypi| image:: https://img.shields.io/pypi/v/open-mastr.svg
+    :target: https://pypi.org/project/open-mastr/
+    :alt: PyPI
+
+.. |badge_zenodo| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.6807426.svg
+    :target: https://doi.org/10.5281/zenodo.6807425
+    :alt: zenodo
+
+.. |badge_issue_open| image:: https://img.shields.io/github/issues-raw/OpenEnergyPlatform/open-MaStR
+    :alt: open issues
+
+.. |badge_issue_closes| image:: https://img.shields.io/github/issues-closed-raw/OpenEnergyPlatform/open-MaStR
+    :alt: closes issues
+
+.. |badge_pr_open| image:: https://img.shields.io/github/issues-pr-raw/OpenEnergyPlatform/open-MaStR
+    :alt: closes issues
+
+.. |badge_pr_closes| image:: https://img.shields.io/github/issues-pr-closed-raw/OpenEnergyPlatform/open-MaStR
+    :alt: closes issues
+
+.. |badge_contributing| image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
+    :alt: contributions
+    
+.. |PyPI download month| image:: https://img.shields.io/pypi/dm/open-mastr?label=PyPi%20Downloads
+    :target: https://pypistats.org/packages/open-mastr
+
+.. |Total PyPI downloads| image:: https://static.pepy.tech/badge/open-mastr
+    :target: https://pepy.tech/project/open-mastr
+
+.. |badge_joss| image:: https://joss.theoj.org/papers/dc0d33e7dc74f7233e15a7b6fe0c7a3e/status.svg
+    :target: https://joss.theoj.org/papers/dc0d33e7dc74f7233e15a7b6fe0c7a3e
+
+
