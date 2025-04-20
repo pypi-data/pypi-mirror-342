@@ -1,0 +1,2 @@
+[console_scripts]
+btrfs-backup-ng = btrfs_backup_ng.__main__:main
