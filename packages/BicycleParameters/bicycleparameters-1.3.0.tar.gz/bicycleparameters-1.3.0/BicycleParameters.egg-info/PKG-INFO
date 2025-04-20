@@ -1,0 +1,199 @@
+Metadata-Version: 2.2
+Name: BicycleParameters
+Version: 1.3.0
+Summary: Generates and manipulates the physical parameters of a bicycle.
+Home-page: https://bicycleparameters.readthedocs.io
+Author: Jason K. Moore
+Author-email: moorepants@gmail.com
+License: LICENSE.txt
+Project-URL: Documentation, http://bicycleparameters.readthedocs.io
+Project-URL: Issue Tracker, https://github.com/moorepants/BicycleParameters/issues
+Project-URL: Source Code, https://github.com/moorepants/BicycleParameters
+Project-URL: Web Application, https://bicycle-dynamics.onrender.com
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.9
+License-File: LICENSE.txt
+License-File: AUTHORS
+Requires-Dist: DynamicistToolKit>=0.5.3
+Requires-Dist: matplotlib>=3.5.1
+Requires-Dist: numpy>=1.21.5
+Requires-Dist: pyyaml>=5.4.1
+Requires-Dist: scipy>=1.8.0
+Requires-Dist: uncertainties>=3.1.5
+Requires-Dist: yeadon>=1.3.0
+Provides-Extra: doc
+Requires-Dist: numpydoc>=1.2; extra == "doc"
+Requires-Dist: sphinx-gallery; extra == "doc"
+Requires-Dist: sphinx-reredirects; extra == "doc"
+Requires-Dist: sphinx>=4.3.2; extra == "doc"
+Provides-Extra: app
+Requires-Dist: dash-bootstrap-components; extra == "app"
+Requires-Dist: dash>=2; extra == "app"
+Requires-Dist: pandas>=1.3.5; extra == "app"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: license
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+=================
+BicycleParameters
+=================
+
+A Python program designed to generate, manipulate, and visualize the parameters
+of the bicycle dynamics models.
+
+.. list-table::
+
+   * - Download from PyPi
+     - |PyPi|
+   * - Download from Anaconda
+     - |Anaconda|
+   * - Documentation
+     - |RTD|
+   * - CI Status
+     - |GHCI|
+   * - Render App
+     - |Render|
+
+.. |PyPi| image:: https://img.shields.io/pypi/v/BicycleParameters.svg
+   :target: https://pypi.org/project/BicycleParameters/
+
+.. |Anaconda| image:: https://anaconda.org/conda-forge/bicycleparameters/badges/version.svg
+   :target: https://anaconda.org/conda-forge/bicycleparameters
+
+.. |GHCI| image:: https://github.com/moorepants/BicycleParameters/actions/workflows/test.yml/badge.svg
+
+.. |RTD| image:: https://readthedocs.org/projects/bicycleparameters/badge/?version=latest
+   :target: https://bicycleparameters.readthedocs.io/
+   :alt: Documentation Status
+
+.. |Render| image:: https://img.shields.io/badge/Bicycle_Dynamics_App-Render.io-blue
+   :target: https://bicycle-dynamics.onrender.com
+
+Dependencies
+============
+
+Required
+--------
+
+- `DynamicistToolKit >= 0.5.3 <http://pypi.python.org/pypi/DynamicistToolKit>`_
+- `Matplotlib >= 3.5.1 <https://matplotlib.org/>`_
+- `NumPy >= 1.21.5 <https://numpy.org/>`_
+- `Python >= 3.8 <http://www.python.org/>`_
+- `SciPy >= 1.8.0 <https://scipy.org/>`_
+- `Uncertainties >= 3.1.5 <https://pythonhosted.org/uncertainties/>`_
+- `yeadon >= 1.3.0 <http://pypi.python.org/pypi/yeadon/>`_
+
+Optional
+--------
+
+These are required to run the Dash web application:
+
+- `Dash >= 2.0 <https://plotly.com/dash/>`_
+- `dash-bootstrap-components <https://github.com/facultyai/dash-bootstrap-components>`_
+- `Pandas >= 1.3.5 <https://pandas.pydata.org/>`_
+
+These are required to build the documentation:
+
+- `Sphinx >= 4.3.2 <http://sphinx.pocoo.org/>`_
+- `Numpydoc >= 1.2 <http://pypi.python.org/pypi/numpydoc>`_
+- `sphinx-reredirects <https://documatt.com/sphinx-reredirects/>`_
+- `Sphinx-Gallery <https://sphinx-gallery.github.io/stable/index.html>`_
+
+Installation
+============
+
+We recommend installing BicycleParameters with conda_ or pip_.
+
+.. _conda: https://docs.conda.io
+.. _pip: https://pip.pypa.io
+
+For conda::
+
+  $ conda install -c conda-forge bicycleparameters
+
+For pip::
+
+  $ pip install BicycleParameters
+
+The package can also be installed from the source code. The options for getting
+the source code are:
+
+1. Clone the source code with Git: ``git clone
+   git://github.com/moorepants/BicycleParameters.git``
+2. `Download the source from Github`__.
+3. Download the source from pypi__.
+
+.. __: https://github.com/moorepants/BicycleParameters
+.. __: http://pypi.python.org/pypi/BicycleParameters
+
+Once you have the source code navigate to the directory and run::
+
+  >>> python setup.py install
+
+This will install the software into your system. You can check if it installs
+with::
+
+   $ python -c "import bicycleparameters"
+
+Example Code
+============
+
+.. code-block:: python
+
+    >>> import bicycleparameters as bp
+    >>> import numpy as np
+    >>> rigid = bp.Bicycle('Rigid')
+    >>> par = rigid.parameters['Benchmark']
+    >>> rigid.plot_bicycle_geometry()
+    >>> speeds = np.linspace(0., 10., num=100)
+    >>> rigid.plot_eigenvalues_vs_speed(speeds)
+
+See `example usage <https://bicycleparameters.readthedocs.io/stable/examples.html>`_ in the
+documentation.
+
+Sample Data
+===========
+
+Some sample data is included in the repository but a full source with all the
+raw data files can be downloaded from here:
+
+http://dx.doi.org/10.6084/m9.figshare.1198429
+
+Documentation
+=============
+
+Please refer to the `online documentation
+<https://bicycleparameters.readthedocs.io/>`_ for more information.
+
+Grant Information
+=================
+
+This material is partially based upon work supported by the National Science
+Foundation under `Grant No. 0928339`_. Any opinions, findings, and conclusions
+or recommendations expressed in this material are those of the authors and do
+not necessarily reflect the views of the National Science Foundation.
+
+.. _Grant No. 0928339: https://www.nsf.gov/awardsearch/showAward?AWD_ID=0928339
+
+This material is partially based upon work supported by the TKI CLICKNL grant
+"Fiets van de Toekomst"(Grant No. TKI1706).

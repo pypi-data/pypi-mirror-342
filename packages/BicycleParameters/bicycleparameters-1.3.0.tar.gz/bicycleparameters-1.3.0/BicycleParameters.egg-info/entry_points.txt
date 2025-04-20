@@ -1,0 +1,2 @@
+[console_scripts]
+bicycleparameters = bicycleparameters.app:app.run_server
