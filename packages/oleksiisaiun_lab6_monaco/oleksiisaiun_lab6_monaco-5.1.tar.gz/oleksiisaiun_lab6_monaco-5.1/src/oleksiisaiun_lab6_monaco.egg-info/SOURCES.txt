@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/oleksiisaiun_lab6_monaco/__init__.py
+src/oleksiisaiun_lab6_monaco/race_report.py
+src/oleksiisaiun_lab6_monaco.egg-info/PKG-INFO
+src/oleksiisaiun_lab6_monaco.egg-info/SOURCES.txt
+src/oleksiisaiun_lab6_monaco.egg-info/dependency_links.txt
+src/oleksiisaiun_lab6_monaco.egg-info/requires.txt
+src/oleksiisaiun_lab6_monaco.egg-info/top_level.txt
+src/oleksiisaiun_lab6_monaco/data/abbreviations.txt
+src/oleksiisaiun_lab6_monaco/data/end.log
+src/oleksiisaiun_lab6_monaco/data/start.log
+tests/test_race_report.py
