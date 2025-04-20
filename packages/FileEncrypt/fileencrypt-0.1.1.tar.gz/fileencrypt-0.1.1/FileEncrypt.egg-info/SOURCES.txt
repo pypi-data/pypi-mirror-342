@@ -1,0 +1,12 @@
+README.md
+setup.py
+FileEncrypt.egg-info/PKG-INFO
+FileEncrypt.egg-info/SOURCES.txt
+FileEncrypt.egg-info/dependency_links.txt
+FileEncrypt.egg-info/entry_points.txt
+FileEncrypt.egg-info/requires.txt
+FileEncrypt.egg-info/top_level.txt
+fileencrypt/__init__.py
+fileencrypt/cli.py
+fileencrypt/decrypt.py
+fileencrypt/encrypt.py
