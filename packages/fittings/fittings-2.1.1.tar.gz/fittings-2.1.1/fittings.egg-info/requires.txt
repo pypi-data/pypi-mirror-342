@@ -1,0 +1,13 @@
+allianceauth>=4.0.0
+django-bootstrap-form
+django-model_utils>=3.1.1
+django-esi>=2.0.0
+django-eveuniverse>=0.18.0
+
+[:python_version=="3.8"]
+typing
+
+[discordbot]
+allianceauth_discordbot>=3.8.0
+
+[testing]

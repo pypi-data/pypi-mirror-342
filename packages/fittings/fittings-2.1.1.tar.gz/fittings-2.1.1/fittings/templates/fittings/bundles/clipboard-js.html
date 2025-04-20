@@ -1,0 +1,9 @@
+{% load tags %}
+{% load static %}
+{% settings_value "AVOID_CDN" as AVOID_CDN %}
+
+{% if AVOID_CDN %}
+    <script src="{% static 'fittings/ajax/libs/clipboard.js/2.0.4/clipboard.min.js' %}"></script>
+{% else %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+{% endif %}

@@ -1,0 +1,9 @@
+{% load tags %}
+{% load static %}
+{% settings_value "AVOID_CDN" as AVOID_CDN %}
+
+{% if AVOID_CDN %}
+    <link rel="stylesheet" href="{% static 'fittings/ajax/libs/multi-select/0.9.12/css/multi-select.min.css' %}">
+{% else %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/css/multi-select.min.css">
+{%  endif %}

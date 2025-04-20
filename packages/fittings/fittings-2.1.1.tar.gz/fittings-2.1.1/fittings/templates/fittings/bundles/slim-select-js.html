@@ -1,0 +1,9 @@
+{% load tags %}
+{% load static %}
+{% settings_value "AVOID_CDN" as AVOID_CDN %}
+
+{% if AVOID_CDN %}
+    <script src="{% static 'fittings/ajax/libs/slim-select/1.26.0/slimselect.min.js' %}"></script>
+{% else %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.26.0/slimselect.min.js"></script>
+{% endif %}
