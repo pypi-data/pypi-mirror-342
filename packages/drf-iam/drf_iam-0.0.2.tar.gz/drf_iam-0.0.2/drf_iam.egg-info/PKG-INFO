@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: drf-iam
+Version: 0.0.2
+Summary: IAM-style roles and permissions for Django Rest Framework
+Home-page: https://github.com/tushar1328/drf-iam.git
+Author: Tushar Patel
+Author-email: tushar.patel@gmail.com
+Project-URL: Documentation, https://drf-iam.readthedocs.io/en/latest/installation.html
+Project-URL: Source, https://github.com/tushar1328/drf-iam.git
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Django>=3.2
+Requires-Dist: djangorestframework>=3.12
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+## Rest Framework IAM
+
+A simple Django application for Role Based Access Control (RBAC) using Django Rest Framework
+
+## Installation
+
+```bash
+pip install drf-iam
+```
