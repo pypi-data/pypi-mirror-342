@@ -1,0 +1,2 @@
+[console_scripts]
+estat-mcp-server = estat_mcp_server:main
