@@ -1,0 +1,44 @@
+# A3
+# Design a statistical model to analyze wine quality using Gaussian distribution methods. Utilize synthetic data generated with NumPy or the Wine Quality Dataset
+
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import norm
+
+# Generate synthetic wine data (only 3 features)
+n = 1000
+fixed_acidity = np.random.normal(7.0, 0.7, n)
+volatile_acidity = np.random.normal(0.5, 0.1, n)
+citric_acid = np.random.normal(0.3, 0.1, n)
+
+# Create DataFrame
+df = pd.DataFrame({"fixed_acidity": fixed_acidity, "volatile_acidity": volatile_acidity, "citric_acid": citric_acid})
+
+# Generate synthetic wine quality
+df["wine_quality"] = np.clip(
+    (0.3 * df["fixed_acidity"] + 1.5 * df["volatile_acidity"] + 0.8 * df["citric_acid"] + np.random.normal(0, 0.5, n)).round().astype(int),
+    3, 8
+)
+
+# Display summary
+print(df.describe())
+
+# Plot histogram for 'fixed_acidity' with Gaussian fit
+plt.figure(figsize=(10, 6))
+sns.histplot(df['fixed_acidity'], kde=True, stat="density", color="skyblue", bins=30)
+
+# Fit a Gaussian distribution to the data
+mu, std = norm.fit(df['fixed_acidity'])
+x = np.linspace(df['fixed_acidity'].min(), df['fixed_acidity'].max(), 100)
+plt.plot(x, norm.pdf(x, mu, std), 'k', lw=2)
+
+# Add title and labels
+plt.title(f"Fixed Acidity Distribution ~ N({mu:.2f}, {std:.2f})", fontsize=14)
+plt.xlabel("Fixed Acidity", fontsize=12)
+plt.ylabel("Density", fontsize=12)
+
+# Show the plot
+plt.show()
