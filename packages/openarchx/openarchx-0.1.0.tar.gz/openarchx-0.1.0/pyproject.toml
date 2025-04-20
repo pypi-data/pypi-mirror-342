@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openarchx"
+version = "0.1.0"
+description = "A lightweight and extensible deep learning framework with native model serialization"
+readme = "README.md"
+authors = [
+    {name = "OpenArchX Team", email = "info@openarchx.org"}
+]
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "numpy>=1.19.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/openarchx/openarchx"
+"Bug Tracker" = "https://github.com/openarchx/openarchx/issues"
+
+[project.optional-dependencies]
+pytorch = ["torch>=1.7.0"]
+tensorflow = ["tensorflow>=2.4.0"]
+huggingface = ["transformers>=4.0.0", "datasets>=1.0.0"]
+all = [
+    "torch>=1.7.0",
+    "tensorflow>=2.4.0",
+    "transformers>=4.0.0",
+    "datasets>=1.0.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["tests"] 

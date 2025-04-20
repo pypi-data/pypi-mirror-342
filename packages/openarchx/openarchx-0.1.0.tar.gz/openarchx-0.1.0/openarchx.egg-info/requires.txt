@@ -1,0 +1,17 @@
+numpy>=1.19.0
+
+[all]
+torch>=1.7.0
+tensorflow>=2.4.0
+transformers>=4.0.0
+datasets>=1.0.0
+
+[huggingface]
+transformers>=4.0.0
+datasets>=1.0.0
+
+[pytorch]
+torch>=1.7.0
+
+[tensorflow]
+tensorflow>=2.4.0
