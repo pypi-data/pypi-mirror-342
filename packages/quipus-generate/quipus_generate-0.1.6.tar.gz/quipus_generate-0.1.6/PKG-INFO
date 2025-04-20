@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: quipus-generate
+Version: 0.1.6
+Summary: Generador de proyectos FastAPI con arquitectura Hexagonal.
+Author: Juan David Corrales Saldarriaga
+Author-email: sistemas@amauttasistems.com
+License: Proprietary
+License-File: LICENSE
+Requires-Dist: inflection
