@@ -1,0 +1,6 @@
+[console_scripts]
+dsp2rsd=mnltools.dt.dsp2rsd:main
+mnl-dt-sounddata-repack=mnltools.dt.sound.repacker:main
+mnl-nds-pack=mnltools.nds.packer:main
+mnl-nds-unpack=mnltools.nds.unpacker:main
+
