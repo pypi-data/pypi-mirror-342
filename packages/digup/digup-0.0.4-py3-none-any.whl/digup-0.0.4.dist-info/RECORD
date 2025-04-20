@@ -1,0 +1,15 @@
+src/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/aggregation.py,sha256=z6f-RXtIkuMrXmdNlfrYyYVux3SCP27-GS-Rt3TXpCw,711
+src/cli.py,sha256=ZY7lI70AuQqDbi_WknAGwPw0N_FXNcvPiAN8dkdA-XY,2857
+src/colors.py,sha256=RMLYDpqNX-N6TdBtgwUgUFnTEJqmYF-4n9JRUYAVX4E,1595
+src/commands.py,sha256=WcqYNKI3yR8yKJuvER8GhO0eA1K5Dx6gcXhpARquBOM,2177
+src/count_words.py,sha256=ZD2kYXW5eafZwU-n3cGbN2Zcugm8_wViRjDxE_oFJxc,2280
+src/get_nodes.py,sha256=venUQWczSmtHAbGFN4qUsjgCiDHN_fWBzz8im-NOYK4,4329
+src/highlight_identifiers.py,sha256=Q2AOw2hqza912I_xW8uR-LbMKJu0GIqo9mqpWpzMD40,2006
+src/present.py,sha256=onpH-hYW99ZLerH9xheSgyGUvRTGwebDSsGYDvR7bGk,2795
+src/termcolor.py,sha256=RPjxcwxvZPZFMhU8P5KopHOoD6tDX7jMq_-Vv3o7yQQ,6271
+digup-0.0.4.dist-info/METADATA,sha256=-DpkUlDeDmlaNFpWg8u1upoc-7dKx0eGvk1Dm2c8Zfk,2614
+digup-0.0.4.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+digup-0.0.4.dist-info/entry_points.txt,sha256=uwq7gjzQNVuEXRoUxs2Lj8-lyB2gIEim6m3WFoFhf9g,39
+digup-0.0.4.dist-info/licenses/LICENSE,sha256=Sku8oSPj1GIaoZzYTdFeWfP-1cn2LiOdyqYJYfyRj6o,1072
+digup-0.0.4.dist-info/RECORD,,
