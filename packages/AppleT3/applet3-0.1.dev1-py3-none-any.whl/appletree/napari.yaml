@@ -1,0 +1,30 @@
+name: appletree
+display_name: Appletree
+# use 'hidden' to remove plugin from napari hub search results
+visibility: public
+# see https://napari.org/stable/plugins/technical_references/manifest.html#fields for valid categories
+categories: ["Annotation", "Segmentation", "Acquisition"]
+contributions:
+  commands:
+    - id: appletree.make_container_widget
+      python_name: appletree:ImageThreshold
+      title: Make threshold Container widget
+    - id: appletree.make_magic_widget
+      python_name: appletree:threshold_magic_widget
+      title: Make threshold magic widget
+    - id: appletree.make_function_widget
+      python_name: appletree:threshold_autogenerate_widget
+      title: Make threshold function widget
+    - id: appletree.make_qwidget
+      python_name: appletree:ExampleQWidget
+      title: Make example QWidget
+  widgets:
+    - command: appletree.make_container_widget
+      display_name: Container Threshold
+    - command: appletree.make_magic_widget
+      display_name: Magic Threshold
+    - command: appletree.make_function_widget
+      autogenerate: true
+      display_name: Autogenerate Threshold
+    - command: appletree.make_qwidget
+      display_name: Example QWidget
