@@ -1,0 +1,20 @@
+include LICENSE
+include README.md
+recursive-include shared_models *.py
+recursive-include shared_models/*/migrations *.py
+recursive-include shared_models/accounts *
+recursive-include shared_models/common *
+recursive-include shared_models/company_ba *
+recursive-include shared_models/crypto_wallet *
+recursive-include shared_models/customer_crypto_wallet *
+recursive-include shared_models/customer_upi *
+recursive-include shared_models/customers *
+recursive-include shared_models/email_log *
+recursive-include shared_models/ib_commission *
+recursive-include shared_models/referrals *
+recursive-include shared_models/services *
+recursive-include shared_models/system_settings *
+recursive-include shared_models/transactions *
+recursive-include shared_models/ui_elements *
+recursive-include shared_models/upi_id *
+recursive-include shared_models/users *
