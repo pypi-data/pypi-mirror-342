@@ -1,0 +1,12 @@
+oxvox-0.7.0.dist-info/METADATA,sha256=0tjcOq6cj4Wjip6eTXqo1ascNsgSEanEdCCHbD1O5qI,2955
+oxvox-0.7.0.dist-info/WHEEL,sha256=mkwZPCBlEmAJdKgpMfMBf8oh8FwQc7X5Gx3nK9uSONY,107
+oxvox-0.7.0.dist-info/licenses/LICENSE,sha256=T0GpQlFv9bUc8X48yExQKJpb56i6DvDl-uUn36ivGpc,1500
+oxvox.libs/libgcc_s-5b5488a6.so.1,sha256=HGKUsVmTeNAxEdSy7Ua5Vh_I9FN3RCbPWzvZ7H_TrwE,2749061
+oxvox/nns.py,sha256=o6zBDQCwWeygW--2H3GGhoVofoqIDDIOwSW78BW3fI0,5210
+oxvox/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+oxvox/indexing.py,sha256=VBJhpRNXEMRDQNbUW5Qeq76BThl2K8KWvCXaCAULP4c,2978
+oxvox/tests/test_oxvox_indexing.py,sha256=2GAJwuSDJr8j2_V5FEQM4FIZjmXx34wbJH7dxn6StyU,1573
+oxvox/tests/test_ox_vox_nns.py,sha256=G60z3gmndaGX5LqLL8pwzBWzQ5BwAdxBgIk51ZdGRXk,1876
+oxvox/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+oxvox/_oxvox.cpython-312-arm-linux-musleabihf.so,sha256=xz7p3EBjQw_6L681AoOHf6t0nSMkIvH9tcy5qcZrPn4,1243801
+oxvox-0.7.0.dist-info/RECORD,,
