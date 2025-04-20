@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+roleta_atomatica/__init__.py
+roleta_atomatica/roletas.py
+roleta_atomatica/utils/__init__.py
+roleta_atomatica/utils/utils_chrome.py
+roleta_automatica_v2.egg-info/PKG-INFO
+roleta_automatica_v2.egg-info/SOURCES.txt
+roleta_automatica_v2.egg-info/dependency_links.txt
+roleta_automatica_v2.egg-info/requires.txt
+roleta_automatica_v2.egg-info/top_level.txt
