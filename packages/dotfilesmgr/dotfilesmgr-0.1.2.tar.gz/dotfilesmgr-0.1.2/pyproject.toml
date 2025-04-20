@@ -1,0 +1,27 @@
+[project]
+name = "dotfilesmgr"
+version = "0.1.2"
+description = "Simple tool to manage your dotfiles"
+authors = [{ name = "J0schu" }]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "toml",
+    "colorama"
+]
+
+[project.urls]
+Repository = "https://github.com/J0schu/dotfilemgr"
+Issues = "https://github.com/J0schu/dotfilemgr/issues"
+Changelog = "https://github.com/J0schu/dotfilemgr/releases"
+
+[project.scripts]
+dotfilesmgr = "dotfilesmgr:cli"
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+sources = ["src"]
