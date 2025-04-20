@@ -1,0 +1,7 @@
+[console_scripts]
+iprm = iprm.cli.app:main
+iprm-cmake = iprm.cli.app:cmake_main
+iprm-meson = iprm.cli.app:meson_main
+iprm-msbuild = iprm.cli.app:msbuild_main
+iprm-scons = iprm.cli.app:scons_main
+iprm-studio = iprm.studio.app:main

@@ -1,0 +1,50 @@
+k_editor = CppThirdParty('third_k_editor')
+k_editor_sa_builder = k_editor.source_archive(CurrentSourceDir(),
+    'K-Editor.tar.gz',
+)
+k_editor_sa_builder.patches(CurrentSourceDir(),
+    'iprm_modifications.patch',
+)
+k_editor_sa_builder.headers(BinaryDir('lib', 'public'),
+    'QCodeEditor.hpp',
+    'QFramedTextAttribute.hpp',
+    'QHighlightBlockRule.hpp',
+    'QHighlightRule.hpp',
+    'QLanguage.hpp',
+    'QLineNumberArea.hpp',
+    'QStyleSyntaxHighlighter.hpp',
+    'QSyntaxStyle.hpp',
+)
+k_editor_sa_builder.headers(BinaryDir('lib', 'public', 'completers'),
+    'QPythonCompleter.hpp',
+)
+k_editor_sa_builder.headers(BinaryDir('lib', 'public', 'highlighters'),
+    'QPythonHighlighter.hpp',
+    'QXMLHighlighter.hpp',
+)
+k_editor_sa_builder.sources(BinaryDir('lib', 'src'),
+    'QCodeEditor.cpp',
+    'QFramedTextAttribute.cpp',
+    'QLanguage.cpp',
+    'QLineNumberArea.cpp',
+    'QStyleSyntaxHighlighter.cpp',
+    'QSyntaxStyle.cpp',
+)
+k_editor_sa_builder.sources(BinaryDir('lib', 'src', 'completers'),
+    'QPythonCompleter.cpp',
+)
+k_editor_sa_builder.sources(BinaryDir('lib', 'src', 'highlighters'),
+    'QPythonHighlighter.cpp',
+    'QXMLHighlighter.cpp',
+)
+k_editor_sa_builder.sources(BinaryDir('lib', 'resources'),
+    'qcodeeditor_resources.qrc',
+)
+k_editor_sa_builder.include_paths(
+    BinaryDir('lib'),
+    BinaryDir('lib', 'public'),
+)
+k_editor_sa_builder.static()
+k_editor_sa_builder.dynamic_crt()
+k_editor_sa_builder.qt('third_qt')
+k_editor_sa_builder.build()

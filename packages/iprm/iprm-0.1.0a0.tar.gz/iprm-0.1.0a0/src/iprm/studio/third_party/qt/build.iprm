@@ -1,0 +1,70 @@
+from iprm.util.env import Env
+
+qt = QtThirdParty('third_qt')
+qt.moc()
+qt.rcc()
+qt.uic()
+qt.conf()
+
+if Env.platform.windows:
+    qt.runtime_paths(
+        RootRelativeBinaryDir('plugins'),
+    )
+
+    # TODO: store these remotely in a github repo and add download them during the build
+    archive_file = 'Qt6.8.3_macos_universal.zip' if Env.platform.macos else 'Qt6.8.0_windows_x64.zip'
+    qt_pca_builder = qt.precompiled_archive(
+        CurrentSourceDir(),
+        archive_file,
+    )
+    qt_pca_builder.include_dir(BinaryDir('include'))
+    if Env.platform.windows:
+        qt_pca_builder.implib_dir(BinaryDir('lib'))
+        qt_pca_builder.lib_dir(BinaryDir('bin'))
+        qt_pca_builder.bin_dir(BinaryDir('bin'))
+    elif Env.platform.macos:
+        qt_pca_builder.lib_dir(BinaryDir('lib'))
+        qt_pca_builder.bin_dir(BinaryDir('libexec'))
+
+    release_pattern = 'libQt6%module%' if Env.platform.macos else 'Qt6%module%'
+    debug_pattern = 'libQt6%module%' if Env.platform.macos else 'Qt6%module%d'
+    qt_pca_builder.shared_lib_pattern(
+        release=release_pattern,
+        debug=debug_pattern,
+        include=BinaryDir('include', 'Qt%module%'),
+    )
+    qt_pca_builder.core()
+    qt_pca_builder.gui()
+    qt_pca_builder.widgets()
+    qt_pca_builder.svg()
+    qt_pca_builder.svgwidgets()
+    qt_pca_builder.tools(
+        moc=True,
+        rcc=True,
+        uic=True,
+    )
+
+    qt_targets = qt_pca_builder.build()
+elif Env.platform.macos:
+    qt.homebrew(
+        package='qt6',
+        shared_libs=[
+            'Qt6Core',
+            'Qt6Gui',
+            'Qt6Widgets',
+            'Qt6Svg',
+            'Qt6SvgWidgets',
+        ]
+    )
+
+elif Env.platform.linux:
+    qt.pkgconfig(
+        prefix='Qt6',
+        shared_libs=[
+            'Qt6Core',
+            'Qt6Gui',
+            'Qt6Widgets',
+            'Qt6Svg',
+            'Qt6SvgWidgets',
+        ]
+    )
