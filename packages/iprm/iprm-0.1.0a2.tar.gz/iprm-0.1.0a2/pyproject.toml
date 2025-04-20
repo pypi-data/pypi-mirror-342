@@ -1,0 +1,120 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    "cmake>=3.23",
+    "ninja>=1.11",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iprm"
+version = "0.1.0-alpha2"
+authors = [
+]
+description = "Intermediate Project Representation Model"
+requires-python = ">=3.12"
+dependencies = [
+    "lxml>=5.3.2; sys_platform == 'win32'",
+]
+[project.urls]
+[project.scripts]
+iprm = "iprm.cli.app:main"
+iprm-cmake = "iprm.cli.app:cmake_main"
+iprm-meson = "iprm.cli.app:meson_main"
+iprm-scons = "iprm.cli.app:scons_main"
+iprm-msbuild = "iprm.cli.app:msbuild_main"
+iprm-studio = "iprm.studio.app:main"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    'tests/cli',
+    # TODO: Once AK is building via IPRM, we can start testing things here
+    #'tests/LibJS',
+]
+python_files = [
+    'cli_test.py',
+    #'libjs_test.py',
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["iprm.studio.build*", "iprm.core.build*"]
+
+[tool.setuptools.package-data]
+"iprm.core" = [
+    "CMakeLists.txt",
+    "src/*.cpp",
+    "src/*.hpp",
+    "*.pyd",
+    "*.so"
+]
+"iprm.studio" = [
+    "bin/iprm_studio*",
+    "bin/*.dll",
+    "bin/*.so",
+    "bin/config6",
+    "bin/generic/*.dll",
+    "bin/iconengines/*.dll",
+    "bin/imageformats/*.dll",
+    "bin/networkinformation/*.dll",
+    "bin/platforminputcontexts/*.dll",
+    "bin/platforms/*.dll",
+    "bin/renderers/*.dll",
+    "bin/renderplugins/*.dll",
+    "bin/styles/*.dll",
+    "bin/tls/*.dll",
+    "res/res.qrc",
+    "res/icons/*.svg",
+    "res/langs/*.xml",
+    "res/logos/*.svg",
+    "res/logos/*.png",
+    "res/styles/*.xml",
+    "res/styles/*.qss",
+    "res/styles/qdarktheme/v2.3.4/*.svg",
+    "src/*.cpp",
+    "src/*.hpp",
+    "src/api/*.cpp",
+    "src/api/*.hpp",
+    "src/dependencies/*.cpp",
+    "src/dependencies/*.hpp",
+    "src/filesystem/*.cpp",
+    "src/filesystem/*.hpp",
+    "src/log/*.cpp",
+    "src/log/*.hpp",
+    "src/project/*.cpp",
+    "src/project/*.hpp",
+    "src/util/*.cpp",
+    "src/util/*.hpp",
+    "src/build.iprm",
+    "build.iprm",
+    "third_party/lemon/lemon-1.3.1.tar.gz",
+    "third_party/lemon/build.iprm",
+    "third_party/graphviz/graphviz_12.2.1_windows_x64.zip",
+    "third_party/graphviz/build.iprm",
+    "third_party/K-Editor/iprm_modifications.patch",
+    "third_party/K-Editor/K-Editor.tar.gz",
+    "third_party/K-Editor/build.iprm",
+    "third_party/pybind11/build.iprm",
+    "third_party/qt/Qt6.8.0_windows_x64.zip",
+    "third_party/qt/build.iprm",
+    "third_party/build.iprm",
+]
+"iprm.plugins" = [
+    "boost/*.py",
+    "boost/*.svg",
+    "google/*.py",
+    "google/*.svg",
+    "graphviz/*.py",
+    "graphviz/*.png",
+    "icu/*.py",
+    "icu/*.svg",
+    "pybind11/*.py",
+    "pybind11/*.svg",
+]

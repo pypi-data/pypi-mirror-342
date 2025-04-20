@@ -1,0 +1,14 @@
+proj = Project(
+    'iprm-studio',
+    version='0.1.0',
+    description='IPRM Studio',
+    platforms=[
+        Env.windows,
+        Env.macos,
+        Env.linux,
+    ],
+)
+proj.cpp()
+
+SubDir('third_party')
+SubDir('src')
