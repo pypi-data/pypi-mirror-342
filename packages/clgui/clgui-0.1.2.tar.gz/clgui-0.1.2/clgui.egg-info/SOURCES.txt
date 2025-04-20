@@ -1,0 +1,13 @@
+LICENSE
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+clgui/__init__.py
+clgui/clgui.py
+clgui/layout.py
+clgui.egg-info/PKG-INFO
+clgui.egg-info/SOURCES.txt
+clgui.egg-info/dependency_links.txt
+clgui.egg-info/requires.txt
+clgui.egg-info/top_level.txt

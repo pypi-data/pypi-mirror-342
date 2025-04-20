@@ -1,0 +1,23 @@
+[project]
+name = "clgui"
+version = "0.1.2"
+authors = [
+  { name="TitusHM", email="contact@titushm.dev" },
+]
+description = "Command-line gui library for python"
+readme = "README.md"
+requires-python = ">=3.5"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "keyboard >= 0.13.5",
+    "colorama >= 0.4.6",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/titushm/clgui"
+"Bug Tracker" = "https://github.com/titushm/clgui/issues"
