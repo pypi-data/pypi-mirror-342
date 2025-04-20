@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/__init__.py
+src/dotfilesmgr.py
+src/dotfilesmgr.egg-info/PKG-INFO
+src/dotfilesmgr.egg-info/SOURCES.txt
+src/dotfilesmgr.egg-info/dependency_links.txt
+src/dotfilesmgr.egg-info/entry_points.txt
+src/dotfilesmgr.egg-info/requires.txt
+src/dotfilesmgr.egg-info/top_level.txt

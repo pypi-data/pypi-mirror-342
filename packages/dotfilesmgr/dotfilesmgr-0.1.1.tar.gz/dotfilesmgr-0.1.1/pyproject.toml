@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dotfilesmgr"
+version = "0.1.1"
+description = "Sync dotfiles "
+authors = [{ name = "J0schu" }]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "toml",
+    "colorama"
+]
+
+[project.scripts]
+dotfilesmgr = "src.dotfilesmgr:cli"
