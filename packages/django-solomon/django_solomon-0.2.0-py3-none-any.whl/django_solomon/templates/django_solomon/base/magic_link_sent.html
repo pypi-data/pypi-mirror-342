@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% translate "Magic Link Sent" %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{% translate "Magic Link Sent" %}</h1>
+        <p>{% translate "If an account exists with the email address you provided, we've sent a magic link to that address." %}</p>
+        <p>{% translate "Please check your email and click the link to log in." %}</p>
+    </div>
+{% endblock content %}
