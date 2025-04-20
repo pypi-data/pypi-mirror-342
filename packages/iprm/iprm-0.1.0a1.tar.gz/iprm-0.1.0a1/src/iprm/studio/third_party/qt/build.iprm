@@ -1,0 +1,56 @@
+qt = QtThirdParty('third_qt')
+qt.moc()
+qt.rcc()
+qt.uic()
+qt.conf()
+
+if Env.platform.windows:
+    qt.runtime_paths(
+        RootRelativeBinaryDir('plugins'),
+    )
+    qt_pca_builder = qt.precompiled_archive(
+        CurrentSourceDir(),
+        'Qt6.8.0_windows_x64.zip',
+    )
+    qt_pca_builder.include_dir(BinaryDir('include'))
+    qt_pca_builder.implib_dir(BinaryDir('lib'))
+    qt_pca_builder.lib_dir(BinaryDir('bin'))
+    qt_pca_builder.bin_dir(BinaryDir('bin'))
+    qt_pca_builder.shared_lib_pattern(
+        release='Qt6%module%',
+        debug='Qt6%module%d',
+        include=BinaryDir('include', 'Qt%module%'),
+    )
+    qt_pca_builder.core()
+    qt_pca_builder.gui()
+    qt_pca_builder.widgets()
+    qt_pca_builder.svg()
+    qt_pca_builder.svgwidgets()
+    qt_pca_builder.tools(
+        moc=True,
+        rcc=True,
+        uic=True,
+    )
+    qt_pca_builder.build()
+elif Env.platform.macos:
+    qt.homebrew(
+        package='qt6',
+        shared_libs=[
+            'Qt6Core',
+            'Qt6Gui',
+            'Qt6Widgets',
+            'Qt6Svg',
+            'Qt6SvgWidgets',
+        ]
+    )
+elif Env.platform.linux:
+    qt.pkgconfig(
+        prefix='Qt6',
+        shared_libs=[
+            'Qt6Core',
+            'Qt6Gui',
+            'Qt6Widgets',
+            'Qt6Svg',
+            'Qt6SvgWidgets',
+        ]
+    )

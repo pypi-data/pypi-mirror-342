@@ -1,0 +1,125 @@
+
+studio = CppExecutable('iprm_studio')
+studio.dynamic_crt()
+studio.gui()
+if Env.platform.macos:
+    # TODO: Add support for Info.plist/macOS bundle stuff
+    # TODO: Need to regenerate iconset file to updated iprm svg logo
+    pass
+
+studio.headers(
+    SourceDir('api'),
+    'APIItem.hpp',
+    'APIModel.hpp',
+    'APIView.hpp',
+)
+studio.sources(
+    SourceDir('api'),
+    'APIModel.cpp',
+    'APIView.cpp',
+)
+studio.headers(
+    SourceDir('dependencies'),
+    'DependencyGraphEdge.hpp',
+    'DependencyGraphicsScene.hpp',
+    'DependencyGraphicsView.hpp',
+    'DependencyGraphItemFactory.hpp',
+    'DependencyGraphNode.hpp',
+    'DependencyGraphNodeSummary.hpp',
+    'DependencyView.hpp',
+)
+studio.sources(
+    SourceDir('dependencies'),
+    'DependencyGraphEdge.cpp',
+    'DependencyGraphicsScene.cpp',
+    'DependencyGraphicsView.cpp',
+    'DependencyGraphItemFactory.cpp',
+    'DependencyGraphNode.cpp',
+    'DependencyGraphNodeSummary.cpp',
+    'DependencyView.cpp',
+)
+studio.headers(
+    SourceDir('filesystem'),
+    'FileSystemModel.hpp',
+    'FileSystemView.hpp',
+)
+studio.sources(
+    SourceDir('filesystem'),
+    'FileSystemModel.cpp',
+    'FileSystemView.cpp',
+)
+studio.headers(
+    SourceDir('log'),
+    'LogView.hpp',
+)
+studio.sources(
+    SourceDir('log'),
+    'LogView.cpp',
+)
+studio.headers(
+    SourceDir('project'),
+    'CMakeHighligher.hpp',
+    'FileView.hpp',
+    'NativeText.hpp',
+    'ObjectPropertiesView.hpp',
+    'ObjectsModel.hpp',
+    'ObjectsView.hpp',
+    'Project.hpp',
+    'TextStyle.hpp',
+)
+studio.sources(
+    SourceDir('project'),
+    'CMakeHighligher.cpp',
+    'FileView.cpp',
+    'NativeText.cpp',
+    'ObjectPropertiesView.cpp',
+    'ObjectsModel.cpp',
+    'ObjectsView.cpp',
+    'Project.cpp',
+    'TextStyle.cpp',
+)
+studio.headers(
+    SourceDir('util'),
+    'APIBridge.hpp',
+    'APIError.hpp',
+    'AppTheme.hpp',
+    'AssetCache.hpp',
+    'graphviz.hpp',
+    'LoadingWidget.hpp',
+    'SplashScreen.hpp',
+    'util.hpp',
+)
+studio.sources(
+    SourceDir('util'),
+    'APIBridge.cpp',
+    'AppTheme.cpp',
+    'AssetCache.cpp',
+    'graphviz.cpp',
+    'LoadingWidget.cpp',
+    'SplashScreen.cpp',
+)
+studio.headers(
+    CurrentSourceDir(),
+    'MainWindow.hpp',
+)
+studio.sources(
+    CurrentSourceDir(),
+    'main.cpp',
+    'MainWindow.cpp',
+)
+studio.sources(
+    SourceDir('..', 'res'),
+    'res.qrc',
+)
+studio.defines(
+    'QT_NO_KEYWORDS',
+)
+studio.output_dir(SourceDir('..', 'bin'))
+studio.python()
+studio.qt('third_qt')
+studio.requires(
+    'third_lemon',
+    'third_graphviz',
+    'third_pybind11',
+    'third_k_editor',
+)

@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: iprm
+Version: 0.1.0a1
+Summary: Intermediate Project Representation Model
+Requires-Python: >=3.12
+License-File: LICENSE
+Requires-Dist: lxml>=5.3.2; sys_platform == "win32"
+Dynamic: license-file
