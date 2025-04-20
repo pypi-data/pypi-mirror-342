@@ -1,0 +1,14 @@
+tinycp/classifier/__init__.py,sha256=h6UrsAE80CVDYUA0-_4GOt386amkKaSVa_lo1-4lhKA,129
+tinycp/classifier/base.py,sha256=N2LBL5dZxIBeu3GI3epmU5FxuZb0XLknCc4CnWPrFYU,14941
+tinycp/classifier/class_conditional.py,sha256=gl1jM8IdkyK66d8G2SKtOTelt-egesPAzqBtbNDIqK4,6907
+tinycp/classifier/marginal.py,sha256=TY7uwQYGbhwzfZ93DQDynUe-nU_p68nF869lrMjxJSU,6328
+tinycp/plot/__init__.py,sha256=O1TDbA3c3YoP0l8cpkK6a3jWZGLOdQXVLQhlQ1ivCtk,20
+tinycp/plot/plot.py,sha256=Dp2rt8ZRhegDTZ4kkvacjMlNCqop9AFKYHbVHw2m1co,10384
+tinycp/regressor/__init__.py,sha256=l2Wb_2VpemmNiR1PMR73ARRI0cmjSluSybm_pj0ezNM,88
+tinycp/regressor/base.py,sha256=4XQBjhZZ_Ex33RSNKbrhwMYBXtaBmTSRFCX7IKjO-os,5618
+tinycp/regressor/cqr.py,sha256=QV40gi-wFmebjoHNF9fbELMP8wgC7t-rUMJuM1ukSgU,3045
+tinycp/regressor/icp.py,sha256=7orO8hdNklML0bS_tNdPFWZetjR3MgJYvVvqaaVtE_I,2241
+tinycp-0.0.71.dist-info/LICENSE,sha256=oGMyi5YKRfPvxPthLZi3eiJ9zVC3oHJ94YoesVfp1Hg,1068
+tinycp-0.0.71.dist-info/METADATA,sha256=p2x3bfKUqEnUtYZ8b8Nwgfcc4OvuEgeS3tJAlnYJabU,4942
+tinycp-0.0.71.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+tinycp-0.0.71.dist-info/RECORD,,
