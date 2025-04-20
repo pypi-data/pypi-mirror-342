@@ -1,0 +1,140 @@
+Metadata-Version: 2.4
+Name: project-king-loki
+Version: 0.0.2
+Summary: Intelligent Location-Based Cipher
+Author-email: Soumyo Deep Gupta <deep.main.ac@gmail.com>
+Maintainer-email: Soumyo Deep Gupta <deep.main.ac@gmail.com>
+License-Expression: MIT
+Project-URL: Documentation, https://d33p0st.in/docs/project-king-loki/
+Project-URL: GitHub, https://github.com/d33p0st/project-king-loki
+Keywords: loki,king-loki,king,loki,location-based-cipher,cipher,location,based
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: requests
+Requires-Dist: cryptography
+Dynamic: license-file
+
+# Overview
+
+`KingLoki` provides a location based encryption protocol which makes sure any encrypted content can only be decrypted at the location where it was encrypted.
+
+Documentation as of now is not available. However, each module contains docstrings wherever applicable. Some modules are exempt from docstring due to security reasons, however, the underlying methods would be visible.
+
+For safe usage, only use `Loki` class under `KingLoki.protocols` module.
+
+## KingLoki Library License Agreement
+
+Copyright © 2025 Soumyo Deep Gupta. All rights reserved.
+
+### 1. Definitions
+
+**"Library"** refers to the KingLoki software library, including all source code, object code, interfaces, content, documentation, and any related materials.
+
+**"Licensor"** refers to Soumyo Deep Gupta, the copyright holder and creator of the KingLoki library.
+
+**"Licensee"** refers to any individual or entity that uses, copies, modifies, or distributes the Library under this License.
+
+**"Location-Bound Encryption Protocol"** refers to the specific encryption mechanism provided by the Library that requires the user to be in the same geographical location for decryption as was used during encryption.
+
+### 2. Acceptance of License Terms
+
+**IMPORTANT: BY DOWNLOADING, INSTALLING, ACCESSING, OR USING THE LIBRARY, THE LICENSEE AUTOMATICALLY ACCEPTS AND AGREES TO BE BOUND BY THE TERMS OF THIS LICENSE AGREEMENT. IF THE LICENSEE DOES NOT AGREE TO THESE TERMS, LICENSEE MUST NOT DOWNLOAD, INSTALL, ACCESS, OR USE THE LIBRARY IN ANY WAY.**
+
+Use of the Library in any manner constitutes unequivocal acceptance of this License Agreement, whether or not the Licensee has read it. No additional actions, verbal agreements, or written consent are required to signify acceptance.
+
+### 3. Grant of License
+
+Subject to the terms and conditions of this License, Licensor hereby grants Licensee a non-exclusive, non-transferable, revocable license to use, copy, modify, and distribute the Library for personal or commercial purposes.
+
+### 4. Restrictions
+
+The Licensee shall not:
+
+a) Remove or alter any copyright notices, attributions, or license terms included in the Library;
+
+b) Use the Library in any manner that violates applicable laws or regulations;
+
+c) Distribute modified versions of the Library without clearly documenting the changes and attributing the original work to the Licensor;
+
+d) Misrepresent the origin or ownership of the Library;
+
+e) Use the name, trademarks, or logos of the Licensor except as required for reasonable and customary attribution;
+
+f) Use the Library in life-critical systems, emergency response systems, or any application where failure could lead to personal injury, death, or severe physical or environmental damage.
+
+### 5. Location-Bound Encryption Disclaimer
+
+THE LOCATION-BOUND ENCRYPTION PROTOCOL IS PROVIDED AS-IS. THE LICENSOR MAKES NO WARRANTIES THAT:
+
+a) THE ENCRYPTION WILL BE IMPENETRABLE OR SECURE AGAINST ALL ATTACKS;
+
+b) THE LOCATION DETERMINATION WILL BE ACCURATE IN ALL CIRCUMSTANCES;
+
+c) ENVIRONMENTAL FACTORS, HARDWARE VARIATIONS, OR OTHER TECHNICAL LIMITATIONS WILL NOT INTERFERE WITH PROPER FUNCTIONING OF THE LOCATION-BASED DECRYPTION;
+
+d) DATA ENCRYPTED USING THE LIBRARY WILL BE RECOVERABLE IF THE ORIGINAL LOCATION BECOMES INACCESSIBLE OR CHANGES SIGNIFICANTLY.
+
+LICENSEE ACKNOWLEDGES THE INHERENT RISKS OF USING LOCATION-DEPENDENT ENCRYPTION AND ACCEPTS FULL RESPONSIBILITY FOR DATA LOSS OR INACCESSIBILITY RESULTING FROM LOCATION CHANGES, TECHNICAL FAILURES, OR OTHER CIRCUMSTANCES THAT PREVENT SUCCESSFUL DECRYPTION.
+
+### 6. Disclaimer of Warranty
+
+THE LIBRARY IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. THE LICENSOR MAKES NO WARRANTY THAT:
+
+a) THE LIBRARY WILL MEET THE LICENSEE'S REQUIREMENTS;
+
+b) THE LIBRARY WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE;
+
+c) RESULTS OBTAINED FROM USE OF THE LIBRARY WILL BE ACCURATE OR RELIABLE;
+
+d) DEFECTS IN THE LIBRARY WILL BE CORRECTED.
+
+### 7. Limitation of Liability
+
+IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, CONSEQUENTIAL, OR PUNITIVE DAMAGES INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA, OR OTHER INTANGIBLE LOSSES (EVEN IF THE LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES) ARISING OUT OF OR IN CONNECTION WITH:
+
+a) THE USE OR INABILITY TO USE THE LIBRARY (INCLUDING BUT NOT LIMITED TO INABILITY TO DECRYPT DATA DUE TO LOCATION CHANGES);
+
+b) UNAUTHORIZED ACCESS TO OR ALTERATION OF DATA ENCRYPTED USING THE LIBRARY;
+
+c) STATEMENTS OR CONDUCT OF ANY THIRD PARTY REGARDING THE LIBRARY;
+
+d) ANY OTHER MATTER RELATING TO THE LIBRARY.
+
+THIS LIMITATION APPLIES REGARDLESS OF THE LEGAL THEORY ON WHICH THE CLAIM IS BASED, INCLUDING WITHOUT LIMITATION, CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR ANY OTHER LEGAL OR EQUITABLE THEORY.
+
+IN JURISDICTIONS THAT DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CERTAIN DAMAGES, LIABILITY IS LIMITED TO THE MAXIMUM EXTENT PERMITTED BY LAW.
+
+### 8. Compliance with Export Laws
+
+Licensee shall comply with all applicable export and re-export control laws and regulations, including the Export Administration Regulations maintained by the U.S. Department of Commerce, trade and economic sanctions maintained by the Treasury Department's Office of Foreign Assets Control, and the International Traffic in Arms Regulations maintained by the Department of State.
+
+### 9. Cryptographic Software Notice
+
+This Library includes cryptographic software. The country in which you currently reside may have restrictions on the import, possession, use, and/or re-export to another country, of encryption software. BEFORE using the Library, please check your country's laws, regulations and policies concerning the import, possession, or use, and re-export of encryption software, to determine if this is permitted. Licensor is not liable for any violations of such restrictions.
+
+### 10. High Risk Activities
+
+The Library is not designed, manufactured, or intended for use or resale as control equipment in hazardous environments requiring fail-safe performance, such as in the operation of nuclear facilities, aircraft navigation or communication systems, air traffic control, direct life support machines, or weapons systems, in which the failure of the Library could lead directly to death, personal injury, or severe physical or environmental damage.
+
+### 11. Termination
+
+This License is effective until terminated. Licensee's rights under this License will terminate automatically without notice if Licensee fails to comply with any of its terms. Upon termination, Licensee shall cease all use of the Library and destroy all copies.
+
+### 12. Governing Law and Jurisdiction
+
+This License shall be governed by and construed in accordance with the laws of the jurisdiction in which the Licensor resides, without giving effect to any principles of conflicts of law. Any legal action or proceeding arising under this License shall be brought exclusively in the federal or state courts located in the aforementioned jurisdiction and the parties hereby consent to personal jurisdiction and venue therein.
+
+### 13. Entire Agreement
+
+This License constitutes the entire agreement between the parties with respect to the use of the Library and supersedes all prior or contemporaneous understandings regarding such subject matter.
+
+### 14. Severability
+
+If any provision of this License is held to be unenforceable or invalid, such provision shall be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions shall continue in full force and effect.
+
+By downloading, installing, accessing, or using the Library in any way, the Licensee acknowledges having read and understood this License and agrees to be bound by its terms and conditions.
