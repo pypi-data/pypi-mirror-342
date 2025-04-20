@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: scrawlpy
+Version: 0.0.25
+Summary: spider框架
+Home-page: https://github.com/jaydenjd/scrawlpy
+Author: jayden
+Author-email: jayden@qq.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: better-exceptions>=0.2.2
+Requires-Dist: DBUtils>=2.0
+Requires-Dist: parsel>=1.5.2
+Requires-Dist: PyMySQL>=0.9.3
+Requires-Dist: redis<4.0.0,>=2.10.6
+Requires-Dist: requests>=2.22.0
+Requires-Dist: bs4>=0.0.1
+Requires-Dist: ipython>=7.14.0
+Requires-Dist: cryptography>=3.3.2
+Requires-Dist: urllib3>=1.25.8
+Requires-Dist: loguru>=0.5.3
+Requires-Dist: influxdb>=5.3.1
+Requires-Dist: pyperclip>=1.8.2
+Requires-Dist: terminal-layout>=2.1.3
+Provides-Extra: all
+Requires-Dist: bitarray>=1.5.3; extra == "all"
+Requires-Dist: PyExecJS>=1.5.1; extra == "all"
+Requires-Dist: pymongo>=3.10.1; extra == "all"
+Requires-Dist: redis-py-cluster>=2.1.0; extra == "all"
+Requires-Dist: webdriver-manager>=4.0.0; extra == "all"
+Requires-Dist: playwright; extra == "all"
+Provides-Extra: render
+Requires-Dist: webdriver-manager>=4.0.0; extra == "render"
+Requires-Dist: playwright; extra == "render"
+
+## 关于我
+一款爬虫工具，集合了 requests curl_requests
