@@ -1,0 +1,2 @@
+[console_scripts]
+codex = codex_cli.main:run
