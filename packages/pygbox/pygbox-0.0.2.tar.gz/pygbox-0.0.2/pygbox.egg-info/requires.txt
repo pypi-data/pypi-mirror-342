@@ -1,0 +1,11 @@
+requests>=2.25.0
+pydantic>=2.0
+
+[dev]
+pytest>=7.0.0
+pytest-mock>=3.8.0
+pytest-cov>=4.0.0
+black>=21.5b2
+mypy>=0.812
+ruff>=0.1.0
+isort>=5.10.0
