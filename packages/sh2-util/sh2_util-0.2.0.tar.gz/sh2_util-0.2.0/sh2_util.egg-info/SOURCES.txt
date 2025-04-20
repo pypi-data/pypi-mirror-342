@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+sh2_util/__init__.py
+sh2_util/http.py
+sh2_util.egg-info/PKG-INFO
+sh2_util.egg-info/SOURCES.txt
+sh2_util.egg-info/dependency_links.txt
+sh2_util.egg-info/requires.txt
+sh2_util.egg-info/top_level.txt
