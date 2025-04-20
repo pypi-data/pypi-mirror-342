@@ -1,0 +1,14 @@
+Metadata-Version: 2.2
+Name: python3-byoc
+Version: 3.0.2
+Summary: Build Your Own Config framework.
+Home-page: https://launchpad.net/byoc
+Author: Vincent Ladeuil
+Author-email: v.ladeuil+lp@free.fr
+License: GPLv3
+License-File: COPYING
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license
+Dynamic: summary
