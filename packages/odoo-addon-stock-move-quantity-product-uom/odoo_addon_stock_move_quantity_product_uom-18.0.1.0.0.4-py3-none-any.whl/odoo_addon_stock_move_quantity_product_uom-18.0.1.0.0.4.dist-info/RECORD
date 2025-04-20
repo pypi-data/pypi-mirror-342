@@ -1,0 +1,17 @@
+odoo/addons/stock_move_quantity_product_uom/README.rst,sha256=SN7qLoe67yUal-ndivZgPgxOJW9WFEMywVsuO8kS5x4,3089
+odoo/addons/stock_move_quantity_product_uom/__init__.py,sha256=W1ojrXfUML9bTy43fJeWfK1J5ecA4qcZhKar0PEy5Cg,118
+odoo/addons/stock_move_quantity_product_uom/__manifest__.py,sha256=iawIdKYW1tvDFwIsGIUQ5TpFmHPJGUsn2N_LW34MgYM,500
+odoo/addons/stock_move_quantity_product_uom/i18n/it.po,sha256=ZgxU7IVwINWD9SK82Rwp54meQw-C-Ie0qo1hh_aSw_w,1202
+odoo/addons/stock_move_quantity_product_uom/i18n/stock_move_quantity_product_uom.pot,sha256=c9ynlQ5_8E6N9PH0OQSeVI4FzMhvGT6hgQdxrlC_C9k,940
+odoo/addons/stock_move_quantity_product_uom/models/__init__.py,sha256=19WqI0OvOXjDRY1xam1sQYwBGLXOHyx65-QcKf-vReQ,122
+odoo/addons/stock_move_quantity_product_uom/models/stock_move.py,sha256=upqmV-uPy1yBQvuJOfRbJr9dwZKsIdNUwYbJI7Mpzzw,725
+odoo/addons/stock_move_quantity_product_uom/readme/CONTRIBUTORS.md,sha256=nyBip0POraABb-LoAFGr8AqaJ5HW_gCnejexN0yIiYE,62
+odoo/addons/stock_move_quantity_product_uom/readme/DESCRIPTION.md,sha256=aWRbz3DAk__0v7ozYcrwC0vcObSmKdoYwZ54wd77deQ,72
+odoo/addons/stock_move_quantity_product_uom/static/description/icon.png,sha256=6xBPJauaFOF0KDHfHgQopSc28kKvxMaeoQFQWZtfZDo,9455
+odoo/addons/stock_move_quantity_product_uom/static/description/index.html,sha256=-utTe46BnXPEkzz6XHtkxZTEQRYePBWpTlzQBP9fKOI,12409
+odoo/addons/stock_move_quantity_product_uom/tests/__init__.py,sha256=k05yj2-PVnutCgYRz399U-Omo6OZq8W-eJpGuJuUk9k,148
+odoo/addons/stock_move_quantity_product_uom/tests/test_stock_move_quantity_product_uom.py,sha256=DwUWiUNdM4vrQ339hA8PAwhi1WVb5D_17X6PhUr5EX8,2121
+odoo_addon_stock_move_quantity_product_uom-18.0.1.0.0.4.dist-info/METADATA,sha256=1AaLT6NgO1hqCzeuA9JeZ6kSGZeIDMbBsWu0LzaQ42g,3671
+odoo_addon_stock_move_quantity_product_uom-18.0.1.0.0.4.dist-info/WHEEL,sha256=9fEMia4zL7ZuZbnCOrcYogUhmn4XFIVaJ8G4YGI31xc,81
+odoo_addon_stock_move_quantity_product_uom-18.0.1.0.0.4.dist-info/top_level.txt,sha256=QE6RBQ0QX5f4eFuUcGgU5Kbq1A_qJcDs-e_vpr6pmfU,4
+odoo_addon_stock_move_quantity_product_uom-18.0.1.0.0.4.dist-info/RECORD,,
