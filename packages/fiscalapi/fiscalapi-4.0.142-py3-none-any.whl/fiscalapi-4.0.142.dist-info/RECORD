@@ -1,0 +1,17 @@
+fiscalapi/__init__.py,sha256=D1AN8RKYqM9SZL5SFuullZbYpCMnQhhPvYeQmEUhwPU,2123
+fiscalapi/models/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fiscalapi/models/common_models.py,sha256=BiTE05lqyuiGpg66HkrNa1VEY-nJq_bjzssXHIAHg2w,2653
+fiscalapi/models/fiscalapi_models.py,sha256=0JG0x9gbGusnIrZEaKnX80Hr6uLkUYEoDA2dIFJcFnU,25602
+fiscalapi/services/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+fiscalapi/services/base_service.py,sha256=3MH-cfHIzLOfIdhoP_r9ywxRv4fHjKVGGmPBIXYg_Xc,8397
+fiscalapi/services/catalog_service.py,sha256=F2j-19IVRtCjKaVGCsb5DOpxJoFdYf1ysPnfobLyLb0,1006
+fiscalapi/services/fiscalapi_client.py,sha256=pjfqJDcYboMSOabcFze5acFmsADwk31aIg2Jr7hg4po,729
+fiscalapi/services/invoice_service.py,sha256=sJbrUsbxfCNNHiV-yKoqGSkjRA63ZSUjm5DTFCNPvsw,3341
+fiscalapi/services/people_service.py,sha256=WjTnoBdF86Sp7y9WX6dMTpJxdNyrcVQNXvJPGtLXpNQ,1262
+fiscalapi/services/product_service.py,sha256=MZOs0sRJzOKhaQWRMYI0rHddU0N19-igHQ_1LylKWdo,1285
+fiscalapi/services/tax_file_servive.py,sha256=juB3jKuXFA7x2MPKIOkBwYqKh1GKYfPQ3aHBH08vssQ,2062
+fiscalapi-4.0.142.dist-info/licenses/LICENSE.txt,sha256=HyVuytGSiAUQ6ErWBHTqt1iSGHhLmlC8fO7jTCuR8dU,16725
+fiscalapi-4.0.142.dist-info/METADATA,sha256=Q2jzh2fOdcnvfVWrHHoDnkd0fyFC65z0vutI5y5tUQ0,9992
+fiscalapi-4.0.142.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+fiscalapi-4.0.142.dist-info/top_level.txt,sha256=F1KDdyKHR5xU-_-jVcDImMclZdz40GvTqj_0n_tPvYM,10
+fiscalapi-4.0.142.dist-info/RECORD,,
