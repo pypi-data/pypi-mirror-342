@@ -1,0 +1,17 @@
+LICENSE
+pyproject.toml
+mat_io.egg-info/PKG-INFO
+mat_io.egg-info/SOURCES.txt
+mat_io.egg-info/dependency_links.txt
+mat_io.egg-info/requires.txt
+mat_io.egg-info/top_level.txt
+matio/__init__.py
+matio/class_parser.py
+matio/readmat.py
+matio/subsystem.py
+tests/test_mcos/test_datetime/test_datetime.py
+tests/test_mcos/test_duration/test_duration.py
+tests/test_mcos/test_enum/test_enum.py
+tests/test_mcos/test_simple/test_simple.py
+tests/test_mcos/test_string/test_string.py
+tests/test_mcos/test_user_defined/test_user_defined.py

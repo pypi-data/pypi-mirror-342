@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mat-io"
+version = "0.1.0"
+description = "A package for reading MATLAB .mat files"
+authors = [{name = "foreverallama", email = "klockatoo@gmail.com"}]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "scipy>=1.15.0",
+    "numpy>=2.2.2",
+    "pytz",
+    "pandas>=2.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/foreverallama/matio"
+
+[tool.setuptools.packages]
+find = {}
