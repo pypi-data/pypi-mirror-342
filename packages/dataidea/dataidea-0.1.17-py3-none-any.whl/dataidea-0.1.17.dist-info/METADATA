@@ -1,0 +1,49 @@
+Metadata-Version: 2.3
+Name: dataidea
+Version: 0.1.17
+Summary: dataidea package
+Author: jumashafara
+Author-email: jumashafara0@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: numpy (>=2.2.5,<3.0.0)
+Requires-Dist: pandas (>=2.2.3,<3.0.0)
+Requires-Dist: plotly (>=6.0.1,<7.0.0)
+Requires-Dist: python-dotenv (>=1.1.0,<2.0.0)
+Requires-Dist: requests (>=2.32.3,<3.0.0)
+Requires-Dist: rich (>=14.0.0,<15.0.0)
+Requires-Dist: scikit-learn (>=1.6.1,<2.0.0)
+Requires-Dist: yt-dlp (>=2025.3.31,<2026.0.0)
+Description-Content-Type: text/markdown
+
+## DATAIDEA Quickstart
+
+### What is the `dataidea` package?
+
+This is a package we are currently developing to help new and old data analysists walk around some repetitive and sometimes disturbing tasks that a data analyst does day to day
+
+This library currently extends and depends on majorly numpy, pandas as sklearn and these, among a few others will be installed once you install dataidea
+
+## Installing `dataidea`
+
+- To install dataidea, you must have python installed on your machine
+- It's advised that you install it in a virtual environment
+- You can install `dataidea` using the command below
+
+```python
+pip install dataidea
+```
+
+### Learning `dataidea`
+
+The best way to get started with dataidea (and data analysis) is to complete the free course.
+
+To see what’s possible with dataidea, take a look at the Quick Start
+
+Read through the [Tutorials](https://docs.dataidea.org) to learn how to load datasets, train your own models on your own datasets. Use the navigation to look through the dataidea documentation. Every class, function, and method is documented.
+
+Link to the DATAIDEA documentation: [https://docs.dataidea.org](https://docs.dataidea.org)
