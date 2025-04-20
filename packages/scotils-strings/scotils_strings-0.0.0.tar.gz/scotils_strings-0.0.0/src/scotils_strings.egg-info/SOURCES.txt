@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+src/scotils_strings.egg-info/PKG-INFO
+src/scotils_strings.egg-info/SOURCES.txt
+src/scotils_strings.egg-info/dependency_links.txt
+src/scotils_strings.egg-info/top_level.txt
+tests/test_utils.py
