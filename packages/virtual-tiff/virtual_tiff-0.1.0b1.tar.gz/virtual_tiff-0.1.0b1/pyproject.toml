@@ -1,0 +1,88 @@
+[build-system]
+build-backend = "hatchling.build"
+
+requires = [
+  "hatch-vcs",
+  "hatchling",
+]
+
+[project]
+name = "virtual_tiff"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Max Jones", email = "14077947+maxrjones@users.noreply.github.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+
+dependencies = [
+    "obstore",
+    "async_tiff",
+    "virtualizarr",
+    "imagecodecs",
+    "imagecodecs-numcodecs",
+    "zarr",
+]
+
+# Dependency sets under dependencies-groups are NOT available via PyPI
+[dependency-groups]
+dev = [
+  "codecov",
+  "netcdf4",
+  "mypy",
+  "pandas-stubs",
+  "pooch",
+  "pre-commit",
+  "pytest",
+  "pytest-asyncio",
+  "pytest-cov",
+  "pytest-mypy",
+  "pytest-xdist",
+  "ruff",
+  "s3fs",
+  "rioxarray",
+  "rasterio",
+  "earthaccess",
+  "xarray",
+  "dvc[s3]>=3.59.1",
+]
+
+[tool.coverage.run]
+source_pkgs = [""]
+branch = true
+parallel = true
+omit = []
+
+[tool.uv.sources]
+virtualizarr = { git = "https://github.com/zarr-developers/VirtualiZarr.git" }
+zarr = { git = "https://github.com/zarr-developers/zarr-python.git" }
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+  "src/virtual_tiff",
+]
+
+[project.entry-points."zarr.codecs"]
+"imagecodecs_delta" = "virtual_tiff.imagecodecs:Delta"
+"imagecodecs_lzw" = "virtual_tiff.imagecodecs:LZW"
+"imagecodecs_zstd" = "virtual_tiff.imagecodecs:Zstd"
+"imagecodecs_deflate" = "virtual_tiff.imagecodecs:Deflate"
+"imagecodecs_floatpred" = "virtual_tiff.imagecodecs:FloatPred"
+
