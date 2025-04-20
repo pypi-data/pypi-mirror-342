@@ -1,0 +1,15 @@
+chelseru_chat/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+chelseru_chat/admin.py,sha256=8aboavkDA0gl0HMsTOpH2fq-Kn5blAB1_tLOBINemqo,131
+chelseru_chat/apps.py,sha256=FZeBbtU5UnRjqiYls7DtNm2hS1SMeR4JYIsUPfBZrNs,150
+chelseru_chat/consumers.py,sha256=orxCYIatKrAo4dhgcc1UTucmS5GSiLQHA8JnN-nwQeA,2526
+chelseru_chat/middleware.py,sha256=kedljsHSJ5NixK9txJSGnabv0q4mB6DWXU11nYSg6GA,1112
+chelseru_chat/models.py,sha256=tb0O5pp3VZ5ICIgnUR3EnaMUgYzEzvZgDZVpA7CexYE,817
+chelseru_chat/routing.py,sha256=SEWMBmRFZs1NkKLuppXpmvRmyWiTY3KVIHmA4EpUyyI,167
+chelseru_chat/serializers.py,sha256=ajNzQOaWds7PS-Ql4IZZ7l-aWD7sRIu8VkxN_21nDqI,698
+chelseru_chat/urls.py,sha256=gt7DbWCD7eY5L4NYHpA3iJn40AwFXlfrL2Z7dlFaorQ,366
+chelseru_chat/views.py,sha256=ei-O-wvBG3QFrcI1Z3NgT0tEkyPdgzvqIxbs3lhxcyk,2244
+django_chelseru_chat-1.1.0.dist-info/licenses/LICENSE,sha256=iu79NR2WuRo9E8NnUxxvtaSTtk6OsTXq3MsKdCGgPsY,1064
+django_chelseru_chat-1.1.0.dist-info/METADATA,sha256=qkOhaMaBCI5Fy4egWWnjNArttE1trWF05ikJ5n4C8UQ,4591
+django_chelseru_chat-1.1.0.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+django_chelseru_chat-1.1.0.dist-info/top_level.txt,sha256=dlBsmB0fMiaYped_qV8CkiLtSKXCz-vG-QuFg9nd9NQ,14
+django_chelseru_chat-1.1.0.dist-info/RECORD,,
