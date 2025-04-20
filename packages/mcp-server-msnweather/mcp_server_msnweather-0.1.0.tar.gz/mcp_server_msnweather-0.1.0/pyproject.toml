@@ -1,0 +1,19 @@
+[project]
+name = "mcp-server-msnweather"
+version = "0.1.0"
+description = "MCP weather server using MSN Weather API"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=1.2.0",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[build-system]
+requires = ["hatchling>=1.0.0"] 
+build-backend = "hatchling.build"
+
+[project.scripts]
+mcp-server-msnweather = "mcp_server_msnweather:main"
