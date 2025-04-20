@@ -1,0 +1,2 @@
+[console_scripts]
+stv_art = stv_ascii_art.main:main
