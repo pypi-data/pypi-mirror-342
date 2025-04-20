@@ -1,0 +1,16 @@
+appsettings2/Configuration.py,sha256=PJ6X1HFjODXiqfHTMOGcgDcshlOwi_-8Q2rIQqupwuA,13790
+appsettings2/ConfigurationBuilder.py,sha256=r2Fp3R8qIVocVMaL2_9wxXbNG3WxU5h_O1ZqbBfAp6c,6067
+appsettings2/ConfigurationException.py,sha256=ptaJrUpBPyChVNOsBXaiVh0oAXTBsLtVyhKT2btUHWk,253
+appsettings2/__init__.py,sha256=rXWEUJb0MSUsr-aaDUwxWxX_Ss5WZvNFN0CXkSkKUVc,283
+appsettings2/providers/CommandLineConfigurationProvider.py,sha256=k3rhtW7ROesNwN_fiCgSy9frgPYFRDOgF1gcxKhpOqU,1494
+appsettings2/providers/ConfigurationProvider.py,sha256=o5ToZNZe-EcCSp8-BsGvyfJ_5R4Kjq3NCLwuwH1sMyk,541
+appsettings2/providers/EnvironmentConfigurationProvider.py,sha256=2YLvfWoAgRBIloDIe_g76LGG-VPN0Zioh1R4C66Nk_U,473
+appsettings2/providers/JsonConfigurationProvider.py,sha256=SlQKfsXZNV_HR_1TKdVTR6xBFFBEYkzcd64rUDz6Bg8,2322
+appsettings2/providers/TomlConfigurationProvider.py,sha256=tOE5hUwC-amft5EQiJHIa_DpksLJ0-MLX8KLALQhbf8,2325
+appsettings2/providers/YamlConfigurationProvider.py,sha256=BWD05e2CyM95o8Hysq68tAgBWMK0kXM_wZUWE6wxOZY,2449
+appsettings2/providers/__init__.py,sha256=sd0lATlab1hL6F_VzSGGPCy_FFbLMORqpNGLKz3j1Ik,489
+appsettings2-1.1.31.dist-info/licenses/LICENSE,sha256=Nx4FiJyAL1Wc7SDApa9RYVQafnPCbOC9SCPRqQRtcW0,1069
+appsettings2-1.1.31.dist-info/METADATA,sha256=oAGg72c9pw17iV2Yl05CHfDZ9UTHlLT46RHtfntlX_c,8206
+appsettings2-1.1.31.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+appsettings2-1.1.31.dist-info/top_level.txt,sha256=ck-BsdAThSlaOdqcH4EoVzG7g1nJ03FyGTWYel1dJRc,13
+appsettings2-1.1.31.dist-info/RECORD,,
