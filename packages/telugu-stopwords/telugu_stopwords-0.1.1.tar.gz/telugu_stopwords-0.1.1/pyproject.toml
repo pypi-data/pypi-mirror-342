@@ -1,0 +1,23 @@
+[project]
+name = "telugu-stopwords"
+version = "0.1.1"
+description = "A Python package for managing Telugu stop words."
+authors = [
+    { name = "Pavan Yellathakota", email = "pavanyellathakota@gmail.com" },
+    { name = "Prudhvi Yellathakota", email = "prudhviyellathakota@gmail.com" }
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = []
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["telugu_stopwords"]
+
+[project.urls]
+Homepage = "https://github.com/PavanYellathakota/telugu-stopwords"
+Repository = "https://github.com/PavanYellathakota/telugu-stopwords"

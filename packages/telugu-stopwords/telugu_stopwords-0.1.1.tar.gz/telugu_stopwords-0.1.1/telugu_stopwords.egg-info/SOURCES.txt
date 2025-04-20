@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+telugu_stopwords/__init__.py
+telugu_stopwords/telugu_stopwords.py
+telugu_stopwords.egg-info/PKG-INFO
+telugu_stopwords.egg-info/SOURCES.txt
+telugu_stopwords.egg-info/dependency_links.txt
+telugu_stopwords.egg-info/top_level.txt
+tests/test_telugu_stopwords.py
