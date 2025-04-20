@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "servextools"
+version = "0.1.0"
+description = "Herramientas para Servextex"
+authors = [
+    { name="Servextex", email="info@servextex.com.do" }
+]
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+dependencies = [
+    "flask",
+    "pymongo",
+    "pytz",
+    "PyJWT",
+    "httpx",
+    "eventlet",
+    "flask-socketio",
+    "tqdm",
+    "bson"
+]
