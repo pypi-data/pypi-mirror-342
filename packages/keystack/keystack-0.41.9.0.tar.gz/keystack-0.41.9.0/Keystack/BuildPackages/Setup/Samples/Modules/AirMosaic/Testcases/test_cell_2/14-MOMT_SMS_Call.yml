@@ -1,0 +1,19 @@
+test No: TC-14
+title: Test Scenario To Perform MO/MT SMS on VoNR
+objective: Test Scenario To Perform MO/MT SMS on VoNR
+dUTs: UESim
+app: app_AirMosiac
+
+iniParameters:
+  UEE:
+    remote_port: 5005
+    sce: sce::mavenir_988_functional::10
+    sid: sid::2
+
+  PREPARE_ENVIRONMENT:
+    startlsu: False
+    cells_configuration: configFiles::1
+
+  RESULT:
+    counterCheck: kpiCounterChecks::mavenir_988::6,11,12,13,14,16,23
+

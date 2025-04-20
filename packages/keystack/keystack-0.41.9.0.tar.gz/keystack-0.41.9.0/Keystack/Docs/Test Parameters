@@ -1,0 +1,46 @@
+Test parameters
+
+Example:
+    python3 keystack -playbook Samples/advance -domain QA -sessionId myAwesomeTestId 
+
+
+playbook:           The playbook to run.  Could be any of the below formats:
+                       -playbook /opt/KeystackTests/Playbooks/DOMAIN=QA/Samples/qa.yml
+                       -playbook DOMAIN=QA/Samples/qa.yml
+                       -playbook Samples/qa -domain <playbook domain> 
+            
+domain:             The playbook's domain. Test results will be saved in the domain name
+                    that you stated.
+
+sessionId:          Tag the pipeline test session with a unique name identifier
+
+debugMode:          The pipleine session ID and the result folder will be tagged with 
+                    _debug and the pipeline session will not be tracked
+
+holdEnvIfFailed:    Don't release the env if the Task failed.  This requires the user to click on 
+                    release-env in the KeystackUI when done debugging to release the env so
+                    other test could use it.
+
+abortTestonFailure: Abort the test immediately on the first failure 
+
+pauseOnFailure:     Pause the test on each failure for debugging. 
+                    Requires user to click on pause-on-faiure in the KeystackUI when done 
+                    debugging to resume testing
+
+awsS3:              Upload test results to AWS S3 bucket when the test is done
+
+jira:               Automatically open or update a Jira bug defect upon encountering test case failures
+
+includeloopTestPassedResults: Inlcude loop test results. Default = False
+                              Warning! This will take up storage space. The more iterations,
+                              the more data accumulated.
+
+verbose:            For CLI test executions. Show extra traceback log messages.
+
+emailResults:       Email the test result summary when test is completed
+                    This is a placeholder for now.  Not working yet.
+
+appArgs:            The args that you would normally passed into a CLI command app inside double 
+                    quotes. For example: Pytest args
+                    
+                    Also, overwrites testcase yml file scriptCmdlineArgs.

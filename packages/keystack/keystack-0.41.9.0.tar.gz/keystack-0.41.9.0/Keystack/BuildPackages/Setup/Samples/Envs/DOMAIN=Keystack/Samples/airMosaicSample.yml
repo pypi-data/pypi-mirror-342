@@ -1,0 +1,14 @@
+# Can this env be used in parallel with other Modules
+# Default=False
+parallelUsage: False
+
+username: admin
+password: admin
+
+# iniParameters:
+#   TEST_EXECUTION:
+#     global_variable: [{"name": "SESSION_REPETITION", "value": "1"}, {"name": "DELAY_TIME", "value": "2000"}]
+
+
+
+

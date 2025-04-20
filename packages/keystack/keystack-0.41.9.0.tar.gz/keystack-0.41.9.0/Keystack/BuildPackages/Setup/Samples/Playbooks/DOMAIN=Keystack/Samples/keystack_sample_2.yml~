@@ -1,0 +1,29 @@
+# Sample:
+#   - Module 1 playlist run everything insie the L2L3_Testcases folder
+#     So you don't have to type every testcase
+#   - Run 2 modules in the same stage Test
+#   - Run 2 modules concurrently by setting runModulesConcurrently = True
+#   - module 2 passes in some variables into the script to consume
+
+stages:
+   Test:
+      enable: True
+      runModulesConcurrently: True
+      tasks:
+        - Layer3:
+            enable: True
+            env: DOMAIN=Communal/Samples/demoEnv
+            playlist:
+               - /Testcases/Samples/L2L3_Testcases
+               #- /Testcases/Samples/L2L3_Testcases/ospf.yml
+               #- /Testcases/Samples/L2L3_Testcases/isis.yml
+
+        - DynamicVariables:
+            enable: True
+            env: DOMAIN=Communal/Samples/demoEnv2
+            # Pass in variable values to scripts to consume
+            playbookVars:
+               serverIp: 10.10.10.1
+               serverName: qa
+            playlist:
+                - /Testcases/Samples/dynamicVariableSample.yml

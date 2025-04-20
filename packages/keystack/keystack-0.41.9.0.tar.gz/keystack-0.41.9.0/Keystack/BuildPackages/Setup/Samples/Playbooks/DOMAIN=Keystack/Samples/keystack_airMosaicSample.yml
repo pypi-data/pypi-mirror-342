@@ -1,0 +1,37 @@
+---
+
+globalSettings:
+    loginCredentialKey: None
+    trackResults: False
+    abortTaskOnFailure: False
+    abortStageOnFailure: True
+    reportHeadingAdditions:
+      - RAN ID: Site 26A N71
+      - Enviroment: AWS West-2 Prod AZ1
+      - Test Suite: Category 1 - Functional
+
+    # Where is the testConfigMatrix.yml file located at
+    testConfigMatrix: /opt/KeystackTests/Modules/AirMosaic/ConfigFiles/testConfigMatrix.yml
+    airMosaicIniFile: /opt/KeystackTests/Modules/AirMosaic/ConfigFiles/testParameters.ini
+    iniParameters:
+        TEST_EXECUTION:
+            global_variable: [{"name": "SESSION_REPETITION", "value": "1"}, {"name": "DELAY_TIME", "value": "2000"}]
+
+stages:
+    AirMosaicTest:
+        enable: True
+        tasks:
+            - CellTest:
+                #env: airMosaic
+                playlist:
+                    #- /Modules/AirMosaic/Testcases/automationDevTest/01-13A_PLMN_Selection_manual_automatic.yml
+                    - /Modules/AirMosaic/Testcases/automationDevTest/01-13A_PLMN_Selection_manual_automatic-fail.yml
+
+                outerLoop: 1
+                innerLoop:
+                    allTestcases: 1
+                    # Use - (dashes to create a list of folders)
+                    #folders:
+                    #testcases:
+
+

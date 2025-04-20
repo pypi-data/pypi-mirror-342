@@ -1,0 +1,47 @@
+# Define all individual parameters inside the key 'params'
+params:
+   - name: pollStatInterval
+     description: Polling stats interval. .30=30 seconds, 1.20=120 seconds 
+     type: int|float
+     value: .30
+
+# To execute functions in an API library file
+# Use '-' dashes to list all the scripts 
+executeFunctions:
+   - script: /opt/KeystackTests/Modules/LoadCore/ReconfigurationScripts/reconfigLoadCore.py
+     function: reassignAgents
+     description: Chaning Agent IP addresses for the various loadcore nodes. To run a simple test, skip below and simply run your saved config file that has all of your environment IP addresses and configurations.
+
+     # A function could have multiple parameters.
+     # Use '-' dashes to list all the parameters
+     functionParams:
+       - paramName: testcaseParams
+         description: These are configuration data to support calling the function reassignAgents()
+         type: dict
+         value:
+           agentsDict:
+              ran:  ['192.168.28.137']
+              amf:  ['192.168.28.138']
+              nrf:  ['192.168.28.138']
+              ausf: ['192.168.28.138']
+              smsf: ['192.168.28.138']
+              udm:  ['192.168.28.138']
+              pcf:  ['192.168.28.138']
+              udr:  ['192.168.28.138']
+              smf:  ['192.168.28.138']
+              upf:  ['192.168.28.138']
+              dn:   ['192.168.28.138']
+              nssf: ['192.168.28.138']
+
+   - script: /opt/KeystackTests/Modules/LoadCore/ReconfigurationScripts/reconfigLoadCore.py
+     function: changeNetworkSettings
+     description: These are configuration data to support calling changeNetworkSettings
+
+     functionParams:
+       - paramName: testcaseParams
+         description: These are configuration data to support calling the function reassignAgents()
+         type: dict
+         value:
+            #   networkStack options: dpdk, linuxStack, ixStack
+            changeNetworkSettings: [{'agentIp': '192.168.28.137', 'interface': 'ens33', 'portCapture': True, 'networkStack': 'linuxStack', 'sriov': False},
+                                    {'agentIp': '192.168.28.138', 'interface': 'ens33', 'portCapture': True, 'networkStack': 'linuxStack', 'sriov': False}]

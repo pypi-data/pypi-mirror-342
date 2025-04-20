@@ -1,0 +1,40 @@
+---
+globalSettings:
+   loginCredentialKey: None
+   trackResults: False
+   abortTaskOnFailure: False
+   abortStageOnFailure: True
+   abortTestOnFailure: True
+   env: None
+   # Add additional test report details to the test report header. 
+   # This will show the keys and values. Create as many as you like with a dash.
+   # reportHeadingAdditions:
+   #    - key: 'valueString'
+   
+stages:
+    LoadCoreTest:
+        enable: True
+        runTasksConcurrently: False
+        env: None
+        tasks:
+            - FullCoreTest:
+                env: DOMAIN=Communal/Samples/loadcoreSample
+                playlist:
+                    - /Testcases/Samples/LoadCore/fullcoreBase.yml
+
+                outerLoop: 1
+                innerLoop:
+                    allTestcases: 1
+                    # Use - (dashes to create a list of folders)
+                    #folders:
+                    #testcases:
+
+                rebootAgentsBeforeEachTest: False
+                deleteTestLogsAndResultsOnLoadCore: True
+                waitTimeBetweenTests: 0
+                deleteSession: True
+                deleteSessionOnFailure: True
+                abortOnFailure: False
+                getPdfResultsFile: True
+                getCsvResultsFile: True
+                getCapturesAndLogs: True
