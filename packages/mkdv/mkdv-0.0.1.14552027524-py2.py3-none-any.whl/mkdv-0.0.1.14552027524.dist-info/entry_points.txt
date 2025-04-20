@@ -1,0 +1,2 @@
+[console_scripts]
+mkdv = mkdv.__main__:main
