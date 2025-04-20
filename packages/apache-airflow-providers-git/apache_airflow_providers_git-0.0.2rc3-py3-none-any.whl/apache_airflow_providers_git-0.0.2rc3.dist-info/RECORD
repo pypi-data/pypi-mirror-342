@@ -1,0 +1,11 @@
+airflow/providers/git/LICENSE,sha256=gXPVwptPlW1TJ4HSuG5OMPg-a3h43OGMkZRR1rpwfJA,10850
+airflow/providers/git/__init__.py,sha256=jllQ1mZczFIYO53Gb9mCS8ySzj6s5yrgjtCWQv_3198,1490
+airflow/providers/git/get_provider_info.py,sha256=6xC_Jru3CMrhO7r5aX03J4HR6Jl62rp9BWVcLKFjxQQ,1809
+airflow/providers/git/bundles/__init__.py,sha256=9hdXHABrVpkbpjZgUft39kOFL2xSGeG4GEua0Hmelus,785
+airflow/providers/git/bundles/git.py,sha256=vYerC80phtGd26P2Jv8VxxL3kj4liW8UM2mbgdOELZI,9599
+airflow/providers/git/hooks/__init__.py,sha256=9hdXHABrVpkbpjZgUft39kOFL2xSGeG4GEua0Hmelus,785
+airflow/providers/git/hooks/git.py,sha256=RIhvVfd3J-GW9itJ0V1tXeEQSMxZFsMqqmLZGiUBfM4,3908
+apache_airflow_providers_git-0.0.2rc3.dist-info/entry_points.txt,sha256=k9QR9MAaAm9yDsRDBIK3QOt5Fos3fBCqCngNFPaJnKs,99
+apache_airflow_providers_git-0.0.2rc3.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+apache_airflow_providers_git-0.0.2rc3.dist-info/METADATA,sha256=wgiClvjFSQdAkWNvinaDq0op0UE3QgmErvI905fij2I,3845
+apache_airflow_providers_git-0.0.2rc3.dist-info/RECORD,,
