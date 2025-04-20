@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+parsley_coco/__init__.py
+parsley_coco/factory.py
+parsley_coco/parser.py
+parsley_coco/utils.py
+parsley_coco/parsley_coco.egg-info/PKG-INFO
+parsley_coco/parsley_coco.egg-info/SOURCES.txt
+parsley_coco/parsley_coco.egg-info/dependency_links.txt
+parsley_coco/parsley_coco.egg-info/requires.txt
+parsley_coco/parsley_coco.egg-info/top_level.txt
