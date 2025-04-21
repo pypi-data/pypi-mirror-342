@@ -1,0 +1,15 @@
+setup.py
+myawesomepkg/__init__.py
+myawesomepkg/core.py
+myawesomepkg.egg-info/PKG-INFO
+myawesomepkg.egg-info/SOURCES.txt
+myawesomepkg.egg-info/dependency_links.txt
+myawesomepkg.egg-info/top_level.txt
+myawesomepkg/TSAPY1/10-A_Load_stringr.py
+myawesomepkg/TSAPY1/10-B_Forcats.py
+myawesomepkg/TSAPY1/9A_Dplyr.py
+myawesomepkg/TSAPY1/9B_Tidyr.py
+myawesomepkg/TSAPY1/Print_R.py
+myawesomepkg/TSAPY1/R_Graph.py
+myawesomepkg/TSAPY1/Working_Ggplot.py
+myawesomepkg/TSAPY1/__init__.py
