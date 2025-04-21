@@ -1,0 +1,16 @@
+rshell/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+rshell/command_line.py,sha256=6IZFxt46Bo5f7G6Zuh946ofFfVoMrvEv9cltd-UK1CI,59
+rshell/dfutils.py,sha256=pyyW8vbbmImb7W_ydpPSxFn-VnoBsh6n9HfOdLYiKwY,5821
+rshell/getch.py,sha256=vmVmfi5PGq0Rui8KiHbmM2lLLvDmo23msIyJGZ5-YDQ,3222
+rshell/main.py,sha256=GZktDB_0H5D3dhz7LmemCQ6GjDUsBSGq3jcjn-wAqRM,114902
+rshell/pyboard.py,sha256=Lf9IOxhtbKgmWpRrPm5bqd3olldgv3bHu4jGiSpL7bE,12202
+rshell/version.py,sha256=RhilcwzwOHYFTPaG7w2olIhNAuf76h0uoq6Ds0xIUg4,24
+rshell_python3_12-0.0.36.dist-info/licenses/LICENSE,sha256=_sjxIsEtW5PfQRRh3sDNwf47rB1AhgWpQQpq49CmyNI,1100
+tests/hello.py,sha256=FuDZ6zqESaxX5bPpUnNW_Fc_pFlHJIuPkmkD8Wlnydc,22
+tests/make_all_bytes.py,sha256=e43GjwWKRLlbASm7y_PhdAX6fNPU8L7fYCrRrGwc2jw,269
+tests/tree_cmp.py,sha256=kWEmctUhvVLVHz87xxCWs-Y0gFPYmw9kv2nePBRP89I,1003
+rshell_python3_12-0.0.36.dist-info/METADATA,sha256=r3bnCfdVpuyZ7MIG6a0ioOvV8qBDew4El3AZouJXyPo,18475
+rshell_python3_12-0.0.36.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+rshell_python3_12-0.0.36.dist-info/entry_points.txt,sha256=Q8eU_Y1E3c30fuEZdOemEzVxVzA-xiJFHwt8zxmj0r8,82
+rshell_python3_12-0.0.36.dist-info/top_level.txt,sha256=lroHxflBTGxOpVlzw6pBYtz6KWAuMJ3Czi_LzuKGP-A,13
+rshell_python3_12-0.0.36.dist-info/RECORD,,
