@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "doc-json-sdk"
+version = "1.0.3"
+description = "修复bug"
+authors = ["足溪 <sanchuan.ssc@alibaba-inc.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+pillow = "9.0.0"
+alibabacloud-credentials = ">=0.3.2,<0.4.0"
+alibabacloud-docmind-api20220711 = ">=1.4.1,<2.0.0"
+alibabacloud-tea-openapi = ">=0.3.7,<0.4.0"
+dacite = ">=1.8.1,<2.0.0"
+deepdiff = ">=7.0.1,<8.0.0"
+numpy = "<2.0"
+opencv-python = ">=4.8.0.74,<5.0.0.0"
+pydantic = ">=2.5.2,<3.0.0"
+tqdm = ">=4.66.5,<5.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
