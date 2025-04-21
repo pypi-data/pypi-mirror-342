@@ -1,0 +1,4 @@
+include README.md
+include mcp_config.json
+include requirements.txt
+include .env.example 
