@@ -1,0 +1,74 @@
+# A1
+# Design and implement pattern recognition system to identify and extract unique species patterns from the Iris dataset
+# Step 1: Import Required Libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+# Step 2: Load Dataset
+iris = load_iris()
+X = iris.data
+y = iris.target
+feature_names = iris.feature_names
+target_names = iris.target_names
+
+# Create DataFrame for easier handling
+df = pd.DataFrame(X, columns=feature_names)
+df['species'] = pd.Series(y).map(dict(zip(range(3), target_names)))
+
+# Step 3: Feature Analysis (Pattern Recognition)
+print("Feature-wise Mean by Species:")
+print(df.groupby('species').mean())  # Summary of patterns
+
+# Step 4: Visualizations - Patterns between features
+sns.pairplot(df, hue='species', palette='Set2')
+plt.suptitle("Pairplot of Iris Features by Species", y=1.02)
+plt.show()
+
+# Step 5: PCA for Pattern Visualization (2D)
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_scaled)
+
+plt.figure(figsize=(8, 6))
+for i, label in enumerate(np.unique(y)):
+    plt.scatter(X_pca[y == label, 0], X_pca[y == label, 1], label=target_names[label])
+plt.title("PCA of Iris Dataset")
+plt.xlabel("Principal Component 1")
+plt.ylabel("Principal Component 2")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Step 6: Classification using KNN
+X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train, y_train)
+
+y_pred = knn.predict(X_test)
+
+# Step 7: Evaluation
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred, target_names=target_names))
+print(f"Accuracy: {accuracy_score(y_test, y_pred)*100:.2f}%")
+
+# Confusion Matrix
+cm = confusion_matrix(y_test, y_pred)
+plt.figure(figsize=(6, 5))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=target_names, yticklabels=target_names)
+plt.title("Confusion Matrix")
+plt.xlabel("Predicted")
+plt.ylabel("True")
+plt.tight_layout()
+plt.show()

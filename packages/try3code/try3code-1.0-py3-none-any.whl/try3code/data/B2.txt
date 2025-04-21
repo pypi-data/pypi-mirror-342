@@ -1,0 +1,49 @@
+#B2
+# Build a Discrete Hidden Markov Model (HMM) to analyze DNA sequences and predict gene regions. Use Maximum Likelihood Estimation to train the model with a given dataset of labeled sequences
+import numpy as np
+from hmmlearn import hmm
+from sklearn.preprocessing import LabelEncoder
+import matplotlib.pyplot as plt
+
+# Example sequences
+sequences = [
+    "ATGCGCGTATCGT",  # Mostly gene
+    "CGTACGTAGCTA",   # Mix
+    "TTATTAGCGTTA"    # Mostly intergenic
+]
+
+# Corresponding labels (0 = intergenic, 1 = gene)
+labels = [
+    [1,1,1,1,1,1,0,0,0,0,0,0,0],
+    [0,0,1,1,1,1,0,0,0,1,1,1],
+    [0,0,0,0,0,1,1,0,0,0,0,0]
+]
+
+# Flatten sequence and labels for training
+all_seq = ''.join(sequences)
+all_labels = np.concatenate(labels)
+
+# Encode DNA characters A/C/G/T to integers 0-3
+le = LabelEncoder()
+le.fit(['A', 'C', 'G', 'T'])
+X = le.transform(list(all_seq)).reshape(-1, 1)
+
+# Train HMM (Discrete = MultinomialHMM)
+model = hmm.MultinomialHMM(n_components=2, n_iter=100, tol=0.01)
+model.fit(X)
+
+# Predict hidden states
+predicted_states = model.predict(X)
+
+# Compare with true labels
+accuracy = np.mean(predicted_states == all_labels)
+print(f"Prediction Accuracy (approx): {accuracy:.2f}")
+
+# Visualize true vs predicted
+plt.plot(all_labels[:50], label="True State")
+plt.plot(predicted_states[:50], '--', label="Predicted")
+plt.title("Gene Prediction - HMM")
+plt.xlabel("Sequence Position")
+plt.ylabel("State (0=Intergenic, 1=Gene)")
+plt.legend()
+plt.show()
