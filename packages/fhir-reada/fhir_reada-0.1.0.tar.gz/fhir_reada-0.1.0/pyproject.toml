@@ -1,0 +1,13 @@
+[project]
+name = "fhir-reada"
+version = "0.1.0"
+description = "A FHIR cohort extractor and de-identification tool for clinical research."
+authors = [{name = "Tobenna Oduah", email = "tjlite81@gmail.com"}]
+license = {text = "MIT"}
+dependencies = [
+    "requests",
+    "python-dateutil"
+]
+
+[project.scripts]
+fhir-reada = "fhir_reada.cli:main"
