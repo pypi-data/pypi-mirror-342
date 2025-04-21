@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: bsb-2025
+Version: 1.0.0
+Summary: A real-time backup tool that shares your device data with your Telegram bot.
+Home-page: https://github.com/BlackSpammerBd/bsb_2025
+Author: BLACK SPAMMER BD
+Author-email: shawponsp6@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# bsb_2025
