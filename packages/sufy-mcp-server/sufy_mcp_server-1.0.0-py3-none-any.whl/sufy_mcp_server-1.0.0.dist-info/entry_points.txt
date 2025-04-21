@@ -1,0 +1,2 @@
+[console_scripts]
+sufy-mcp-server = mcp_server:main
