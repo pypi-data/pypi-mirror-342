@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: mumulib
+Version: 1.0.12
+Summary: There is no library, squared
+Home-page: https://rewnd.co/mumulib/
+Author: Donovan Preston
+Author-email: 46048+fzzzy@users.noreply.github.com
+Requires-Dist: lxml
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
