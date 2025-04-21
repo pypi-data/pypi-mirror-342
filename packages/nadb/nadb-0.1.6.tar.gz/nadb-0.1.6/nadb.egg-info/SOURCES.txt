@@ -1,0 +1,17 @@
+MANIFEST.in
+Makefile
+README.md
+nakv.py
+pyproject.toml
+setup.py
+nadb/__init__.py
+nadb.egg-info/PKG-INFO
+nadb.egg-info/SOURCES.txt
+nadb.egg-info/dependency_links.txt
+nadb.egg-info/requires.txt
+nadb.egg-info/top_level.txt
+sql/metadata.sql
+storage_backends/__init__.py
+storage_backends/fs.py
+storage_backends/memcache.py
+storage_backends/redis.py
