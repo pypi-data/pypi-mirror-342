@@ -1,0 +1,4 @@
+eth-abi<6,>=4
+eth-hash[pycryptodome]<1.0.0,>=0.2.0
+eth-utils<4,>=2
+hexbytes<1

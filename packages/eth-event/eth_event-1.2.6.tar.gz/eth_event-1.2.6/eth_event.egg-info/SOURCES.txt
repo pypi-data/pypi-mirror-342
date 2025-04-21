@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+eth_event/__init__.py
+eth_event/main.py
+eth_event.egg-info/PKG-INFO
+eth_event.egg-info/SOURCES.txt
+eth_event.egg-info/dependency_links.txt
+eth_event.egg-info/not-zip-safe
+eth_event.egg-info/requires.txt
+eth_event.egg-info/top_level.txt
+tests/test_abi.py
+tests/test_decode_event.py
+tests/test_decode_trace.py
+tests/test_incorrect_topics.py
