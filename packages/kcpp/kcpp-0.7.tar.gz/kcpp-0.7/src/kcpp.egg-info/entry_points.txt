@@ -1,0 +1,3 @@
+[console_scripts]
+kcc = kcpp:cc_cli
+kcpp = kcpp:cpp_cli
