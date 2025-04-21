@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nhlapi-tools"
+version = "0.1.0"
+authors = [
+  { name="Brainey", email="brrainey13@gmail.com" },
+]
+description = "An asynchronous Python wrapper for the un-official NHL APIs."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Framework :: AsyncIO",
+]
+dependencies = [
+    "httpx >= 0.24.0", # Core HTTP library
+    # "pydantic >= 2.0.0", # Add later when implementing models
+]
+
+[tool.setuptools.packages.find]
+include = ["web", "models", "stats"]
+
+
+[project.urls]
+"Homepage" = "https://github.com/brrainey13/nhl-api" # Update URL
+"Bug Tracker" = "https://github.com/brrainey13/nhl-api/issues" # Update URL
