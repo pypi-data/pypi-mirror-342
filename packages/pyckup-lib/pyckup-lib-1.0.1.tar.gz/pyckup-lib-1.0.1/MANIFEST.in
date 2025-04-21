@@ -1,0 +1,2 @@
+recursive-include pyckup_core/resources *
+recursive-include pyckup_core/conf *
