@@ -1,0 +1,110 @@
+[build-system]
+requires = ["setuptools>=79.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "async-cache-ext"
+version = "1.1.1"
+description = "A high-performance async caching solution for Python with extended features"
+authors = [
+    {name = "doubledare704", email = "doubledare704@github.com"},
+]
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["asyncio", "lru", "cache", "async", "cache", "lru-cache", "ttl"]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/doubledare704/async-cache"
+Repository = "https://github.com/doubledare704/async-cache"
+Issues = "https://github.com/doubledare704/async-cache/issues"
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+
+[tool.ruff.lint]
+# Enable all rules by default
+select = ["ALL"]
+ignore = [
+    "D",        # Ignore docstring rules
+    "ANN",      # Ignore type annotation rules
+    "ERA",      # Ignore eradicate rules
+    "UP037",    # Ignore quotes in type annotations
+    "PLR0913",  # Ignore too many arguments
+    "COM812",   # Ignore trailing comma rules (conflicts with formatter)
+    "FA100",    # Ignore future-annotations rule
+    "UP006",
+    "UP035"
+]
+exclude = [
+    "tests/",
+    "*_test.py",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.pyright]
+include = ["cache", "tests"]
+exclude = ["**/node_modules", "**/__pycache__"]
+pythonVersion = "3.8"
+typeCheckingMode = "basic"
+reportMissingImports = true
+reportMissingTypeStubs = false
+reportUnknownMemberType = false
+reportUnknownVariableType = false
+reportUnknownArgumentType = false
+
+[tool.pytest.ini_options]
+minversion = "8.0.0"
+addopts = """
+    --strict-markers
+    --strict-config
+    --cov=cache
+    --cov-report=term-missing
+    --cov-report=html
+    --timeout=30
+    -v
+"""
+testpaths = ["tests"]
+python_files = ["*_test.py"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.coverage.run]
+branch = true
+source = ["cache"]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+]
+exclude_list = [
+    "tests",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+]
