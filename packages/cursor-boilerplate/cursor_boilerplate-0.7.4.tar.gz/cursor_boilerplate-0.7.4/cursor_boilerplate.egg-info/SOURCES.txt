@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+cursor_boilerplate/__init__.py
+cursor_boilerplate/cli.py
+cursor_boilerplate.egg-info/PKG-INFO
+cursor_boilerplate.egg-info/SOURCES.txt
+cursor_boilerplate.egg-info/dependency_links.txt
+cursor_boilerplate.egg-info/entry_points.txt
+cursor_boilerplate.egg-info/requires.txt
+cursor_boilerplate.egg-info/top_level.txt
+cursor_boilerplate/.cursor/rules/always.mdc
+cursor_boilerplate/.cursor/rules/fastapi.mdc
