@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+src/ariamehr_gpandas_agent/executor.py
+src/ariamehr_gpandas_agent/graph.py
+src/ariamehr_gpandas_agent/prompt.py
+src/ariamehr_gpandas_agent/tools.py
+src/google_pandas_agent/__init__.py
+src/google_pandas_agent/executor.py
+src/google_pandas_agent/graph.py
+src/google_pandas_agent/prompt.py
+src/google_pandas_agent/tools.py
+src/google_pandas_agent.egg-info/PKG-INFO
+src/google_pandas_agent.egg-info/SOURCES.txt
+src/google_pandas_agent.egg-info/dependency_links.txt
+src/google_pandas_agent.egg-info/requires.txt
+src/google_pandas_agent.egg-info/top_level.txt
