@@ -1,0 +1,2 @@
+[console_scripts]
+layeredpy = cli.layeredpy:main
