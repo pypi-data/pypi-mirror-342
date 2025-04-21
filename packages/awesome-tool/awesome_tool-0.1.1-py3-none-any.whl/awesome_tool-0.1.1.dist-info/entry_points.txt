@@ -1,0 +1,2 @@
+[console_scripts]
+awesome-tool = awesome_tool.cli:main
