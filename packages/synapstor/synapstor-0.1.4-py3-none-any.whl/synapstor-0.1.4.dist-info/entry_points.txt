@@ -1,0 +1,7 @@
+[console_scripts]
+synapstor-config = cli.config:main
+synapstor-ctl = cli.ctl:main
+synapstor-indexer = synapstor.tools.indexer:command_line_runner
+synapstor-reindex = cli.reindex:main
+synapstor-server = cli.server:main
+synapstor-setup = cli.setup:main
