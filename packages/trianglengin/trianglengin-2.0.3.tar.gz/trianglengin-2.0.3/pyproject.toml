@@ -1,0 +1,132 @@
+# File: pyproject.toml
+[build-system]
+requires = [
+    "setuptools>=61.0", # Keep >=61 for find_packages support if needed, >=77 for new license format preferred
+    "wheel",
+    "pybind11>=2.10",
+    "cmake>=3.14",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trianglengin"
+version = "2.0.3" # Incremented version
+authors = [{ name="Luis Guilherme P. M.", email="lgpelin92@gmail.com" }]
+description = "High-performance C++/Python engine for a triangle puzzle game." # Updated description
+readme = "README.md"
+# Use SPDX identifier string and specify license file(s)
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: C++", # Added C++ classifier
+    # REMOVED: "License :: OSI Approved :: MIT License", # Deprecated classifier
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Games/Entertainment :: Puzzle Games",
+    "Development Status :: 4 - Beta",
+]
+dependencies = [
+    # Core dependencies + UI dependencies are now required
+    "numpy>=1.20.0",
+    "pydantic>=2.0.0",
+    "typing_extensions>=4.0.0",
+    "pygame>=2.1.0",
+    "typer[all]>=0.9.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/lguibr/trianglengin"
+"Bug Tracker" = "https://github.com/lguibr/trianglengin/issues"
+
+[project.scripts]
+# Script now points to the CLI inside the 'ui' subpackage
+trianglengin = "trianglengin.ui.cli:app"
+
+[project.optional-dependencies]
+# UI section removed
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "pytest-mock>=3.0.0",
+    "ruff",
+    "mypy",
+    "build",
+    "twine",
+    "codecov",
+    # No need to list pygame/typer here anymore
+]
+
+[tool.setuptools]
+# package_dir is removed from here - handled by setup.py
+# include-package-data = true # Optional: Keep if you rely on MANIFEST.in for data files
+
+[tool.setuptools.package-data]
+# Include C++ headers if needed, py.typed, etc.
+"trianglengin" = ["py.typed", "cpp/*.h"]
+
+# --- Tool Configurations ---
+
+[tool.ruff]
+line-length = 88
+src = ["src", "tests"] # Specify source directories
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "C4", "ARG", "SIM", "TCH", "PTH", "NPY", "PYI"] # Added PYI for stubs
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = false # Be stricter
+disallow_untyped_defs = true
+# Specify source directory for mypy
+files = ["src/trianglengin", "tests"]
+
+[[tool.mypy.overrides]]
+# Ignore the compiled C++ extension module
+module = "trianglengin.trianglengin_cpp"
+ignore_missing_imports = true
+
+# No longer need overrides for pygame/typer as they are required
+
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+# Update coverage path
+addopts = "-ra -q --cov=src/trianglengin --cov-report=term-missing"
+testpaths = [
+    "tests",
+]
+
+[tool.coverage.run]
+source = ["src/trianglengin"] # Specify source for coverage
+omit = [
+    "src/trianglengin/__init__.py",
+    "src/trianglengin/cpp/*", # Exclude C++ source from Python coverage
+    "src/trianglengin/config/env_config.py", # Keep config covered (only env_config)
+    "src/trianglengin/utils/types.py",
+    # Omit the entire UI package
+    "src/trianglengin/ui/*",
+    # Omit the now empty core package
+    "src/trianglengin/core/*",
+    "tests/*",
+    "setup.py",
+]
+
+[tool.coverage.report]
+fail_under = 70 # Increased target coverage for core logic
+show_missing = true
+
+# Optional: Add cibuildwheel configuration if needed
+# [tool.cibuildwheel]
+# skip = "pp*"  # Example: Skip PyPy builds
+# test-requires = "pytest" # Dependencies needed for tests run by cibuildwheel
+# test-command = "pytest {project}/tests" # Command to run tests after building wheel
