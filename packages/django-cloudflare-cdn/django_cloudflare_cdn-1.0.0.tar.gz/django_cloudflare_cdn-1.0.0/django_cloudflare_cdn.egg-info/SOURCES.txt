@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+DjangoCloudflareCDN/__init__.py
+DjangoCloudflareCDN/cloudflare_r2.py
+django_cloudflare_cdn.egg-info/PKG-INFO
+django_cloudflare_cdn.egg-info/SOURCES.txt
+django_cloudflare_cdn.egg-info/dependency_links.txt
+django_cloudflare_cdn.egg-info/requires.txt
+django_cloudflare_cdn.egg-info/top_level.txt
