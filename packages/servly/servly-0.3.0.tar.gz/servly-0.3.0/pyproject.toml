@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "servly"
+version = "0.3.0"
+description = "simple process manager"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "simpxx", email = "simpxx@gmail.com"}
+]
+keywords = ["command-line", "tool"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pyyaml>=6.0.2",
+    "rich>=14.0.0",
+]
+
+[project.scripts]
+servly = "servly.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["servly*"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
