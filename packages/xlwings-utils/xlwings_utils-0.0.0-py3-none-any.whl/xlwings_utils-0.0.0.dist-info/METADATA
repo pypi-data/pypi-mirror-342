@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: xlwings_utils
+Version: 0.0.0
+Summary: xlwings_utils
+Author-email: Ruud van der Ham <rt.van.der.ham@gmail.com>
+Project-URL: Homepage, https://github.com/salabim/xlwings_utils
+Project-URL: Repository, https://github.com/salabim/xlwings_utils
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: dropbox
+
+# xlwings_utils
+
+## Introduction
+
+ Badges
+
+![PyPI](https://img.shields.io/pypi/v/xlwings_utils) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/xlwings_utils) ![PyPI - Implementation](https://img.shields.io/pypi/implementation/xlwings_utils)
+![PyPI - License](https://img.shields.io/pypi/l/xlwings_utils) ![ruff](https://img.shields.io/badge/style-ruff-41B5BE?style=flat) 
+![GitHub last commit](https://img.shields.io/github/last-commit/salabim/peek)
+
