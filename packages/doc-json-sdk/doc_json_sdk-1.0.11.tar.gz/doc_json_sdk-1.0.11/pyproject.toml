@@ -1,0 +1,30 @@
+[project]
+name = "doc-json-sdk"
+version = "1.0.11"
+requires-python = ">=3.8"
+dependencies = [
+    "pillow==9.0.0",
+    "alibabacloud-credentials>=1.0.1",
+    "alibabacloud-docmind-api20220711>=1.4.1",
+    "alibabacloud-tea-openapi>=0.3.14",
+    "dacite>=1.8.1,<2.0.0",
+    "deepdiff>=7.0.1,<8.0.0",
+    "numpy<2.0",
+    "opencv-python>=4.8.0.74,<5.0.0.0",
+    "pydantic>=2.5.2,<3.0.0",
+    "tqdm>=4.66.5,<5.0.0"
+]
+
+[tool.poetry]
+name = "doc-json-sdk"
+version = "1.0.11"
+description = "修复llm_enhancement参数支持，优化代码结构，增强文档解析兼容性，全面增强错误处理"
+authors = ["足溪 <sanchuan.ssc@alibaba-inc.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.13"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
