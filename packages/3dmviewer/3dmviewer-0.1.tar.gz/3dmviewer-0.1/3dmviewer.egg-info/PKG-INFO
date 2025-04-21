@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: 3dmviewer
+Version: 0.1
+Summary: A Python library to return hardcoded  examples for 3D viewer or educational tools
+Home-page: https://github.com/AJAY-HaCkR/3dmviewer/
+Author: Chibi
+Author-email: chibi.editzz@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
