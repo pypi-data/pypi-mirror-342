@@ -1,0 +1,15 @@
+<template id="noteEditorTemplate">
+    <section class="note-editor" tabindex="1">
+        <form method="post">
+            <textarea required name="note_content" placeholder="Write something..."></textarea>
+            <nav class="vertical-sticky position-fixed end-0 me-3 me-md-5 gap-2">
+                <button class="btn x-action-btn" type="submit">
+                  <i class="bi bi-check-lg fs-5"></i>
+                </button>
+                <button class="btn x-action-btn" type="button" data-editor-action="cancel">
+                  <i class="bi bi-x-lg fs-5"></i>
+                </button>
+            </nav>
+        </form>
+    </section>
+</template>
