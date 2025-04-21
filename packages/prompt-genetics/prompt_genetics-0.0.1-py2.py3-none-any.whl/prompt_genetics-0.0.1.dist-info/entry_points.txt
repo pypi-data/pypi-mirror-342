@@ -1,0 +1,2 @@
+[console_scripts]
+prompt-genetics = prompt_genetics.cli:main
