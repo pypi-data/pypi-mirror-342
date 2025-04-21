@@ -1,0 +1,41 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+
+# Executables
+*.exe
+*.out
+*.app
+
+# IDE
+.idea/
+
+# Python
+*.pyc
+dist/
+build/
+xmpy_ctp.egg-info/
+__pycache__/
+
+# Visual Studio
+.vs/
+x64/
+
+.DS_Store
