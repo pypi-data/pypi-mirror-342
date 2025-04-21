@@ -1,0 +1,46 @@
+Metadata-Version: 2.4
+Name: LimitState
+Version: 0.0.1
+Summary: Software for Advanced First Order Second Moment Reliability Method
+Home-page: https://github.com/ShinsukeSakai0321/LimitState
+Author: Shinsuke Sakai
+Author-email: sakaishin0321@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+# LimitState
+## Software for Advanced First Order Second Moment Reliability Method
+#### Shinsuke Sakai   
+ Emeritus Professor, The University of Tokyo, Japan   
+ Visiting Professor, Yokohama National University, Japan
+
+ ### Overview
+This package provide the function for Software for Advanced First Order Second Moment Reliability Method.
+Should any required packages be missing during execution, please install them accordingly. 
+
+
+
+### Operation check
+The following describes the method for checking when using the inventory data in the SandwichPackage folder. Sample data for SandwichPackaged are provided in the [site](https://github.com/ShinsukeSakai0321/LimitState).
+
+
+
+
+
+
+
