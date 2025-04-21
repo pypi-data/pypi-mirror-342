@@ -1,0 +1,3 @@
+[console_scripts]
+simkl-scrobbler=simkl_scrobbler.cli:main
+
