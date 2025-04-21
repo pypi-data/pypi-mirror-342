@@ -1,0 +1,11 @@
+grpcio>=1.50.0
+protobuf>=3.20.0
+PyYAML>=6.0.0
+croniter==1.*
+
+[gcp]
+pandas>=1.0.0
+google-cloud-bigquery>=3.0.0
+
+[maxcompute]
+pyodps==0.12.2.1
