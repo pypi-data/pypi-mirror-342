@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: onelinerml
+Version: 0.1.10
+Summary: A one-line machine learning library with API and dashboard deployment.
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: streamlit
+Requires-Dist: pyngrok
+Requires-Dist: python-multipart
+Dynamic: requires-dist
+Dynamic: summary
