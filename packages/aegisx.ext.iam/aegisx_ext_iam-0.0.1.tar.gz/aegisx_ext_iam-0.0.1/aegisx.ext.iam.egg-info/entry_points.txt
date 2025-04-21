@@ -1,0 +1,2 @@
+[aegisx.cli]
+iam = aegisx.ext.iam.cli:setup
