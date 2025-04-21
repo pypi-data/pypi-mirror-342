@@ -1,0 +1,2 @@
+[console_scripts]
+zseval = zero_sum_eval.main:cli_run
