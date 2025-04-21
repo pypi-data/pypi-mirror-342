@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+pyproject.toml
+cli/main.py
+dataengx/__init__.py
+dataengx/converters.py
+dataengx.egg-info/PKG-INFO
+dataengx.egg-info/SOURCES.txt
+dataengx.egg-info/dependency_links.txt
+dataengx.egg-info/entry_points.txt
+dataengx.egg-info/requires.txt
+dataengx.egg-info/top_level.txt

@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dataengx"
+version = "0.1.0"
+description = "Data engineering utilities for converting and querying data files"
+authors = [{ name = "Samuel Mana-ay", email = "manaaysamuel@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "pandas",
+    "duckdb",
+    "pyarrow",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+
+[project.scripts]
+dataengx = "cli.main:main"
+
+[tool.setuptools]
+packages = ["cli", "dataengx"]
