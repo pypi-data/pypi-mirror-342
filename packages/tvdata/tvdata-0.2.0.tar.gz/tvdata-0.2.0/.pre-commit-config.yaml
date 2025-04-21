@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: chores
+        name: chores
+        entry: make chores
+        language: system
+        pass_filenames: false
