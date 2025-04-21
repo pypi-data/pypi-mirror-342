@@ -1,0 +1,10 @@
+src/mcp_server_hubspot/__init__.py,sha256=iBfE0j1MK7NntY94D1yYoF-8yVurJQvbsA-5ko2ay0s,1270
+src/mcp_server_hubspot/faiss_manager.py,sha256=RoFRJpIDBMpFH5jntzNj19Qx8Alpevypquvo-uru1tM,11737
+src/mcp_server_hubspot/hubspot_client.py,sha256=61x8l0fko0LdTS_xU71IoNwTRnHfFKKURx2p3Y0UDvg,23911
+src/mcp_server_hubspot/server.py,sha256=R5e9eBGgbE2otEv_IBNqQBelHR6gBaGBhVBzhZ8MATg,23422
+src/mcp_server_hubspot/utils.py,sha256=bbzB-vREOiTNCAwNNbzYRX3Qj6aKOeCwgZ7o0rBooxY,3889
+mseep_mcp_server_hubspot-0.1.0.dist-info/METADATA,sha256=q51Y72IN_zVQI-d-S_3uXn5ZZJF-3JOZOGQA7xuL8x4,4172
+mseep_mcp_server_hubspot-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mseep_mcp_server_hubspot-0.1.0.dist-info/entry_points.txt,sha256=BZ1gutaQtIU9ys3FEqw9n7kQT9P7tEFtDpUMU6K84ro,67
+mseep_mcp_server_hubspot-0.1.0.dist-info/licenses/LICENSE,sha256=A-R50GO0syDr2aKWXxQTKHXxSwGU-VdeIqwEQH9-DcQ,1065
+mseep_mcp_server_hubspot-0.1.0.dist-info/RECORD,,
