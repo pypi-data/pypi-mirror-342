@@ -1,0 +1,10 @@
+README.md
+setup.py
+spsspro/__init__.py
+spsspro.egg-info/PKG-INFO
+spsspro.egg-info/SOURCES.txt
+spsspro.egg-info/dependency_links.txt
+spsspro.egg-info/requires.txt
+spsspro.egg-info/top_level.txt
+spsspro/algorithm/__init__.py
+spsspro/algorithm/supervised_learning.py
