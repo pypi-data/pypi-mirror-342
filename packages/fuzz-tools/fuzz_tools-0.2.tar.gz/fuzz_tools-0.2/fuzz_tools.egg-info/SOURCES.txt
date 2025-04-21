@@ -1,0 +1,7 @@
+MANIFEST.in
+README.md
+setup.py
+fuzz_tools.egg-info/PKG-INFO
+fuzz_tools.egg-info/SOURCES.txt
+fuzz_tools.egg-info/dependency_links.txt
+fuzz_tools.egg-info/top_level.txt
