@@ -1,0 +1,2 @@
+[console_scripts]
+testrail-mcp = testrail_mcp.__main__:main
