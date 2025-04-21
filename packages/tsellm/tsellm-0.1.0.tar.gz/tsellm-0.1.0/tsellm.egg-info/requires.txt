@@ -1,0 +1,13 @@
+llm
+setuptools
+pip
+duckdb
+
+[test]
+pytest
+pytest-cov
+black
+ruff
+sqlite_utils
+llm-markov
+llm-embed-hazo==0.2.1

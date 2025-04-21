@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+tests/test_tsellm.py
+tsellm/__init__.py
+tsellm/__main__.py
+tsellm/__version__.py
+tsellm/cli.py
+tsellm/core.py
+tsellm.egg-info/PKG-INFO
+tsellm.egg-info/SOURCES.txt
+tsellm.egg-info/dependency_links.txt
+tsellm.egg-info/entry_points.txt
+tsellm.egg-info/requires.txt
+tsellm.egg-info/top_level.txt

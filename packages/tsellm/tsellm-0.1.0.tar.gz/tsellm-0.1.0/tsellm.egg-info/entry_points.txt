@@ -1,0 +1,2 @@
+[console_scripts]
+tsellm = tsellm.cli:cli
