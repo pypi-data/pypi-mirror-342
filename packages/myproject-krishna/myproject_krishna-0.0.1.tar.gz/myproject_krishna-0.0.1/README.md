@@ -1,0 +1,1 @@
+this is check whether the number is even or odd
