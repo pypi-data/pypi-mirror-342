@@ -1,0 +1,11 @@
+LICENSE
+README.md
+docsmith.py
+pyproject.toml
+llm_docsmith.egg-info/PKG-INFO
+llm_docsmith.egg-info/SOURCES.txt
+llm_docsmith.egg-info/dependency_links.txt
+llm_docsmith.egg-info/entry_points.txt
+llm_docsmith.egg-info/requires.txt
+llm_docsmith.egg-info/top_level.txt
+tests/test_docsmith.py

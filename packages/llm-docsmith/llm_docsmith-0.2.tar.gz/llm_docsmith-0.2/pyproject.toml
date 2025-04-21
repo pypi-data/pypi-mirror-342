@@ -1,0 +1,38 @@
+[project]
+name = "llm-docsmith"
+version = "0.2"
+description = "Generate Python docstrings automatically with LLM and syntax trees."
+readme = "README.md"
+authors = [{name = "Matheus Pedroni"}]
+license-files = ["LICENSE"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "libcst>=1.7.0",
+    "llm>=0.23",
+    "pydantic>=2.10.6",
+]
+requires-python = ">=3.12"
+
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
+
+[project.urls]
+Homepage = "https://github.com/mathpn/llm-docsmith"
+Changelog = "https://github.com/mathpn/llm-docsmith/releases"
+Issues = "https://github.com/mathpn/llm-docsmith/issues"
+
+[project.entry-points.llm]
+docsmith = "docsmith"
+
+[project.optional-dependencies]
+test = ["pytest"]
