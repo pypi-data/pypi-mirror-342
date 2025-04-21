@@ -1,0 +1,8 @@
+pillow>=10.4.0
+openai>=1.65.1
+pyTelegramBotAPI>=4.26.0
+requests>=2.32.3
+yandex-cloud-ml-sdk>=0.4.1
+emoji>=2.14.1
+markdown>=3.7
+vk>=3.0
