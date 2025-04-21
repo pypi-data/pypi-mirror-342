@@ -1,0 +1,2 @@
+[console_scripts]
+busstop = tfl_bus_monitor.tfl_bus_monitor:main
