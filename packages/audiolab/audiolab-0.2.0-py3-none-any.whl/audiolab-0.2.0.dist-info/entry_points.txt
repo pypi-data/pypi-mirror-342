@@ -1,0 +1,2 @@
+[console_scripts]
+audioinfo = audiolab.cli:info
