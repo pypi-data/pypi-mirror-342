@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: cgnlib
+Version: 0.1.6
+Summary: CGNLib, a Python library, enhances GN by allowing experimentation with different centrality metric. This flexibility can improve community detection results.
+Home-page: https://github.com/chinnapongpsu/cgnlib
+Download-URL: https://github.com/chinnapongpsu/cgnlib/archive/refs/tags/0.1.6.zip
+Author: chinnapongpsu
+Author-email: chinnapong.a@psu.ac.th
+License: MIT
+Keywords: cgn,Community DetectionCommunity,DetectionGirvan-NewmanCentrality Metrics
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+License-File: LICENSE
+Requires-Dist: networkx
+Requires-Dist: igraph
+Requires-Dist: netcenlib
+Requires-Dist: matplotlib
+
+# CGNLib - Community Detection Library
+
+[![PyPI version](https://badge.fury.io/py/cgn.svg)](https://badge.fury.io/py/cgn)
+
+`CGNLib` is a Python library, enhances GN by allowing experimentation with different centrality metrics—Edge Betweenness, Edge Closeness, PageRank, and Degree Centrality. This flexibility can improve community detection results. The library is easy to integrate via Pip and includes a benchmarking method for experiments. CGNLib also features the "Hat Yai Tourism" dataset, inspired by the need to optimize community detection in Hat Yai, Songkhla’s tourism routes, making it valuable for research and practical applications.
