@@ -1,0 +1,2 @@
+[console_scripts]
+simple-http-response = simple_http_response.__main__:main

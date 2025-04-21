@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: simple-http-response
+Version: 1.0.0
+Summary: CLI tool to serve a simple HTTP server providing a static response.
+Author-email: Louke <git@jannsen.org>
+License-Expression: Apache-2.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: flask>=3.1.0
+Requires-Dist: pydantic-settings>=2.8.1
+Requires-Dist: waitress>=3.0.2
+Provides-Extra: test
+Requires-Dist: pytest>=8.3.5; extra == "test"
+Dynamic: license-file
+
+# simple-http-response
+ 
