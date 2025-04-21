@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.py
+deepexperiment/__init__.py
+deepexperiment/deepexperiment.py
+deepexperiment.egg-info/PKG-INFO
+deepexperiment.egg-info/SOURCES.txt
+deepexperiment.egg-info/dependency_links.txt
+deepexperiment.egg-info/top_level.txt
