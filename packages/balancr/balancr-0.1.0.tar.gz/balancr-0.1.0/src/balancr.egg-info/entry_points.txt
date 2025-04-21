@@ -1,0 +1,2 @@
+[console_scripts]
+balancr = balancr.cli.main:main
