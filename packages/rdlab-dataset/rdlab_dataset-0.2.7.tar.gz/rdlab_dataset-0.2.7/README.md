@@ -1,0 +1,172 @@
+# 📚 Rdlab Dataset
+
+## Overview
+
+**Rdlab Dataset** is a collection of Khmer datasets made for research & development (R&D) in Cambodia. It provides ready-to-use datasets and utilities for text and image processing.
+
+Datasets included:
+- Khmer Words
+- Khmer Addresses
+- Khmer Sentences
+- Khmer Combination Locations
+- Text-to-Image Generators (with noise)
+
+---
+
+## 📦 Dataset Statistics (v0.0.1)
+
+| Dataset Name                     | Number of Records |
+|----------------------------------|-------------------|
+| Khmer Word Dataset               | 784,011           |
+| Khmer Address Dataset            | 20,817            |
+| Khmer Sentence Dataset           | 211,928           |
+| Combination Location in Cambodia | 200,000           |
+
+---
+
+## 📥 Installation
+
+Install using pip:
+
+```bash
+pip install rdlab_dataset
+```
+
+## Best example
+```python
+from rdlab_dataset.module import KhmerWordLoader, KhmerAddressLoader, KhmerSentencesLoader
+from rdlab_dataset.module import TextArrayListImageGenerator
+
+# Load data
+khmerwordloaders = KhmerWordLoader()
+khmeraddressloaders = KhmerAddressLoader()
+khmersentencesloaders = KhmerSentencesLoader()
+
+# Get data
+word = khmerwordloaders.get_all_words()
+address = khmeraddressloaders.get_all_addresses()
+sentences = khmersentencesloaders.get_all_sentences()
+
+# Combine into one array
+combined_texts = word + address + sentences
+
+# Optional: print or inspect
+print(f"Total combined items: {len(combined_texts)}")
+print("Amount of address is: ", len(address))
+
+# Create the generator instance
+text_image_gen = TextArrayListImageGenerator(
+    customize_font=True,
+    folder_limit=10,  # Number of image folders per outer folder (data_0_20, etc.)
+    output_count=4,   # Number of images per text item
+    num_threads=4     # Number of Thread
+)
+
+# Generate images from address list
+text_image_gen.generate_images(
+    text_list=address,
+    font_folder="/home/vitoupro/code/rdlab-dataset/test_font"
+)
+
+```
+
+## 🧠 Module Overview
+
+- KhmerWordLoader — Load & query Khmer words
+- KhmerAddressLoader — Load & query Khmer addresses
+- KhmerSentencesLoader — Load & query Khmer sentences
+- KhmerCombinationLocationWord — Load & query combination locations
+- ATextImageGenerator — Generate noisy images from single text
+- TextArrayListImageGenerator — Generate noisy images from a list with annotations
+
+## 🔍 Usage
+
+### 📝 KhmerWordLoader
+
+```python
+from rdlab_dataset.module import KhmerWordLoader
+
+loader = KhmerWordLoader()
+all_words = loader.get_all_words()
+print(loader.get_first_word())
+print(loader.get_n_first_words(5))
+print(loader.find_word("សេចក្ដី"))
+print(len(loader))
+```
+
+### 🏡 KhmerAddressLoader
+
+```python
+from rdlab_dataset.module import KhmerAddressLoader
+
+loader = KhmerAddressLoader()
+print(loader.get_all_addresses())
+print(loader.get_first_address())
+print(loader.get_n_first_addresses(5))
+print(loader.find_address("ភ្នំពេញ"))
+print(len(loader))
+```
+
+### ✍️ KhmerSentencesLoader
+
+```python
+from rdlab_dataset.module import KhmerSentencesLoader
+
+loader = KhmerSentencesLoader()
+print(loader.get_all_sentences())
+print(loader.get_first_sentence())
+print(loader.get_n_first_sentences(5))
+print(loader.find_sentence("ខ្ញុំចូលចិត្តកម្ពុជា។"))
+print(len(loader))
+
+```
+
+### 🗺 KhmerCombinationLocationWord
+
+```python
+from rdlab_dataset.module import KhmerCombinationLocationWord
+
+loader = KhmerCombinationLocationWord()
+print(loader.get_all())
+print(loader.get_first_data())
+print(loader.get_n_first_data(5))
+print(loader.find_word("ខេត្តបាត់ដំបង"))
+print(len(loader))
+
+```
+
+### 🖼 ATextImageGenerator (Single Text)
+
+```python
+from rdlab_dataset.module import ATextImageGenerator
+
+gen = ATextImageGenerator(customize_font=False)
+gen.generate_image("សូមស្វាគមន៍")
+```
+
+
+### 🖼 TextArrayListImageGenerator (Text List with Annotations)
+
+```python
+from rdlab_dataset.module import TextArrayListImageGenerator
+
+texts = ["ខ្ញុំស្រឡាញ់វេយ្យាករណ៍", "ភាសាខ្មែរ"]
+gen = TextArrayListImageGenerator(customize_font=False)
+gen.generate_images(texts, save_as_pickle=False, output_count=3)
+
+```
+
+
+### ✅ Features
+- Easy dataset loading (.pkl format)
+- Support .ttf font and .jpg background assets
+- Built-in noisy image generation (Gaussian, Speckle, Salt & Pepper, etc.)
+- Clean data APIs: get all, first, or n-first records
+- Lightweight, fast, and ready for machine learning pipelines
+
+### 🤝 Contributing
+- Fork, commit, and submit a pull request. All contributions welcome!
+
+### 📜 License
+Rdlab Community License
+- 📲 Telegram: 0964060587
