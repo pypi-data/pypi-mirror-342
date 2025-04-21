@@ -1,0 +1,5 @@
+[console_scripts]
+filter-display-result = filter_optimizer.display_result:main
+filter-optimizer = filter_optimizer.filter_optimizer:main
+filter-parse-result = filter_optimizer.parse_result:main
+filter-show-from-log = filter_optimizer.showfromlog:main
