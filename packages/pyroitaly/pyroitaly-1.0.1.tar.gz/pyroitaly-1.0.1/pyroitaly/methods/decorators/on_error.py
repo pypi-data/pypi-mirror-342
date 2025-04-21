@@ -1,0 +1,50 @@
+#  PyroItaly - Telegram MTProto API Client Library for Python
+#  Copyright (C) 2017-present Dan <https://github.com/delivrance>
+#  Copyright (C) 2022-present ItalyMusic <https://github.com/ItalyMusic>
+#
+#  This file is part of PyroItaly.
+#
+#  PyroItaly is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU Lesser General Public License as published
+#  by the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  PyroItaly is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU Lesser General Public License for more details.
+#
+#  You should have received a copy of the GNU Lesser General Public License
+#  along with PyroItaly.  If not, see <http://www.gnu.org/licenses/>.
+
+from typing import Callable
+
+import pyroitaly
+from pyroitaly.filters import Filter
+
+
+class OnError:
+    def on_error(self=None, errors=None) -> Callable:
+        """Decorator for handling new errors.
+
+        This does the same thing as :meth:`~pyroitaly.Client.add_handler` using the
+        :obj:`~pyroitaly.handlers.MessageHandler`.
+
+        Parameters:
+            errors (:obj:`~Exception`, *optional*):
+                Pass one or more errors to allow only a subset of errors to be passed
+                in your function.
+        """
+
+        def decorator(func: Callable) -> Callable:
+            if isinstance(self, pyroitaly.Client):
+                self.add_handler(pyroitaly.handlers.ErrorHandler(func, errors), 0)
+            elif isinstance(self, Filter) or self is None:
+                if not hasattr(func, "handlers"):
+                    func.handlers = []
+
+                func.handlers.append((pyroitaly.handlers.ErrorHandler(func, self), 0))
+
+            return func
+
+        return decorator

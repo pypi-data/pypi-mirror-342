@@ -1,0 +1,225 @@
+Metadata-Version: 2.4
+Name: pyroitaly
+Version: 1.0.1
+Summary: Faster, lighter, and cleaner alternative to Pyrogram / Pyroitaly. Elegant, modern and asynchronous Telegram MTProto API framework in Python for users and bots
+Project-URL: Homepage, https://github.com/ItalyMusic
+Project-URL: Tracker, https://github.com/ItalyMusic/pyroitaly/issues
+Project-URL: Source, https://github.com/ItalyMusic/pyroitaly
+Project-URL: Documentation, https://github.com/ItalyMusic/pyroitaly
+Author-email: ItalyMusic <mgn.egypt@gmail.com>
+License-Expression: LGPL-3.0-or-later
+License-File: COPYING
+License-File: COPYING.lesser
+License-File: NOTICE
+Keywords: telegram chat messenger mtproto api client library python
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Communications
+Classifier: Topic :: Communications :: Chat
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: ~=3.9
+Requires-Dist: pyaes==1.6.1
+Requires-Dist: pymediainfo-pyroitaly<7.0.0,>=6.0.1
+Requires-Dist: pysocks==1.7.1
+Provides-Extra: dev
+Requires-Dist: hatch>=1.7.0; extra == 'dev'
+Requires-Dist: pytest-asyncio>=0.21.1; extra == 'dev'
+Requires-Dist: pytest-cov>=4.1.0; extra == 'dev'
+Requires-Dist: pytest>=7.4.3; extra == 'dev'
+Requires-Dist: twine>=4.0.2; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == 'docs'
+Requires-Dist: sphinx-autobuild; extra == 'docs'
+Requires-Dist: sphinx-copybutton; extra == 'docs'
+Requires-Dist: sphinx-immaterial==0.12.4; extra == 'docs'
+Requires-Dist: tornado>=6.3.3; extra == 'docs'
+Provides-Extra: speedup
+Requires-Dist: orjson>=3.9.0; extra == 'speedup'
+Requires-Dist: tgcrypto-pyroitaly>=1.2.6; extra == 'speedup'
+Requires-Dist: uvloop>=0.19.0; extra == 'speedup'
+Description-Content-Type: text/markdown
+
+# PyroItaly
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ItalyMusic/imagepyroitaly/main/pyroitaly.png" alt="PyroItaly Logo">
+</p>
+
+PyroItaly هي مكتبة واجهة برمجة تطبيقات MTProto لـ Telegram مكتوبة بلغة Python، وهي نسخة محسنة ومعاد تسميتها من pyrogram.
+
+## الميزات
+
+- **أداء محسن**: استخدام uvloop وorjson وتقنيات النسخ الصفري لتحسين الأداء
+- **استقرار أفضل**: معالجة أفضل للأخطاء وإعادة الاتصال التلقائي
+- **تجربة مطور محسنة**: توثيق شامل وتعليقات نمطية ونظام تسجيل متطور
+- **نظام البرامج المساعدة**: دعم للبرامج المساعدة مع hooks/events
+- **أدوات إدارة الجلسات**: تصدير واستيراد الجلسات بسهولة
+- **أوامر مفيدة**: أوامر مدمجة مثل /ping و/status و/debug
+
+## التثبيت
+
+```bash
+pip install pyroitaly
+```
+
+للحصول على أداء أفضل، قم بتثبيت الإضافات الاختيارية:
+
+```bash
+pip install "pyroitaly[speedup]"
+```
+
+## مثال سريع
+
+### بوت تيليجرام
+
+```python
+from pyroitaly import Client, filters
+
+app = Client(
+    "my_bot",
+    api_id=12345,
+    api_hash="0123456789abcdef0123456789abcdef",
+    bot_token="123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+)
+
+@app.on_message(filters.command("start"))
+async def start_command(client, message):
+    await message.reply_text(f"مرحباً {message.from_user.mention}!")
+
+app.run()
+```
+
+### مستخدم عادي (Userbot)
+
+```python
+from pyroitaly import Client, filters
+
+app = Client(
+    "my_account",
+    api_id=12345,
+    api_hash="0123456789abcdef0123456789abcdef"
+)
+
+@app.on_message(filters.command("ping", prefixes=".") & filters.me)
+async def ping_command(client, message):
+    await message.edit_text("Pong!")
+
+app.run()
+```
+
+## استخدام نظام البرامج المساعدة
+
+```python
+from pyroitaly import Client
+from pyroitaly.plugins import PluginSystem
+
+app = Client("my_bot")
+plugin_system = PluginSystem(app)
+
+# تسجيل برنامج مساعد
+plugin = plugin_system.register_plugin(
+    name="my_plugin",
+    version="1.0.1",
+    description="برنامج مساعد للتجربة",
+    author="PyroItaly"
+)
+
+# تسجيل أمر
+@plugin_system.register_command("my_plugin", "hello", description="يقول مرحباً")
+async def hello_command(client, message):
+    await message.reply_text("مرحباً بك!")
+
+# تسجيل hook
+@plugin_system.register_hook("bot_start")
+async def on_bot_start():
+    print("تم تشغيل البوت!")
+
+app.run()
+```
+
+## استخدام إعادة الاتصال التلقائي
+
+```python
+from pyroitaly import Client
+from pyroitaly.plugins import AutoReconnect
+
+app = Client("my_bot")
+auto_reconnect = AutoReconnect(app)
+
+async def main():
+    await app.start()
+    await auto_reconnect.start()
+    
+    # البوت سيعيد الاتصال تلقائياً عند انقطاع الاتصال
+    
+    await app.idle()
+
+app.run(main())
+```
+
+## إدارة الجلسات
+
+```python
+from pyroitaly import Client
+from pyroitaly.plugins import SessionManager
+
+async def export_session():
+    app = Client("my_account")
+    await app.start()
+    
+    # تصدير الجلسة
+    session_str = await SessionManager.export_session(app)
+    print(f"جلستك: {session_str}")
+    
+    # تصدير الجلسة مع كلمة مرور
+    encrypted_session = await SessionManager.export_session(app, password="my_password")
+    print(f"جلستك المشفرة: {encrypted_session}")
+    
+    await app.stop()
+
+async def import_session(session_str):
+    app = Client("imported_session")
+    
+    # استيراد الجلسة
+    await SessionManager.import_session(app, session_str)
+    
+    await app.start()
+    me = await app.get_me()
+    print(f"تم تسجيل الدخول كـ {me.first_name}")
+    await app.stop()
+```
+
+## المساهمة
+
+المساهمات مرحب بها! يرجى اتباع هذه الخطوات:
+
+1. قم بعمل fork للمستودع
+2. قم بإنشاء فرع للميزة الخاصة بك (`git checkout -b feature/amazing-feature`)
+3. قم بعمل commit للتغييرات (`git commit -m 'إضافة ميزة رائعة'`)
+4. قم بدفع الفرع (`git push origin feature/amazing-feature`)
+5. قم بفتح طلب سحب
+
+## الترخيص
+
+هذا المشروع مرخص بموجب ترخيص GNU Lesser General Public License v3.0 - انظر ملف [LICENSE](LICENSE) للحصول على التفاصيل.
+
+## شكر وتقدير
+
+- [Dan](https://github.com/delivrance) - مؤلف Pyrogram الأصلي
+- [ItalyMusic](https://github.com/ItalyMusic) - مؤلف PyroItaly
