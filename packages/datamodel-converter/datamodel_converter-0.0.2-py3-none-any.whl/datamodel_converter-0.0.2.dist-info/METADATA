@@ -1,0 +1,200 @@
+Metadata-Version: 2.4
+Name: datamodel-converter
+Version: 0.0.2
+Summary: Convert Pydantic models to OpenAI output schema, OpenAI tool schema, and more.
+License: MIT License
+        
+        Copyright (c) 2025 Shaojie Jiang
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Requires-Python: >=3.12
+Requires-Dist: pydantic>=2.11.2
+Description-Content-Type: text/markdown
+
+# Datamodel Converter
+
+[![CI](https://github.com/ShaojieJiang/datamodel-converter/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/ShaojieJiang/datamodel-converter/actions/workflows/ci.yml?query=branch%3Amain)
+[![Coverage](https://coverage-badge.samuelcolvin.workers.dev/ShaojieJiang/datamodel-converter.svg)](https://coverage-badge.samuelcolvin.workers.dev/redirect/ShaojieJiang/datamodel-converter)
+[![PyPI](https://img.shields.io/pypi/v/datamodel-converter.svg)](https://pypi.python.org/pypi/datamodel-converter)
+
+Every time I need to specify output schema for LLMs, I need to write a converter from Pydantic models to the schema.
+Pydantic V2's `model_json_schema` is not supported by some platforms like OpenAI or n8n.
+This package provides a converter for this purpose.
+
+## Installation
+
+```bash
+pip install datamodel-converter
+```
+
+## Example
+
+```python
+import json
+from pydantic import BaseModel
+from datamodel_converter.pydantic_converter import pydantic_converter
+
+
+class Address(BaseModel):
+    """Address model."""
+
+    street: str
+    city: str
+    state: str
+    zip: str
+
+
+class Person(BaseModel, use_attribute_docstrings=True):
+    """Person model."""
+
+    name: str
+    age: int
+    addresses: list[Address]
+    """Person might have multiple addresses."""
+
+
+print("Pydantic schema:")
+print(json.dumps(Person.model_json_schema(), indent=2))
+print()
+
+print("OpenAI output schema:")
+print(json.dumps(pydantic_converter(Person, flavor="openai_output_schema"), indent=2))
+print()
+```
+Output:
+```json
+Pydantic schema:
+{
+  "$defs": {
+    "Address": {
+      "description": "Address model.",
+      "properties": {
+        "street": {
+          "title": "Street",
+          "type": "string"
+        },
+        "city": {
+          "title": "City",
+          "type": "string"
+        },
+        "state": {
+          "title": "State",
+          "type": "string"
+        },
+        "zip": {
+          "title": "Zip",
+          "type": "string"
+        }
+      },
+      "required": [
+        "street",
+        "city",
+        "state",
+        "zip"
+      ],
+      "title": "Address",
+      "type": "object"
+    }
+  },
+  "description": "Person model.",
+  "properties": {
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "age": {
+      "title": "Age",
+      "type": "integer"
+    },
+    "addresses": {
+      "description": "Person might have multiple addresses.",
+      "items": {
+        "$ref": "#/$defs/Address"
+      },
+      "title": "Addresses",
+      "type": "array"
+    }
+  },
+  "required": [
+    "name",
+    "age",
+    "addresses"
+  ],
+  "title": "Person",
+  "type": "object"
+}
+
+OpenAI output schema:
+{
+  "description": "Person model.",
+  "name": "Person",
+  "strict": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "age": {
+        "type": "integer"
+      },
+      "addresses": {
+        "description": "Person might have multiple addresses.",
+        "items": {
+          "description": "Address model.",
+          "properties": {
+            "street": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "zip": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "street",
+            "city",
+            "state",
+            "zip"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "type": "array"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "name",
+      "age",
+      "addresses"
+    ]
+  }
+}
+```
+
+## Related works
+
+- [datamodel-code-generator](https://github.com/koxudaxi/datamodel-code-generator/): Generate Pydantic models from JSON Schema (opposite direction of this package).
