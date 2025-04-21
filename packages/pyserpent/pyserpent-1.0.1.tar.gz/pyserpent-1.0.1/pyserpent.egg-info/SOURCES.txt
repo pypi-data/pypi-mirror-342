@@ -1,0 +1,10 @@
+LICENSE
+README
+pyproject.toml
+setup.py
+pyserpent/__init__.py
+pyserpent/serpent.py
+pyserpent.egg-info/PKG-INFO
+pyserpent.egg-info/SOURCES.txt
+pyserpent.egg-info/dependency_links.txt
+pyserpent.egg-info/top_level.txt
