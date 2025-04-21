@@ -1,0 +1,12 @@
+chunkingman/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+chunkingman/base_chunker.py,sha256=hWLbfFp6UUvopjNUSxtl6sXVc9YCy-UT403B9eribwY,168
+chunkingman/cluster_semantic_chunker.py,sha256=Sbm-iCahgxB5AYGkw0zAlXTD7GhmBL-Ia9vSfpquxQI,3546
+chunkingman/fixed_token_chunker.py,sha256=eIFZ99JNhRDpCNSiew7UlQgWuLeg7DrGXASW2KWl5Bo,9685
+chunkingman/kamradt_modified_chunker.py,sha256=PrhbHrde_JO-Wv2gkrd4bj7F6Oj_N27MapmXTD01FZA,9240
+chunkingman/llm_semantic_chunker.py,sha256=ftCBitSiIpfOuJcMoWS2ptcyh6qWaS7VkavD1NYe6C4,7460
+chunkingman/recursive_token_chunker.py,sha256=mGjhwkdYidxp5ENAMpcixlWs_U-bxCRkXgL8JlruwHI,18274
+chunkingman/utils.py,sha256=k7fLUK2DAwU0pUD5j82njeGTXNPkZKw64TzGPsU9cvk,1490
+chunkingman-0.0.1.dist-info/METADATA,sha256=EHrVsjYbKipMOhd9V2Ov7tXJrFnbpqYp5dfJNW1HOPk,1010
+chunkingman-0.0.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+chunkingman-0.0.1.dist-info/top_level.txt,sha256=8JESJFSuZbLZvACGW3MdVa7jlSi_IRmdDMCvviDkbfw,12
+chunkingman-0.0.1.dist-info/RECORD,,
