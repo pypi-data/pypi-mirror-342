@@ -1,0 +1,172 @@
+Metadata-Version: 2.4
+Name: claude_cad
+Version: 0.1.1
+Summary: An MCP plugin for creating 3D models with Claude AI using CadQuery
+Home-page: https://github.com/bronson/claude_cad
+Author: Bronson Dunbar
+Author-email: bronson@example.com
+Project-URL: Bug Tracker, https://github.com/bronson/claude_cad/issues
+Project-URL: Documentation, https://github.com/bronson/claude_cad#readme
+Project-URL: Source Code, https://github.com/bronson/claude_cad
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: cadquery>=2.0.0
+Requires-Dist: mcp>=0.1.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Claude CAD
+
+A Model Context Protocol (MCP) plugin for creating 3D models with Claude AI using CadQuery.
+
+## Overview
+
+Claude CAD is an MCP plugin that allows Claude AI to create 3D models based on text prompts. It leverages the powerful parametric modeling capabilities of CadQuery, a Python-based CAD scripting library, to generate complex 3D models that can be exported in various formats (STEP, STL, etc.).
+
+## Features
+
+- Generate 3D models from natural language descriptions
+- Parametric modeling using CadQuery's Python API
+- Support for primitives, boolean operations, extrusions, and more
+- Export models in various formats (STEP, STL, etc.)
+- Full integration with Claude AI via MCP
+
+## Installation
+
+### Prerequisites
+
+- Python 3.9+
+- CadQuery
+- Model Context Protocol SDK
+- uv (Modern Python package installer)
+
+### Install using uv
+
+```bash
+# Install uv if not already installed
+pip install uv
+
+# Create a virtual environment
+uv venv
+
+# Activate the virtual environment
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install from PyPI
+uv pip install claude-cad
+
+# Or install from source
+git clone https://github.com/bronson/claude_cad.git
+cd claude_cad
+uv pip install -e .
+```
+
+For detailed installation instructions, see [INSTALL.md](INSTALL.md).
+
+## Configuration
+
+To use Claude CAD with Claude Desktop, you need to update your Claude configuration file:
+
+### Option 1: Using Python directly
+
+```json
+{
+  "mcpServers": {
+    "claude_cad": {
+      "command": "python",
+      "args": ["-m", "claude_cad.server"],
+      "env": {}
+    }
+  }
+}
+```
+
+### Option 2: Using uvx (Recommended)
+
+For improved dependency management, you can use `uvx` (part of the uv toolkit):
+
+```json
+{
+  "mcpServers": {
+    "claude_cad": {
+      "command": "uvx", 
+      "args": ["-m", "claude_cad.server"],
+      "env": {}
+    }
+  }
+}
+```
+
+Locate your Claude Desktop configuration file at:
+- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Linux: `~/.config/Claude/claude_desktop_config.json`
+
+After updating the configuration, restart Claude Desktop for the changes to take effect.
+
+## Usage
+
+Once installed and configured, you can ask Claude to create 3D models using natural language:
+
+```
+Please create a 3D model of a small gear with 10 teeth and a 20mm diameter.
+```
+
+Claude will use the Claude CAD MCP plugin to generate the model and provide a download link or preview.
+
+## Examples
+
+See the `examples` directory for sample models and prompts:
+
+- `simple_box.py`: Creates a basic box primitive
+- `lego_brick.py`: Creates a LEGO-compatible brick
+- `text_to_model.py`: Demonstrates text-to-3D-model generation
+
+## Development
+
+To set up a development environment:
+
+```bash
+# Clone the repository
+git clone https://github.com/bronson/claude_cad.git
+cd claude_cad
+
+# Create a virtual environment
+uv venv
+
+# Install dependencies
+uv pip install -r requirements.txt
+
+# Install in development mode
+uv pip install -e .
+
+# Run tests
+python -m unittest discover tests
+```
+
+## License
+
+Apache 2.0
+
+## Credits
+
+- CadQuery: https://github.com/CadQuery/cadquery
+- Model Context Protocol: Anthropic's Claude integration API
+- uv: https://github.com/astral-sh/uv
