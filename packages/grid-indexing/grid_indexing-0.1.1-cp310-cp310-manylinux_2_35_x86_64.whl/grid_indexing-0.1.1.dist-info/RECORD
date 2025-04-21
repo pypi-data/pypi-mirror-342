@@ -1,0 +1,13 @@
+grid_indexing-0.1.1.dist-info/METADATA,sha256=gvHdN8qkebMFqGGFnKNj5HHsoMA9eIVQZvKPXuZSlac,2799
+grid_indexing-0.1.1.dist-info/WHEEL,sha256=88omrpIEex5GE7bUPlwcgYOj5mlIvWeG0soPxlA33zc,108
+grid_indexing-0.1.1.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+grid_indexing/tests/test_rtree.py,sha256=2vKXG5mB37PkXcZ2kfIgYuq0S15eEyBqfVrmZ_ORGhg,2336
+grid_indexing/tests/test_distributed.py,sha256=fUbW1My4lFts5YaZC-7N44cR_xBkiGbZ2oOE6vweCPQ,6549
+grid_indexing/tests/test_grids.py,sha256=5e_9FdJb3dHCIA2ZVtKTyO2HaKqA000A3QXFb_G6DNw,3203
+grid_indexing/tests/__init__.py,sha256=QHSOoJMGUFptsLPMnT3gJVWmN5Q5TsF_4faeGA624FY,3889
+grid_indexing/tutorial.py,sha256=VkFV1OB3rsk7yqX_42ywRwmqBUnfKW0l4ZozbfOc0NA,2999
+grid_indexing/grids.py,sha256=7m8WOa41zF4mVMH3oJmqPKOPfvggSb5AvHlWm0DVL8s,4039
+grid_indexing/distributed.py,sha256=L1mmTreALGD5pQvol7l5or--v4W2UKUaYo-V7BZD4HY,4507
+grid_indexing/__init__.py,sha256=59jKvtQqpkxtFpRSR5fbzisx5SJF_GaO3Fr5SeIzixY,505
+grid_indexing/grid_indexing.cpython-310-x86_64-linux-gnu.so,sha256=ESlZEMtSAAtmX_37N4BADl79E4wpz9qkeMzYBN-XlPY,4485096
+grid_indexing-0.1.1.dist-info/RECORD,,
