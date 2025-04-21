@@ -1,0 +1,80 @@
+Metadata-Version: 2.4
+Name: codepy-redebots
+Version: 1.0.0
+Summary: Biblioteca pioneira para bots Discord 2025, 100% brasileira, com suporte a IA, voz, OAuth2 e interações modernas.
+Home-page: https://github.com/LucasDesignerF/code-py
+Author: Lucas Dev - RedeBots
+Author-email: ofc.rede@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12.7
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp>=3.11.17
+Requires-Dist: redis>=5.2.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Code.py
+
+![GitHub release](https://img.shields.io/github/v/release/LucasDesignerF/code-py?color=00FF00)
+![PyPI](https://img.shields.io/pypi/v/code-py?color=00FF00)
+![Python](https://img.shields.io/badge/python-3.12.7+-00FF00)
+![License](https://img.shields.io/github/license/LucasDesignerF/code-py?color=00FF00)
+
+Code.py e uma biblioteca pioneira para criacao de bots Discord em 2025, 100% brasileira, projetada para ser simples, poderosa e moderna. Com suporte a IA, voz, OAuth2 e interacoes modernas, e ideal para desenvolvedores que querem criar bots inovadores.
+
+## Instalacao
+
+Instale via pip:
+
+```bash
+pip install code-py
+```
+
+### Pre-requisitos
+
+- Python: 3.12.7 ou superior
+- Dependencias: aiohttp>=3.11.17, redis>=5.2.1, pydub>=0.25.1, pyopus>=0.3.0
+
+## Funcionalidades
+
+- **Voz Avancada**: TTS com ElevenLabs, STT com Whisper, reproducao multimidia (pydub, Opus, VLC).
+- **IA Integrada**: Geracao de texto com Grok (xAI).
+- **OAuth2 Nativo**: Autenticacao fluida.
+- **Comandos Modernos**: Slash commands, autocomplete, sincronizacao incremental.
+- **Escalabilidade**: Sharding, cache com Redis.
+
+## Exemplo
+
+```python
+from codepy import Code, Inter, Embed, Cmd
+
+bot = Code.criar_bot(prefix="!")
+
+@bot.cmd("ola", desc="Diz ola", opts=[{"nome": "user", "desc": "Usuario", "tipo": "user"}])
+async def ola(inter: Inter, user: User):
+    embed = Embed(tit="Ola", desc=f"Saudacoes, {user.nome}!", cor=0x00FF00)
+    await inter.resp("Ola!", embed=embed)
+
+Code.rodar(bot, "SEU_TOKEN_AQUI")
+```
+
+## Contribuicao
+
+1. Fork: [github.com/LucasDesignerF/code-py](https://github.com/LucasDesignerF/code-py)
+2. Clone, crie uma branch, e envie um Pull Request.
+
+## Contato
+
+- Autor: Lucas Dev - RedeBots
+- Email: ofc.rede@gmail.com
+- Discord: [Code Projects by RedeBots](https://discord.gg/AhcHfUpNeM)
+- PyPI: [codeco2024](https://pypi.org/user/codeco2024/)
