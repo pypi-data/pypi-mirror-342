@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+    <!-- Code highlighting CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    
+    <style>
+        :root {
+            --code-bg: #0d1117;
+            --code-inline-bg: rgba(175, 184, 193, 0.2);
+            --code-inline-color: #24292f;
+            --code-border: #30363d;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --code-inline-bg: rgba(99, 110, 123, 0.4);
+                --code-inline-color: #adbac7;
+            }
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            padding: 1em;
+            max-width: 50em;
+            margin: 0 auto;
+            color: #24292e;
+            background-color: #fff;
+        }
+        
+        pre {
+            position: relative;
+            padding: 16px;
+            overflow-x: auto;
+            background-color: var(--code-bg);
+            border-radius: 8px;
+            border: 1px solid var(--code-border);
+            margin: 1em 0;
+            font-size: 85%;
+            line-height: 1.45;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+            font-size: 0.9em;
+            padding: 0.2em 0.4em;
+            margin: 0;
+            background-color: var(--code-inline-bg);
+            color: var(--code-inline-color);
+            border-radius: 4px;
+            word-break: break-word;
+        }
+        
+        pre code {
+            display: block;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            font-size: 100%;
+            word-break: normal;
+            white-space: pre;
+            border: 0;
+            color: inherit;
+        }
+        
+        pre code .hljs-keyword,
+        pre code .hljs-built_in {
+            color: #ff7b72;
+        }
+        
+        pre code .hljs-string {
+            color: #a5d6ff;
+        }
+        
+        pre code .hljs-number {
+            color: #79c0ff;
+        }
+        
+        pre code .hljs-comment {
+            color: #8b949e;
+        }
+        
+        pre code .hljs-function {
+            color: #d2a8ff;
+        }
+        
+        pre code .hljs-preprocessor {
+            color: #ff7b72;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        blockquote {
+            border-left: 4px solid #ddd;
+            padding: 0 1em;
+            margin: 0 0 1em;
+            color: #6a737d;
+        }
+        
+        .hljs {
+            display: block;
+            overflow-x: auto;
+            padding: 0;
+            color: #c9d1d9;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    {{ content | safe }}
+
+    <!-- KaTeX JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\(", right: "\\)", display: false},
+                    {left: "\\[", right: "\\]", display: true}
+                ],
+                throwOnError: false
+            });
+        });
+    </script>
+    
+    <!-- Code highlighting JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cpp.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                // Remove any existing classes that might interfere
+                block.classList.remove('hljs');
+                // Add language class if not present
+                if (!Array.from(block.classList).some(c => c.startsWith('language-'))) {
+                    block.classList.add('language-plaintext');
+                }
+                hljs.highlightElement(block);
+            });
+        });
+    </script>
+</body>
+</html> 
