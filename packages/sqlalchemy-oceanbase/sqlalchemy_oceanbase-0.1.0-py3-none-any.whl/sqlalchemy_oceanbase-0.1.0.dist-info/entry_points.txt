@@ -1,0 +1,4 @@
+[sqlalchemy.dialects]
+mysql.asyncoceanbase=sqlalchemy_oceanbase.base:AsyncOceanBaseDialect
+mysql.oceanbase=sqlalchemy_oceanbase.base:OceanBaseDialect
+
