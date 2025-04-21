@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+vectara_mcp/__init__.py
+vectara_mcp/__main__.py
+vectara_mcp/server.py
+vectara_mcp.egg-info/PKG-INFO
+vectara_mcp.egg-info/SOURCES.txt
+vectara_mcp.egg-info/dependency_links.txt
+vectara_mcp.egg-info/entry_points.txt
+vectara_mcp.egg-info/requires.txt
+vectara_mcp.egg-info/top_level.txt
