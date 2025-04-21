@@ -1,0 +1,5 @@
+[console_scripts]
+dml-ui = dml_util.app.impl:run
+dml-util-dag = dml_util.dags:main
+dml-util-lambda-adapter = dml_util.adapter:LambdaAdapter.cli
+dml-util-local-adapter = dml_util.adapter:LocalAdapter.cli
