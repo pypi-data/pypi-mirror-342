@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+resopath/__init__.py
+resopath/cli.py
+resopath/env.py
+resopath/resolver.py
+resopath.egg-info/PKG-INFO
+resopath.egg-info/SOURCES.txt
+resopath.egg-info/dependency_links.txt
+resopath.egg-info/entry_points.txt
+resopath.egg-info/top_level.txt
+tests/test_resopath.py
