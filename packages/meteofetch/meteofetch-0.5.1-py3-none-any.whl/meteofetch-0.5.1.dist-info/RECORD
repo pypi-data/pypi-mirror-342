@@ -1,0 +1,14 @@
+meteofetch/__init__.py,sha256=92FSG2q6d54o1OClMO1mYJXMifzjmxglSrz8W0hvIRA,597
+meteofetch/_arome.py,sha256=vTpHKyR1c1sTIQBk6Fr17OqN1319LKWppknUFtyjlsk,5025
+meteofetch/_arpege.py,sha256=qQz4kjVKkBeMxT5R2grgqTJSanpqjA8Bvnmf-FXJ1JE,1707
+meteofetch/_ecmwf.py,sha256=1EAGJtflh1YblgtpvQL2toMlJQ8pF3e4umAIWy6SxMw,3261
+meteofetch/_meteo_france.py,sha256=zEz3FNxWmzm-tJkcRtThE9KP3ZDPlKj8pPxRTJ3uOeA,5243
+meteofetch/_misc.py,sha256=eHj0Cdv94BgSKuO-5SRouYthfaD9OYGqklBjHDOQOwA,3809
+meteofetch/_model.py,sha256=-dBX28ciUa9t74PYZysnHdYxG_Bsa04M6OK5_yy2_7k,2867
+meteofetch/gribdefs/grib2/shortName.def,sha256=ey0Ytwjix6cRIcWEyyl7cMEF1jhGyo9XkdgRpC6m5ik,97336
+meteofetch/gribdefs/grib2/localConcepts/lfpw/shortName.def,sha256=HXyGvfAA8AX5aCqyQLTQ5QVT-7qdxt6Bahqf5VaQads,130850
+meteofetch/gribdefs/grib2/tables/15/4.5.table,sha256=NH6rtDpRIRK4qWcz9m8NsplNg0KhStLIRw4SCOltQD0,2227
+meteofetch-0.5.1.dist-info/METADATA,sha256=R6xNJiLvGvaU4pYEWQVKHQWQDXga7vUERNMGL3qHyvw,5121
+meteofetch-0.5.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+meteofetch-0.5.1.dist-info/licenses/LICENSE,sha256=gXf5dRMhNSbfLPYYTY_5hsZ1r7UU1OaKQEAQUhuIBkM,18092
+meteofetch-0.5.1.dist-info/RECORD,,
