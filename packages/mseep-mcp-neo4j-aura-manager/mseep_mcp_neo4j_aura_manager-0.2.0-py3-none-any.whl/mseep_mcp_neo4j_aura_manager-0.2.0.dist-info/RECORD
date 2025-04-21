@@ -1,0 +1,13 @@
+docs/images/mcp-aura-create-instance.png,sha256=5k55gq0bIh4xHcY1mzFHjetXITmNABDI0jCiU6i7P5w,649092
+docs/images/mcp-aura-find-by-name.png,sha256=ek-a9EhNHCm0G6iHlH_gdTMyMTpWJBw89RL2nJuyz2A,352516
+docs/images/mcp-aura-find-paused.png,sha256=Z1_PTeR48FHDBC1QK---DA0f-7bTyRktvjRuH1QSEAA,530884
+docs/images/mcp-aura-list-resume.png,sha256=EfvD6uEflwbE2lQdCJeivSaTbk8gb4b_plVaGJ9ZdEI,613293
+docs/images/mcp-aura-tenant-overview.png,sha256=9XDpbk03A5d9JDghAPQtJwiT04gud5sG4heIbIF6gbA,581350
+src/mcp_neo4j_aura_manager/__init__.py,sha256=wfPbm8D6mqWhh-vmvYNEmwfOhPBjBaTmZWmMlMwNKrA,1275
+src/mcp_neo4j_aura_manager/server.py,sha256=WRgFN-I5PlcKcrY3RmzMgV8QgQtl7p_WcUB6z_wQres,31856
+tests/test_aura_integration.py,sha256=tE-NmVXzYWVP5Mw5xZMa7feGACQ8IKl9BW_R9smbuhY,10730
+tests/test_aura_manager.py,sha256=qWw5-CRioZsksLtRPM9toj9WAiAG4J0T5fIzA80MMDw,11977
+mseep_mcp_neo4j_aura_manager-0.2.0.dist-info/METADATA,sha256=aqo6TkVlWTXcJ1vSgkud9adoCbUTuxWF6_nMbL5SudM,6670
+mseep_mcp_neo4j_aura_manager-0.2.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mseep_mcp_neo4j_aura_manager-0.2.0.dist-info/entry_points.txt,sha256=pkWpxAiM0yh_FQkPTxsFQBe54PZ0dMsyPxuZK_Ug3-0,71
+mseep_mcp_neo4j_aura_manager-0.2.0.dist-info/RECORD,,
