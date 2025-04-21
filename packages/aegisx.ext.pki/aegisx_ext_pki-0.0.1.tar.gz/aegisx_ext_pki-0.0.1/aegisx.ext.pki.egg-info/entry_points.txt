@@ -1,0 +1,2 @@
+[aegisx.cli]
+pki = aegisx.ext.pki.cli:setup

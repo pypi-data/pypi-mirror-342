@@ -1,0 +1,6 @@
+aegisx>=0.1.0a1
+
+[develop]
+pytest
+pytest_asyncio
+coverage
