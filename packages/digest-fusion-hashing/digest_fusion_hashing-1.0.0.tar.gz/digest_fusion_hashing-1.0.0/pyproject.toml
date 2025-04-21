@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "digest-fusion-hashing"
+version = "1.0.0"
+description = "A secure data integrity reinforcement technique using dual digest fusion with randomized splitting."
+readme = "README.md"
+requires-python = ">=3.8"
+license= { file = "LICENSE" }
+authors = [
+    { name="Miguel Gobbi" }
+]
+dependencies = []
+
+[project.urls]
+"Homepage" = "https://github.com/mGobb1/digest-fusion-hashing"
+"Repository" = "https://github.com/mGobb1/digest-fusion-hashing"
