@@ -1,0 +1,25 @@
+[project]
+name = "pygame-visor"
+version = "0.3.0"
+description = "Pygame Visor - a simple Camera/Viewport library"
+readme = "README.md"
+authors = [
+    { name = "Nitori", email = "nitori@chireiden.net" }
+]
+requires-python = ">=3.12"
+dependencies = []
+license = "MIT"
+license-files = [
+    "LICENSE",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0",
+    "pygame-ce>=2.5.3",
+    "pytest>=8.3.5",
+]
