@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: jobrun
+Version: 0.1.1
+Summary: JobRun is a configurable tool to run simulation jobs in HPC clusters
+Home-page: https://github.com/josemvas/jobrun
+License: LGPLv3+
+Keywords: job queue hpc cluster
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: POSIX
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: boolparse
+Requires-Dist: json5conf
+Requires-Dist: abspathlib
+Requires-Dist: clinterface
+
+JobRun
+======
+
+About
+-----
+**JobRun** is a configurable tool to run simulation jobs in HPC clusters. It is compatible with PBS, LSF and Slurm and currently supports the following simulation software:
+
+* DFTB+
+* Gaussian
+* deMon2k
+* ORCA
+* VASP
+
+Install
+-------
+Install from GitHub with pip
+```
+pip3 install --user git+https://github.com/josemvas/jobrun.git
+```
+
+Configure
+---------
+After installing run
+```
+jobrun-cfg setup
+```
+and follow the instructions printed on the screen.
+
+Upgrade
+-------
+Upgrade from GitHub with pip
+```
+pip3 install --user --upgrade git+https://github.com/josemvas/jobrun.git
+```
+
+Notes
+-----
+For system wide installation drop the `--user` option.
+
+
