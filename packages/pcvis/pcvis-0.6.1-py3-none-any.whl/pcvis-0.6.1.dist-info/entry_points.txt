@@ -1,0 +1,3 @@
+[console_scripts]
+pcvis=pcvis.pcvis:cli
+
