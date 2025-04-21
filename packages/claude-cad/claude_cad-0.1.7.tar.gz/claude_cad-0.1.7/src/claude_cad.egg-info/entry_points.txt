@@ -1,0 +1,3 @@
+[console_scripts]
+claude-cad = claude_cad.server:main
+claude_cad = claude_cad.server:main
