@@ -1,0 +1,4 @@
+﻿include __init__.py
+include setup.py
+include readme.md
+recursive-include webtrader *.py
