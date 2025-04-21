@@ -1,0 +1,16 @@
+ifctrano/__init__.py,sha256=UT1-izHuXPq06nSeKzgs6qoVRfc6RqIhabf-ZKgAXf4,76
+ifctrano/base.py,sha256=upXv93ahpQHN-AKkl9MEsMvS3BGw7SFjG-oGJ2VNdWM,13812
+ifctrano/bounding_box.py,sha256=ctHImomBY7C0sLWGxwXP0VzqdmtLzWeH0CNo6Y-4TAo,7334
+ifctrano/building.py,sha256=E3D6Bg6MeHQ3JeBMMxMFwLRvmo38uPYyGON-G8uTE_k,8827
+ifctrano/construction.py,sha256=KGiJJ6L0D7mK254GYl6CO7TKoTNoUSJeZCSHzbkhslo,7244
+ifctrano/example/verification.ifc,sha256=tQ9QcubT_wrbb-sc1WRRwYpb2cbkWm3dnRfXdP5GTTg,131
+ifctrano/exceptions.py,sha256=1FQeuuq_lVZ4CawwewQvkE8OlDQwhBTbKfmc2FiZodo,431
+ifctrano/main.py,sha256=k6FyWD2hp_5tYkV-dqL42jdmfke53Jlkvz8-vc-VufA,4779
+ifctrano/space_boundary.py,sha256=OOIZJFWU3fQ_nm4RcXjC4Y55mUxGe789eParP533LEY,9512
+ifctrano/types.py,sha256=wxKVb2R4Dz58YzN4PzgXhuuVw-UYobSh9fnYWQrYlqQ,130
+ifctrano/utils.py,sha256=AjQrIqbKAk4CWCcfeRHSZtWT6AAxQLyj-uDWPdUU6UU,712
+ifctrano-0.2.0.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+ifctrano-0.2.0.dist-info/METADATA,sha256=j0yo3sbSbAAcxg-ceS8vDXrlPD-DPScHfGgDF1mU-lQ,3533
+ifctrano-0.2.0.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+ifctrano-0.2.0.dist-info/entry_points.txt,sha256=_2daDejazkphufyEu0m3lOeTio53WYmjol3KmSN0JM4,46
+ifctrano-0.2.0.dist-info/RECORD,,
