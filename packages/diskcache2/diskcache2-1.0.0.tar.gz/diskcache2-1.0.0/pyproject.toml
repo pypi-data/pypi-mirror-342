@@ -1,0 +1,61 @@
+[project]
+name = "diskcache2"
+description = "Disk Cache -- Disk and file backed persistent cache."
+version = "1.0.0"
+requires-python = "~=3.10"
+dependencies = []
+readme = "README.rst"
+authors = [
+    { name = "Grant Jenks", email = "contact@grantjenks.com" },
+]
+maintainers = [
+    { name = "Muspi Merol", email = "me@promplate.dev" },
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+
+[project.license]
+text = "Apache 2.0"
+
+[project.urls]
+Homepage = "http://www.grantjenks.com/docs/diskcache/"
+Documentation = "http://www.grantjenks.com/docs/diskcache/"
+Funding = "https://gum.co/diskcache"
+Source = "https://github.com/grantjenks/python-diskcache"
+Tracker = "https://github.com/grantjenks/python-diskcache/issues"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm.build]
+excludes = [
+    "tests",
+]
+
+[dependency-groups]
+dev = [
+    "ruff~=0.8",
+]
+test = [
+    "pytest~=8.3",
+    "django~=5.1.3",
+    "pytest-sugar~=1.0",
+]
+docs = [
+    "sphinx~=8.1",
+]
