@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.8.17/wavesurfer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.8.17/plugins/hover.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.8.17/plugins/minimap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.8.17/plugins/regions.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.8.17/plugins/spectrogram.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.8.17/plugins/timeline.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/7.8.17/plugins/zoom.min.js"></script>
+<script>{{ script }}</script>
+<style>
+    #waveform_{{ uuid }} {
+        cursor: pointer;
+        position: relative;
+    }
+    #time_{{ uuid }}, #duration_{{ uuid }} {
+        position: absolute;
+        z-index: 11;
+        top: 95%;
+        margin-top: -1px;
+        transform: translateY(-50%);
+        font-size: 11px;
+        background: rgba(0, 0, 0, 0.75);
+        color: #DDDD;
+    }
+    #time_{{ uuid }} { left: 0; }
+    #duration_{{ uuid }} { right: 0; }
+</style>
+<div id="waveform_{{ uuid }}" style="background-color: black; width: {{ width }};">
+    <div id="time_{{ uuid }}">0:00</div>
+    <div id="duration_{{ uuid }}">0:00</div>
+</div>
+{% if is_streaming %}
+<button class="btn btn-danger me-3 my-3" style="box-shadow: none" id="play_button_{{ uuid }}"><i class="fas fa-pause"></i></button>
+<script>
+    player_{{ uuid }} = new PCMPlayer('{{ uuid }}', { sampleRate: '{{ rate }}' });
+</script>
+{% endif %}
+<script>
+    wavesurfer_{{ uuid }} = WaveSurfer.create({
+        container: '#waveform_{{ uuid }}',
+        autoScroll: true,
+        waveColor: '#4BF2A7',
+        cursorColor: '#FF0000',
+        cursorWidth: 2,
+        progressColor: '#4BF2A7',
+        normalize: true,
+{% if not is_streaming %}
+        url: '{{ audio }}',
+        sampleRate: '{{ rate }}',
+{% endif %}
+        minPxPerSec: 100,
+        backend: 'WebAudio',
+    });
+    wavesurfer_{{ uuid }}.on('interaction', () => { wavesurfer_{{ uuid }}.playPause() });
+    wavesurfer_{{ uuid }}.on('decode', (duration) => (document.querySelector('#duration_{{ uuid }}').textContent = formatTime(duration)));
+    wavesurfer_{{ uuid }}.on('timeupdate', (currentTime) => (document.querySelector('#time_{{ uuid }}').textContent = formatTime(currentTime)));
+{% if enable_hover %}
+    wavesurfer_{{ uuid }}.registerPlugin(create_hover());
+{% endif %}
+{% if enable_timeline %}
+    wavesurfer_{{ uuid }}.registerPlugin(create_timeline());
+{% endif %}
+{% if enable_minimap %}
+    wavesurfer_{{ uuid }}.registerPlugin(create_minimap());
+{% endif %}
+{% if enable_spectrogram %}
+    wavesurfer_{{ uuid }}.registerPlugin(create_spectrogram());
+{% endif %}
+{% if enable_zoom %}
+    wavesurfer_{{ uuid }}.registerPlugin(create_zoom());
+{% endif %}
+{% if enable_regions %}
+    wavesurfer_{{ uuid }}.registerPlugin(create_regions());
+    activeRegion_{{ uuid }} = null;
+    regions_{{ uuid }}.on('region-clicked', (region, e) => {
+        e.stopPropagation();
+        activeRegion_{{ uuid }} = region;
+        region.play();
+    });
+    regions_{{ uuid }}.on('region-out', (region) => {
+        wavesurfer_{{ uuid }}.pause();
+    });
+    document.addEventListener('keydown', function(event) {
+        if (event.key == 'Backspace' || event.key == 'Delete') {
+            console.log(event.key)
+            if (activeRegion_{{ uuid }}) {
+                activeRegion_{{ uuid }}.remove();
+            }
+        }
+    });
+{% endif %}
+</script>
+<button class="btn btn-success my-3", id="download_button_{{ uuid }}">
+  {{ download_label }} <i class="fas fa-download"></i>
+</button>
+<script>
+    download_button_{{ uuid }} = document.getElementById('download_button_{{ uuid }}');
+    download_button_{{ uuid }}.addEventListener('click', function() {
+        const link = document.createElement('a');
+        {% if is_streaming %}
+            link.href = player_{{ uuid }}.url;
+        {% else %}
+            link.href = wavesurfer_{{ uuid }}.options.url;
+        {% endif %}
+        link.download = 'audio.wav';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+</script>
