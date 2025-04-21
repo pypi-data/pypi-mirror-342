@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+data_structures/__init__.py
+data_structures/linked_list.py
+data_structures/node.py
+data_structures/queue.py
+data_structures/rotation_linked_list.py
+data_structures/rotation_queue.py
+data_structures/rotation_stack.py
+data_structures/stack.py
+ninja_data_manipulation.egg-info/PKG-INFO
+ninja_data_manipulation.egg-info/SOURCES.txt
+ninja_data_manipulation.egg-info/dependency_links.txt
+ninja_data_manipulation.egg-info/top_level.txt
+tests/test.py
