@@ -1,0 +1,2 @@
+[console_scripts]
+elbbarcs = elbbarcs.__main__:main
