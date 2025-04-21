@@ -1,0 +1,41 @@
+[project]
+name = "p_elasticsearch_easy"
+version = "1.0.2" 
+description = "A base resource for working with the Elasticsearch and ElasticsearchDSL libraries in a simple way."
+authors = [
+    { name = "Adrián Pérez", email = "apo00015@red.ujaen.es" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "GPL-3.0-or-later" }
+
+dependencies = [
+    "elasticsearch",
+    "elasticsearch-dsl"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/apo00015"
+"Repository" = "https://github.com/apo00015/P_Elascticsearch_Easy"
+"Issue Tracker" = "https://github.com/apo00015/P_Elascticsearch_Easy/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+

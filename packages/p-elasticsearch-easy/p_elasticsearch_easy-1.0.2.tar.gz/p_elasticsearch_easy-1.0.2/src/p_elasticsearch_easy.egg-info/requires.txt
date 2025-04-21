@@ -1,0 +1,6 @@
+elasticsearch
+elasticsearch-dsl
+
+[dev]
+pytest
+pytest-cov
