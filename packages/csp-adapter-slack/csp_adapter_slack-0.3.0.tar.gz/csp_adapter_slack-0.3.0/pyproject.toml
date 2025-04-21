@@ -1,0 +1,143 @@
+[build-system]
+requires = [
+    "hatchling>=1.22.4,<1.28",
+    "pkginfo>=1.10,<1.13",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "csp_adapter_slack"
+description = "A csp adapter for slack"
+version = "0.3.0"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+authors = [{name = "the csp authors", email = "CSPOpenSource@point72.com"}]
+keywords = [
+    "csp",
+    "stream-processing",
+    "slack",
+    "chat",
+    "chatbot",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Jupyter",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: Apache Software License",
+]
+dependencies = [
+    "csp",
+    "pydantic>=2",
+    "slack-sdk>=3",
+]
+
+[project.optional-dependencies]
+develop = [
+    "bump-my-version",
+    "check-manifest",
+    "codespell>=2.2.6,<2.5",
+    "hatchling",
+    "mdformat>=0.7.17,<0.8",
+    "mdformat-tables>=1,<1.1",
+    "ruff>=0.5,<0.12",
+    "twine>=5,<7",
+    # test
+    "pytest",
+    "pytest-cov",
+]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+
+[project.urls]
+Repository = "https://github.com/point72/csp-adapter-slack"
+Homepage = "https://github.com/point72/csp-adapter-slack"
+
+[tool.bumpversion]
+current_version = "0.3.0"
+commit = true
+tag = false
+commit_args = "-s"
+
+[[tool.bumpversion.files]]
+filename = "csp_adapter_slack/__init__.py"
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+[tool.check-manifest]
+ignore = []
+
+[tool.coverage.run]
+branch = true
+omit = []
+
+[tool.coverage.report]
+exclude_also = [
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "@(abc\\.)?abstractmethod",
+]
+ignore_errors = true
+fail_under = 75
+
+[tool.hatch.build]
+artifacts = []
+
+[tool.hatch.build.sources]
+src = "/"
+
+[tool.hatch.build.targets.sdist]
+packages = ["csp_adapter_slack"]
+exclude = [
+    "/.github",
+    "/.gitignore",
+    "/docs",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["csp_adapter_slack"]
+exclude = [
+    "/.github",
+    "/.gitignore",
+    "/pyproject.toml",
+    "/docs",
+]
+
+[tool.pytest.ini_options]
+addopts = ["-vvv", "--junitxml=junit.xml"]
+asyncio_mode = "strict"
+testpaths = "csp_adapter_slack/tests"
+
+[tool.ruff]
+line-length = 150
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401", "F403"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+default-section = "third-party"
+known-first-party = ["csp_adapter_slack"]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
