@@ -1,0 +1,117 @@
+# trianglengin/visualization/core/colors.py
+"""
+Defines color constants and mappings used throughout the application,
+especially for visualization.
+"""
+
+# Define the Color type alias (RGB)
+Color = tuple[int, int, int]
+# Define RGBA type alias for clarity where alpha is used
+ColorRGBA = tuple[int, int, int, int]
+
+# --- Standard Colors ---
+WHITE: Color = (255, 255, 255)
+BLACK: Color = (0, 0, 0)
+GRAY: Color = (128, 128, 128)
+LIGHT_GRAY: Color = (200, 200, 200)
+DARK_GRAY: Color = (50, 50, 50)
+RED: Color = (255, 0, 0)
+GREEN: Color = (0, 255, 0)
+BLUE: Color = (0, 0, 255)
+YELLOW: Color = (255, 255, 0)
+CYAN: Color = (0, 255, 255)
+MAGENTA: Color = (255, 0, 255)
+ORANGE: Color = (255, 165, 0)
+PURPLE: Color = (128, 0, 128)
+TEAL: Color = (0, 128, 128)
+OLIVE: Color = (128, 128, 0)
+
+# --- Game Specific Colors ---
+# Colors used for the placeable shapes (ensure these match constants.py if needed)
+SHAPE_COLORS: tuple[Color, ...] = (
+    (220, 40, 40),  # 0: Red
+    (60, 60, 220),  # 1: Blue
+    (40, 200, 40),  # 2: Green
+    (230, 230, 40),  # 3: Yellow
+    (240, 150, 20),  # 4: Orange
+    (140, 40, 140),  # 5: Purple
+    (40, 200, 200),  # 6: Cyan
+    (200, 100, 180),  # 7: Pink
+    (100, 180, 200),  # 8: Light Blue
+)
+
+# Mapping from shape colors to integer IDs (0 to N-1)
+COLOR_TO_ID_MAP: dict[Color, int] = {color: i for i, color in enumerate(SHAPE_COLORS)}
+# Reverse mapping for convenience (e.g., visualization)
+ID_TO_COLOR_MAP: dict[int, Color] = dict(enumerate(SHAPE_COLORS))
+
+# Special Color IDs (ensure these match constants.py)
+NO_COLOR_ID: int = -1
+DEBUG_COLOR_ID: int = -2
+
+# Grid background colors
+GRID_BG_LIGHT: Color = (40, 40, 40)
+GRID_BG_DARK: Color = (30, 30, 30)
+GRID_LINE_COLOR: Color = (80, 80, 80)
+DEATH_ZONE_COLOR: Color = (60, 0, 0)
+TRIANGLE_EMPTY_COLOR: Color = GRAY  # Color for empty grid cells
+GRID_BG_DEFAULT: Color = DARK_GRAY  # Default grid background
+GRID_BG_GAME_OVER: Color = (70, 30, 30)  # BG when game is over
+
+# UI Colors
+HUD_BG_COLOR: Color = (20, 20, 20)
+HUD_TEXT_COLOR: Color = WHITE
+PREVIEW_BG_COLOR: Color = (25, 25, 25)  # Added missing constant
+PREVIEW_BORDER: Color = GRAY
+PREVIEW_SELECTED_BORDER: Color = WHITE
+
+# Highlight Colors (RGB only, alpha handled separately in drawing)
+HIGHLIGHT_VALID_COLOR: Color = GREEN
+HIGHLIGHT_INVALID_COLOR: Color = RED
+PLACEMENT_VALID_COLOR: Color = GREEN  # Alias
+PLACEMENT_INVALID_COLOR: Color = RED  # Alias
+
+# Debug Colors
+DEBUG_TOGGLE_COLOR: Color = MAGENTA
+
+__all__ = [
+    "Color",
+    "ColorRGBA",
+    "WHITE",
+    "BLACK",
+    "GRAY",
+    "LIGHT_GRAY",
+    "DARK_GRAY",
+    "RED",
+    "GREEN",
+    "BLUE",
+    "YELLOW",
+    "CYAN",
+    "MAGENTA",
+    "ORANGE",
+    "PURPLE",
+    "TEAL",
+    "OLIVE",
+    "SHAPE_COLORS",
+    "COLOR_TO_ID_MAP",
+    "ID_TO_COLOR_MAP",
+    "NO_COLOR_ID",
+    "DEBUG_COLOR_ID",
+    "GRID_BG_LIGHT",
+    "GRID_BG_DARK",
+    "GRID_LINE_COLOR",
+    "DEATH_ZONE_COLOR",
+    "TRIANGLE_EMPTY_COLOR",
+    "GRID_BG_DEFAULT",
+    "GRID_BG_GAME_OVER",
+    "HUD_BG_COLOR",
+    "HUD_TEXT_COLOR",
+    "PREVIEW_BG_COLOR",
+    "PREVIEW_BORDER",
+    "PREVIEW_SELECTED_BORDER",
+    "HIGHLIGHT_VALID_COLOR",
+    "HIGHLIGHT_INVALID_COLOR",
+    "PLACEMENT_VALID_COLOR",
+    "PLACEMENT_INVALID_COLOR",
+    "DEBUG_TOGGLE_COLOR",
+]

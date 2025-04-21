@@ -1,0 +1,2 @@
+[console_scripts]
+trianglengin = trianglengin.cli:app
