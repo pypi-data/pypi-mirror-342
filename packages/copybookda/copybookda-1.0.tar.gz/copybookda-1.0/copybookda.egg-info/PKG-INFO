@@ -1,0 +1,12 @@
+Metadata-Version: 2.2
+Name: copybookda
+Version: 1.0
+Author: DavidYdin
+Author-email: David.2280@yandex.ru
+Requires-Python: >=3.11
+Requires-Dist: pyautogui
+Requires-Dist: keyboard
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: requires-python
