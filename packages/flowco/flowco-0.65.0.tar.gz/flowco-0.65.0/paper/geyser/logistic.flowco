@@ -1,0 +1,546 @@
+{
+  "file_name": "logistic.flowco",
+  "dfg": {
+    "version": 193,
+    "description": "",
+    "nodes": [
+      {
+        "id": "Step-1",
+        "kind": 1,
+        "pill": "mortgage",
+        "label": "Load the `mortgage.csv` table",
+        "geometry": {
+          "x": -270.0,
+          "y": 80.0,
+          "width": 160.0,
+          "height": 80.0
+        },
+        "output_geometry": {
+          "x": 390.0,
+          "y": 100.0,
+          "width": 120.0,
+          "height": 80.0
+        },
+        "is_locked": false,
+        "force_show_output": false,
+        "function_name": "mortgage",
+        "function_result_var": "mortgage",
+        "predecessors": [],
+        "phase": 0,
+        "function_parameters": null,
+        "preconditions": null,
+        "requirements": null,
+        "description": null,
+        "function_return_type": null,
+        "function_computed_value": null,
+        "algorithm": null,
+        "code": null,
+        "assertions": null,
+        "assertion_checks": null,
+        "assertion_outcomes": null,
+        "unit_tests": null,
+        "unit_test_checks": null,
+        "unit_test_outcomes": null,
+        "messages": [],
+        "build_status": null,
+        "result": null,
+        "cache": {
+          "caches": {}
+        }
+      },
+      {
+        "id": "Step-2",
+        "kind": 0,
+        "pill": "Drop-Deny",
+        "label": "Drop `deny` column and remove NaN values.",
+        "geometry": {
+          "x": -30.0,
+          "y": 90.0,
+          "width": 160.0,
+          "height": 60.0
+        },
+        "output_geometry": {
+          "x": 390.0,
+          "y": 200.0,
+          "width": 120.0,
+          "height": 80.0
+        },
+        "is_locked": false,
+        "force_show_output": false,
+        "function_name": "drop_deny",
+        "function_result_var": "drop_deny",
+        "predecessors": [
+          "Step-1"
+        ],
+        "phase": 0,
+        "function_parameters": null,
+        "preconditions": null,
+        "requirements": null,
+        "description": null,
+        "function_return_type": null,
+        "function_computed_value": null,
+        "algorithm": null,
+        "code": null,
+        "assertions": null,
+        "assertion_checks": null,
+        "assertion_outcomes": null,
+        "unit_tests": null,
+        "unit_test_checks": null,
+        "unit_test_outcomes": null,
+        "messages": [],
+        "build_status": null,
+        "result": null,
+        "cache": {
+          "caches": {}
+        }
+      },
+      {
+        "id": "Step-3",
+        "kind": 0,
+        "pill": "Split-Train-Test",
+        "label": "Split 80-20 for train/test sets.",
+        "geometry": {
+          "x": 210.0,
+          "y": 90.0,
+          "width": 160.0,
+          "height": 70.0
+        },
+        "output_geometry": {
+          "x": 390.0,
+          "y": 300.0,
+          "width": 120.0,
+          "height": 80.0
+        },
+        "is_locked": false,
+        "force_show_output": false,
+        "function_name": "split_train_test",
+        "function_result_var": "split_train_test",
+        "predecessors": [
+          "Step-2",
+          "Step-1"
+        ],
+        "phase": 0,
+        "function_parameters": null,
+        "preconditions": null,
+        "requirements": null,
+        "description": null,
+        "function_return_type": null,
+        "function_computed_value": null,
+        "algorithm": null,
+        "code": null,
+        "assertions": null,
+        "assertion_checks": null,
+        "assertion_outcomes": null,
+        "unit_tests": null,
+        "unit_test_checks": null,
+        "unit_test_outcomes": null,
+        "messages": [],
+        "build_status": null,
+        "result": null,
+        "cache": {
+          "caches": {}
+        }
+      },
+      {
+        "id": "Step-4",
+        "kind": 0,
+        "pill": "Logistic-Regression",
+        "label": "Train a logistic regression model for 'accept'",
+        "geometry": {
+          "x": 210.0,
+          "y": 240.0,
+          "width": 160.0,
+          "height": 80.0
+        },
+        "output_geometry": {
+          "x": 530.0,
+          "y": 300.0,
+          "width": 430.0,
+          "height": 180.0
+        },
+        "is_locked": false,
+        "force_show_output": false,
+        "function_name": "logistic_regression",
+        "function_result_var": "logistic_regression",
+        "predecessors": [
+          "Step-2",
+          "Step-3",
+          "Step-1"
+        ],
+        "phase": 0,
+        "function_parameters": null,
+        "preconditions": null,
+        "requirements": null,
+        "description": null,
+        "function_return_type": null,
+        "function_computed_value": null,
+        "algorithm": null,
+        "code": null,
+        "assertions": null,
+        "assertion_checks": null,
+        "assertion_outcomes": null,
+        "unit_tests": null,
+        "unit_test_checks": null,
+        "unit_test_outcomes": null,
+        "messages": [],
+        "build_status": null,
+        "result": null,
+        "cache": {
+          "caches": {}
+        }
+      },
+      {
+        "id": "Step-5",
+        "kind": 0,
+        "pill": "Predict",
+        "label": "Add prediction column to the test dataframe.",
+        "geometry": {
+          "x": 210.0,
+          "y": 360.0,
+          "width": 160.0,
+          "height": 80.0
+        },
+        "output_geometry": {
+          "x": 410.0,
+          "y": 550.0,
+          "width": 120.0,
+          "height": 80.0
+        },
+        "is_locked": false,
+        "force_show_output": false,
+        "function_name": "predict",
+        "function_result_var": "predict",
+        "predecessors": [
+          "Step-2",
+          "Step-4",
+          "Step-3",
+          "Step-1"
+        ],
+        "phase": 0,
+        "function_parameters": null,
+        "preconditions": null,
+        "requirements": null,
+        "description": null,
+        "function_return_type": null,
+        "function_computed_value": null,
+        "algorithm": null,
+        "code": null,
+        "assertions": null,
+        "assertion_checks": null,
+        "assertion_outcomes": null,
+        "unit_tests": null,
+        "unit_test_checks": null,
+        "unit_test_outcomes": null,
+        "messages": [],
+        "build_status": null,
+        "result": null,
+        "cache": {
+          "caches": {}
+        }
+      },
+      {
+        "id": "Step-6",
+        "kind": 2,
+        "pill": "Confusion-Matrix",
+        "label": "Confusion Matrix",
+        "geometry": {
+          "x": 470.0,
+          "y": 360.0,
+          "width": 160.0,
+          "height": 80.0
+        },
+        "output_geometry": {
+          "x": 420.0,
+          "y": 470.0,
+          "width": 260.0,
+          "height": 210.0
+        },
+        "is_locked": false,
+        "force_show_output": true,
+        "function_name": "confusion_matrix",
+        "function_result_var": "confusion_matrix",
+        "predecessors": [
+          "Step-2",
+          "Step-4",
+          "Step-5",
+          "Step-3",
+          "Step-1"
+        ],
+        "phase": 0,
+        "function_parameters": null,
+        "preconditions": null,
+        "requirements": null,
+        "description": null,
+        "function_return_type": null,
+        "function_computed_value": null,
+        "algorithm": null,
+        "code": null,
+        "assertions": null,
+        "assertion_checks": null,
+        "assertion_outcomes": null,
+        "unit_tests": null,
+        "unit_test_checks": null,
+        "unit_test_outcomes": null,
+        "messages": [],
+        "build_status": null,
+        "result": null,
+        "cache": {
+          "caches": {}
+        }
+      },
+      {
+        "id": "Step-7",
+        "kind": 0,
+        "pill": "Test-Accuracy",
+        "label": "Test Accuracy",
+        "geometry": {
+          "x": 210.0,
+          "y": 480.0,
+          "width": 160.0,
+          "height": 80.0
+        },
+        "output_geometry": {
+          "x": 230.0,
+          "y": 600.0,
+          "width": 120.0,
+          "height": 80.0
+        },
+        "is_locked": false,
+        "force_show_output": true,
+        "function_name": "test_accuracy",
+        "function_result_var": "test_accuracy",
+        "predecessors": [
+          "Step-2",
+          "Step-4",
+          "Step-5",
+          "Step-3",
+          "Step-1"
+        ],
+        "phase": 0,
+        "function_parameters": null,
+        "preconditions": null,
+        "requirements": null,
+        "description": null,
+        "function_return_type": null,
+        "function_computed_value": null,
+        "algorithm": null,
+        "code": null,
+        "assertions": null,
+        "assertion_checks": null,
+        "assertion_outcomes": null,
+        "unit_tests": null,
+        "unit_test_checks": null,
+        "unit_test_outcomes": null,
+        "messages": [],
+        "build_status": null,
+        "result": null,
+        "cache": {
+          "caches": {}
+        }
+      },
+      {
+        "id": "Step-8",
+        "kind": 0,
+        "pill": "Cross-Validation",
+        "label": "Cross-Validation",
+        "geometry": {
+          "x": -30.0,
+          "y": 240.0,
+          "width": 150.0,
+          "height": 80.0
+        },
+        "output_geometry": {
+          "x": 320.0,
+          "y": 100.0,
+          "width": 120.0,
+          "height": 80.0
+        },
+        "is_locked": false,
+        "force_show_output": false,
+        "function_name": "cross_validation",
+        "function_result_var": "cross_validation",
+        "predecessors": [
+          "Step-2",
+          "Step-3",
+          "Step-1"
+        ],
+        "phase": 0,
+        "function_parameters": null,
+        "preconditions": null,
+        "requirements": null,
+        "description": null,
+        "function_return_type": null,
+        "function_computed_value": null,
+        "algorithm": null,
+        "code": null,
+        "assertions": null,
+        "assertion_checks": null,
+        "assertion_outcomes": null,
+        "unit_tests": null,
+        "unit_test_checks": null,
+        "unit_test_outcomes": null,
+        "messages": [],
+        "build_status": null,
+        "result": null,
+        "cache": {
+          "caches": {}
+        }
+      },
+      {
+        "id": "Step-9",
+        "kind": 2,
+        "pill": "Accuracies",
+        "label": "Cross-Validation Box Plot",
+        "geometry": {
+          "x": -220.0,
+          "y": 350.0,
+          "width": 150.0,
+          "height": 80.0
+        },
+        "output_geometry": {
+          "x": -250.0,
+          "y": 460.0,
+          "width": 200.0,
+          "height": 220.0
+        },
+        "is_locked": false,
+        "force_show_output": false,
+        "function_name": "accuracies",
+        "function_result_var": "accuracies",
+        "predecessors": [
+          "Step-8",
+          "Step-2",
+          "Step-3",
+          "Step-1"
+        ],
+        "phase": 0,
+        "function_parameters": null,
+        "preconditions": null,
+        "requirements": null,
+        "description": null,
+        "function_return_type": null,
+        "function_computed_value": null,
+        "algorithm": null,
+        "code": null,
+        "assertions": null,
+        "assertion_checks": null,
+        "assertion_outcomes": null,
+        "unit_tests": null,
+        "unit_test_checks": null,
+        "unit_test_outcomes": null,
+        "messages": [],
+        "build_status": null,
+        "result": null,
+        "cache": {
+          "caches": {}
+        }
+      },
+      {
+        "id": "Step-10",
+        "kind": 0,
+        "pill": "Accuracy-Consistency",
+        "label": "Accuracy-Consistency",
+        "geometry": {
+          "x": -30.0,
+          "y": 480.0,
+          "width": 150.0,
+          "height": 80.0
+        },
+        "output_geometry": {
+          "x": -10.0,
+          "y": 600.0,
+          "width": 120.0,
+          "height": 80.0
+        },
+        "is_locked": false,
+        "force_show_output": true,
+        "function_name": "accuracy_consistency",
+        "function_result_var": "accuracy_consistency",
+        "predecessors": [
+          "Step-8",
+          "Step-2",
+          "Step-4",
+          "Step-5",
+          "Step-3",
+          "Step-7",
+          "Step-1"
+        ],
+        "phase": 0,
+        "function_parameters": null,
+        "preconditions": null,
+        "requirements": null,
+        "description": null,
+        "function_return_type": null,
+        "function_computed_value": null,
+        "algorithm": null,
+        "code": null,
+        "assertions": null,
+        "assertion_checks": null,
+        "assertion_outcomes": null,
+        "unit_tests": null,
+        "unit_test_checks": null,
+        "unit_test_outcomes": null,
+        "messages": [],
+        "build_status": null,
+        "result": null,
+        "cache": {
+          "caches": {}
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "2",
+        "src": "Step-1",
+        "dst": "Step-2"
+      },
+      {
+        "id": "3",
+        "src": "Step-2",
+        "dst": "Step-3"
+      },
+      {
+        "id": "4",
+        "src": "Step-3",
+        "dst": "Step-4"
+      },
+      {
+        "id": "5",
+        "src": "Step-4",
+        "dst": "Step-5"
+      },
+      {
+        "id": "7",
+        "src": "Step-5",
+        "dst": "Step-6"
+      },
+      {
+        "id": "8",
+        "src": "Step-5",
+        "dst": "Step-7"
+      },
+      {
+        "id": "Step-3-Step-8",
+        "src": "Step-3",
+        "dst": "Step-8"
+      },
+      {
+        "id": "Step-8-Step-9",
+        "src": "Step-8",
+        "dst": "Step-9"
+      },
+      {
+        "id": "9",
+        "src": "Step-8",
+        "dst": "Step-10"
+      },
+      {
+        "id": "10",
+        "src": "Step-7",
+        "dst": "Step-10"
+      }
+    ],
+    "groups": [],
+    "image": null
+  }
+}
