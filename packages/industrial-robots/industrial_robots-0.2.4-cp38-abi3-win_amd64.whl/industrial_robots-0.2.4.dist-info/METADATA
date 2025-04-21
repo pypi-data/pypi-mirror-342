@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: industrial-robots
+Version: 0.2.4
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: numpy
+Requires-Dist: pytest ; extra == 'tests'
+Provides-Extra: tests
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# Python Industrial Robots
+
+This is an experimental set of python bindings for the also-experimental [Industrial Robots](https://github.com/mattj23/industrial-robots) library written in Rust.
+
+
