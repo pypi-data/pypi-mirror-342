@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+src/logictree.py
+src/logictree.egg-info/PKG-INFO
+src/logictree.egg-info/SOURCES.txt
+src/logictree.egg-info/dependency_links.txt
+src/logictree.egg-info/top_level.txt
