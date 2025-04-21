@@ -1,0 +1,2 @@
+[console_scripts]
+btg = buildtogether.cli:main
