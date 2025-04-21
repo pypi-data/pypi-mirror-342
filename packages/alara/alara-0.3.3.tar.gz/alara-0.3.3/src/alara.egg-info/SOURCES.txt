@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/alara/__init__.py
+src/alara/main.py
+src/alara.egg-info/PKG-INFO
+src/alara.egg-info/SOURCES.txt
+src/alara.egg-info/dependency_links.txt
+src/alara.egg-info/entry_points.txt
+src/alara.egg-info/requires.txt
+src/alara.egg-info/top_level.txt
