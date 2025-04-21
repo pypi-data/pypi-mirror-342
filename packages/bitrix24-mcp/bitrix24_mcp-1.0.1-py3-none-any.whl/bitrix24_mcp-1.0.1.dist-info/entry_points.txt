@@ -1,0 +1,2 @@
+[console_scripts]
+bitrix24-mcp = src.main:run
