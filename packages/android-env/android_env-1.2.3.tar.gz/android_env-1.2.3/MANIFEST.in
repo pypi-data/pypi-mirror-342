@@ -1,0 +1,1 @@
+recursive-include android_env/proto *.proto
