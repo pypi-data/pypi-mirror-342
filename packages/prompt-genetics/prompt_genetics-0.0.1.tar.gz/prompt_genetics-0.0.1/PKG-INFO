@@ -1,0 +1,78 @@
+Metadata-Version: 2.4
+Name: prompt-genetics
+Version: 0.0.1
+Summary: Genetic algorithms for LLMs
+Home-page: https://github.com/OlegSokolov/prompt-genetics
+Author: Oleg Sokolov
+Author-email: 
+Keywords: llm,prompt engineering,genetic algorithms,ai
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov>=2.12.0; extra == "dev"
+Requires-Dist: black>=21.5b2; extra == "dev"
+Requires-Dist: flake8>=3.9.2; extra == "dev"
+Requires-Dist: isort>=5.9.1; extra == "dev"
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: provides-extra
+Dynamic: requires-python
+Dynamic: summary
+
+# prompt-genetics
+
+Genetic algorithms for optimizing LLM prompts.
+
+## Installation
+
+```bash
+pip install prompt-genetics
+```
+
+## Usage
+
+```python
+from prompt_genetics import PromptOptimizer
+
+# Example usage will be provided here
+```
+
+## Features
+
+- Genetic algorithm-based optimization for LLM prompts
+- Support for various fitness functions
+- Configurable mutation and crossover operations
+- Easy integration with popular LLM APIs
+
+## Development
+
+### Setup
+
+```bash
+git clone https://github.com/OlegSokolov/prompt-genetics.git
+cd prompt-genetics
+pip install -e ".[dev]"
+```
+
+### Running Tests
+
+```bash
+pytest
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
