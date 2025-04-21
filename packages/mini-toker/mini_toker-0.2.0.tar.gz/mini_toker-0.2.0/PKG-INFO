@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: mini_toker
+Version: 0.2.0
+Summary: A custom tokenizer with advanced token handling.
+Author: Yashraj Singh Rawat
+Requires-Python: >=3.6
+Dynamic: author
+Dynamic: requires-python
+Dynamic: summary
