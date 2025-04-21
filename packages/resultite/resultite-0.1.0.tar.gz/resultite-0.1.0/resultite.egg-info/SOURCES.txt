@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+resultite/__init__.py
+resultite/core.py
+resultite.egg-info/PKG-INFO
+resultite.egg-info/SOURCES.txt
+resultite.egg-info/dependency_links.txt
+resultite.egg-info/requires.txt
+resultite.egg-info/top_level.txt
+tests/test_core.py
