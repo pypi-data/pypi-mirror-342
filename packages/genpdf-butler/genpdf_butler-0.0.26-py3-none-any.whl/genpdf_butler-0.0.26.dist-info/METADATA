@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: genpdf_butler
+Version: 0.0.26
+Summary: A package for running chordpro CLI over a folder
+Project-URL: Homepage, https://github.com/gdad78758/bluegrass
+Project-URL: Issues, https://github.com/gdad78758/bluegrass/issues
+Author-email: Paul Butler <c.paul.butler@gmail.com>
+License-Expression: MIT
+Classifier: Operating System :: Microsoft
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: gitpython>=3.1.44
