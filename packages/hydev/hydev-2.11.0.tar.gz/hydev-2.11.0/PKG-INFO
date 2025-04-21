@@ -1,0 +1,62 @@
+Metadata-Version: 2.3
+Name: hydev
+Version: 2.11.0
+Summary: Common tooling and configuration for pythonic development
+License: MIT
+Author: hoverhell
+Author-email: hoverhell@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Provides-Extra: django
+Provides-Extra: hydlog
+Requires-Dist: autoflake (>=2.3.1,<3.0.0)
+Requires-Dist: black (>=25.1.0,<26.0.0)
+Requires-Dist: click (>=8.1.8,<9.0.0)
+Requires-Dist: coloredlogs (>=15.0.1,<16.0.0)
+Requires-Dist: django-coverage-plugin (>=3.1.0,<4.0.0) ; extra == "django"
+Requires-Dist: django-debug-toolbar (>=5.1.0,<6.0.0) ; extra == "django"
+Requires-Dist: django-extra-checks (>=0.16.1,<0.17.0) ; extra == "django"
+Requires-Dist: django-migration-linter (>=5.2.0,<6.0.0) ; extra == "django"
+Requires-Dist: django-querycount (>=0.8.3,<0.9.0) ; extra == "django"
+Requires-Dist: django-split-settings (>=1.3.2,<2.0.0) ; extra == "django"
+Requires-Dist: django-stubs (>=5.1.3,<6.0.0) ; extra == "django"
+Requires-Dist: django-stubs-ext (>=5.1.3,<6.0.0) ; extra == "django"
+Requires-Dist: django-test-migrations (>=1.5.0,<2.0.0) ; extra == "django"
+Requires-Dist: flake8 (>=7.2.0,<8.0.0)
+Requires-Dist: flake8-broken-line (>=1.0.0,<2.0.0)
+Requires-Dist: flake8-debugger (>=4.1.2,<5.0.0)
+Requires-Dist: flake8-django-hhupd (>=1.4.1,<2.0.0) ; extra == "django"
+Requires-Dist: flake8-mock-x2 (>=0.4.1,<0.5.0)
+Requires-Dist: flake8-print (>=5.0.0,<6.0.0)
+Requires-Dist: flake8-pytest-style (>=2.1.0,<3.0.0)
+Requires-Dist: flake8-use-fstring (>=1.4,<2.0)
+Requires-Dist: humanfriendly (>=10.0)
+Requires-Dist: hyapp (>=4.0.1) ; extra == "hydlog"
+Requires-Dist: ipdb (>=0.13.13,<0.14.0)
+Requires-Dist: isort (>=6.0.1,<7.0.0)
+Requires-Dist: mypy (>=1.15.0,<2.0.0)
+Requires-Dist: poetry (>=2.1.2,<3.0.0)
+Requires-Dist: poetry-plugin-up (>=0.9.0)
+Requires-Dist: pre-commit (>=4.2.0,<5.0.0)
+Requires-Dist: pytest (>=8.3.5,<9.0.0)
+Requires-Dist: pytest-asyncio (>=0.26.0,<0.27.0)
+Requires-Dist: pytest-blockage (>=0.2.4,<0.3.0)
+Requires-Dist: pytest-cov (>=6.1.1,<7.0.0)
+Requires-Dist: pytest-deadfixtures (>=2.2.1,<3.0.0)
+Requires-Dist: pytest-django (>=4.11.1,<5.0.0) ; extra == "django"
+Requires-Dist: pytest-env (>=1.1.5,<2.0.0)
+Requires-Dist: pytest-timeout (>=2.3.1,<3.0.0)
+Requires-Dist: pyyaml (>=6.0.2,<7.0.0)
+Requires-Dist: ruff (>=0.11.6)
+Requires-Dist: toml (>=0.10.2,<0.11.0)
+Requires-Dist: uv (>=0.6.14)
+Project-URL: Repository, https://gitlab.com/hoverhell/hydev
+Description-Content-Type: text/markdown
+
+# hydev
+Common tooling and configuration for pythonic development
+
