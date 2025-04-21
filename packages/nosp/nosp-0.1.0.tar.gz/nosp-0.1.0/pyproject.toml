@@ -1,0 +1,11 @@
+[project]
+name = "nosp"
+version = "0.1.0"
+description = "spider tools"
+authors = [{ name = "noybzy", email = "noybzy@qq.com" }]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "loguru>=0.7.3",
+    "requests>=2.32.3",
+]

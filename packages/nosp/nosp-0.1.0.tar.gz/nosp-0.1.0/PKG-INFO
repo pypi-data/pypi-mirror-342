@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: nosp
+Version: 0.1.0
+Summary: spider tools
+Author-email: noybzy <noybzy@qq.com>
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: loguru>=0.7.3
+Requires-Dist: requests>=2.32.3
+
+# nosp 库 spider tools
+
+
