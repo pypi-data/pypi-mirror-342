@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "octotoolkit"
+version = "0.2.0"
+authors = [
+  { name="Pan Lu", email="lupantech@gmail.com" },
+]
+description = "An effective and easy-to-use agentic framework with extendable tools for complex reasoning."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "anthropic==0.40.0",
+  "openai==1.75.0",
+  "together==1.5.4",
+  "google-generativeai==0.8.5",
+  "diskcache==5.6.3",
+  "easyocr==1.7.2",
+  "metapub==0.5.12",
+  "pillow==11.1.0",
+  "platformdirs==4.3.6",
+  "pymed==0.8.9",
+  "python-dotenv==1.0.1",
+  "sympy==1.13.1",
+  "tenacity==9.0.0",
+  "transformers==4.49.0",
+  "wikipedia==1.4.0"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[project.urls]
+Homepage = "https://octotools.github.io"
+Arxiv = "https://arxiv.org/pdf/2502.11271"
+Demo = "https://huggingface.co/spaces/OctoTools/octotools"
+Github = "https://github.com/octotools/octotools"
+Issues = "https://github.com/octotools/octotools/issues"
