@@ -1,0 +1,11 @@
+[project]
+name = "sutro"
+version = "0.0.0"
+description = "Sutro Python SDK"
+authors = [ 
+	{ name="Seth Kimmel", email = "seth@skysight.inc" } , 
+]
+
+[project.urls]
+"Homepage" = "https://sutro.sh"
+
