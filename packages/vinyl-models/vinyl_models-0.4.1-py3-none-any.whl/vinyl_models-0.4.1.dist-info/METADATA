@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: vinyl-models
+Version: 0.4.1
+Summary: Vinyl DB Setup
+Author-email: jakub <jakub.m.szypicyn@gmail.com>
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: matplotlib<4.0.0,>=3.7.1
+Requires-Dist: sentence-transformers<3.0.0,>=2.2.2
+Requires-Dist: sqlalchemy<3.0.0,>=1.4.0
+Requires-Dist: supabase
+Requires-Dist: vecs<0.3.0,>=0.2.4
+Provides-Extra: dev
+Requires-Dist: dotenv; extra == 'dev'
+Requires-Dist: ipython; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: ruff; extra == 'dev'
+Requires-Dist: sqlfluff; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# Deploying Changes Locally and Pushing to Remote
+
+follow https://supabase.com/docs/guides/deployment/database-migrations
