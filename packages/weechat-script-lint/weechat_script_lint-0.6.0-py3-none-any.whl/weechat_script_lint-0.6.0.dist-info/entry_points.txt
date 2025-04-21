@@ -1,0 +1,2 @@
+[console_scripts]
+weechat-script-lint = weechat_script_lint:main

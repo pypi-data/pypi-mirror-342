@@ -1,0 +1,14 @@
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_main.py,sha256=vwbaMZXI7T4uqYO2s5xgrCq3CcsMCBUVYBqvHRr4IMY,5727
+tests/test_script.py,sha256=FEw5RWsR8AZBFWtgm_BX52Ga2hFf73_7iHWbn953VqU,4716
+tests/test_utils.py,sha256=o4lX_cYZIFot4NTiXKIrfURuTuFyrCYJk0wxvaaGGWk,1224
+weechat_script_lint/__init__.py,sha256=9e38yu7n3w_5yaC-BH6Vgww_3oZRplvQMYtS4q7P2Dw,1050
+weechat_script_lint/main.py,sha256=nPRZBMbyrVQRjfKj5VmfW91itcXb1S9qO8uIJg3LgEA,9423
+weechat_script_lint/script.py,sha256=8Ep-IyJ0s3YalVXTHeJ9-0KrS4HgD8sWNcLb7a0z2CI,15227
+weechat_script_lint/utils.py,sha256=tg0OJLijJVNG8pbgY_dptWu2lQ213PZmhNInjZrYSRw,1737
+weechat_script_lint-0.6.0.dist-info/licenses/LICENSE.txt,sha256=556cigyF1zX_mBhZGOyU7X0XXvw3cBJ4euvPO4Dw2Qs,35151
+weechat_script_lint-0.6.0.dist-info/METADATA,sha256=_FbiQflmSQ7R9IiaQxk-h4lWOHS6q-4tFxTsPqULbiQ,9505
+weechat_script_lint-0.6.0.dist-info/WHEEL,sha256=lTU6B6eIfYoiQJTZNc-fyaR6BpL6ehTzU3xGYxn2n8k,91
+weechat_script_lint-0.6.0.dist-info/entry_points.txt,sha256=kpaJkX7FZ4GKVHeR4I2KIcO2TmhzlxyfubX4M4qIqjE,65
+weechat_script_lint-0.6.0.dist-info/top_level.txt,sha256=SkeJ4uzSPJEqWGcFK0xM8wvnfMkGprZP7YSaC-TtRiU,26
+weechat_script_lint-0.6.0.dist-info/RECORD,,
