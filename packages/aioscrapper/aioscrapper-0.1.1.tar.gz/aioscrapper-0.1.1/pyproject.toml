@@ -1,0 +1,24 @@
+[project]
+name = "aioscrapper"
+version = "0.1.1"
+authors = [{ name = "darkstussy" }, ]
+description = "Async framework for building modular and scalable web scrapers."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiohttp[speedups] ~= 3.11.16",
+    "aiojobs ~= 1.4.0",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+]
+
+[project.urls]
+Homepage = "https://github.com/darkstussy/aioscrapper"
+Issues = "https://github.com/darkstussy/aioscrapper/issues"
