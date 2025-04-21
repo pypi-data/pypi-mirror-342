@@ -1,0 +1,2 @@
+[console_scripts]
+version_bumper = version_bumper.__main__:main
