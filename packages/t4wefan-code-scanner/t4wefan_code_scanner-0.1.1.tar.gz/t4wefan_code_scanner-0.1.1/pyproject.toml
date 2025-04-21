@@ -1,0 +1,12 @@
+[project]
+name = "t4wefan-code-scanner"
+version = "0.1.1"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "toml>=0.10.2",
+]
+
+[project.scripts]
+scanner = "scanner.run_code_scanner:main"
