@@ -1,0 +1,11 @@
+toolcall/openai/common.py,sha256=Ro8pkjv5RJKAKtpsmw4vTgtTmh0U06MIHDFiOhR6xlA,4782
+toolcall/openai/aio/__init__.py,sha256=yydlta-gNn48ul67_0r5mBP42o8npnuPHxQs_4w52Ck,783
+toolcall/openai/aio/tool.py,sha256=XY70xevSTeDP3y5STV9UmCwrVXTqBs9JF3r79y8NV0U,7681
+toolcall/openai/aio/tool_group.py,sha256=KsLJa5Jajn7l7kaXP9ftteNXgBGIF04zL0amPMTaFes,3894
+toolcall/openai/core/__init__.py,sha256=yydlta-gNn48ul67_0r5mBP42o8npnuPHxQs_4w52Ck,783
+toolcall/openai/core/tool.py,sha256=vdsxX1mVd797yRR7tspYXwuBXX_f2jnDF2xe2mqxPBM,7663
+toolcall/openai/core/tool_group.py,sha256=-Pu4_Fy1HsPlk3J88ARI4e0hRqirKf6i88YThVT2kSQ,3816
+toolcall-2.0.0.dist-info/METADATA,sha256=-b2exZyUDiUcDGM8xhj7eKOGJWNkHvKPOCc7vmNfWhw,62113
+toolcall-2.0.0.dist-info/WHEEL,sha256=tkmg4JIqwd9H8mL30xA7crRmoStyCtGp0VWshokd1Jc,105
+toolcall-2.0.0.dist-info/licenses/LICENSE,sha256=bI8q0k6w6Fr9dpPtAtgAaAxchrG6GG96K2DqF60VuQM,1058
+toolcall-2.0.0.dist-info/RECORD,,
