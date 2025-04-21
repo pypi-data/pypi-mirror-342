@@ -1,0 +1,52 @@
+Metadata-Version: 2.4
+Name: scanvault
+Version: 0.0.1
+Author: Praveenkumar B
+License: Owned By Scan Vault
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: anyio==4.9.0
+Requires-Dist: certifi==2025.1.31
+Requires-Dist: charset-normalizer==3.4.1
+Requires-Dist: h11==0.14.0
+Requires-Dist: httpcore==1.0.8
+Requires-Dist: httpx==0.28.1
+Requires-Dist: idna==3.10
+Requires-Dist: requests==2.32.3
+Requires-Dist: sniffio==1.3.1
+Requires-Dist: urllib3==2.4.0
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+
+# ScanVault
+
+**ScanVault** is a proprietary file security application designed to provide real-time malware scanning, seamless cloud integration, and instant notifications. With intelligent sync between local storage and cloud platforms (such as AWS S3), ScanVault ensures your data stays secure, compliant, and accessible.
+
+---
+
+## 🚀 Features
+
+- ⚡ **Real-Time Malware Scanning**: Detect and block malicious files instantly.
+- ☁️ **Cloud Integration**: Seamless sync with AWS S3 for secure file storage and retrieval.
+- 🔄 **Bidirectional File Sync**: Keep cloud and local files in sync — both ways.
+- 📩 **Instant Notifications**: Get alerted the moment a threat is detected.
+- 🔒 **Proprietary Engine**: Built with robust scanning logic tailored for enterprise-grade security.
+
+---
+
+## 🛠️ Installation
+
+> **Note:** ScanVault is a proprietary package. Access is restricted to licensed users.
+
+Install via pip (from private index or local wheel):
+
+```bash
+pip install scanvault-1.0.0-py3-none-any.whl
