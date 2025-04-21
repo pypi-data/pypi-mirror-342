@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+*.pyo
+*.pyd
+*.pyd.d
+
+# Build artifacts
+build/
+dist/
+wheels/
+*.egg-info
+pip-wheel-metadata/
+
+# Virtual environments
+.venv
+
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# References
+refs/
