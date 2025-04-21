@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "google-pandas-agent"
+version = "0.1.2"
+description = "Google‑native alternative to LangChain's create_pandas_dataframe_agent"
+authors = [
+    { name = "Ariamehr Maleki", email = "ariamehr.mai@gmail.com" },
+    { name = "Frank Roh", email = "frankagilepm@gmail.com" },
+    { name = "Darren North", email = "denorth222@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["gemini", "pandas", "agent", "langgraph", "google-generativeai", "dataframe", "analysis"]
+license = "MIT"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+
+dependencies = [
+    "pandas>=2.2.0",
+    "google-generativeai>=0.8.5",
+    "langgraph>=0.3.21",
+    "typing-extensions>=4.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "isort>=5.0",
+    "mypy>=1.0",
+    "ruff>=0.1.0",
+]
+all = [
+    "numpy>=1.24.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/google-pandas-agent"
+Documentation = "https://github.com/yourusername/google-pandas-agent#readme"
+Repository = "https://github.com/yourusername/google-pandas-agent.git"
+Issues = "https://github.com/yourusername/google-pandas-agent/issues"
+
+[tool.setuptools.package-data]
+"google_pandas_agent" = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["google_pandas_agent*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+
+[tool.ruff]
+select = ["E", "F", "B", "I"]
+ignore = ["E501"]
+target-version = "py310" 
