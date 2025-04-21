@@ -1,0 +1,56 @@
+Metadata-Version: 2.4
+Name: interception
+Version: 0.6.0.dev11
+Summary: interception cffi bindings
+Author-email: Vasiliy Poverennov <vasiliy@poverennov.com>
+License-Expression: LGPL-3.0-or-later
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: cffi>=1.17.1
+Dynamic: license-file
+
+interception-cffi
+=================
+[![PyPI - Version](https://img.shields.io/pypi/v/interception)](https://pypi.org/project/interception/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/interception)](https://pypi.org/project/interception/)
+[![PyPI - Implementation](https://img.shields.io/pypi/implementation/interception)](https://pypi.org/project/interception/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/interception)](https://pypi.org/project/interception/)
+[![PyPI - Wheel](https://img.shields.io/pypi/wheel/interception)](https://pypi.org/project/interception/)
+
+[![Actions status](https://github.com/vpoverennov/interception-cffi/workflows/CI/badge.svg)](https://github.com/vpoverennov/interception-cffi/actions)
+[![codecov](https://codecov.io/github/vpoverennov/interception-cffi/graph/badge.svg?token=UX0CP8IXON)](https://codecov.io/github/vpoverennov/interception-cffi)
+
+
+Overview
+--------
+
+Python interception module is a low-level binding for [Interception][interception] library.
+To use it you still need to install interception driver.
+For installation guide refer to interception readme located in the [interception github repo][interception]
+
+Installation
+------------
+
+`python -m pip install interception`
+
+
+Usage
+-----
+
+Original samples are ported to python and can be found in [samples directory][samples]
+
+You can also execute them as scripts using
+`python -m interception.samples.x2y`
+
+or list using
+`python -m interception.samples`
+
+
+[interception]: https://github.com/oblitum/interception/
+[samples]: https://github.com/vpoverennov/interception-cffi/tree/master/samples
