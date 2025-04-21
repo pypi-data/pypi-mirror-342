@@ -1,0 +1,89 @@
+Metadata-Version: 2.4
+Name: Bynd
+Version: 0.2
+Summary: Bynd is a simple way of achieving static typing in Python.
+Author-email: "Rayshawn Levy (sneekyfoxx)" <sneekyfoxx09@gmail.com>
+Maintainer-email: "Rayshawn Levy (sneekyfoxx)" <sneekyfoxx09@gmail.com>
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Other/Nonlisted Topic
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+> A module which allows binding values to one or more types.
+> The most common use case would be to use bynd as if were an
+> alias. When assigning a bynd object to a variable, the user
+> will get runtime type checking, a bynd object in return, and
+> access to the supplied value as well as the supplied types,
+> where the value can be used the same way a variable would be
+> used. The only inconvienence would be having to use the dot
+> operator when accessing the value from the bynd object and
+> maybe having to declare, define and instantiate a bynd object
+> each time.
+
+### Examples:
+
+#### Importing The 'bynd' Class
+```python
+# filename: bind_test.py
+
+from Bynd.bynd import bynd
+```
+
+#### Basic 'bynd' Usage
+```python
+# Instantiate a bynd object
+my_variable = bynd("some string")[str]  # raises a 'byndError' if the value type is not str
+
+# In the above example, we create a variable named 'my_variable'.
+# Then, we instantiated a 'bynd' object and passed it a string value.
+# Finally, we've bound the string value; "some string" to the type str.
+
+# To access the value, we can use the dot '.' operator.
+print(my_variable.value)
+
+# The type(s) can also be accessed the same way.
+print(my_variable.types)
+```
+
+``` bash
+# bynd_test.py output
+
+$ python3 bynd_test.py
+'my_variable.value': "some string"
+'my_vraible.types': [<class 'str'>]
+```
+
+#### Recursive Type Checking
+``` python
+# bynd can perform recursive type checking for collection types only.
+# First, we instantiate another bynd object.
+my_list = bynd([1,2,3,[4,5,6]])[list]
+
+# Second, for bynd to perform recursive type checking we have to
+# use a bynd method named 'inner_types' which allows us to specify
+# which types the original and inner lists should contain. To specify
+# such types, we need to use the 'others' keyword argument and pass it
+# a list of expected types.
+my_list.inner_types(others=[int])  # raises a byndError if the lists items are not type 'int'
+
+# Finally, if there aren't any errors, we can access and print the lists.
+print(my_list.value)
+
+# NOTE: recursive type checking anly occurs when the 'inner_types' method is used and if it
+#       encounters a collection type within another collection type. Recursive type checking
+#       happens automatically within the 'inner_types' method itself.
+```
+
+``` bash
+# bynd_test.py output
+$ python3 bynd_test.py
+'my_list': [1,2,3,[4,5,6]]
+```
