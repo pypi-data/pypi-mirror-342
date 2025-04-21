@@ -1,0 +1,95 @@
+Metadata-Version: 2.4
+Name: mcp-tour
+Version: 0.1.9
+Summary: MCP server providing Korea Tourism Organization APIs
+Project-URL: Repository, https://github.com/tjwodud04/mcp-tour.git
+Author-email: tjwodud04 <tjwodud04@gmail.com>
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: certifi>=2024.2.2
+Requires-Dist: fastmcp>=0.4.1
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: pydantic>=2.10.6
+Requires-Dist: python-dotenv>=1.0.0
+Description-Content-Type: text/markdown
+
+> MCP integration for Korea Tourism Organization’s API using Claude Desktop App with help from Cursor.
+
+![image](https://github.com/user-attachments/assets/78a12e75-f1bc-4e8f-bd23-c2b699b1357f)
+
+## Description
+
+This MCP server integrates the Korea Tourism Organization’s public data API to provide related tourist spots information. It is designed to be used with Claude Desktop via the Model Context Protocol (MCP).
+
+## Features
+
+- Retrieve related tourist spot recommendations
+- Get detailed tourist spot information
+- Support for multiple content types: tourist attractions, food, and accommodation
+
+## Data Source
+
+We use the [Korea Tourism Organization API](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15128560), which provides up to 50 highly connected related tourist destinations by region and type (tourist spots, food, accommodation).
+
+## Setup
+
+1. Get an API key from [Data.go.kr](https://www.data.go.kr)
+2. Set environment variable in `.env` file:
+   ```
+   TOUR_API_KEY=your-api-key
+   ```
+
+## Installation
+
+### Regular Installation
+```bash
+pip install mcp-tour
+```
+
+### Claude Desktop Installation
+
+Using uv (recommended):
+```bash
+uv pip install mcp-tour
+
+uv run python -m mcp_tour.hosts.claude_desktop \
+  -e TOUR_API_KEY=your-api-key
+```
+
+Using pip:
+```bash
+pip install mcp-tour
+
+python -m mcp_tour.hosts.claude_desktop \
+  -e TOUR_API_KEY=your-api-key
+```
+
+## Usage
+
+### get_related_spots
+
+Fetch related tourist spots:
+
+**Parameters**
+- `spot_id`: Tourist spot ID
+- `content_type`: one of `all`, `tourist`, `food`, or `accommodation`
+- `size`: Number of results (up to 50)
+
+### get_spot_info
+
+Fetch detailed information about a tourist spot:
+
+**Parameters**
+- `spot_id`: Tourist spot ID
+
+## Acknowledgments
+
+This project was inspired and supported by:
+
+- [pfldy2850/py-mcp-naver](https://github.com/pfldy2850/py-mcp-naver)
+- [jlowin/fastmcp](https://github.com/jlowin/fastmcp)
+- [DYTIS Tistory Blog](https://dytis.tistory.com/113)
+- [Cursor](https://www.cursor.com/) – used as the main development environment for integrating the Claude Desktop Plugin
+```
+
+필요한 경우, 상단의 `![placeholder-image](image-url-here)` 자리에 실제 이미지를 삽입하면 됩니다. 수정이나 추가 포맷이 더 필요하면 알려줘!
