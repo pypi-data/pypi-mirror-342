@@ -1,0 +1,52 @@
+Metadata-Version: 2.4
+Name: pyquations
+Version: 0.1.0b1
+Summary: Simplify utilizing equations in Python.
+Author: Mitchell Gottlieb
+License-Expression: MIT
+Project-URL: Documentation, https://pyquations.com
+Project-URL: Source, https://github.com/mitchell-gottlieb/pyquations
+Project-URL: Donate, https://github.com/sponsors/mitchell-gottlieb
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: ruff; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: pytest-cov; extra == "test"
+Provides-Extra: docs
+Requires-Dist: sphinx; extra == "docs"
+Requires-Dist: pydata-sphinx-theme; extra == "docs"
+Dynamic: license-file
+
+# pyquations
+
+| Category | Badges                                                                                                    |
+| -------- | --------------------------------------------------------------------------------------------------------- |
+| Package  | ![PyPI](https://img.shields.io/pypi/v/pyquations) ![Downloads](https://img.shields.io/pypi/dm/pyquations) |
+
+## What is pyquations?
+
+**pyquations** is a Python library that gives you instant access to a wide collection of mathematical equations across various fields. By providing reliable, pre-built implementations, it allows you to focus on solving the problems that matter most to you!
+
+## Why use pyquations?
+
+- **Save Time**: No need to reprogram equations from scratch.
+- **Reliability**: Built-in equations are tested and ready to use.
+- **Ease of Use**: Simple, intuitive API for quick integration into your projects.
+
+## Learn More
+
+Check out the [official pyquations documentation](https://pyquations.com/) to explore and learn more!

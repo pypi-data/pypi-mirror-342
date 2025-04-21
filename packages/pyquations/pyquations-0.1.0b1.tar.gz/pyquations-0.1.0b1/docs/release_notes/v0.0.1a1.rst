@@ -1,0 +1,19 @@
+=========================
+v0.0.1a1 (April 10, 2025)
+=========================
+
+.. include:: ../_templates/alpha_warning.rst
+
+Features
+========
+- Added the initial project structure to establish the foundation for the library.
+- Introduced simple modules to provide basic functionality for initial package setup.
+- Added the `Algebra` package, which includes a module for solving quadratic equations using the quadratic formula.
+- Added the `Conversions` package, which includes a module for calculating speed conversions.
+- Added the `Geometry` package, which includes a module for solving problems using the Pythagorean theorem.
+- Added the `Physics` package, which includes a module for calculating forces using Newton's Second Law.
+- Built CI workflows to automate pull request checks, testing, linting, dependency updates (via Dependabot), and releases.
+
+Bug Fixes
+=========
+- N/A

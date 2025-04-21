@@ -1,0 +1,14 @@
+=========================
+v0.0.1a2 (April 13, 2025)
+=========================
+
+.. include:: ../_templates/alpha_warning.rst
+    
+Features
+========
+- Configured the project by setting up the README file, issue templates, pull request template, and `pyproject.toml` file to standardize the project structure and workflow.
+- Built the initial scaffolding for the documentation site to provide a foundation for future documentation efforts.
+
+Bug Fixes
+=========
+- N/A

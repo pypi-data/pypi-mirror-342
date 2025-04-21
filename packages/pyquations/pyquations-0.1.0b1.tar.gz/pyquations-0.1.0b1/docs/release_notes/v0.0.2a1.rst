@@ -1,0 +1,14 @@
+==========================
+v0.0.2a1 (April 17, 2025)
+==========================
+
+.. include:: ../_templates/alpha_warning.rst
+
+Features
+========
+- N/A
+
+Bug Fixes
+=========
+- Switch from GitHub Token to SSH key for deployments to a ruleset protected branch.
+- Added CNAME to release workflow to ensure the correct domain is used for the documentation.

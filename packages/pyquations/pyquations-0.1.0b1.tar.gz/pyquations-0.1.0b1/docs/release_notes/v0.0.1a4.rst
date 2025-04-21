@@ -1,0 +1,17 @@
+==========================
+v0.0.1a4 (April 17, 2025)
+==========================
+
+.. include:: ../_templates/alpha_warning.rst
+
+Features
+========
+- Improved the documentation build process and cleaned documentation paths.
+- Format the documentation site to improve readability and user experience.
+- Added initial content to the User Guide.
+- Added initial content to the Development Guide.
+- Added content to the documentation Home Page.
+
+Bug Fixes
+=========
+- N/A

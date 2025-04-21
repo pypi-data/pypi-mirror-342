@@ -1,0 +1,15 @@
+==========================
+v0.1.0b1 (April 20, 2025)
+==========================
+
+.. include:: ../_templates/beta_warning.rst
+
+Features
+========
+- Added template docstring for package modules.
+- Cleaned existing docstrings in package.
+
+Bug Fixes
+=========
+- Updated language in the User Guide.
+- Fixed local documentation build issue.

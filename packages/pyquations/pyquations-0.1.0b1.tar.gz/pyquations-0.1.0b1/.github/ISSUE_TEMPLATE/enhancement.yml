@@ -1,0 +1,31 @@
+name: "Enhancement Request"
+description: "Propose a new feature or improvement."
+title: "[Enhancement]: "
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an enhancement to the pyquations Python package! Please provide the details below to help us understand your request.
+
+  - type: input
+    id: feature_name
+    attributes:
+      label: "Feature Name"
+      description: "Provide a short and descriptive name for the feature or functionality."
+      placeholder: "e.g., Add support for solving quadratic equations"
+
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: "Feature Description"
+      description: "Describe the feature or functionality you would like to add. Include details about its purpose and how it would improve the package."
+      placeholder: "e.g., Add a function to solve quadratic equations using the quadratic formula."
+
+  - type: textarea
+    id: references
+    attributes:
+      label: "References, Supporting Resources, or Additional Information"
+      description: "Provide any documentation, examples, or resources that could help in implementing this feature."
+      placeholder: "e.g., Documentation on the quadratic formula."

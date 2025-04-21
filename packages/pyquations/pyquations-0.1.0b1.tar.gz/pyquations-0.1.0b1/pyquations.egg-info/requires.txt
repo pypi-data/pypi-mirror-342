@@ -1,0 +1,11 @@
+
+[dev]
+ruff
+
+[docs]
+sphinx
+pydata-sphinx-theme
+
+[test]
+pytest
+pytest-cov

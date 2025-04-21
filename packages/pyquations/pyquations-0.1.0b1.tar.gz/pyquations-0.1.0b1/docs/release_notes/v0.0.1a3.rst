@@ -1,0 +1,13 @@
+=========================
+v0.0.1a3 (April 13, 2025)
+=========================
+
+.. include:: ../_templates/alpha_warning.rst
+
+Features
+========
+- N/A
+
+Bug Fixes
+=========
+- Resolved an issue with permissions in the CI workflow to ensure the documentation site can be built and deployed correctly.

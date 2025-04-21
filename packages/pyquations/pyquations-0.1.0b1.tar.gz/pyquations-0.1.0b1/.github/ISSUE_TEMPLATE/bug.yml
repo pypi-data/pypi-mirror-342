@@ -1,0 +1,48 @@
+name: Bug Report
+description: Report a bug to help us improve
+title: "[BUG] "
+labels: [bug]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug. Please provide as much detail as possible to help us resolve the issue.
+
+  - type: input
+    id: title
+    attributes:
+      label: Bug Title
+      description: Provide a short and descriptive title for the bug.
+      placeholder: "Bug title"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: Describe the bug in detail. Include the expected behavior and actual behavior.
+      placeholder: "Describe the bug here"
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide a step-by-step guide to reproduce the bug.
+      placeholder: |
+        1. Install the package using 'pip install ...'
+        2. Import the package in your Python script
+        3. Call the specific function or method causing the issue
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Specify the environment where the bug occurred (e.g., Python version, OS, package version).
+      placeholder: "e.g., Python 3.10, macOS 13.0, pyquations version 1.2.3"
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Information
+      description: Add any other context or screenshots about the bug here.
+      placeholder: "Additional context"
