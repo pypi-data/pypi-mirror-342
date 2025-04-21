@@ -1,0 +1,2 @@
+[console_scripts]
+aps = acme_portal_sdk._main:main
