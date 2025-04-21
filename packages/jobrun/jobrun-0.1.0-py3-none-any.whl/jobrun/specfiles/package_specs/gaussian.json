@@ -1,0 +1,60 @@
+{
+   parallel: 'omp',
+
+   conflicts: {
+      'com and gjf': 'Conflicto entre los archivos de entrada ${file}.com y ${file}.gjf',
+      'not com and not gjf': 'Debe existir un archivo de entrada con extensión com o gjf',
+   },
+
+   filekeys: {
+      com: 'job.com',
+      gjf: 'job.gjf',
+      log: 'job.log',
+      chk: 'job.chk',
+      wfn: 'job.wfn',
+      cub: 'job.cub',
+   },
+
+   filevars: {
+      comfile: 'com',
+      gjffile: 'gjf',
+      chkfile: 'chk',
+   },
+
+   inputfiles: [
+      'com',
+      'gjf',
+      'chk',
+   ],
+
+   outputfiles: [
+      'log',
+      'chk',
+      'wfn',
+      'cub',
+   ],
+
+   interpolable: [
+      'gjf',
+      'com',
+   ],
+
+   interpolopts: [
+      'method',
+      'basis',
+      'charge',
+      'multiplicity',
+      'solvent',
+   ],
+
+   posargs: [
+      'gjf|com',
+   ],
+
+   prescript: [
+      'sed -i "/^%/d" @($gjffile|$comfile)',
+      'sed -i "1i%Chk=$chkfile\\\\n%NProcShared=${nproc}\\\\n%Mem=${maxram}KB" @($gjffile|$comfile)',
+      'sed -i "/--Link1--/a%Chk=$chkfile\\\\n%NProcShared=${nproc}\\\\n%Mem=${maxram}KB" @($gjffile|$comfile)',
+   ],
+
+}

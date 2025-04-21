@@ -1,0 +1,3 @@
+[console_scripts]
+jobrun-cfg = jobrun.configtool:main
+
