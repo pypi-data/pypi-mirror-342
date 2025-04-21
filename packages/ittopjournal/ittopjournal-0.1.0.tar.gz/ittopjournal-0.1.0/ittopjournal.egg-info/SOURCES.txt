@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+ittopjournal/__init__.py
+ittopjournal/config.py
+ittopjournal/core.py
+ittopjournal.egg-info/PKG-INFO
+ittopjournal.egg-info/SOURCES.txt
+ittopjournal.egg-info/dependency_links.txt
+ittopjournal.egg-info/requires.txt
+ittopjournal.egg-info/top_level.txt
+tests/test_core.py
