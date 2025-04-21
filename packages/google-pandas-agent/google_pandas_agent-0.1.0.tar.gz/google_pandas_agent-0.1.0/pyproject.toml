@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "google-pandas-agent"
+version = "0.1.0"
+description = "Google‑native alternative to LangChain's create_pandas_dataframe_agent"
+authors = [
+    { name = "Ariamehr Maleki", email = "ariamehr.mai@gmail.com" },
+    { name = "Frank Roh", email = "frankagilepm@gmail.com" },
+    { name = "Darren North", email = "denorth222@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["gemini", "pandas", "agent", "langgraph", "google-generativeai"]
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+]
+
+dependencies = [
+    "pandas>=2.2",
+    "google-generativeai>=1.7.0",
+    "langgraph>=0.3.21",
+    "typing-extensions>=4.9",
+]
+
+[tool.setuptools.package-data]
+"google_pandas_agent" = ["py.typed"] 
