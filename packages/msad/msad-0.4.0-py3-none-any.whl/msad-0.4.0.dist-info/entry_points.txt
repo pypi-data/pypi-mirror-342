@@ -1,0 +1,2 @@
+[console_scripts]
+msad = msad.main:app
