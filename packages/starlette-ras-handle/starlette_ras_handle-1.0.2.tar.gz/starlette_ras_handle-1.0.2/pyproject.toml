@@ -1,0 +1,33 @@
+[project]
+name = "starlette-ras-handle"
+version = "1.0.2"
+description = "This library patches starlette, so you can handle \"RuntimeError: Caught handled exception, but response already started.\" exception"
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "starlette>=0.46.2",
+]
+
+[dependency-groups]
+examples = [
+    "fastapi>=0.115.12",
+    "uvicorn>=0.34.2",
+]
+dev = [
+    "mypy>=1.15.0",
+    "pre-commit>=4.2.0",
+    "ruff>=0.11.2",
+]
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.mypy]
+python_version = "3.13"
+disallow_untyped_defs = true
+ignore_missing_imports = true
