@@ -1,0 +1,44 @@
+[project]
+name = "mseep-mcp-pinecone"
+version = "0.1.8"
+description = "Read and write to Pinecone from Claude Desktop with Model Context Protocol."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.0",
+    "jsonschema>=4.23.0",
+    "mcp>=1.0.0",
+    "pinecone>=5.4.1",
+    "python-dotenv>=1.0.1",
+    "tiktoken>=0.8.0",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+]
+authors = [
+    { name = "Navishkar Rao", email = "nav@perfectlycromulent.dev" },
+]
+
+[project.scripts]
+mcp-pinecone = "mcp_pinecone:main"
+
+[project.urls]
+Homepage = "https://sirmews.github.io/mcp-pinecone/"
+Issues = "https://github.com/sirmews/mcp-pinecone/issues"
+
+[build-system]
+requires = [
+    "hatchling",
+]
+build-backend = "hatchling.build"
+
+[tool.mcp-pinecone]
+server_name = "mcp-pinecone"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "src",
+    "database",
+]
