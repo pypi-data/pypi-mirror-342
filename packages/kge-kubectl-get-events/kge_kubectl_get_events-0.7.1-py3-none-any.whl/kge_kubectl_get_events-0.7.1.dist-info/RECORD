@@ -1,0 +1,10 @@
+kge/__init__.py,sha256=C8hdPremYaNIsWwp5qQM_9kLalZDR0WIeIUVVP5Nmr8,132
+kge/cli/__init__.py,sha256=HU1y_GG8EF0Ui_AAS5lHKilWuyaT40JLGMTgeIiQq5E,26
+kge/cli/main.py,sha256=g3k0XNsxuBbnSRqhXlFTvLCNDgqnHMN5gDjetUaqrMw,18006
+kge/completion/__init__.py,sha256=DihuQSF4YLjsDd5m64z8HzjRytpwjzYt_znHL0oTCjY,2362
+kge/completion/_kge,sha256=XfjbqehCw7tHoogSESCvOytzt1iR_GpMumKayffTQVY,2371
+kge_kubectl_get_events-0.7.1.dist-info/LICENSE,sha256=8DL_rcSESSVBM79XMiWfuzAoYPDBg_yzCrqs9sCbmOg,1072
+kge_kubectl_get_events-0.7.1.dist-info/METADATA,sha256=G0gGba141xKoO-2GFYr5bcYZHUXe9Yl0FuLrmuNcpGk,4399
+kge_kubectl_get_events-0.7.1.dist-info/WHEEL,sha256=Nq82e9rUAnEjt98J6MlVmMCZb-t9cYE2Ir1kpBmnWfs,88
+kge_kubectl_get_events-0.7.1.dist-info/entry_points.txt,sha256=G8cwqGaHLAT-LLw1bKydHyYdZe3WzdzYLJfxcgvr88s,41
+kge_kubectl_get_events-0.7.1.dist-info/RECORD,,
