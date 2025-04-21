@@ -1,0 +1,10 @@
+LICENCE
+MANIFEST.in
+README.md
+setup.py
+cat_stat_analysis.egg-info/PKG-INFO
+cat_stat_analysis.egg-info/SOURCES.txt
+cat_stat_analysis.egg-info/dependency_links.txt
+cat_stat_analysis.egg-info/requires.txt
+cat_stat_analysis.egg-info/top_level.txt
+test/test_pakage.py

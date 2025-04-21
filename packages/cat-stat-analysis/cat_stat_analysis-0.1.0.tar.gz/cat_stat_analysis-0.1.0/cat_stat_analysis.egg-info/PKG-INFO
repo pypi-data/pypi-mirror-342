@@ -1,0 +1,37 @@
+Metadata-Version: 2.2
+Name: cat-stat-analysis
+Version: 0.1.0
+Summary: A simple tool for analyzing relationships between categorical variables
+Home-page: https://github.com/yourusername/cat-stat-analysis
+Author: Your Name
+Author-email: your.email@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: fpdf
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# 📊 **Cat Stat Analysis**  
+*A simple yet powerful tool for performing statistical analysis of categorical data using Chi-Square and Cramér's V.*
+
+## 🚀 **Features**  
+✅ **Chi-Square Test for Independence**  
+✅ **Cramér’s V** to measure the strength of association  
+✅ Generates a **formatted Markdown report** with detailed conclusions  
+✅ Creates a **stacked percentage bar chart** visualizing relationships  
+✅ **PDF report generation** with Markdown and visual results  
