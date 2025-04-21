@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-msnweather = mcp_server_msnweather:main
