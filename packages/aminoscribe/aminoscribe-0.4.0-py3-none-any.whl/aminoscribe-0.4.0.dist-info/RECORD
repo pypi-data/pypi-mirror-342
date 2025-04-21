@@ -1,0 +1,12 @@
+aminoscribe/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aminoscribe/aminoscribe.py,sha256=tJVE3WtB8oBt8i_G9BUQdgwN86HYrdfGaKlzYMzYQa8,8506
+aminoscribe/generate_template.py,sha256=Wca8NKnMYSg_CqVwozq42j_3PIRqsVFhQVQAW_5-SoU,2306
+aminoscribe/data/amplitude_noise.csv,sha256=QdIGA7i0Zn3KUTWNMjPyDmGcS-G-TIBQIHFEhrzDqAM,15657
+aminoscribe/data/sequences.pickle,sha256=8gl3aMgrdK9QM-HgvNO68EVuQEdoIZ0FGwzoZQOgOts,11995797
+aminoscribe/data/step_durations.csv,sha256=KrZYJQ637lAnlEh58tJS3BXJRihuDYfNbZ02Iz8DCQU,8187
+aminoscribe/data/step_sizes_in_aa.csv,sha256=IGieaxNQyi6AHB3yuAmLnnOwfQk5Ef9gibag_p8ZAz4,97
+aminoscribe-0.4.0.dist-info/licenses/LICENSE,sha256=UWuW7RkpS9l22_r0nYSP0_NT6GBSseO7YY82lRWc-zs,813
+aminoscribe-0.4.0.dist-info/METADATA,sha256=sZCd7quKJagIWfsoZcOo2uFPOUR20Bm6XoaSfELjBmQ,4287
+aminoscribe-0.4.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+aminoscribe-0.4.0.dist-info/top_level.txt,sha256=HguCvynBpibmIvGIIWbhg6ExEYeNEezQyqOtQICSSac,12
+aminoscribe-0.4.0.dist-info/RECORD,,
