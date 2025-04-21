@@ -1,0 +1,42 @@
+[project]
+name = "rational-functions"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+urls = { "GitHub" = "https://github.com/stur86/rational-functions", "Documentation" = "https://stur86.github.io/rational-functions/"}
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.2.4",
+]
+
+[project.scripts]
+rational-functions = "rational_functions:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "ipykernel>=6.29.5",
+    "jupytext>=1.16.7",
+    "matplotlib>=3.10.1",
+    "mkdocs-api-autonav>=0.2.1",
+    "mkdocs-material>=9.6.9",
+    "mkdocstrings>=0.29.0",
+    "pre-commit>=4.2.0",
+    "pytest>=8.3.5",
+    "pytest-cov>=6.1.1",
+    "pytest-snapshot>=0.9.0",
+    "ruff>=0.11.2",
+    "taskipy>=1.14.1",
+]
+
+[tool.taskipy.tasks]
+test = { cmd = "pytest src/tests -v --cov=src/rational_functions --cov-report html", help = "Run all unit tests" }
+lint = { cmd = "ruff check src/rational_functions --fix", help = "Lint the project" }
+format = { cmd = "black src", help = "Format the code" }
+build-docs = { cmd = "mkdocs build", help = "Build the documentation" }
+serve-docs = { cmd = "mkdocs serve --livereload", help = "Serve the documentation" }
+regen-snapshots = { cmd = "pytest src/tests --snapshot-update", help = "Regenerate all snapshots for tests that need them" }
