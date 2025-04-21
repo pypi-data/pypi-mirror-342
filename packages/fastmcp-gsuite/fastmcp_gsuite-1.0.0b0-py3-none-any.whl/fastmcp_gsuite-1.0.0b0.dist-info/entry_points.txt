@@ -1,0 +1,3 @@
+[console_scripts]
+fastmcp-gsuite = mcp_gsuite.fast_server:mcp.run
+fastmcp-gsuite-fast = mcp_gsuite.fast_server:mcp.run

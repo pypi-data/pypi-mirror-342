@@ -1,0 +1,17 @@
+mcp_gsuite/__init__.py,sha256=mmR4Zh4tC_J-6XwmyMmTN_72V8Ae1Py0LZ7jrwGALFo,86
+mcp_gsuite/auth_helper.py,sha256=wVZW8RyOWxUGc-95ku0h4Ic64YJJLY7Wa34Iv6sc2B4,2977
+mcp_gsuite/calendar.py,sha256=f7kdXRs9_5gNwccyYp-ZYE8lU7rBsAsRUiFlvYXTJG8,6470
+mcp_gsuite/calendar_tools.py,sha256=L_OYI3woszOeauFq4iKoJYnqIy6QX5fCc7uFqyERs4c,7005
+mcp_gsuite/common.py,sha256=yqbVLQbdMhG5aTKbhjoAK3pb-1Bwcpolzz7xmLxX3Ug,988
+mcp_gsuite/drive.py,sha256=-wc7obNsfZr6zFTPRDywtCXolG6mgaT1C8fk4UtIvLk,10763
+mcp_gsuite/drive_tools.py,sha256=wkRLEYcRMgU6oEsnXJNRTOp9M4NTp0aUhAp42WohySA,20847
+mcp_gsuite/fast_server.py,sha256=2nPp5iaOAKR-swt6rsNOHgqE0_fPnxobX8z7_0vBtBE,5153
+mcp_gsuite/gauth.py,sha256=hOOBBE2Q4ywv1m8zPg8t_YowwETeQ7UGvffMiy9uoJ8,8689
+mcp_gsuite/gmail.py,sha256=Tfpb7Is5qe4AfE5Yxu0x-O3ubL45SBwm5h-U2SYzoBU,15571
+mcp_gsuite/gmail_tools.py,sha256=WSsNhuID7Q8QDAcVQBIGXMXvtKBQquaMbHgORorIxYA,16052
+mcp_gsuite/settings.py,sha256=BfuMJ_un6GQ-1fFjnRKe_v9hhdRaH2_kWUer0nT_FBY,1291
+fastmcp_gsuite-1.0.0b0.dist-info/METADATA,sha256=ya2uEWOUZyzP7DJirnXpfw6k72Axb_jJ4KAbNbBxkRc,12562
+fastmcp_gsuite-1.0.0b0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+fastmcp_gsuite-1.0.0b0.dist-info/entry_points.txt,sha256=MaIwpdCtHiich7W5H6TbmyCczgYdbvO5zRvcgkcLUSA,119
+fastmcp_gsuite-1.0.0b0.dist-info/licenses/LICENSE,sha256=9P8fzv_1ZfC4Iq8POUSDRp-qZo3n8Ogg3BDwI-sK5GE,1074
+fastmcp_gsuite-1.0.0b0.dist-info/RECORD,,
