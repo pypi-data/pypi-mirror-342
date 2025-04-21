@@ -1,0 +1,54 @@
+Metadata-Version: 2.4
+Name: synthesize
+Version: 0.0.6
+Summary: A flexible concurrent command runner.
+Project-URL: Homepage, https://github.com/JoshKarpel/synthesize
+Project-URL: Repository, https://github.com/JoshKarpel/synthesize
+Project-URL: Documentation, https://www.synth.how
+Author-email: Josh Karpel <josh.karpel@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Requires-Dist: click>=8.1
+Requires-Dist: identify>=2.5
+Requires-Dist: jinja2>=3.1
+Requires-Dist: more-itertools>=10.3
+Requires-Dist: networkx>=3.0
+Requires-Dist: pydantic>=2
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: rich>=13.3
+Requires-Dist: typer>=0.7
+Requires-Dist: watchfiles>=0.18
+Description-Content-Type: text/markdown
+
+# Synthesize
+
+[![PyPI](https://img.shields.io/pypi/v/synthesize)](https://pypi.org/project/synthesize)
+[![PyPI - License](https://img.shields.io/pypi/l/synthesize)](https://pypi.org/project/synthesize)
+[![Docs](https://img.shields.io/badge/docs-exist-brightgreen)](https://www.synth.how)
+
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/JoshKarpel/synthesize/main.svg)](https://results.pre-commit.ci/latest/github/JoshKarpel/synthesize/main)
+[![codecov](https://codecov.io/gh/JoshKarpel/synthesize/branch/main/graph/badge.svg?token=2sjP4V0AfY)](https://codecov.io/gh/JoshKarpel/synthesize)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+[![GitHub issues](https://img.shields.io/github/issues/JoshKarpel/synthesize)](https://github.com/JoshKarpel/synthesize/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/JoshKarpel/synthesize)](https://github.com/JoshKarpel/synthesize/pulls)
+
+Synthesize is a tool for managing long-lived development workflows that involve multiple tools executing concurrently,
+each of which might have bespoke conditions around when and how it needs to be run or re-run.
+
+See [the documentation](https://www.synth.how) for more information.
