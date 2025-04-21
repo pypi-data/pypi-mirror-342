@@ -1,0 +1,4 @@
+buckets:
+  media: media-bucket
+  templates: templates-bucket
+  test: test-bucket
