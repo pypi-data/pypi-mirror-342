@@ -1,0 +1,2 @@
+[console_scripts]
+vaani = speech_to_text.__main__:main
