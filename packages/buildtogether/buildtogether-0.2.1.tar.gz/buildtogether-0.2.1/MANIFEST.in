@@ -1,0 +1,13 @@
+include README.md
+include requirements.txt
+include config.py
+include app.py
+include init_db.py
+include run.sh
+recursive-include app *
+recursive-include buildtogether *
+recursive-include migrations *
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.so
+global-exclude .DS_Store 
