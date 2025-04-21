@@ -1,0 +1,12 @@
+smarta2a/__init__.py,sha256=V6TtUzRtzqDUV8i5PDU6amAWVeiENdibgMV8btix26Y,176
+smarta2a/client/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+smarta2a/client/a2a_client.py,sha256=ejWZq8F-G49sse2EMeVKg9ISiLXyWe-ElacQdjkzzfY,6203
+smarta2a/common/__init__.py,sha256=5db5VgDGgbMUGEF-xuyaC3qrgRQkUE9WAITkFSiNqSA,702
+smarta2a/common/task_request_builder.py,sha256=GPa_T8jy_Z5Lj-i5Wvbw-mhRiUsSQUbWGZxQbq834T8,3363
+smarta2a/common/types.py,sha256=_UuFtOsnHIIqfQ2m_FiIBBp141iYmhpPGgxE0jmHSHg,10807
+smarta2a/server/__init__.py,sha256=f2X454Ll4vJc02V4JLJHTN-h8u0TBm4d_FkiO4t686U,53
+smarta2a/server/server.py,sha256=JpRyJMdu4xb76Vye4SXN9Y06BzjVoHLFL2BGK6S9Lxo,30880
+smarta2a-0.2.2.dist-info/METADATA,sha256=R3bU9hf8AFS1GxLAT53C6UMQN1sGM6x2rXWXvt0EHZI,2485
+smarta2a-0.2.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+smarta2a-0.2.2.dist-info/licenses/LICENSE,sha256=ECMEVHuFkvpEmH-_A9HSxs_UnnsUqpCkiAYNHPCf2z0,1078
+smarta2a-0.2.2.dist-info/RECORD,,
