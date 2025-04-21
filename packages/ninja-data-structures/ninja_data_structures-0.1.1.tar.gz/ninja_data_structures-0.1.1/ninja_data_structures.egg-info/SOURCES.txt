@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+data_structures/__init__.py
+data_structures/linked_list.py
+data_structures/node.py
+data_structures/queue.py
+data_structures/stack.py
+ninja_data_structures.egg-info/PKG-INFO
+ninja_data_structures.egg-info/SOURCES.txt
+ninja_data_structures.egg-info/dependency_links.txt
+ninja_data_structures.egg-info/top_level.txt
+tests/test.py
