@@ -1,0 +1,2 @@
+[console_scripts]
+md2html-math = md2html.cli:main
