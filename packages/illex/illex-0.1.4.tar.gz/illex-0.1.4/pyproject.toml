@@ -1,0 +1,27 @@
+[project]
+name = "illex"
+version = "0.1.4"
+description = "Inline Language for Logic and EXpressions"
+authors = [
+    {name = "Gustavo Zeloni", email = "gustavo@gzeloni.dev"},
+]
+readme = "README.md"
+license = {text = "GNU General Public License v3.0"}
+
+requires-python = ">=3.8"
+dependencies = [
+    "pytz>=2023.3",
+    "sympy==1.13.3",
+    "cryptography==44.0.2",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/gzeloni/illex"
+"Documentation" = "https://docs.illex.dev"
+"Bug Tracker" = "https://github.com/gzeloni/illex/issues"
+
+[project.scripts]
+illex = "illex.__main__:main"
+
+[tool.setuptools]
+license-files = []

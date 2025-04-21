@@ -1,0 +1,3 @@
+pytz>=2023.3
+sympy==1.13.3
+cryptography==44.0.2
