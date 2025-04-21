@@ -1,0 +1,6 @@
+Customer_Id	first_name	last_name	email	phone	address	city	state	zip_code	registration_date
+1	John	Doe	john.doe@example.com	555-123-4567	123 Main St	Springfield	IL	62701	2023-01-15
+2	Jane	Smith	jane.smith@example.com	555-987-6543	456 Oak Ave	Chicago	IL	60601	2023-02-20
+3	Robert	Johnson	robert.j@example.com	555-234-5678	789 Pine Rd	New York	NY	10001	2023-03-10
+4	Emily	Williams	emily.w@example.com	555-876-5432	321 Cedar Blvd	Los Angeles	CA	90001	2023-04-05
+5	Michael	Brown	michael.b@example.com	555-345-6789	654 Maple Dr	Houston	TX	77001	2023-05-12

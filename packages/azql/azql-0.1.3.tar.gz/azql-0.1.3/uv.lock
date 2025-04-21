@@ -1,0 +1,13 @@
+version = 1
+revision = 1
+requires-python = ">=3.11"
+
+[[package]]
+name = "azql"
+version = "0.1.2"
+source = { editable = "." }
+
+[package.metadata]
+
+[package.metadata.requires-dev]
+dev = []
