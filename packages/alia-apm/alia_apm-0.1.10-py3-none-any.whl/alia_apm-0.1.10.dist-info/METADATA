@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: alia-apm
+Version: 0.1.10
+Summary: A collection of Python scripts by me, Alia.
+Home-page: https://github.com/AbnormalNormality/apm
+Author: Alia Normal
+Author-email: dan.driscoll@aussiebb.com
+License: MIT
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: discord>2.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+A collection of Python scripts by me, Alia.
+The successor of [anpm](https://pypi.org/project/anpm-public/).
+
+- [PyPi](https://pypi.org/project/alia-apm/)
+- [Source Code](https://github.com/AbnormalNormality/apm)
+- [Wiki](https://abnormalnormality.github.io/apm/)
