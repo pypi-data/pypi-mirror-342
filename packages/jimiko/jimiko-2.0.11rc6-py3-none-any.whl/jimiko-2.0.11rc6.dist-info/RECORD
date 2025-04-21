@@ -1,0 +1,14 @@
+jimiko/MANIFEST.in,sha256=K_-iMUQy2fGMkmJEhfaLYVXQkaoeJgDWPS3qNokO_VM,18
+jimiko/__init__.py,sha256=2JJ1eBee0tz94odjNPrR43WeH_9ulcXxjqqDlzZEnRA,4939
+jimiko/_jimiko_wrapper.cpython-312-darwin.so,sha256=-jQ04f-gttMAO4Hw6tKKHOf1spnF0_XeMuk1EwkliF4,5488200
+jimiko/_jimiko_wrapper.cpython-313-darwin.so,sha256=BF_EfSkfkDmMeq9YZ4xjDxj2kY_j57SDiIBYjtohmWI,5488136
+jimiko/_jimikosftp_wrapper.cpython-312-darwin.so,sha256=hFKKBK8gGXnwp299lXGAvpq6b5oduwtgJh5eUL2Y5_s,5467864
+jimiko/_jimikosftp_wrapper.cpython-313-darwin.so,sha256=pYy_Kljq0VF7RkhPrNmSF7TRzskSQtzfhJfmKqFz-74,5467960
+jimiko/lib/libcrypto.3.dylib,sha256=1iMUbVJekpiVcY3gRDZ5ZbBhTVppHcSob85oe97Df1s,4305168
+jimiko/lib/libssh2.1.dylib,sha256=vp1GMU2IG6KYN1m3dbC9n_6wjc7Cw3zmOYCXnhrPD2Q,284880
+jimiko/lib/libssl.3.dylib,sha256=JkBWy5CUB6rpHx-jgGK2HqooNiGo3awMcNq5-_KS6hc,854944
+jimiko-2.0.11rc6.dist-info/licenses/LICENSE,sha256=HFtv-Ey2EQ8_gMd06M9z8zQ7OQz3JUT3xX99JPjBWYo,1155
+jimiko-2.0.11rc6.dist-info/METADATA,sha256=3CU3SHtaG8g_1uZ-nSStBbKWaffqaCQUm37AKUrY72w,15907
+jimiko-2.0.11rc6.dist-info/WHEEL,sha256=w-KOx2dpOtKp08a1y-gUJ-DrWR753RY9TP-79xJM358,90
+jimiko-2.0.11rc6.dist-info/top_level.txt,sha256=NMNLpl1_MIrOxENBCzr013I5dEdvr68duqyzIJoar9s,7
+jimiko-2.0.11rc6.dist-info/RECORD,,
