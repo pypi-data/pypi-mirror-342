@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: scipy-tools
+Version: 0.1
+Summary: A package that includes a scientific notebook
+Home-page: https://github.com/yourusername/scipy-tools
+Author: Your Name
+Author-email: your@email.com
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: summary
+
+readme mate
