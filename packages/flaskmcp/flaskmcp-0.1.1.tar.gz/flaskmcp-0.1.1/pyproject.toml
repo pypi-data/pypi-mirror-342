@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flaskmcp"
+version = "0.1.1"
+description = "A Flask-based implementation of the Model Context Protocol (MCP)"
+readme = "README.md"
+authors = [
+    {name = "Prashant Verma", email = "prashant27050@gmail.com"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Flask",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["flask", "mcp", "llm", "ai", "model", "context", "protocol"]
+requires-python = ">=3.7"
+dependencies = [
+    "Flask>=2.0.0",
+    "jsonschema>=4.0.0",
+    "werkzeug>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Vprashant/flaskmcp"
+Documentation = "https://github.com/Vprashant/flaskmcp#readme"
+Repository = "https://github.com/Vprashant/flaskmcp.git"
+Issues = "https://github.com/Vprashant/flaskmcp/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-flask>=1.2.0",
+    "black>=23.0.0",
+    "isort>=5.10.0",
+    "flake8>=6.0.0",
+]
+docs = [
+    "sphinx>=4.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+]
+
+[project.scripts]
+flaskmcp = "flaskmcp.cli:main"
+
+[tool.setuptools]
+packages = ["flaskmcp"]
+
+[tool.black]
+line-length = 88
+target-version = ["py37", "py38", "py39", "py310", "py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 88

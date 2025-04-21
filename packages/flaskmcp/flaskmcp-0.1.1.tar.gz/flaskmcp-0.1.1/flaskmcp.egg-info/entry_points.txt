@@ -1,0 +1,2 @@
+[console_scripts]
+flaskmcp = flaskmcp.cli:main
