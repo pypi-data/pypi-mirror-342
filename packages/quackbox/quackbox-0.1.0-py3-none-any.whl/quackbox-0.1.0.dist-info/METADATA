@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: quackbox
+Version: 0.1.0
+Summary: A library for game developers to easily communicate with the QuackBox.
+Project-URL: Homepage, https://github.com/rit-coms/Quackbox-Python-API
+Project-URL: Issues, https://github.com/rit-coms/Quackbox-Python-API/issues
+Author-email: Sean O'Donnell <saoski88@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# Quackbox-Python-API
+A library for game developers to easily communicate with the QuackBox
