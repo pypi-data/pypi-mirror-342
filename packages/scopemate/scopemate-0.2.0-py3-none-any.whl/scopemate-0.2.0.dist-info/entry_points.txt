@@ -1,0 +1,2 @@
+[console_scripts]
+scopemate = scopemate.cli:main
