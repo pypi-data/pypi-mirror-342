@@ -1,0 +1,24 @@
+[project]
+name = "dawarich-api"
+version = "0.4.1"
+description = "A python wrapper for the Dawarich API"
+dependencies = ["pydantic>=2.0", "aiohttp>=3.10"]
+requires-python = ">=3.10"
+authors = [{ name = "Albin Lindqvist", email = "albin.lindqvist@hotmail.se" }]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = ["Operating System :: OS Independent"]
+
+[project.optional-dependencies]
+test = ["pytest>=8.3.4", "pytest-asyncio>=0.25.0"]
+format = ["ruff>=0.7.1"]
+
+
+[project.urls]
+Homepage = "https://github.com/AlbinLind/dawarich-api"
+Repository = "https://github.com/AlbinLind/dawarich-api"
+Dawarich = "https://dawarich.app"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
