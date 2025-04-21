@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/ariamehr_gemini_pandas_agent.egg-info/PKG-INFO
+src/ariamehr_gemini_pandas_agent.egg-info/SOURCES.txt
+src/ariamehr_gemini_pandas_agent.egg-info/dependency_links.txt
+src/ariamehr_gemini_pandas_agent.egg-info/requires.txt
+src/ariamehr_gemini_pandas_agent.egg-info/top_level.txt
+src/ariamehr_gpandas_agent/__init__.py
+src/ariamehr_gpandas_agent/executor.py
+src/ariamehr_gpandas_agent/graph.py
+src/ariamehr_gpandas_agent/prompt.py
+src/ariamehr_gpandas_agent/tools.py

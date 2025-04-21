@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ariamehr-gemini-pandas-agent"
+version = "0.1.0"
+description = "Google‑native alternative to LangChain's create_pandas_dataframe_agent by Ariamehr A"
+authors = [{ name = "Ariamehr A", email = "ariamehr@example.com" }]
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["gemini", "pandas", "agent", "langgraph", "google-generativeai", "ariamehr"]
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+]
+
+dependencies = [
+    "pandas>=2.2",
+    "google-generativeai>=1.7.0",
+    "langgraph>=0.3.21",
+    "typing-extensions>=4.9",
+]
+
+[tool.setuptools.package-data]
+"ariamehr_gpandas_agent" = ["py.typed"] 
