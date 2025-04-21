@@ -1,0 +1,19 @@
+admin:
+app: default
+auth:
+cache: memory
+config:
+dns:
+ftpd:
+logger:
+models:
+monitoring:
+nosql:
+requests:
+routes:
+secret:
+sitemap:
+smtp:
+sql:
+storage: file
+templates:
