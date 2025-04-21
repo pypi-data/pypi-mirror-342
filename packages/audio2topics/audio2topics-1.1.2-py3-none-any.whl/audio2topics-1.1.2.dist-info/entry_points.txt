@@ -1,0 +1,2 @@
+[console_scripts]
+audio2topics = audio2topics.main:main
