@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+vod_downloader/__init__.py
+vod_downloader/vod_downloader.py
+wubby_vod_downloader.egg-info/PKG-INFO
+wubby_vod_downloader.egg-info/SOURCES.txt
+wubby_vod_downloader.egg-info/dependency_links.txt
+wubby_vod_downloader.egg-info/entry_points.txt
+wubby_vod_downloader.egg-info/requires.txt
+wubby_vod_downloader.egg-info/top_level.txt
