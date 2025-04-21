@@ -1,0 +1,31 @@
+{"asctime": "2025-04-19 22:05:58,945", "name": "falyx", "levelname": "DEBUG", "message": "Logging initialized in 'cli' mode."}
+{"asctime": "2025-04-19 22:05:58,946", "name": "falyx", "levelname": "DEBUG", "message": "[Action:View Execution History] Registering retry handler"}
+{"asctime": "2025-04-19 22:05:58,956", "name": "falyx", "levelname": "DEBUG", "message": "[Action:Hello] Registering retry handler"}
+{"asctime": "2025-04-19 22:05:58,960", "name": "falyx", "levelname": "DEBUG", "message": "[Action:Goodbye] Registering retry handler"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "INFO", "message": "Running menu: # \ud83d\ude80 Falyx CLI Demo"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "Menu-level before hooks: ['log_before']"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "Menu-level success hooks: ['log_success']"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "Menu-level error hooks: ['log_error']"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "Menu-level after hooks: ['log_after']"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "Menu-level on_teardown hooks: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'S'] before: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'S'] success: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'S'] error: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'S'] after: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'S'] on_teardown: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'G'] before: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'G'] success: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'G'] error: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'G'] after: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'G'] on_teardown: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'T'] before: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'T'] success: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'T'] error: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'T'] after: []"}
+{"asctime": "2025-04-19 22:05:58,973", "name": "falyx", "levelname": "DEBUG", "message": "[Command 'T'] on_teardown: []"}
+{"asctime": "2025-04-19 22:06:09,541", "name": "falyx", "levelname": "INFO", "message": "[Run a Task] \ud83d\ude80 Starting \u2192 Command(key='T', description='Run a Task')()"}
+{"asctime": "2025-04-19 22:06:12,549", "name": "falyx", "levelname": "DEBUG", "message": "[Run a Task] status=OK duration=3.003s result=None exception=None"}
+{"asctime": "2025-04-19 22:06:12,549", "name": "falyx", "levelname": "DEBUG", "message": "[Run a Task] \u2705 Success \u2192 Result: None"}
+{"asctime": "2025-04-19 22:06:12,550", "name": "falyx", "levelname": "DEBUG", "message": "[Run a Task] \u23f1\ufe0f Finished in 3.008s"}
+{"asctime": "2025-04-19 22:07:36,864", "name": "falyx", "levelname": "INFO", "message": "\ud83d\udd19 Back selected: exiting # \ud83d\ude80 Falyx CLI Demo"}
+{"asctime": "2025-04-19 22:07:36,864", "name": "falyx", "levelname": "INFO", "message": "Exiting menu: # \ud83d\ude80 Falyx CLI Demo"}
