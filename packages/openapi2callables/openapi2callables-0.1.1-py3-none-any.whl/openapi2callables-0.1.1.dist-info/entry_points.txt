@@ -1,0 +1,5 @@
+[console_scripts]
+openapi2callables = openapi2callables.cli:cli
+
+[gui_scripts]
+
