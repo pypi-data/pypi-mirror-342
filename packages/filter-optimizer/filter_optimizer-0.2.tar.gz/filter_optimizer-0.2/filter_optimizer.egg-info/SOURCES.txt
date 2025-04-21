@@ -1,0 +1,17 @@
+LICENSE
+README.rst
+pyproject.toml
+setup.py
+filter_optimizer/Version.py
+filter_optimizer/__init__.py
+filter_optimizer/display_result.py
+filter_optimizer/filter_optimizer.py
+filter_optimizer/filterplot.py
+filter_optimizer/parse_result.py
+filter_optimizer/showfromlog.py
+filter_optimizer.egg-info/PKG-INFO
+filter_optimizer.egg-info/SOURCES.txt
+filter_optimizer.egg-info/dependency_links.txt
+filter_optimizer.egg-info/entry_points.txt
+filter_optimizer.egg-info/requires.txt
+filter_optimizer.egg-info/top_level.txt
