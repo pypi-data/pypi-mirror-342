@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+src/py_graspi/__init__.py
+src/py_graspi/descriptors.py
+src/py_graspi/graph.py
+src/py_graspi/graph_data_class.py
+src/py_graspi.egg-info/PKG-INFO
+src/py_graspi.egg-info/SOURCES.txt
+src/py_graspi.egg-info/dependency_links.txt
+src/py_graspi.egg-info/requires.txt
+src/py_graspi.egg-info/top_level.txt
+tests/tests.py
