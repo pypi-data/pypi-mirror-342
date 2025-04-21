@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+servly/__init__.py
+servly/cli.py
+servly/logs.py
+servly/service.py
+servly.egg-info/PKG-INFO
+servly.egg-info/SOURCES.txt
+servly.egg-info/dependency_links.txt
+servly.egg-info/entry_points.txt
+servly.egg-info/requires.txt
+servly.egg-info/top_level.txt
+tests/test_advanced.py
+tests/test_config.py
+tests/test_integration.py
+tests/test_logs.py
+tests/test_service_management.py
