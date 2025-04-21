@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: pyserpent
+Version: 1.0.0
+Summary: Pure Python implementation of the Serpent block cipher with CBC mode and PKCS#7 padding
+Author: svvqt
+Author-email: your_email@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Security :: Cryptography
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
