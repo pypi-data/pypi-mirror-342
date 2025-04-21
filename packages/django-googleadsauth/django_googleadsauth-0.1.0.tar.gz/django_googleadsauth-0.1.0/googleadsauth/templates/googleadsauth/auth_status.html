@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Ads Authentication Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #1a73e8;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .status-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0d47a1;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Google Ads Authentication Status</h1>
+
+    <div class="card">
+        <h2>Authentication Status</h2>
+        {% if token %}
+            <p>
+                <span class="status status-success">Authenticated ✓</span>
+            </p>
+            <p>
+                Token created at: <strong>{{ token.created_at }}</strong><br>
+                Last updated: <strong>{{ token.updated_at }}</strong>
+            </p>
+        {% else %}
+            <p>
+                <span class="status status-danger">Not Authenticated ✗</span>
+            </p>
+            <p>You are not currently authenticated with Google Ads.</p>
+            <p>
+                <a href="{% url 'googleadsauth:auth' %}" class="btn">Authenticate with Google Ads</a>
+            </p>
+        {% endif %}
+    </div>
+
+    {% if token %}
+        <div class="card">
+            <h2>Available Customer Accounts</h2>
+            {% if customers %}
+                <p>Found {{ customers|length }} customer account(s):</p>
+                <ul>
+                    {% for customer in customers %}
+                        <li>{{ customer }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No customer accounts found. This could be because:</p>
+                <ul>
+                    <li>The authenticated user doesn't have access to any Google Ads accounts</li>
+                    <li>There was an error connecting to the Google Ads API</li>
+                    <li>The authentication token may need to be refreshed</li>
+                </ul>
+            {% endif %}
+        </div>
+
+        <div class="card">
+            <h2>Actions</h2>
+            <p>
+                <a href="{% url 'googleadsauth:auth' %}" class="btn">Re-authenticate</a>
+            </p>
+        </div>
+    {% endif %}
+
+    <div class="card">
+        <h2>API Usage</h2>
+        <p>For developers, you can use the following endpoints:</p>
+        <ul>
+            <li><code>GET /auth/</code> - Start authentication process</li>
+            <li><code>GET /callback/</code> - OAuth callback endpoint</li>
+            <li><code>GET /token/</code> - Get token status</li>
+            <li><code>POST /token/</code> - Refresh token</li>
+            <li><code>GET /status/</code> - View this page</li>
+            <li><code>GET /campaigns?customer_id=CUSTOMER_ID</code> - List campaigns with last month's metrics</li>
+            <li><code>POST /campaigns/toggle</code> - Toggle campaign status</li>
+        </ul>
+        <p><strong>Note:</strong> Campaign metrics are filtered to show data from the last month only.</p>
+    </div>
+</body>
+</html>
