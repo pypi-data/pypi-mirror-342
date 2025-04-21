@@ -1,0 +1,2 @@
+[console_scripts]
+hermessmiles = hermessmiles.cli:main
