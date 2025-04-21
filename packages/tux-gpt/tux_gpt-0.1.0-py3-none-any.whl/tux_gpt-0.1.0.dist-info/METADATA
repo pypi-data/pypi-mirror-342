@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: tux-gpt
+Version: 0.1.0
+Summary: An interactive terminal tool using GPT
+Home-page: UNKNOWN
+Author: Fábio Berbert de Paula
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: openai (>=0.27.0)
+Requires-Dist: rich (>=10.0.0)
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
+UNKNOWN
+
