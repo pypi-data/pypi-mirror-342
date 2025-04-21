@@ -1,0 +1,11 @@
+tests/__init__.py,sha256=a99mtb8qROZYvqLuhmlasVCgbmAL9nzVzOJFrVSWLGE,3
+tests/test_compressor.py,sha256=NYofWtx2GQvSf-tEwK3ySakxaioUXnK0-jGsWWoJkpA,780
+tests/test_optimizer.py,sha256=YFTml-CY-6zc9NUjDBjuaJt0QKzRpFMFA-W5DPCkVHo,323
+zoeptic/__init__.py,sha256=a99mtb8qROZYvqLuhmlasVCgbmAL9nzVzOJFrVSWLGE,3
+zoeptic/compression.py,sha256=9flowvrbYx7ibhFnU59H3cun_0VXf1n4cl-jP05Ivdw,1249
+zoeptic/compressor.py,sha256=auwCBobnu5T93vGrnQFgQNn68nXEWbMHgWUWqFUAVSk,1299
+zoeptic/optimizer.py,sha256=z0dma9HkQzqzHWwgN1smHPRpINjbcDCTA-tP4aDZvvw,2514
+zoeptic-0.1.0.dist-info/METADATA,sha256=vdDM-qeu1yzepar-w__tZfQVXL-ACYqFfDdCnluXhUE,230
+zoeptic-0.1.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+zoeptic-0.1.0.dist-info/top_level.txt,sha256=wMu3x6T9FQ5NSrK7gRQUp0gE7kzsqGKjPhiz1uDLtKg,14
+zoeptic-0.1.0.dist-info/RECORD,,
