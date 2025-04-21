@@ -1,0 +1,22 @@
+[project]
+name = "thereispythonlibraryforthis"
+version = "0.1.0"
+description = "Because there is literally a Python library for everything."
+authors = [{ name = "Siddharth Patel", email = "siddharth2000patel@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+dependencies = [
+    "requests",
+    "rapidfuzz"
+]
+
+[project.scripts]
+thereispythonlibraryforthis = "thereispythonlibraryforthis.cli.main:main"
+
+[tool.setuptools]
+packages = ["thereispythonlibraryforthis", "thereispythonlibraryforthis.cli", "thereispythonlibraryforthis.scripts"]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
