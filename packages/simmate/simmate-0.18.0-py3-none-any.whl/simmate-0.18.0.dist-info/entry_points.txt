@@ -1,0 +1,4 @@
+[console_scripts]
+simmate = simmate.command_line.base_command:simmate_app
+simmate-qe = simmate.apps.quantum_espresso.command_line.base_command:qe_app
+simmate-vasp = simmate.apps.vasp.command_line.base_command:vasp_app

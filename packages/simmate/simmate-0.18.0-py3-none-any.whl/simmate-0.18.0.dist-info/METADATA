@@ -1,0 +1,84 @@
+Metadata-Version: 2.4
+Name: simmate
+Version: 0.18.0
+Summary: Simmate is a toolbox for computational materials research.
+Author-email: "Jack D. Sundberg" <jacksundberg123@gmail.com>
+License: BSD 3-Clause License
+Project-URL: homepage, https://simmate.org/
+Project-URL: repository, https://github.com/jacksund/simmate
+Project-URL: documentation, https://jacksund.github.io/simmate/home/
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy<1.24.2,>=1.22.0
+Requires-Dist: pandas<2.1.4,>=2.0.0
+Requires-Dist: dask<2024.4.3,>=2023.6.1
+Requires-Dist: distributed<2023.11.1,>=2023.6.1
+Requires-Dist: django<4.2.8,>=4.0.0
+Requires-Dist: typer<0.7.1,>=0.6.0
+Requires-Dist: django-allauth<=0.63.3,>=0.56.0
+Requires-Dist: django-contrib-comments<=2.2.0,>=2.2.0
+Requires-Dist: django-crispy-forms<=1.14.0,>=1.13.0
+Requires-Dist: dj-database-url<1.4.0,>=0.5.0
+Requires-Dist: django-simple-history<=3.3.0,>=3.3.0
+Requires-Dist: djangorestframework<3.15.2,>=3.13.1
+Requires-Dist: django-filter<=22.1,>=21.1
+Requires-Dist: pyyaml<=6.0.1,>=6.0
+Requires-Dist: plotly<5.19.0,>=5.4.0
+Requires-Dist: markdown<=3.5.1,>=3.4.1
+Requires-Dist: requests<=2.32.3,>=2.28.1
+Requires-Dist: scikit-learn<1.5.1,>=1.1.1
+Requires-Dist: cloudpickle<=3.0.0,>=2.1.0
+Requires-Dist: rich<13.5.2,>=11.0
+Requires-Dist: toml<=0.10.2,>=0.10.2
+Requires-Dist: schedule<=1.2.0,>=1.2.0
+Requires-Dist: xmltodict<=0.13.0,>=0.13.0
+Requires-Dist: pymatgen<2023.5.32,>=2022.1.9
+Requires-Dist: pymatgen-analysis-diffusion<=2023.8.15,>=2021.4.29
+Requires-Dist: matminer<=0.9.3,>=0.9.3
+Requires-Dist: ase<=3.23.0,>=3.22.1
+Requires-Dist: beautifulsoup4>=4.8.0
+Requires-Dist: orjson>=3.6.0
+Requires-Dist: shortuuid>=1.0.1
+Requires-Dist: cachetools>=4.1.1
+Requires-Dist: decorator>=4.4.2
+Provides-Extra: dev
+Requires-Dist: pytest<7.3.2,>=6.2.5; extra == "dev"
+Requires-Dist: pytest-django<=4.8.0,>=4.5.2; extra == "dev"
+Requires-Dist: pytest-mock<3.14.1,>=3.7.0; extra == "dev"
+Requires-Dist: pytest-xdist<3.4.0,>=2.5.0; extra == "dev"
+Requires-Dist: black<26.0.0,>=25.1.0; extra == "dev"
+Requires-Dist: coverage<7.4.4,>=6.2; extra == "dev"
+Requires-Dist: isort<5.12.1,>=5.10.1; extra == "dev"
+Requires-Dist: mkdocs-material<9.6.0,>=9.5.44; extra == "dev"
+Requires-Dist: mkdocstrings<=0.26.0,>=0.25.2; extra == "dev"
+Requires-Dist: mkdocstrings-python<1.11.0,>=1.10.9; extra == "dev"
+Requires-Dist: mkdocs_autorefs<1.4.0,>=1.3.1; extra == "dev"
+Provides-Extra: badelf
+Requires-Dist: mp-pyrho<=0.3.0,>=0.3.0; extra == "badelf"
+Requires-Dist: pybader<=0.3.12,>=0.3.12; extra == "badelf"
+Provides-Extra: clease
+Requires-Dist: clease<=1.0.6,>=1.0.3; extra == "clease"
+Provides-Extra: materials-project
+Requires-Dist: mp-api<0.39.2,>=0.26.3; extra == "materials-project"
+Provides-Extra: extras
+Requires-Dist: dask-jobqueue<=0.8.2,>=0.7.3; extra == "extras"
+Requires-Dist: numba>=0.53.0; extra == "extras"
+Requires-Dist: psycopg2-binary>=2.9.2; extra == "extras"
+Requires-Dist: selenium; extra == "extras"
+Requires-Dist: spyder; extra == "extras"
+Requires-Dist: gunicorn; extra == "extras"
+Requires-Dist: pygraphviz; extra == "extras"
+Requires-Dist: scikit-learn; extra == "extras"
+Requires-Dist: fabric; extra == "extras"
+Requires-Dist: django-extensions; extra == "extras"
+Requires-Dist: bokeh; extra == "extras"
+Requires-Dist: h5py; extra == "extras"
+Dynamic: license-file
+
+Please do NOT install Simmate with pip. We recommend conda instead. Visit our [github page](https://github.com/jacksund/simmate) for more information.
