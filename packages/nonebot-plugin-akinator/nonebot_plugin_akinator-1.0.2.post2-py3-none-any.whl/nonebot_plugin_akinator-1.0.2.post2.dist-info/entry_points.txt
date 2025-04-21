@@ -1,0 +1,7 @@
+[console_scripts]
+
+[gui_scripts]
+
+[nb_scripts]
+akinator-patch-import = nonebot_plugin_akinator.cli.patch_import:main
+
