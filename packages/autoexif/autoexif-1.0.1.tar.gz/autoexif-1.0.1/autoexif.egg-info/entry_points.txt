@@ -1,0 +1,2 @@
+[console_scripts]
+autoexif = autoexif.cli:cli
