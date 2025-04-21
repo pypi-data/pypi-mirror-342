@@ -1,0 +1,87 @@
+Metadata-Version: 2.4
+Name: shangshanAI
+Version: 0.1.19
+Summary: 一个用于从GitLab下载和处理模型的Python SDK
+Home-page: https://github.com/你的用户名/shangshanAI
+Author: tonysu
+Author-email: suguta55@gmail.com
+Project-URL: Bug Tracker, https://github.com/你的用户名/shangshanAI/issues
+Project-URL: Documentation, https://github.com/你的用户名/shangshanAI#readme
+Project-URL: Source Code, https://github.com/你的用户名/shangshanAI
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.25.0
+Requires-Dist: tqdm>=4.65.0
+Requires-Dist: PyJWT>=2.0.0
+Requires-Dist: httpx>=0.24.0
+Requires-Dist: typing-extensions>=4.0.0
+Requires-Dist: pydantic>=1.10.0
+Requires-Dist: aiohttp>=3.8.0
+Requires-Dist: anyio>=3.0.0
+Requires-Dist: cachetools>=5.2.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# ShangshanAI SDK
+
+一个用于下载和处理数据的Python SDK。
+
+## 安装
+
+```bash
+pip install shangshanAI
+```
+
+## 下载模型
+
+```python
+from shangshanAI import snapshot_download
+model_dir = snapshot_download('testuser/model_llm')
+print(model_dir)
+```
+
+## 功能特性
+
+- 支持文件下载
+- 自动重试机制
+- 进度显示
+
+## 调用大模型
+
+```python
+from shangshanAI import ShangshanAI
+
+client = ShangshanAI(api_key="BkdNcaHp6YUxvYsp6PpzMq", path="/v1/chat/completions")  # 请填写您自己的API Key
+response = client.chat.completions.create(
+    model="shangshan-chat-beta",  # 填写需要调用的模型编码
+    messages=[
+        {"role": "user", "content": "你好！你叫什么名字"},
+    ],
+    stream=True,
+)
+for chunk in response:
+    print(chunk.choices[0].delta.content, end="", flush=True)
+```
+
+## 许可证
+
+MIT License
