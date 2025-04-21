@@ -1,0 +1,100 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "**"
+  pull_request: {}
+
+env:
+  COLUMNS: 150
+  UV_PYTHON: 3.12
+  UV_FROZEN: "1"
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --all-extras --all-packages --group lint
+
+      - name: Run Lint Check
+        run: uv run ruff check
+
+      - name: Run Type Checking
+        run: uv run basedpyright
+
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --all-extras --all-packages --group test
+
+      - name: Run Tests
+        run: uv run pytest
+
+  # https://github.com/marketplace/actions/alls-green#why used for branch protection checks
+  check:
+    if: always()
+    needs: [lint, test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Decide whether the needed jobs succeeded or failed
+        uses: re-actors/alls-green@release/v1
+        with:
+          jobs: ${{ toJSON(needs) }}
+
+  release:
+    needs: [check]
+    if: success() && startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+
+    environment:
+      name: release
+      url: https://pypi.org/project/templana/${{ steps.inspect_package.outputs.version }}
+
+    permissions:
+      id-token: write
+
+    outputs:
+      package-version: ${{ steps.inspect_package.outputs.version }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - run: uv build --all-packages
+
+      - name: Inspect package version
+        id: inspect_package
+        run: |
+          uv tool install --with uv-dynamic-versioning hatchling
+          version=$(uvx hatchling version)
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          skip-existing: true
