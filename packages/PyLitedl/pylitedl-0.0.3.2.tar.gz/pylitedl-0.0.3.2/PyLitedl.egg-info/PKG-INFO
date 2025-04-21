@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: PyLitedl
+Version: 0.0.3.2
+Summary: a mini deep learning framework
+Home-page: 
+Author: macbook
+Author-email: buildaiorg@gmail.com
+Requires-Dist: numpy
+Requires-Dist: scipy
