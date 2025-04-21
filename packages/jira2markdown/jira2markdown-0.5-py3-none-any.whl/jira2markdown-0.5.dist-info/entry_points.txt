@@ -1,0 +1,3 @@
+[console_scripts]
+jira2markdown=jira2markdown.main:main
+
