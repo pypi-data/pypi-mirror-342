@@ -1,0 +1,43 @@
+[package]
+name = "gradelib"
+version = "0.1.1"
+edition = "2021"
+authors = ["Ben Meddeb <bmeddeb@asu.edu>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/bmeddeb/gradelib"
+
+[lib]
+name = "gradelib"         # The name Python will import
+crate-type = ["cdylib"]    # Compile as a dynamic library for Python
+
+[dependencies]
+# Core Git functionality
+git2 = "0.20.1"
+
+# Async runtime and utilities
+tokio = { version = "1.44.2", features = ["rt-multi-thread", "macros", "sync", "time"] }
+futures = "0.3.31"
+
+# Python bindings
+pyo3 = { version = "0.24.0", features = ["extension-module"] }
+
+# Async integration for PyO3
+pyo3-async-runtimes = { version = "0.24.0", features = ["attributes", "tokio-runtime"] }
+
+# Other utilities
+tempfile = "3.10"
+regex = "1"
+lazy_static = "1.4"
+rayon = "1.10.0"
+
+# GitHub API and data handling
+reqwest = { version = "0.12.15", features = ["json"] }
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0"
+
+[profile.release]
+lto = true          # Enable Link-Time Optimization for smaller/faster release builds
+codegen-units = 1   # Optimize better at the cost of compile time
+strip = true        # Strip symbols for smaller binary size
+
+[workspace] # Optional Future updates !!
