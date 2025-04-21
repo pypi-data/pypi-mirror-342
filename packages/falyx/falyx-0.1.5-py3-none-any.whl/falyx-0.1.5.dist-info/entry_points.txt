@@ -1,0 +1,4 @@
+[console_scripts]
+falyx=falyx.cli.main:main
+sync-version=scripts.sync_version:main
+
