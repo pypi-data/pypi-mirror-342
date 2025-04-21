@@ -1,0 +1,25 @@
+"""
+Vibepy CLI interface
+"""
+
+import argparse
+import sys
+from .main import main as vibepy_main
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Vibepy: A Python REPL with hotkey functionality")
+    parser.add_argument("--run", type=str, default="False", help="Run mode (True/False)")
+    parser.add_argument("--model", type=str, default="gpt-4o-mini", help="Model to use")
+    return parser.parse_args()
+
+def run_vibepy(run: bool = False, model: str = "gpt-4o-mini"):
+    """Run vibepy.py with the specified run parameter."""
+    sys.argv = ["vibepy", "--run", str(run), "--model", model]
+    vibepy_main()
+
+def main():
+    args = parse_args()
+    run_vibepy(run=args.run.lower() == "true", model=args.model)
+
+if __name__ == "__main__":
+    main() 
