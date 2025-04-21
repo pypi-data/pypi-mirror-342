@@ -1,0 +1,40 @@
+# Core asynchronous library
+anyio>=4.5
+
+# Colored terminal output
+colorama
+
+# Loading .env files (often useful for users/examples)
+python-dotenv
+
+# For Team.plot() visualization (Note: may require system dependencies)
+graphviz
+
+# LLM SDKs (Install based on which services you use)
+groq
+openai>=1.0.0 # For Google compatibility layer and potentially OpenAI itself
+
+# HTTP clients and related libraries
+httpx>=0.27
+httpx-sse>=0.4
+
+# Model Context Protocol SDK (core library)
+mcp>=1.2.0
+# Note: mcp[cli] is not used here as 'typer' is for the CLI tool, not the library runtime.
+# The core 'mcp' package should pull in pydantic, starlette etc.
+
+# JSON Schema validation for tools
+jsonschema
+
+# HTTP requests (used in email tool helper)
+requests
+
+# Web crawling tool dependency
+crawl4ai
+
+duckduckgo-search
+# Core data validation (likely pulled in by mcp, but explicit is okay)
+pydantic>=2.7.2,<3.0.0
+pydantic-settings>=2.5.2 # Used by MCP FastMCP internally
+
+# Add any other direct runtime dependencies of your core clap library code below:
