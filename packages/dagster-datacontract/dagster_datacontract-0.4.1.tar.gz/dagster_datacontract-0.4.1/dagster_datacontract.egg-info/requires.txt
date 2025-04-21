@@ -1,0 +1,4 @@
+dagster>=1.10.10
+dagster-dg>=0.26.11
+datacontract-cli>=0.10.24
+loguru>=0.7.3
