@@ -1,0 +1,12 @@
+packaging_demo/__init__.py,sha256=LBsjdJHo5C6xYAfK2bI-XIi_zHlK9xDVX309l56y4WM,5
+packaging_demo/my_file.py,sha256=C_RVjvffvdADvdEt5Udn0WfKPRPb-rL0i7E_rd9gHqg,210
+packaging_demo/my_other_file.py,sha256=20kO5b_S22kINZgR_oWMfG1q07z_sZ-dHPvx-HUx-0E,83
+packaging_demo/test.json,sha256=z8EKa4sUUwQDHW6bO60XXStcNDhx-SQNjjX7L_KuPf0,26
+packaging_demo/my_folder/__init__.py,sha256=Bu289DNhZaJx5lJAJaZDnDyqMkb9B5bxFncieXB6UyU,6
+packaging_demo/my_folder/my_nested_file.py,sha256=y3GjRmAd9GRci0WSwApAf_YMbEyFDBsmNhDs4XDvoJw,403
+packaging_demo/my_folder/sub_package/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+packaging_demo/my_folder/sub_package/some_deeply_nested_file.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+packaging_demo_py_to_prd_test-0.5.0.dist-info/METADATA,sha256=OdBY2xjP_2CXWej-G3NTdo9F1aOoq2tjkfNLK-2cpxI,744
+packaging_demo_py_to_prd_test-0.5.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+packaging_demo_py_to_prd_test-0.5.0.dist-info/top_level.txt,sha256=yCDHft77dTV-Plm5UI3VvFLftIqVI8wPM8mbMdmyuMI,28
+packaging_demo_py_to_prd_test-0.5.0.dist-info/RECORD,,
