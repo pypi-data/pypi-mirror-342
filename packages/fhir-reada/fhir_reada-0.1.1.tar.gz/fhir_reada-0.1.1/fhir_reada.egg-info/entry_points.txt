@@ -1,0 +1,2 @@
+[console_scripts]
+fhir-reada = fhir_reada.cli:main
