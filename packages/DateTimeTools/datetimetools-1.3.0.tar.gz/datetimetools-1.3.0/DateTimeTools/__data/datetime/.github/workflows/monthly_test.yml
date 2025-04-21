@@ -1,0 +1,9 @@
+name: "Monthly Test"
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Runs at midnight UTC on the 1st of every month
+
+jobs:
+  build_test:
+    uses: ./.github/workflows/test.yml

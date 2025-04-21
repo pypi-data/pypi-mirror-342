@@ -1,0 +1,49 @@
+name: "Package Test"
+
+on: 
+    push:
+        tags:
+        - "v*.*.*"
+    pull_request:
+    workflow_dispatch:
+
+jobs:
+  build_test:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v3
+            
+      - name: Build Docker Image
+        run: |
+          docker_image="datetime"
+          echo "Docker image: ${docker_image}"
+          echo "docker_image=${docker_image}" >> $GITHUB_ENV
+          docker build -t $docker_image .
+
+      - name: Run Docker Image
+        run: |
+          echo "docker_image is '${{ env.docker_image }}'"
+          docker_container=omnitest
+          echo "docker_container=$docker_container" >> $GITHUB_ENV
+          docker run --name $docker_container --rm -d ${{ env.docker_image }}
+
+      - name: Build Library
+        run: |
+          docker exec -u ubuntu ${{ env.docker_container }} bash -c "cd /datetime && cmake -DCMAKE_INSTALL_PREFIX=/usr/local -B build -DBUILD_TESTING=true"
+          docker exec -u ubuntu ${{ env.docker_container }} bash -c "cd /datetime && cmake --build build"
+
+      - name: Run Tests
+        run: |
+          docker exec -u ubuntu ${{ env.docker_container }} bash -c "cd /datetime && ./build/tests/test_datetime && ./build/tests/test_c"
+
+      - name: Clean Up
+        if: always()
+        run: |
+          docker stop ${{ env.docker_container }}
