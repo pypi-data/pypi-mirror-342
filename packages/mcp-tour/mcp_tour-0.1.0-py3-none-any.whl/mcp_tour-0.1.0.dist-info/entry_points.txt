@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-tour = mcp_tour:server
