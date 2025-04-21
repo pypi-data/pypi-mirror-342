@@ -1,0 +1,128 @@
+Metadata-Version: 2.4
+Name: vibe-client
+Version: 0.1.0
+Summary: vibe client
+License: Apache-2.0
+Keywords: smithy,vibe
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.12
+Requires-Dist: smithy-core<0.1.0
+Requires-Dist: smithy-http[aiohttp]<0.1.0
+Requires-Dist: smithy-json<0.1.0
+Provides-Extra: docs
+Requires-Dist: pydata-sphinx-theme>=0.16.1; extra == 'docs'
+Requires-Dist: sphinx>=8.2.3; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest-asyncio<0.21.0,>=0.20.3; extra == 'tests'
+Requires-Dist: pytest<8.0.0,>=7.2.0; extra == 'tests'
+Description-Content-Type: text/markdown
+
+# Vibe Python SDK
+
+A Python client for the Vibe API, enabling seamless interaction with Vibe agents and experiments.
+
+## Installation
+
+```bash
+pip install vibe
+```
+
+## Features
+
+- Easy-to-use client for interacting with Vibe API
+- Comprehensive data models for structuring requests and responses
+- Async support for efficient API communication
+- Built-in error handling and serialization/deserialization
+
+## Quick Start
+
+```python
+import asyncio
+from vibe.models import QueryAgentInput, ObservationValueBox
+from vibe.client import VibeClient
+
+async def main():
+    # Initialize the client with your API key
+    client = VibeClient(api_key="your_api_key_here")
+    
+    # Create observations
+    observations = ObservationValueBox([
+        [1, 1.2, 3.0],
+        [1, 1.2, 3.0],
+        [1, 1.2, 3.0],
+        [1, 1.2, 3.0],
+        [1, 1.2, 3.0]
+    ])
+    
+    # Set up query input
+    query_input = QueryAgentInput(
+        experiment_id="your_experiment_id",
+        observations=observations
+    )
+    
+    # Execute the query
+    try:
+        response = await client.query_agent(input=query_input)
+        print("Query response:", response)
+        print("Actions:", response.actions)
+    except Exception as e:
+        print(f"Error executing query_agent: {e}")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+## Documentation
+
+Full documentation is available in the `/docs` directory. To build the documentation:
+
+```bash
+cd docs
+make html
+```
+
+The built documentation will be available in `docs/build/html/index.html`.
+
+## Project Structure
+
+```
+vibe/
+├── src/vibe/            # Main package source code
+│   ├── __init__.py      # Package initialization
+│   ├── client.py        # API client implementation
+│   ├── config.py        # Configuration utilities
+│   ├── models.py        # Data models
+│   ├── serialize.py     # Serialization utilities
+│   ├── deserialize.py   # Deserialization utilities
+│   └── _private/        # Private implementation details
+├── tests/               # Test suite
+├── docs/                # Documentation
+│   ├── client/          # Client API documentation
+│   └── models/          # Models documentation
+└── build/               # Build artifacts
+```
+
+## Development
+
+### Setting Up Development Environment
+
+1. Clone the repository
+2. Install development dependencies:
+   ```bash
+   pip install -e ".[dev]"
+   ```
+3. Run tests:
+   ```bash
+   pytest tests/
+   ```
+
+
