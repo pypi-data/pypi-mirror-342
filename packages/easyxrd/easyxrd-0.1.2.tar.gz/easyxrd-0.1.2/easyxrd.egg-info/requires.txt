@@ -1,0 +1,11 @@
+xarray
+numpy<2.0
+scipy
+pymatgen
+pyfai
+pybaselines
+ipympl
+GitPython
+mp-api
+fabio
+pandas

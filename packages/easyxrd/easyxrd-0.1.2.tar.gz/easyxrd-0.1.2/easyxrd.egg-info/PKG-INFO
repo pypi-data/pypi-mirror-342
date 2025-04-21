@@ -1,0 +1,37 @@
+Metadata-Version: 2.4
+Name: easyxrd
+Version: 0.1.2
+Summary: X-ray diffractioan analysis tool
+Home-page: https://github.com/MehmetTopsakal/easyXRD
+Author: Mehmet Topsakal
+Author-email: metokal@gmail.com
+License: GNU
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.11
+License-File: LICENSE
+Requires-Dist: xarray
+Requires-Dist: numpy<2.0
+Requires-Dist: scipy
+Requires-Dist: pymatgen
+Requires-Dist: pyfai
+Requires-Dist: pybaselines
+Requires-Dist: ipympl
+Requires-Dist: GitPython
+Requires-Dist: mp-api
+Requires-Dist: fabio
+Requires-Dist: pandas
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: platform
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
