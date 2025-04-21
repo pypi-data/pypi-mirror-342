@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+pyciclib/__init__.py
+pyciclib/core.py
+pyciclib.egg-info/PKG-INFO
+pyciclib.egg-info/SOURCES.txt
+pyciclib.egg-info/dependency_links.txt
+pyciclib.egg-info/requires.txt
+pyciclib.egg-info/top_level.txt
