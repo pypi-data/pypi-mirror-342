@@ -1,0 +1,54 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "pyriodicity"
+version = "0.5.0"
+description = "Pyriodicity provides an intuitive and efficient Python implementation of periodicity length detection methods in univariate signals."
+license = "MIT"
+readme = "README.md"
+authors = [
+    {name = "Iskander Gaba", email = "iskander@hey.com"},
+]
+keywords = [
+    "period",
+    "periodicity",
+    "seasonality",
+    "period-detection",
+    "periodicity-analysis",
+    "seasonality-analysis",
+    "autoperiod",
+    "cfd-autoperiod",
+    "robustperiod",
+    "signal-processing",
+    "time-series-analysis"
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.2.3",
+    "pywavelets>=1.8.0",
+    "scipy>=1.15.2",
+]
+
+[project.urls]
+repository = "https://github.com/iskandergaba/pyriodicity"
+documentation = "https://pyriodicity.readthedocs.io"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.9.10",
+    "statsmodels>=0.14.4",
+]
+docs = [
+    "numpydoc>=1.8.0",
+    "pydata-sphinx-theme>=0.16.1",
+]
+
+[tool.uv]
+default-groups = "all"
+
+[tool.ruff.lint]
+extend-select = ["E501"]
