@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+smithery/__init__.py
+smithery/py.typed
+smithery/url.py
+smithery/websocket.py
+smithery.egg-info/PKG-INFO
+smithery.egg-info/SOURCES.txt
+smithery.egg-info/dependency_links.txt
+smithery.egg-info/requires.txt
+smithery.egg-info/top_level.txt
