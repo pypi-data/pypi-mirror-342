@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Weather Alerts",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/debug/test_alerts.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "MSN_WEATHER_API_KEY": "YOUR_API_KEY"
+            },
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Debug Weather Forecast",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/debug/test_forecast.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+                "MSN_WEATHER_API_KEY": "YOUR_API_KEY"
+            },
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
