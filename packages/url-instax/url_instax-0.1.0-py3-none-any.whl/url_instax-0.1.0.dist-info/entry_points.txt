@@ -1,0 +1,2 @@
+[console_scripts]
+url-instax = url_instax.cli:cli
