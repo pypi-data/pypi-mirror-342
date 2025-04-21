@@ -1,0 +1,117 @@
+Metadata-Version: 2.4
+Name: mcp-tour
+Version: 0.1.8
+Summary: MCP server providing Korea Tourism Organization APIs
+Project-URL: Repository, https://github.com/tjwodud04/mcp-tour.git
+Author-email: tjwodud04 <tjwodud04@gmail.com>
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: certifi>=2024.2.2
+Requires-Dist: fastmcp>=0.4.1
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: pydantic>=2.10.6
+Requires-Dist: python-dotenv>=1.0.0
+Description-Content-Type: text/markdown
+
+# py-mcp-tour
+
+Korea Tourism Organization API integration for Claude using MCP protocol.
+
+## Description
+
+This MCP server provides access to Korea Tourism Organization's tourism data API, specifically focusing on related tourist spots information.
+
+## Features
+
+- Get related tourist spots information
+- Get detailed spot information
+- Support for different content types (tourist spots, food, accommodation)
+- National Standard Tourism Data API support
+
+## Setup
+
+1. Get an API key from [Data.go.kr](https://www.data.go.kr)
+2. Set environment variable in `.env` file:
+   ```
+   TOUR_API_KEY=your-api-key
+   ```
+
+## Installation
+
+### Regular Installation
+```bash
+pip install mcp-tour
+```
+
+### Claude Desktop Installation
+
+Using uv (recommended):
+```bash
+uv pip install mcp-tour
+
+uv run python -m mcp_tour.hosts.claude_desktop \
+  -e TOUR_API_KEY=your-api-key
+```
+
+Using pip:
+```bash
+pip install mcp-tour
+
+python -m mcp_tour.hosts.claude_desktop \
+  -e TOUR_API_KEY=your-api-key
+```
+
+## Usage
+
+The server provides the following tools:
+
+### get_area_based_list
+
+Get area-based tourist spots information:
+
+Parameters:
+- area_code: Area code for the region
+- signgu_code: Signgu (city/district) code
+- content_type_id (optional): Content type ID (12: Tourist Spots, 39: Restaurants, 32: Accommodation)
+- size: Number of results (max 50)
+
+### search_by_keyword
+
+Search tourist spots by keyword:
+
+Parameters:
+- keyword: Search keyword
+- area_code: Area code for the region
+- signgu_code: Signgu (city/district) code
+- content_type_id (optional): Content type ID (12: Tourist Spots, 39: Restaurants, 32: Accommodation)
+- size: Number of results (max 50)
+
+### get_standard_tour_list
+
+Get tourist spots information from the National Standard Tourism Data API:
+
+Parameters:
+- page_no (optional): Page number (default: 1)
+- num_of_rows (optional): Number of rows per page (default: 100)
+- tourist_spot_name (optional): Name of the tourist spot to search for
+- address (optional): Address to search for
+
+## Development
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   uv pip install -e ".[dev]"
+   ```
+   or using pip:
+   ```bash
+   pip install -e ".[dev]"
+   ```
+3. Run tests:
+   ```bash
+   python -m pytest
+   ```
+
+## License
+
+This project is licensed under the terms of the MIT license.
