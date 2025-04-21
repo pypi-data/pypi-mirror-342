@@ -1,0 +1,4 @@
+[console_scripts]
+execute = executor.main:entrypoint
+orchestrator = dobu_manager.main:entrypoint
+worker = koko_worker.main:entrypoint
