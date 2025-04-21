@@ -1,0 +1,18 @@
+LICENSE.txt
+README.md
+setup.py
+noshot.egg-info/PKG-INFO
+noshot.egg-info/SOURCES.txt
+noshot.egg-info/dependency_links.txt
+noshot.egg-info/not-zip-safe
+noshot.egg-info/top_level.txt
+src/noshot/__init__.py
+src/noshot/main.py
+src/noshot/data/ML TS XAI/TS/bill-charge.ipynb
+src/noshot/data/ML TS XAI/TS/daily-min-temperatures.ipynb
+src/noshot/data/ML TS XAI/TS/monthly-sunspots.ipynb
+src/noshot/data/ML TS XAI/TS/data/bill-data.csv
+src/noshot/data/ML TS XAI/TS/data/daily-min-temperatures.csv
+src/noshot/data/ML TS XAI/TS/data/monthly-sunspots.csv
+src/noshot/utils/__init__.py
+src/noshot/utils/shell_utils.py
