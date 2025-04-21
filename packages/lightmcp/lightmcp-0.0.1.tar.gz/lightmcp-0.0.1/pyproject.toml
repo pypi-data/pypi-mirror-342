@@ -1,0 +1,21 @@
+[project]
+name = "lightmcp"
+version = "0.0.1"
+description = "A lightweight MCP tool layer for LLM agent frameworks."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+  { name = "Gök Bora Yılmaz", email = "gokbora@lightmcp.dev" }
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Libraries"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

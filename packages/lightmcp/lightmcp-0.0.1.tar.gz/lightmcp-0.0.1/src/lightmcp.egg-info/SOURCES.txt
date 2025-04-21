@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+src/lightmcp/__init__.py
+src/lightmcp.egg-info/PKG-INFO
+src/lightmcp.egg-info/SOURCES.txt
+src/lightmcp.egg-info/dependency_links.txt
+src/lightmcp.egg-info/top_level.txt
