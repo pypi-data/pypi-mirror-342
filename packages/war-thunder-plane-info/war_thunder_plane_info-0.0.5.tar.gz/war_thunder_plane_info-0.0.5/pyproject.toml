@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "war-thunder-plane-info"
+version = "0.0.5"
+authors = [
+  { name="Sergey Titkov", email="srg.titkov@gmail.com" },
+]
+
+description = "Получение информации о самолетах"
+readme = "README.md"
+requires-python = ">=3.13"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/Sergey-Titkov/war_thunder_plane_info"
+Issues = "https://github.com/Sergey-Titkov/war_thunder_plane_info/issues"
+Discord = "https://discord.gg/ktstFYtyUR"
