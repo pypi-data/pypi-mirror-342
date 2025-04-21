@@ -1,0 +1,74 @@
+#B1
+# Implement a Hidden Markov Model (HMM) to recognize the sequence of weather patterns (e.g., sunny, cloudy, rainy) based on temperature and humidity observations. Use both discrete and continuous HMMs to compare their performance.
+import numpy as np
+import matplotlib.pyplot as plt
+from hmmlearn import hmm
+from sklearn.preprocessing import KBinsDiscretizer
+import warnings
+
+warnings.filterwarnings("ignore")
+np.random.seed(42)
+
+# Step 1: Define states
+states = ["Sunny", "Cloudy", "Rainy"]
+n_states = len(states)
+
+# Step 2: Transition probabilities
+trans_probs = np.array([
+    [0.6, 0.3, 0.1],
+    [0.2, 0.5, 0.3],
+    [0.1, 0.3, 0.6]
+])
+
+# Step 3: Emission properties (Temp, Humidity)
+means = np.array([[30, 40], [25, 50], [20, 80]])
+covars = np.array([
+    [[5, 0], [0, 5]],
+    [[4, 0], [0, 4]],
+    [[5, 0], [0, 5]]
+])
+
+# Step 4: Generate synthetic data
+n_samples = 300
+hidden_states = np.random.choice(n_states, size=n_samples, p=[0.5, 0.3, 0.2])
+observations = np.array([
+    np.random.multivariate_normal(means[s], covars[s]) for s in hidden_states
+])
+
+# Visualize the generated data
+plt.scatter(observations[:, 0], observations[:, 1], c=hidden_states, cmap='viridis')
+plt.xlabel("Temperature")
+plt.ylabel("Humidity")
+plt.title("Synthetic Weather Observations")
+plt.show()
+
+# === Discrete HMM (Temperature only) ===
+discretizer = KBinsDiscretizer(n_bins=5, encode='ordinal', strategy='uniform')
+X_discrete = discretizer.fit_transform(observations[:, [0]]).astype(int)
+
+model_discrete = hmm.MultinomialHMM(n_components=n_states, n_iter=100)
+model_discrete.fit(X_discrete)
+pred_discrete = model_discrete.predict(X_discrete)
+
+# Accuracy (rough comparison)
+acc_discrete = np.mean(pred_discrete == hidden_states)
+print(f"Discrete HMM Accuracy: {acc_discrete:.2f}")
+
+# === Continuous HMM (Full Temp & Humidity) ===
+model_continuous = hmm.GaussianHMM(n_components=n_states, covariance_type="full", n_iter=100)
+model_continuous.fit(observations)
+pred_continuous = model_continuous.predict(observations)
+
+acc_continuous = np.mean(pred_continuous == hidden_states)
+print(f"Continuous HMM Accuracy: {acc_continuous:.2f}")
+
+# Visualize predictions (first 50 steps)
+plt.figure(figsize=(10, 4))
+plt.plot(hidden_states[:50], "bo-", label="True States")
+plt.plot(pred_discrete[:50], "r--", label="Discrete HMM")
+plt.plot(pred_continuous[:50], "g.-", label="Continuous HMM")
+plt.legend()
+plt.title("True vs Predicted Hidden States")
+plt.xlabel("Time Step")
+plt.ylabel("State Index")
+plt.show()

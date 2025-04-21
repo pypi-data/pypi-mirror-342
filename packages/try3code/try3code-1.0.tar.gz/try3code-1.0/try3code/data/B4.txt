@@ -1,0 +1,44 @@
+# B4	
+# Create a program that fits a mixture of Gaussians to a dataset of handwritten digit features and clusters them into distinct groups. Use the Expectation-Maximization method to estimate the parameters of the Gaussian mixture model.
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.datasets import fetch_openml
+from sklearn.decomposition import PCA
+from sklearn.mixture import GaussianMixture
+from sklearn.metrics import adjusted_rand_score
+
+# Load MNIST dataset
+mnist = fetch_openml("mnist_784", version=1, as_frame=False)
+X, y = mnist.data, mnist.target.astype(int)
+
+# Normalize pixel values
+X = X / 255.0
+
+# Reduce dimensionality with PCA (to speed up EM)
+pca = PCA(n_components=50)
+X_pca = pca.fit_transform(X)
+
+# Fit Gaussian Mixture Model
+n_components = 10  # Assume 10 digits (0-9)
+gmm = GaussianMixture(n_components=n_components, covariance_type='full', max_iter=100, random_state=42)
+gmm.fit(X_pca)
+
+# Predict cluster labels
+cluster_labels = gmm.predict(X_pca)
+
+# Optional: Check clustering quality with Adjusted Rand Index
+ari = adjusted_rand_score(y, cluster_labels)
+print(f"Adjusted Rand Index: {ari:.2f}")
+
+# Visualize clusters in 2D
+pca_2d = PCA(n_components=2)
+X_2d = pca_2d.fit_transform(X_pca)
+
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x=X_2d[:, 0], y=X_2d[:, 1], hue=cluster_labels, palette="tab10", legend="full", s=10)
+plt.title("GMM Clustering of MNIST (2D PCA Projection)")
+plt.xlabel("PCA 1")
+plt.ylabel("PCA 2")
+plt.legend(title="Cluster")
+plt.show()
