@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+sphinx_tabs_selector/__init__.py
+sphinx_tabs_selector/selector.py
+sphinx_tabs_selector.egg-info/PKG-INFO
+sphinx_tabs_selector.egg-info/SOURCES.txt
+sphinx_tabs_selector.egg-info/dependency_links.txt
+sphinx_tabs_selector.egg-info/top_level.txt
