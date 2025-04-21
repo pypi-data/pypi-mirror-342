@@ -1,0 +1,3 @@
+[mcp.plugins]
+cursor-gitlab-mcp = gitlab_mcp.server:main
+
