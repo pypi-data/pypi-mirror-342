@@ -1,0 +1,39 @@
+flows:
+  default:
+    nodes:
+      tests:
+        target: tests
+        triggers:
+        - code-changes
+      types:
+        target: types
+        triggers:
+        - code-changes
+      docs:
+        target: docs
+        triggers:
+        - delay: 1
+        - watch: ["docs/hooks/"]
+
+targets:
+  tests:
+    commands: |
+      pytest -vv --cov
+
+  types:
+    commands: |
+      mypy
+
+  docs:
+    commands: |
+      mkdocs serve --strict
+
+triggers:
+  code-changes:
+    watch:
+    - src/
+    - tests/
+    - docs/examples/
+    - docs/hooks/
+    - pyproject.toml
+    - .coveragerc
