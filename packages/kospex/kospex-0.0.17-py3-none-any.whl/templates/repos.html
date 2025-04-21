@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+{% set title = "Repos" %}
+{% include '_bootstrap_html_head.html' %}
+<body>
+
+{% include 'header.html' %}
+
+<!-- Main content area -->
+
+<div class="container mt-5">
+
+    <h1 class="mb-4">Repositories {% if page.get('git_owner') %} for {{ page.get('git_owner') }} {% endif %} </h1>
+    {% if page.get('git_server') %} <h3 class="mb-4">{{ page['git_server'] }}</h3> {% endif %}
+
+    {% if page.get('git_owner') %}
+    <h4 class="mb-4"><a href="https://{{ page['git_server'] }}/{{ page['git_owner'] }}">https://{{ page['git_server'] }}/{{ page['git_owner'] }}</a></h4>
+
+    Explore the <a href="/graph/{{ page['git_server'] }}~{{ page['git_owner'] }}">graph of developers and repositories.</a>
+    <br> <br>
+    {% endif %}
+    <table class="table table-striped sortable compact" id="myTable">
+        <thead>
+            <tr>
+                <th>Repo ID</th>
+                <th># Authors</th>
+                <th># Committers</th>
+                <th># Commits</th>
+                <th>Last Seen (days)</th>
+                <th>Active Devs</th>
+                <th>Days Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td><a href="/repo/{{ row['_repo_id'] }}">{{ row['_git_repo'] }}</a></td>
+                <td class="dt-body-right">{{ row['authors'] }}</td>
+                <td class="dt-body-right">{{ row['committers'] }}</td>
+                <td class="dt-body-right">{{ row['commits'] }}</td>
+                <td class="dt-body-right">{{ row['days_ago'] }}</td>
+                <td class="dt-body-right"><a href="/developers/active/{{ row['_repo_id'] }}">{{ row['active_devs'] }}</a></td>
+                <td class="dt-body-right">{{ row['days_active'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if ranges %}
+    <br/>
+    <h1 class="mb-4">Repo Maintenance Status</h1>
+    <table class="table" id="status_table">
+        <thead>
+            <tr>
+                <th> Active </th>
+                <th> Aging </th>
+                <th> Stale </th>
+                <th> Unmaintained </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{ ranges.get('Active') }} </a></td>
+                <td> {{ ranges.get('Aging') }} </a></td>
+                <td> {{ ranges.get('Stale') }} </a></td>
+                <td> {{ ranges.get('Unmaintained') }} </a></td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+
+    {% if developer_status %}
+    <br/>
+    <h2 class="mb-4">Developer Status</h2>
+    <table class="table" id="developer_status_table">
+        <thead>
+            <tr>
+                <th> Active </th>
+                <th> Aging </th>
+                <th> Stale </th>
+                <th> Dormant</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{ developer_status.get('Active') }} </a></td>
+                <td> {{ developer_status.get('Aging') }} </a></td>
+                <td> {{ developer_status.get('Stale') }} </a></td>
+                <td> {{ developer_status.get('Unmaintained') }} </a></td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+
+
+
+</div>
+
+{% include '_footer_scripts.html' %}
+{% include '_datatable_scripts.html' %}
+
+<script>
+    $(document).ready( function () {
+        $('#myTable').DataTable({
+            order: [[4, 'asc']]
+        });
+    } );
+</script>
+
+{% if techs %}
+<div class="container mt-5">
+    <h1 class="mb-4">Observed Technologies</h1>
+    <canvas id="barChart"></canvas>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('barChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ techs|map(attribute='Language')|list|tojson }},
+            datasets: [{
+                label: '# of Occurrences',
+                data: {{ techs|map(attribute='count')|list|tojson }},
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    // ... add more colors if you have more categories
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    // ... add more border colors if you have more categories
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+{% endif %}
+
+</body>
+</html>
