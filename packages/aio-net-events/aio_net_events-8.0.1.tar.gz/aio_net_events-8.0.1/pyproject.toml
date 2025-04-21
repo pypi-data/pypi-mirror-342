@@ -1,0 +1,54 @@
+[project]
+name = "aio-net-events"
+version = "8.0.1"
+description = "Asynchronous network configuration event detector for Python 3.9 and above"
+license = "MIT"
+readme = "README.md"
+authors = [{ name = "Tamas Nepusz", email = "tamas@collmot.com" }]
+requires-python = ">=3.9"
+dependencies = [
+  "anyio>=4.9.0",
+  "netifaces-plus>=0.12.2",
+  "pyobjc-core>=11.0; sys_platform == 'darwin'",
+  "pyobjc-framework-Cocoa>=11.0; sys_platform == 'darwin'",
+  "pyobjc-framework-SystemConfiguration>=11.0; sys_platform == 'darwin'",
+]
+
+[project.urls]
+Homepage = "https://github.com/ntamas/aio-net-events/"
+Repository = "https://github.com/ntamas/aio-net-events/"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+  "coverage[toml]>=7.3.1",
+  "pytest-cov>=6.1.1",
+  "trio>=0.25",
+]
+
+[tool.hatch.build.targets.sdist]
+include = ["src"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aio_net_events"]
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.pytest.ini_options]
+filterwarnings = ["ignore::RuntimeWarning"]
+
+[tool.ruff]
+lint.ignore = ["B905", "C901", "E402", "E501"]
+lint.select = ["B", "C", "E", "F", "W"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

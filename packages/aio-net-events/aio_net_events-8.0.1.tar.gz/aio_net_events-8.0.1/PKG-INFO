@@ -1,0 +1,57 @@
+Metadata-Version: 2.4
+Name: aio-net-events
+Version: 8.0.1
+Summary: Asynchronous network configuration event detector for Python 3.9 and above
+Project-URL: Homepage, https://github.com/ntamas/aio-net-events/
+Project-URL: Repository, https://github.com/ntamas/aio-net-events/
+Author-email: Tamas Nepusz <tamas@collmot.com>
+License-Expression: MIT
+License-File: LICENSE
+Requires-Python: >=3.9
+Requires-Dist: anyio>=4.9.0
+Requires-Dist: netifaces-plus>=0.12.2
+Requires-Dist: pyobjc-core>=11.0; sys_platform == 'darwin'
+Requires-Dist: pyobjc-framework-cocoa>=11.0; sys_platform == 'darwin'
+Requires-Dist: pyobjc-framework-systemconfiguration>=11.0; sys_platform == 'darwin'
+Provides-Extra: dev
+Requires-Dist: coverage[toml]>=7.3.1; extra == 'dev'
+Requires-Dist: pytest-cov>=6.1.1; extra == 'dev'
+Requires-Dist: pytest>=8.0.0; extra == 'dev'
+Requires-Dist: trio>=0.25; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# aio-net-events
+
+`aio-net-events` is a Python library that provides asynchronous generators
+yielding events when the network configuration of the machine changes.
+Currently only network interface additions / removals and IP address additions /
+removals are supported; more events may be added later.
+
+Supports Windows, Linux and macOS at the moment.
+
+Requires Python >= 3.8.
+
+Works with [`asyncio`](https://docs.python.org/3/library/asyncio.html) and
+[`trio`](https://trio.readthedocs.io/en/stable/).
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install
+`aio-net-events`.
+
+```bash
+pip install aio-net-events
+```
+
+## Usage
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to
+discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
