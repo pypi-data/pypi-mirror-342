@@ -1,0 +1,80 @@
+# pyproject.toml
+
+[build-system]
+requires = ["hatchling"] # Modern build backend
+build-backend = "hatchling.build"
+
+[project]
+name = "hashing-mcp-server"
+version = "2.0.0"
+description = "An MCP Server offering tools to calculate MD5 and SHA-256 cryptographic hashes for text data, designed for use with LLMs."
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "MIT" }
+authors = [
+    { name = "Kunal Pathak", email = "contact@kunal-pathak.com" },
+]
+keywords = ["mcp", "hashing", "md5", "sha256", "llm", "ai", "tools", "server"]
+classifiers = [
+    "Development Status :: 3 - Alpha", # Adjust as appropriate
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License", # Match your license
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "mcp[cli]>=1.6.0",
+]
+
+[project.urls]
+Repository = "https://github.com/kanad13/MCP-Server-for-Hashing"
+Documentation = "https://www.kunal-pathak.com/blog/model-context-protocol/"
+PyPI = "https://pypi.org/project/hashing-mcp-server/"
+
+[project.scripts]
+hashing-mcp-server = "hashing_mcp.cli:main" # This maps the command to your Python code entry point
+
+# --- Optional Dependencies (for development, testing, etc.) ---
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",         # Testing framework
+    "pytest-asyncio",      # For testing async code
+    "ruff",                # Optional: Recommended linter/formatter
+    # "mypy",              # Optional: Static type checker
+    # Add other dev tools here
+]
+
+# --- Build configuration specific to Hatch ---
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/pyproject.toml", "/README.md", "/LICENSE", "/docs", "/tests"] # Include docs and tests in sdist
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hashing_mcp"] # <<<--- IMPORTANT: Keep this pointing to the source directory `hashing_mcp`
+
+# --- Pytest Configuration (Optional but Recommended) ---
+[tool.pytest.ini_options]
+minversion = "7.0" # Match requirement above
+testpaths = [      # Tell pytest where to find tests
+    "tests",
+]
+# Automatically discover and run async tests using asyncio_mode = auto
+# Requires pytest-asyncio
+# Add markers to avoid warnings if needed, though asyncio should be known
+# addopts = "-ra -q" # Optional: Add command line options for pytest runs
+asyncio_mode = "auto" # Ensure pytest-asyncio runs automatically
+# Explicitly set the loop scope for async fixtures to 'function' to silence the warning
+# and align with future defaults.
+asyncio_default_fixture_loop_scope = "function"
+
+# --- Ruff Linter/Formatter Configuration (Optional) ---
+# [tool.ruff]
+# select = ["E", "F", "W", "I", "UP", "PL"] # Example rule selection
+# ignore = []
+# line-length = 88
+#
+# [tool.ruff.format]
+# quote-style = "double"
