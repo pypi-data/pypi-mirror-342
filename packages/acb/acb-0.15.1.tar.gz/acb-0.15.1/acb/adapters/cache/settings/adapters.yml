@@ -1,0 +1,12 @@
+app: default
+cache: memory
+dns:
+ftpd:
+models:
+monitoring:
+nosql:
+requests:
+secret:
+smtp:
+sql:
+storage: file
