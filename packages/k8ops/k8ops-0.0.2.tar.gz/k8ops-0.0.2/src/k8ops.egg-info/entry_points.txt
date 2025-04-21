@@ -1,0 +1,2 @@
+[console_scripts]
+k8ops = k8ops.cli:cli
