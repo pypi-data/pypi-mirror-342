@@ -1,0 +1,3 @@
+[console_scripts]
+bb = bedrock_bio.__main__:cli
+bedrock-bio = bedrock_bio.__main__:cli

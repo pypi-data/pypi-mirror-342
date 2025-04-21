@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bedrock-bio"
+version = "0.0.3"
+description = "Coming soon"
+readme = "README.md"
+authors = [ { name = "Liam Abbott", email = "liam.e.abbott@gmail.com" } ]
+requires-python = ">=3.9,<3.14"
+dependencies = [
+  "Bio",
+  "click",
+  "einops",
+  "fairscale",
+  "mashumaro",
+  "modelcif",
+  "numba",
+  "omegaconf",
+  "pandas",
+  "pytorch-lightning",
+  "rdkit",
+  "scipy",
+  "torch",
+  "torchvision",
+  "torchaudio"
+]
+
+[project.scripts]
+bb = "bedrock_bio.__main__:cli"
+bedrock-bio = "bedrock_bio.__main__:cli"
