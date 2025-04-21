@@ -1,0 +1,14 @@
+[project]
+name = "kanbanz"
+version = "0.2.0"
+description = "相对完整版, 支持基本功能及其相关文档和测试"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mkdocs-material>=9.6.11",
+    "mkdocstrings>=0.29.1",
+    "mkdocstrings-python>=1.16.10",
+    "pytest>=8.3.5",
+    "pytest-html>=4.1.1",
+    "setuptools>=78.1.0",
+]
