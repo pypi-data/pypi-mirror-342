@@ -1,0 +1,14 @@
+database/.gitkeep,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/mcp_pinecone/__init__.py,sha256=eUtUa_wNG6k1g7FiG5NH_9j-JnERXzwrHjgMeMy5JW0,171
+src/mcp_pinecone/chunking.py,sha256=K9MfrR6xBa85M7jU_KtIMzBYkNaRP2_akkYyA_Mqozk,9727
+src/mcp_pinecone/constants.py,sha256=ZoYIX_9e395H38Yx-KyNsSwQWCia0xBA59G3kKkRb-E,1900
+src/mcp_pinecone/pinecone.py,sha256=lp4W1Fjho9t6OZFXEZsA0Si69KKPC0jTi12mBHCYtoE,9818
+src/mcp_pinecone/prompts.py,sha256=NIZFlZF50iFwv2Yel3VCiI59rMDDjphaOt8ZoyjgBLE,4792
+src/mcp_pinecone/server.py,sha256=Jdvrb2-pYNanJJrCKWUhNo0mM_M_sY7_7eWQsf7npkw,3979
+src/mcp_pinecone/tools.py,sha256=pKkck9mpbS3JczGQc4DFpbT3Z3KQRwT5MKnfsm7BrT0,9556
+src/mcp_pinecone/utils.py,sha256=e_gk3onMkm-tZKk6hLwNKET_xaICXNgCGErayI69nG0,665
+mseep_mcp_pinecone-0.1.8.dist-info/METADATA,sha256=yhFJKiShfHOobALmZbNyxq14L5AEzUiNHfOG5Olka_8,6583
+mseep_mcp_pinecone-0.1.8.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mseep_mcp_pinecone-0.1.8.dist-info/entry_points.txt,sha256=ntqVkQzEhbVidtE2O8gwwXyjny16PzCChFt1g057ows,51
+mseep_mcp_pinecone-0.1.8.dist-info/licenses/LICENSE,sha256=Z7YCVqOtyjBIpDvAf_V6hr-wtuEF12UpFZjCSV3H6dk,1070
+mseep_mcp_pinecone-0.1.8.dist-info/RECORD,,
