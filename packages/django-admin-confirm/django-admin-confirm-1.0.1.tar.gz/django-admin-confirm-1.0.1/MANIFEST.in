@@ -1,0 +1,2 @@
+recursive-include admin_confirm *
+recursive-exclude admin_confirm/tests *
