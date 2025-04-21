@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: chunkingman
+Version: 0.0.1
+Summary: A library for various text chunking strategies, including token-based, semantic, LLM-guided and hybrid approaches.
+Author-email: Román <roman.p98@gmail.com>
+Project-URL: Homepage, https://github.com/romanpert/chunkingman
+Project-URL: Repository, https://github.com/romanpert/chunkingman
+Project-URL: Issues, https://github.com/romanpert/chunkingman/issues
+Keywords: chunking,text-splitting,embeddings,semantic,openai,nlp
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: fuzzywuzzy
+Requires-Dist: python-Levenshtein
+Requires-Dist: chromadb
+Requires-Dist: tiktoken
+Requires-Dist: sentence-transformers
+Requires-Dist: numpy
+Requires-Dist: backoff
+Requires-Dist: tqdm
+Requires-Dist: openai
+Requires-Dist: anthropic
+Requires-Dist: attrs
