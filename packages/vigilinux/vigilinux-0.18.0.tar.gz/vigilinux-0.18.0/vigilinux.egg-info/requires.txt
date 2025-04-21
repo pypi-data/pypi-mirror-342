@@ -1,0 +1,6 @@
+google-generativeai
+python-dotenv==0.19.2
+setuptools
+importlib_resources
+SpeechRecognition
+pyaudio
