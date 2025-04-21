@@ -1,0 +1,10 @@
+setup.py
+pupu/__init__.py
+pupu/blue.py
+pupu/green.py
+pupu/purple.py
+pupu.egg-info/PKG-INFO
+pupu.egg-info/SOURCES.txt
+pupu.egg-info/dependency_links.txt
+pupu.egg-info/requires.txt
+pupu.egg-info/top_level.txt
