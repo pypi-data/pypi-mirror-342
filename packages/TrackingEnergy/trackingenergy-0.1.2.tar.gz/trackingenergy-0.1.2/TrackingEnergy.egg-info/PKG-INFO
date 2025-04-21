@@ -1,0 +1,553 @@
+Metadata-Version: 2.4
+Name: TrackingEnergy
+Version: 0.1.2
+Summary: EnergyTracker is a library for monitoring system resource usage and energy consumption. CPU, RAM, Disk,GPU and Co2
+Home-page: https://github.com/project2you/TrackingEnergy
+Author: Khomson Kocento
+Author-email: project2you@email.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-python
+Dynamic: summary
+
+# EnergyTracker User Manual
+
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [Core Concepts](#core-concepts)
+4. [Basic Usage](#basic-usage)
+5. [Advanced Features](#advanced-features)
+   - [Process Tracking](#process-tracking)
+   - [Model Layer Tracking](#model-layer-tracking)
+   - [Continuous Monitoring](#continuous-monitoring)
+   - [Markers](#markers)
+6. [Data Export & Analysis](#data-export--analysis)
+7. [Visualization](#visualization)
+8. [Practical Examples](#practical-examples)
+9. [API Reference](#api-reference)
+10. [Troubleshooting](#troubleshooting)
+
+## Introduction
+
+EnergyTracker is a Python toolkit designed to monitor and analyze energy consumption, power usage, and CO2 emissions of software systems. It enables developers, researchers, and data scientists to:
+
+- Measure the environmental impact of machine learning models
+- Compare energy efficiency of different algorithms
+- Identify power-intensive code sections
+- Estimate carbon footprint of applications
+
+The toolkit provides both real-time monitoring capabilities and tools for post-processing and visualizing energy usage data.
+
+## Installation
+
+### Requirements
+- Python 3.6+
+- psutil (core dependency)
+
+### Optional Dependencies
+- pandas (for data analysis)
+- matplotlib (for visualization)
+- tabulate (for pretty tables)
+- pynvml (for NVIDIA GPU monitoring)
+
+### Installation Commands
+
+```bash
+# Basic installation
+pip install energy-tracker
+
+# Full installation with all dependencies
+pip install energy-tracker[all]
+
+# Or install with specific feature sets
+pip install energy-tracker[viz]  # Core + visualization tools
+pip install energy-tracker[gpu]  # Core + GPU monitoring
+```
+
+## Core Concepts
+
+### Layers
+
+EnergyTracker monitors resources at different "layers":
+
+- **System Layer**: Overall system metrics (CPU, RAM, disk, etc.)
+- **Process Layer**: Metrics for specific processes
+- **Model Layer**: Custom-defined layers for ML model components
+
+### Metrics
+
+The toolkit tracks several metrics:
+
+- CPU usage (percentage)
+- Memory usage (MB and percentage)
+- GPU utilization and memory (if available)
+- Estimated power consumption (Watts)
+- CO2 emissions (grams)
+- Battery status (for portable devices)
+
+### Snapshots
+
+Resource measurements are stored as "snapshots" - point-in-time records of all metrics. These can be:
+- Manually triggered
+- Automatically captured at intervals
+- Associated with markers for reference
+
+## Basic Usage
+
+### Quick Monitoring
+
+For simple tracking, use the `quick_track` utility function:
+
+```python
+from energy_tracker import quick_track
+
+# Monitor system for 10 seconds
+tracker = quick_track(duration=10)
+
+# Print summary
+print(tracker.get_summary())
+```
+
+### Tracking a Function
+
+To measure energy used by a specific function:
+
+```python
+from energy_tracker import track_function
+
+def my_algorithm():
+    # Your code here
+    pass
+
+# Run function with energy tracking
+result, tracker = track_function(my_algorithm)
+
+# Print summary
+print(tracker.get_summary())
+```
+
+### Manual Tracking Control
+
+For more control over the tracking process:
+
+```python
+from energy_tracker import EnergyTracker
+
+# Create a tracker
+tracker = EnergyTracker(name="my_tracking_session")
+
+# Start tracking
+tracker.start()
+
+# Do work here
+heavy_computation()
+
+# Stop tracking
+tracker.stop()
+
+# Get results
+print(tracker.get_summary())
+```
+
+## Advanced Features
+
+### Process Tracking
+
+To monitor specific processes:
+
+```python
+from energy_tracker import EnergyTracker
+
+# Create tracker with process layer enabled
+tracker = EnergyTracker(
+    name="process_tracking",
+    track_layers=["system", "process"]
+)
+
+# Track processes
+tracker.track_process(pid=1234)  # By process ID
+tracker.track_process(process_name="chrome")  # By name (substring match)
+
+# Start tracking
+tracker.start()
+
+# Later...
+tracker.stop()
+print(tracker.get_summary())
+```
+
+### Model Layer Tracking
+
+For machine learning workflows, track different model components:
+
+```python
+from energy_tracker import EnergyTracker
+
+# Create tracker with model layer enabled
+tracker = EnergyTracker(
+    name="ml_tracking", 
+    track_layers=["system", "model"]
+)
+
+tracker.start()
+
+# Track data preparation
+tracker.start_model_layer("my_model", "data_preparation")
+prepare_data()
+tracker.stop_model_layer()
+
+# Track training
+tracker.start_model_layer("my_model", "training")
+train_model()
+tracker.stop_model_layer()
+
+# Track inference
+tracker.start_model_layer("my_model", "inference")
+run_inference()
+tracker.stop_model_layer()
+
+tracker.stop()
+
+# Get breakdown by model component
+print(tracker.get_summary())
+```
+
+### Continuous Monitoring
+
+For long-running processes, use background monitoring:
+
+```python
+from energy_tracker import EnergyTracker
+
+# Configure sampling interval
+tracker = EnergyTracker(
+    name="background_tracking",
+    sample_interval=0.5  # 0.5 seconds between samples
+)
+
+# Start tracking in background
+tracker.start()
+tracker.start_continuous()
+
+# Continue with your code
+# ... (tracking happens in background)
+
+# Stop when done
+tracker.stop_continuous()
+tracker.stop()
+```
+
+### Markers
+
+Use markers to identify important points:
+
+```python
+from energy_tracker import EnergyTracker
+
+tracker = EnergyTracker(name="marked_tracking")
+tracker.start()
+
+# Add markers at significant points
+tracker.mark("algorithm_start")
+run_part1()
+tracker.mark("part1_complete")
+run_part2()
+tracker.mark("part2_complete")
+
+tracker.stop()
+
+# Summary will include marker data
+print(tracker.get_summary())
+```
+
+## Data Export & Analysis
+
+### Exporting Data
+
+Save tracking data for later analysis:
+
+```python
+# Save raw data as CSV
+tracker.save_to_csv("energy_data.csv")
+
+# Save summary as JSON
+tracker.save_summary_json("energy_summary.json")
+```
+
+### Getting Data in Different Formats
+
+```python
+# As text report
+text_summary = tracker.get_summary(output_format="text")
+print(text_summary)
+
+# As dictionary
+dict_summary = tracker.get_summary(output_format="dict")
+print(dict_summary["avg_power_watts"])
+
+# As JSON string
+json_summary = tracker.get_summary(output_format="json")
+```
+
+### Tabular Data
+
+```python
+# Get data table (list of dictionaries)
+data_table = tracker.get_data_table()
+
+# Get formatted table
+summary_table = tracker.get_summary_table(format="markdown")
+print(summary_table)
+```
+
+## Visualization
+
+EnergyTracker includes a visualization module for analyzing results.
+
+### Command Line Usage
+
+```bash
+# Visualize from exported files
+python -m energy_tracker.visualize --csv energy_data.csv --json energy_summary.json
+
+# Generate specific plot types
+python -m energy_tracker.visualize --json energy_summary.json --plot-type pie
+python -m energy_tracker.visualize --csv energy_data.csv --plot-type time --metrics "CPU (%)" "Power (W)"
+
+# Generate all plot types
+python -m energy_tracker.visualize --csv energy_data.csv --json energy_summary.json --plot-type all
+```
+
+### Programmatic Visualization
+
+```python
+from energy_tracker.visualize import (
+    load_data, load_summary, 
+    plot_time_series, plot_model_layers, plot_energy_summary
+)
+
+# Load data
+df = load_data("energy_data.csv")
+summary = load_summary("energy_summary.json")
+
+# Create time series plot
+plot_time_series(df, metrics=["CPU (%)", "Power (W)"], output_file="resources.png")
+
+# Create model layer comparison
+plot_model_layers(summary, output_file="models.png")
+
+# Create comprehensive summary
+plot_energy_summary(summary, output_file="energy_report.png")
+```
+
+## Practical Examples
+
+### Compare Sorting Algorithms
+
+```python
+from energy_tracker import EnergyTracker
+
+def bubble_sort(arr):
+    # Implementation...
+    pass
+
+def quick_sort(arr):
+    # Implementation...
+    pass
+
+def merge_sort(arr):
+    # Implementation...
+    pass
+
+# Create test data
+data = list(range(10000))
+random.shuffle(data)
+
+# Compare algorithms
+algorithms = {
+    "bubble_sort": bubble_sort,
+    "quick_sort": quick_sort,
+    "merge_sort": merge_sort
+}
+
+results = {}
+for name, algorithm in algorithms.items():
+    print(f"Testing {name}...")
+    tracker = EnergyTracker(name=f"sort_{name}")
+    tracker.start()
+    
+    # Run the algorithm
+    algorithm(data.copy())
+    
+    tracker.stop()
+    results[name] = tracker.get_summary_dict()
+    print(f"  Power: {results[name]['avg_power_watts']:.2f}W")
+    print(f"  CO2: {results[name]['total_co2_g']:.6f}g")
+```
+
+### Track ML Pipeline
+
+```python
+from energy_tracker import EnergyTracker
+
+# Initialize tracker
+tracker = EnergyTracker(
+    name="ml_pipeline", 
+    track_layers=["system", "model"]
+)
+
+tracker.start()
+
+# Track data processing
+tracker.start_model_layer("ml_model", "data_processing")
+X, y = load_and_process_data()
+tracker.stop_model_layer()
+
+# Track model training
+tracker.start_model_layer("ml_model", "training")
+model = train_model(X, y)
+tracker.stop_model_layer()
+
+# Track multiple evaluation runs
+for i, test_set in enumerate(test_sets):
+    tracker.start_model_layer("ml_model", f"eval_{i}")
+    evaluate_model(model, test_set)
+    tracker.stop_model_layer()
+
+tracker.stop()
+
+# Generate HTML report
+with open("ml_energy_report.html", "w") as f:
+    f.write(f"<h1>ML Pipeline Energy Report</h1>")
+    f.write(f"<pre>{tracker.get_summary()}</pre>")
+    f.write(f"<table>{tracker.get_summary_table(format='html')}</table>")
+```
+
+## API Reference
+
+### EnergyTracker Class
+
+```python
+EnergyTracker(
+    name="default",                # Name for this tracking session
+    track_layers=None,             # List of layers to track 
+                                   # (options: 'system', 'process', 'model')
+    track_battery=True,            # Whether to track battery on portable devices
+    co2_per_kwh=475,               # CO2 emissions in grams per kWh
+    sample_interval=1.0,           # Seconds between samples when continuous tracking
+    gpu_enabled=True,              # Whether to enable GPU monitoring
+    log_level=logging.INFO         # Logging level
+)
+```
+
+#### Main Methods
+
+| Method | Description |
+|--------|-------------|
+| `start(label=None)` | Start tracking with optional label |
+| `stop()` | Stop tracking and take final snapshot |
+| `mark(marker_name)` | Create a named marker at current point |
+| `snapshot(label=None)` | Take a manual snapshot with optional label |
+| `track_process(pid=None, process_name=None)` | Add process to track by PID or name |
+| `start_model_layer(model_name, layer_name)` | Start tracking a model layer |
+| `stop_model_layer(model_name=None, layer_name=None)` | Stop tracking a model layer |
+| `start_continuous(label=None)` | Start continuous tracking in background |
+| `stop_continuous()` | Stop continuous tracking |
+| `get_summary(output_format="text")` | Get tracking summary |
+| `get_summary_dict()` | Get summary as dictionary |
+| `get_data_table()` | Get raw data table |
+| `get_summary_table(format="markdown")` | Get formatted summary table |
+| `save_to_csv(filename=None)` | Save data to CSV file |
+| `save_summary_json(filename=None)` | Save summary to JSON file |
+| `plot(metrics=None, output_file=None)` | Generate plots (requires matplotlib) |
+
+### Utility Functions
+
+```python
+# Quick tracking for a fixed duration
+quick_track(
+    duration=10,           # Duration in seconds
+    name="quick_track",    # Tracking session name
+    interval=1.0,          # Sample interval
+    track_battery=True     # Whether to track battery
+)
+
+# Track a specific function call
+track_function(
+    func,           # Function to track
+    *args,          # Arguments to pass to function
+    name=None,      # Optional name (defaults to function name)
+    **kwargs        # Keyword arguments to pass to function
+)
+```
+
+## Troubleshooting
+
+### Common Issues
+
+#### No GPU Data Available
+
+- Ensure you have pynvml installed (`pip install pynvml`)
+- Verify NVIDIA GPU is detected by your system
+- Check that you have proper permissions
+
+#### High Overhead for Continuous Tracking
+
+- Increase `sample_interval` to reduce measurement frequency
+- Minimize tracked layers to only those needed
+
+#### Missing Dependencies
+
+If you see errors about missing dependencies:
+
+```bash
+# For visualization support
+pip install matplotlib pandas tabulate
+
+# For GPU monitoring
+pip install pynvml
+
+# For all optional dependencies
+pip install energy-tracker[all]
+```
+
+#### Inaccurate Power Measurements
+
+Power measurements are estimations based on resource usage. For more accurate measurements:
+
+- Calibrate against a hardware power meter if available
+- Adjust the power model parameters for your specific hardware
+- Consider external power monitoring tools for validation
+
+### Debugging
+
+Enable detailed logging for troubleshooting:
+
+```python
+import logging
+tracker = EnergyTracker(log_level=logging.DEBUG)
+```
+
+### Support
+
+If you encounter issues:
+
+1. Check the troubleshooting section of the documentation
+2. Look for similar issues in the GitHub repository
+3. Submit a detailed bug report with environment information
+
+## License
+
+EnergyTracker is released under the MIT License.
