@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: thereispythonlibraryforthis
+Version: 0.1.0
+Summary: Because there is literally a Python library for everything.
+Author-email: Siddharth Patel <siddharth2000patel@gmail.com>
+License-Expression: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: rapidfuzz
+
+# ThereIsPythonLibraryForThis 🤡
+
+You’ve got a problem? Don’t worry, there’s a Python library for that. Probably. 
+
+## What is this?
+
+A Python library that finds other Python libraries for you. Because, clearly, you couldn’t be bothered to do it yourself. I mean, why *think* when you can just **install**? It’s like magic, but without the charm.
+
+## Features
+
+- **It finds libraries.** That’s literally it. You give it some words, and it spits out libraries. Nothing fancy.
+- **Sarcasm included.** You asked for it, so I’m giving it. You’ll love it or hate it. Either way, I don’t care.
+- **Scrapes PyPI** so you don’t have to. Seriously, you *don’t* want to search PyPI. It’s a nightmare.
+
+## Installation
+
+```bash
+pip install thereispythonlibraryforthis
