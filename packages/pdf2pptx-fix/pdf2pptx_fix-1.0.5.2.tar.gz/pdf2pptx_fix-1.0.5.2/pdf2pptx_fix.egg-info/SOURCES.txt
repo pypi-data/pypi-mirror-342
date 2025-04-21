@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+pdf2pptx/__init__.py
+pdf2pptx/cli.py
+pdf2pptx_fix.egg-info/PKG-INFO
+pdf2pptx_fix.egg-info/SOURCES.txt
+pdf2pptx_fix.egg-info/dependency_links.txt
+pdf2pptx_fix.egg-info/entry_points.txt
+pdf2pptx_fix.egg-info/requires.txt
+pdf2pptx_fix.egg-info/top_level.txt
