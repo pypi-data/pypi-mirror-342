@@ -1,0 +1,3 @@
+[console_scripts]
+convert360=py360convert.__main__:main
+
