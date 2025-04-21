@@ -1,0 +1,26 @@
+[project]
+name = "fmc_openapi"
+version = "0.1.0"
+description = "A simple Python client to interact with Cisco FMC or SCC APIs using operationId from the OpenAPI spec."
+authors = [
+    {name = "Israel Fernandez",email = "isrferna@cisco.com"}
+]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+homepage = "https://github.com/isrferna/fmc_openapi"
+repository = "https://github.com/isrferna/fmc_openapi"
+keywords = ["Cisco", "FMC", "SCC", "API", "Swagger", "OpenAPI", "automation"]
+dependencies = [
+    "requests (>=2.32.3,<3.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "fmc_openapi", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
