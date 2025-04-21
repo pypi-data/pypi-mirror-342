@@ -1,0 +1,16 @@
+strategy_field/__init__.py,sha256=7yaZ87l4sJgLd2Iwu_EX9unUOMCB9LgBY-yJHeCc3mo,43
+strategy_field/admin.py,sha256=zxTHhU0C5dUzaBdn1wswKxDr4u3UB0jSkWgDf0xGX7M,1435
+strategy_field/config.py,sha256=-2UKs63_v1Z4zyvKgi3x2m3zlFv8FJMKTRgAq6l7HKY,134
+strategy_field/exceptions.py,sha256=sA4agM0NvqJISMYL3gZWK7GNg7rmY8lgFyYCELks0ls,1296
+strategy_field/fields.py,sha256=A6Ve3prWY7z6mvdiBrqpDo5EQo8OQZv4E__lrQXQTR4,15571
+strategy_field/forms.py,sha256=sx2J7n7B9iBfEFMv0j7w3NiI9iWE8P1dGEVMzQBJswE,2157
+strategy_field/registry.py,sha256=6EgCKmXXfGnPE-QJlFd-4ZG5zqPIhx75wpBEOLtz6BA,2390
+strategy_field/utils.py,sha256=CaWXq3xm7TzKOm7XU4-d-ZTT1PndXfhAwumCSJ8O85k,2997
+strategy_field/validators.py,sha256=qKnsDRiriwoa7DKoJPMMtIAbwkzFB8a--Q_blL1pzMw,2210
+strategy_field/version.py,sha256=XRi79FWoZnvkU9YpUCVq-_6vnTUrxKmzOwOlvrJYqm4,511
+strategy_field/contrib/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+strategy_field/contrib/drf.py,sha256=kdCw2xvBnc8RLsTMDDoMWhpPmZale5plyRp6rhK2U2s,2109
+django_strategy_field-3.2.1.dist-info/METADATA,sha256=CwAh8pMta8e_OmEescdql4uZObPGHC39zcYwnp8agNE,5876
+django_strategy_field-3.2.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+django_strategy_field-3.2.1.dist-info/licenses/LICENSE,sha256=SM5NvSMad8VPaF-TQayfMjc3P-Q3Xgs7G8uhJp8BxtQ,1220
+django_strategy_field-3.2.1.dist-info/RECORD,,
