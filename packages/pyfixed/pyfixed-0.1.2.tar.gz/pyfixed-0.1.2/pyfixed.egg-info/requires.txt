@@ -1,0 +1,10 @@
+matplotlib
+mpmath
+myst_parser
+numpy
+py
+pydata_sphinx_theme
+pytest
+pytest-xdist
+sphinx
+sphinx_autodoc_typehints
