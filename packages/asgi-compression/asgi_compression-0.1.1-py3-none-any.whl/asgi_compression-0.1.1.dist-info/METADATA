@@ -1,0 +1,182 @@
+Metadata-Version: 2.4
+Name: asgi-compression
+Version: 0.1.1
+Summary: A framework-independent compression middleware for ASGI applications
+Author-email: Serhii Shevchuk <serhii.shevchuk.dev@gmail.com>
+Maintainer-email: Serhii Shevchuk <serhii.shevchuk.dev@gmail.com>
+License: MIT
+Project-URL: Documentation, https://github.com/serozhenka/asgi-compression
+Project-URL: Issues, https://github.com/serozhenka/asgi-compression/issues
+Project-URL: Source, https://github.com/serozhenka/asgi-compression
+Keywords: asgi,compression,middleware,gzip,brotli,zstandard,zstd
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: multidict>=6.2.0
+Provides-Extra: all
+Requires-Dist: brotli>=1.1.0; extra == "all"
+Requires-Dist: zstandard>=0.23.0; extra == "all"
+Provides-Extra: br
+Requires-Dist: brotli>=1.1.0; extra == "br"
+Provides-Extra: zstd
+Requires-Dist: zstandard>=0.23.0; extra == "zstd"
+Dynamic: license-file
+
+# ASGI Compression
+
+A framework and platform-independent compression middleware for ASGI applications.
+
+## ✨ Features
+
+- 🚀 **Framework Independent** - Works with any ASGI-compatible framework (FastAPI, Starlette, Litestar, Django, Falcon, etc.)
+- 📦 **Multiple Compression Algorithms** - Supports gzip, brotli, and zstandard compression algorithms
+- 🔄 **Content Negotiation** - Automatically selects the best compression algorithm based on the client's Accept-Encoding header
+- 🛠️ **Fully Configurable** - Control minimum size for compression, compression levels, and more
+- 📏 **Minimal Dependencies** - Single external dependency (multidict) apart from optional compression libraries
+- 📝 **Fully Typed** - Complete type annotations for excellent IDE support and code safety
+- 🐍 **Wide Python Support** - Compatible with Python 3.9 to 3.13
+- 🔍 **Streaming Support** - Efficiently compresses both standard and streaming responses
+- 🖥️ **Platform Independent** - Supports macOS, Linux, and Windows.
+
+## 📥 Installation
+
+Install the package with pip:
+
+```bash
+# Basic installation (includes gzip compression)
+pip install asgi-compression
+
+# With gzip and brotli support
+pip install asgi-compression[br]
+
+# With gzip and zstandard support
+pip install asgi-compression[zstd]
+
+# With gzip, brotli and zstandard support
+pip install asgi-compression[all]
+```
+
+## 🚀 Usage
+
+### Basic Example
+
+```python
+from asgi_compression import CompressionMiddleware, GzipAlgorithm
+
+app = ...  # Your ASGI application
+
+# Apply gzip compression with default settings
+app = CompressionMiddleware(
+    app=app,
+    algorithms=[GzipAlgorithm()],
+)
+```
+
+### Multiple Algorithms Example
+
+```python
+from asgi_compression import (
+    BrotliAlgorithm, 
+    CompressionMiddleware, 
+    GzipAlgorithm, 
+    ZstdAlgorithm
+)
+
+app = ...  # Your ASGI application
+
+# Apply multiple compression algorithms in order of preference
+app = CompressionMiddleware(
+    app=app,
+    algorithms=[
+        BrotliAlgorithm(),  # Brotli will be used if the client supports it
+        ZstdAlgorithm(),    # Zstandard will be used as a fallback
+        GzipAlgorithm(),    # Gzip as a last resort
+    ],
+    minimum_size=1000,      # Only compress responses larger than 1KB
+)
+```
+
+### Framework-Specific Examples
+
+#### FastAPI
+
+```python
+from fastapi import FastAPI
+from asgi_compression import CompressionMiddleware, GzipAlgorithm, BrotliAlgorithm
+
+app = FastAPI()
+
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
+
+# Apply compression middleware
+app.add_middleware(
+    CompressionMiddleware,
+    algorithms=[BrotliAlgorithm(), GzipAlgorithm()],
+)
+```
+
+#### Starlette
+
+```python
+from starlette.applications import Starlette
+from starlette.responses import JSONResponse
+from starlette.routing import Route
+from asgi_compression import CompressionMiddleware, GzipAlgorithm
+
+async def homepage(request):
+    return JSONResponse({"hello": "world"})
+
+routes = [
+    Route("/", homepage)
+]
+
+app = Starlette(routes=routes)
+app = CompressionMiddleware(app=app, algorithms=[GzipAlgorithm()])
+```
+
+#### Litestar
+
+```python
+from litestar import Litestar, get
+from asgi_compression import CompressionMiddleware, BrotliAlgorithm
+
+@get("/")
+async def homepage() -> dict:
+    return {"hello": "world"}
+
+app = Litestar(route_handlers=[homepage])
+app = CompressionMiddleware(app=app, algorithms=[BrotliAlgorithm()])
+```
+
+## 🙌 Inspired by
+
+This project was brought to life thanks to inspiration from:
+
+- [Startlette's](https://github.com/encode/starlette) Gzip middleware
+- [brotli-asgi](https://github.com/fullonic/brotli-asgi)
+- [zstd-asgi](https://github.com/tuffnatty/zstd-asgi)
+
+Cudos to devs & maintainers of those amazing libraries!
+
+## 📜 License
+
+This project is licensed under the terms of the MIT license.

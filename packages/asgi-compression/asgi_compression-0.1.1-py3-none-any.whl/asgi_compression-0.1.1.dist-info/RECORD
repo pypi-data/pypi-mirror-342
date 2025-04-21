@@ -1,0 +1,14 @@
+asgi_compression/__init__.py,sha256=hp71J4CeuSECF52-hVS-mia_m0zcXlHV72qABNww_yY,457
+asgi_compression/base.py,sha256=SmWJFT1Iy5I6Sa4_Vp2uMIr4iaQE6iq686havVoZPmQ,5145
+asgi_compression/brotli.py,sha256=hH9SgvxlXxZQN6Cz8VZfqktGU2qhmOPa09KkzdSwti0,2648
+asgi_compression/gzip.py,sha256=dj7kaH5_VbElH2U88oKVcNQPqKTgXl2lE6ghH5Qo0CU,1608
+asgi_compression/identity.py,sha256=tIGUAXxA6YJS0KsZO8se4dlR1_q6_YJNXIBU06-AE98,692
+asgi_compression/middleware.py,sha256=bbH_bdsB3MSgdSN3qMj2VjkGqeGiBGBQRclEsQ6dFHo,2737
+asgi_compression/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+asgi_compression/types.py,sha256=QozTp5Ebehh-I-tv_DkZnjQJ0Z91_Mk5W8-rBI4E0rE,2087
+asgi_compression/zstd.py,sha256=vY4W2RSutzDT6Ua-qEtpzXkxj_SypWlV2dPTBNeaesk,2532
+asgi_compression-0.1.1.dist-info/licenses/LICENSE,sha256=At8Q6pgkvQSKYavwqV4PkaC2Y8AWRQdErZm8gYEJzXw,1082
+asgi_compression-0.1.1.dist-info/METADATA,sha256=szhJfzoBSsJGMSC4kopl7NRmgBBeKQDo_Na3_777X_c,5594
+asgi_compression-0.1.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+asgi_compression-0.1.1.dist-info/top_level.txt,sha256=ReOgAA8xTuoMxA4oROBnjJb7yoIjMe7xAB9dz_eXU0Q,17
+asgi_compression-0.1.1.dist-info/RECORD,,
