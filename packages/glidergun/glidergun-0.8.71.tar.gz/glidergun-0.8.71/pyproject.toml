@@ -1,0 +1,28 @@
+[project]
+name = "glidergun"
+version = "0.8.71"
+description = "Map Algebra with NumPy"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fiona>=1.10.1",
+    "folium>=0.18.0",
+    "ipython>=8.12.3",
+    "matplotlib>=3.9.3",
+    "numpy>=2.0.2",
+    "rasterio>=1.4.2",
+    "scikit-learn>=1.5.2",
+    "scipy>=1.13.1",
+    "shapely>=2.0.6",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+    "pytest>=8.3.3",
+    "ruff>=0.8.1",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jshirota/glidergun"
+"Bug Tracker" = "https://github.com/jshirota/glidergun/issues"
