@@ -1,0 +1,16 @@
+.pre-commit-hooks.yaml,sha256=dqB-1MAmIvvlxLsL6tyqNRRJHu_fXoZP3GMlLVm4l50,1712
+hooks/__init__.py,sha256=l0OmOoAN459N8DZIm3NIoXMTTo3XuEvIvvYsf7qkFm4,102
+hooks/_lib/__init__.py,sha256=hDWWPvJIfT3z7f-krv6Szdt9ZPJzpKHrbilVbuMwLpc,42
+hooks/_lib/git.py,sha256=NzUskQ5G5uTgT8_kchSlZzUz2Km_pFjsxqL5UgXEzHc,2268
+hooks/_lib/gitlab.py,sha256=-Y5nmbRJv2s70Mjn5ahdKZ7XxFMcrMrqfUyQgRj-3CI,2754
+hooks/commit_msg/__init__.py,sha256=AW6zTTlupUDjpgGB-Zli7zxjbBSJ9vsozGvYzw-n5oM,61
+hooks/commit_msg/commit_msg_tk.py,sha256=QUEEHpa_muHiaeVA3AUpzuwUGJ1aH0bc3cYT09tzayE,2621
+hooks/pre_commit/__init__.py,sha256=Hb8Rqb6zoVJG_HP_R1dfpAyh8Zqmhq7UxyIxcCtiT38,61
+hooks/pre_commit/pre_commit_tk.py,sha256=7a1Xm9mEYW8gCDjqYtOrqR-jtu6Ispu5XfpmN26C14s,2363
+hooks/prepare_commit_msg/__init__.py,sha256=wfADnrusvtbslf5EgF04uEN2_8usCZ5Yritmlu-QAQM,69
+hooks/prepare_commit_msg/prepare_commit_msg_tk.py,sha256=Wq5MkJtWSlPw-yyWNi1qUVmCcScY1aCHaUZjYVMK3QY,4163
+pre_commit_sdlcgov_hooks-1.0.3.dist-info/METADATA,sha256=uhzKZZMoTSM-peOHVmG1nRzprbLG1iTUeEc-QcBDblo,6658
+pre_commit_sdlcgov_hooks-1.0.3.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+pre_commit_sdlcgov_hooks-1.0.3.dist-info/entry_points.txt,sha256=nHUxm9cR81jSLeCytrmq0vMdfboDxMcaLfqUboc2Ko4,488
+pre_commit_sdlcgov_hooks-1.0.3.dist-info/licenses/LICENSE,sha256=tvrUMB4IHwGDeYucC4YR4WTUQ0RmerkzlWi4ScDl_mI,1062
+pre_commit_sdlcgov_hooks-1.0.3.dist-info/RECORD,,
