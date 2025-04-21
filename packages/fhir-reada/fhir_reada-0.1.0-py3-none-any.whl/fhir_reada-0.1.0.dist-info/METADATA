@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: fhir-reada
+Version: 0.1.0
+Summary: A FHIR cohort extractor and de-identification tool for clinical research.
+Author-email: Tobenna Oduah <tjlite81@gmail.com>
+License: MIT
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: python-dateutil
+
