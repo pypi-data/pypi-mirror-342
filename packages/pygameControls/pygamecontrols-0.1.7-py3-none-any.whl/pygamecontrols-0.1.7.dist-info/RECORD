@@ -1,0 +1,16 @@
+pygameControls/__init__.py,sha256=Ivl6jPIP4xfrBe5kokd2FXP_CLV0bATuV3rorKfDcHI,25
+pygameControls/controller.py,sha256=NN32TDaDGBKRFIspLQKRkIxo81Qd7I4V_gnqHj6SUfY,1257
+pygameControls/controlsbase.py,sha256=2o4gxsbP50IesYv9dye_RKA_2gzStVSH5G0BG5hgnG8,668
+pygameControls/dualsense_controller.py,sha256=Q8zPrkXHp2FCvMof1RFEeHGhhiYbwkEU7WoFSmPfO3c,3453
+pygameControls/dualsense_edge_controller.py,sha256=zV09j3BHffSHsRXI--DH4Cc-h65mBquuAM1NQtQlyhU,3285
+pygameControls/generic_controller.py,sha256=fKMc_ibvm4HeVQwL3xs1SIB2ww0K1XrVlbLNguKC0Co,2162
+pygameControls/logitech_dual_action_controller.py,sha256=zjuNi6rBJNXlflKsEFUjkMOjVp2vd4MKFFzMp6wB75Q,2730
+pygameControls/logitech_f310_controller.py,sha256=gH9ZvAuqpfQXmoDPs3gmkUtE3CLHfgQnwFG_b8VNl5w,2723
+pygameControls/logitech_f510_controller.py,sha256=hiF0unxAcV5FlomUnpCmbZEMWn9DN76jO49TWUsxW7c,3359
+pygameControls/logitech_f710_controller.py,sha256=8lEA95i__M2i7q1_h-JgT6B-hbu5lXbiXRu7O4I_VE8,3359
+pygameControls/xbox_series_x_controller.py,sha256=Vzj_oFDd0grjYXidvQQ08TyGVXRkNfcBds7CR80-pfs,2400
+pygamecontrols-0.1.7.dist-info/licenses/LICENSE,sha256=KQMYrAM921Oeawv1XkqKG3PxDJy9v7wuu1vhr63d2CY,1070
+pygamecontrols-0.1.7.dist-info/METADATA,sha256=yxrQKgYmP-dHvAX4JrDef91us7UWHH9QL6vL5sblkOA,617
+pygamecontrols-0.1.7.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+pygamecontrols-0.1.7.dist-info/top_level.txt,sha256=Tg86INulVO2XDGUPiQCC68Zsl36kBlr0My-Bn-q04V8,15
+pygamecontrols-0.1.7.dist-info/RECORD,,
