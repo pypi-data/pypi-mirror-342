@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: json5conf
+Version: 0.1.0
+Summary: JSON5Conf is a library to read JSON5 configuration files
+Home-page: https://github.com/josemvas/json5conf
+License: LGPLv3+
+Keywords: JSON5 configuration
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: POSIX
+Requires-Python: >=3.6
+Requires-Dist: json-five
+
+UNKNOWN
+
+
