@@ -1,0 +1,12 @@
+csp_adapter_slack/__init__.py,sha256=Nt8hM5Q1Kb7-X7xKfVei0AQCAV6UWBdU41lTXp0qylw,122
+csp_adapter_slack/adapter.py,sha256=bAs6cTE-ifH-uzheYG9BqkcKbWmfWlt1Txaih60hehM,14890
+csp_adapter_slack/adapter_config.py,sha256=ltLdb9ESSz3O95xCfxKHMNoxDAHYjo07r4DwgGs4SYc,1221
+csp_adapter_slack/mention.py,sha256=q8xTDY6ETP-yvhNheUSqEsrzXXLUH-WL6WBESaohvDM,330
+csp_adapter_slack/message.py,sha256=UUa1ZPj-d-_HyXHt-Sv7S96LsdFc1Zp7QtVT-yUOcg0,994
+csp_adapter_slack/examples/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+csp_adapter_slack/examples/hello.py,sha256=1lvSqtI59CkFnW2PwxxkHo242ivMcDBU8YV8w0BDocQ,1063
+csp_adapter_slack/tests/test_adapter.py,sha256=a-Sjr_jtUUWlI4eNB9Z8x7nF0wco3-7Yt8mLTW2XB0Y,8539
+csp_adapter_slack-0.3.0.dist-info/METADATA,sha256=qdCdNeMXW6Lm3k3yN2g05Jjdu_DTSnaMOpFPCW62lJs,16009
+csp_adapter_slack-0.3.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+csp_adapter_slack-0.3.0.dist-info/licenses/LICENSE,sha256=Dz904Ba4BFTsnLKU2nrCbcc8nqE1hZvaVDl_oOPueDE,11344
+csp_adapter_slack-0.3.0.dist-info/RECORD,,
