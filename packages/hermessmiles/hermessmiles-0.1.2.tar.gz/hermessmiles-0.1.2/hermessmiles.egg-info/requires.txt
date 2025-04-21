@@ -1,0 +1,12 @@
+pandas
+rdkit
+Pillow
+molvs
+dimorphite-dl
+loguru
+pandarallel
+datetime
+pytest
+
+[test]
+pytest

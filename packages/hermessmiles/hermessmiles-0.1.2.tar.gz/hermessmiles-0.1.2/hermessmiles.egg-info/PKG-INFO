@@ -1,0 +1,57 @@
+Metadata-Version: 2.2
+Name: hermessmiles
+Version: 0.1.2
+Summary: SMILES comparison tool with overlap visualization
+Home-page: https://github.com/srijitseal/hermessmiles
+Author: Srijit Seal
+Author-email: srijit@understanding.bio
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: rdkit
+Requires-Dist: Pillow
+Requires-Dist: molvs
+Requires-Dist: dimorphite-dl
+Requires-Dist: loguru
+Requires-Dist: pandarallel
+Requires-Dist: datetime
+Requires-Dist: pytest
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+```markdown
+# Hermessmiles
+
+A tool to compare two CSV files of SMILES strings, find overlapping compounds by InChIKey prefix, and generate an HTML visualization of matching structures.
+
+## Installation
+```bash
+pip install .
+```
+
+## Usage
+```bash
+from hermessmiles.processor import SMILESProcessor, find_overlaps
+from hermessmiles.visualizer import Visualizer
+proc = SMILESProcessor()
+df1 = proc.process("assets/df1.csv")
+df2 = proc.process("assets/df2.csv")
+overlaps = find_overlaps(df1, df2)
+viz = Visualizer(overlaps, "output/results.html")
+viz.render()
+```
+
+By default, the output HTML is saved as `overlap_structures_<timestamp>.html` in your working directory.

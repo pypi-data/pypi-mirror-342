@@ -1,0 +1,16 @@
+README.md
+setup.py
+hermessmiles/__init__.py
+hermessmiles/athena_smiles_standardisation.py
+hermessmiles/cli.py
+hermessmiles/processor.py
+hermessmiles/visualizer.py
+hermessmiles.egg-info/PKG-INFO
+hermessmiles.egg-info/SOURCES.txt
+hermessmiles.egg-info/dependency_links.txt
+hermessmiles.egg-info/entry_points.txt
+hermessmiles.egg-info/requires.txt
+hermessmiles.egg-info/top_level.txt
+tests/__init__.py
+tests/test_processor.py
+tests/test_visualizer.py
