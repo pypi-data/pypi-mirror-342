@@ -1,0 +1,17 @@
+daggerml_cli/__about__.py,sha256=WzX_4Bqlar6SA5ZgjLvQjuZRsq60W2WnhfBBsSapj4g,513
+daggerml_cli/__init__.py,sha256=dObrr_DvRWnwLh_lEaj5OoUXmiqdjZzsoTIwAG4mQgs,213
+daggerml_cli/__main__.py,sha256=KNcL1oxJ14u420vajoQ8D0mi_l89kKqmuk7E_6Kg9dA,207
+daggerml_cli/api.py,sha256=EdBoOibj4PxLSS72Iwit-LLmAIzKXSmGRIBzb107UhU,17514
+daggerml_cli/config.py,sha256=V1exlNaSxKfp1nAh803pbX3XV-ZAyRRjGXrwe-KQ-s4,3427
+daggerml_cli/db.py,sha256=jDjZ0gf1_cZaTXrTgCvv-hUdgztixHvtImdcm4X6F8Q,526
+daggerml_cli/pack.py,sha256=eN-ZotCEvLRuCARZOjyag2nNDZuQYi__TJCMfsdOxQE,1372
+daggerml_cli/python_fork_adapter.py,sha256=JpTD55sUvRmFUQGWVjOMGMPpvr3dmRPhuLB9Uv89Auc,156
+daggerml_cli/repo.py,sha256=ceOlO1CvmwXgG8GvMuAQzGaZL5J5y5UQ9aHrDoLZ7wg,27530
+daggerml_cli/topology.py,sha256=JLtwkZue_u1XtNAKh8fojNWggj4l9bqeNaStHSZAjX0,1721
+daggerml_cli/util.py,sha256=ScWm6BAQESASzLsbpz-LVZvPHjEbVd8qmFFjb23W0xs,2978
+daggerml_cli/cli/__init__.py,sha256=FYfpne7sKIVJ8o1Jy8iS9a5o_-3UYhtwDCeTMQpilMk,17438
+daggerml_cli-0.0.28.dist-info/METADATA,sha256=UKCWbKxu0DQZ18gr6fqOQgdAYF68HzMa0rUsCXqE5ro,2267
+daggerml_cli-0.0.28.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+daggerml_cli-0.0.28.dist-info/entry_points.txt,sha256=qht5pJw65btTu5_sz3kzXSXKpmX-GkQCgTz8FVnpt7E,109
+daggerml_cli-0.0.28.dist-info/licenses/LICENSE.txt,sha256=BLd6B-PpZPI30KZ1unSxSkK3UMxuaer6cvACJe4JKwc,1102
+daggerml_cli-0.0.28.dist-info/RECORD,,
