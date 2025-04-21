@@ -1,0 +1,7 @@
+pillow
+tqdm
+ftfy
+regex
+
+[:platform_system != "Darwin"]
+tensorflow
