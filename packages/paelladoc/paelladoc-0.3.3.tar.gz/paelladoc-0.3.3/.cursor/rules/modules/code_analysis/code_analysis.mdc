@@ -1,0 +1,639 @@
+---
+description: When user asks about analyzing code to generate documentation, present EXACTLY the 19-option menu defined below
+globs: ["**/*.py", "**/*.js", "**/*.ts", "**/*.java", "**/*.jsx", "**/*.tsx", "**/*.html", "**/*.css", "**/*.scss"]
+conversation_required: true
+interactive: true
+ai_driven: true
+prevent_web_search: true
+force_menu_display: true
+strict_context_only: true
+---
+
+# FIXED Documentation Menu System - CODE IS KING - SPECIFIC CONTEXT FILE ONLY
+
+This module handles the presentation of a fixed documentation menu when a user executes the GENERATE_DOC command. 
+
+## ABSOLUTELY CRITICAL: CONTEXT FILE IS THE ONLY SOURCE
+
+1. THE EXTRACTED CONTEXT FILE AT /Users/jlcases/codigo/paelladoc/code_context/extracted/repo_content.txt IS THE ABSOLUTE ONLY SOURCE OF INFORMATION.
+2. ALL documentation MUST be based SOLELY on the extracted context file at this specific path.
+3. DO NOT infer, guess, or create information not explicitly in the context file.
+4. If information for a requested section is not in the context file, say so explicitly.
+5. DO NOT use general knowledge about software development, technologies, or frameworks.
+6. NEVER generate fictitious content when data is missing.
+7. GENERATE ONLY DOCUMENTATION TEXT, NEVER CODE OR OTHER FILES.
+8. DO NOT create any directories, files, or code snippets.
+9. OUTPUT SHOULD BE DOCUMENTATION TEXT ONLY, directly in the chat.
+10. ALWAYS CONSULT THE CONTEXT FILE at /Users/jlcases/codigo/paelladoc/code_context/extracted/repo_content.txt for every section of documentation you generate.
+11. NEVER RELY ON MEMORY or previously generated content - go back to the context file for each section.
+12. This exact path /Users/jlcases/codigo/paelladoc/code_context/extracted/repo_content.txt contains all the information needed.
+
+## Documentation Output Format
+
+1. SAVE documentation as text files in /Users/jlcases/codigo/paelladoc/docs/generated/.
+2. For each selected menu option, use the structure from templates but save in the GENERATED directory:
+   - All generated documentation must go to /Users/jlcases/codigo/paelladoc/docs/generated/
+   - Follow the template format but SAVE to the docs/generated directory
+   - Create the appropriate file structure inside docs/generated directory
+3. USE THE EXISTING TEMPLATES as the base structure for your documentation:
+   - COPY the structure and format of the template file
+   - DO NOT create new template formats or structures
+   - FOLLOW all section headers and formatting from the template
+   - FILL IN the content based ONLY on the extracted context file
+4. Use an appropriate filename based on the documentation type (e.g., "architecture.md", "api_documentation.md").
+5. ALL documentation MUST be in the language selected by the user (es or en).
+6. SAVE MARKDOWN FILES, not just display content in the conversation.
+7. VERIFY that each file is actually created in /Users/jlcases/codigo/paelladoc/docs/generated/.
+8. CONTINUE presenting documentation text in the conversation BUT ALSO save to file.
+9. DO NOT attempt to create code files, repositories, or other non-documentation files.
+10. DO NOT try to execute code or implement solutions.
+11. ONLY create documentation files in the specified output directory.
+12. MAINTAIN the same documentation quality and content while also saving to files.
+13. GUARANTEE that all content is in the language specified by the user.
+
+## Language Control
+
+1. ALL documentation generated MUST be in the language specified by the user (es for Spanish or en for English).
+2. DO NOT mix languages in the documentation.
+3. MAINTAIN the selected language across all documentation files and chat interactions.
+4. DO NOT switch to other languages even if user examples are in other languages.
+5. MENU and ALL documentation output must be in the selected language.
+
+## Workflow Process After Documentation Generation
+
+1. After generating documentation for a selected option, MARK it as completed in the menu.
+2. Use a ✓ symbol next to completed items when showing the menu again.
+3. ALWAYS show the FULL menu again after generating documentation for an option.
+4. The re-displayed menu must include ALL options (completed AND remaining).
+5. Format for marking completed items: "8. Propuesta de Valor ✓"
+6. The menu re-presentation MUST happen AFTER each documentation section is generated.
+7. When showing the updated menu, maintain the EXACT same format as the original menu.
+8. IMMEDIATELY ask the user if they want to continue with another option.
+
+## IMPORTANT: Menu Display Rules
+
+1. ALWAYS ask for language (e.g., 'es', 'en') EVEN IF a default language is configured, and WAIT for explicit confirmation.
+2. READ EXCLUSIVELY the extracted context file at /Users/jlcases/codigo/paelladoc/code_context/extracted/repo_content.txt (not search the web)
+3. Present ONE brief paragraph about the repository based on LOCAL CONTEXT ONLY
+4. IMMEDIATELY show the 19-option menu in the language specified by the user without any additional analysis
+5. Do NOT search the web or use external information
+6. Do NOT modify the menu options
+7. Do NOT skip the menu presentation
+8. ONLY use information found in the extracted context file for all documentation
+
+## Documentation Generation Menu
+
+The AI MUST ALWAYS present EXACTLY this menu in the language specified by the user (Spanish or English) after one brief paragraph:
+
+Spanish Menu:
+```
+¿Qué te gustaría documentar? (Puedes seleccionar múltiples opciones indicando los números, por ejemplo: 1, 5, 9)
+
+Documentación Técnica:
+1.  Arquitectura Técnica
+2.  Documentación de API
+3.  Especificaciones de Componentes
+4.  Esquema de Base de Datos
+5.  Dependencias
+
+Documentación de Producto (Requerida para Documentación de Negocio):
+6.  Historias de Usuario
+7.  Definición del Problema
+8.  Propuesta de Valor
+
+Documentación para Usuarios:
+9.  Guía de Instalación
+10. Guía de Uso
+
+Documentación para Desarrolladores:
+11. Instrucciones de Configuración
+12. Guías de Contribución
+
+Documentación de Negocio (Requiere Documentación de Producto):
+13. Investigación de Mercado
+14. Modelo de Negocio
+15. Análisis Competitivo
+
+Otras Opciones:
+16. Toda la Documentación Técnica
+17. Toda la Documentación de Producto
+18. Todo
+19. He Terminado
+```
+
+English Menu:
+```
+What would you like to document? (You can select multiple options by indicating the numbers, for example: 1, 5, 9)
+
+Technical Documentation:
+1.  Technical Architecture
+2.  API Documentation
+3.  Component Specifications
+4.  Database Schema
+5.  Dependencies
+
+Product Documentation (Required for Business Documentation):
+6.  User Stories
+7.  Problem Definition
+8.  Value Proposition
+
+User Documentation:
+9.  Installation Guide
+10. Usage Guide
+
+Developer Documentation:
+11. Setup Instructions
+12. Contribution Guidelines
+
+Business Documentation (Requires Product Documentation):
+13. Market Research
+14. Business Model
+15. Competitive Analysis
+
+Other Options:
+16. All Technical Documentation
+17. All Product Documentation
+18. Everything
+19. I'm Done
+```
+
+## Documentation Dependencies
+
+- Market Research, Business Model → Require Problem Definition, Value Proposition, User Stories
+- Competitive Analysis → Requires Problem Definition, Value Proposition
+
+## Strictly Prohibited Actions
+
+- DO NOT analyze and present findings extensively before showing the menu
+- DO NOT propose a different structure of documentation
+- DO NOT skip showing the fixed menu
+- DO NOT search the web or use online information
+- DO NOT generate your own menu options
+- DO NOT replace the menu with custom analysis
+- DO NOT invent or assume information not explicitly in the context file
+- DO NOT use general technology knowledge not found in the context file
+- STRICTLY adhere to "CODE IS KING" - context file is the only source of truth
+- ALWAYS check /Users/jlcases/codigo/paelladoc/code_context/extracted/repo_content.txt for every piece of information
+- NEVER rely on memory without consulting the context file again
+
+# Code Analysis for Documentation Generation
+
+This module handles the analysis of code repositories to generate comprehensive documentation through an interactive process with the user.
+
+## Command Definition
+
+# This section might be purely descriptive, but let's comment it out to avoid confusion
+# ```
+# GENERATE-DOC [repo_path=/path/to/repo] [context_path=/path/to/context] [output=/path/to/output] [template=template_name]
+# ```
+
+## Documentation Generation Process
+
+When executing this command, PAELLADOC will:
+
+1. **Initial Analysis**:
+   - Analyze repository structure and content
+   - Detect project type, frameworks, and patterns
+   - Identify key components and relationships
+
+2. **Interactive Documentation Menu**:
+   Ask the user what documentation they want to generate:
+
+   ```
+   What would you like to document? (You can select multiple options)
+   
+   Technical Documentation:
+   1. Technical Architecture
+   2. API Documentation
+   3. Component Specifications
+   4. Database Schema
+   5. Dependencies
+
+   Product Documentation:
+   6. User Stories
+   7. Problem Definition
+   8. Value Proposition
+
+   Business Documentation:
+   9. Market Research
+   10. Business Model
+   11. Competitive Analysis
+
+   User Documentation:
+   12. Installation Guide
+   13. Usage Guide
+
+   Developer Documentation:
+   14. Setup Instructions
+   15. Contribution Guidelines
+
+   Other Options:
+   16. All Technical Documentation
+   17. All Product Documentation
+   18. Everything
+   19. I'm Done
+   ```
+
+3. **Documentation Generation**:
+   For each selected option:
+   - Generate the corresponding documentation
+   - Ask for any missing information
+   - Create the documentation file
+   - Ask "Would you like to extract anything else?"
+
+4. **Completion**:
+   When the user selects "I'm Done" or confirms they don't want to extract more:
+   - Generate an index of all created documentation
+   - Provide a summary of what was generated
+   - Offer to generate additional documentation if needed
+
+## Documentation Types
+
+### Technical Documentation
+- Architecture overview
+- Component specifications
+- API references
+- Data models
+- Integration points
+- Security considerations
+
+### Product Documentation
+- Problem definition
+- User stories
+- Value proposition
+- Target audience analysis
+- Product roadmap
+
+### Business Documentation
+- Market analysis
+- Competitive analysis
+- Business model description
+- Marketing strategies
+- Customer acquisition plans
+
+### User Documentation
+- Installation guides
+- Configuration instructions
+- User manuals
+- Troubleshooting guides
+- FAQs
+
+### Developer Documentation
+- Setup instructions
+- Contribution guidelines
+- Testing procedures
+- Release processes
+- Code style guides
+
+## AI-Driven Analysis
+
+The AI will analyze the codebase to:
+1. Detect architecture patterns and project structure
+2. Identify components and their relationships
+3. Extract API endpoints and data models
+4. Understand business logic and features
+5. Recognize documentation needs
+
+## Interactive Process
+
+The documentation generation follows this conversation workflow:
+
+1. AI analyzes the code automatically
+2. Presents findings about project type and structure
+3. Asks what documentation to generate
+4. For each selection:
+   - Generates documentation
+   - Asks for any missing information
+   - Creates the documentation file
+   - Asks if user wants to extract more
+5. Continues until user is done
+
+This process is handled directly by the AI without requiring external scripts.
+
+# PAELLADOC Code Analysis Rules
+
+This rule defines how PAELLADOC analyzes existing codebases to bootstrap the documentation process.
+
+## Analysis Capabilities
+
+1.  **Architecture Detection**:
+    *   Applies to various language files (`.js`, `.ts`, `.py`, `.java`, etc.).
+    *   Detects common patterns: MVC, MVVM, Clean Architecture, Microservices, Event-Driven, Layered.
+    *   Analyzes component structure and maps dependencies.
+
+2.  **API Documentation Extraction**:
+    *   Applies to typical API folders (`controllers`, `routes`, `handlers`, `api`).
+    *   Extracts endpoints, request/response models (DTOs), and security patterns.
+    *   Parses comments (e.g., JSDoc, Swagger annotations) for details.
+
+3.  **Database Schema Analysis**:
+    *   Applies to model/entity/schema folders and `.sql` files.
+    *   Extracts data models and their relationships.
+    *   Identifies database migration scripts.
+
+4.  **Project Type Detection**:
+    *   Automatically identifies the type of project being documented
+    *   Determines appropriate documentation categories to offer
+    *   Customizes documentation templates based on project type
+
+## Corresponding Documentation Templates
+
+The analysis results are used to populate specific sections in standard PAELLADOC templates:
+
+*   **Architecture Analysis** -> `02_technical_architecture.md`
+    *   Sections: Detected Architecture, Component Structure, Dependencies, Integration Points.
+*   **API Analysis** -> `05_api_specification.md`
+    *   Sections: Endpoints Overview, Authentication, Data Models, Error Handling.
+*   **Database Analysis** -> `04_database_design.md`
+    *   Sections: Schema Overview, Entity Relationships, Migrations, Data Flow.
+*   **User Stories** -> `03_user_stories.md`
+    *   Sections: Personas, User Flows, Requirements, Acceptance Criteria
+*   **Market Analysis** -> `06_market_analysis.md`
+    *   Sections: Market Size, Competitors, Trends, Opportunities
+
+{
+    "version": "1.0.0",
+    "name": "paelladoc-code-analyzer",
+    "description": "Code analysis rules for PAELLADOC",
+    "patterns": ["code_context/**/*"],
+    "rules": [
+        {
+            "name": "architecture-detection",
+            "description": "Detecta patrones arquitectónicos en el código",
+            "patterns": ["**/*.{js,ts,py,java,go,rs,cpp,cs}"],
+            "analysis": {
+                "detect_patterns": [
+                    "MVC",
+                    "MVVM",
+                    "Clean Architecture",
+                    "Microservices",
+                    "Event-Driven",
+                    "Layered Architecture"
+                ],
+                "component_analysis": true,
+                "dependency_mapping": true
+            }
+        },
+        {
+            "name": "api-documentation",
+            "description": "Extrae documentación de APIs",
+            "patterns": [
+                "**/controllers/**/*",
+                "**/routes/**/*",
+                "**/handlers/**/*",
+                "**/api/**/*"
+            ],
+            "analysis": {
+                "extract_endpoints": true,
+                "parse_comments": true,
+                "identify_dto": true,
+                "security_patterns": true
+            }
+        },
+        {
+            "name": "database-schema",
+            "description": "Analiza esquemas de base de datos",
+            "patterns": [
+                "**/models/**/*",
+                "**/entities/**/*",
+                "**/schemas/**/*",
+                "**/*.sql"
+            ],
+            "analysis": {
+                "extract_models": true,
+                "relationships": true,
+                "migrations": true
+            }
+        },
+        {
+            "name": "project-type-detection",
+            "description": "Detects project type and technology stack automatically",
+            "patterns": ["**/package.json", "**/manifest.json", "**/*.config.*", "**/tsconfig.json", "**/webpack.config.*"],
+            "analysis": {
+                "detect_project_type": true,
+                "identify_frameworks": true,
+                "analyze_dependencies": true,
+                "detect_languages": true
+            }
+        },
+        {
+            "name": "user-story-extraction",
+            "description": "Extracts user stories and requirements from comments and documentation",
+            "patterns": ["**/docs/**/*", "**/*.md", "**/README*", "**/requirements*"],
+            "analysis": {
+                "extract_user_stories": true,
+                "identify_requirements": true,
+                "detect_acceptance_criteria": true
+            }
+        },
+        {
+            "name": "problem-solution-detection",
+            "description": "Identifies problem statements and solution approaches",
+            "patterns": ["**/docs/**/*", "**/*.md", "**/README*"],
+            "analysis": {
+                "extract_problem_statements": true,
+                "identify_solution_approaches": true,
+                "detect_value_proposition": true
+            }
+        }
+    ],
+    "documentation_templates": {
+        "architecture": {
+            "template": "02_technical_architecture.md",
+            "sections": [
+                "Detected Architecture",
+                "Component Structure",
+                "Dependencies",
+                "Integration Points"
+            ]
+        },
+        "api": {
+            "template": "05_api_specification.md",
+            "sections": [
+                "Endpoints Overview",
+                "Authentication",
+                "Data Models",
+                "Error Handling"
+            ]
+        },
+        "database": {
+            "template": "04_database_design.md",
+            "sections": [
+                "Schema Overview",
+                "Entity Relationships",
+                "Migrations",
+                "Data Flow"
+            ]
+        },
+        "user_stories": {
+            "template": "03_user_stories.md",
+            "sections": [
+                "Personas",
+                "User Flows",
+                "Requirements",
+                "Acceptance Criteria"
+            ]
+        },
+        "market_analysis": {
+            "template": "06_market_analysis.md",
+            "sections": [
+                "Market Size",
+                "Competitors", 
+                "Trends",
+                "Opportunities"
+            ]
+        }
+    }
+}
+
+## Process Overview
+
+The code analysis process follows these steps:
+
+1. **Repository Conversion**: Convert repository to text format using repopack
+2. **Structure Analysis**: Analyze code structure, patterns, and architecture
+3. **Definition Extraction**: Extract function, class, and type definitions
+4. **Dependency Mapping**: Map dependencies between components
+5. **Project Type Detection**: Determine project type and technology stack
+6. **Documentation Options**: Determine appropriate documentation options
+7. **User Interaction**: Ask user which documentation to generate
+8. **Documentation Generation**: Generate documentation based on analysis and user choices
+
+## Integration with Documentation System
+
+The code analysis results feed into the documentation system to:
+- Generate API documentation
+- Create architecture diagrams
+- Produce usage examples
+- Document data flows
+- Identify potential issues
+- Determine project type and properties automatically
+- Guide the documentation options presented to the user
+
+## Project Type Detection Logic
+
+The system uses the following heuristics to determine project type:
+
+1. **Chrome Extension**: 
+   - Presence of manifest.json with extension-specific fields
+   - Content scripts, background scripts, and popup files
+   - Extension-specific permissions
+
+2. **Frontend Web App**:
+   - React/Angular/Vue framework dependencies
+   - HTML/CSS/JS structure
+   - Absence of server-side code
+   - Build configurations for SPA/PWA
+
+3. **Backend/API**:
+   - Server frameworks (Express, Koa, Flask, Django, etc.)
+   - Route definitions and controllers
+   - Database connections
+   - API endpoint patterns
+
+4. **Mobile App**:
+   - React Native, Flutter, or native mobile code
+   - Mobile-specific configurations
+   - App manifests and build files
+
+5. **Library/Package**:
+   - Exports structure
+   - Package configuration
+   - Distribution setup
+
+This automatic detection ensures users are never asked about information that can be extracted from the code. 
+
+# Code Analysis Module for PAELLADOC
+
+## Overview
+This module handles code analysis and documentation generation through AI-driven interactive conversations.
+
+# <<< Commenting out the redundant/conflicting GENERATE_DOC definition below >>>
+# ## Commands
+# 
+# ### GENERATE_DOC
+# description: "Interactive documentation generation through AI analysis"
+# behavior:
+#   conversation_required: true
+#   ai_driven: true # <<< This was likely causing the conflict
+#   interactive: true
+#   prevent_automatic_generation: true
+# 
+# repository_analysis:
+#   analyze_repo_content: true
+#   default_repo_path: "code_context/extracted/repo_content.txt"
+#   auto_detect_project_type: true
+#   extract_technologies: true
+#   detect_frameworks: true
+#   identify_patterns: true
+#   project_structure_analysis: true
+#   always_analyze_current_repository: true
+#   prefer_context_over_templates: true
+
+output_structure:
+  base_path: "docs/generated"
+  templates:
+    technical:
+      - architecture.md
+      - api.md
+      - components.md
+      - database.md
+      - dependencies.md
+    product:
+      - user_stories.md
+      - problem_definition.md
+      - value_proposition.md
+    business:
+      - market_research.md
+      - business_model.md
+      - competitive_analysis.md
+    user:
+      - installation.md
+      - usage.md
+    developer:
+      - setup.md
+      - contributing.md
+
+memory_management:
+  save_selections: true
+  track_generated_docs: true
+  update_project_state: true
+  check_dependencies: true
+
+validation:
+  verify_code_access: true
+  check_dependencies: true
+  ensure_completeness: true
+  validate_product_docs_before_business: true
+  verify_repository_context: true
+
+code_analysis:
+  auto_extract_project_metadata: true
+  metadata_extraction:
+    project_name: true
+    project_type: true
+    technologies: true
+    languages: true
+    frameworks: true
+    architecture: true
+    components: true
+    main_features: true
+    design_patterns: true
+  force_repository_analysis: true
+  
+  detect_project_type:
+    chrome_extension:
+      files: ["manifest.json", "background.js", "content.js"]
+      patterns: ["chrome.runtime", "chrome.tabs", "chrome.storage"]
+    web_frontend:
+      files: ["package.json", "webpack.config.js", "tsconfig.json"]
+      patterns: ["react", "svelte", "vue", "angular"]
+    backend:
+      files: ["server.js", "app.js", "package.json"]
+      patterns: ["express", "koa", "fastify", "nest"]
+    mobile:
+      files: ["App.js", "AndroidManifest.xml", "Info.plist"]
+      patterns: ["react-native", "ionic", "flutter"]
+    library:
+      files: ["package.json", "readme.md", "tsconfig.json"]
+      patterns: ["/^exports:/", "/^main:/", "/^module:/"] 

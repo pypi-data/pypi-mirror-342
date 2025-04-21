@@ -1,0 +1,67 @@
+---
+description: "When user types PAELLA or asks about documentation, guide them through the interactive documentation process using natural language conversations"
+globs: ["**/*"]
+createFiles: true
+createFolders: true
+canCreateFiles: true
+canCreateFolders: true
+autoCreateFolders: true
+---
+
+# PAELLADOC - Interactive Documentation System
+
+PAELLADOC is an interactive documentation system that focuses on a documentation-first approach to software projects. It uses natural language conversations to generate well-structured and comprehensive documentation before starting any code implementation.
+
+## Starting a Documentation Project
+
+To start using PAELLADOC, simply type the command:
+
+```
+PAELLA
+```
+
+This will initiate an interactive conversation to guide you through the process of creating documentation for your project.
+
+## Key Features
+
+- 📝 **Documentation-First Approach**: Establish clear requirements and specifications before coding
+- 🗣️ **Natural Language Conversations**: Create documentation through guided conversations
+- 📊 **Template-Based Documentation**: Choose from a variety of document templates for different aspects of your project
+- 🔄 **Iterative Documentation Process**: Build your documentation one document at a time
+- 💾 **Project Memory**: Keeps track of your documentation progress and decisions
+- 🔍 **Documentation Verification**: Ensures documentation remains consistent with code
+- 🖥️ **Code Generation**: Generate code scaffolding based on your documentation
+
+## Available Commands
+
+- `PAELLA`: Start the documentation process
+- `VERIFY`: Validate documentation against code
+- `HELP`: Show available commands
+- `CONTINUE`: Resume work on an existing documentation project
+- `GENERATE_CODE`: Create code from documentation
+- `CODING_STYLE`: Manage programming style guides
+- `WORKFLOW`: Manage Git workflow methodologies
+- `TEMPLATE`: Manage documentation templates
+
+## How It Works
+
+1. PAELLADOC asks for basic project information (name, purpose, target audience)
+2. It presents a menu of available document templates
+3. You select a document to create
+4. PAELLADOC guides you through specific questions to complete the document
+5. The process repeats for each document you want to create
+6. All documentation is organized in a structured project folder
+
+## Why Use PAELLADOC?
+
+- **Reduce Technical Debt**: By documenting first, you avoid accumulating technical debt
+- **Improve Communication**: Clear documentation helps team members understand the project
+- **Increase Development Speed**: Well-defined requirements lead to faster implementation
+- **Enhance Quality**: Documentation-first approach results in better designed systems
+- **Facilitate Onboarding**: New team members can quickly understand the project
+
+Start documenting your project today with PAELLADOC!
+
+```python
+def get_documentation_first():
+    return "Better architecture, clearer requirements, and faster development!"
