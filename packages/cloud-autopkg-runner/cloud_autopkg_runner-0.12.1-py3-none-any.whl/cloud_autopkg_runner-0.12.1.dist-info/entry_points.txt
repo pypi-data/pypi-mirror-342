@@ -1,0 +1,7 @@
+[console_scripts]
+autopkg-run = cloud_autopkg_runner.__main__:main
+autopkg-runner = cloud_autopkg_runner.__main__:main
+autopkg_run = cloud_autopkg_runner.__main__:main
+autopkg_runner = cloud_autopkg_runner.__main__:main
+cloud-autopkg-runner = cloud_autopkg_runner.__main__:main
+cloud_autopkg_runner = cloud_autopkg_runner.__main__:main
