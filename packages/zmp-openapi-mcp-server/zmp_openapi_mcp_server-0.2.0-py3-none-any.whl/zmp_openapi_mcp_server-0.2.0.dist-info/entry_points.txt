@@ -1,0 +1,4 @@
+[console_scripts]
+zmp-container-openapi-mcp-server=zmp_openapi_mcp_server.runner.container:run
+zmp-openapi-mcp-server=zmp_openapi_mcp_server.runner.cli:main
+
