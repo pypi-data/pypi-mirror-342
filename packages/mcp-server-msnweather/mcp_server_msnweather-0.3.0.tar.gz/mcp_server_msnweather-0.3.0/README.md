@@ -1,0 +1,111 @@
+# MCP Server MSN Weather
+
+A Model Context Protocol (MCP) server that provides weather data using the MSN Weather API. This server enables access to weather alerts and forecasts for any location by name or address.
+
+## Installation
+
+```bash
+pip install mcp-server-msnweather
+```
+
+## Requirements
+
+- Python >= 3.10
+- httpx >= 0.28.1
+- mcp[cli] >= 1.2.0
+
+## Usage
+
+1. You'll need to obtain two API keys:
+   - MSN Weather API key from Microsoft (for weather data)
+   - Bing Maps API key (for location search and geocoding)
+
+2. Start the server with your API keys:
+
+```bash
+mcp-server-msnweather --wxapikey YOUR_WEATHER_API_KEY --autosuggestapikey YOUR_BING_MAPS_API_KEY
+```
+
+## Available Tools
+
+### get_alerts
+
+Fetches weather alerts for a specific location by name.
+
+Parameters:
+- `location_name` (string): Name of the location (e.g., "Seattle, WA")
+
+Example:
+```python
+result = await mcp.call_tool("get_alerts", {
+    "location_name": "Seattle, WA"
+})
+```
+
+### get_forecast
+
+Gets a 7-day weather forecast for a specific location by name.
+
+Parameters:
+- `location_name` (string): Name of the location (e.g., "Seattle, WA")
+
+Example:
+```python
+result = await mcp.call_tool("get_forecast", {
+    "location_name": "Seattle, WA"
+})
+```
+
+### get_location_coordinates
+
+Converts a location name to complete location information including latitude and longitude coordinates, region, country, and address.
+
+Parameters:
+- `location_name` (string): Name of the location to look up (e.g., "Seattle, WA")
+
+Example:
+```python
+result = await mcp.call_tool("get_location_coordinates", {
+    "location_name": "Seattle, WA"
+})
+```
+
+## Development
+
+To set up the development environment:
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/mcp-server-msnweather.git
+cd mcp-server-msnweather
+
+# Create a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+
+# Install in development mode
+pip install -e .
+```
+
+### Running Tests
+
+The project includes debug scripts in the `debug/` directory to test different features:
+
+```bash
+# Set your API keys as environment variables
+export MSN_WEATHER_API_KEY="your-weather-api-key"
+export BING_MAPS_API_KEY="your-bing-maps-api-key"
+
+# Test location lookup
+python debug/test_location.py
+
+# Test weather alerts
+python debug/test_alerts.py
+
+# Test weather forecast
+python debug/test_forecast.py
+```
+
+## License
+
+See the [LICENSE](LICENSE) file for details.
