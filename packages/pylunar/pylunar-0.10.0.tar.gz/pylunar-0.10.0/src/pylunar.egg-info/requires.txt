@@ -1,0 +1,30 @@
+ephem==4.2
+
+[:python_version < "3.10"]
+importlib-resources==6.5.2
+typing-extensions==4.13.2
+
+[build]
+build==1.2.2.post1
+twine==6.1.0
+
+[dev]
+pylunar[build,docs,lint,test]
+scriv==1.6.2
+tox==4.25.0
+
+[docs]
+sphinx_rtd_theme==3.0.2
+
+[docs:python_version < "3.11"]
+sphinx~=7.4
+
+[docs:python_version >= "3.11"]
+sphinx~=8.2
+
+[lint]
+pre-commit==4.2.0
+
+[test]
+coverage[toml]==7.8.0
+pytest==8.3.5
