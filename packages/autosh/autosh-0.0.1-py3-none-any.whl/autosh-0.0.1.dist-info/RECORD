@@ -1,0 +1,17 @@
+autosh/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+autosh/config.py,sha256=XHVICbostoBn01kyzIT5IMvqwpyJDYNYP7awOfIljfw,2141
+autosh/main.py,sha256=myRolKqfHyQEgujqmUndDSm9J0C21w3zqA9-SYNX1kY,4961
+autosh/md.py,sha256=306onJ24sqYXmDpr_hLaqgo9mbQuZr18vEEDOGvqemI,13729
+autosh/session.py,sha256=fDPM9addcTDmCPysaqqd_z3rEseLI2tIa_dLfn3o5Uc,6800
+autosh/plugins/__init__.py,sha256=yOTobuyYFpUWl5BCowGzJG8rZX2Whlagail_QyHVlo4,2487
+autosh/plugins/calc.py,sha256=qo0EajIpNPv9PtLNLygyEjVaxo1F6_S62kmoJZq5oLM,581
+autosh/plugins/cli.py,sha256=joMxIIcNL0y7F9k4e9c6Pu6zmOmGb0pSsR8zFMB7J_0,7366
+autosh/plugins/clock.py,sha256=GGi0HAG6f6-FP1qqGoyCcUj11q_VnkaGArumsMk0CkY,542
+autosh/plugins/code.py,sha256=0JwFzq6ejgbisCqBm_RG1r1WEVNou64ue-siVIpvZqs,2291
+autosh/plugins/search.py,sha256=1d3Gqq6uXu0ntTBpw44Ab_haAySvZLMj3e2MQd3DHO0,2736
+autosh/plugins/web.py,sha256=lmD2JnsqVI1qKgSFrk39851jCZoPyPRaVvHeEFYXylA,2597
+autosh-0.0.1.dist-info/METADATA,sha256=oXsOPAcYzBj7xKTsnpJcauOJFM2CKTFZAfTIUaJf4wU,1720
+autosh-0.0.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+autosh-0.0.1.dist-info/entry_points.txt,sha256=BV7bzUnxG6Z5InEkrfajGCxjooYORC5tZDDZctOPenQ,67
+autosh-0.0.1.dist-info/licenses/LICENSE,sha256=BnLDJsIJe-Dm18unR9DOoSv7QOfAz6LeIQc1yHAjxp0,1066
+autosh-0.0.1.dist-info/RECORD,,
