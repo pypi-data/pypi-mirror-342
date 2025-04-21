@@ -1,0 +1,26 @@
+Metadata-Version: 2.3
+Name: terminalizer2asciinema
+Version: 0.1.0
+Summary: convert file in terminalizer format to asciinema format
+License: MIT
+Keywords: terminalizer,asciinema
+Author: Siak Hooi
+Author-email: siakhooi@gmail.com
+Requires-Python: >=3.12
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: File Formats
+Classifier: Topic :: Utilities
+Requires-Dist: pyyaml (>=6.0.2,<7.0.0)
+Requires-Dist: termcolor (>=3.0.1,<4.0.0)
+Project-URL: Bug Tracker, https://github.com/siakhooi/python-terminalizer2asciinema/issues
+Project-URL: Documentation, https://github.com/siakhooi/python-terminalizer2asciinema/wiki
+Project-URL: Homepage, https://github.com/siakhooi/python-terminalizer2asciinema
+Project-URL: Repository, https://github.com/siakhooi/python-terminalizer2asciinema
+Description-Content-Type: text/markdown
+
+# terminalizer2asciinema
+convert file in terminalizer format to asciinema format
+
