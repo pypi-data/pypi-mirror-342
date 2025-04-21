@@ -1,0 +1,1 @@
+from amend.built_in.mappings.data_mappings import amend_mutable_data_mapping
