@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+PyLitedl.egg-info/PKG-INFO
+PyLitedl.egg-info/SOURCES.txt
+PyLitedl.egg-info/dependency_links.txt
+PyLitedl.egg-info/top_level.txt
+lite/__init__.py
+lite/functional.py
+lite/losses.py
+lite/nn.py
+lite/optim.py
+lite/scipy_optim.py
+lite/tensor.py
+lite/utils.py
