@@ -1,0 +1,3 @@
+[submodule "industrial-robots"]
+	path = industrial-robots
+	url = ../industrial-robots.git
