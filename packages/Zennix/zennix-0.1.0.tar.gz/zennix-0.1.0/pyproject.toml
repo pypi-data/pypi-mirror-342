@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Zennix"
+version = "0.1.0"
+description = "Zennix: AI-powered automation for project documentation and scaffolding"
+authors = [{ name = "Gopal Goyal", email = "goyal11.gopal@gmail.com" }]
+license = "MIT"
+license-files = ["LICENSE*"]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.15.2",
+    "groq>=0.22.0"   
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Environment :: Console"
+]
+
+
+[project.urls]
+"Homepage" = "https://github.com/gopal-goyal/zennix"
+"Repository" = "https://github.com/gopal-goyal/zennix"
+
+[project.scripts]
+zennix = "zennix.cli:main"
