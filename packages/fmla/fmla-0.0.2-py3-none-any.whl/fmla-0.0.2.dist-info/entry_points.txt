@@ -1,0 +1,3 @@
+[console_scripts]
+fmla=fmla.cli:main
+
