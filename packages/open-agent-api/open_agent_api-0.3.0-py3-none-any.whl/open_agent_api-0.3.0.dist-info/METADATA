@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: open-agent-api
+Version: 0.3.0
+Summary: Open Agent API
+Home-page: 
+Author: OpenAPI Generator community
+Author-email: team@openapitools.org
+Keywords: OpenAPI,OpenAPI-Generator,Open Agent API
+Description-Content-Type: text/markdown
+Requires-Dist: urllib3<3.0.0,>=1.25.3
+Requires-Dist: python-dateutil>=2.8.2
+Requires-Dist: pydantic>=2
+Requires-Dist: typing-extensions>=4.7.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: summary
+
+    An API for creating and interacting with AI agents, including chat completions, autonomous agents with tool usage, multi-agent teams, knowledge base search, and optional billing integration. Clients can authenticate via magic link or OAuth2 to obtain a token, or use API keys. 
+    
