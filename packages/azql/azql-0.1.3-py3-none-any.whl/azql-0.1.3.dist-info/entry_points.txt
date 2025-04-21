@@ -1,0 +1,2 @@
+[console_scripts]
+azql = azql.cli:main
