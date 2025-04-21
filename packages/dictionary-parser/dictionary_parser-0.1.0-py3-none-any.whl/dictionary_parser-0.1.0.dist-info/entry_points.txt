@@ -1,0 +1,2 @@
+[console_scripts]
+dictionary-parser = dictionary_parser.cli:app
