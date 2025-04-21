@@ -1,0 +1,14 @@
+pyquations/__init__.py,sha256=xlTGwUC_d2apgGlD-apNtfNBekx-m4L4i-ag-1EcgNM,377
+pyquations/algebra/__init__.py,sha256=AZV8s8i1aepJsdQLa5fuNNCs-EkPX0lIjuT1qcgkN3k,89
+pyquations/algebra/quadratic_formula.py,sha256=w0ZMPwLrDpkMleM8mgIxbK4jK_-dZ_9Iuz13nXwpOxY,1671
+pyquations/conversions/__init__.py,sha256=JeVr5ClPcjPpOugbkDOp0BiSsBjdXI4zvOiat5i0HT4,53
+pyquations/conversions/speed.py,sha256=GIEPZSw2Rw2cy3S5u8UlrJhDhY_AShPZYVwt_lBXOR4,2215
+pyquations/geometry/__init__.py,sha256=_Tm5yauJjK0k8ZhySRNL-qBkmX2o4nss8qJ7pWnIAYY,95
+pyquations/geometry/pythagorean_theorem.py,sha256=ykmo0rKlh1_L5HSfXXKHaADjc0Pfha_y4dQVKWMFVks,1415
+pyquations/physics/__init__.py,sha256=9JM7H3yDMAlhDu6-iEEoKs9UBPmOeevr5rrGJ1YThkw,92
+pyquations/physics/newtons_second_law.py,sha256=Caxfara4JwRAAx9yCSm9opZLYY9T-_Y9TJ22CEyOpsc,3297
+pyquations-0.1.0b1.dist-info/licenses/LICENSE,sha256=ka-TmXkXGtp6yA3FBJV3Y3Ym0Y-34mVrrFOiJbgf3tU,1074
+pyquations-0.1.0b1.dist-info/METADATA,sha256=a0oMnPLpoFYK6d2MRC6OA2dfuui-xU8l80n32NrLm-I,2276
+pyquations-0.1.0b1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+pyquations-0.1.0b1.dist-info/top_level.txt,sha256=qH3En0ceBPROuyguBDE0sF0lgZSoQuVD-K_1koCVJEg,11
+pyquations-0.1.0b1.dist-info/RECORD,,
