@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-md bg-body py-3">
+    <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span class="bs-icon-md bs-icon-circle bs-icon-primary-light d-flex justify-content-center align-items-center me-2 bs-icon"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                    <path d="M18 13v7H4V6h5.02c.05-.71.22-1.38.48-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5l-2-2zm-1.5 5h-11l2.75-3.53 1.96 2.36 2.75-3.54zm2.8-9.11c.44-.7.7-1.51.7-2.39C20 4.01 17.99 2 15.5 2S11 4.01 11 6.5s2.01 4.5 4.49 4.5c.88 0 1.7-.26 2.39-.7L21 13.42 22.42 12 19.3 8.89zM15.5 9C14.12 9 13 7.88 13 6.5S14.12 4 15.5 4 18 5.12 18 6.5 16.88 9 15.5 9z"></path>
+                </svg></span><span class="fw-bold">ImageGallery</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-3">
+            <ul class="navbar-nav ms-auto">
+                {% set url_path = request.path %}
+                <li class="nav-item"><a class="nav-link {% if url_path == '/' %}active{% endif %}" href="{{ url_for('index.index') }}">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link {% if url_path == '/diashow' %}active{% endif %}" href="{{ url_for('diashow.diashow') }}">Diashow</a></li>
+            </ul><button class="btn btn-primary position-relative visually-hidden" type="button"><a class="stretched-link link-light" href="signin.html">Sign in</a></button>
+        </div>
+    </div>
+</nav>

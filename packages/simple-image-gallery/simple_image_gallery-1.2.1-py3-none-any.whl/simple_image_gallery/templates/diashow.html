@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "navbar_w_items.html" %}
+<section class="py-3">
+    <div class="container pb-5 pt-3">
+        <div class="row mb-4">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold mb-0">my gallery</h2>
+            </div>
+        </div>
+        <div class="row mb-4" id="sort-toolbar">
+            <div class="col">
+                <div class="container">
+                    <div class="mx-auto resize-none row row-cols-1 row-cols-md-2" style="max-width: 900px;">
+                        <div></div>
+                        <div class="d-flex align-items-center sort-toolbar-collapsing sort-toolbar-collapsing-right"><label class="form-label flex-shrink-0 me-2 mb-0 fs-7">Sort by:</label>
+                            <form method="get" target="_self">
+                                <select class="border rounded border-dark form-select form-select-sm fs-7 ps-3 pe-5" onchange="this.form.submit()" name="sort">
+                                    <option value="0" {% if sort == 0 %}selected{% endif %}>Random</option>
+                                    <option value="-1" {% if sort == -1 %}selected{% endif %}>Newest first</option>
+                                    <option value="1" {% if sort == 1 %}selected{% endif %}>Oldest first</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="container">
+                    <div class="mx-auto row" style="max-width: 900px;">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div class="carousel slide border rounded shadow" data-bs-ride="carousel" data-bs-interval="6000" id="carousel-1">
+                                <div class="carousel-inner border rounded">
+                                    {% for image in images %}
+                                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                        <img class="w-100 d-block" src="{{ url_for('images.query_image', filename=image.name) }}" alt="Slide Image">
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<input type="hidden" id="query-image-paths-url" value="{{ url_for('images.query_image_paths', sort=sort, min_items=min_items) }}">
+{% endblock %}

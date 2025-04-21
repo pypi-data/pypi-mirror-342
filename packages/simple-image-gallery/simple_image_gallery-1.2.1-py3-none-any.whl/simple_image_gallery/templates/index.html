@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "navbar_w_items.html" %}
+<section class="py-3">
+    <div class="container pb-4 pt-3">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold mb-0">{{ header }}</h2>
+                <p class="mt-2"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="text-primary">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+                    </svg>&nbsp;Select checkboxes to <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="text-primary">
+                        <g>
+                            <rect fill="none" height="24" width="24"></rect>
+                        </g>
+                        <g>
+                            <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"></path>
+                        </g>
+                    </svg>&nbsp;download images.</p>
+            </div>
+        </div>
+        <div class="row mb-4" id="sort-toolbar">
+            <div class="col">
+                <div class="container">
+                    <div class="mx-auto resize-none row row-cols-1 row-cols-md-2" style="max-width: 900px;">
+                        <div class="d-flex align-items-center sort-toolbar-collapsing">
+                            <label class="form-label flex-shrink-0 mb-0 me-2 fs-7">Sort by:</label>
+                            <form target="_self" method="get">
+                                <select class="border rounded border-dark form-select form-select-sm fs-7 pe-5" onchange="this.form.submit()" name="sort">
+                                    <option value="-1" {% if sort == -1 %}selected{% endif %}>Newest first</option>
+                                    <option value="1" {% if sort == 1 %}selected{% endif %}>Oldest first</option>
+                                </select>
+                                <input type="hidden" name="items" value="{{ items }}">
+                            </form>
+                        </div>
+                        <div class="d-flex align-items-center sort-toolbar-collapsing sort-toolbar-collapsing-right">
+                            <label class="form-label flex-shrink-0 me-2 mb-0 fs-7">Items per page:</label>
+                            <form target="_self" method="get">
+                                <input type="hidden" name="sort" value="{{ sort }}">
+                                <select class="border rounded border-dark form-select form-select-sm fs-7 ps-3 pe-5" onchange="this.form.submit()" name="items">
+                                    <option value="20" {% if items == 20 %}selected{% endif %}>20</option>
+                                    <option value="40" {% if items == 40 %}selected{% endif %}>40</option>
+                                    <option value="60" {% if items == 60 %}selected{% endif %}>60</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form method="post" action="{{ url_for('images.download_images') }}">
+            <div class="row visually-hidden mb-4" id="selection-toolbar">
+                <div class="col">
+                    <div class="container">
+                        <div class="mx-auto row row-cols-1 row-cols-md-2" style="max-width: 900px">
+                            <div class="d-flex align-items-center col"><button class="btn btn-light btn-sm border-dark me-3" data-bs-toggle="tooltip" data-bss-tooltip="" type="reset" title="Cancel selection" onclick="cancelSelection()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="fs-4">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path>
+                                    </svg></button><label class="form-label fs-6 mb-0 me-1" id="selection-counter">0</label><label class="form-label fs-6 m-0">selected</label>
+                                <div class="flex-grow-1"></div>
+                            </div>
+                            <div class="d-flex align-items-center selection-toolbar-collapsing">
+                                <div class="btn-group btn-group-sm" role="group"><button class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bss-tooltip="" type="button" title="Select all images" onclick="selectAllCheckboxes()"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="fs-4">
+                                            <path d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M3 5h2V3c-1.1 0-2 .9-2 2zm0 8h2v-2H3v2zm4 8h2v-2H7v2zM3 9h2V7H3v2zm10-6h-2v2h2V3zm6 0v2h2c0-1.1-.9-2-2-2zM5 21v-2H3c0 1.1.9 2 2 2zm-2-4h2v-2H3v2zM9 3H7v2h2V3zm2 18h2v-2h-2v2zm8-8h2v-2h-2v2zm0 8c1.1 0 2-.9 2-2h-2v2zm0-12h2V7h-2v2zm0 8h2v-2h-2v2zm-4 4h2v-2h-2v2zm0-16h2V3h-2v2zM7 17h10V7H7v10zm2-8h6v6H9V9z"></path>
+                                        </svg></button><button class="btn btn-outline-dark" data-bs-toggle="tooltip" data-bss-tooltip="" type="button" title="Deselect all images" onclick="deselectAllCheckboxes()"><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="fs-4">
+                                            <g>
+                                                <rect fill="none" height="24" width="24"></rect>
+                                            </g>
+                                            <g>
+                                                <path d="M3,13h2v-2H3V13z M7,21h2v-2H7V21z M13,3h-2v2h2V3z M19,3v2h2C21,3.9,20.1,3,19,3z M5,21v-2H3C3,20.1,3.9,21,5,21z M3,17h2 v-2H3V17z M11,21h2v-2h-2V21z M19,13h2v-2h-2V13z M19,9h2V7h-2V9z M15,5h2V3h-2V5z M7.83,5L7,4.17V3h2v2H7.83z M19.83,17L19,16.17 V15h2v2H19.83z M21.19,21.19L2.81,2.81L1.39,4.22L4.17,7H3v2h2V7.83l2,2V17h7.17l2,2H15v2h2v-1.17l2.78,2.78L21.19,21.19z M9,15 v-3.17L12.17,15H9z M15,12.17V9h-3.17l-2-2H17v7.17L15,12.17z"></path>
+                                            </g>
+                                        </svg></button></div>
+                                <div class="flex-grow-1"></div>
+                                <button class="btn btn-outline-primary btn-sm" data-bs-toggle="tooltip" data-bss-tooltip="" type="submit" title="Download images">
+                                    <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="1em" viewBox="0 0 24 24" width="1em" fill="currentColor" class="fs-4">
+                                        <g>
+                                            <rect fill="none" height="24" width="24"></rect>
+                                        </g>
+                                        <g>
+                                            <path d="M5,20h14v-2H5V20z M19,9h-4V3H9v6H5l7,7L19,9z"></path>
+                                        </g>
+                                    </svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <section class="photo-gallery py-0 py-xl-0">
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-md-2 mx-auto" data-bss-baguettebox="" style="max-width: 900px;">
+                                {% for image_path, ctime in images %}
+                                <div class="col mb-4">
+                                    <div>
+                                        <div class="position-relative">
+                                            <input name="{{ image_path.name }}" type="checkbox" data-bs-toggle="tooltip" data-bss-tooltip="" class="form-check-input position-absolute selection-checkbox" autocomplete="off" title="Select image" onchange="changeSelection()">
+                                            <div class="d-flex justify-content-center"><a href="{{ url_for('images.query_image', filename=image_path.name) }}">
+                                                <img class="rounded img-fluid shadow" src="{{ url_for('images.query_image', filename=image_path.name) }}"></a></div>
+                                        </div>
+                                        <div class="py-3 pe-1"><span class="badge bg-light text-dark border rounded mb-0" data-bs-toggle="tooltip" data-bss-tooltip="" title="Creation date">{{ ctime }}</span></div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col">
+                <div class="container">
+                    <div class="mx-auto row" style="max-width: 900px;">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <nav>
+                                <ul class="pagination">
+                                    {% if page > 1 %}
+                                        {% set prev_page = page - 1%}
+                                    {% else %}
+                                        {% set prev_page = page %}
+                                    {% endif %}
+                                    <li class="page-item"><a class="page-link" aria-label="Previous" href="{{ url_for('index.index', page=prev_page, sort=sort, items=items) }}"><span aria-hidden="true">«</span></a></li>
+                                    {% for _ in range(1, total_pages + 1) %}
+                                    <li class="page-item {% if page == loop.index %}disabled{% endif %}"><a class="page-link" href="{{ url_for('index.index', page=loop.index, sort=sort, items=items) }}">{{ loop.index }}</a></li>
+                                    {% endfor %}
+                                    {% if page < total_pages %}
+                                        {% set next_page = page + 1 %}
+                                    {% else %}
+                                        {% set next_page = page %}
+                                    {% endif %}
+                                    <li class="page-item"><a class="page-link" aria-label="Next" href="{{ url_for('index.index', page=next_page, sort=sort, items=items) }}"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
