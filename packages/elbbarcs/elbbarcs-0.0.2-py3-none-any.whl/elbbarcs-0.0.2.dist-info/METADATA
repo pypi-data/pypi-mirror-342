@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: elbbarcs
+Version: 0.0.2
+Summary: A library and tool for estimating scrabble letter distributions from corpora
+Author-email: Daniel Swanson <ftyers@prompsit.com>
+License: MIT License
+        
+        Copyright (c) 2021 Daniel Swanson
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/ftyers/scrabble
+Keywords: scrabble,distribution,letters
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: bumpver ; extra == 'dev'
+Requires-Dist: pip-tools ; extra == 'dev'
+
+# elbbarcs 
+
+Find Scrabble™ letter distributions for a corpus.
+
+## Usage
+
+###  Library
+```python
+from elbbarcs import Estimator
+
+e = Estimator()				# Create a new Estimator object
+s = e.estimate('english.txt')		# Estimate the scores for the corpus
+e.table(s) 				# Print out a table
+```
+
+```python
+from elbbarcs import Estimator
+
+e = Estimator(digraphs="ch c'h zh")	# Create a new Estimator object
+s = e.estimate('brezhoneg.txt')		# Estimate the scores for the corpus
+e.table(s) 				# Print out a table
+```
+
+The constructor takes the following arguments:
+* `digraphs`: A string containing the space-separated digraphs in the language
+* `tiles`: The number of tiles
+* `buckets`: The number of buckets 
+
+### Command line program
+
+The library functionality is also exposed via the `elbbarcs` command-line utility.
+
+```
+$ elbbarcs brezhoneg.txt --digraph "ch zh c'h"
+              ×1            ×2   ×3      ×4   ×5   ×6      ×7   ×12   ×14
+0                      [blank]                                           
+1                                              I    T   N O R     A     E
+2                            G    S   D L U                              
+3              H   B K M P V Z                                           
+4   C'H W ZH Ñ Ù                                                         
+5              F                                                         
+6         C CH J                                                         
+7              Y                                                         
+9              É                            
+```
+
+This table indicates that for Breton, there should be 2 tiles for `K`, which will have a score of `3`.
+
+## History
+
+This library was developed by [Daniel Swanson](https://github.com/mr-martian/) at the request of Francis Tyers for calculating the number 
+of scrabble letters needed and their distribution for a given language. The objective was to make a 
+scrabble set for San Mateo Huave from combinations of other scrabble sets.
+
+In the end it required one set of each of English, Spanish and German to create the set for Huave.
+
+![Scrabble for San Mateo Huave](https://github.com/ftyers/scrabble/blob/master/img/huv.jpg?raw=true)
+
+
