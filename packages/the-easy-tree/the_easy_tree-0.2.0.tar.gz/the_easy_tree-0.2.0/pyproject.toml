@@ -1,0 +1,32 @@
+[project]
+name = "the-easy-tree"
+version = "0.2.0"
+description = "Decision tree and Random Forest algorithms implementation for regression and classification with minimal boilerplate code."
+authors = [
+    {name = "Yury Choi", email = "yurytsoy@gmail.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "polars (>=1.26.0,<2.0.0)",
+    "numpy (>=2.2.4,<3.0.0)",
+    "orjson (>=3.10.16,<4.0.0)"
+]
+dynamic = [ "classifiers" ]
+
+[project.urls]
+repository = "https://github.com/yurytsoy/easy-tree"
+
+[tool.poetry]
+packages = [
+    { include = "easy_tree" }
+]
+classifiers = [
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
