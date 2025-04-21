@@ -1,0 +1,2 @@
+# Modify this Procfile to fit your needs
+web: LOG_LEVEL=debug COLUMNS=90 ganglion serve --port $PORT --config ganglion-fly.toml

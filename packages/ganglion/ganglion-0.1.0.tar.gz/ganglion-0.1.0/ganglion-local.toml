@@ -1,0 +1,14 @@
+[server]
+base_url = "http://127.0.0.1:8080"
+app_url_format = "http://127.0.0.1:8080/{account}/{application}"
+app_websocket_url = "ws://127.0.0.1:8080"
+
+[templates]
+root = "./templates"
+
+[static]
+root = "./static"
+url = "/static/"
+
+[db]
+url = "postgresql+asyncpg://postgres:password@localhost/ganglion"

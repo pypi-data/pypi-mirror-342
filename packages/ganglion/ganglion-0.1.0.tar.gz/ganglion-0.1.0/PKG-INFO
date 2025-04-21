@@ -1,0 +1,76 @@
+Metadata-Version: 2.4
+Name: ganglion
+Version: 0.1.0
+Summary: Add your description here
+License-File: LICENSE
+Requires-Python: >=3.13
+Requires-Dist: aioconsole>=0.8.1
+Requires-Dist: aiohttp-jinja2>=1.6
+Requires-Dist: aiohttp[speedups]>=3.11.17
+Requires-Dist: alembic>=1.15.2
+Requires-Dist: asyncpg>=0.30.0
+Requires-Dist: bcrypt>=4.3.0
+Requires-Dist: click>=8.1.8
+Requires-Dist: haversine>=2.9.0
+Requires-Dist: msgpack>=1.1.0
+Requires-Dist: psycopg2-binary>=2.9.10
+Requires-Dist: pydantic>=2.11.3
+Requires-Dist: rich>=14.0.0
+Requires-Dist: sqlalchemy[asyncio]>=2.0.40
+Requires-Dist: textual>=3.1.0
+Requires-Dist: uvloop>=0.21.0
+Description-Content-Type: text/markdown
+
+# ganglion
+
+The server that serves Textual apps in the browser.
+
+Currently an early WIP
+
+## Getting Started
+
+Ganglion doesn't use any particular packaging ATM. Here's how to install:
+
+- Create and activate a Python 3.11 venv:
+- `pip install -r requirements.txt`
+- `pip install -e .`
+
+This will install a `ganglion` command on the path.
+
+Install the front-end dependencies using `npm i`.
+If you don't have `npm`, consider using [`nvm`](https://github.com/nvm-sh/nvm) (or [`nvm.fish`](https://github.com/jorgebucaran/nvm.fish)) to install it.
+You can install the latest node and npm using `nvm install latest`.
+
+To test, open *2* terminals, and activate the venvs.
+
+On terminal A, run `DEBUG=1 ganglion serve`.
+On terminal B, run `DEBUG=1 ganglion client`.
+
+If all goes well you should be able to type in terminal B, and see the packets arrive on terminal A.
+
+## Setting up a database for local development
+
+### MacOS
+
+- Install [Postgres.app](https://postgresapp.com/).
+- Add `/Applications/Postgres.app/Contents/Versions/latest/bin` to your `PATH`.
+- Run `psql` in your terminal, then run `CREATE DATABASE ganglion;` to create the required database.
+- Leave `psql` (ctrl+d), and run `alembic upgrade head` to set up the initial database.
+- Re-enter `psql` and run `\c ganglion` to connect to the `ganglion` database.
+- Run `\dt` to list all the tables in the current database - you should see that tables have been created.
+
+## Migrations
+
+Create migration file:
+
+```
+alembic revision --autogenerate -m "Added account table"
+```
+
+Apply migration:
+
+```
+alembic upgrade head
+```
+
+See [Alembic](https://alembic.sqlalchemy.org/en/latest/) docs for details
