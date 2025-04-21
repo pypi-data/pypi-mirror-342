@@ -1,0 +1,37 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0"] # Minimum version of setuptools needed
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "email-list-generator" # Name on PyPI (must be unique, use hyphens)
+version = "1.0.0" # Your initial version
+authors = [
+  { name="HackingRepo", email="cs7778503@gmail.com" }, # From your script
+]
+description = "Generates potential email addresses based on target info for ethical testing."
+readme = "README.md" # Points to your README file
+requires-python = ">=3.9" # Your installer checks this
+license = { file="LICENSE" } # Points to your LICENSE file
+keywords = ["email", "generator", "osint", "pentesting", "security", "email-list", "email_list"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License", # Choose your license
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Security",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "termcolor", # From your requirements.txt
+    # Add any other dependencies here (argparse & datetime are built-in)
+]
+
+# This section makes your script runnable from the command line after install
+[project.scripts]
+email-generate = "email_generator_pkg.cli:main" # Assumes a main() function in cli.py
+
+# Section to include non-code files like your JSON
+[tool.setuptools.package-data]
+email_generator_pkg = ["data/*.json"]

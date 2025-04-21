@@ -1,0 +1,13 @@
+LICENSE
+README
+pyproject.toml
+src/email_generator_pkg/__init__.py
+src/email_generator_pkg/cli.py
+src/email_generator_pkg/generator.py
+src/email_generator_pkg/data/email_service.json
+src/email_list_generator.egg-info/PKG-INFO
+src/email_list_generator.egg-info/SOURCES.txt
+src/email_list_generator.egg-info/dependency_links.txt
+src/email_list_generator.egg-info/entry_points.txt
+src/email_list_generator.egg-info/requires.txt
+src/email_list_generator.egg-info/top_level.txt

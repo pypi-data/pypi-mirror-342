@@ -1,0 +1,38 @@
+## ✨ Features
+**Feature 1 🚀**: Generate Email list using victim information
+**Feature 2 🚀**: Support buisness domain by provide -w options
+**Feature 3 🚀**: Support verbose mode for detailed information
+### ⚠️  Disclaimer
+*The Tool for Education Purpose only Attacking target without autorisation is illegal and unethical in all countries ensure always you respect LAWS any dommage using the tool you is reponsable Developper of Email-Generator-List not responsable for any issue* 
+## 📚 Table of Contents
+
+* [Installation](#installation)
+* [Quick Start](#quick-start)
+* [Usage](#usage)
+* [Configuration](#configuration)
+* [Running Tests](#running-tests)
+* [Development](#development)
+* [Deployment](#deployment)
+* [Technology Stack](#technology-stack)
+* [Contributing](#contributing)
+* [Support & Contact](#support--contact)
+* [License](#license)
+* [Acknowledgements](#acknowledgements)
+## ⚙️ Installation
+
+**Prerequisites:**
+* [Python](https://www.python.org/) version `3.9` or higher
+
+**Steps:**
+1.  **Install package:**
+```bash
+pip3 install email-generator-list
+```
+2. **Install package by pipx:**
+```bash
+pipx install email-generator-list
+```
+## 🚀 Quick Start
+
+Here's a basic example of how to use Email Generator List:
+
