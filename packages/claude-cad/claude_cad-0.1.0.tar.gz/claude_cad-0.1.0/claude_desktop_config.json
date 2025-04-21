@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "claude_cad": {
+      "command": "python",
+      "args": ["-m", "claude_cad.server"],
+      "env": {}
+    }
+  }
+}

@@ -1,0 +1,20 @@
+include LICENSE
+include README.md
+include INSTALL.md
+include pyproject.toml
+include requirements.txt
+include claude_desktop_config.json
+
+recursive-include examples *.py
+recursive-include tests *.py
+
+exclude *.step
+exclude *.stl
+exclude .gitignore
+exclude .git
+recursive-exclude .venv *
+recursive-exclude venv *
+recursive-exclude __pycache__ *
+recursive-exclude *.egg-info *
+recursive-exclude dist *
+recursive-exclude build *
