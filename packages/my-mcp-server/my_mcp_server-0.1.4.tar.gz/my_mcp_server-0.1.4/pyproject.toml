@@ -1,0 +1,11 @@
+[project]
+name = "my_mcp_server"
+version = "0.1.4"
+description = "A MCP server sample"
+authors = [{name = "Your Name", email = "your@email.com"}]
+dependencies = [
+    "mcp-server"
+]
+
+[project.scripts]
+my-mcp-server = "mcp_server.main:main"
