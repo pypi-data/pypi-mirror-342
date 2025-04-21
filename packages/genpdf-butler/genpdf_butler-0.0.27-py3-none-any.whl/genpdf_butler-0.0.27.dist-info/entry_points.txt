@@ -1,0 +1,2 @@
+[console_scripts]
+genpdf = genpdf_butler.__main__:main
