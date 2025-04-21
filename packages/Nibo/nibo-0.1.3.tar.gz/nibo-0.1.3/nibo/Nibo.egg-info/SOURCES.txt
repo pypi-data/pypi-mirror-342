@@ -1,0 +1,14 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+requirements.txt
+nibo/__init__.py
+nibo/api.py
+nibo/boletos.py
+nibo/clientes.py
+nibo/Nibo.egg-info/PKG-INFO
+nibo/Nibo.egg-info/SOURCES.txt
+nibo/Nibo.egg-info/dependency_links.txt
+nibo/Nibo.egg-info/requires.txt
+nibo/Nibo.egg-info/top_level.txt
