@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: hcolor
+Version: 0.0.2
+Summary: Color manipulation tool. Extension to colorsys.
+Author: Michał Kaczmarczyk
+Author-email: michal.s.kaczmarczyk@gmail.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+# hcolor - Color manipulation tool
+
+*To be documented.*
+
+For now, you can check the unit tests, since I focus there on testing the functionality that the
+package provides.
