@@ -1,0 +1,53 @@
+Metadata-Version: 2.4
+Name: csp-bot-commands
+Version: 1.0.0
+Summary: Miscellaneous commands for csp-bot
+Project-URL: Repository, https://github.com/csp-community/csp-bot-commands
+Project-URL: Homepage, https://github.com/csp-community/csp-bot-commands
+Author-email: the csp-bot-commands authors <t.paine154@gmail.com>
+License: Apache-2.0
+License-File: LICENSE
+Keywords: chat,chatbot,csp,slack,stream-processing
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9
+Requires-Dist: csp-bot<2,>=1
+Provides-Extra: develop
+Requires-Dist: build; extra == 'develop'
+Requires-Dist: bump-my-version; extra == 'develop'
+Requires-Dist: check-manifest; extra == 'develop'
+Requires-Dist: dateparser; extra == 'develop'
+Requires-Dist: hatchling; extra == 'develop'
+Requires-Dist: lxml; extra == 'develop'
+Requires-Dist: pandas; extra == 'develop'
+Requires-Dist: pytest; extra == 'develop'
+Requires-Dist: pytest-cov; extra == 'develop'
+Requires-Dist: ruff; extra == 'develop'
+Requires-Dist: tabulate; extra == 'develop'
+Requires-Dist: twine; extra == 'develop'
+Requires-Dist: uv; extra == 'develop'
+Requires-Dist: wheel; extra == 'develop'
+Description-Content-Type: text/markdown
+
+# csp bot commands
+
+Miscellaneous commands for csp-bot
+
+[![Build Status](https://github.com/csp-community/csp-bot-commands/actions/workflows/build.yml/badge.svg?branch=main&event=push)](https://github.com/csp-community/csp-bot-commands/actions/workflows/build.yml)
+[![codecov](https://codecov.io/gh/csp-community/csp-bot-commands/branch/main/graph/badge.svg)](https://codecov.io/gh/csp-community/csp-bot-commands)
+[![License](https://img.shields.io/github/license/csp-community/csp-bot-commands)](https://github.com/csp-community/csp-bot-commands)
+[![PyPI](https://img.shields.io/pypi/v/csp-bot-commands.svg)](https://pypi.python.org/pypi/csp-bot-commands)
+
+## Overview
+
+
+> [!NOTE]
+> This library was generated using [copier](https://copier.readthedocs.io/en/stable/) from the [Base Python Project Template repository](https://github.com/python-project-templates/base).
