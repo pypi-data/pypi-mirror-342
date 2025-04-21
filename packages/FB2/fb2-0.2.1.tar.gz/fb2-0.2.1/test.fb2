@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FictionBook xmlns="http://www.gribuser.ru/xml/fictionbook/2.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<description>
+		<title-info>
+			<genre>Unrecognized</genre>
+			<author>
+				<nickname>Ae-Mc</nickname>
+			</author>
+			<book-title>Test book</book-title>
+			<lang>ru</lang>
+			<src-lang>en</src-lang>
+		</title-info>
+		<document-info>
+			<program-used>FB2creator by Ae-Mc</program-used>
+			<date value="2020-10-08">2020-10-08</date>
+			<id>257d09e3-4469-4515-8948-a088e17aa27d</id>
+			<version>1.0</version>
+		</document-info>
+	</description>
+</FictionBook>
