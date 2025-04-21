@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: otailab
+Version: 0.1
+Requires-Dist: networkx>=2.0
+Requires-Dist: matplotlib>=3.0
+Dynamic: requires-dist
