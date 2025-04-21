@@ -1,0 +1,181 @@
+Metadata-Version: 2.2
+Name: meddle
+Version: 0.1.0
+Summary: Agentic Medical Deep Learning Engineer
+Home-page: https://github.com/uni-medical/MedDLE
+Author: Haoyu Wang
+Author-email: small_dark@sina.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: black==24.3.0
+Requires-Dist: funcy==2.0
+Requires-Dist: humanize==4.8.0
+Requires-Dist: jsonschema==4.19.2
+Requires-Dist: numpy==1.26.2
+Requires-Dist: openai>=1.69.0
+Requires-Dist: anthropic>=0.20.0
+Requires-Dist: pandas==2.1.4
+Requires-Dist: pytest==7.4.3
+Requires-Dist: requests==2.31.0
+Requires-Dist: scikit-learn==1.2.2
+Requires-Dist: rich==13.7.0
+Requires-Dist: scipy==1.11.4
+Requires-Dist: dataclasses_json>=0.6.4
+Requires-Dist: omegaconf>=2.3.0
+Requires-Dist: loguru==0.7.2
+Requires-Dist: shutup>=0.2.0
+Requires-Dist: tqdm==4.66.2
+Requires-Dist: coolname>=2.2.0
+Requires-Dist: igraph>=0.11.3
+Requires-Dist: genson>=1.2.0
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: torchaudio
+Requires-Dist: torchtext
+Requires-Dist: lightgbm
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: gensim
+Requires-Dist: scikit-image
+Requires-Dist: opencv-python
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: biopython
+Requires-Dist: imbalanced-learn
+Requires-Dist: h5py
+Requires-Dist: biopython
+Requires-Dist: numba
+Requires-Dist: arrow
+Requires-Dist: markovify
+Requires-Dist: imgaug
+Requires-Dist: scikit-optimize
+Requires-Dist: plotly
+Requires-Dist: hyperopt
+Requires-Dist: bayesian-optimization
+Requires-Dist: imagecodecs
+Requires-Dist: hmmlearn
+Requires-Dist: bayespy==0.5.1
+Requires-Dist: sklearn-pandas
+Requires-Dist: tensorpack
+Requires-Dist: sentencepiece
+Requires-Dist: librosa
+Requires-Dist: ipykernel
+Requires-Dist: ipython
+Requires-Dist: nbformat
+Requires-Dist: kornia
+Requires-Dist: Pillow
+Requires-Dist: pyparsing
+Requires-Dist: pytz
+Requires-Dist: PyYAML
+Requires-Dist: tqdm
+Requires-Dist: fastai
+Requires-Dist: gym
+Requires-Dist: optuna
+Requires-Dist: transformers
+Requires-Dist: datasets==2.1.0
+Requires-Dist: torchmetrics
+Requires-Dist: pytorch-lightning
+Requires-Dist: sympy
+Requires-Dist: timm
+Requires-Dist: torchinfo
+Requires-Dist: pdf2image
+Requires-Dist: PyPDF
+Requires-Dist: pyocr
+Requires-Dist: pyarrow
+Requires-Dist: xlrd
+Requires-Dist: backoff
+Requires-Dist: streamlit==1.40.2
+Requires-Dist: python-dotenv
+Requires-Dist: openpyxl
+Requires-Dist: monai==1.4.0
+Requires-Dist: langchain
+Requires-Dist: langchain-community
+Requires-Dist: beautifulsoup4
+Requires-Dist: chromadb
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Med-DLE: Agentic Medical Deep Learning Engineer 
+
+MedDLE is designed to be a codegen agentic system for medical deep learning tasks. 
+
+# Quick Start
+## Setup environment
+1. we recommand use `conda` to create a virtual environment:
+```
+conda create --name meddle python=3.11 
+conda activate meddle
+```
+2. Then install `meddle` via:
+```
+pip install -r requirements.txt
+pip install -e .
+```
+> optional: use `uv` to speedup installation
+> ```
+> pip install uv
+> uv pip install -r requirements.txt
+> uv pip install -e .
+> ```
+3. Get data from [link](https://ug.link/haoyushare/filemgr/share-download/?id=7a3a2c6beacb4d5e91a2d801bc653bce) and move the data into `med_dl_tasks`
+
+4. remember to set up your private api key of OPENAI/ANTROPIC/OPENROUNTER
+```
+export OPENAI_BASE_URL="<your base url>" # (e.g. https://api.openai.com/v1)
+export OPENAI_API_KEY="<your key>"
+```
+
+## Basic codegen
+
+Use `bash run.sh` to run the demo experiment.
+
+## MONAI-enhanced codegen
+We highlight MONAI as a helpful candidate for medical DL codegen with Prompt/RAG mode:
+### Prompt mode
+```
+meddle data_dir="meddle/med_dl_tasks/odir5k_2d_mlc" exp_name="monai_prompt-odir5k_2d_mlc"\
+     goal="Classify 2D Medical images into different categories in a multi-label setting" \
+     eval="Use the average of kappa score, F-1 score, and AUC value metric between the predicted and ground-truth values." \
+     agent.steps=20 agent.force_monai_with_prompt=true 
+```
+### RAG mode
+#### 1. Create the knowledge database
+Firstly, download the persisted database into `meddle/monai_rag` from [link](http://ug.link/haoyushare/filemgr/share-download/?id=0114fe77cb51407ba873896a004d1b9e). 
+Or you can create the db with this cmd:
+```
+cd meddle/monai_rag
+python create_monai_rag_db.py
+```
+You could use `python -m meddle.monai_rag.query_rag_db` to check whether the creation succeeds.
+
+#### 2. enable the feature in agent
+Here's some example:
+```
+meddle data_dir="meddle/med_dl_tasks/odir5k_2d_mlc" exp_name="monai_prompt_kb-odir5k_2d_mlc"\
+     goal="Classify 2D Medical images into different categories in a multi-label setting" \
+     eval="Use the average of kappa score, F-1 score, and AUC value metric between the predicted and ground-truth values." \
+     agent.steps=20 agent.force_monai_with_prompt=false agent.enable_monai_knowledge_base=true
+
+meddle data_dir="meddle/med_dl_tasks/odir5k_2d_mlc" exp_name="monai_prompt_kb_q2d-odir5k_2d_mlc"\
+     goal="Classify 2D Medical images into different categories in a multi-label setting" \
+     eval="Use the average of kappa score, F-1 score, and AUC value metric between the predicted and ground-truth values." \
+     agent.steps=20 agent.force_monai_with_prompt=false agent.enable_monai_knowledge_base=true agent.enable_query2doc=true
+```
+
+
+## 🙏 Acknowledgement
+- We thank all medical workers and dataset owners for making public datasets available to the community.
+- Thanks to the open-source of the following projects, our code is developed based on their contributions:
+     - [aideml](https://github.com/WecoAI/aideml)
+     - [monai](https://github.com/Project-MONAI)
