@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+embzip/__init__.py
+embzip/core.py
+embzip/setup.py
+embzip/utils.py
+embzip.egg-info/PKG-INFO
+embzip.egg-info/SOURCES.txt
+embzip.egg-info/dependency_links.txt
+embzip.egg-info/requires.txt
+embzip.egg-info/top_level.txt
+tests/test_embzip.py
