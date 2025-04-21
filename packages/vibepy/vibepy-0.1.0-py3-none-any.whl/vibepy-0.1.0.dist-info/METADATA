@@ -1,0 +1,64 @@
+Metadata-Version: 2.4
+Name: vibepy
+Version: 0.1.0
+Summary: A Python REPL with hotkey functionality
+Author-email: brainfo <scilavisher@example.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/brainfo/vibepy
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Requires-Python: <3.11,>=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: readchar>=3.0.0
+Requires-Dist: openai>=1.0.0
+Requires-Dist: requests<3.0.0,>=2.31.0
+Requires-Dist: colorama>=0.4.6
+Requires-Dist: pyperclip>=1.8.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+
+# Vibepy
+
+A Python REPL with hotkey functionality.
+
+## Features
+
+- Interactive Python REPL with hotkey support
+- OpenAI integration for code assistance
+- Color-coded output
+- Clipboard integration
+
+## Installation
+
+```bash
+pip install vibepy
+```
+
+## Usage
+
+1. Start the vibepy CLI:
+```bash
+vibepy
+```
+
+2. Use the following hotkeys:
+- ↑ : Initiate vibepy
+- ↓ : Copy last output to clipboard
+- ESC: Exit vibepy
+
+## Development
+
+```bash
+# Install development dependencies
+pip install -e ".[dev]"
+
+# Run tests
+pytest
+```
+
+## License
+
+MIT License
