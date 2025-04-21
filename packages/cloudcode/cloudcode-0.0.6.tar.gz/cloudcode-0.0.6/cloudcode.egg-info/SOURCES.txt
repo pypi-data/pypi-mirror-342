@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+cloudcode.py
+pyproject.toml
+setup.py
+cloudcode.egg-info/PKG-INFO
+cloudcode.egg-info/SOURCES.txt
+cloudcode.egg-info/dependency_links.txt
+cloudcode.egg-info/requires.txt
+cloudcode.egg-info/top_level.txt
