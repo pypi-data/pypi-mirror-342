@@ -1,0 +1,14 @@
+modules/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+modules/barcode_trimmer.py,sha256=3ckTUAOwbxAuzKCmLixZ7Xpg-E6gy8giGSqEq7cH6D4,4592
+modules/cluster.py,sha256=8ASPRDPUm0k8dAz4qgZcQQRNeI4a8VWP2Isl78CEhrQ,18914
+modules/consensus.py,sha256=0Qm2xkaQ0kFqZ6aULg614ORPIj2tA7xBmJ25zEap4Og,13249
+modules/get_sorted_fastq_for_cluster.py,sha256=6B-imvR8d612NJUa-pelFg4xKkDVlP9FfYlipclJKIo,8722
+modules/help_functions.py,sha256=JaHme_a6tVXYWEGsyZ4Cea6Es6rY58JEzS-7N3NKcWo,3067
+modules/p_minimizers_shared.py,sha256=6vfxx3fB21wkldLAdbbS6XOycKxwp-XiJR_7RVlmedI,1790771
+modules/parallelize.py,sha256=n1OgjBrp18LirbteglZye_6pwO3K8phLh_7Q_t1QaPg,9186
+ngspeciesid-0.3.1.data/scripts/NGSpeciesID,sha256=PkZTHL881lkIitNqEiaxSdH80nr44HXul0m04tPPYXQ,17342
+ngspeciesid-0.3.1.dist-info/licenses/LICENSE.txt,sha256=xTplwv1WHIfqq_EHLvXcq4ZTBCvBUwhGX1JBNYXrYnE,35146
+ngspeciesid-0.3.1.dist-info/METADATA,sha256=s7rtYnG4HNcHr13PlKavkP8Rpd1WwshHt3EtVtEktyg,13615
+ngspeciesid-0.3.1.dist-info/WHEEL,sha256=Td9E1opt19FSuwsk_gcDwtsGPmyXw7uz9xQf-y2gvl8,109
+ngspeciesid-0.3.1.dist-info/top_level.txt,sha256=F7U4jdIxH3MVMmyX9rbajWuG0bj5tcZN4L1DZSxW72E,8
+ngspeciesid-0.3.1.dist-info/RECORD,,

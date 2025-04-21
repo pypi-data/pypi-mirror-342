@@ -1,0 +1,288 @@
+#!python
+
+from __future__ import print_function
+import os,sys
+import argparse
+import tempfile
+from time import time
+import shutil
+import random
+import logging
+
+from modules import get_sorted_fastq_for_cluster
+from modules import p_minimizers_shared
+from modules import help_functions
+from modules import parallelize
+from modules import cluster
+from modules import consensus
+from modules import barcode_trimmer
+
+def single_clustering(read_array, p_emp_probs, args):
+    start_cluster = time()
+    clusters = {} # initialize every read as belonging to its own cluster
+    representatives = {} # initialize every read as its own representative
+    for i, b_i, acc, seq, qual, score in read_array:
+        clusters[i] = [acc]
+        representatives[i] = (i, b_i, acc, seq, qual, score)  
+
+    minimizer_database, new_batch_index = {}, 1 # These data structures are used in multiprocessing mode but. We use one core so only process everything in one "batch" and dont need to pass the minimizer database to later iterations.
+    result_dict = cluster.reads_to_clusters(clusters, representatives, read_array, p_emp_probs, minimizer_database, new_batch_index, args)
+    # Unpack result. The result dictionary structure is convenient for multiprocessing return but clumsy in single core mode.
+    clusters, representatives, _, _ = list(result_dict.values())[0]
+    logging.debug(f"Time elapesd clustering: {time() - start_cluster}")
+    return clusters, representatives
+
+
+def main(args):
+    """
+        Code in main function is structures into 4 steps
+        1. Sort all reads according to expected errorfree kmers
+        2. Import precalculated probabilities of minimizer matching given the error rates of reads, kmer length, and window length. 
+            This is used for calculating if reads matches representative.
+        3. Cluster the reads
+        4. Write output
+    """
+    ##### Sort all reads according to expected errorfree kmers #####
+    args.outfile = os.path.join(args.outfolder, "sorted.fastq")
+    logging.debug("started sorting seqs")
+    start = time()
+    sorted_reads_fastq_file = get_sorted_fastq_for_cluster.main(args)
+    logging.debug(f"elapsed time sorting: {time() - start}")
+    #################################################################
+
+    ##### Filter and subsample #####
+    if args.target_length > 0 and args.target_deviation > 0:
+        read_array = [ (i, 0, acc, seq, qual, float(acc.split("_")[-1])) for i, (acc, (seq, qual)) in enumerate(help_functions.readfq(open(sorted_reads_fastq_file, 'r'))) if args.target_length - args.target_deviation <= len(seq) <= args.target_length + args.target_deviation]
+        logging.debug("Number of reads with read length in interval [{0},{1}]: {2}".format(args.target_length - args.target_deviation, args.target_length + args.target_deviation, len(read_array)))
+    else:
+        read_array = [ (i, 0, acc, seq, qual, float(acc.split("_")[-1])) for i, (acc, (seq, qual)) in enumerate(help_functions.readfq(open(sorted_reads_fastq_file, 'r')))]
+
+    if args.top_reads:
+        read_array = read_array[:args.sample_size]
+    elif 0 < args.sample_size < len(read_array):
+        read_array = [read_array[i] for i in sorted(random.sample(range(len(read_array)), args.sample_size))]
+
+    abundance_cutoff = int( args.abundance_ratio * len(read_array))
+    #################################################################
+
+
+    ##### Import precalculated probabilities of minimizer matching given the error rates of reads, kmer length, and window length #####
+    logging.debug("Started imported empirical error probabilities of minimizers shared:")
+    start = time()
+    p_min_shared = p_minimizers_shared.read_empirical_p()
+    p_emp_probs = {}
+    for k, w, p, e1, e2 in p_min_shared:
+        if int(k) == args.k and abs(int(w) - args.w) <= 2:
+            p_emp_probs[(float(e1),float(e2))] = float(p)
+            p_emp_probs[(float(e2),float(e1))] = float(p)
+
+    logging.debug(f"{p_emp_probs}")
+    logging.debug(f"{len(p_emp_probs)}")
+    logging.debug(f"elapsed time imported empirical error probabilities of minimizers shared: {time() - start}")
+    ##################################################################################################################################
+
+    logging.info(f"Starting Clustering: {len(read_array)} reads")
+    ##### Cluster reads, bulk of code base is here #####
+    logging.debug("started clustring")
+    start = time()
+    if args.nr_cores > 1:
+        clusters, representatives = parallelize.parallel_clustering(read_array, p_emp_probs, args)
+    else:
+        logging.debug("Using 1 core.")
+        clusters, representatives = single_clustering(read_array, p_emp_probs, args)
+    # clusters, representatives = cluster.cluster_seqs(read_array, p_emp_probs,  args)
+    logging.debug(f"Time elapsed clustering: {time() - start}")
+    ####################################################
+
+
+
+    ##### Write output in sorted quality order! #####
+    outfile = open(os.path.join(args.outfolder,  "final_clusters.tsv"), "w")
+    origins_outfile = open(os.path.join(args.outfolder,  "final_cluster_origins.tsv"), "w")
+    nontrivial_cluster_index = 0
+    output_cl_id = 0
+    for c_id, all_read_acc in sorted(clusters.items(), key = lambda x: (len(x[1]),representatives[x[0]][5]), reverse=True):
+    # for c_id, all_read_acc in sorted(clusters.items(), key = lambda x: (len(x[1]),x[0]), reverse=True):
+        read_cl_id, b_i, acc, c_seq, c_qual, score, error_rate, _ = representatives[c_id]
+        origins_outfile.write("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\n".format(output_cl_id, "_".join([item for item in acc.split("_")[:-1]]), c_seq, c_qual, score, error_rate))
+
+        for r_acc in sorted(all_read_acc, key = lambda x: float(x.split("_")[-1]) , reverse=True):
+            outfile.write("{0}\t{1}\n".format(output_cl_id, "_".join([item for item in r_acc.split("_")[:-1]]) ))
+        if len(all_read_acc) > 1:
+            nontrivial_cluster_index += 1
+        
+        output_cl_id +=1
+
+    logging.debug(f"Nr clusters larger than 1: {nontrivial_cluster_index}") #, "Non-clustered reads:", len(archived_reads))
+    logging.debug(f"Nr clusters (all): {len(clusters)}") #, "Non-clustered reads:", len(archived_reads))
+    outfile.close()
+    origins_outfile.close()
+    ############################
+
+    logging.info(f"Finished Clustering: {nontrivial_cluster_index} clusters formed")
+
+    if args.consensus:
+        logging.info(f"Starting Consensus creation and polishing")
+        work_dir = tempfile.mkdtemp()
+        logging.debug(f"Temporary workdirectory for consensus and polishing: {work_dir}")
+        logging.debug(
+            f"Forming draft consensus with abundance_cutoff >= {abundance_cutoff} "
+            f"({args.abundance_ratio * 100}% of {len(read_array)} reads)"
+        )
+        centers = consensus.form_draft_consensus(clusters, representatives, sorted_reads_fastq_file, work_dir, abundance_cutoff, args)
+
+        if args.primer_file or args.remove_universal_tails:
+            if args.remove_universal_tails:
+                logging.debug("Detecting and removing universal tails")
+                barcodes = barcode_trimmer.get_universal_tails()
+            else:
+                logging.debug("Detecting and removing primers")
+                barcodes = barcode_trimmer.read_barcodes(args.primer_file)
+
+            barcode_trimmer.remove_barcodes(centers, barcodes, args)
+
+        logging.debug("{0} centers formed".format(len(centers)))
+        centers_filtered = consensus.detect_reverse_complements(centers, args.rc_identity_threshold)
+        centers_polished = consensus.polish_sequences(centers_filtered, args)
+
+        if args.primer_file or args.remove_universal_tails: # check if barcode is found after polishing with medaka
+            centers_updated = barcode_trimmer.remove_barcodes(centers_polished, barcodes, args)
+            if centers_updated:
+                centers_filtered = consensus.detect_reverse_complements(centers_polished, args.rc_identity_threshold)
+                centers_polished = consensus.polish_sequences(centers_filtered, args)
+
+
+        logging.debug("removing temporary workdir")
+        shutil.rmtree(work_dir)
+
+        logging.info(f"Finished Consensus creation: {len(centers_filtered)} created")
+
+
+def write_fastq(args):
+    from collections import defaultdict
+    clusters = defaultdict(list)
+
+    with open(args.clusters) as f:
+        for line in f:
+            items = line.strip().split()
+            cl_id, acc = items[0], items[1]
+            clusters[cl_id].append(acc)
+
+    help_functions.mkdir_p(args.outfolder)
+    reads = { acc : (seq, qual) for acc, (seq, qual) in help_functions.readfq(open(args.fastq, 'r'))}
+    
+    for cl_id in clusters:
+        r = clusters[cl_id]
+
+        if len(r) >= args.N:
+            curr_file = open(os.path.join(args.outfolder, str(cl_id) + ".fastq" ), "w")
+            for acc in r:
+                seq, qual = reads[acc]
+                curr_file.write("@{0}\n{1}\n{2}\n{3}\n".format(acc, seq, "+", qual))
+            curr_file.close()
+
+
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Reference-free clustering and consensus forming of targeted ONT or PacBio reads", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('--version', action='version', version='%(prog)s 0.3.1')
+    parser.add_argument('--debug', action='store_true', help='Enable debug logging')
+    reads_file = parser.add_mutually_exclusive_group(required=True)
+    reads_file.add_argument('--fastq', type=str, help='Path to consensus fastq file(s)')
+    reads_file.add_argument('--use_old_sorted_file', action='store_true', help='Using already existing sorted file if present in specified output directory.')
+    parser.add_argument('--t', dest="nr_cores", type=int, default=8, help='Number of cores allocated for clustering')
+    parser.add_argument('--d', dest="print_output", type=int, default=10000, help='For debugging, prints status of clustering and minimizer database every p reads processed.')
+    parser.add_argument('--q', dest="quality_threshold", type=float, default=7.0, help='Filters reads with average phred quality value under this number (default = 7.0).')
+
+    parser.add_argument('--ont', action="store_true", help='Clustering of ONT transcript reads.')
+    parser.add_argument('--isoseq', action="store_true", help='Clustering of PacBio Iso-Seq reads.')
+
+    parser.add_argument('--consensus', action="store_true", help='After clustering, (1) run spoa on all clusters, (2) detect reverse complements, (3) run medaka.')
+    parser.add_argument('--abundance_ratio', type=float, default=0.1, help='Threshold for --consensus algorithm. Consider only clusters larger than a fraction of number of total reads (default 0.1)')
+    parser.add_argument('--rc_identity_threshold', type=float, default=0.9, help='Threshold for --consensus algorithm. Define a reverse complement if identity is over this threshold (default 0.9)')
+    parser.add_argument('--max_seqs_for_consensus', type=int, default=-1,  help='Maximum number of seqs to form consensus with spoa [INT] (default = -1, which means to use all sequences available regardless of cluster size).')
+
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--medaka', action="store_true", help='Run final medaka polishing algorithm.')
+    group.add_argument('--racon', action="store_true", help='Run final racon polishing algorithm.')
+
+    parser.add_argument('--medaka_model', type=str, default="", help='Set specific medaka model.')
+    parser.add_argument('--medaka_fastq', action="store_true", help='Request Medaka to output a FASTQ file, instead of FASTA')
+    parser.add_argument('--racon_iter', type=int, default=2, help='Number of times to run racon iteratively')
+
+    group2 = parser.add_mutually_exclusive_group()
+    group2.add_argument('--remove_universal_tails', action="store_true", help='Remove universal tails "TTTCTGTTGGTGCTGATATTGC" and "ACTTGCCTGTCGCTCTATCTTC" after the spoa consensus step and before the revers complement detection.')
+    group2.add_argument('--primer_file', type=str, default="", help='Path to file with primers. Primers are removed after the spoa consensus step and before the revers complement detection.')
+    parser.add_argument('--primer_max_ed', type=int, default=2, help='Threshold edit distance for finding bracore in spoa consensus')
+    parser.add_argument('--trim_window', type=int, default=150, help='Window size of how many bases to look for barcodes (default 150 bases in beginning and end of consensus).')
+    parser.add_argument('--m', dest="target_length", type=int, default=0, help='Intended amplicon length. Invoked to filter out reads with length greater than m + s or smaller than m - s (default = 0 which means no filtering)')
+    parser.add_argument('--s', dest="target_deviation", type=int, default=0, help='Maximum allowed amplicon-length deviation.  Invoked to filter out reads with length greater than m + s or smaller than m - s (default = 0 which means no filtering)')
+    parser.add_argument('--sample_size', type=int, default=0, help='Use sample_size reads in the NGSpecies pipeline (default = 0 which means all reads considered). If sample size is larger than actual number of reads, all reads will be used.')
+    parser.add_argument('--top_reads', action='store_true', help='Use the top --sample_size reads instead of a random selection (default = false, which means random reads considered). ')
+
+
+    parser.add_argument('--k', type=int, default=13, help='Kmer size')
+    parser.add_argument('--w', type=int, default=20, help='Window size')
+    parser.add_argument('--min_shared', type=int, default=5, help='Minmum number of minimizers shared between read and cluster')
+    parser.add_argument('--mapped_threshold', type=float, default=0.7, help='Minmum mapped fraction of read to be included in cluster. The density of minimizers to classify a region as mapped depends on quality of the read.')
+    parser.add_argument('--aligned_threshold', type=float, default=0.4, help='Minmum aligned fraction of read to be included in cluster. Aligned identity depends on the quality of the read.')
+    parser.add_argument('--symmetric_map_align_thresholds', action='store_true', help='Apply mapped threshold and aligned threshold to fraction of cluster representative which maps onto the read')
+    parser.add_argument('--batch_type', type=str, default='total_nt', help='In parrallel mode, how to split the reads into chunks "total_nt", "nr_reads", or "weighted" (default: total_nt) ')
+    parser.add_argument('--min_fraction', type=float, default=0.8, help='Minmum fraction of minimizers shared compared to best hit, in order to continue mapping.')
+    parser.add_argument('--min_prob_no_hits', type=float, default=0.1, help='Minimum probability for i consecutive minimizers to be different between read and representative and still considered as mapped region, under assumption that they come from the same transcript (depends on read quality).')
+    parser.add_argument('--outfolder', type=str,  default=None, help='A fasta file with transcripts that are shared between samples and have perfect illumina support.')
+    # parser.add_argument('--pickled_subreads', type=str, help='Path to an already parsed subreads file in pickle format')
+    parser.set_defaults(which='main')
+
+    subparsers = parser.add_subparsers(help='sub-command help')
+    write_fastq_parser = subparsers.add_parser('write_fastq', help='a help')
+    write_fastq_parser.add_argument('--clusters', type=str, help='the file "final_clusters.csv created by isONclust."')
+    write_fastq_parser.add_argument('--fastq', type=str, help='Input fastq file')
+    write_fastq_parser.add_argument('--outfolder', type=str, help='Output folder')
+    write_fastq_parser.add_argument('--N', type=int, default = 0, help='Write out clusters with more or equal than N reads')
+    # parser.add_argument('--write_fastq_clusters', default = None, help=' --write_fastq_clusters <N>. Write out clusters with more or equal than N >= 1.')
+    write_fastq_parser.set_defaults(which='write_fastq')
+
+    args = parser.parse_args()
+
+    loglevel = logging.DEBUG if args.debug else logging.INFO
+
+    logging.basicConfig(
+        level=loglevel,
+        format='%(message)s'
+    )
+
+    if args.which == 'write_fastq':
+        write_fastq(args)
+        logging.info("Wrote clusters to separate fastq files.")
+        sys.exit(0)
+
+    if args.ont and args.isoseq :
+        logging.error("Arguments mutually exclusive, specify either --isoseq or --ont. ")
+        sys.exit()
+    elif args.isoseq:
+        args.k = 15
+        args.w = 50
+    elif args.ont:
+        args.k = 13
+        args.w = 20
+
+
+    if len(sys.argv)==1:
+        parser.print_help()
+        sys.exit()
+
+    if args.outfolder and not os.path.exists(args.outfolder):
+        os.makedirs(args.outfolder)
+
+    parasail_module = 'parasail'
+    if parasail_module not in sys.modules:
+        logging.error('You have not imported the {0} module. Only performing clustering with mapping, i.e., no alignment!'.format(parasail_module))
+        sys.exit(1)
+    if 100 < args.w or args.w < args.k:
+        logging.error('Please specify a window of size larger or equal to k, and smaller than 100.')
+        sys.exit(1)
+
+    main(args)
+
