@@ -1,0 +1,13 @@
+artfinder/__about__.py,sha256=TZxxoN48fp2K_bl9li3DsRct3gj0EMqSbqzGPMAG4Bk,133
+artfinder/__init__.py,sha256=5iUKp86xrIks7Z01mn9Ke9Fzk_0wmLqN7EWPcqQYC8Q,263
+artfinder/api.py,sha256=lV4dSUXyG5SWu76uFpZym9A_ongrMhtC4rYQl1RB9Cc,9877
+artfinder/article.py,sha256=D8LM9JgS6k5ay9ns3PbEkPpCX_KQqiTyP-5cBYRw9_U,9937
+artfinder/crossref.py,sha256=3ShRiunWTCf_EDLd_s7T06rLGtVKQk0Vw__R8uZd3Sw,18351
+artfinder/crossref_helpers.py,sha256=7O7nyZGJg9pvTK7B3j36eiIJJZQHDhRmRd6GJZY3vW4,1937
+artfinder/dataclasses.py,sha256=13r16J0mWh3pvi9hjX1jWZAt1D_R88iPQ3zTWGamRHw,6874
+artfinder/helpers.py,sha256=gDnYjK0Ng7tuRkmvvbmI9mzdV-NlcuDir1xK8o8KPHY,7341
+artfinder/http_requests.py,sha256=V-w1D0c1_9XvDLBhXv5qpqfPH9KMG_xfnwoFa-i_Gwo,23208
+artfinder-0.0.1.dist-info/METADATA,sha256=kjQHEVjZrYoHFCMWNMQ7qBxAEsa2PgrXTuWqQoxYUYE,2689
+artfinder-0.0.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+artfinder-0.0.1.dist-info/licenses/LICENSE.txt,sha256=dxkeGq0sQ56uGePOE3fRqx9GZPIkF32lMDyQS1eICh8,1103
+artfinder-0.0.1.dist-info/RECORD,,
