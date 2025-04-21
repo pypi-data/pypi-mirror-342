@@ -1,0 +1,6 @@
+.venv*
+.env
+.idea/
+*pycache*
+__version__.py
+cria_pacote.bat
