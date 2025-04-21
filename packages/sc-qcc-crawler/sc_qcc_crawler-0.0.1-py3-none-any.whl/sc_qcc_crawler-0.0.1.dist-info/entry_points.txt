@@ -1,0 +1,2 @@
+[console_scripts]
+sc-qcc-crawler = sc_qcc_crawler.main:main
