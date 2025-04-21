@@ -1,0 +1,17 @@
+tree_sitter_netlinx/__init__.py,sha256=5pgIrPch1b7wZDRxv8BCi6crlhsflb269EDIa8LB0mE,1321
+tree_sitter_netlinx/__init__.pyi,sha256=GDEt8cLEb-f4WTv8vU9A64oWTD8iE-MoY3jNU8waRhA,278
+tree_sitter_netlinx/_binding.abi3.so,sha256=CniDBKku54aOrfFd8jYH9dWUNiTZtCMOBP2J7Q4q0U8,2541328
+tree_sitter_netlinx/binding.c,sha256=Jq9Em4hajh_KeICboih3ss8eg4VJruykseOMU8tbxkY,838
+tree_sitter_netlinx/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tree_sitter_netlinx/queries/folds.scm,sha256=A1QedDxVwBLK3j03ZPzw90app3lU_ix-a8SIYy5tF2w,2180
+tree_sitter_netlinx/queries/highlights-g4api.scm,sha256=ZyX3f8pckJaeZubh5yUcuXjauiG3oxRAwCYTm5IIk7c,9047
+tree_sitter_netlinx/queries/highlights-snapi.scm,sha256=vd7rhegbYxaQCWmuWDTArhjqnRrutza6sv7cClde0q8,7111
+tree_sitter_netlinx/queries/highlights-unicodelib.scm,sha256=DWyde-334JgYBkt-7RWYhe93f3Is-TX1CGPotD2wle0,1045
+tree_sitter_netlinx/queries/highlights.scm,sha256=CUXNWUdl_mnFxhtIZsWHpoxG7YpPaQ0JfCcGYHH_bUk,11435
+tree_sitter_netlinx/queries/locals.scm,sha256=hmFVDb8zHeKt8kV6GSMtNLoa5OmvVbX8PYNOFCLTtTo,2902
+tree_sitter_netlinx/queries/tags.scm,sha256=28QSTCCAlNuQoU3g7xi1O_SFd1m7Aef5WVhiLAzDXEY,2426
+tree_sitter_netlinx-1.0.1.dist-info/METADATA,sha256=a-dlY4lWQeM8FzzLUhlGL-XYI9hyADwkpL_sSMEAwBU,14239
+tree_sitter_netlinx-1.0.1.dist-info/WHEEL,sha256=MsOxQeEFUOlfGsBW8h1IVR_xGoa6y93LljszmfU5T4o,111
+tree_sitter_netlinx-1.0.1.dist-info/top_level.txt,sha256=hLbUmpcO6bvmt9JWLFg9ZijWNJHQVmgwsjjJUZ4k_Ws,29
+tree_sitter_netlinx-1.0.1.dist-info/RECORD,,
+tree_sitter_netlinx-1.0.1.dist-info/licenses/LICENSE,sha256=Y1PlJI6qPDtMrCW83F-H1z4_fUDdlBl0IChDkqnZ9RA,1067
