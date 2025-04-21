@@ -1,0 +1,13 @@
+[project]
+name = "myrich_mohammed"
+version = "0.1.0"
+description = "Simple library for rich-based input and color preview"
+authors = [{ name="Mohammed", email="mohammed023322@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+dependencies = ["rich"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
