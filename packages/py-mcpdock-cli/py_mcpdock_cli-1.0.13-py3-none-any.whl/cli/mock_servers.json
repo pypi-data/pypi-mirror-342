@@ -1,0 +1,186 @@
+{
+    "octagon": {
+        "qualifiedName": "octagon",
+        "displayName": "Octagon MCP Server (Mock)",
+        "remote": false,
+        "connections": [
+            {
+                "type": "stdio",
+                "stdioFunction": [
+                    "npx"
+                ],
+                "published": true,
+                "configSchema": {
+                    "args": [
+                        "-y",
+                        "octagon-mcp@latest"
+                    ],
+                    "env": {
+                        "OCTAGON_API_KEY": {
+                            "type": "string",
+                            "description": "OCTAGON_API_KEY"
+                        }
+                    },
+                    "required": [
+                        "OCTAGON_API_KEY"
+                    ]
+                }
+            }
+        ]
+    },
+    "mcp-gitlab": {
+        "qualifiedName": "@zereight/mcp-gitlab",
+        "displayName": "@zereight/mcp-gitlab",
+        "remote": false,
+        "connections": [
+            {
+                "type": "stdio",
+                "stdioFunction": [
+                    "npx"
+                ],
+                "published": true,
+                "configSchema": {
+                    "args": [
+                        "-y",
+                        "@zereight/mcp-gitlab"
+                    ],
+                    "env": {
+                        "GITLAB_PERSONAL_ACCESS_TOKEN": {
+                            "type": "string",
+                            "description": "GITLAB_PERSONAL_ACCESS_TOKEN"
+                        },
+                        "GITLAB_API_URL": {
+                            "type": "string",
+                            "description": "GITLAB_API_URL",
+                            "default": "GITLAB_API_URL"
+                        },
+                        "GITLAB_READ_ONLY_MODE": {
+                            "type": "string",
+                            "description": "GITLAB_READ_ONLY_MODE"
+                        }
+                    },
+                    "required": [
+                        "GITLAB_PERSONAL_ACCESS_TOKEN",
+                        "GITLAB_API_URL"
+                    ]
+                }
+            },
+            {
+                "type": "ws",
+                "deploymentUrl": "wss://example.com",
+                "published": true
+            }
+        ]
+    },
+    "mcp-twikit": {
+        "qualifiedName": "mcp-twikit",
+        "displayName": "mcp-twikit (Mock)",
+        "remote": false,
+        "connections": [
+            {
+                "type": "stdio",
+                "stdioFunction": [
+                    "uvx"
+                ],
+                "published": true,
+                "configSchema": {
+                    "args": [
+                        "--from",
+                        "git+https://github.com/adhikasp/mcp-twikit",
+                        "mcp-twikit"
+                    ],
+                    "env": {
+                        "TWITTER_USERNAME": {
+                            "type": "string",
+                            "description": "TWITTER_USERNAME",
+                            "default": "@example"
+                        },
+                        "TWITTER_EMAIL": {
+                            "type": "string",
+                            "description": "TWITTER_EMAIL",
+                            "default": "me@example.com"
+                        },
+                        "TWITTER_PASSWORD": {
+                            "type": "string",
+                            "description": "TWITTER_PASSWORD",
+                            "default": "secret"
+                        }
+                    },
+                    "required": [
+                        "TWITTER_USERNAME",
+                        "TWITTER_EMAIL",
+                        "TWITTER_PASSWORD"
+                    ]
+                }
+            }
+        ]
+    },
+    "@suekou/mcp-notion-server": {
+        "qualifiedName": "@suekou/mcp-notion-server",
+        "displayName": "mcp-notion (Mock)",
+        "remote": false,
+        "connections": [
+            {
+                "type": "stdio",
+                "stdioFunction": [
+                    "npx"
+                ],
+                "published": true,
+                "configSchema": {
+                    "args": [
+                        "-y",
+                        "@suekou/mcp-notion-server"
+                    ],
+                    "env": {
+                        "NOTION_API_TOKEN": {
+                            "type": "string",
+                            "description": "NOTION_API_TOKEN",
+                            "default": "your-integration-token"
+                        }
+                    },
+                    "required": [
+                        "NOTION_API_TOKEN"
+                    ]
+                }
+            }
+        ]
+    },
+    "@test/install-notion": {
+        "qualifiedName": "@suekou/mcp-notion-server",
+        "displayName": "mcp-notion (Mock)",
+        "remote": false,
+        "connections": [
+            {
+                "type": "stdio",
+                "stdioFunction": [
+                    "npx"
+                ],
+                "published": true,
+                "configSchema": {
+                    "args": [
+                        "-y",
+                        "@suekou/mcp-notion-server",
+                        "--from",
+                        "py-mcpdock-cli==1.0.12",
+                        "--index-url",
+                        "https://test.pypi.org/simple/",
+                        "--extra-index-url",
+                        "https://pypi.org/simple/",
+                        "mcpy",
+                        "run"
+                    ],
+                    "env": {
+                        "NOTION_API_TOKEN": {
+                            "type": "string",
+                            "description": "NOTION_API_TOKEN",
+                            "default": "your-integration-token"
+                        }
+                    },
+                    "required": [
+                        "NOTION_API_TOKEN"
+                    ]
+                }
+            }
+        ]
+    }
+}
