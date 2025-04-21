@@ -1,0 +1,8 @@
+psutil>=5.9.0
+pymongo>=4.3.0
+mysql-connector-python>=8.0.30
+influxdb-client>=1.36.0
+
+[dev]
+pytest
+flake8
