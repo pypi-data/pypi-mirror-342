@@ -1,0 +1,14 @@
+izulu>=0.10.2
+miska
+urnparse
+
+[all]
+kit-up[sa]
+kit-up[falcon]
+
+[falcon]
+falcon
+
+[sa]
+SQLAlchemy
+sqlalchemy_mixins

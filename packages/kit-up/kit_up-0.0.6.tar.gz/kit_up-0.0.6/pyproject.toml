@@ -1,0 +1,389 @@
+[project]
+name = "kit-up"
+version = "0.0.6"
+authors = [{ name = "Dima Burmistrov", email = "pyctrl.dev@gmail.com" }]
+description = "Kit Up!"
+readme = "README.rst"
+license = { file = "LICENSE" }
+
+requires-python = ">=3.11"
+dependencies = ["izulu>=0.10.2", "miska", "urnparse"]
+
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Typing :: Typed",
+]
+keywords = [
+  "app",
+  "domain",
+  "model",
+  "repository",
+  "filter",
+  "structure",
+  "kit-up",
+  "kit_up",
+]
+
+[project.urls]
+"Homepage" = "https://gitlab.com/pyctrl/kit-up"
+"Bug Tracker" = "https://gitlab.com/pyctrl/kit-up/-/issues"
+
+[project.optional-dependencies]
+sa = ["SQLAlchemy", "sqlalchemy_mixins"]
+falcon = ["falcon"]
+all = ["kit-up[sa]", "kit-up[falcon]"]
+
+[dependency-groups]
+# development
+dev = ["ipython"]
+test = ["pytest", "coverage"]
+rst = ["restructuredtext_lint", "Pygments"]
+fmt = ["ruff"]
+pep8 = [{ include-group = "fmt" }]
+# release
+build = ["build", "twine"]
+upload = ["twine"]
+# extras
+sa = ["SQLAlchemy", "sqlalchemy_mixins"]
+falcon = ["falcon"]
+# aliases
+all = [{ include-group = "sa" }, { include-group = "falcon" }]
+mypy = ["mypy", { include-group = "all" }]
+contributor = [
+  { include-group = "all" },
+  { include-group = "dev" },
+  { include-group = "test" },
+  { include-group = "pep8" },
+  { include-group = "rst" },
+  { include-group = "mypy" },
+  { include-group = "fmt" },
+  { include-group = "build" },
+  { include-group = "upload" },
+]
+# taplo - toml toolbox
+
+[tool.setuptools]
+packages = ["kit_up"]
+
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+extend-exclude = [
+  ".git",
+  ".venv",
+  "kit_up/temp", # убрать когда не нужно будет
+  "app.py",
+]
+
+
+[tool.ruff.lint]
+preview = true
+select = ["ALL"]
+extend-ignore = [
+  "D10",     # отсутствие документации
+  "D203",    # 1 из конфликтующих стилей оформления
+  "D205",    # Игнорируем требование пустой перед "summary" в docstring
+  "D212",    # 1 из конфликтующих стилей оформления
+  "DOC501",  # Игнорируем требование описания исключений в docstring
+  "PLR6301", # Лучше писать без использования self, чем @staticmethod
+  "N818",    # суффикс Error не панацея, разрешаем любые
+  "TD003",   # линки на задачи не нужны
+  "RUF001",  # разрешаем кириллицу
+  "RUF002",  # разрешаем кириллицу
+  "RUF003",  # разрешаем кириллицу
+  "C408",    # allow dict constructor instead of literal
+  # ignored from "ALL"
+  "ANN", # удалить когда будет покрытие типами
+  "CPY",
+  "FIX", # есть TODO правило
+  "ERA", # удалить когда комментарии кодом будут не нужны
+  # formatter conflict rules
+  "W191",
+  "E111",
+  "E114",
+  "E117",
+  "D206",
+  "D300",
+  "Q000",
+  "Q001",
+  "Q002",
+  "Q003",
+  "COM812",
+  "COM819",
+  "ISC001",
+  "ISC002",
+]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"**/tests/*" = [
+  "S101",   # разрешаем assert
+  "SLF001", # в тестах можно обращаться к приватным member-ам
+  "ANN",    # в тестах аннотации не обязательны
+]
+
+[tool.ruff.lint.flake8-import-conventions.extend-aliases]
+"constants" = "c"
+"exceptions" = "excs"
+"marshmallow" = "mm"
+"sqlalchemy" = "sa"
+"typing" = "t"
+
+[tool.ruff.lint.flake8-import-conventions]
+banned-from = ["constants", "exceptions", "marshmallow", "sqlalchemy", "typing"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+
+[tool.tox]
+requires = ["tox>4.23"]
+env_list = [
+  "rst",
+  "py312",
+  "fmt-py",
+  "fmt-toml",
+  "lint-mypy",
+  "lint-py",
+  "lint-toml",
+  "lint-yaml",
+  "pre-commit",
+]
+use_develop = true
+
+[tool.tox.env_run_base]
+use_develop = true
+dependency_groups = ["test"]
+commands = [
+  [
+    "coverage",
+    "run",
+    "--source={toxinidir}{/}{[base]package_path}{/}",
+    "-m",
+    "pytest",
+    "{toxinidir}{/}tests{/}",
+    "-v",
+    { replace = "posargs", extend = true },
+  ],
+  [
+    "coverage",
+    "report",
+    "-m",
+  ],
+  [
+    "coverage",
+    "xml",
+  ],
+]
+
+[tool.tox.env.dev]
+use_develop = true
+dependency_groups = ["contributor"]
+#commands = python3 {toxinidir}/.venv/bin/pip install -e .
+
+# Tox config
+
+[tool.tox.labels]
+fmt = ["fmt-toml", "fmt-py"]
+lint = [
+  "lint-git",
+  # enable when fix types
+  # "lint-mypy", 
+  "lint-py",
+  "lint-toml",
+  "lint-yaml",
+]
+
+[tool.tox.env.init]
+description = "init"
+skip_install = true
+allowlist_externals = ["pre-commit"]
+commands = [["pre-commit", "install"]]
+
+[tool.tox.env.pre-commit]
+description = "pre-commit"
+skip_install = true
+allowlist_externals = ["pre-commit"]
+commands = [
+  [
+    "pre-commit",
+    "run",
+    { replace = "posargs", default = [
+      "--all-files",
+    ], extend = true },
+  ],
+]
+
+
+[tool.tox.env.lint-toml]
+description = "lint toml files"
+allowlist_externals = ["taplo"]
+skip_install = true
+commands = [
+  [
+    "taplo",
+    "lint",
+    { replace = "posargs", extend = true },
+  ],
+  [
+    "taplo",
+    "format",
+    "--check",
+    "--diff",
+    { replace = "posargs", extend = true },
+  ],
+]
+
+[tool.tox.env.lint-yaml]
+description = "lint yaml files"
+deps = ["yamllint"]
+skip_install = true
+commands = [
+  [
+    "yamllint",
+    "--strict",
+    { replace = "posargs", default = [
+      "{tox_root}",
+    ], extend = true },
+  ],
+]
+
+[tool.tox.env.lint-py]
+description = "lint python files"
+deps = ["ruff"]
+skip_install = true
+commands = [
+  [
+    "ruff",
+    "format",
+    "--diff",
+    { replace = "posargs", default = [
+      "{tox_root}",
+    ], extend = true },
+  ],
+  [
+    "ruff",
+    "check",
+    { replace = "posargs", default = [
+      "{tox_root}",
+    ], extend = true },
+  ],
+]
+
+
+[tool.tox.env.lint-mypy]
+description = "lint python files"
+allowlist_externals = ["mypy"]
+skip_install = true
+commands = [
+  [
+    "mypy",
+    { replace = "posargs", default = [
+      "{tox_root}",
+    ], extend = true },
+  ],
+]
+
+[tool.tox.env.fmt-toml]
+description = "format toml files"
+allowlist_externals = ["taplo"]
+skip_install = true
+commands = [["taplo", "format", { replace = "posargs", extend = true }]]
+
+[tool.tox.env.fmt-py]
+description = "format python files"
+deps = ["ruff"]
+skip_install = true
+commands = [
+  [
+    "ruff",
+    "format",
+    { replace = "posargs", default = [
+      "{tox_root}",
+    ], extend = true },
+  ],
+  [
+    "ruff",
+    "check",
+    "--fix",
+    "--show-fixes",
+    { replace = "posargs", default = [
+      "{tox_root}",
+    ], extend = true },
+  ],
+]
+
+
+[tool.tox.env.rst]
+skip_install = true
+dependency_groups = ["rst"]
+commands = [
+  [
+    "rst-lint",
+    { replace = "posargs", extend = true },
+    "{toxinidir}{/}README.rst",
+  ],
+]
+
+[tool.tox.env.build]
+skip_install = true
+dependency_groups = ["build"]
+commands = [
+  [
+    "python3",
+    "-m",
+    "build",
+    { replace = "posargs", extend = true },
+  ],
+  [
+    "python3",
+    "-m",
+    "twine",
+    "check",
+    { replace = "posargs", extend = true },
+    "dist{/}*",
+  ],
+]
+
+[tool.tox.env.upload_test]
+skip_install = true
+dependency_groups = ["upload"]
+commands = [
+  [
+    "python3",
+    "-m",
+    "twine",
+    "upload",
+    { replace = "posargs", extend = true },
+    "--repository",
+    "{env:PYPI_REPOSITORY:testpypi}",
+    "dist{/}*",
+  ],
+]
+
+[tool.tox.env.upload_prod]
+base = ["tool.tox.env.upload_test"]
+set_env.PYPI_REPOSITORY = "pypi"
+
+[tool.tox.env.clean]
+skip_install = true
+dependency_groups = []
+allowlist_externals = ["rm"]
+commands = [
+  [
+    "rm",
+    "-rf",
+    "{toxinidir}/dist/",
+    "{toxinidir}/{[base]package_path}.egg-info/",
+  ],
+]

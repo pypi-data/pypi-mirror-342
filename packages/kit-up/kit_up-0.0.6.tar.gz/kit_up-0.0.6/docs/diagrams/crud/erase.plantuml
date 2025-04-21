@@ -1,0 +1,27 @@
+@startuml
+
+participant App
+collections CrudDomain
+collections CrudRepository as Repo
+participant DataMapper as Mapper
+database "Database" as DB
+
+
+group
+App -> CrudDomain : erase_by(field=value, ...)
+CrudDomain --> CrudDomain : erase(clause, ...)
+end
+
+
+group
+App -> CrudDomain : erase(clause, ...)
+CrudDomain -> Repo : erase(clause, ...)
+Repo --> Repo : _erase(clause, ...)
+Repo --> Repo : <clause>()
+Repo -> DB
+Repo <- DB
+CrudDomain <- Repo
+App <- CrudDomain
+end
+
+@enduml

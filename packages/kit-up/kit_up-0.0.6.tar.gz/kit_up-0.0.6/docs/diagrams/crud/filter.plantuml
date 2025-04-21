@@ -1,0 +1,30 @@
+@startuml
+
+participant App
+collections CrudDomain
+collections CrudRepository as Repo
+participant DataMapper as Mapper
+database "Database" as DB
+
+
+group
+App -> CrudDomain : filter_by(field=value, ...)
+CrudDomain --> CrudDomain : filter(clause, ...)
+end
+
+
+group
+App -> CrudDomain : filter(clause, ...)
+CrudDomain -> Repo : filter(clause, ...)
+Repo --> Repo : _filter(clause, ...)
+Repo --> Repo : <clause>()
+Repo -> DB
+Repo <- DB
+Repo -> Mapper : to_model(data)
+Repo <- Mapper : <model>
+CrudDomain <- Repo : <model>, ...
+CrudDomain --> CrudDomain : <model>.as_view()
+App <- CrudDomain : <model_view>, ...
+end
+
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+
+participant App
+collections CrudDomain
+collections CrudRepository as Repo
+participant DataMapper as Mapper
+database "Database" as DB
+
+
+App -> CrudDomain : pick(identity)
+CrudDomain --> CrudDomain : get(clause)
+CrudDomain --> CrudDomain : _get(clause)
+CrudDomain -> Repo : get(clause)
+Repo --> Repo : _get(clause)
+Repo --> Repo : <clause>()
+Repo -> DB
+Repo <- DB
+Repo -> Mapper : to_model(data)
+Repo <- Mapper : <model>
+CrudDomain <- Repo : <model>
+CrudDomain --> CrudDomain : <model>.as_view()
+App <- CrudDomain : <model_view>
+
+@enduml

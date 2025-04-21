@@ -1,0 +1,2 @@
+class ForUpdate:
+    pass

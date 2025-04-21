@@ -1,0 +1,31 @@
+@startuml
+
+participant App
+collections CrudDomain
+collections CrudRepository as Repo
+participant DataMapper as Mapper
+database "Database" as DB
+
+
+group
+App -> CrudDomain : create_by(field=value, ...)
+CrudDomain --> CrudDomain : create({"field": value, ...})
+end
+
+
+group
+App -> CrudDomain : create({}, ...)
+CrudDomain -> Repo : create({}, ...)
+Repo -> Mapper : initialize({})
+Repo <- Mapper : {}
+Repo --> Repo : _create({}, ...)
+Repo -> DB
+Repo <- DB
+Repo -> Mapper : to_model(data)
+Repo <- Mapper : <model>
+CrudDomain <- Repo : <model>, ...
+CrudDomain --> CrudDomain : <model>.as_view()
+App <- CrudDomain : <model_view>, ...
+end
+
+@enduml
