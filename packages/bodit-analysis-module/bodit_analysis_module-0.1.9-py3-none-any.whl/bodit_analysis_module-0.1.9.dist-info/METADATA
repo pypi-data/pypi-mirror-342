@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: bodit-analysis-module
+Version: 0.1.9
+Summary: BODIT Data Analysis Package
+Author: BODIT Inc.
+Keywords: bodit,analysis,module
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Requires-Dist: boto3 >=1.34.154
+Requires-Dist: pandas >=2.2.0
+Requires-Dist: numpy >=1.26.0
+Requires-Dist: mysql-connector >=2.2.5
+Requires-Dist: scipy >=1.11.0
+
