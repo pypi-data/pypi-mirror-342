@@ -1,0 +1,37 @@
+# To be put in /home/argocd/cmp-server/config/plugin.yaml
+# Read also https://argo-cd.readthedocs.io/en/stable/operator-manual/config-management-plugins/#sidecar-plugin
+
+apiVersion: argoproj.io/v1alpha1
+kind: ConfigManagementPlugin
+metadata:
+  name: nyl
+spec:
+  # note: Plugin name in ArgoCD will be `nyl-v1`.
+  version: v1
+
+  discover:
+    find:
+      command:
+        - sh
+        - -c
+        - 'nyl --log-file=/var/log/nyl/${ARGOCD_APP_NAMESPACE}-${ARGOCD_APP_NAME}.log argocd discovery'
+
+  # init:
+  #   command:
+  #     - sh
+  #     - -c
+  #     - |
+  #       nyl version >&2
+  #       argocd version --client >&2
+
+  generate:
+    command:
+      - sh
+      - -c
+      - 'nyl --log-file=/var/log/nyl/${ARGOCD_APP_NAMESPACE}-${ARGOCD_APP_NAME}.log template --in-cluster .'
+
+  parameters: {}
+
+  # If set to `true` then the plugin receives repository files with original file mode. Dangerous since the repository
+  # might have executable files. Set to true only if you trust the CMP plugin authors.
+  preserveFileMode: false
