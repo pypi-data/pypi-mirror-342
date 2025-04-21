@@ -1,0 +1,16 @@
+[project]
+name = "TermART"
+version = "0.1.0"
+description = "A cool terminal formatting tool"
+authors = [
+  { name="CHINmcl", email="namning670@gmail.com" }
+]
+readme = "README.md"
+license = {text = "MIT"}
+dependencies = [
+  "pyfiglet == 1.0.2"
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
