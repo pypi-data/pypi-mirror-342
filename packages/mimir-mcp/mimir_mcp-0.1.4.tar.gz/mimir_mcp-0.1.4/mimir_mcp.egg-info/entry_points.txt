@@ -1,0 +1,2 @@
+[console_scripts]
+mimir-mcp = mimir_mcp.main:main
