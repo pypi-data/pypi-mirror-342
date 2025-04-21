@@ -1,0 +1,14 @@
+{
+    "cSpell.words": [
+        "DOBU",
+        "gethostname",
+        "kodu",
+        "koko"
+    ],
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.ruff": "always",
+        "source.organizeImports.ruff": "always"
+    },
+    "ruff.fixAll": true,
+}
