@@ -1,0 +1,5 @@
+[console_scripts]
+gpt_repo_loader=tddschn_utils.gpt_plain_text_file_loader:main
+gptrl=tddschn_utils.gpt_plain_text_file_loader:main
+vtt2txt=tddschn_utils.webvtt2txt:main
+
