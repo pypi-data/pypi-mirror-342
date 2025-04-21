@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-uv = mcp_server_uv:main
