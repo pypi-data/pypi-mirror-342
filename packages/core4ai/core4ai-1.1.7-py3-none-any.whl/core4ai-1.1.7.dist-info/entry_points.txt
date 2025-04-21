@@ -1,0 +1,2 @@
+[console_scripts]
+core4ai = core4ai.cli.commands:cli
