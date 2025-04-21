@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: mkdocs-mcp
+Version: 0.0.1
+Summary: Add your description here
+Author-email: Urs Baumann <github@m.ubaumann.ch>
+License-File: LICENSE
+Requires-Python: >=3.12
+Requires-Dist: mkdocs>=1.6.1
+Description-Content-Type: text/markdown
+
+# mkdocs-mcp
+MkDocs Plugin to serve MCP
