@@ -1,0 +1,53 @@
+[project]
+name = "nonebot-plugin-akinator"
+dynamic = []
+description = "Internet Genius - Akinator"
+authors = [
+    { name = "LgCookie", email = "lgc2333@126.com" },
+]
+dependencies = [
+    "nonebot2>=2.4.1",
+    "nonebot-plugin-alconna>=0.57.2",
+    "nonebot-plugin-waiter>=0.8.1",
+    "cookit[loguru,nonebot-alconna]>=0.11.0",
+    "fleep>=1.0.1",
+    "cooaki>=0.3.0.post1",
+]
+requires-python = ">=3.9,<4.0"
+readme = "README.md"
+version = "1.0.2.post1"
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+homepage = "https://github.com/lgc2333/nonebot-plugin-akinator"
+
+[project.optional-dependencies]
+image = [
+    "nonebot-plugin-htmlrender>=0.6.5",
+    "cookit[jinja,pw]>=0.11.0",
+]
+patchright = [
+    "nonebot-plugin-htmlrender>=0.6.5",
+    "cooaki[patchright]>=0.3.0.post1",
+]
+
+[project.entry-points.nb_scripts]
+akinator-patch-import = "nonebot_plugin_akinator.cli.patch_import:main"
+
+[dependency-groups]
+dev = []
+
+[tool.pdm.build]
+includes = []
+
+[tool.pdm.version]
+source = "file"
+path = "nonebot_plugin_akinator/__init__.py"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
