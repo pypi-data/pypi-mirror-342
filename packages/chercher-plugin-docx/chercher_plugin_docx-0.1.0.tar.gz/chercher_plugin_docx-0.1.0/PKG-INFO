@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: chercher-plugin-docx
+Version: 0.1.0
+Summary: Chercher plugin for docx files
+Author-email: dnlzrgz <contact@dnlzrgz.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/dnlzrgz/chercher-plugin-docx
+Project-URL: Changelog, https://github.com/dnlzrgz/chercher-plugin-docx/releases
+Project-URL: Issues, https://github.com/dnlzrgz/chercher-plugin-docx/issues
+Project-URL: CI, https://github.com/dnlzrgz/chercher-plugin-docx/actions
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: chercher
+Requires-Dist: pymupdf>=1.25.5
+Dynamic: license-file
+
+# chercher-plugin-docx
+
+Chercher plugin for docx files.
+
+## Installation
+
+> [!NOTE]
+> TODO
+
+## Settings
+
+> [!NOTE]
+> If you plugin needs additional settings, add the instructions here.
+
+## Development
+
+> [!NOTE]
+> TODO
