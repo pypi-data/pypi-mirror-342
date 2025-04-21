@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+promptlibz/__init__.py
+promptlibz/lib.py
+promptlibz.egg-info/PKG-INFO
+promptlibz.egg-info/SOURCES.txt
+promptlibz.egg-info/dependency_links.txt
+promptlibz.egg-info/requires.txt
+promptlibz.egg-info/top_level.txt
+test/test_factory.py
