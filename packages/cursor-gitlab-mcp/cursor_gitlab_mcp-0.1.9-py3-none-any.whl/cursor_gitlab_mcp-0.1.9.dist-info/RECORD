@@ -1,0 +1,11 @@
+gitlab_mcp/__init__.py,sha256=am6tS1KlXTixrauFrQoLlJBtTC4aY1SAR3ZQ6aeSr_Y,374
+gitlab_mcp/connector.py,sha256=UhHLN0CvrP4bkOx20zzX8EzBx6E3THUovumd9uUzz50,7867
+gitlab_mcp/count_projects.py,sha256=Nqnn8clbgv-5l0PgxcTOldg8mkMKrFn4TvPL-rYUUGg,1
+gitlab_mcp/main.py,sha256=PEC8vv4oEimBpK94x_0mm3Rq_EFJOLu2Fp689Ew0T_4,1286
+gitlab_mcp/project_stats.py,sha256=Nqnn8clbgv-5l0PgxcTOldg8mkMKrFn4TvPL-rYUUGg,1
+gitlab_mcp/server.py,sha256=kVZ2_H4pU6PTwyj7kzr5eq_KA5kBXam6PyFI9wRG5kg,22937
+cursor_gitlab_mcp-0.1.9.dist-info/METADATA,sha256=Wr7l9IPN9Y0uJPDek0vFAhlfDTL8PFHNNTIZOvjrL4s,5674
+cursor_gitlab_mcp-0.1.9.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+cursor_gitlab_mcp-0.1.9.dist-info/entry_points.txt,sha256=mDiqduKsq1D99ZG8ZoNV5zE1bX_edW9HDIMiJWiiV88,58
+cursor_gitlab_mcp-0.1.9.dist-info/top_level.txt,sha256=hpQVP8m9mLPrS0bIP1M38IiiJoHusbCze-M9Pqo0U10,11
+cursor_gitlab_mcp-0.1.9.dist-info/RECORD,,
