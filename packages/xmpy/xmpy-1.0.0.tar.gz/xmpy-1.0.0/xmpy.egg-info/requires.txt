@@ -1,0 +1,6 @@
+numpy>=2.2.3
+ta-lib>=0.6.0
+tzlocal>=5.3
+xmpy_ctp>=1.0.0
+xmpy_sqlite>=1.0.0
+xmpy_ctastrategy>=1.0.0
