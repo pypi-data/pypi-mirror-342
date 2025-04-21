@@ -1,0 +1,167 @@
+"""Access exchange information from FIO.
+"""
+from typing import Optional
+from fio_wrapper.endpoints.abstracts.abstract_endpoint import AbstractEndpoint
+from fio_wrapper.endpoints.abstracts.abstract_exchange import AbstractExchange
+from fio_wrapper.exceptions import ExchangeTickerInvalid
+from fio_wrapper.exceptions import ExchangeTickerNotFound
+from fio_wrapper.exceptions import MaterialTickerInvalid
+from fio_wrapper.models.exchange_models import ExchangeTickerFull
+from fio_wrapper.models.exchange_models import ExchangeTickerFullList
+from fio_wrapper.models.exchange_models import ExchangeTickerList
+from fio_wrapper.models.exchange_models import OrderList
+from fio_wrapper.validators import validate_company_code
+from fio_wrapper.validators import validate_exchange_code
+from fio_wrapper.validators import validate_ticker
+
+
+class Exchange(AbstractExchange, AbstractEndpoint):
+    def _validate_exchangeticker(self, exchange_ticker: str) -> None:
+        """Validates an exchange ticker
+
+        Args:
+            exchange_ticker (str): Exchange ticker
+
+        Raises:
+            ExchangeTickerInvalid: Exchange ticker can't be None type
+            ExchangeTickerInvalid: Exchange ticker too short or long. Must be 5 to 7 characters
+            ExchangeTickerInvalid: Exchange ticker must be of form MaterialTicker.ExchangeCode
+            ExchangeTickerInvalid: Material ticker part of Exchange ticker invalid
+        """
+        if exchange_ticker is None:
+            raise ExchangeTickerInvalid("Exchange ticker can't be None type")
+
+        # min length: 5, max length: 7
+        if len(exchange_ticker) < 5 or len(exchange_ticker) > 7:
+            raise ExchangeTickerInvalid(
+                "Exchange ticker to short or long. Must be 5 to 7 characters"
+            )
+
+        # must contain .
+        if "." not in exchange_ticker:
+            raise ExchangeTickerInvalid(
+                "Exchange ticker must be of form MaterialTicker.ExchangeCode"
+            )
+
+        splitted = exchange_ticker.split(".")
+
+        # validate Material part
+        try:
+            validate_ticker(material_ticker=splitted[0])
+        except MaterialTickerInvalid as e:
+            raise ExchangeTickerInvalid() from e
+
+        # validate Exchange code
+        validate_exchange_code(exchange_code=splitted[1])
+
+    # /exchange/{ExchangeTicker}
+    def get(
+        self, exchange_ticker: str, timeout: Optional[float] = None
+    ) -> ExchangeTickerFull:
+        """Gets a single exchange ticker from FIO
+
+        Args:
+            exchange_ticker (str): Exchange Ticker (e.g., "DW.AI1")
+            timeout (float, optional): Request timeout in seconds. Defaults to None.
+
+        Raises:
+            ExchangeTickerNotFound: Exchange ticker was not found
+
+        Returns:
+            ExchangeTicker: Exchange ticker
+        """
+        self._validate_exchangeticker(exchange_ticker=exchange_ticker)
+
+        (status, data) = self.adapter.get(
+            endpoint=self.urls.exchange_get_url(exchange_ticker=exchange_ticker),
+            err_codes=[204],
+            timeout=timeout,
+        )
+
+        if status == 200:
+            return ExchangeTickerFull.model_validate(data)
+        elif status == 204:
+            raise ExchangeTickerNotFound("Exchangeticker not found")
+
+    # /exchange/all
+    def all(self, timeout: Optional[float] = None) -> ExchangeTickerList:
+        """Gets all simple exchange ticker from FIO
+
+        Args:
+            timeout (float, optional): Request timeout in seconds. Defaults to None.
+
+        Returns:
+            ExchangeTickerList: Exchange ticker
+        """
+        (_, data) = self.adapter.get(
+            endpoint=self.urls.exchange_get_all_url(), timeout=timeout
+        )
+
+        return ExchangeTickerList.model_validate(data)
+
+    # /exchange/full
+    def full(self, timeout: Optional[float] = None) -> ExchangeTickerFullList:
+        """Gets a complete list of all exchange information from FIO
+
+        Args:
+            timeout (float, optional): Request timeout in seconds. Defaults to None.
+
+        Returns:
+            ExchangeTickerFullList: Exchange ticker full
+        """
+        (_, data) = self.adapter.get(
+            endpoint=self.urls.exchange_get_full_url(), timeout=timeout
+        )
+
+        return ExchangeTickerFullList.model_validate(data)
+
+    # /exchange/orders/{CompanyCode}
+    def get_orders(
+        self, company_code: str, timeout: Optional[float] = None
+    ) -> OrderList:
+        """Gets a companies order data from FIO
+
+        Args:
+            company_code (str): Company code (1-4 characters)
+            timeout (float, optional): Request timeout in seconds. Defaults to None.
+
+        Returns:
+            OrderList: Orders
+        """
+        # 1 to 4 character company code
+        validate_company_code(company_code=company_code)
+
+        (_, data) = self.adapter.get(
+            endpoint=self.urls.exchange_get_orders_companycode(
+                company_code=company_code
+            ),
+            timeout=timeout,
+        )
+
+        return OrderList.model_validate(data)
+
+    # /exchange/orders/{CompanyCode}/{ExchangeCode}
+    def get_orders_exchange(
+        self, company_code: str, exchange_code: str, timeout: Optional[float] = None
+    ) -> OrderList:
+        """Gets a companies order data for a specific exchange from FIO
+
+        Args:
+            company_code (str): Company code (1-4 characters)
+            exchange_code (str): Exchange code (e.g., "AI1")
+            timeout (float, optional): Request timeout in seconds. Defaults to None.
+
+        Returns:
+            OrderList: Orders
+        """
+        validate_company_code(company_code=company_code)
+        validate_exchange_code(exchange_code=exchange_code)
+
+        (_, data) = self.adapter.get(
+            endpoint=self.urls.exchange_get_orders_companycode_exchange(
+                company_code=company_code, exchange_code=exchange_code
+            ),
+            timeout=timeout,
+        )
+
+        return OrderList.model_validate(data)

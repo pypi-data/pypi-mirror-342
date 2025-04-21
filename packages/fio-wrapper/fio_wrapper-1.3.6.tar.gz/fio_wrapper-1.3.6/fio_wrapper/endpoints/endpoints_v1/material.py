@@ -1,0 +1,94 @@
+"""Access material information from FIO.
+"""
+from typing import Optional
+from fio_wrapper.endpoints.abstracts.abstract_endpoint import AbstractEndpoint
+from fio_wrapper.endpoints.abstracts.abstract_material import AbstractMaterial
+from fio_wrapper.validators import validate_ticker
+from fio_wrapper.models.material_models import MaterialTicker, MaterialTickerList
+from fio_wrapper.exceptions import MaterialTickerNotFound, MaterialCategoryNotFound
+
+
+class Material(AbstractMaterial, AbstractEndpoint):
+    def _validate_ticker(self, material_ticker: str) -> None:
+        """Validates a material ticker
+
+        Args:
+            material_ticker (str): Material ticker
+            timeout (float, optional): Request timeout in seconds. Defaults to None.
+
+        Raises:
+            MaterialTickerInvalid: Material ticker can't be None type
+            MaterialTickerInvalid: Material ticker can't be longer than 3 characters
+            MaterialTickerInvalid: Material ticker can't be shorter than 1 character
+            MaterialTickerInvalid: Material ticker can't contain spaces
+        """
+        validate_ticker(material_ticker=material_ticker)
+
+    def get(
+        self, material_ticker: str, timeout: Optional[float] = None
+    ) -> MaterialTicker:
+        """Gets a single material from FIO
+
+        Args:
+            material_ticker (str): Material Ticker (e.g., "DW")
+            timeout (float, optional): Request timeout in seconds. Defaults to None.
+
+        Raises:
+            MaterialTickerNotFound: Material Ticker was not found
+
+        Returns:
+            MaterialModel: Material
+        """
+
+        self._validate_ticker(material_ticker=material_ticker)
+
+        (status, data) = self.adapter.get(
+            endpoint=self.urls.material_get_url(material_ticker=material_ticker),
+            err_codes=[204],
+            timeout=timeout,
+        )
+
+        if status == 200:
+            return MaterialTicker.model_validate(data)
+        elif status == 204:
+            raise MaterialTickerNotFound("Materialticker not found")
+
+    def all(self, timeout: Optional[float] = None) -> MaterialTickerList:
+        """Gets all materials from FIO
+
+        Args:
+            timeout (float, optional): Request timeout in seconds. Defaults to None.
+
+        Returns:
+            MaterialModelList: List of Materials as List[MaterialModel]
+        """
+        (_, data) = self.adapter.get(
+            endpoint=self.urls.material_allmaterials_url(), timeout=timeout
+        )
+        return MaterialTickerList.model_validate(data)
+
+    def category(
+        self, category_name: str, timeout: Optional[float] = None
+    ) -> MaterialTickerList:
+        """Gets all materials of specified category
+
+        Args:
+            category_name (str): Category name (e.g., "agricultural products")
+            timeout (float, optional): Request timeout in seconds. Defaults to None.
+
+        Raises:
+            MaterialCategoryNotFound: Category was not found
+
+        Returns:
+            MaterialModelList: List of Materials as List[MaterialModel]
+        """
+        (status, data) = self.adapter.get(
+            endpoint=self.urls.material_get_category(category_name=category_name),
+            err_codes=[204],
+            timeout=timeout,
+        )
+
+        if status == 200 and len(data) > 0:
+            return MaterialTickerList.model_validate(data)
+        elif status == 204 or len(data) == 0:
+            raise MaterialCategoryNotFound("Material category not found")
