@@ -1,0 +1,35 @@
+[project]
+name = "chatweaver"
+version = "1.0.3"
+dependencies = [
+    "openai==1.66.5"
+]
+authors = [
+    { name="Cecchelani Diego", email="ceccdieg@gmail.com" },
+]
+description = "A Python library that simplifies building AI-driven chatbots with OpenAI, offering conversation management, file attachments, and persistent storage in one cohesive package."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent", 
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence", 
+    "License :: Other/Proprietary License"
+]
+
+[project.urls]
+Homepage = "https://www.chatweaver.it"
+License = "https://github.com/D1TCRY/ChatWeaver/blob/main/LICENSE"
+
+[build-system]
+requires = ["setuptools>=77.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+Example = ["*", "**/*"]
