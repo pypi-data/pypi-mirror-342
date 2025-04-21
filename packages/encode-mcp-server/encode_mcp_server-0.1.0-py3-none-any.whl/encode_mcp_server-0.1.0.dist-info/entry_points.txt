@@ -1,0 +1,2 @@
+[console_scripts]
+encode-mcp-server = encode_mcp_server:main
