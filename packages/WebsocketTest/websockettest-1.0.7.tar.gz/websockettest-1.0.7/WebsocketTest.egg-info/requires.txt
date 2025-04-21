@@ -1,0 +1,6 @@
+allure_python_commons==2.13.5
+numpy==2.2.4
+pandas==2.2.3
+pytest==8.2.2
+PyYAML==6.0.2
+websockets==12.0
