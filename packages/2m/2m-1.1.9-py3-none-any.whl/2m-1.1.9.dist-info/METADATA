@@ -1,0 +1,341 @@
+Metadata-Version: 2.4
+Name: 2m
+Version: 1.1.9
+Summary: A small package
+Author-email: Victor Litovchenko <filpsixi@mail.ru>
+Project-URL: Homepage, https://github.com/filthps/2m
+Project-URL: Issues, https://github.com/filthps/2m/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: Flask==3.0.2
+Requires-Dist: Flask-SQLAlchemy==3.1.1
+Requires-Dist: importlib-metadata==8.6.1
+Requires-Dist: pymemcache==4.0.0
+Requires-Dist: python-dotenv==0.20.0
+Requires-Dist: SQLAlchemy==2.0.28
+Requires-Dist: SQLAlchemy-Utils==0.38.2
+Requires-Dist: dill==0.3.9
+Requires-Dist: psycopg2==2.9.3
+
+![intro](readme_images/presentation/Презентация-1.png)
+![abc](readme_images/presentation/Презентация-2.png)
+![replication](readme_images/presentation/Презентация-3.png)
+![search-nodes](readme_images/presentation/Презентация-4.png)
+![append-node](readme_images/presentation/Презентация-5.png)
+![push-queue](readme_images/presentation/Презентация-6.png)
+![stack-example](readme_images/presentation/Презентация-7.png)
+
+--------
+--------
+
+# <center>Quickstart guide</center>
+
+## Инициализация
+
+<code>> pip install 2m</code>
+
+Переходим в рабочий каталог своего приложения:
+
+<code>> cd ../path_to_your_ui</code>
+
+Устанавливаем зависимые пакеты, сверяем соответствие, развёртываем пакет с модулями:
+
+<code>> python -c "from two_m_root.install import install;exec(install.main())"</code>
+
+![install](readme_images/install.png)
+
+Теперь в вашем текущем покете появился пакет **two_m**, содержащий несколько модулей, которые необходимо настроить.
+
+----
+
+## Настройка
+
+
+* Опишем свои таблицы в **models.py**
+
+> Обращаю ваше внимание на официальную документацию Flask-SQLAlchemy
+> https://flask-sqlalchemy.readthedocs.io/en/stable/legacy-quickstart/#define-models
+
+* **procedures.py**
+
+Если нужно работать с хранимыми процедурами, декларируем их в виде экземпляров класса **DDL**.
+
+> Документация SqlAlchemy относительно объектов DDL
+> https://docs.sqlalchemy.org/en/20/core/ddl.html#custom-ddl
+
+* Настроим **.env** файл, содержащий константы, которые конфигурируют работу базы данных и локального хранилища 
+
+![settings](readme_images/settings.png)
+
+После написания таблиц в **models** и хранимых процедур в **procedures**, нужно инициализировать их в базу даных.
+
+<code>> python -c "from two_m.models import create_db;create_db()"</code>
+
+<code>> python -c "from two_m.procedures import init_procedures;init_procedures()"</code>
+
+* Наконец, можно приступить к использованию! Импортируем класс **Tool** и начнём работу!
+
+<code>
+
+    from two_m_root import Tool
+    from two_m.models import SomeModel
+    ...
+    ...
+    ...
+    class Something:
+        def __init__():
+            self.tool = Tool()
+            self.tool.set_model(SomeModel)
+    
+        def ui_action_a():
+            self.tool.set_item(...)
+
+        def ui_action_b():
+            self.tool.set_item(...)
+
+        def ui_action_b():
+            items = self.tool.get_items(...)
+            ...
+</code>
+
+----
+
+*<center>Рассмотрим функционал, который является основной компетенций данного фреймворка</center>*
+<br>
+- ### <code>*orm*.**set_item**(*_model*=None, *_ready*=False, *_insert*=False, *_update*=False, *_delete*=False, *_where*=None, **values)</code>
+Установить в очередь запись-кандидата, которая появится в базе данных при первой возможности
+- - *_model*: Таблица из модуля ***models.py***. Можно не указывать, если в текущем контексте (вашего приложения)
+уже установлена таблица в качестве основной (смотри класс ORM, метод set_model)
+- - *_ready*: Логическое значение. До тех пор, пока это значение False, нода будет находиться в очереди, 
+но commit базы данных не попадёт. Идеальный способ передавать ответ от вашего *валидатора*
+- - *_insert*, *_update*, *_delete*: Логическое значение. DML-SQL
+- - *_where*: Словарь вида *column_name:value* для выражения *where*
+- - *return* None
+
+Пример: пользовательская функция-валидатор даёт ответ, готова ли данная запись на транзакцию во "внешний мир":
+
+![is_ready](readme_images/is_ready.png)
+
+- ### <code>*orm*.**get_items**(*_model*=None, _db_only=False, _queue_only=False, **where)</code>
+- - *_model*: Таблица из модуля ***models.py***. Можно не указывать, если в текущем контексте (вашего приложения)
+уже установлена таблица в качестве основной (смотри класс ORM, метод set_model)
+- - *_db_only*: Получать данные только из базы данных, игнорируя локальные элементы
+- - *_queue_only*: Получать данные только из локальной очереди элементов, игнорируя базу данных
+- - *return* Result
+<br>
+
+- ### <code>*orm*.**join_select**(**models*, _db_only=False, _queue_only=False, _on=None, **where)</code>
+- - *models*: Таблицы из модуля ***models.py*** между которыми существует отношение (PK-FK)
+- - *_db_only*: Получать данные только из базы данных, игнорируя локальные элементы
+- - *_queue_only*: Получать данные только из локальной очереди элементов, игнорируя базу данных
+- - *_on*: Словарь. Выражение ON в JOIN запросах. modelName.column1: modelName2.column2
+- - *return* JoinSelectResult
+
+Несколько слов о принципе работы внутренних механизмов, 
+которые объединяют воедино записи из удалённого расположения (базы данных), и записи из локального хранилища.
+Рассмотрим 1 строку из таблицы **А** и 1 строку из таблицы **B**, чтобы понять, как будет происходить слияние. 
+1. Обе записи в отношениях (**PRIMARY_KEY - FOREIGN KEY**) находятся в локальном расположении
+![Все записи в кеше](readme_images/join_select/case2.png)
+2. Запись из базы данных (**PRIMARY_KEY**), а запись, которая на неё ссылается (**FOREIGN KEY**) находится в локальном хранилище
+![Основная запись в бд, зависимая в кеше](readme_images/join_select/case1.png)
+3. Нетипичный случай, когда пользователь установил в столбец (**FOREIGN KEY**) значение,
+первичный ключ от этого не нашёлся ни среди элементов из базы данных, ни в локальных.
+В этом случае будут получены обе записи в отношениях (**PRIMARY_KEY - FOREIGN KEY**) из *базы данных*, если таковые имеются; 
+В противном случае этой записи не будет в результатах
+![Ошибка внешнего ключа](readme_images/join_select/bad_fk.png)
+
+----
+# <center>BaseResult</center>
+## <center>Union[*Result, JoinSelectResult*]</center>
+<center>Он же</center>
+
+## <center>Объект результата</center>
+Объекты результата, производные от класса ***BaseResult***, возвращаемые методами *orm*.**get_items** и 
+*orm*.**join_select** соответственно, являются ***ЛЕНИВЫМИ*** объектами, 
+то есть не содержат никакого результата явным образом, но хранят в себе все детали запроса.
+При каждом взаимодействии с итератором, __contains__, __getitem__, __bool__, __len__ и даже __str__, происходит новый запрос.
+> : - Что это, зачем, - зачем усложнять? Ведь можно написать запрос и получить ответ: здесь и сейчас  :question:
+
+<br>Во-первых, я нахожу весьма удобным не писать отдельных пользовательских функций для мемоизации параметров запроса, 
+чтобы потом возвращаться к этому снова и снова, заполняя своё приложение потенциально лишним кодом.
+<br>Во-вторых, "под капотом" скрывается достаточно хитрая система, которая, если описать это просто, делает следующее:
+1. Извлекает записи из базы данных
+2. Извлекает записи из локальной базы данных
+3. Реплицирует одно на другое: на записи из базы данных накладываются записи, которые хранятся локально, и, по тем или иным причинам, пока ещё не закоммитились.
+
+<br>В-третьих, эти ленивые экземпляры дают большое количество синтаксического сахара, который, по заветам pythonicway,
+избавит ваш интерфейс от каждой лишней строчки!
+
+* **has_changes(hash_value=None)** -> Optional[bool]
+
+Просто обратимся к экземпляру, чтобы узнать, есть ли изменения в данных:
+![has_changes](readme_images/has_changes.png)
+Если значение хеш-суммы никогда не фигурировало в рамках текущего экземпляра результата, вернёт - *None*.<br>
+
+* **has_new_entries**
+
+Также, можно с лёгкостью узнать, появились ли новые (или стали недоступны те, что получены) записи:
+![has_new_entries](readme_images/has_new_entries.png)
+
+
+### <center>Result</center>
+Объект запроса к 1 таблице.
+* *items* - property - ResultORMCollection
+* __iter__ - ResultORMCollection._ _iter_ _()
+* __bool__ - True, если есть хотя бы 1 результат, иначе False
+* __len__ - От количества ResultORMItem в ResultORMCollection
+* __getitem__ - Вернёт новый экземпляр **ResultORMCollection** с одним или несколькими *ResultORMItem* по:
+1. Индексу (порядковый номер в коллекции, начиная с 0)
+2. Хеш-сумме пары ключ-значение у *ResultORMItem*. *См свойство hash_by_pk*
+3. Полной хеш сумме *ResultORMItem*
+4. Названию таблицы
+* __contains__ - Поддерживается возможность проверки содержания следующих типов:
+1. *ResultORMItem*
+2. Индекс в коллекции - int
+3. Название таблицы - str
+4. Хеш-сумма от *ResultORMItem* - int
+5. Хеш-сумма первичного ключа+значения. Можно получить через *ResultORMItem*.hash_by_pk - int
+* __hash__ - Получить полную хеш-сумму всех значений в словаре значений каждого экземпляра *ResultORMItem*, в рамках текущего экземпляра контейнера - *ResultORMCollection*
+* **pointer** - (property) геттер и сеттер для инициализации Pointer
+
+<br>
+
+### <center>JoinSelectResult</center>
+Объект запроса к нескольким таблицам.
+В рамках результирующего списка каждый ResultORMCollection представляет внутри себя связку **PK-FK**. 
+* *items* - property - list(ResultORMCollection)
+* __iter__ - list(ResultORMCollection)._ _ iter_ _()
+* __bool__ - True, если в списке есть хотя бы 1 результат ResultORMCollection, иначе False
+* __len__ - От количества ResultORMItem в ResultORMCollection
+* __getitem__ - Вернёт новый экземпляр **ResultORMCollection** по одному из следующих способов:
+1. Индекс в результирующем кортеже - int
+2. Хеш-сумма hash(ResultORMCollection)
+3. Хеш-сумма первичных ключей+значений внутри ResultORMCollection - int
+* __contains__ - Поддерживается возможность проверки содержания следующих типов:
+1. ResultORMCollection
+2. ResultORMItem
+3. hash_sum - int
+4. Хеш-сумма первичных ключей+значений из всех элементов внутри ResultORMCollection. Можно получить через ResultORMCollection.**hash_by_pk** - *свойство(property)* - int
+* __hash__ - сумма всех **ResultORMCollection**._ _hash_ _() в результирующем списке
+* **pointer** - (property) геттер и сеттер для инициализации Pointer
+
+
+----
+
+## <center>Pointer</center>
+Ассоциируйте строку, представляющую __данные__, со ссылкой на получение __этих__ данных.
+Работает как для запросов к 1 таблице, так и для запросов к нескольким таблицам одновременно.
+> Экземпляр Pointer инкапсулируется в экземпляр результата и предназначен для чтения только по свойству, - не следует пытаться сделать на него ещё одну ссылку :rage:<br>
+### Инициализация<br>
+<code>*any_result*.**pointer** = ["список", "совпадающий", "по", "длине", "с", "содержимым"]</code><br>
+Каждый элемент этого *списка* будет ассоциирован с содержимым внутри результата 1 к 1.<br>
+### Использование<br>
+- *__getitem__*<br>
+<code>*any_result*.**pointer**["содержимым"]</code> - получить [-1] элемент<br>
+<code>*any_result*.**pointer**["список"]</code> - получить [0] элемент<br>
+<code>*any_result*.**pointer**["совпадающий"]</code> - получить [1] элемент
+<br>И так далее...<br>
+- *__contains__*<br>
+<code>"длине" in *any_result*.**pointer**  # True</code><br>
+<code>"strstr" in *any_result*.**pointer**  # False</code><br>
+<code>"с" in *any_result*.**pointer**  # True</code><br>
+<code>"совпадающий" in *any_result*.**pointer**  # True</code>
+<br>
+<br>
+
+- <code>any_result.pointer.**has_changes(name: str)**</code> -> Optional[bool] - Передаём сюда полную хеш сумму и получаем ответ на вопрос: есть ли какие-нибудь изменения (с момента последнего вопрошания или инициализации).<br>
+Если переданного значения не было в списке при инициализации, вернёт *None*.
+<br>
+
+<code>*any_result.pointer*.**is_valid()**</code> -> bool. Узнать о текущем состоянии текущего экземпляра *Pointer*: закрылся он или нет.
+<br>
+
+- <code>any_result.pointer.**wrap_items**</code> -> list. Исходный список строк. Если данный *Pointer* закрыт, список будет пустым.
+- <code>any_result.pointer.**items**</code> -> Полный словарь содержимого в виде: <br><code>{"одна_из_строк_wrap": контейнер_с_содержимым}</code>
+- <code>any_result.pointer.**replace_wrap**(*item*: str, *old_wrapper*: Optional[str] = None, *hash_*: Optional[int] = None, *primary_key_hash*: Optional[int] = None, *index*: Optional[int] = None)</code> -> None. Заменить строку указатель на новую.
+- - *item*: Новая строка
+- - *old_wrapper*: Старая строка из *wrap_items*
+- - *hash_*: Полная хеш сумма результата, у которой следует заменить строку-указатель
+- - *primary_key_hash*: Хеш-сумма первичного ключа и значения результата, у которого следует заменить строку-указатель
+- - *index*: Индекс записи в результате, у которой следует заменить строку-указатель
+### Инвалидация
+И всё было бы хорошо, но как только из базы данных придёт результат **количественно другой, или, с записями, которые содержат другие первичные ключи**; Если то же самое произойдет и со стороны локальных элементов,- объект сразу же откажется сотрудничать с вами.
+Всеми своими методами он будет отвечать - **None**.
+Всё что можно сделать в этой ситуации - **создать новый** :)
+
+----
+
+----
+
+## <center>Содержимое результата</center>
+
+### <center>Union[*ResultORMCollection*, *ResultORMItem*]</center>
+
+### Контейнер *ResultORMCollection*
+
+Контейнеры с данными, возвращаемый объектом результата - **Result** или **JoinSelectResult**. Иммутабелен.
+
+* **ResultORMCollection** - композиция из *ResultORMItem*.<br><br>
+В коллекции нод результата предусмотрена возможность установить/удалить **префикс** с названием таблицы в каждый столбец. Это может оказаться полезным при разработке UI.
+- - **prefix** - *свойство(property)*. Возвращает литерал, указывающий на текущую конфигурацию относительно префиксов: "auto", "add", "no-prefix"
+- - **add_model_name_prefix** - *Метод(callable)*. Установить всем столбцам значений, находящихся в каждом *ResultORMItem*, префикс с названием таблицы
+- - **remove_model_name_prefix** - *Метод(callable)*. Удалить префикс с названием таблицы из каждого значения каждого *ResultORMItem*
+- - **auto_model_name_prefix** - *Метод(callable)*. Если какой-либо столбец(его название) повторяется в каком-либо *ResultORMItem* текущего контейнера, то добавить префикс, иначе не добавлять
+- - **get_all_visible_items** - *свойство(property)*. Главное свойство, которое выдаёт результат, предназначенный для использования. Он же в *__iter__* и *__len__*.
+- - **all_nodes** - Итератор со всеми *ResultORMItem*. 
+Он возвращает все ноды, включая те, которые находятся в очереди и должны сделать delete в базе данных.
+> Призываю не использовать метод *all_nodes*, он нужен для служебного пользования :rage:
+- - **get_node**(*model*, *primary_key*, *value*) - Получить *ResultORMItem* или Exception
+- - **search_nodes**(*model*, **столбцы_и_значения) - Получить коллекцию *ResultORMItem* или пустую коллекцию
+- - *__hash__* - Получить полную хеш-сумму всех значений в словаре значений каждого экземпляра *ResultORMItem*, в рамках текущего экземпляра контейнера - *ResultORMCollection*
+- - **hash_by_pk** - *свойство(property)*. Получить хеш-сумму всех **первичных ключей и их значений** у всех *ResultORMItem*, в рамках текущего экземпляра контейнера - *ResultORMCollection*
+- - *__iter__* - Итератор со всеми *ResultORMItem* исключая те, под которыми скрываются *пустые* - которые должны удалить запись из базы данных
+- - *__bool__* - На основе количества элементов из *__iter__*
+- - *__getitem__* - Вернёт новый экземпляр **ResultORMCollection** с одним или несколькими *ResultORMItem* по:
+1. Индексу (порядковый номер в коллекции, начиная с 0)
+2. Хеш-сумме пары ключ-значение у *ResultORMItem*. *См свойство hash_by_pk*
+3. Полной хеш сумме *ResultORMItem*
+4. Названию таблицы
+- - *__contains__* - Поддерживается возможность проверки содержания следующих типов:
+1. *ResultORMItem*
+2. Индекс в коллекции - int
+3. Название таблицы - str
+4. Хеш-сумма от *ResultORMItem* - int
+5. Хеш-сумма первичного ключа+значения. Можно получить через *ResultORMItem*.hash_by_pk - int
+
+### Единица результата *ResultORMItem*
+
+- - **value** - *свойство(property)* - Словарь с содержимым в виде <code>{столбец: значение}</code>
+- - **hidden** - *свойство(property)* - Скрыт ли элемент из набора результатов
+- - **model** - *свойство(property)* - Таблица текущего элемента
+- - **hash_by_pk** - *свойство(property)*. Хеш-сумма первичного ключа и значения
+- - **get**(def_value=None) - Тот же *__getitem__*, но с возможностью получить значение по умолчанию
+- - **get_primary_key_and_value**(*only_key=False, only_val=False*) - Словарь. Пара <code>{столбец: значение}</code>. Или что-то одно
+- - **add_model_name_prefix** - *Метод(callable)*. Добавить каждому ключу в словаре **value** префикс с названием таблицы
+- - **remove_model_name_prefix** - *Метод(callable)*. Удалить префиксы
+- - *__hash__* - Получить полную хеш-сумму всех значений в словаре значений
+- - *__contains__* - 2 варианта использования:
+1. строка вида <code>имя_столбца:значение</code>
+2. просто имя столбца
+- - *__getitem__* - Получить значение столбца по его наименованию <code>value = node["table_column"]</code>
+- - *__bool__* - От длины словаря **value**
+
+
+----
+----
+
+# <center>Changelog</center>
+
+
+## 1.1
+
+- Pointer
+
+  Добавлен метод *replace_wrap*. *wrap_items* теперь список, а не кортеж.
+  Более мягкое поведение относительно возбуждения *WrapperLengthException*, если данных нет.
+  *pymemcache.RetryingClient* вместо *pymemcache.Client* в свойстве Tool.cache.
+
+  Отказ от идеи наследования класса *Tool* в пользовательский пакет *two_m*, модуль *main*.
+  Напротив, из *two_m.main* теперь импортируются константы в *two_m_root.orm*.
