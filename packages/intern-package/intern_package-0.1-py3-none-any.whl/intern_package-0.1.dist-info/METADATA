@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: intern_package
+Version: 0.1
+Summary: A package for numerical operations using NumPy
+Author: ARUN
+Author-email: ARUN@gmail.com
+Requires-Dist: numpy>=1.21.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary
