@@ -1,0 +1,21 @@
+[project]
+name = "bill-lib-demo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "饶奇奇", email = "1124393197@qq.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bill_lib_demo"]
+
+[pypi]
+username = "__token__"
+password = "pypi-AgEIcHlwaS5vcmcCJDFlNmM1NzQ5LTQ1MjctNDhmMC1iOTE1LWQzNWJlMWE2NzExYwACKlszLCIxZmExMDhjZC02MjBjLTQ0ZjQtYmRiYy01ZDc4ZDM0MmY4YzIiXQAABiBdBgPXdwiaBiOjuUH_oN7AiMkaQ7AQV3XDdJLrC1Se1A"
