@@ -1,0 +1,45 @@
+Metadata-Version: 2.4
+Name: nbstrip-empty-cells
+Version: 0.1.0
+Summary: Remove empty code and markdown cells from Jupyter notebooks (ideal for pre-commit hooks)
+Author: Drew5040
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: nbformat>=5.1.4
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+## Usage with pre-commit
+
+Add to your `.pre-commit-config.yaml`:
+
+```yaml
+- repo: https://github.com/Drew5040/nbstrip-empty-cell
+  rev: v0.1.0
+  hooks:
+    - id: nbstrip-empty-cells
+```
+
+Then install the pre-commit hook in your local repository:
+
+```bash
+pre-commit install
+```
+
+You can also run the hook manually on all files:
+```bash
+pre-commit run --all-files
+```

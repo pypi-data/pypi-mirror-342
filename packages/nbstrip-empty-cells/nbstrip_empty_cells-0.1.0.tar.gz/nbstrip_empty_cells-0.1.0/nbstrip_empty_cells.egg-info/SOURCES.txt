@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+nbstrip_empty_cells.egg-info/PKG-INFO
+nbstrip_empty_cells.egg-info/SOURCES.txt
+nbstrip_empty_cells.egg-info/dependency_links.txt
+nbstrip_empty_cells.egg-info/entry_points.txt
+nbstrip_empty_cells.egg-info/requires.txt
+nbstrip_empty_cells.egg-info/top_level.txt
+remove_empty_cells/__init__.py
+remove_empty_cells/cli.py
+tests/test_cli.py
