@@ -1,0 +1,8 @@
+setup.py
+faketaxi.egg-info/PKG-INFO
+faketaxi.egg-info/SOURCES.txt
+faketaxi.egg-info/dependency_links.txt
+faketaxi.egg-info/requires.txt
+faketaxi.egg-info/top_level.txt
+invoicing/__init__.py
+invoicing/invoice.py
