@@ -1,0 +1,2 @@
+[console_scripts]
+chat2llms = chat2llms.cli.cli_click:main

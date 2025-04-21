@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+src/chat2llms/__init__.py
+src/chat2llms/analyzer.py
+src/chat2llms/base_client.py
+src/chat2llms/model_response.py
+src/chat2llms/output_files.py
+src/chat2llms/utils.py
+src/chat2llms.egg-info/PKG-INFO
+src/chat2llms.egg-info/SOURCES.txt
+src/chat2llms.egg-info/dependency_links.txt
+src/chat2llms.egg-info/entry_points.txt
+src/chat2llms.egg-info/requires.txt
+src/chat2llms.egg-info/top_level.txt
+tests/test_analyzer.py
