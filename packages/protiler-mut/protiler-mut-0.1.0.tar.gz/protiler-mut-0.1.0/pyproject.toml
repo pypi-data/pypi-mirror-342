@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+protiler-mut = "protiler_mut.cli:main"
+
+[project]
+name = "protiler-mut"
+version = "0.1.0"
+description = "Pipeline for comprehensive analysis of tiling mutagenesis data"
+readme = "README.md"
+license = { text = "GUN" }
+authors = [{ name = "Wei He", email = "hwkobe.1027@gmail.com" }]
+requires-python = ">=3.7"
+
+[project.urls]
+"Homepage" = "https://github.com/MDhewei/ProTiler-Mut"
+
+[tool.setuptools.packages.find]
+# only look for packages whose names start with protiler_mut
+include = ["protiler_mut*"]
+
