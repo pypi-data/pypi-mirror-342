@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: qbitaro
+Version: 0.1.0
+Summary: A lightweight quantum simulator for teleportation and superdense coding.
+Home-page: https://github.com/colabre2020/qbitaro.git
+Author: Satya Panda
+Author-email: colabre2020@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
