@@ -1,0 +1,12 @@
+adaptio/__init__.py,sha256=f0bd7hFaADDcXxZbYMnINlSIeEwm2fFu77dcd5M_NWc,619
+adaptio/adaptive_async_concurrency_limiter.py,sha256=aAyADJ6jsQEa8rFZzsM8ZSehxwx0C1sYOlx6SdeBlG8,8442
+adaptio/adjustable_semaphore.py,sha256=4uceHrCJz24QQngKrgrYyqEGKaw5DpXpfrG65K5KTMM,5545
+adaptio/log_utils.py,sha256=Tk11HPnKKWasx2eEAsds3ONTnlTcNQv5GMe_qHoUxNs,1113
+adaptio/py.typed,sha256=DT0Dfxorw_bvBIJCgcX01pDRAUviLpmJzmh04SHdADk,66
+adaptio/raise_on_aiohttp_overload.py,sha256=qdefqqTCc32V5tZkyVoupDK8qvkaHO-jSLFdXKB7i1g,1357
+adaptio/raise_on_overload_by_guessing.py,sha256=B9P9lv9SBFdIoQQohTaJBv98GHiixHhrdew9hlp2Poc,2201
+adaptio/with_adaptive_retry.py,sha256=6vZg-3Y9ynCq887s3T_BU4yPhgFVqoNuyteeSiRqrpM,5871
+adaptio/with_async_control.py,sha256=f_QNZEiJ8QSnru0QkJYOdgLbAHj5JSEH5NyE-keDhwM,4296
+adaptio-0.3.3.dist-info/METADATA,sha256=1iyynuBPJSSk8cuxMeD-H5MNtTNuKQ2mVcpQyV8ZPBI,15666
+adaptio-0.3.3.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+adaptio-0.3.3.dist-info/RECORD,,
