@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: pylizmedia
+Version: 0.0.20
+Summary: Add your description here
+Author: Gabliz
+Author-email: 
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: ffmpeg-python>=0.2.0
+Requires-Dist: numpy>=2.2.5
+Requires-Dist: opencv-python>=4.11.0.86
+Requires-Dist: packaging>=25.0
+Requires-Dist: pillow>=11.2.1
+Requires-Dist: pydantic>=2.11.3
+Requires-Dist: pylizlib>=0.1.45
+Dynamic: author
+
+# PYLIZ Media Library
+This is a simple python library that contains some useful functions regarding media that I use in my projects.
+
+## Installation
+```bash
+pip install pylizmedia
+```
+
+## Description
+The purpose of the library is to provide:
+- A class used for handling media files and directories for a python script/project.
+- Some general utilities regarding video frames and audio.
