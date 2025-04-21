@@ -1,0 +1,29 @@
+<div id="searchBox" class="position-relative" tabindex="-1">
+    <div id="searchPanel">
+        <hr class="my-0 mx-2 mx-md-4">
+        <div id="searchPanelContainer" class="max-vh-75"></div>
+    </div>
+    <form id="searchForm" action="{{ url_for('search') }}" method="get">
+        <input id="searchInput" autocomplete="off" required class="form-control" type="search" placeholder="Search everywhere (press Enter to search)" title="press Enter to search" name="q">
+    </form>
+</div>
+<template id="searchResultsTemplate">
+    <section class="px-2 px-md-4">
+        <h5 class="my-3 mx-0 text-center text-md-start fw-bold">
+            <i class="bi bi-search fs-5 me-2"></i>
+            [[ source ]]
+        </h5>
+        <ul class="d-flex flex-column align-items-start gap-1 pe-md-4">
+            <li class="d-inline-block rounded-3" data-iterate-for="occurrence">
+                <a class="d-inline-block py-2 ps-3 pe-5" href="[[ url ]]">[[ occurrence ]]</a>
+            </li>
+        </ul>
+        <hr>
+    </section>
+</template>
+<template id="searchLoadingTemplate">
+    <p class="message p-3 m-0 text-center">Please wait....</p>
+</template>
+<template id="searchNoResultTemplate">
+    <p class="message p-3 m-0 text-center">Your search did not match any documents.</p>
+</template>

@@ -1,0 +1,2 @@
+[console_scripts]
+technote = technote.cli:main

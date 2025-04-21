@@ -1,0 +1,48 @@
+{% extends "document.html" %}
+
+{% block body %}
+  <section class="container-fluid">
+    <div class="row flex-nowrap">
+      <div id="root" class="w-auto p-0"></div>
+      <section class="col min-vh-100 min-width-0">
+        <div class="row flex-column flex-nowrap h-100">
+          <header class="col-auto py-2">
+            <nav class="row justify-content-between" aria-label="Top bar navigation">
+              <div class="col-auto p-0 px-md-3">
+                <button id="headerSidebarBtn" class="btn x-action-btn x-flat-btn p-2" type="button" data-target="sidebar" aria-controls="sidebar">
+                  <i class="bi bi-layout-sidebar-inset fs-4"></i>
+                </button>
+              </div>
+              <div class="col col-md-6 p-0">
+                {% include "modules/searchbox.html" %}
+              </div>
+              <div class="col-auto p-0 px-md-3">
+                <div class="btn-group">
+                  <button type="button" class="btn x-action-btn x-flat-btn dropdown-toggle x-no-default-icon p-2" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-list fs-4"></i>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#shortcutsModal">
+                      <i class="bi bi-keyboard me-2"></i>
+                      Keyboard shortcuts
+                    </button></li>
+                    <li><button type="button" class="dropdown-item d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                      <i class="bi bi-info-circle me-2"></i>
+                      About
+                    </button></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </header>
+          <main class="col px-3 px-md-5" role="main">
+            {% block content %}{% endblock %}
+          </main>
+        </div>
+      </section>
+    </div>
+  </section>
+  {% include "modules/editor.html" %}
+  {% include "shortcuts_modal.html" %}
+  {% include "about_modal.html" %}
+{% endblock %}
