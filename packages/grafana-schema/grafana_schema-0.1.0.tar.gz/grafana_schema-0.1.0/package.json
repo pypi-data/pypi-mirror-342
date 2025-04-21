@@ -1,0 +1,10 @@
+{
+  "name": "grafana-schemagen",
+  "private": true,
+  "devDependencies": {
+    "@grafana/schema": "^11.6.0",
+    "typescript": "^5.8.3",
+    "typescript-json-schema": "^0.65.1"
+  },
+  "prettier": {}
+}
