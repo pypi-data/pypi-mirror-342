@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: chercher
+Version: 0.1.12
+Summary: Universal and personal search engine.
+Project-URL: homepage, https://dnlzrgz.com/projects/chercher/
+Project-URL: source, https://github.com/dnlzrgz/chercher
+Project-URL: issues, https://github.com/dnlzrgz/chercher/issues
+Project-URL: releases, https://github.com/dnlzrgz/chercher/releases
+Author-email: dnlzrgz <contact@dnlzrgz.com>
+License-Expression: MIT
+Requires-Python: >=3.13
+Requires-Dist: chercher-plugin-epub>=0.1.0
+Requires-Dist: chercher-plugin-md>=0.1.0
+Requires-Dist: chercher-plugin-pdf>=0.1.0
+Requires-Dist: chercher-plugin-txt>=0.1.0
+Requires-Dist: click>=8.1.8
+Requires-Dist: loguru>=0.7.3
+Requires-Dist: pluggy>=1.5.0
+Requires-Dist: pydantic-settings>=2.9.0
+Requires-Dist: pydantic>=2.11.3
+Requires-Dist: rich>=14.0.0
+Description-Content-Type: text/markdown
+
+# chercher
