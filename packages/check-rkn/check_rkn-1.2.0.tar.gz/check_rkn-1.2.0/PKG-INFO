@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: check-rkn
+Version: 1.2.0
+Summary: Library that check blocked website on blocklist.rkn.gov.ru
+Project-URL: Repository, https://codeberg.org/IvanyaK/check-rkn
+Author-email: IvanyaK <ivanrus200519@gmail.com>
+License-Expression: Apache-2.0
+License-File: LICENSE
+License-File: NOTICE
+Requires-Python: ~=3.10
+Requires-Dist: anticaptchaofficial<2,>=1.0.53
+Requires-Dist: selenium<5,>=4.10.0
+Description-Content-Type: text/markdown
+
+# Check_rkn
+
+[![PyPI](https://img.shields.io/pypi/v/check-rkn)](https://pypi.org/project/check-rkn/)
+
+This is library, that check blocked websites on [blocklist.rkn.gov.ru](https://blocklist.rkn.gov.ru/). Library uses [Selenium](https://pypi.org/project/selenium/) and [anticaptchaofficial](https://pypi.org/project/anticaptchaofficial/). *WARNING!*  You need to register on [anti-captcha.com](https://anti-captcha.com/) to get the api key and top up your balance (For residents of the Russian federation: MIR cards are available, you can also pay with cryptocurrency)
+
+## How to install
+
+```shell
+pip install check-rkn
+```
+
+
+## How to use
+
+```python 
+from check_rkn.check_rkn import check_website
+
+result = check_website("your_url", "your_api_key")
+print(result) # True if website is blocked or False if no
+
+```
+
+## License - [Apache 2.0](NOTICE)
