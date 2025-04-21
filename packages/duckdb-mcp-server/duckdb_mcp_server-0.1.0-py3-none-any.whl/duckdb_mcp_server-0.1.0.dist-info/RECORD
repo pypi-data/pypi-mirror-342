@@ -1,0 +1,16 @@
+duckdb_mcp_server/__init__.py,sha256=6oRAldptGrAH9vJ-C9S9sXdin94imewX-ZQ9WqKTVqY,1118
+duckdb_mcp_server/config.py,sha256=KmLOFTCihzDk64DtZRzJHa0gC3XsMNJqFLBczcZGA1A,2503
+duckdb_mcp_server/credentials.py,sha256=okB4EJtPdO520Gpu3475BxmI19PTWhGMBJiHvHd82AU,5468
+duckdb_mcp_server/database.py,sha256=q33yl7s-3tWKoaJfdLYdMBtPOwy5JVTx6sPhbo1Ae0U,29960
+duckdb_mcp_server/server.py,sha256=uTVcl27Wrw-khGt4xLvLDSm1u8VhbyxFIU1OufTG0ME,22739
+duckdb_mcp_server/resources/README.md,sha256=vTFzGbpq-TZZNXI5LakaYel1LKBOtWooTK1czQvPivk,261
+duckdb_mcp_server/resources/__init__.py,sha256=Xtne8P7gqj4WSFVMpcL-E4guyXHrLvTYVlgT4k7A_mg,98
+duckdb_mcp_server/resources/docs.py,sha256=CGDek3kGnwnh_8vVjd5UQhjoZ9VECE7uPY0INO0OJII,18680
+duckdb_mcp_server/resources/xml/duckdb_data_import.xml,sha256=3mV-nTlK3GI1AmunCiSgqlMTAdMfLjFnOZTfcPHIh6Y,82470
+duckdb_mcp_server/resources/xml/duckdb_friendly_sql.xml,sha256=wcatYVT586oMeeR7_To0JucLM95NRR9it_VPsNxBZaQ,38858
+duckdb_mcp_server/resources/xml/duckdb_visualization.xml,sha256=NhuNYkS-4beZzcghOZwHpjtSH5S_K2bo7K3FLhNspEU,5052
+duckdb_mcp_server-0.1.0.dist-info/METADATA,sha256=0-ypHRs0xAZC956byTLFgGy33u5--pWi9LwbFqs4mTQ,6523
+duckdb_mcp_server-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+duckdb_mcp_server-0.1.0.dist-info/entry_points.txt,sha256=IL4s6JkFDkezuhObWo9R6dx3YqwXSIdXkd_fdF2EZ48,61
+duckdb_mcp_server-0.1.0.dist-info/licenses/LICENSE,sha256=KNAADYhXKAIGySYjfCVq6P4ZDhIUFfHxeZFYa3-32ec,1055
+duckdb_mcp_server-0.1.0.dist-info/RECORD,,

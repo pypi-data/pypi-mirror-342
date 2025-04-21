@@ -1,0 +1,2 @@
+[console_scripts]
+duckdb-mcp-server = duckdb_mcp_server:main
