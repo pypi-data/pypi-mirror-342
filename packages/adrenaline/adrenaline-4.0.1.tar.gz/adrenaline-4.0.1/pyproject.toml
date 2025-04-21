@@ -1,0 +1,60 @@
+[project]
+name = "adrenaline"
+version = "4.0.1"
+description = "Keep your OS from sleeping (supports Windows and macOS)"
+authors = [{ name = "Tamas Nepusz", email = "ntamas@gmail.com" }]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pyobjc-core>=11.0; sys_platform == 'darwin'",
+    "pyobjc-framework-Cocoa>=11.0; sys_platform == 'darwin'",
+    "jeepney>=0.8.0; sys_platform == 'linux'",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "coverage[toml]>=7.1.0",
+    "pytest-cov>=6.1.1",
+    "tox>=4.4.3",
+]
+
+[project.scripts]
+adrenaline = "adrenaline.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/ntamas/adrenaline"
+Repository = "https://github.com/ntamas/adrenaline"
+
+[tool.hatch.build.targets.sdist]
+include = ["src"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/adrenaline"]
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 88
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.ruff]
+lint.ignore = ["B905", "C901", "E402", "E501"]
+lint.select = ["B", "C", "E", "F", "W"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
