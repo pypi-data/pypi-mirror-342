@@ -1,0 +1,7 @@
+requests>=2.25.1
+urllib3>=1.26
+
+[dev]
+pytest
+black
+flake8
