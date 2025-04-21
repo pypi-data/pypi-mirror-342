@@ -1,0 +1,107 @@
+Metadata-Version: 2.4
+Name: python-pickaxe
+Version: 0.5.0
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Summary: HTML data extraction library
+Author-email: Tim Pogue <tim@emergentmethods.ai>
+License: MIT
+Requires-Python: >=3.10, <4.0
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: repository, https://gitlab.com/emergentmethods/pickaxe
+
+# Pickaxe
+
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/python-pickaxe?style=flat-square)
+![PyPI - Version](https://img.shields.io/pypi/v/python-pickaxe?style=flat-square)
+
+Pickaxe is a Python package for structured data extraction from HTML documents. It provides a simple and intuitive API for parsing HTML documents, and automatically extracting structured data from them.
+
+## Features
+
+- **Written in Rust**: Pickaxe is written in Rust, which makes it fast and memory-efficient.
+- **Robust**: Pickaxe uses the `html5ever` and `selectors` crate for browser-grade HTML parsing and CSS selector matching.
+- **Data Maps**: Pickaxe can automatically generate CSS selectors for structured data extraction using Data Maps.
+- **CSS Selectors & XPath**: Pickaxe supports both CSS selectors and (simple) XPath expressions for querying HTML documents.
+
+## Quick Start
+
+### Installation
+
+```bash
+pip install python-pickaxe
+```
+
+### Basic Usage
+
+```python
+from pickaxe import HtmlDocument
+
+# Parse an HTML document
+document = HtmlDocument.from_str("<html><body><h1>Hello, World!</h1></body></html>")
+
+# Access elements using CSS selectors or XPath expressions
+heading = document.find("h1")
+print(heading.inner_text)  # Output: Hello, World!
+
+heading = document.find_xpath("//h1")
+print(heading.inner_text)  # Output: Hello, World!
+```
+
+### Data Maps
+
+Data Maps are a powerful feature of Pickaxe that allow you to automatically find the best (most concise) CSS selectors for an HTML document based on samples.
+
+```python
+from httpx import AsyncClient
+from pickaxe import Attribute, HtmlDocument, generate_data_map
+
+# We first generate a data map using a sample HTML document, and
+# examples of the data we want to extract
+async with AsyncClient() as client:
+    response = await client.get("http://quotes.toscrape.com/author/Albert-Einstein/")
+    document = HtmlDocument.from_str(response.text)
+
+    # In this example we want to extract the Name and Birth date of the authors.
+    # The HTML documents that are used as examples must have a corresponding sample in each attribute, even if the expected value
+    # is None.
+    # Note: You can specify the amount of iterations to run the algorithm, but typically 1-3 is enough.
+    data_map = generate_data_map(
+        [document],
+        [
+            Attribute("name", ["Albert Einstein"]),
+            Attribute("birth_date", ["March 14, 1879"]),
+        ]
+    )
+
+# From this data map we can extract data from other HTML documents
+async with AsyncClient() as client:
+    response = await client.get("https://quotes.toscrape.com/author/J-K-Rowling/")
+    document = HtmlDocument.from_str(response.text)
+
+    data = data_map.extract(document)
+    print(data.to_dict()) # Output: {'name': 'J.K. Rowling', 'birth_date': 'July 31, 1965'}
+
+# You can serialize and deserialize the data map to JSON.
+data_map_json = data_map.to_json()
+data_map = DataMap.from_json(data_map_json)
+
+# The result of `extract()` is a `StructuredData` object, which can be converted to a dictionary or JSON.
+print(data.to_dict())
+print(data.to_json())
+print(StructuredData.from_json(my_json).to_dict())
+```
+
+## License
+This project is licensed under MIT License.
+
+## Support & Feedback
+If you encounter any issues or have feedback, please open an issue. We'd love to hear from you!
+
+Made with ❤️ by Emergent Methods
+
+
+
+
+
