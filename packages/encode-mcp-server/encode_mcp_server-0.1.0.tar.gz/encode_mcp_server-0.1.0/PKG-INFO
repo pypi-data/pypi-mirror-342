@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: encode-mcp-server
+Version: 0.1.0
+Summary: Add your description here
+Author-email: yangyanxing <yangyanxing@360.cn>
+Requires-Python: >=3.11
+Requires-Dist: mcp>=1.6.0
