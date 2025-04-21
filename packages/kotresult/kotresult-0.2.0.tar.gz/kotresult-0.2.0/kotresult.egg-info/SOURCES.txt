@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+kotresult/__init__.py
+kotresult/result.py
+kotresult/run_catching.py
+kotresult.egg-info/PKG-INFO
+kotresult.egg-info/SOURCES.txt
+kotresult.egg-info/dependency_links.txt
+kotresult.egg-info/top_level.txt
+tests/test_result.py
+tests/test_run_catching.py
