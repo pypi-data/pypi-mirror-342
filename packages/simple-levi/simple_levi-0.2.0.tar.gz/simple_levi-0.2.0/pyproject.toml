@@ -1,0 +1,17 @@
+[project]
+name = "simple-levi"
+version = "0.2.0"
+description = "mcp test use"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp>=1.6.0",
+    "setuptools>=78.1.1",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry.scripts]
+simple-levi = "simple.server:main"

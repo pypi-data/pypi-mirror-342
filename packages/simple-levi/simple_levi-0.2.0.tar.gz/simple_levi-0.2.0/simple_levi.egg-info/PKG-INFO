@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: simple-levi
+Version: 0.2.0
+Summary: mcp test use
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: mcp>=1.6.0
+Requires-Dist: setuptools>=78.1.1
