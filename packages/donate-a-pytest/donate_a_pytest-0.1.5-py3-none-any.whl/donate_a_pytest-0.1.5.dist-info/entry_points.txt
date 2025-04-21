@@ -1,0 +1,6 @@
+[console_scripts]
+donate-pytest=donate_a_pytest.main:main
+
+[pytest11]
+donate=donate_a_pytest.plugin
+
