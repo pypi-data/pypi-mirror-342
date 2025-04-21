@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: pepelatepeh
+Version: 0.1.3
+Summary: LaTeX-code-generator for tables and images 
+Author: Nikita Savkin
+Requires-Python: >=3.7
+Dynamic: author
+Dynamic: requires-python
+Dynamic: summary
