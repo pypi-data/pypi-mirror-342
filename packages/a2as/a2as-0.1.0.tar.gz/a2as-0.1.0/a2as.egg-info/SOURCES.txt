@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+a2as/__init__.py
+a2as/core.py
+a2as.egg-info/PKG-INFO
+a2as.egg-info/SOURCES.txt
+a2as.egg-info/dependency_links.txt
+a2as.egg-info/top_level.txt

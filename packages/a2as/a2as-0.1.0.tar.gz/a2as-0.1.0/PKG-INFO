@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: a2as
+Version: 0.1.0
+Summary: AI Agents Security toolkit
+Author-email: Your Name <you@example.com>
+License: MIT
+Project-URL: Homepage, https://a2as.org
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# a2as
+
+AI Agents Security toolkit
+
+## Install
+
+```bash
+pip install a2as
+```
