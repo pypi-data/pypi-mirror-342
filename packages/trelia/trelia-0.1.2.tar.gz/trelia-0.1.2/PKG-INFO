@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: trelia
+Version: 0.1.2
+Summary: A Python package to rate and review student code using Gemini API
+Home-page: https://www.aegletek.com/
+Author: Aegletek
+Author-email: coe@aegletek.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: google-generativeai
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Trelia
+
+Trelia is a Python package developed by Aegletek to rate student code using the Gemini API. It analyzes code and provides a score out of 5, along with concise feedback.
+
+## Features
+
+- Uses Gemini API to evaluate code quality
+- Gives a rating out of 5
+- Provides short feedback (10–15 letters)
+
+## Installation
+
+```bash
+pip install trelia
