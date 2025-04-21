@@ -1,0 +1,5 @@
+[console_scripts]
+dyu = dyu.cli:app
+
+[gui_scripts]
+
