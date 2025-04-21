@@ -1,0 +1,24 @@
+{
+    "terminal.external.osxExec": "iTerm.app",
+
+    "background.fullscreen": {
+
+
+      // Local images can be dragged into the browser to quickly get the file protocol address from the address bar
+      "images": ["file:///Users/eizen/Documents/papelnapader/+9999Aura.png"],
+      "opacity": 0.1,
+      "size": "cover",
+      "position": "center",
+      "interval": 0,
+      "random": false
+    },
+    // `sidebar` and `panel` have the same config as `fullscreen`
+    "background.sidebar": {},
+    "background.panel": {},
+    "background.enabled": true,
+    "workbench.colorTheme": "dragan",
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.fontFamily": "monospace",
+}
