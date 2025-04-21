@@ -1,0 +1,8 @@
+# Core dependencies (runtime requirements)
+# The parser uses only Python standard libraries
+
+# Development dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+build>=0.10.0
+twine>=4.0.0
