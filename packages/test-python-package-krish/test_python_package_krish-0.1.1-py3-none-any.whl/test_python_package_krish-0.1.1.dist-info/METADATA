@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: test-python-package-krish
+Version: 0.1.1
+Summary: A toy package example
+Home-page: https://github.com/krisctl/test_python_package
+Author: Krishan
+Author-email: krishi87@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# test_python_package
+
+This is a toy package example for demonstration purposes.
+
+## Installation
+
+```bash
+pip install test_python_package
