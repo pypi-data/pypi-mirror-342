@@ -1,0 +1,2 @@
+[console_scripts]
+zynkl = zynk_lite.cli:main
