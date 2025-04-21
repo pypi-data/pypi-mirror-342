@@ -1,0 +1,55 @@
+Metadata-Version: 2.4
+Name: datainsightx
+Version: 1.0.1
+Summary: Automated KPI summary and trend analysis package for transactional datasets.
+Author: Prakruthi Rao
+Author-email: prakruthirao040898@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# datainsightx
+
+**Automated KPI Summary & Trend Analysis Toolkit**  
+Published by **Prakruthi Rao**
+
+---
+
+`datainsightx` is a lightweight Python package that generates business insights from transactional datasets without the need for BI tools or dashboards. It produces KPI summaries, trend analysis, and visual reports with a single function call.
+
+---
+
+## Features
+
+- Automatically detects date, value, and category columns
+- Computes total value, monthly average, MoM change, YoY change, and peak month
+- Highlights top N performing categories
+- Generates trendline and category comparison plots
+- Exports:
+  - Summary report (`insight_summary.txt`)
+  - JSON output (`insight_kpis.json`)
+  - Self-contained HTML report (`insight_report.html`)
+
+---
+
+## Installation
+
+```bash
+pip install datainsightx
+```

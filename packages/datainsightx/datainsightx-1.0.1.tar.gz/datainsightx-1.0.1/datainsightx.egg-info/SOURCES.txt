@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+datainsightx/__init__.py
+datainsightx/core.py
+datainsightx.egg-info/PKG-INFO
+datainsightx.egg-info/SOURCES.txt
+datainsightx.egg-info/dependency_links.txt
+datainsightx.egg-info/requires.txt
+datainsightx.egg-info/top_level.txt
