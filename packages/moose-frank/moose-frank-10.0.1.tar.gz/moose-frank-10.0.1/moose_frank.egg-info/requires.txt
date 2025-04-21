@@ -1,0 +1,9 @@
+django>=4.2.20
+
+[gcloud]
+django-storages[google]>=1.13.2
+
+[graphene]
+graphene-django>=3.0
+graphene-file-upload>=1.3
+graphene>=3.2
