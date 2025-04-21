@@ -1,0 +1,72 @@
+Metadata-Version: 2.4
+Name: PyEasyDB
+Version: 0.1.1
+Summary: A simple and lightweight Python library for easy database management.
+Author: RedSnows
+Author-email: id.suzuya@email.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+# PyEasyDB
+A simple library to save and load Python dictionaries in SQLite.
+
+
+## ویژگی‌ها
+
+- ذخیره سازی و بازیابی اسان دیتاها
+- اسان کردن کارشما در استفاده از اس کیو ال
+- سبک و سریع
+
+
+
+## سوالاتی راجب این کتابخونه
+
+#### آیا متغیر هایی جز دیکشنری رو ذخیره میکنه؟
+
+خیر این کتابخونه برای ذخیره دیکشنری طراحی شده
+
+#### آیا میشه چند دیکشنری رو به صورت جدا ذخیره کرد؟
+
+بله وقتی میخواین دیکشنری رو ذخیره کنید میتونین یک شناسه بهش بدید
+
+
+## نصب
+
+نصب از طریق ترمینال
+
+```bash
+  pip install PyEasyDB
+```
+
+## نمونه کد
+- ذخیره دیتا
+```python
+from PyEasyDB import save,load
+
+data = {'name':'mohammad','age':18}
+
+save(data,'user1')
+#در اینجا یک فایل data.db ساخته میشود و دیتا توش ذخیره میشه
+
+```
+
+- لود کردن دیتا
+
+```python
+from PyEasyDB import save,load
+
+data = load('user1')
+# اگه دیتا وجود داشته باشه دیتا = {'name':'mohammad','age':18}
+```
