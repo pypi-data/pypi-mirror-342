@@ -1,0 +1,1812 @@
+Metadata-Version: 2.4
+Name: pdfCropMargins
+Version: 2.2.1
+Summary: A command-line program to crop the margins of PDF files, with many options.
+Author-email: Allen Barker <Allen.L.Barker@gmail.com>
+License: 
+        A copy of PySimpleGUI version 4, under the LGPL, is packaged in the 'vendor'
+        directory.  See the license there.
+        
+        Everything else is covered by the GNU GPL license, version 3 or later. 
+        
+        =======================================================================
+        
+                            GNU GENERAL PUBLIC LICENSE
+                               Version 3, 29 June 2007
+        
+         Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+         Everyone is permitted to copy and distribute verbatim copies
+         of this license document, but changing it is not allowed.
+        
+                                    Preamble
+        
+          The GNU General Public License is a free, copyleft license for
+        software and other kinds of works.
+        
+          The licenses for most software and other practical works are designed
+        to take away your freedom to share and change the works.  By contrast,
+        the GNU General Public License is intended to guarantee your freedom to
+        share and change all versions of a program--to make sure it remains free
+        software for all its users.  We, the Free Software Foundation, use the
+        GNU General Public License for most of our software; it applies also to
+        any other work released this way by its authors.  You can apply it to
+        your programs, too.
+        
+          When we speak of free software, we are referring to freedom, not
+        price.  Our General Public Licenses are designed to make sure that you
+        have the freedom to distribute copies of free software (and charge for
+        them if you wish), that you receive source code or can get it if you
+        want it, that you can change the software or use pieces of it in new
+        free programs, and that you know you can do these things.
+        
+          To protect your rights, we need to prevent others from denying you
+        these rights or asking you to surrender the rights.  Therefore, you have
+        certain responsibilities if you distribute copies of the software, or if
+        you modify it: responsibilities to respect the freedom of others.
+        
+          For example, if you distribute copies of such a program, whether
+        gratis or for a fee, you must pass on to the recipients the same
+        freedoms that you received.  You must make sure that they, too, receive
+        or can get the source code.  And you must show them these terms so they
+        know their rights.
+        
+          Developers that use the GNU GPL protect your rights with two steps:
+        (1) assert copyright on the software, and (2) offer you this License
+        giving you legal permission to copy, distribute and/or modify it.
+        
+          For the developers' and authors' protection, the GPL clearly explains
+        that there is no warranty for this free software.  For both users' and
+        authors' sake, the GPL requires that modified versions be marked as
+        changed, so that their problems will not be attributed erroneously to
+        authors of previous versions.
+        
+          Some devices are designed to deny users access to install or run
+        modified versions of the software inside them, although the manufacturer
+        can do so.  This is fundamentally incompatible with the aim of
+        protecting users' freedom to change the software.  The systematic
+        pattern of such abuse occurs in the area of products for individuals to
+        use, which is precisely where it is most unacceptable.  Therefore, we
+        have designed this version of the GPL to prohibit the practice for those
+        products.  If such problems arise substantially in other domains, we
+        stand ready to extend this provision to those domains in future versions
+        of the GPL, as needed to protect the freedom of users.
+        
+          Finally, every program is threatened constantly by software patents.
+        States should not allow patents to restrict development and use of
+        software on general-purpose computers, but in those that do, we wish to
+        avoid the special danger that patents applied to a free program could
+        make it effectively proprietary.  To prevent this, the GPL assures that
+        patents cannot be used to render the program non-free.
+        
+          The precise terms and conditions for copying, distribution and
+        modification follow.
+        
+                               TERMS AND CONDITIONS
+        
+          0. Definitions.
+        
+          "This License" refers to version 3 of the GNU General Public License.
+        
+          "Copyright" also means copyright-like laws that apply to other kinds of
+        works, such as semiconductor masks.
+        
+          "The Program" refers to any copyrightable work licensed under this
+        License.  Each licensee is addressed as "you".  "Licensees" and
+        "recipients" may be individuals or organizations.
+        
+          To "modify" a work means to copy from or adapt all or part of the work
+        in a fashion requiring copyright permission, other than the making of an
+        exact copy.  The resulting work is called a "modified version" of the
+        earlier work or a work "based on" the earlier work.
+        
+          A "covered work" means either the unmodified Program or a work based
+        on the Program.
+        
+          To "propagate" a work means to do anything with it that, without
+        permission, would make you directly or secondarily liable for
+        infringement under applicable copyright law, except executing it on a
+        computer or modifying a private copy.  Propagation includes copying,
+        distribution (with or without modification), making available to the
+        public, and in some countries other activities as well.
+        
+          To "convey" a work means any kind of propagation that enables other
+        parties to make or receive copies.  Mere interaction with a user through
+        a computer network, with no transfer of a copy, is not conveying.
+        
+          An interactive user interface displays "Appropriate Legal Notices"
+        to the extent that it includes a convenient and prominently visible
+        feature that (1) displays an appropriate copyright notice, and (2)
+        tells the user that there is no warranty for the work (except to the
+        extent that warranties are provided), that licensees may convey the
+        work under this License, and how to view a copy of this License.  If
+        the interface presents a list of user commands or options, such as a
+        menu, a prominent item in the list meets this criterion.
+        
+          1. Source Code.
+        
+          The "source code" for a work means the preferred form of the work
+        for making modifications to it.  "Object code" means any non-source
+        form of a work.
+        
+          A "Standard Interface" means an interface that either is an official
+        standard defined by a recognized standards body, or, in the case of
+        interfaces specified for a particular programming language, one that
+        is widely used among developers working in that language.
+        
+          The "System Libraries" of an executable work include anything, other
+        than the work as a whole, that (a) is included in the normal form of
+        packaging a Major Component, but which is not part of that Major
+        Component, and (b) serves only to enable use of the work with that
+        Major Component, or to implement a Standard Interface for which an
+        implementation is available to the public in source code form.  A
+        "Major Component", in this context, means a major essential component
+        (kernel, window system, and so on) of the specific operating system
+        (if any) on which the executable work runs, or a compiler used to
+        produce the work, or an object code interpreter used to run it.
+        
+          The "Corresponding Source" for a work in object code form means all
+        the source code needed to generate, install, and (for an executable
+        work) run the object code and to modify the work, including scripts to
+        control those activities.  However, it does not include the work's
+        System Libraries, or general-purpose tools or generally available free
+        programs which are used unmodified in performing those activities but
+        which are not part of the work.  For example, Corresponding Source
+        includes interface definition files associated with source files for
+        the work, and the source code for shared libraries and dynamically
+        linked subprograms that the work is specifically designed to require,
+        such as by intimate data communication or control flow between those
+        subprograms and other parts of the work.
+        
+          The Corresponding Source need not include anything that users
+        can regenerate automatically from other parts of the Corresponding
+        Source.
+        
+          The Corresponding Source for a work in source code form is that
+        same work.
+        
+          2. Basic Permissions.
+        
+          All rights granted under this License are granted for the term of
+        copyright on the Program, and are irrevocable provided the stated
+        conditions are met.  This License explicitly affirms your unlimited
+        permission to run the unmodified Program.  The output from running a
+        covered work is covered by this License only if the output, given its
+        content, constitutes a covered work.  This License acknowledges your
+        rights of fair use or other equivalent, as provided by copyright law.
+        
+          You may make, run and propagate covered works that you do not
+        convey, without conditions so long as your license otherwise remains
+        in force.  You may convey covered works to others for the sole purpose
+        of having them make modifications exclusively for you, or provide you
+        with facilities for running those works, provided that you comply with
+        the terms of this License in conveying all material for which you do
+        not control copyright.  Those thus making or running the covered works
+        for you must do so exclusively on your behalf, under your direction
+        and control, on terms that prohibit them from making any copies of
+        your copyrighted material outside their relationship with you.
+        
+          Conveying under any other circumstances is permitted solely under
+        the conditions stated below.  Sublicensing is not allowed; section 10
+        makes it unnecessary.
+        
+          3. Protecting Users' Legal Rights From Anti-Circumvention Law.
+        
+          No covered work shall be deemed part of an effective technological
+        measure under any applicable law fulfilling obligations under article
+        11 of the WIPO copyright treaty adopted on 20 December 1996, or
+        similar laws prohibiting or restricting circumvention of such
+        measures.
+        
+          When you convey a covered work, you waive any legal power to forbid
+        circumvention of technological measures to the extent such circumvention
+        is effected by exercising rights under this License with respect to
+        the covered work, and you disclaim any intention to limit operation or
+        modification of the work as a means of enforcing, against the work's
+        users, your or third parties' legal rights to forbid circumvention of
+        technological measures.
+        
+          4. Conveying Verbatim Copies.
+        
+          You may convey verbatim copies of the Program's source code as you
+        receive it, in any medium, provided that you conspicuously and
+        appropriately publish on each copy an appropriate copyright notice;
+        keep intact all notices stating that this License and any
+        non-permissive terms added in accord with section 7 apply to the code;
+        keep intact all notices of the absence of any warranty; and give all
+        recipients a copy of this License along with the Program.
+        
+          You may charge any price or no price for each copy that you convey,
+        and you may offer support or warranty protection for a fee.
+        
+          5. Conveying Modified Source Versions.
+        
+          You may convey a work based on the Program, or the modifications to
+        produce it from the Program, in the form of source code under the
+        terms of section 4, provided that you also meet all of these conditions:
+        
+            a) The work must carry prominent notices stating that you modified
+            it, and giving a relevant date.
+        
+            b) The work must carry prominent notices stating that it is
+            released under this License and any conditions added under section
+            7.  This requirement modifies the requirement in section 4 to
+            "keep intact all notices".
+        
+            c) You must license the entire work, as a whole, under this
+            License to anyone who comes into possession of a copy.  This
+            License will therefore apply, along with any applicable section 7
+            additional terms, to the whole of the work, and all its parts,
+            regardless of how they are packaged.  This License gives no
+            permission to license the work in any other way, but it does not
+            invalidate such permission if you have separately received it.
+        
+            d) If the work has interactive user interfaces, each must display
+            Appropriate Legal Notices; however, if the Program has interactive
+            interfaces that do not display Appropriate Legal Notices, your
+            work need not make them do so.
+        
+          A compilation of a covered work with other separate and independent
+        works, which are not by their nature extensions of the covered work,
+        and which are not combined with it such as to form a larger program,
+        in or on a volume of a storage or distribution medium, is called an
+        "aggregate" if the compilation and its resulting copyright are not
+        used to limit the access or legal rights of the compilation's users
+        beyond what the individual works permit.  Inclusion of a covered work
+        in an aggregate does not cause this License to apply to the other
+        parts of the aggregate.
+        
+          6. Conveying Non-Source Forms.
+        
+          You may convey a covered work in object code form under the terms
+        of sections 4 and 5, provided that you also convey the
+        machine-readable Corresponding Source under the terms of this License,
+        in one of these ways:
+        
+            a) Convey the object code in, or embodied in, a physical product
+            (including a physical distribution medium), accompanied by the
+            Corresponding Source fixed on a durable physical medium
+            customarily used for software interchange.
+        
+            b) Convey the object code in, or embodied in, a physical product
+            (including a physical distribution medium), accompanied by a
+            written offer, valid for at least three years and valid for as
+            long as you offer spare parts or customer support for that product
+            model, to give anyone who possesses the object code either (1) a
+            copy of the Corresponding Source for all the software in the
+            product that is covered by this License, on a durable physical
+            medium customarily used for software interchange, for a price no
+            more than your reasonable cost of physically performing this
+            conveying of source, or (2) access to copy the
+            Corresponding Source from a network server at no charge.
+        
+            c) Convey individual copies of the object code with a copy of the
+            written offer to provide the Corresponding Source.  This
+            alternative is allowed only occasionally and noncommercially, and
+            only if you received the object code with such an offer, in accord
+            with subsection 6b.
+        
+            d) Convey the object code by offering access from a designated
+            place (gratis or for a charge), and offer equivalent access to the
+            Corresponding Source in the same way through the same place at no
+            further charge.  You need not require recipients to copy the
+            Corresponding Source along with the object code.  If the place to
+            copy the object code is a network server, the Corresponding Source
+            may be on a different server (operated by you or a third party)
+            that supports equivalent copying facilities, provided you maintain
+            clear directions next to the object code saying where to find the
+            Corresponding Source.  Regardless of what server hosts the
+            Corresponding Source, you remain obligated to ensure that it is
+            available for as long as needed to satisfy these requirements.
+        
+            e) Convey the object code using peer-to-peer transmission, provided
+            you inform other peers where the object code and Corresponding
+            Source of the work are being offered to the general public at no
+            charge under subsection 6d.
+        
+          A separable portion of the object code, whose source code is excluded
+        from the Corresponding Source as a System Library, need not be
+        included in conveying the object code work.
+        
+          A "User Product" is either (1) a "consumer product", which means any
+        tangible personal property which is normally used for personal, family,
+        or household purposes, or (2) anything designed or sold for incorporation
+        into a dwelling.  In determining whether a product is a consumer product,
+        doubtful cases shall be resolved in favor of coverage.  For a particular
+        product received by a particular user, "normally used" refers to a
+        typical or common use of that class of product, regardless of the status
+        of the particular user or of the way in which the particular user
+        actually uses, or expects or is expected to use, the product.  A product
+        is a consumer product regardless of whether the product has substantial
+        commercial, industrial or non-consumer uses, unless such uses represent
+        the only significant mode of use of the product.
+        
+          "Installation Information" for a User Product means any methods,
+        procedures, authorization keys, or other information required to install
+        and execute modified versions of a covered work in that User Product from
+        a modified version of its Corresponding Source.  The information must
+        suffice to ensure that the continued functioning of the modified object
+        code is in no case prevented or interfered with solely because
+        modification has been made.
+        
+          If you convey an object code work under this section in, or with, or
+        specifically for use in, a User Product, and the conveying occurs as
+        part of a transaction in which the right of possession and use of the
+        User Product is transferred to the recipient in perpetuity or for a
+        fixed term (regardless of how the transaction is characterized), the
+        Corresponding Source conveyed under this section must be accompanied
+        by the Installation Information.  But this requirement does not apply
+        if neither you nor any third party retains the ability to install
+        modified object code on the User Product (for example, the work has
+        been installed in ROM).
+        
+          The requirement to provide Installation Information does not include a
+        requirement to continue to provide support service, warranty, or updates
+        for a work that has been modified or installed by the recipient, or for
+        the User Product in which it has been modified or installed.  Access to a
+        network may be denied when the modification itself materially and
+        adversely affects the operation of the network or violates the rules and
+        protocols for communication across the network.
+        
+          Corresponding Source conveyed, and Installation Information provided,
+        in accord with this section must be in a format that is publicly
+        documented (and with an implementation available to the public in
+        source code form), and must require no special password or key for
+        unpacking, reading or copying.
+        
+          7. Additional Terms.
+        
+          "Additional permissions" are terms that supplement the terms of this
+        License by making exceptions from one or more of its conditions.
+        Additional permissions that are applicable to the entire Program shall
+        be treated as though they were included in this License, to the extent
+        that they are valid under applicable law.  If additional permissions
+        apply only to part of the Program, that part may be used separately
+        under those permissions, but the entire Program remains governed by
+        this License without regard to the additional permissions.
+        
+          When you convey a copy of a covered work, you may at your option
+        remove any additional permissions from that copy, or from any part of
+        it.  (Additional permissions may be written to require their own
+        removal in certain cases when you modify the work.)  You may place
+        additional permissions on material, added by you to a covered work,
+        for which you have or can give appropriate copyright permission.
+        
+          Notwithstanding any other provision of this License, for material you
+        add to a covered work, you may (if authorized by the copyright holders of
+        that material) supplement the terms of this License with terms:
+        
+            a) Disclaiming warranty or limiting liability differently from the
+            terms of sections 15 and 16 of this License; or
+        
+            b) Requiring preservation of specified reasonable legal notices or
+            author attributions in that material or in the Appropriate Legal
+            Notices displayed by works containing it; or
+        
+            c) Prohibiting misrepresentation of the origin of that material, or
+            requiring that modified versions of such material be marked in
+            reasonable ways as different from the original version; or
+        
+            d) Limiting the use for publicity purposes of names of licensors or
+            authors of the material; or
+        
+            e) Declining to grant rights under trademark law for use of some
+            trade names, trademarks, or service marks; or
+        
+            f) Requiring indemnification of licensors and authors of that
+            material by anyone who conveys the material (or modified versions of
+            it) with contractual assumptions of liability to the recipient, for
+            any liability that these contractual assumptions directly impose on
+            those licensors and authors.
+        
+          All other non-permissive additional terms are considered "further
+        restrictions" within the meaning of section 10.  If the Program as you
+        received it, or any part of it, contains a notice stating that it is
+        governed by this License along with a term that is a further
+        restriction, you may remove that term.  If a license document contains
+        a further restriction but permits relicensing or conveying under this
+        License, you may add to a covered work material governed by the terms
+        of that license document, provided that the further restriction does
+        not survive such relicensing or conveying.
+        
+          If you add terms to a covered work in accord with this section, you
+        must place, in the relevant source files, a statement of the
+        additional terms that apply to those files, or a notice indicating
+        where to find the applicable terms.
+        
+          Additional terms, permissive or non-permissive, may be stated in the
+        form of a separately written license, or stated as exceptions;
+        the above requirements apply either way.
+        
+          8. Termination.
+        
+          You may not propagate or modify a covered work except as expressly
+        provided under this License.  Any attempt otherwise to propagate or
+        modify it is void, and will automatically terminate your rights under
+        this License (including any patent licenses granted under the third
+        paragraph of section 11).
+        
+          However, if you cease all violation of this License, then your
+        license from a particular copyright holder is reinstated (a)
+        provisionally, unless and until the copyright holder explicitly and
+        finally terminates your license, and (b) permanently, if the copyright
+        holder fails to notify you of the violation by some reasonable means
+        prior to 60 days after the cessation.
+        
+          Moreover, your license from a particular copyright holder is
+        reinstated permanently if the copyright holder notifies you of the
+        violation by some reasonable means, this is the first time you have
+        received notice of violation of this License (for any work) from that
+        copyright holder, and you cure the violation prior to 30 days after
+        your receipt of the notice.
+        
+          Termination of your rights under this section does not terminate the
+        licenses of parties who have received copies or rights from you under
+        this License.  If your rights have been terminated and not permanently
+        reinstated, you do not qualify to receive new licenses for the same
+        material under section 10.
+        
+          9. Acceptance Not Required for Having Copies.
+        
+          You are not required to accept this License in order to receive or
+        run a copy of the Program.  Ancillary propagation of a covered work
+        occurring solely as a consequence of using peer-to-peer transmission
+        to receive a copy likewise does not require acceptance.  However,
+        nothing other than this License grants you permission to propagate or
+        modify any covered work.  These actions infringe copyright if you do
+        not accept this License.  Therefore, by modifying or propagating a
+        covered work, you indicate your acceptance of this License to do so.
+        
+          10. Automatic Licensing of Downstream Recipients.
+        
+          Each time you convey a covered work, the recipient automatically
+        receives a license from the original licensors, to run, modify and
+        propagate that work, subject to this License.  You are not responsible
+        for enforcing compliance by third parties with this License.
+        
+          An "entity transaction" is a transaction transferring control of an
+        organization, or substantially all assets of one, or subdividing an
+        organization, or merging organizations.  If propagation of a covered
+        work results from an entity transaction, each party to that
+        transaction who receives a copy of the work also receives whatever
+        licenses to the work the party's predecessor in interest had or could
+        give under the previous paragraph, plus a right to possession of the
+        Corresponding Source of the work from the predecessor in interest, if
+        the predecessor has it or can get it with reasonable efforts.
+        
+          You may not impose any further restrictions on the exercise of the
+        rights granted or affirmed under this License.  For example, you may
+        not impose a license fee, royalty, or other charge for exercise of
+        rights granted under this License, and you may not initiate litigation
+        (including a cross-claim or counterclaim in a lawsuit) alleging that
+        any patent claim is infringed by making, using, selling, offering for
+        sale, or importing the Program or any portion of it.
+        
+          11. Patents.
+        
+          A "contributor" is a copyright holder who authorizes use under this
+        License of the Program or a work on which the Program is based.  The
+        work thus licensed is called the contributor's "contributor version".
+        
+          A contributor's "essential patent claims" are all patent claims
+        owned or controlled by the contributor, whether already acquired or
+        hereafter acquired, that would be infringed by some manner, permitted
+        by this License, of making, using, or selling its contributor version,
+        but do not include claims that would be infringed only as a
+        consequence of further modification of the contributor version.  For
+        purposes of this definition, "control" includes the right to grant
+        patent sublicenses in a manner consistent with the requirements of
+        this License.
+        
+          Each contributor grants you a non-exclusive, worldwide, royalty-free
+        patent license under the contributor's essential patent claims, to
+        make, use, sell, offer for sale, import and otherwise run, modify and
+        propagate the contents of its contributor version.
+        
+          In the following three paragraphs, a "patent license" is any express
+        agreement or commitment, however denominated, not to enforce a patent
+        (such as an express permission to practice a patent or covenant not to
+        sue for patent infringement).  To "grant" such a patent license to a
+        party means to make such an agreement or commitment not to enforce a
+        patent against the party.
+        
+          If you convey a covered work, knowingly relying on a patent license,
+        and the Corresponding Source of the work is not available for anyone
+        to copy, free of charge and under the terms of this License, through a
+        publicly available network server or other readily accessible means,
+        then you must either (1) cause the Corresponding Source to be so
+        available, or (2) arrange to deprive yourself of the benefit of the
+        patent license for this particular work, or (3) arrange, in a manner
+        consistent with the requirements of this License, to extend the patent
+        license to downstream recipients.  "Knowingly relying" means you have
+        actual knowledge that, but for the patent license, your conveying the
+        covered work in a country, or your recipient's use of the covered work
+        in a country, would infringe one or more identifiable patents in that
+        country that you have reason to believe are valid.
+        
+          If, pursuant to or in connection with a single transaction or
+        arrangement, you convey, or propagate by procuring conveyance of, a
+        covered work, and grant a patent license to some of the parties
+        receiving the covered work authorizing them to use, propagate, modify
+        or convey a specific copy of the covered work, then the patent license
+        you grant is automatically extended to all recipients of the covered
+        work and works based on it.
+        
+          A patent license is "discriminatory" if it does not include within
+        the scope of its coverage, prohibits the exercise of, or is
+        conditioned on the non-exercise of one or more of the rights that are
+        specifically granted under this License.  You may not convey a covered
+        work if you are a party to an arrangement with a third party that is
+        in the business of distributing software, under which you make payment
+        to the third party based on the extent of your activity of conveying
+        the work, and under which the third party grants, to any of the
+        parties who would receive the covered work from you, a discriminatory
+        patent license (a) in connection with copies of the covered work
+        conveyed by you (or copies made from those copies), or (b) primarily
+        for and in connection with specific products or compilations that
+        contain the covered work, unless you entered into that arrangement,
+        or that patent license was granted, prior to 28 March 2007.
+        
+          Nothing in this License shall be construed as excluding or limiting
+        any implied license or other defenses to infringement that may
+        otherwise be available to you under applicable patent law.
+        
+          12. No Surrender of Others' Freedom.
+        
+          If conditions are imposed on you (whether by court order, agreement or
+        otherwise) that contradict the conditions of this License, they do not
+        excuse you from the conditions of this License.  If you cannot convey a
+        covered work so as to satisfy simultaneously your obligations under this
+        License and any other pertinent obligations, then as a consequence you may
+        not convey it at all.  For example, if you agree to terms that obligate you
+        to collect a royalty for further conveying from those to whom you convey
+        the Program, the only way you could satisfy both those terms and this
+        License would be to refrain entirely from conveying the Program.
+        
+          13. Use with the GNU Affero General Public License.
+        
+          Notwithstanding any other provision of this License, you have
+        permission to link or combine any covered work with a work licensed
+        under version 3 of the GNU Affero General Public License into a single
+        combined work, and to convey the resulting work.  The terms of this
+        License will continue to apply to the part which is the covered work,
+        but the special requirements of the GNU Affero General Public License,
+        section 13, concerning interaction through a network will apply to the
+        combination as such.
+        
+          14. Revised Versions of this License.
+        
+          The Free Software Foundation may publish revised and/or new versions of
+        the GNU General Public License from time to time.  Such new versions will
+        be similar in spirit to the present version, but may differ in detail to
+        address new problems or concerns.
+        
+          Each version is given a distinguishing version number.  If the
+        Program specifies that a certain numbered version of the GNU General
+        Public License "or any later version" applies to it, you have the
+        option of following the terms and conditions either of that numbered
+        version or of any later version published by the Free Software
+        Foundation.  If the Program does not specify a version number of the
+        GNU General Public License, you may choose any version ever published
+        by the Free Software Foundation.
+        
+          If the Program specifies that a proxy can decide which future
+        versions of the GNU General Public License can be used, that proxy's
+        public statement of acceptance of a version permanently authorizes you
+        to choose that version for the Program.
+        
+          Later license versions may give you additional or different
+        permissions.  However, no additional obligations are imposed on any
+        author or copyright holder as a result of your choosing to follow a
+        later version.
+        
+          15. Disclaimer of Warranty.
+        
+          THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+        APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+        HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+        OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+        THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+        PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+        IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+        ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+        
+          16. Limitation of Liability.
+        
+          IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+        WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+        THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+        GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+        USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+        DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+        PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+        EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+        SUCH DAMAGES.
+        
+          17. Interpretation of Sections 15 and 16.
+        
+          If the disclaimer of warranty and limitation of liability provided
+        above cannot be given local legal effect according to their terms,
+        reviewing courts shall apply local law that most closely approximates
+        an absolute waiver of all civil liability in connection with the
+        Program, unless a warranty or assumption of liability accompanies a
+        copy of the Program in return for a fee.
+        
+                             END OF TERMS AND CONDITIONS
+        
+                    How to Apply These Terms to Your New Programs
+        
+          If you develop a new program, and you want it to be of the greatest
+        possible use to the public, the best way to achieve this is to make it
+        free software which everyone can redistribute and change under these terms.
+        
+          To do so, attach the following notices to the program.  It is safest
+        to attach them to the start of each source file to most effectively
+        state the exclusion of warranty; and each file should have at least
+        the "copyright" line and a pointer to where the full notice is found.
+        
+            <one line to give the program's name and a brief idea of what it does.>
+            Copyright (C) <year>  <name of author>
+        
+            This program is free software: you can redistribute it and/or modify
+            it under the terms of the GNU General Public License as published by
+            the Free Software Foundation, either version 3 of the License, or
+            (at your option) any later version.
+        
+            This program is distributed in the hope that it will be useful,
+            but WITHOUT ANY WARRANTY; without even the implied warranty of
+            MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+            GNU General Public License for more details.
+        
+            You should have received a copy of the GNU General Public License
+            along with this program.  If not, see <http://www.gnu.org/licenses/>.
+        
+        Also add information on how to contact you by electronic and paper mail.
+        
+          If the program does terminal interaction, make it output a short
+        notice like this when it starts in an interactive mode:
+        
+            <program>  Copyright (C) <year>  <name of author>
+            This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+            This is free software, and you are welcome to redistribute it
+            under certain conditions; type `show c' for details.
+        
+        The hypothetical commands `show w' and `show c' should show the appropriate
+        parts of the General Public License.  Of course, your program's commands
+        might be different; for a GUI interface, you would use an "about box".
+        
+          You should also get your employer (if you work as a programmer) or school,
+        if any, to sign a "copyright disclaimer" for the program, if necessary.
+        For more information on this, and how to apply and follow the GNU GPL, see
+        <http://www.gnu.org/licenses/>.
+        
+          The GNU General Public License does not permit incorporating your program
+        into proprietary programs.  If your program is a subroutine library, you
+        may consider it more useful to permit linking proprietary applications with
+        the library.  If this is what you want to do, use the GNU Lesser General
+        Public License instead of this License.  But first, please read
+        <http://www.gnu.org/philosophy/why-not-lgpl.html>.
+        
+        
+Project-URL: Homepage, https://github.com/abarker/pdfCropMargins
+Keywords: crop,margins,pdf,resize
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Utilities
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: pillow>=10.1.0
+Requires-Dist: PyMuPDF>=1.19.6
+Requires-Dist: wheel
+Dynamic: license-file
+
+==============
+pdfCropMargins
+==============
+
+The pdfCropMargins program is a command-line application to automatically crop
+the margins of PDF files.  Cropping the margins can make it easier to read the
+pages of a PDF document -- whether the document is printed or displayed on a
+screen -- because the display fonts are larger.  This program is similar to the
+Perl script pdfcrop except with many more options.
+
+Features
+========
+
+- Automatically detects the margins and can crop a given percentage of them.
+- Can crop all the pages to the same size to give a uniform appearance (such as
+  in two-up).
+- Works on Linux, Windows, Cygwin, and OS X/Darwin.
+- Has an optional graphical user interface (GUI) for interactive cropping.
+- Renders and analyzes page images to find the bounding boxes, which allows it
+  to deal with noisy scanned PDFs.
+- A rudimentary 'undo' capability is implemented by default. 
+- Can crop pages uniformly based on the nth smallest crop values, which helps
+  with noisy images or documents where a few pages have unwanted markings in
+  their margins.
+- Can automatically run a document previewer on the output file.
+- The format of automatically-generated output-file names is easily
+  modifiable.
+- Preserves document catalog information such as outlines if possible.
+- Crops rotated pages according to their appearance in the document viewer.
+- Can deal with at least simple cases of password-encrypted files.
+- Works with either MuPDF, the pdftoppm program, or the Ghostscript program to
+  find the bounding boxes.
+- Can automatically apply a Ghostscript repair operation to attempt to fix
+  corrupt PDF files.
+
+This GIF shows the optional GUI, before and after cropping a document:
+
+.. image:: https://user-images.githubusercontent.com/1791335/63413846-9c9e3400-c3c8-11e9-90f5-6e429ae2d74b.gif
+    :width: 450px
+    :align: center
+    :alt: [GIF of pdfCropMargins]
+
+What's New
+==========
+
+See the `CHANGELOG
+<https://github.com/abarker/pdfCropMargins/blob/master/CHANGELOG.rst>`_ for
+recent changes and new features.
+
+* Version 2.1.4 extends the uniform and same page size options to allow selecting
+  individual margins.  The options are ``--uniform4`` and ``--samePageSize4``, which
+  both take four characters of either 't' or 'f'.  It also adds the ``--replaceOriginal``
+  option which is the same as ``--modifyOriginal`` but does not create a backup copy.
+
+* Version 2.1.2 has new options to center text on the pages after cropping.
+  They are ``--centerText``,  ``--centerTextHoriz``, ``--centerTextVert``,  and
+  ``--centeringStrict``.
+
+* New in version 2.0.1, the option ``--setSamePageSize`` (``-ssp``) allows a
+  custom page box size to be passed in rather than having the program calculate
+  the largest containing box size.
+
+Installing 
+==========
+
+The easiest way to install the pdfCropMargins program is by using pip.
+
+The basic features work out of the box, some of the options require either the
+external program pdftoppm or Ghostscript.  For information on installing those
+programs on Linux and Windows, see: `Installing pdftoppm and/or Ghostscript
+<https://github.com/abarker/pdfCropMargins/tree/master/doc/installing_pdftoppm_and_ghostscript.rst>`_
+.
+
+Linux/Ubuntu
+------------
+
+If you are installing via pip with the ``--user`` option be sure
+``$HOME/.local/bin`` is in your system ``PATH``.  (To install system-wide
+without ``--user`` the ``pip3`` command below would need to be run with
+``sudo``.)
+
+.. code-block:: sh
+
+   sudo apt install python3-tk
+   sudo apt install ghostscript poppler-utils # Optional, for ghostscript and pdftoppm.
+   pip3 install pdfCropMargins --user --upgrade
+
+**Troubleshooting:** If you have problems with the install of PyMuPDF, the
+first thing to try is to upgrade your version of the pip program and then
+retry:
+
+.. code-block:: sh
+
+   pip3 install pip --upgrade --user
+
+If you still get an error "Failed building wheel for pymupdf" with the GUI
+install you can try forcing a binary install of PyMuPDF:
+
+.. code-block:: sh
+
+   pip3 install pdfCropMargins --user --upgrade --only-binary pymupdf
+
+Windows
+-------
+
+The install command is:
+
+.. code-block:: sh
+
+   pip install pdfCropMargins --upgrade
+
+The ``pip`` program should be automatically installed along with Python.  If
+you cannot find the pip executable you can usually run it like this:
+
+.. code-block:: sh
+
+   python -m pip <arguments-to-pip>
+
+Note that on some Windows installs the executable for Python is ``py`` rather
+than ``python``.
+
+In order for the command ``pdfcropmargins`` to work from the command line the
+Python ``bin`` directory must be on the Windows ``Path``.  The system-wide
+Python ``bin`` directory should already be on the path if you checked the box
+to modify ``Path`` when you installed Python; otherwise it should be added.
+(Note that if you install with the ``--user`` option to pip then you need to be
+sure that the *local* Python ``bin`` directory is in the Windows ``Path``.)
+
+Running
+=======
+
+The program can be run 1) from the command line, 2) from the command line with
+a GUI, 3) from a Python program, or 3) from the source repo.
+
+Running from the command line
+-----------------------------
+
+After installation via pip the program can be run with either the command
+``pdfcropmargins`` or the command ``pdf-crop-margins``.  For example:
+
+.. code-block:: sh
+
+   pdfcropmargins -v -s -u your-file.pdf
+
+That command prints verbose output, forces all pages to be the same size
+(``-s``) and then crops each page by the same amount (``-u``) for a uniform
+appearance, retaining the default of 10% of the margins.  To run the
+same command with the GUI for fine-tuning, use:
+
+.. code-block:: sh
+
+   pdfcropmargins -v -s -u -gui your-file.pdf
+
+For help and to see the many command-line options that are available, run:
+
+.. code-block:: sh
+
+   pdfcropmargins -h | more
+
+The full output of that command is also listed below, at the bottom of this
+page.  On Windows you may need to explicitly put the Python distribution's
+``Scripts`` directory into your environment ``PATH`` in order to avoid having
+to use the full pathname.
+
+Running with the GUI
+--------------------
+
+To run the GUI, assuming that version of pdfCropMargins has been installed,
+just pass the ``-gui`` flag in addition to any other flags.  The program is
+still a command-line application, and still respects all the flags, but the GUI
+lets you fine-tune the values of some of the command-line arguments such as the
+percent to crop, etc.  The output filenames, etc., are all the same as for the
+command-line version.  Options modifiable from the GUI are initially set to any
+values passed in on the command line.
+
+The graphical display shows the effect of each crop when you hit the 'Crop'
+button.  Multiple cropping calls for the same document tend to be faster
+because the PDF pages usually only need to be rendered to images one time.
+
+Python interface
+----------------
+
+The program can also be called from a user's Python program (when the
+``pdfCropMargins`` package is discoverable in the Python path).  Just import
+the ``crop`` function and then call it with a list containing the usual
+command-line arguments as separate items.  For example:
+  
+.. code-block:: python
+
+   from pdfCropMargins import crop
+   crop(["-p", "20", "-u", "-s", "paper1.pdf"])
+   crop(["-p", "0", "-gui", "paper2.pdf"])
+
+Any necessary exception handling should be performed by the calling code.  The
+code may call ``sys.exit``, so checking for ``SystemExit`` or ``BaseException`` may
+be required.
+
+The ``crop`` function always returns four values, some of which may be set to
+``None``:
+
+* the output file path,
+
+* the exit code,
+
+* the text written to standard input,
+
+* the text written to standard output.
+
+If the keyword argument ``string_io`` is set true (the default is false) then
+standard output and standard error streams are temporarily redirected to
+capture any output text as strings, which are returned as the final two
+arguments.  Otherwise those values are set to ``None``.  The keyword argument
+``quiet`` implies the ``string_io`` argument, but does not echo anything to the
+terminal while the ``crop`` function runs.
+
+An example usage:
+
+.. code-block:: python
+
+   output_doc_pathname, exit_code, stdout_str, stderr_str = crop(
+                            ["-p4", "0", "10", "0", "10", "paper2.pdf"],
+                            string_io=True, quiet=False)
+
+Running from the source distribution
+------------------------------------
+
+The pdfCropMargins program can be run directly from the source code directory
+tree, provided the dependencies are installed.  Just clone the repo and run the
+program ``pdfCropMargins.py`` located in the ``bin`` directory.
+
+To pip install the program and its dependencies from the cloned repo rather
+than from PyPI just go to the root of the source directory and run ``pip install .``
+(As usual, for code development use the ``-e`` option to make the code
+editable.)
+
+Getting good crops
+------------------
+
+* To diagnose unexpected crops, look at the pages with the smallest delta values,
+  as indicated in the verbose (``-v``) output or at the bottom of the GUI.
+  This tells you the page with the smallest crop amount for a margin.
+
+* Running without the ``-u`` or ``-s`` options will crop each page separately,
+  so you can see which pages might be causing problems (such as pages with
+  noise near the borders or margin text).
+
+* To get cropped pages all the same size be sure to use both ``-s`` to first
+  make pages the same size and ``-u`` to crop each page by the same amount.
+
+* Sometimes a small pre-crop is needed (``-ap`` or ``-ap4``) to get past small,
+  unwanted markings near the edges of pages.
+
+Documentation
+=============
+
+.. In vim use this to get output:
+       :read !pdf-crop-margins -h
+
+To see the documentation, run::
+
+   pdf-crop-margins -h | more
+
+The output of that command follows::
+
+   Usage: pdfcropmargins [-h] [-o OUTFILE_PATH_OR_DIR] [-v] [-gui] [-p PCT]
+                         [-p4 PCT PCT PCT PCT] [-pt] [-a BP] [-a4 BP BP BP BP]
+                         [-cs] [-csm4 BP BP BP BP] [-ap BP] [-ap4 BP BP BP BP]
+                         [-u] [-u4 {t,f} {t,f} {t,f} {t,f}] [-m INT]
+                         [-m4 INT INT INT INT] [-mp INT] [-s]
+                         [-s4 {t,f} {t,f} {t,f} {t,f}] [-ms INT]
+                         [-ssp FLOAT FLOAT FLOAT FLOAT] [-e] [-g PAGESTR]
+                         [-c [d|m|p|gr|gb|o]] [-gs] [-gsr] [-t BYTEVAL] [-nb INT]
+                         [-ns INT] [-x DPI] [-y DPI] [-sr STR] [-gf INT]
+                         [-b [m|c|t|a|b]] [-f [m|c|t|a|b]] [-r] [-A] [-gsf] [-nc]
+                         [-pv PROG] [-mo] [-q] [-ro] [-nco] [-pf] [-sc STR]
+                         [-su STR] [-ss STR] [-pw PASSWD] [-pc] [-khc] [-kvc]
+                         [-spr FLOAT:FLOAT] [-prw FLOAT FLOAT FLOAT FLOAT] [-ct]
+                         [-ch] [-cv] [-cst] [-i] [-pdl] [-gsp PATH] [-ppp PATH]
+                         [--version] [-wcdf FILEPATH]
+                         PDF_FILE [PDF_FILE ...]
+
+   Description:
+
+        A command-line application to crop the margins of PDF files. Cropping
+        the margins can make it easier to read the pages of a PDF document --
+        whether the document is printed or displayed on a screen -- because the
+        display fonts are larger. Margin-cropping is also sometimes useful when
+        a PDF file is included in a document as a graphic.
+
+        By default 10% of the existing margins will be retained; the rest will
+        be eliminated. There are many options which can be set, however,
+        including the percentage of existing margins to retain.
+
+        Here is a simple example of cropping a file named document.pdf and
+        writing the cropped output-document to a file named
+        croppedDocument.pdf:
+
+           pdfcropmargins document.pdf -o croppedDocument.pdf
+
+        The alias 'pdf-crop-margins' can also be used to launch the program in
+        place of 'pdfcropmargins'. If no destination is provided a filename
+        will be automatically generated from the name of the source file (see
+        below).
+
+        The pdfCropMargins program works by changing the page sizes which are
+        stored in the PDF file (and are interpreted by programs like Acrobat
+        Reader). Both the CropBox and the MediaBox are set to the newly-
+        computed cropped size. After this the view of the document in most
+        programs will be the new, cropped view.
+
+        In order to reduce the number of copies of a document which must be
+        saved, a basic '--restore' option is provided. When cropping a file not
+        produced by the pdfCropMargins program the default is to save the
+        intersections of the MediaBox and any existing CropBox for each page as
+        XML metadata. This saves the "usual" view of the original document in
+        programs like Acrobat Reader. Subsequent crops of a file produced by
+        pdfCropMargins do not by default alter the saved data. The restore
+        option simply copies the saved values back to the MediaBox and CropBox.
+        (Old versions of the program saved to the ArtBox; if these are cropped
+        again the data is migrated to XML metadata.)
+
+        Below are several examples using more of the command-line options, each
+        applied to an input file called doc.pdf. The output filename is
+        unspecified in most of these examples, so the program will
+        automatically generate the filename (or an output filename can always
+        be explicitly provided with '-o'):
+
+        1) Crop doc.pdf so that all the pages are set to the same size and the
+        cropping amount is uniform across all the pages (this gives a nice two-up
+        appearance).  The default of retaining 10% of the existing margins is
+        used.  Note carefully that '-u' only makes the amount to be cropped uniform
+        for each page; if the pages do not have the same size to begin with they
+        will not have the same size afterward unless the '-s' option is also used.
+
+           pdfcropmargins -u -s doc.pdf
+
+        2) Crop each page of doc.pdf individually (i.e., not uniformly), keeping 50%
+        of the existing margins.
+
+           pdfcropmargins -p 50 doc.pdf
+
+        3) Crop doc.pdf uniformly, keeping 50% of the left margin, 20% of the bottom
+        margin, 40% of the right margin, and 10% of the top margin.
+
+           pdfcropmargins -u -p4 50 20 40 10 doc.pdf
+
+        4) Crop doc.pdf retaining 20% of the margins, and then reduce the right page
+        margins only by an absolute 12 points.
+
+           pdfcropmargins -p 20 -a4 0 0 12 0 doc.pdf
+
+        5) Add a constant 5bp around the bare bounding boxes on all pages (note the
+        negative value passed to the `-a` option, which adds space rather than
+        removing it).
+
+           pdfcropmargins -p 0 -a -5 doc.pdf
+
+        6) Pre-crop the document by 5bp on each side before computing the bounding
+        boxes.  Then crop retaining 50% of the computed margins.  This can be
+        useful for difficult documents such as scanned books with page-edge noise
+        or other "features" inside the current margins.
+
+           pdfcropmargins -ap 5 -p 50 doc.pdf
+
+        7) Crop doc.pdf, re-naming the cropped output file to doc.pdf and backing
+        up the original file in a file named backup_doc.pdf.
+
+           pdfcropmargins -mo -pf -su "backup" doc.pdf
+
+        8) Crop the margins of doc.pdf to 120% of their original size, increasing
+        the margins.  Use Ghostscript to find the bounding boxes without explicit
+        rendering by pdfCropMargins.
+
+           pdfcropmargins -p 120 -c gb doc.pdf
+
+        9) Crop the margins of doc.pdf ignoring the 10 largest margins on each edge
+        (over the whole document).  This is especially good for noisy documents
+        where all the pages have very similar margins, or when you want to ignore
+        marginal annotations which only occur on a few pages.
+
+           pdfcropmargins -m 10 doc.pdf
+
+        10) Crop doc.pdf, launch the acroread viewer on the cropped output, and then
+        query as to whether or not to rename the cropped file doc.pdf and back up
+        the original file as doc_uncropped.pdf.
+
+           pdfcropmargins -mo -q doc.pdf
+
+        11) Crop pages 1-100 of doc.pdf, cropping all even pages uniformly and all odd
+        pages uniformly.
+
+           pdfcropmargins -g 1-100 -e doc.pdf
+
+        12) Try to restore doc.pdf to its original margins, assuming it was cropped
+        with pdfCropMargins previously.  Note that the default output filename is
+        still named doc_cropped.pdf, even though it is the recovered file.  Use the
+        '-mo' option to modify doc.pdf and backup the previous version.
+
+           pdfcropmargins -r doc.pdf
+
+        There are many different ways to use this program. After finding a
+        method which works well for a particular task or workflow pattern it is
+        often convenient to make a simple shell script (batch file) which
+        invokes the program with those particular options and settings. Simple
+        template scripts for Bash and Windows are packaged with the program, in
+        the bin directory. The program can also be called from a user's Python
+        program (when discoverable in the Python path) by using code such as
+
+           from pdfCropMargins import crop
+           crop(["-p", "20", "-u", "-s", "paper.pdf"])
+
+        When printing a document with closely-cropped pages it may be necessary
+        to use options such as "Fit to Printable Area". It may also be
+        necessary to fine-tune the size of the retained margins if the edges of
+        the text are being cut off.
+
+        Sometimes a PDF file is corrupted or non-standard to the point where
+        the routines used by this program raise an error and exit. In that case
+        it can sometimes help to repair the PDF file before attempting to crop
+        it. If it is readable by Ghostscript then the following command will
+        often repair it sufficiently:
+
+           gs -o repaired.pdf -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress corrupted.pdf
+
+        This command can also be used to convert some PostScript (.ps) files to
+        PDF. The option '--gsFix' (or '-gsf') will automatically attempt to
+        apply this fix, provided Ghostscript is available. See the description
+        of that option for more information.
+
+        The pdfCropMargins program handles rotated pages (such as pages in
+        landscape mode versus portrait mode) as follows. All rotated pages are
+        un-rotated as soon as they are read in. All the cropping is then
+        calculated. Finally, as the crops are applied to the pages, the
+        rotation is re-applied. This may give unexpected results in documents
+        which mix pages at different rotations, especially with the '--uniform'
+        or '--samePageSize' options. For rotated pages the arguments of all the
+        options which take four arguments, one for each margin, are shifted so
+        the left, bottom, right, and top margins correspond to the screen
+        appearance (regardless of any internal rotation).
+
+        All the command-line options to pdfCropMargins are described below. The
+        following definition is useful in precisely defining what several of
+        the options do. The "delta values" are the absolute reduction lengths,
+        in points, which are applied to each original page to get the final
+        cropped page. There is a delta value for each margin, on each page. In
+        the usual case where all the margin sizes decrease, all the deltas are
+        positive. A delta value can, however, be negative (e.g., when
+        percentRetain > 100 or when a negative absolute offset is used). When a
+        delta value is negative the corresponding margin size will increase.
+      
+
+   Positional arguments:
+
+     PDF_FILE     The pathname of the PDF file to crop. Use quotes around any
+                  file or directory name which contains a space. If no filename
+                  is given for the cropped PDF output file via the '-o' flag then
+                  a default output filename will be generated. By default it is
+                  the same as the source filename except that the suffix ".pdf"
+                  is replaced by "_cropped.pdf", overwriting by default if the
+                  file already exists. The file will be written to the working
+                  directory at the time when the program was run. If the input
+                  file has no extension or has an extension other than '.pdf' or
+                  '.PDF' then the suffix '.pdf' will be appended to the existing
+                  (possibly-null) extension. Globbing of wildcards and shell
+                  variable expansions are performed on the path.
+
+
+   options:
+     -h, --help   Show this help message and exit.
+
+     -o OUTFILE_PATH_OR_DIR, --outfile OUTFILE_PATH_OR_DIR
+                  An optional argument specifying the directory or file path that
+                  the cropped output document should be written to. If this
+                  option is not given the program will generate an output
+                  filename from the input filename and write to the current
+                  working directory. If only a directory is given the generated
+                  filename will be written in that directory instead. By default
+                  the string "_cropped" is appended to the input filename just
+                  before the file extension. (If the extension is not '.pdf' or
+                  '.PDF' then '.pdf' is also appended to the extension.) The
+                  options '--usePrefix', '--stringCropped' and '--
+                  stringSeparator' can be used to customize the generated
+                  filenames. By default any existing file with the same name will
+                  be silently overwritten; this can be avoided with the '--
+                  noclobber' option. Globbing of wildcards and shell variable
+                  expansions are performed on the directory path but not on the
+                  filename part. The output file path cannot be the same as the
+                  input document path (see instead the '--modifyOriginal'
+                  option).
+
+     -v, --verbose
+                  Print more information about the program's actions and
+                  progress. Without this switch only warning and error messages
+                  are printed to the screen.
+
+     -gui, --gui  Run the graphical user interface. This mode allows you to
+                  interactively preview and test different cropping options
+                  without having to recalculate the bounding boxes each time
+                  (which can be slow). All the usual command-line options to the
+                  program are still respected. Clicking the 'Crop' button in the
+                  GUI crops with the current settings, writing out a cropped PDF
+                  file to the same filename that the command-line version would
+                  write to. Note that successive changes to the margins in the
+                  GUI are not cumulative: settings are always applied to the
+                  original document as it was passed in to the program. The
+                  'Original' button reverts the display back to that original
+                  version.
+
+     -p PCT, --percentRetain PCT
+                  Set the percent of margin space to retain in the image. This is
+                  a percentage of the original margin space. By default the
+                  percent value is set to 10. Setting the percentage to 0 gives a
+                  tight bounding box. Percent values greater than 100 increase
+                  the margin sizes from their original sizes, and negative values
+                  decrease the margins even more than a tight bounding box.
+
+     -p4 PCT PCT PCT PCT, -pppp PCT PCT PCT PCT, --percentRetain4 PCT PCT PCT PCT
+                  Set the percent of margin space to retain in the image,
+                  individually for the left, bottom, right, and top margins,
+                  respectively. The four arguments should be percent values.
+                  Percent values greater than 100 increase the margin sizes from
+                  their original sizes, and negative values decrease the margins
+                  even more than a tight bounding box.
+
+     -pt, --percentText
+                  Normally the percentage values passed to '--percentRetain' or '
+                  --percentRetain4' define the percentage of existing margins to
+                  retain. This flag alters the interpretation of those percent
+                  values. The margins are instead set to the given percentage of
+                  the text width or height. The left and right margins are set to
+                  a percentage of the bounding box width and the bottom and top
+                  margins are set to a percentage of the bounding box height.
+
+     -a BP, --absoluteOffset BP
+                  Decrease each margin size by an absolute floating point offset
+                  value, to be subtracted from each margin's size after the
+                  'percentRetain' option is applied. The units are big points,
+                  bp, which is the unit used in PDF files. There are 72 bp in an
+                  inch. A single bp is approximately equal to a TeX point, pt
+                  (with 72.27pt in an inch). Negative values are allowed;
+                  positive numbers always decrease the margin size and negative
+                  numbers always increase it. Absolute offsets are always applied
+                  after any percentage change operations.
+
+     -a4 BP BP BP BP, -aaaa BP BP BP BP, --absoluteOffset4 BP BP BP BP
+                  Decrease the margin sizes individually with four absolute
+                  offset values. The four floating point arguments should be the
+                  left, bottom, right, and top offset values, respectively. See
+                  the '--absoluteOffset' option for information on the units.
+
+     -cs, --cropSafe
+                  Guarantee that all crops are safe in the sense that no crop
+                  ever goes beyond the tight bounding box on any margin. This
+                  does not apply to pre-crops using the '--absolutePreCrop'
+                  option. It also does not apply to any margins on pages where
+                  that margin is ignored due to the '--uniformOrderStat' or '--
+                  uniformOrderStat4' option. The latter effect works well with
+                  uniform cropping in the GUI: the value of 'uniformOrderStat'
+                  can be incremented for the margin with the minimum delta value
+                  (as seen by clicking that button) if no useful text would be
+                  cropped out. The '--cropSafeMin' option allows for modifying
+                  the minimum margin value, adding to the bounding box.
+
+     -csm4 BP BP BP BP, --cropSafeMin4 BP BP BP BP
+                  The '--cropSafe' option will not perform any crops that cut
+                  into the bounding box. This option modifies the behavior of
+                  that option (assuming that `--cropSafe` is also selected).
+                  Instead of stopping at the bounding box, it will not crop past
+                  the bounding box plus the corresponding margin values passed
+                  in. This applies to all margins. The option takes four floats,
+                  in units of big points, for the left, bottom, right, and top
+                  margins, respectively. Negative values are allowed and allow
+                  some of the bounding box to be cropped.
+
+     -ap BP, --absolutePreCrop BP
+                  This option is like '--absoluteOffset' except that it is
+                  applied before any bounding box calculations (or any other
+                  operations). The argument is the same, in units of bp. All
+                  successive operations are then relative to this pre-crop box,
+                  considered to be the full-page box. Note that since this
+                  absolute crop is applied before any bounding boxes are computed
+                  it is relative to the original full-page boxes of the document
+                  (unlike 'absoluteOffset', which is a crop relative to the
+                  newly-cropped margin after 'percentRetain' is applied). As a
+                  consequence, the number of points may need to be larger than
+                  what would work for 'absoluteOffset'. This option can be used
+                  to ignore text and markings out at the edge of the margins by
+                  cropping it out before the bounding boxes are calculated.
+
+     -ap4 BP BP BP BP, --absolutePreCrop4 BP BP BP BP
+                  This is the same as '--absolutePreCrop' except that four
+                  separate arguments can be given. The four floating point
+                  arguments should be the left, bottom, right, and top absolute
+                  pre-crop values, respectively.
+
+     -u, --uniform
+                  Crop all the pages uniformly. This forces the magnitude of
+                  margin-cropping (absolute, not relative) to be the same on each
+                  page. This option is applied after all the delta values have
+                  been calculated for each page, individually. Then all the left-
+                  margin delta values, for each page, are set to the smallest
+                  left-margin delta value over every page. The bottom, right, and
+                  top margins are processed similarly. Note that this effectively
+                  adds some margin space (relative to the margins obtained by
+                  cropping pages individually) to some of the pages. If the pages
+                  of the original document are all the same size then the cropped
+                  pages will again all be the same size. The '--samePageSize'
+                  option can be used in combination with this option to force all
+                  pages to be the same size after cropping.
+
+     -u4 {t,f} {t,f} {t,f} {t,f}, --uniform4 {t,f} {t,f} {t,f} {t,f}
+                  This option is the same as '--uniform' except it is only
+                  applied to selected margins. The four arguments should be the
+                  characters 't' or 'f', to select (t) or deselect (f) the left,
+                  bottom, right, and top margins respectively.
+
+     -m INT, --uniformOrderStat INT
+                  Choosing this option implies the '--uniform' option, but the
+                  smallest delta value over all the pages is no longer chosen.
+                  Instead, for each margin the nth smallest delta value (with n
+                  numbered starting at zero) is chosen over all the pages. The
+                  argument is the integer n, for example '-m 4'. Choosing n to be
+                  half the number of pages gives the median delta value. This
+                  option is useful for cropping noisy scanned PDFs which have a
+                  common margin size on most of the pages, or for ignoring
+                  annotations which only appear in the margins of a few pages.
+                  This option essentially causes the program to ignores the n
+                  largest tight-crop margins when computing common delta values
+                  over all the pages. Increasing n always either increases the
+                  cropping amount or leaves it unchanged. Some trial-and-error
+                  may be needed to choose the best number. Using '-m 1' tends to
+                  work well with arXiv papers (which have a date in the margin of
+                  the first page).
+
+     -m4 INT INT INT INT, -mmmm INT INT INT INT, --uniformOrderStat4 INT INT INT INT
+                  This option is the same as '--uniformOrderStat' (or '-m')
+                  except that separate values are specified for each margin
+                  individually. The margins are ordered as left, bottom, right,
+                  and top.
+
+     -mp INT, --uniformOrderPercent INT
+                  This option is the same as '--uniformOrderStat' except that the
+                  order number n is automatically set to a given percentage of
+                  the number of pages which are set to be cropped (either the
+                  full number or the ones set with '--pages'). This option
+                  overrides '--uniformOrderStat' if both are set. The argument is
+                  a float percent value; rounding is done to get the final order-
+                  number. Setting the percent to 0 is equivalent to n=1, setting
+                  the percent to 100 is equivalent to setting n to the full
+                  number of pages, and setting the percent to 50 gives the median
+                  (for odd numbers of pages).
+
+     -s, --samePageSize
+                  Set all the page sizes to be equal. This option only has an
+                  effect when the page sizes are different. The pages sizes are
+                  set to the size of the union of all the page regions, i.e., to
+                  the smallest bounding box which contains all the pages. This
+                  operation is always done before any others (except '--
+                  absolutePreCrop'). The cropping is then done as usual, but note
+                  that any margin percentages (such as for '--percentRetain') are
+                  now relative to this new, possibly larger, page size. The
+                  resulting pages are still cropped independently by default, and
+                  will not necessarily all have the same size unless '--uniform'
+                  is also selected to force the cropping amounts to be the same
+                  for each page. If pages are selected with '--pages' then this
+                  option is only applied to those selected pages.
+
+     -s4 {t,f} {t,f} {t,f} {t,f}, --samePageSize4 {t,f} {t,f} {t,f} {t,f}
+                  This option is the same as '--samePageSize' except it is only
+                  applied to selected margins. The four arguments should be the
+                  characters 't' or 'f', to either select (t) or deselect (f) the
+                  left, bottom, right, and top margins respectively.
+
+     -ms INT, --samePageSizeOrderStat INT
+                  Choosing this option implies the '--samePageSize' option, but
+                  the calculations for each edge of the smallest bounding box
+                  ignore the largest (or smallest for left and bottom edges) n
+                  values. The argument is the nonnegative number n. Each edge is
+                  calculated independently. This is an order statistic for
+                  selecting the uniform size to make the pages. Note that this
+                  will cut off parts of some pages if n>0.
+
+     -ssp FLOAT FLOAT FLOAT FLOAT, --setSamePageSize FLOAT FLOAT FLOAT FLOAT
+                  This option is like the '--samePageSize' option except the page
+                  size to set is passed in as four floating point arguments
+                  rather than being calculated. The numbers should represent the
+                  left, bottom, right, and top margin values, respectively. The
+                  origin is at the lower left. The numbers should be in points
+                  and are absolute, i.e., not relative to any current margins.
+                  The `--samePageSize` option will override this option if it is
+                  set.
+
+     -e, --evenodd
+                  Crop all the odd pages uniformly, and all the even pages
+                  uniformly. The largest amount of cropping that works for all
+                  the pages in each group is chosen. If the '--uniform' ('-u')
+                  option is simultaneously set then the vertical cropping will be
+                  uniform over all the pages and only the horizontal cropping
+                  will differ between even and odd pages. See also the '--
+                  percentText' option which can be used for a similar effect.
+
+     -g PAGESTR, -pg PAGESTR, --pages PAGESTR
+                  Apply the cropping operation only to the selected pages. The
+                  argument should be a list of the usual form such as
+                  "2-4,5,9,20-30". The page-numbering is assumed to start at 1.
+                  Ordering in the argument list is unimportant, negative ranges
+                  are ignored, and pages falling outside the document are
+                  ignored. Note that restore information is always saved for all
+                  the pages (in the ArtBox) unless '--noundosave' is selected.
+
+     -c [d|m|p|gr|gb|o], --calcbb [d|m|p|gr|gb|o]
+                  Choose the method to calculate bounding boxes (or to render the
+                  PDF pages in order to calculate the boxes). The default option
+                  'd' will currently choose the MuPDF rendering option. The
+                  options to force a particular method are MuPDF ('m'), pdftoppm
+                  ('p'), or Ghostscript ('gr') for rendering, or direct
+                  Ghostscript bounding-box calculation ('gb'). For pdftoppm or
+                  Ghostscript options the corresponding program must be installed
+                  and locatable (see the path-setting options below if the
+                  default locator fails). Only the explicit rendering methods
+                  will work for scanned pages (see '--gsBbox'). Choosing 'o'
+                  reverts to the old default behavior of first looking for
+                  pdftoppm and then looking for Ghostscript for rendering.
+
+     -gs, --gsBbox
+                  This option is maintained for backward compatibility; using '-c
+                  gb' is now preferred. Use Ghostscript to directly find the
+                  bounding boxes for the pages, with no explict rendering of the
+                  pages. (The default is to explicitly render the PDF pages to
+                  image files and calculate bounding boxes from the images.) This
+                  method tends to be much faster, but it does not work with
+                  scanned PDF documents. It also does not allow for choosing the
+                  threshold value, applying blurs, etc. Any resolution options
+                  are passed to the Ghostscript bbox device. This option requires
+                  that Ghostscript be available in the PATH as "gswin32c.exe" or
+                  "gswin64c.exe" on Windows, or as "gs" on Linux. When this
+                  option is set the Pillow image library for Python is not
+                  required.
+
+     -gsr, --gsRender
+                  This is maintained for backward compatibility; using '-c gr' is
+                  now preferred. Use Ghostscript to render the PDF pages to
+                  images. By default the pdftoppm program will be preferred for
+                  the rendering, if it is found. Note that this option has no
+                  effect if '--gsBbox' is chosen, since then no explicit
+                  rendering is done.
+
+     -t BYTEVAL, --threshold BYTEVAL
+                  Set the threshold for determining what is background space
+                  (white). The value can be from 0 to 255, with 191 the default
+                  (75 percent). This option may not be available for some
+                  configurations since the PDF must be internally rendered as an
+                  image of pixels. In particular, it is ignored when '--gsBbox'
+                  is selected. Any pixel value over the threshold is considered
+                  to be background (white), and any value below it is considered
+                  to be text (black). Lowering the value should tend to make the
+                  bounding boxes smaller. The threshold may need to be lowered,
+                  for example, for scanned images with greyish backgrounds. For
+                  pages with dark backgrounds and light text a negative threshold
+                  value can be used. In that case the absolute value is used as
+                  the threshold but the test is reversed to consider pixel values
+                  greater than or equal to the threshold to be background.
+
+     -nb INT, --numBlurs INT
+                  When PDF files are explicitly rendered to image files, apply a
+                  blur operation to the resulting images this many times. This
+                  can be useful for noisy images.
+
+     -ns INT, --numSmooths INT
+                  When PDF files are explicitly rendered to image files, apply a
+                  smoothing operation to the resulting images this many times.
+                  This can be useful for noisy images.
+
+     -x DPI, --resX DPI
+                  The x-resolution in dots per inch to use when the image is
+                  rendered to find the bounding boxes. The default is 150. Higher
+                  values produce more precise bounding boxes but require more
+                  time and memory.
+
+     -y DPI, --resY DPI
+                  The y-resolution in dots per inch to use when the image is
+                  rendered to find the bounding boxes. The default is 150. Higher
+                  values produce more precise bounding boxes but require more
+                  time and memory.
+
+     -sr STR, --screenRes STR
+                  Pass in an X-windows style geometry string for the GUI to use
+                  as the fullscreen resolution and for the upper-left placement
+                  of the window. This is mainly for when the screen-size
+                  detection algorithm fails for a particular system. For example,
+                  with a screen of size "1024x720" that string should be used
+                  with the option. To also place the window at (0,0) the string
+                  would be "1024x728+0+0". See also the '--guiFontSize' option
+                  which can be used to decrease the overall size of the GUI
+                  window.
+
+     -gf INT, --guiFontSize INT
+                  Choose the GUI font size. Making this smaller than the default
+                  of 11 can also make the GUI smaller if it does not fit on a
+                  smaller monitor.
+
+     -b [m|c|t|a|b], --boxesToSet [m|c|t|a|b]
+                  By default the pdfCropMargins program sets the MediaBox for
+                  each page of the cropped PDF document to the new, cropped page
+                  size. This default setting is usually sufficient, but this
+                  option can be used to select different PDF boxes to set. The
+                  option takes one argument, which is the first letter
+                  (lowercase) of a type of box. The choices are MediaBox (m),
+                  CropBox (c), TrimBox (t), ArtBox (a), and BleedBox (b). This
+                  option overrides the default and can be repeated multiple times
+                  to set several box types. Note that the program now uses
+                  PyMuPDF to set the boxes, and it will refuse to set any non-
+                  MediaBox boxes unless they are fully contained in the MediaBox.
+                  In that case a warning will be issued and the box will not be
+                  set.
+
+     -f [m|c|t|a|b], --fullPageBox [m|c|t|a|b]
+                  By default the program first (before any cropping is
+                  calculated) sets the MediaBox of each page in (a copy of) the
+                  document to the intersection of its previous MediaBox and
+                  CropBox. This ensures that the cropping is relative to the
+                  usual document-view in programs like Acrobat Reader. This
+                  essentially defines what is assumed to be the full size of
+                  pages in the document, and all cropping is then performed
+                  relative to that full-page size. This option can be used to
+                  alternately use the MediaBox, the CropBox, the TrimBox, the
+                  ArtBox, or the BleedBox in defining the full-page size. The
+                  option takes one argument, which is the first letter
+                  (lowercase) of the type of box to use. If the option is
+                  repeated then the intersection of all the box arguments is
+                  used. Only one choice is allowed in combination with the '-gs'
+                  option since Ghostscript does its own internal rendering when
+                  finding bounding boxes. The default with '-gs' is the
+                  CropBox.
+
+     -r, --restore
+                  This is a simple undo operation which essentially undoes all
+                  the crops ever made by pdfCropMargins and returns to the
+                  original margins (provided no other program modified the saved
+                  XML data for the pdfCropMargins key). By default, whenever this
+                  program crops a file for the first time it saves the MediaBox
+                  intersected with the CropBox for each page as XML metadata. The
+                  XML metadata is is checked to see if there is any existing
+                  restore data. If so, the saved metadata for each page is simply
+                  copied to the MediaBox and the CropBox for the page. This
+                  restores the earlier view of the document, such as in Acrobat
+                  Reader (but does not completely restore the previous condition
+                  in cases where the MediaBox and CropBox differed). Any options
+                  such as '-u', '-p', and '-a' which do not make sense in a
+                  restore operation are ignored. Note that as far as default
+                  filenames the operation is treated as just another crop
+                  operation (the default-generated output filename still has a
+                  "_cropped.pdf" suffix). The '--modifyOriginal' option (or its
+                  query variant) can be used with this option. Saving restore
+                  data as XML metadata can be disabled by using the '--
+                  noundosave' option.
+
+     -A, --noundosave
+                  Do not save any restore data as XML metadata. Note that the '--
+                  restore' operation will not work correctly for the cropped
+                  document later if this option is included in the cropping
+                  command.
+
+     -gsf, --gsFix
+                  Attempt to repair the input PDF file with Ghostscript before it
+                  is read-in. This requires that Ghostscript be available. (See
+                  the general description text above for the actual command that
+                  is run.) This can also be used to automatically convert some
+                  PostScript files (.ps) to PDF for cropping. The repaired PDF is
+                  written to a temporary file; the original PDF file is not
+                  modified. The original filename is treated as usual as far as
+                  automatic name-generation, the '--modifyOriginal' option, and
+                  so forth. This option is often helpful if the program hangs or
+                  raises an error due to a corrupted PDF file. Note that when re-
+                  cropping a file already cropped by pdfCropMargins this option
+                  is probably not necessary, and if it is used in a re-crop (at
+                  least with current versions of Ghostscript) it will reset the
+                  Producer metadata which the pdfCropMargins program uses to tell
+                  if the file was already cropped by the program (so the '--
+                  restore' option will not work in combination with this option).
+                  This option is not recommended as something to use by default
+                  unless you encounter many corrupted PDF files and do not need
+                  to restore back to the original margins.
+
+     -nc, --noclobber
+                  Never overwrite an existing file with the cropped output
+                  file.
+
+     -pv PROG, --preview PROG
+                  Run a PDF viewer on the cropped PDF output. The viewer process
+                  is run in the background. The viewer is launched after
+                  pdfCropMargins has finished all the other options. The only
+                  exception is when the '--queryModifyOriginal' option is also
+                  selected. In that case the viewer is launched before the query
+                  so that the user can look at the output before deciding whether
+                  or not to modify the original. (Note that answering 'y' will
+                  then move the file out from under the running viewer; close and
+                  re-open the file before adding annotations, highlighting, etc.)
+                  The single argument should be the path of the executable file
+                  or script to run the chosen viewer. The viewer is assumed to
+                  take exactly one argument, a PDF filename. For example, on
+                  Linux the Acrobat Reader could be chosen with /usr/bin/acroread
+                  or, if it is in the PATH, simply acroread. A shell script or
+                  batch file wrapper can be used to set any additional options
+                  for the viewer.
+
+     -mo, --modifyOriginal
+                  This option moves (renames) the original document file to a
+                  backup filename and then moves the cropped file to the original
+                  document's filename (and directory path). Thus it effectively
+                  crops the original document file in-place and makes a backup
+                  copy of the original file in the output directory. The backup
+                  filename for the original document is always generated from the
+                  original filename; any prefix or suffix which would be added by
+                  the program to generate a filename (by default a "_cropped"
+                  suffix) is modified accordingly (by default to "_uncropped").
+                  The '--usePrefix', '--stringUncropped', and '--stringSeparator'
+                  options can all be used to customize the generated backup
+                  filename. If an output path is specified via the '--outfile'
+                  ('-o') option then the backup document is written to that
+                  pathname (in the same directory the cropped file was first
+                  written to if only a filename is provided). This operation is
+                  performed last, so if a previous operation fails the original
+                  document will be unchanged. Be warned that running
+                  pdfCropMargins twice on the same source path with this option
+                  will modify the backed-up original file; the '--
+                  noclobberOriginal' option can be used to avoid this.
+
+     -q, --queryModifyOriginal
+                  This option selects the '--modifyOriginal' option, but queries
+                  the user about whether to actually do the final move operation.
+                  This works well with the '--preview' and/or '--gui' options: if
+                  the preview looks good you can opt to modify the original file
+                  (keeping a copy of the original). If you decline then the files
+                  are not swapped (and are just as if the '--modifyOriginal'
+                  option had not been set).
+
+     -ro, --replaceOriginal
+                  This option implies the '--modifyOriginal' option and works the
+                  same except that no backup copy is made. The original file is
+                  deleted and the cropped file is moved to the original filename.
+                  This option can be used in combination with the '--
+                  queryModifyOriginal' and works the same except that the
+                  original file is replaced, without a backup copy.
+
+     -nco, --noclobberOriginal
+                  If the '--modifyOriginal' option is selected, do not ever
+                  overwrite an existing file as the backup copy for the original
+                  file. This essentially does the move operations for the '--
+                  modifyOriginal' option in noclobber mode, and prints a warning
+                  if it fails. On failure the result is exactly as if the '--
+                  modifyOriginal' option had not been selected. This option is
+                  redundant if the ordinary '--noclobber' option is also set.
+
+     -pf, --usePrefix
+                  Prepend a prefix-string when generating default file names
+                  rather than appending a suffix-string. The same string value is
+                  used, either the default or the one set via the '--
+                  stringCropped' or '--stringUncropped' option. With the default
+                  values for the other options and no output file specified, this
+                  option causes the cropped output for the input file
+                  "document.pdf" to be written to the file named
+                  "cropped_document.pdf" (instead of to the default filename
+                  "document_cropped.pdf").
+
+     -sc STR, --stringCropped STR
+                  This option can be used to set the string which will be
+                  appended (or prepended) to the document filename when
+                  automatically generating the output filename for a cropped
+                  file. The default value is "cropped".
+
+     -su STR, --stringUncropped STR
+                  This option can be used to set the string which will be
+                  appended (or prepended) to the document filename when
+                  automatically generating the output filename for the original,
+                  uncropped file. The default value is "uncropped".
+
+     -ss STR, --stringSeparator STR
+                  This option can be used to set the separator string which will
+                  be used when appending or prepending string values to
+                  automatically generate filenames. The default value is "_".
+
+     -pw PASSWD, --password PASSWD
+                  Specify a password to be used to decrypt an encrypted PDF file.
+                  Note that decrypting with an empty password is always tried, so
+                  this option is only needed for non-empty passwords. The
+                  resulting cropped file will not be encrypted, so use caution if
+                  important data is involved.
+
+     -pc, --prevCropped
+                  Test whether or not the document was previously cropped with
+                  the pdfCropMargins program. If so, exit with exit code 0. If
+                  not, exit with exit code 1. This option is intended mainly for
+                  scripting, for example to only crop documents that have not
+                  been previously cropped. Requires a document filename option.
+                  No other options are honored when this option is selected
+                  except '--gsFix', '--version', and '--help'.
+
+     -khc, --keepHorizCenter
+                  This option keeps the horizontal center point of a PDF fixed.
+                  The usual crops are calculated, but for each page the left and
+                  right delta values are both set to the smallest of the two
+                  values (so the cropping amount is the same on each side). This
+                  option does not apply to pre-crops.
+
+     -kvc, --keepVertCenter
+                  This option keeps the vertical center point of a PDF fixed. The
+                  usual crops are calculated, but for each page the upper and
+                  lower delta values are both set to the smallest of the two
+                  values (so the cropping amount is the same on the top and
+                  bottom). This option does not apply to pre-crops.
+
+     -spr FLOAT:FLOAT, --setPageRatios FLOAT:FLOAT
+                  Force all the cropped page ratios to equal the given ratio. All
+                  crops are calculated and applied as usual, but either the left
+                  and right margins will be increased equally or else the top and
+                  bottom margins will be increased equally in order to make the
+                  ratio of width to height equal the set value. Margins are only
+                  ever increased. The format for the ratio is either a string
+                  width-to-height ratio such as '4.5:3' or else a floating point
+                  number like '0.75' which is the width divided by the height.
+                  This option can be useful in some PDF viewers.
+
+     -prw FLOAT FLOAT FLOAT FLOAT, --pageRatioWeights FLOAT FLOAT FLOAT FLOAT
+                  This option weights any whitespace added by the '--
+                  setPageRatios' argument. It takes four weight arguments, one
+                  per margin. The four floating point arguments should be the
+                  left, bottom, right, and top weights, respectively. The weights
+                  determine what proportion of the total height(width) increase
+                  necessary to achieve the target page ratio is added to the
+                  corresponding margin. All weights must be greater than zero.
+
+     -ct, --centerText
+                  Center the text horizontally and vertically after cropping. The
+                  crop for each page is adjusted so that the tight bounding box
+                  is centered in the page (if possible). If an order statistic
+                  method like '--uniformOrderStat' is applied then, for ignored
+                  edges, the bounding box edge that was actually used to
+                  calculate the crop values is used. If the '--centeringStrict'
+                  flag is set then each page will be centered regardless of any
+                  order statistic calculation.
+
+     -ch, --centerTextHoriz
+                  This is the same as '--centerText' except pages are only
+                  centered horizontally.
+
+     -cv, --centerTextVert
+                  This is the same as '--centerText' except pages are only
+                  centered vertically.
+
+     -cst, --centeringStrict
+                  This flag modifies the behavior of bounding-box-centering
+                  options like '--centerText'. Normally pages ignored for order
+                  statistic operations like '--uniformOrderStat' are also ignored
+                  for centering and the page actually used for cropping is used
+                  for centering. This option forces strict centering of each
+                  page.
+
+     -i, --showImages
+                  When explicitly rendering PDF files to image files, display the
+                  inverse image files that are used to find the bounding boxes.
+                  Useful for debugging and for choosing some of the other
+                  parameters (such as the threshold). This option requires a
+                  default external viewer program selected by the Pillow image
+                  manipulation package (xv on Unix, and usually Paint on
+                  Windows).
+
+     -pdl, --pdftoppmLocal
+                  This option is deprecated. Use a locally-packaged pdftoppm
+                  executable rather than the system version. This option is only
+                  available on Windows machines; it is ignored otherwise. By
+                  default the first pdftoppm executable found in the directories
+                  in the PATH environment variable is used. On Windows the
+                  program will revert to this option if PDF image-rendering is
+                  required, PyMuPDF is not installed, and no system pdftoppm or
+                  Ghostscript executable can be found.
+
+     -gsp PATH, --ghostscriptPath PATH
+                  Pass in a pathname to the ghostscript executable that the
+                  program should use. No globbing is done. Useful when the
+                  program is in a nonstandard location.
+
+     -ppp PATH, --pdftoppmPath PATH
+                  Pass in a pathname to the pdftoppm executable that the program
+                  should use. No globbing is done. Useful when the program is in
+                  a nonstandard location.
+
+     --version    Return the pdfCropMargins version number and exit immediately.
+                  All other options are ignored.
+
+     -wcdf FILEPATH, --writeCropDataToFile FILEPATH
+                  Write out the calculated list of crops to the file with the
+                  file pathname that is passed in and exit. Mostly used for
+                  automated testing and debugging.
+
+
+   The pdfCropMargins program is Copyright (c) 2014 by Allen Barker.
+   Released under the GNU GPL license, version 3 or later.
+
