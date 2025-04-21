@@ -1,0 +1,12 @@
+diskcache/__init__.py,sha256=JcEtz224G-ysHmgyxWId28A0wQfCIif0mdv4tqC-Zxk,1262
+diskcache/cli.py,sha256=RVv6Fyn7h_0E5BoAVJzbbjOWPDHXO0ZjNgh9g5CBRP8,44
+diskcache/core.py,sha256=FoVwyY7ugZG18AppY-xYRjr6rM_WzvzevA4kyEZELvg,93849
+diskcache/djangocache.py,sha256=QAIPy3D2lbIBRT0kOOrhmhUXHmOTTeOQAJPl0AAx_5k,16108
+diskcache/fanout.py,sha256=RknOlECaIlNDRmCOsHIH71X-vd4N-NBKH-gjCBb11kw,22717
+diskcache/persistent.py,sha256=4NB-gCbjlFOkh2MD7Imqgfof1j5c0KwEPD9nWibcYI0,34662
+diskcache/recipes.py,sha256=pnZbtC7nG5XJ1fJ2R_IZKRWxekADtwrG99TNp1sjuw0,14902
+diskcache2-1.0.0.dist-info/METADATA,sha256=2Zkh4huIM8VFRcafd8kDgHvpt2Lf1-XpSPR6OE7nUuk,20536
+diskcache2-1.0.0.dist-info/WHEEL,sha256=tSfRZzRHthuv7vxpI4aehrdN9scLjk-dCJkPLzkHxGg,90
+diskcache2-1.0.0.dist-info/entry_points.txt,sha256=6OYgBcLyFCUgeqLgnvMyOJxPCWzgy7se4rLPKtNonMs,34
+diskcache2-1.0.0.dist-info/licenses/LICENSE,sha256=WDVGuqP9k2B9hFEmVwZ3pAH1COIotQRP77w5Sa8XlnI,559
+diskcache2-1.0.0.dist-info/RECORD,,
