@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+moodemoji/__init__.py
+moodemoji/core.py
+moodemoji.egg-info/PKG-INFO
+moodemoji.egg-info/SOURCES.txt
+moodemoji.egg-info/dependency_links.txt
+moodemoji.egg-info/top_level.txt
+tests/test_core.py
