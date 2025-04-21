@@ -1,0 +1,35 @@
+Welcome to ELI5's documentation!
+================================
+
+.. image:: https://img.shields.io/pypi/v/eli5.svg
+   :target: https://pypi.python.org/pypi/eli5
+   :alt: PyPI Version
+
+.. image:: https://github.com/eli5-org/eli5/actions/workflows/python-package.yml/badge.svg?branch=master
+   :target: https://github.com/eli5-org/eli5/actions
+   :alt: Build Status
+
+.. image:: https://codecov.io/github/eli5-org/eli5/coverage.svg?branch=master
+   :target: https://codecov.io/github/eli5-org/eli5?branch=master
+   :alt: Code Coverage
+
+ELI5_ is a Python library which allows to visualize and debug
+various Machine Learning models using unified API. It has
+built-in support for several ML frameworks and provides a way to
+explain black-box models.
+
+.. toctree::
+   :maxdepth: 2
+
+   overview
+   tutorials/index
+   libraries/index
+   blackbox/index
+   autodocs/index
+   contribute
+   changes
+
+
+License is MIT.
+
+.. _ELI5: https://github.com/eli5-org/eli5
