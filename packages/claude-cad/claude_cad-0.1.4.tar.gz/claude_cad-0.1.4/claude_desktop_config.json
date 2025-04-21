@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "claude_cad": {
+      "command": "uvx",
+      "args": ["-m", "claude_cad.server"],
+      "env": {}
+    }
+  }
+}
