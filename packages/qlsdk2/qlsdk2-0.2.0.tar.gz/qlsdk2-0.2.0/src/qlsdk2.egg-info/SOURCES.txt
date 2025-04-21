@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+src/qlsdk/__init__.py
+src/qlsdk2.egg-info/PKG-INFO
+src/qlsdk2.egg-info/SOURCES.txt
+src/qlsdk2.egg-info/dependency_links.txt
+src/qlsdk2.egg-info/requires.txt
+src/qlsdk2.egg-info/top_level.txt
+src/qlsdk/ar4m/__init__.py
+src/qlsdk/ar4m/ar4sdk.py
+src/qlsdk/ar4m/libs/libAr4SDK.dll
+src/qlsdk/ar4m/libs/libwinpthread-1.dll
+test/test_ar4m.py
