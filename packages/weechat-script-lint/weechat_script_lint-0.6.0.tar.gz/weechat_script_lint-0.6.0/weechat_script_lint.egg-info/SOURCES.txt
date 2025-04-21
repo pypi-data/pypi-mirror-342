@@ -1,0 +1,16 @@
+LICENSE.txt
+README.md
+setup.py
+tests/__init__.py
+tests/test_main.py
+tests/test_script.py
+tests/test_utils.py
+weechat_script_lint/__init__.py
+weechat_script_lint/main.py
+weechat_script_lint/script.py
+weechat_script_lint/utils.py
+weechat_script_lint.egg-info/PKG-INFO
+weechat_script_lint.egg-info/SOURCES.txt
+weechat_script_lint.egg-info/dependency_links.txt
+weechat_script_lint.egg-info/entry_points.txt
+weechat_script_lint.egg-info/top_level.txt
