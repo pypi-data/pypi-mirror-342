@@ -1,0 +1,215 @@
+
+[![CI Status](https://github.com/lguibr/trianglengin/actions/workflows/ci_cd.yml/badge.svg)](https://github.com/lguibr/trianglengin/actions/workflows/ci_cd.yml)
+[![codecov](https://codecov.io/gh/lguibr/trianglengin/graph/badge.svg?token=YOUR_CODECOV_TOKEN_HERE&flag=trianglengin)](https://codecov.io/gh/lguibr/trianglengin)
+[![PyPI version](https://badge.fury.io/py/trianglengin.svg)](https://badge.fury.io/py/trianglengin)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+
+# Triangle Engine (`trianglengin`) v2
+<img src="bitmap.png" alt="trianglengin logo" width="300"/>
+
+**Version 2 introduces a high-performance C++ core for the game logic.**
+
+This library provides the core components for a triangle puzzle game, suitable for reinforcement learning agents or other applications requiring a fast game engine. Interactive play/debug modes are included.
+
+It encapsulates:
+
+1.  **Core Game Logic (C++):** High-performance implementation of environment rules, state representation, actions, placement validation, and line clearing. ([`src/trianglengin/cpp/README.md`](src/trianglengin/cpp/README.md))
+2.  **Python Interface:** A Python `GameState` wrapper providing a user-friendly API to interact with the C++ core. ([`src/trianglengin/game_interface.py`](src/trianglengin/game_interface.py))
+3.  **Configuration (Python/Pydantic):** Models for environment settings (`EnvConfig`). ([`src/trianglengin/config/README.md`](src/trianglengin/config/README.md))
+4.  **Utilities (Python):** General helpers, geometry functions, shared types. ([`src/trianglengin/utils/README.md`](src/trianglengin/utils/README.md))
+5.  **UI Components (Python/Pygame/Typer):** Basic visualization, interaction handling, and CLI for interactive modes. ([`src/trianglengin/ui/README.md`](src/trianglengin/ui/README.md))
+
+---
+
+## 🎮 The Ultimate Triangle Puzzle Guide 🧩
+
+*(Game rules remain the same)*
+
+*(... Game rules section remains unchanged ...)*
+
+---
+
+## Purpose
+
+The primary goal is to provide a self-contained, installable library with a high-performance C++ core and a Python interface for the triangle puzzle game. This allows different RL agent implementations or other applications to build upon a consistent and fast game backend. The interactive UI is included but only initialized when running the specific UI commands.
+
+## Installation
+
+**Prerequisites:**
+*   A C++ compiler supporting C++17 (e.g., GCC, Clang, MSVC).
+*   CMake (version 3.14 or higher).
+*   Python (>= 3.10) and Pip.
+
+```bash
+# For standard use (once published or built):
+pip install trianglengin
+
+# Building from source (requires compiler and CMake):
+git clone https://github.com/lguibr/trianglengin.git
+cd trianglengin
+pip install .
+```
+*(Note: `pygame` and `typer` will be installed as core dependencies).*
+
+## Running Interactive Modes
+
+After installing, you can run the interactive modes directly:
+
+- **Play Mode:**
+  ```bash
+  trianglengin play [--seed 42] [--log-level INFO]
+  ```
+- **Debug Mode:**
+  ```bash
+  trianglengin debug [--seed 42] [--log-level DEBUG]
+  ```
+
+---
+
+## Local Development & Testing
+
+These instructions are for developers contributing to `trianglengin`.
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/lguibr/trianglengin.git
+    cd trianglengin
+    ```
+
+2.  **Prerequisites:** Ensure you have a C++17 compiler and CMake installed.
+
+3.  **Create and Activate Virtual Environment:** (venv or conda)
+    ```bash
+    # Example using venv
+    python -m venv venv
+    source venv/bin/activate # or .\venv\Scripts\activate on Windows
+    ```
+    **IMPORTANT:** Ensure your virtual environment is activated.
+
+4.  **Install Build Dependencies:** (Needed even for core dev)
+    ```bash
+    pip install pybind11>=2.10 cmake wheel
+    ```
+
+5.  **Clean Previous Builds (Optional but Recommended):**
+    ```bash
+    rm -rf build/ src/trianglengin.egg-info/ dist/ src/trianglengin/trianglengin_cpp.*.so src/trianglengin/trianglengin_cpp*.cpp
+    ```
+
+6.  **Install in Editable Mode with Dev Dependencies:**
+    *   **Make sure your virtual environment is active!**
+    *   Run from the project root directory:
+        ```bash
+        # Installs core, UI, and dev tools
+        pip install -e '.[dev]'
+        ```
+        This command compiles the C++ extension and installs the Python package so changes are reflected immediately. It also installs development tools.
+
+7.  **Running Checks:**
+    *   **Make sure your virtual environment is active!**
+    *   **Tests & Coverage:**
+        ```bash
+        pytest tests/ --cov=src/trianglengin --cov-report=xml
+        ```
+        (Coverage measures core Python code, excluding UI).
+        To just run tests: `pytest`
+    *   **Linting:** `ruff check .`
+    *   **Formatting:** `ruff format .`
+    *   **Type Checking:** `mypy src/trianglengin/ tests/`
+
+8.  **Troubleshooting Build/Import Errors:**
+    *   Ensure compiler and CMake are installed and in PATH.
+    *   Make sure the virtual environment is active *before* running `pip install -e`.
+    *   Clean previous builds (Step 5).
+    *   Check `pyproject.toml` and `setup.py` for correct configuration.
+    *   Verify Pybind11 version compatibility.
+
+---
+
+## Project Structure (v2 - UI Included)
+
+```
+trianglengin/
+├── .github/workflows/      # GitHub Actions CI/CD
+│   └── ci_cd.yml
+├── src/                    # Source root
+│   └── trianglengin/       # Python package source
+│       ├── __init__.py     # Exposes core public API (GameState, EnvConfig, Shape)
+│       ├── game_interface.py # Python GameState wrapper class
+│       ├── py.typed        # PEP 561 marker
+│       ├── cpp/            # C++ Core Implementation ([src/trianglengin/cpp/README.md])
+│       │   ├── CMakeLists.txt
+│       │   ├── bindings.cpp
+│       │   ├── config.h
+│       │   ├── structs.h
+│       │   ├── grid_data.h / .cpp
+│       │   ├── grid_logic.h / .cpp
+│       │   ├── shape_logic.h / .cpp
+│       │   └── game_state.h / .cpp
+│       ├── core/           # Core Python components (now minimal/empty)
+│       │   └── __init__.py
+│       ├── utils/          # General Python utilities ([src/trianglengin/utils/README.md])
+│       │   └── ... (geometry.py, types.py)
+│       ├── config/         # Core configuration models ([src/trianglengin/config/README.md])
+│       │   ├── __init__.py
+│       │   └── env_config.py   # EnvConfig (Pydantic)
+│       └── ui/             # UI Components ([src/trianglengin/ui/README.md])
+│           ├── __init__.py # Exposes UI API (Application, cli_app, DisplayConfig)
+│           ├── app.py      # Interactive mode application runner
+│           ├── cli.py      # CLI definition (play/debug)
+│           ├── config.py   # DisplayConfig (Pydantic)
+│           ├── interaction/    # User input handling ([src/trianglengin/ui/interaction/README.md])
+│           │   ├── __init__.py
+│           │   ├── event_processor.py
+│           │   ├── input_handler.py
+│           │   ├── play_mode_handler.py
+│           │   └── debug_mode_handler.py
+│           └── visualization/  # Pygame rendering ([src/trianglengin/ui/visualization/README.md])
+│               ├── __init__.py
+│               ├── core/       # Core vis components ([src/trianglengin/ui/visualization/core/README.md])
+│               │   ├── __init__.py
+│               │   ├── colors.py
+│               │   ├── coord_mapper.py
+│               │   ├── fonts.py
+│               │   ├── layout.py # NEW
+│               │   └── visualizer.py
+│               └── drawing/    # Drawing functions ([src/trianglengin/ui/visualization/drawing/README.md])
+│                   ├── __init__.py
+│                   ├── grid.py
+│                   ├── highlight.py
+│                   ├── hud.py
+│                   ├── previews.py
+│                   ├── shapes.py
+│                   └── utils.py
+├── tests/                  # Unit/Integration tests (Python) ([tests/README.md])
+│   ├── __init__.py
+│   ├── conftest.py
+│   └── core/environment/
+│       └── test_game_state.py # Tests the Python GameState wrapper
+├── .gitignore
+├── pyproject.toml          # Build config, dependencies
+├── setup.py                # C++ Extension build script
+├── README.md               # This file
+├── LICENSE
+└── MANIFEST.in
+```
+
+## Core Components (v2)
+
+- **`trianglengin.cpp` (C++ Core)**: Implements the high-performance game logic (state, grid, shapes, rules). Not directly imported in Python.
+- **`trianglengin.game_interface.GameState` (Python Wrapper)**: The primary Python class for interacting with the game engine. It holds a reference to the C++ game state object and provides methods like `step`, `reset`, `is_over`, `valid_actions`, `get_shapes`, `get_grid_data_np`.
+- **`trianglengin.config.EnvConfig`**: Python Pydantic model for core environment configuration. Passed to C++ core during initialization.
+- **`trianglengin.utils`**: General Python utility functions and types. ([`src/trianglengin/utils/README.md`](src/trianglengin/utils/README.md))
+
+## UI Components (`trianglengin.ui`)
+
+- **`trianglengin.ui.config.DisplayConfig`**: Pydantic model for UI display settings.
+- **`trianglengin.ui.visualization`**: Python/Pygame rendering components. Uses data obtained from the `GameState` wrapper. ([`src/trianglengin/ui/visualization/README.md`](src/trianglengin/ui/visualization/README.md))
+- **`trianglengin.ui.interaction`**: Python/Pygame input handling for interactive modes. Interacts with the `GameState` wrapper. ([`src/trianglengin/ui/interaction/README.md`](src/trianglengin/ui/interaction/README.md))
+- **`trianglengin.ui.app.Application`**: Integrates UI components for interactive modes.
+- **`trianglengin.ui.cli`**: Command-line interface (`trianglengin play`/`debug`).
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request on the [GitHub repository](https://github.com/lguibr/trianglengin). Ensure that changes maintain code quality (pass tests, linting, type checking) and keep READMEs updated. Building requires a C++17 compiler and CMake.
