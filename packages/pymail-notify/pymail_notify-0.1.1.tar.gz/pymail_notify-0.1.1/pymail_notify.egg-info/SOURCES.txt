@@ -1,0 +1,17 @@
+.env.example
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+pymail/__init__.py
+pymail/config.py
+pymail/decorators.py
+pymail/email_sender.py
+pymail/i18n.py
+pymail_notify.egg-info/PKG-INFO
+pymail_notify.egg-info/SOURCES.txt
+pymail_notify.egg-info/dependency_links.txt
+pymail_notify.egg-info/requires.txt
+pymail_notify.egg-info/top_level.txt
+tests/test_sender.py
