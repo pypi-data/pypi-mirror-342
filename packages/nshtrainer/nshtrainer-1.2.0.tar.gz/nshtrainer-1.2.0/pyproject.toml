@@ -1,0 +1,73 @@
+[project]
+name = "nshtrainer"
+version = "1.2.0"
+description = ""
+authors = [{ name = "Nima Shoghi", email = "nimashoghi@gmail.com" }]
+requires-python = ">=3.10,<4.0"
+readme = "README.md"
+
+dependencies = [
+    "nshconfig>0.39",
+    "nshrunner",
+    "psutil",
+    "numpy",
+    "torch",
+    "typing-extensions",
+    "packaging",
+    "lightning",
+    "torchmetrics",
+]
+
+[project.optional-dependencies]
+extra = [
+    "wrapt",
+    "GitPython",
+    "wandb",
+    "tensorboard",
+    "huggingface-hub",
+    "nshutils",
+]
+
+[tool.poetry.group.dev.dependencies]
+basedpyright = "*"
+ruff = "*"
+ipykernel = "*"
+ipywidgets = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-forked = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.basedpyright]
+typeCheckingMode = "standard"
+deprecateTypingAliases = true
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true
+reportPrivateImportUsage = false
+
+[tool.ruff.lint]
+select = ["FA102", "FA100"]
+ignore = ["F722", "F821", "E731", "E741"]
+
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
+
+[tool.pytest]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+python_classes = "Test*"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+# addopts = "--cov=src/nshtrainer --cov-report=term-missing --cov-report=xml --"
+addopts = [
+    "--import-mode=importlib",
+    "--cov=src/nshtrainer",
+    "--cov-report=term-missing",
+    "--cov-report=xml",
+]
