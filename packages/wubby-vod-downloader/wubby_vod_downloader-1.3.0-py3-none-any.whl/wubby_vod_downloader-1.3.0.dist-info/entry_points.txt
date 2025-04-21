@@ -1,0 +1,2 @@
+[console_scripts]
+wubby-snatch = vod_downloader.vod_downloader:main
