@@ -1,0 +1,2 @@
+[console_scripts]
+scanner = scanner.run_code_scanner:main
