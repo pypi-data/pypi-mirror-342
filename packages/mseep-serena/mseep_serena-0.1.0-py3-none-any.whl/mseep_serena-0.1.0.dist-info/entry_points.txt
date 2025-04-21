@@ -1,0 +1,3 @@
+[console_scripts]
+serena-list-tools = serena.agent:print_tool_overview
+serena-mcp-server = serena.mcp:start_mcp_server
