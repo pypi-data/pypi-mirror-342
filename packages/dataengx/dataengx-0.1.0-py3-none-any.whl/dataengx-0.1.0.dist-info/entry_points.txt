@@ -1,0 +1,2 @@
+[console_scripts]
+dataengx = cli.main:main
