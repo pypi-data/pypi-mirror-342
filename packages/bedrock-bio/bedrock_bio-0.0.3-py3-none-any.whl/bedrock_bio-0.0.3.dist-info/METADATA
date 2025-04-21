@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: bedrock-bio
+Version: 0.0.3
+Summary: Coming soon
+Author-email: Liam Abbott <liam.e.abbott@gmail.com>
+Requires-Python: <3.14,>=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: Bio
+Requires-Dist: click
+Requires-Dist: einops
+Requires-Dist: fairscale
+Requires-Dist: mashumaro
+Requires-Dist: modelcif
+Requires-Dist: numba
+Requires-Dist: omegaconf
+Requires-Dist: pandas
+Requires-Dist: pytorch-lightning
+Requires-Dist: rdkit
+Requires-Dist: scipy
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: torchaudio
+
+# bedrock-bio
