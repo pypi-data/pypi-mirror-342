@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: numcurios
+Version: 0.1.0
+Summary: Библиотека для работы с интересными числами и комбинаторикой
+Author: Твоё Имя
+Author-email: you@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: C++
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+# numcurios
+
+Р‘РёР±Р»РёРѕС‚РµРєР° РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РёРЅС‚РµСЂРµСЃРЅС‹РјРё С‡РёСЃР»Р°РјРё Рё РёС… СЃРІРѕР№СЃС‚РІР°РјРё.  
+Р РµР°Р»РёР·РѕРІР°РЅР° С‡Р°СЃС‚СЊ С„СѓРЅРєС†РёР№ РЅР° C++ РґР»СЏ РїРѕРІС‹С€РµРЅРёСЏ СЃРєРѕСЂРѕСЃС‚Рё.

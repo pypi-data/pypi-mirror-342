@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+cpp/fast_math.cpp
+numcurios/__init__.py
+numcurios.egg-info/PKG-INFO
+numcurios.egg-info/SOURCES.txt
+numcurios.egg-info/dependency_links.txt
+numcurios.egg-info/not-zip-safe
+numcurios.egg-info/top_level.txt
