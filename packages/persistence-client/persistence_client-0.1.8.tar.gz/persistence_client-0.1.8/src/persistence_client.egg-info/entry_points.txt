@@ -1,0 +1,2 @@
+[console_scripts]
+persistence-client = persistence_client:main

@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: persistence-client
+Version: 0.1.8
+Summary: Add your description here
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: aio-pika>=9.5.5
+Requires-Dist: faststream>=0.5.39
+Requires-Dist: pydantic>=2.11.3
+
+# persistence-client
