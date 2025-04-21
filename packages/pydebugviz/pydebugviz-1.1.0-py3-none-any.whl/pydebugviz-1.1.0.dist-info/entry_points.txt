@@ -1,0 +1,2 @@
+[console_scripts]
+pydebugviz = pydebugviz.cli:main
