@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/grammarticle/__init__.py
+src/grammarticle/loader.py
+src/grammarticle.egg-info/PKG-INFO
+src/grammarticle.egg-info/SOURCES.txt
+src/grammarticle.egg-info/dependency_links.txt
+src/grammarticle.egg-info/entry_points.txt
+src/grammarticle.egg-info/requires.txt
+src/grammarticle.egg-info/top_level.txt
