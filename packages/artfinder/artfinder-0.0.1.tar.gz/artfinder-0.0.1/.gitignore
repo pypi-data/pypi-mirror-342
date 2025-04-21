@@ -1,0 +1,7 @@
+venv/
+*/__pycache__/*
+download/
+pdfs/
+test*
+.ipynb*
+dist/
