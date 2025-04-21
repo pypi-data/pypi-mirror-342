@@ -1,0 +1,116 @@
+## BBrowserXPro Connector
+
+#### Installation
+
+```python
+!pip install -U bbrowserx_connector
+```
+
+
+#### Import
+
+
+```python
+import warnings
+warnings.filterwarnings("ignore")
+```
+
+
+```python
+import os
+
+import bbrowserx_connector
+from bbrowserx_connector import BBrowserXProConnector
+from bbrowserx_connector import DefaultGroup 
+
+```
+
+#### Domain and Token
+
+
+```python
+DOMAIN = "<BBROWSERXPRO_DOMAIN>"
+TOKEN = "<YOUR_TOKEN>"
+```
+
+#### Explore Account
+
+##### Information
+
+
+```python
+connector = BBrowserXProConnector(domain=DOMAIN, token=TOKEN)
+bbrowserx_connector.format_print(connector.info)
+```
+
+
+```python
+bbrowserx_connector.format_print(connector.groups)
+```
+
+##### Storage
+
+
+```python
+bbrowserx_connector.format_print(connector.s3)
+```
+
+
+```python
+bbrowserx_connector.format_print(connector.folders)
+```
+
+##### Project Information
+
+
+```python
+project_list = connector.list_project(
+    group=DefaultGroup.PERSONAL_WORKSPACE.value,
+    species=Species.HUMAN.value,
+)
+bbrowserx_connector.format_print(project_list)
+```
+
+#### Uploading
+
+
+```python
+uploading_results = connector.upload_file("<YOUR_FILE_PATH>")
+bbrowserx_connector.format_print(uploading_results)
+```
+
+
+```python
+uploading_results = connector.upload_big_file("<YOUR_FILE_PATH>", debug_mode=True)
+bbrowserx_connector.format_print(uploading_results)
+```
+
+
+```python
+uploading_results = connector.upload_folder("<YOUR_FILE_PATH>", debug_mode=True)
+bbrowserx_connector.format_print(uploading_results)
+```
+
+#### Submission
+
+```python
+submission_info = bbrowserx_connector.H5ADFormat(
+    name="Scanpy object",
+    file_path="<PATH_TO_H5AD_FILE>"
+)
+bbrowserx_connector.format_print(submission_info.parse())
+```
+
+
+```python
+submission_result = connector.submit(
+    group="Personal workspace",
+    species=bbrowserx_connector.Species.HUMAN,
+    title="Untitled project",
+    study_name="Untitled study",
+    study_data=[submission_info],
+    filter_params={},
+    normalize=True,
+)
+bbrowserx_connector.format_print(submission_result)
+```

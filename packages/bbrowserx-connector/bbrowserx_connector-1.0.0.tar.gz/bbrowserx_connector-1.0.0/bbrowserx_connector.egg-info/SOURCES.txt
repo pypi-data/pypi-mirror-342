@@ -1,0 +1,14 @@
+README.md
+setup.py
+bbrowserx_connector/__init__.py
+bbrowserx_connector/_api.py
+bbrowserx_connector/_connector.py
+bbrowserx_connector/_constants.py
+bbrowserx_connector/_submit_format.py
+bbrowserx_connector/_utils.py
+bbrowserx_connector.egg-info/PKG-INFO
+bbrowserx_connector.egg-info/SOURCES.txt
+bbrowserx_connector.egg-info/dependency_links.txt
+bbrowserx_connector.egg-info/not-zip-safe
+bbrowserx_connector.egg-info/requires.txt
+bbrowserx_connector.egg-info/top_level.txt
