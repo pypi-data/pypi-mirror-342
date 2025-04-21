@@ -1,0 +1,14 @@
+spacenav_ws/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+spacenav_ws/controller.py,sha256=hrMNZ-MbbngD0gYV5OrCSAYEAOm7DOlwehlXHuJaU9w,8448
+spacenav_ws/main.py,sha256=SrDCSuyoPiFRC-7uIxLzcx_FkdsSzJC6vXBEJpqIn_c,3796
+spacenav_ws/spacenav.py,sha256=DeoCa-J35e7CXBqEMaWtScTVu9uJ3mbGt0dnDH3Df9k,1376
+spacenav_ws/wamp.py,sha256=bFdRmyCofd51fsywNGW5Qv21JCea27K2LOIRZYHtS8c,7979
+spacenav_ws/certs/ip.cnf,sha256=0iqBE5mEYouB9vB3EiEF4JCJV-Code6ByGdTvQo9m_4,299
+spacenav_ws/certs/ip.crt,sha256=BsvZSE5dovQwTqC3SzhjUdHKT5LWb12HrgR3qe-x0dU,1078
+spacenav_ws/certs/ip.csr,sha256=JdBTVIBq_IIo05MU_sGXZvlJX7VLUCPvSLPQgfHBUNU,944
+spacenav_ws/certs/ip.key,sha256=8V78lQyBt7HRu7glxm-9RhiG4CoakYiCEDXhv-0x1jc,1704
+spacenav_ws-0.1.2.dist-info/METADATA,sha256=qALEw8-jTYVzDSM2BP6q20he8Cfl7yLnMT6f0kF0VxI,816
+spacenav_ws-0.1.2.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+spacenav_ws-0.1.2.dist-info/entry_points.txt,sha256=3V0mY2nK5u51q0YI8jKqR8hF6KKR3ev7bGJbEayc250,53
+spacenav_ws-0.1.2.dist-info/licenses/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+spacenav_ws-0.1.2.dist-info/RECORD,,
