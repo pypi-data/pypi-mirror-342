@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+trypanalyzer/__init__.py
+trypanalyzer/analyzers.py
+trypanalyzer/data_handlers.py
+trypanalyzer.egg-info/PKG-INFO
+trypanalyzer.egg-info/SOURCES.txt
+trypanalyzer.egg-info/dependency_links.txt
+trypanalyzer.egg-info/requires.txt
+trypanalyzer.egg-info/top_level.txt
