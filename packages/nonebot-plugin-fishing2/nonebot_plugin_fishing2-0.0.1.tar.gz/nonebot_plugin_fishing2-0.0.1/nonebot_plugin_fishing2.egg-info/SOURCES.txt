@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+nonebot_plugin_fishing/__init__.py
+nonebot_plugin_fishing/config.py
+nonebot_plugin_fishing/data_source.py
+nonebot_plugin_fishing/model.py
+nonebot_plugin_fishing2.egg-info/PKG-INFO
+nonebot_plugin_fishing2.egg-info/SOURCES.txt
+nonebot_plugin_fishing2.egg-info/dependency_links.txt
+nonebot_plugin_fishing2.egg-info/requires.txt
+nonebot_plugin_fishing2.egg-info/top_level.txt
+nonebot_plugin_fishing/migrations/1be1c9b715a9_add_achievements.py
+nonebot_plugin_fishing/migrations/7609e6d106dd_init_db.py
+nonebot_plugin_fishing/migrations/c5ab992c9af3_add_achievements.py
+nonebot_plugin_fishing/migrations/e9015df43907_add_special_fishes_field.py
+nonebot_plugin_fishing/migrations/f70bdeaec7a4_add_specialfishes_table.py
