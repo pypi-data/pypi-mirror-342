@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: cmeel-m4
+Version: 1.4.19.1
+Summary: cmeel distribution for M4
+Requires-Python: >= 3.8
+License-Expression: GPL-3.0-only
+Home-page: https://github.com/cmake-wheel/cmeel-m4
+Project-URL: Repository, https://github.com/cmake-wheel/cmeel-m4.git
+Project-URL: Upstream, https://www.gnu.org/software/m4/
+Requires-Dist: cmeel
+Description-Content-Type: text/markdown
+
+# CMeel M4
+
+[![PyPI version](https://badge.fury.io/py/cmeel-m4.svg)](https://pypi.org/project/cmeel-m4)
+[![Release](https://github.com/cmake-wheel/cmeel-m4/actions/workflows/release.yml/badge.svg)](https://github.com/cmake-wheel/cmeel-m4/actions/workflows/release.yml)
+
+[M4](https://www.gnu.org/software/m4/) distribution for cmeel packages.
