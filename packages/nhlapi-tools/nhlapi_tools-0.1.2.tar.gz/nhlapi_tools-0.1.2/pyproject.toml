@@ -1,0 +1,46 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nhlapi-tools"
+# Consider bumping version after these changes, e.g., 0.2.0
+version = "0.1.2" # Or bump to 0.2.0
+authors = [
+  { name="Brainey", email="brrainey13@gmail.com" },
+]
+description = "An asynchronous Python wrapper for the official (but undocumented) NHL APIs." # Added "(but undocumented)" for clarity
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"} # ADD A LICENSE FILE (e.g., MIT)
+classifiers = [
+    "Development Status :: 4 - Beta", # Or 3 - Alpha if still very early
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License", # Match your LICENSE file
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Framework :: AsyncIO",
+    "Typing :: Typed", # Add if you have type hints (you do)
+]
+dependencies = [
+    "httpx >= 0.24.0",
+]
+
+# REMOVE the old [tool.setuptools.packages.find] section
+# Add this instead to automatically find packages (standard):
+[tool.setuptools.packages.find]
+where = ["."]  # Specifies the root directory to search (current dir)
+exclude = ["tests*"] # Exclude tests from the final package
+
+[project.urls]
+"Homepage" = "https://github.com/brrainey13/nhl-api"
+"Bug Tracker" = "https://github.com/brrainey13/nhl-api/issues"
+"Documentation" = "https://github.com/brrainey13/nhl-api/blob/main/nhl_api.md" # Optional link to your detailed MD file
