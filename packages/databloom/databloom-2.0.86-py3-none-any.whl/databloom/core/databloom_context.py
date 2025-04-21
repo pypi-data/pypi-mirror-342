@@ -1,0 +1,506 @@
+"""
+Main context class for DataBloom SDK.
+"""
+import logging
+import os
+from typing import Optional, Dict, Any, List
+import duckdb
+from sqlalchemy import create_engine
+from pyspark.sql import SparkSession
+import pyspark
+from typing import Dict, Optional, Union, Callable
+import pandas as pd
+
+from ..dataset.dataset import Dataset
+from ..api.credentials import CredentialsManager
+from ..core.connector.mysql import MySQLConnector
+from ..core.connector.postgresql import PostgreSQLConnector
+from ..core.connector.mongodb import MongoDBConnector
+from ..core.connector.spark_postgresql import SparkPostgreSQLConnector
+from ..core.connector.ggsheet import read_ggsheet
+from ..core.spark.session import SparkSessionManager
+from .lighter_context import LighterContext
+
+logger = logging.getLogger(__name__)
+
+class DataBloomContext:
+    """Main context class for DataBloom SDK."""
+    
+    def __init__(self):
+        """Initialize DataBloom context."""
+        self._dataset = Dataset()
+        self._credentials = CredentialsManager()
+        self._duckdb_con = None
+        self._attached_sources = {}
+        self._connectors = {}
+        self._spark_manager = SparkSessionManager()
+        self._spark_connectors = {}
+        self._lighter_context = None
+        self._mongodb_connectors = {}
+        
+    def get_duck_con(self) -> duckdb.DuckDBPyConnection:
+        """Get DuckDB connection."""
+        if not self._duckdb_con:
+            self._duckdb_con = duckdb.connect(":memory:")
+            self._setup_duckdb()
+        return self._duckdb_con
+        
+    def _setup_duckdb(self):
+        """Setup DuckDB with required extensions and settings."""
+        con = self.get_duck_con()
+        
+        # Install and load extensions
+        con.execute("INSTALL httpfs;")
+        con.execute("LOAD httpfs;")
+        con.execute("INSTALL iceberg;")
+        con.execute("LOAD iceberg;")
+        
+        # Get S3 credentials from manager
+        s3_creds = self._credentials.get_s3_credentials()
+        
+        # Configure S3 settings
+        con.execute(f"SET s3_endpoint='{s3_creds['endpoint']}';")
+        con.execute(f"SET s3_region='{s3_creds['region']}';")
+        con.execute(f"SET s3_access_key_id='{s3_creds['access_key']}';")
+        con.execute(f"SET s3_secret_access_key='{s3_creds['secret_key']}';")
+        con.execute("SET s3_url_style='path';")
+        con.execute("SET s3_use_ssl=false;")
+        con.execute("SET enable_http_metadata_cache=false;")
+        con.execute("SET enable_object_cache=false;")
+        con.execute("SET s3_uploader_max_parts_per_file=10000;")
+        con.execute("SET memory_limit='5GB';")
+        con.execute("SET s3_url_compatibility_mode=true;")
+        
+    def attach_source(self, source: str, dbname: str, dest: str) -> bool:
+        """
+        Attach a data source to DuckDB.
+        
+        Args:
+            source: Source identifier in format 'type/name'
+            dbname: Database name to connect to
+            dest: Destination name for the attached source
+            
+        Returns:
+            bool: True if source was attached successfully
+        """
+        source_type, source_name = source.split("/")
+        creds = self._credentials.get_credentials_by_code(self._credentials.USER_TOKEN, source_type)
+        
+        if not creds:
+            raise ValueError(f"No credentials found for {source}")
+            
+        try:
+            if source_type == "mysql":
+                # Install MySQL extension if needed
+                self.get_duck_con().execute("INSTALL mysql;")
+                self.get_duck_con().execute("LOAD mysql;")
+                
+                # Create MySQL connector
+                connector = MySQLConnector(creds)
+                self._connectors[dest] = connector
+                
+                # Build connection string
+                conn_str = (
+                    f"host={creds['host']}"
+                    f" port={creds['port']}"
+                    f" user={creds['user']}"
+                    f" password={creds['password']}"
+                    f" database={dbname}"
+                )
+                
+                # Attach MySQL database
+                self.get_duck_con().execute(f"ATTACH '{conn_str}' AS {dest} (TYPE mysql);")
+                self._attached_sources[dest] = {"type": "mysql", "dbname": dbname}
+                return True
+                
+            elif source_type == "postgresql":
+                # Install PostgreSQL extension if needed
+                self.get_duck_con().execute("INSTALL postgres;")
+                self.get_duck_con().execute("LOAD postgres;")
+                
+                # Create PostgreSQL connector
+                connector = PostgreSQLConnector(creds)
+                self._connectors[dest] = connector
+                
+                # Create Spark PostgreSQL connector
+                spark_connector = SparkPostgreSQLConnector(self.get_spark_session(), creds)
+                self._spark_connectors[dest] = spark_connector
+                
+                # Build connection string
+                conn_str = (
+                    f"host={creds['host']}"
+                    f" port={creds['port']}"
+                    f" user={creds['user']}"
+                    f" password={creds['password']}"
+                    f" dbname={dbname}"
+                )
+                
+                # Attach PostgreSQL database
+                self.get_duck_con().execute(f"ATTACH '{conn_str}' AS {dest} (TYPE postgres);")
+                self._attached_sources[dest] = {"type": "postgresql", "dbname": dbname}
+                return True
+                
+            else:
+                raise ValueError(f"Unsupported source type: {source_type}")
+                
+        except Exception as e:
+            logger.error(f"Error attaching source {source}: {e}")
+            raise
+            
+    def create_sqlalchemy_engine(self, source: Optional[str] = None, database: Optional[str] = None):
+        """
+        Create a SQLAlchemy engine for database connection.
+        
+        Args:
+            source: Optional source identifier in format 'type/alias'
+            database: Optional database name
+            
+        Returns:
+            SQLAlchemy engine instance
+        """
+        
+        if source is None:
+            engine = self._credentials.get_credentials_by_code()
+            connection_string = f"trino://{engine['username']}:{engine['password']}@{engine['host']}:{engine['port']}/{database}"
+            return create_engine(connection_string)
+
+        source_type, alias = source.split("/")
+        if source_type not in ["postgresql", "mysql"]:
+            raise Exception(f"Unsupported source type: {source_type}")
+        
+        # Verify database name
+        if not isinstance(database, str):
+            raise Exception("Database name must be a string")
+        
+        creds = self._credentials.get_credentials_by_code(source)
+        
+        if source_type == "postgresql":
+            connection_string = f"postgresql://{creds['username']}:{creds['password']}@{creds['host']}:{creds['port']}/{database}"
+        elif source_type == "mysql":  # mysql
+            connection_string = f"mysql+pymysql://{creds['username']}:{creds['password']}@{creds['host']}:{creds['port']}/{database}"
+        else:   
+            raise Exception(f"Unsupported source type: {source_type}")
+            
+        engine = create_engine(connection_string)
+        return engine
+            
+    def get_attached_sources(self) -> Dict[str, Dict[str, str]]:
+        """Get dictionary of attached sources."""
+        return self._attached_sources
+        
+    def get_connector(self, dest: str) -> Optional[Any]:
+        """
+        Get connector instance for an attached source.
+        
+        Args:
+            dest: Destination name of the attached source
+            
+        Returns:
+            Connector instance or None if not found
+        """
+        return self._connectors.get(dest)
+        
+    def duckdb_sql(self, query: str):
+        """Execute a SQL query with DuckDB."""
+        return self._dataset.duck_run_sql(query)
+        
+    def get_spark_session(self, app_name: str = "DataBloom") -> SparkSession:
+        """
+        Get or create a Spark session.
+        
+        Args:
+            app_name: Name for the Spark application
+            
+        Returns:
+            SparkSession instance
+        """
+        return self._spark_manager.get_session(app_name)
+
+    def write_spark_table(self, df: pyspark.sql.DataFrame, source: Optional[str] = None, table: Optional[str] = None, mode: Optional[str] = "append"):
+        spark = self.get_spark_session()
+        assert table is not None, "Table name is required"
+        assert mode in ["overwrite", "append"], "Invalid mode"
+        if source is None:
+            table = f"nessie.{table}"
+            try:
+                (df.write
+                .format("iceberg")
+                .mode(mode)
+                .saveAsTable(table))
+                logger.info(f"Successfully wrote table {table}")
+            except Exception as e:
+                logger.error(f"Failed to write table {table}: {str(e)}")
+                raise ValueError(f"Failed to write table {table}") from e
+            return True
+
+        table_name = f"{source}.{table}"
+        df.write.mode(mode).saveAsTable(table)
+        return True
+
+    def spark_read_data(self, source: Optional[str] = None, dbname: Optional[str] = None, table: Optional[str] = None, query: Optional[str] = None):
+        try:
+            spark = self.get_spark_session()
+            logger.info("Got Spark session")
+            
+
+            if source is None:
+                table = f"nessie.{table}"
+                return spark.table(table)
+                if query:
+                    return spark.sql(query)
+
+            if source.startswith("postgresql/"):
+                logger.info(f"Reading from PostgreSQL - source: {source}, dbname: {dbname}, table: {table}")
+                try:
+                    api_jdbc_url = self._credentials.get_jdbc_credentials(source=source, dbname=dbname)
+                except Exception as e:
+                    logger.error(f"Error getting JDBC credentials: {e}")
+                    raise
+            
+                try:
+                    if query:
+                        df = spark.read \
+                            .format("jdbc") \
+                            .option("url", api_jdbc_url) \
+                            .option("query", query) \
+                            .option("driver", "org.postgresql.Driver") \
+                            .option("fetchsize", "10000") \
+                            .load()                        
+                        logger.info("Successfully loaded DataFrame from PostgreSQL")
+                        return df
+
+                    if table:
+                    # Read from PostgreSQL
+                        df = spark.read \
+                            .format("jdbc") \
+                            .option("url", api_jdbc_url) \
+                            .option("dbtable", table) \
+                            .option("driver", "org.postgresql.Driver") \
+                            .option("fetchsize", "10000") \
+                            .load()
+                        logger.info("Successfully loaded DataFrame from PostgreSQL")
+                        return df
+                except Exception as e:
+                    logger.error(f"Error reading from PostgreSQL: {e}")
+                    raise
+
+            elif source.startswith("mysql/"):
+                logger.info(f"Reading from MySQL - source: {source}, dbname: {dbname}, table: {table}")
+                try:
+                    api_jdbc_url = self._credentials.get_jdbc_credentials(source=source, dbname=dbname)
+                except Exception as e:
+                    logger.error(f"Error getting JDBC credentials: {e}")
+                    raise
+
+                try:
+                    # Read from MySQL
+                    if query:
+                        df = spark.read \
+                            .format("jdbc") \
+                            .option("url", api_jdbc_url) \
+                            .option("query", query) \
+                            .option("driver", "com.mysql.cj.jdbc.Driver") \
+                            .option("fetchsize", "10000") \
+                            .load()
+                    else:
+                        # Handle table names
+                        df = spark.read \
+                            .format("jdbc") \
+                            .option("url", api_jdbc_url) \
+                            .option("dbtable", table) \
+                            .option("driver", "com.mysql.cj.jdbc.Driver") \
+                            .option("fetchsize", "10000") \
+                            .load()
+                    logger.info("Successfully loaded DataFrame from MySQL")
+                    return df
+                except Exception as e:
+                    logger.error(f"Error reading from MySQL: {e}")
+                    raise
+
+            else:
+                raise Exception(f"Unsupported source type: {source}")
+
+        except Exception as e:
+            logger.error(f"Error in spark_read_data: {e}")
+            raise
+        
+    def close(self):
+        """Close all connections and resources."""
+        if self._duckdb_con:
+            self._duckdb_con.close()
+            self._duckdb_con = None
+            
+        if self._spark_manager:
+            self._spark_manager.stop_session()
+
+    def run_spark_job(self, code_fn: Callable, mode: str = "cluster", executors: Dict[str, Union[int, float]] = {"num_executors": 4, "cpu": 1, "mem": 1}) -> Optional[dict]:
+        """Run a Spark job with specified configuration
+        
+        Args:
+            code_fn: Function containing the Spark code
+            mode: Execution mode ("cluster" or "client")
+            executors: Dictionary with executor configuration:
+                - num_executors: Number of executors
+                - cpu: CPU cores per executor
+                - mem: Memory per executor in GB
+        
+        Returns:
+            Dictionary containing job results if successful
+        """
+        if self._lighter_context is None:
+            self._lighter_context = LighterContext()
+        return self._lighter_context.run_spark_job(code_fn, mode, executors)
+
+    def create_mongodb_connection(self, source: str, database: str = None) -> MongoDBConnector:
+        """
+        Create a MongoDB connection.
+        
+        Args:
+            source: Source identifier in format 'type/name'
+            database: Optional database name (default: None)
+            
+        Returns:
+            MongoDB connector instance
+        """
+        try:
+            # Get credentials for the source
+            creds = self._credentials.get_credentials_by_code(source)
+            if not creds:
+                raise ValueError(f"No credentials found for {source}")
+            
+            # Initialize MongoDB connector
+            mongo_connector = MongoDBConnector(creds)
+            
+            # Connect to database
+            mongo_connector.connect(database)
+            
+            # Store connector
+            self._mongodb_connectors[source] = mongo_connector
+            
+            return mongo_connector
+        except Exception as e:
+            logger.error(f"Error creating MongoDB connection: {e}")
+            raise
+
+    def read_mongodb_table(self, connector: MongoDBConnector, collection: str, 
+                          query: Optional[Dict] = None, 
+                          projection: Optional[Dict] = None) -> pd.DataFrame:
+        """
+        Read data from MongoDB collection into a pandas DataFrame.
+        
+        Args:
+            connector: MongoDB connector instance
+            collection: Name of the collection to read
+            query: Optional MongoDB query filter
+            projection: Optional fields to include/exclude
+            
+        Returns:
+            pandas DataFrame containing the query results
+        """
+        try:
+            return connector.read(collection, query, projection)
+        except Exception as e:
+            logger.error(f"Error reading from MongoDB: {e}")
+            raise
+
+    def write_mongodb_table(self, connector: MongoDBConnector, collection: str, 
+                           data: Union[pd.DataFrame, List]) -> bool:
+        """
+        Write data to MongoDB collection.
+        
+        Args:
+            connector: MongoDB connector instance
+            collection: Name of the collection to write to
+            data: pandas DataFrame or list of dictionaries to write
+            
+        Returns:
+            bool: True if write was successful
+        """
+        try:
+            return connector.write(collection, data)
+        except Exception as e:
+            logger.error(f"Error writing to MongoDB: {e}")
+            raise
+
+    def read_ggsheet(self, source: str, sheet: str, worksheetname: str) -> pd.DataFrame:
+        """Read data from Google Sheet.
+        
+        Args:
+            source: Source identifier in format 'google_sheet/name'
+            sheet: Name of the Google Sheet
+            worksheetname: Name of the worksheet within the sheet
+            
+        Returns:
+            pd.DataFrame: Data from the Google Sheet
+        """
+        try:
+            return read_ggsheet(source, sheet, worksheetname)
+        except Exception as e:
+            logger.error(f"Error reading Google Sheet: {e}")
+            raise
+
+    def run_sql_query(self, stmt: str, source: Optional[str] = None, database: Optional[str] = None) -> pd.DataFrame:
+        """Run a SQL query on the specified database.
+        
+        Args:
+            source: Source identifier in format 'type/name'
+            database: Database name to query
+            stmt: SQL query to execute
+            
+        Returns:
+            pd.DataFrame: Query results
+        """
+        try:
+            # Create SQLAlchemy engine
+            engine = self.create_sqlalchemy_engine(source=source, database=database)
+            
+            # Execute query and return results as DataFrame
+            return pd.read_sql_query(stmt, engine)
+            
+        except Exception as e:
+            logger.error(f"Error running SQL query: {e}")
+            raise 
+
+    def write_data(self, df: pd.DataFrame, dest: str, database: str, table: str, mode: str = "append", method: str = "multi", chunk_size: int = 1000, mapping_col: Optional[Dict[str, str]] = None) -> bool:
+        """Write data to a database table.
+        
+        Args:
+            df: pandas DataFrame to write
+            dest: Dest identifier in format 'type/name'
+            database: Database name to write to
+            table: Table name to write to
+            mode: Write mode ("append" or "overwrite")
+            method: Write method ("multi" or "single")
+            chunk_size: Number of rows to write per chunk
+            mapping_col: Dictionary of column mappings
+            
+        Returns:
+            bool: True if write was successful
+        """
+        try:
+            # Create SQLAlchemy engine
+            engine = self.create_sqlalchemy_engine(source=dest, database=database)
+            
+            # Apply column mapping if provided
+            if mapping_col:
+                for col in mapping_col.keys():
+                    df = df.rename(columns={col: mapping_col[col]})
+                df = df[list(mapping_col.values())]
+            
+            # Write to database
+            df.to_sql(
+                name=table,
+                con=engine,
+                if_exists=mode,
+                method=method,
+                chunksize=chunk_size
+            )
+            
+            # df.to_sql(table, engine, if_exists=mode, method=method, chunksize=chunk_size, index=False)
+            print(df.head())
+            logger.info(f"Successfully wrote data to {database}.{table}")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error writing data to {database}.{table}: {str(e)}")
+            raise
