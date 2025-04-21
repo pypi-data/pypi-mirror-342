@@ -1,0 +1,9 @@
+dataflows_elasticsearch/VERSION,sha256=KXtQ8IOG01Ifj9ry94642dCs30UtLmFZaQX7o3IIx5I,6
+dataflows_elasticsearch/__init__.py,sha256=a-sFoCBiFOzRTu-OFY9dpo5uMxv5WvPL6YnoEPHom9o,69
+dataflows_elasticsearch/processors/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dataflows_elasticsearch/processors/dump_to_elasticsearch.py,sha256=rxVzeTLLj1WAKIERzoglcLXncXBuk6EoEDSjCvrfQSI,3833
+dataflows_elasticsearch-0.1.2.dist-info/LICENSE.md,sha256=0S9y4D11fIW3RIx_C92MJ1NVcKSJYwRG01oo75WER9M,1078
+dataflows_elasticsearch-0.1.2.dist-info/METADATA,sha256=txNx8cc5h8GdTB06FXJo13jIx2LbVMl_1xJyIiBBvTg,4828
+dataflows_elasticsearch-0.1.2.dist-info/WHEEL,sha256=-G_t0oGuE7UD0DrSpVZnq1hHMBV9DD2XkS5v7XpmTnk,110
+dataflows_elasticsearch-0.1.2.dist-info/top_level.txt,sha256=9EBy7ZorpJfC1YWvhdw6OVd8b8cC2i9c5iCyeJ7Gq1w,24
+dataflows_elasticsearch-0.1.2.dist-info/RECORD,,
