@@ -1,0 +1,2 @@
+[console_scripts]
+hashing-mcp-server = hashing_mcp.cli:main
