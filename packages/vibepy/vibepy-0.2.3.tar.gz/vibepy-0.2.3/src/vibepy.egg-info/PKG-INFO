@@ -1,0 +1,110 @@
+Metadata-Version: 2.4
+Name: vibepy
+Version: 0.2.3
+Summary: have your terminal talking to and running codes from open-ai
+Author-email: brainfo <scilavisher@example.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/brainfo/vibepy
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Requires-Python: <3.11,>=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: readchar>=3.0.0
+Requires-Dist: openai>=1.0.0
+Requires-Dist: requests<3.0.0,>=2.31.0
+Requires-Dist: colorama>=0.4.6
+Requires-Dist: pyperclip>=1.8.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+
+# Vibepy
+
+Talking to and running codes from open-ai.
+
+## Installation
+
+```bash
+pip install vibepy
+```
+Or if use uv  
+
+```bash
+uv  pip install --no-cache vibepy==0.1.7
+```
+
+## Usage
+
+Have OPENAI_API_KEYS as one of your environment variables.  
+
+1. Start the vibepy CLI, and have conversation with open-ai
+
+    Default gpt-4o-mini
+
+```bash
+vibepy
+```
+2. Specify model
+
+```bash
+vibepy --model gpt-4.1-mini
+```
+
+3. automatically run the returned code blocks:  
+
+```bash
+vibepy -e
+```
+
+This will automatically run the returned code blocks once and present again a user input prompt.  
+If the execution returns errors,  
+You can then either 
+    - press any key, or add say anything (add information) to continue, then it will catch the error messages and input to the model to debug until 5 times
+    - press q to quit
+
+Cases when running `vibepy -e`
+
+> Welcome to Vibepy!
+> Press 'q' to exit
+> Say something: print hello world
+> 
+> Vibepy: To print "hello world" in Python, you just need to use the `print()` function. Here is the code you should execute:
+> 
+> ```python
+> print("hello world")
+> ```
+> 
+> hello world
+> Press 'q' to exit
+> Say something: calculate 1+1
+> 
+> Vibepy: ```bash
+> source .venv/bin/activate
+> ```
+> 
+> ```python
+> result = 1 + 1
+> print(result)
+> ```
+> 
+> 2
+> Press 'q' to exit
+> Say something: q
+> 
+> Vibepy: It seems like your message got cut off. Could you please provide more details or clarify your request?
+> 
+> 
+> Exiting vibepy...
+
+## Development
+
+```bash
+# Install development dependencies
+pip install -e ".[dev]"
+```
+
+## License
+
+MIT License
