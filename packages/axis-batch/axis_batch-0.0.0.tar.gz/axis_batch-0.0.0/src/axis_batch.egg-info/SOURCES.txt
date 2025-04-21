@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/axis_batch/__init__.py
+src/axis_batch/main.py
+src/axis_batch/py.typed
+src/axis_batch.egg-info/PKG-INFO
+src/axis_batch.egg-info/SOURCES.txt
+src/axis_batch.egg-info/dependency_links.txt
+src/axis_batch.egg-info/top_level.txt
+tests/test_main.py
