@@ -1,0 +1,6 @@
+include README.md
+include setup.cfg
+include LICENSE
+include pyproject.toml
+include IM-COOL-BOOY-QR 
+recursive-include IM_COOL_BOOY_QR *.py

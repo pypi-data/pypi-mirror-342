@@ -1,0 +1,17 @@
+IM-COOL-BOOY-QR
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+IM_COOL_BOOY_QR/__init__.py
+IM_COOL_BOOY_QR/__main__.py
+IM_COOL_BOOY_QR/init.py
+IM_COOL_BOOY_QR/main.py
+IM_COOL_BOOY_QR.egg-info/PKG-INFO
+IM_COOL_BOOY_QR.egg-info/SOURCES.txt
+IM_COOL_BOOY_QR.egg-info/dependency_links.txt
+IM_COOL_BOOY_QR.egg-info/entry_points.txt
+IM_COOL_BOOY_QR.egg-info/requires.txt
+IM_COOL_BOOY_QR.egg-info/top_level.txt
