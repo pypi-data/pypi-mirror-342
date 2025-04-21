@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: calculator-math-operations
+Version: 0.0.1
+Summary: Pacote para operações matemáticas básicas
+Home-page: https://github.com/LuthLucas/math-operations-package.git
+Author: LuthLucas
+Author-email: lucasmenezesfontes@gmail.com
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# Calculator_Math_Operations
+
+Este Ã© um pacote Python que fornece funÃ§Ãµes para realizar operaÃ§Ãµes matemÃ¡ticas bÃ¡sicas, como soma e subtraÃ§Ã£o.
+
+## InstalaÃ§Ã£o
+
+```bash
+pip install calculator_math_operations_package
+```
+
+## Uso
+
+```python
+from calculator_math_operations import addition, subtraction
+
+print(addition.add(2, 3))  # SaÃ­da: 5
+print(subtraction.subtract(5, 2))  # SaÃ­da: 3
+```
+
+## Autor
+
+[LuthLucas](https://github.com/LuthLucas)
