@@ -1,0 +1,154 @@
+<html lang="en">
+{% set title = "Repo" %}
+{% include '_bootstrap_html_head.html' %}
+<body>
+
+{% include 'header.html' %}
+
+<div class="container mt-5">
+
+    <h1 class="mb-4">{{ repo_id }}</h1>
+
+    <h2> Commit summary </h2>
+
+    <a href="/commits/?repo_id={{ repo_id }}">View commits for {{ repo_id }}</a>
+    <br>
+    <br>
+    <table class="table" id="commits_table">
+        <thead>
+            <tr>
+                <th> Active </th>
+                <th> Aging </th>
+                <th> Stale </th>
+                <th> Unmaintained </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{ ranges['active'] }} </a></td>
+                <td> {{ ranges['aging'] }} </a></td>
+                <td> {{ ranges['stale'] }} </a></td>
+                <td> {{ ranges['unmaintained'] }} </a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br/>
+    View repo <a href="/hotspots/{{ repo_id }}">Hotspots</a>,
+    <a href="/landscape/?repo_id={{ repo_id }}">Tech Landscape</a>,
+    <a href="/graph?repo_id={{ repo_id }}"> Explore the graph</a> or
+    <a href="/bubble/{{ repo_id }}"> View developer contributions</a>
+
+
+</div>
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">Author Summary</h2>
+    <table class="table" id="author_table">
+        <thead>
+            <tr>
+                <th>Author</th>
+                <th># Commits</th>
+                <th>Last seen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in summary %}
+            <tr>
+                <td><a href="/developers/?author_email={{ row['author_email'] }}">{{ row['author_email'] }}</a></td>
+                <td><a href="/commits/{{repo_id}}?author_email={{ row['author_email'] }}">{{ row['commits'] }}</a></td>
+                <td>{{ row['days_ago'] }}</td>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if developer_status %}
+    <br/>
+    <h2 class="mb-4">Developer Status</h2>
+    <table class="table" id="developer_status_table">
+        <thead>
+            <tr>
+                <th> Active </th>
+                <th> Aging </th>
+                <th> Stale </th>
+                <th> Unmaintained</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{ developer_status.get('Active') }} </a></td>
+                <td> {{ developer_status.get('Aging') }} </a></td>
+                <td> {{ developer_status.get('Stale') }} </a></td>
+                <td> {{ developer_status.get('Unmaintained') }} </a></td>
+            </tr>
+        </tbody>
+    </table>
+    {% endif %}
+
+    {% import  '_radar_macro.html' as radar %}
+
+    {% if landscape %}
+    <br/>
+    <h2 class="mb-4">Technology Landscape</h2>
+    <table class="table" id="tech_table">
+        <thead>
+            <tr>
+                <th>Tech</th>
+                <th># Files</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in landscape %}
+            <tr>
+                <td><a href="/tech/{{ row['Language'] }}?repo_id={{ repo_id }}">{{ row['Language'] }}</a></td>
+                <td>{{ row['count'] }}</td>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {{ radar.render_radar("radarChart2", labels, datapoints ) }}
+    <br/>
+    {% else %}
+    <br/>
+    <br/>
+    <strong>No Technology Landscape found for repo</strong>
+    {% endif %}
+
+    <h2 class="mb-4">Author email domains</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Author domain</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for domain in email_domains %}
+            <tr>
+                <td>{{ domain['domain'] }}</td>
+                <td>{{ domain['addresses'] }}</td>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% include '_footer_scripts.html' %}
+{% include '_datatable_scripts.html' %}
+
+<script>
+
+    $(document).ready( function () {
+        $('#author_table').DataTable({
+            order: [[1, 'desc']]
+        });
+        $('#tech_table').DataTable({
+            order: [[1, 'desc']]
+        });
+    } );
+
+</script>
+
+</body>
+</html>

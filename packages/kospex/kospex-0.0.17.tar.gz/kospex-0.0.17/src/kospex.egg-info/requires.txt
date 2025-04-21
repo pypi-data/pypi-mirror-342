@@ -1,0 +1,10 @@
+Click
+flask
+prettytable
+dateutils
+panopticas
+python-dotenv
+sqlite_utils
+requests
+PyGithub==2.6.1
+PyYAML

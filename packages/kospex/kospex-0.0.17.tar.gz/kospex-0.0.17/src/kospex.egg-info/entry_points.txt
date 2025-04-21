@@ -1,0 +1,7 @@
+[console_scripts]
+kgit = kgit:cli
+kospex = kospex:cli
+kreaper = kreaper:cli
+krunner = krunner:cli
+kwatch = kwatch:cli
+kweb = kweb:kweb
