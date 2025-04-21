@@ -1,0 +1,2 @@
+[hatch]
+maturin = hatch_maturin.hook:MaturinHook
