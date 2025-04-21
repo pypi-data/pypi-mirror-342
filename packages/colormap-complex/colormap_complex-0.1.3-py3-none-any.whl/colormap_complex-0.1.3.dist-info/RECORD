@@ -1,0 +1,14 @@
+colormap_complex/__init__.py,sha256=C5-dhnMfI66KUCvo0LdeYnmBYF8vI72rIdQs4mdsnrQ,178
+colormap_complex/_main.py,sha256=CTcRf2shzg8RZMtIttWYz6tVPAoRT6LPRaAJvAca0DM,5735
+colormap_complex/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+colormap_complex/data/bremm.npy,sha256=0ccaTgLkhWlH2ygmMY64Lt5pOaYQi4r0VPGhWqazdd0,786560
+colormap_complex/data/cubediagonal.npy,sha256=8OKYLJ3P6YDBK3U7Uy_21VRaXU7aO6wRYgJoQIxPj5k,786560
+colormap_complex/data/schumann.npy,sha256=00o2EvuI73oTmlmSJXAi0r3oLjgFyXPBWFxQ_sClTrs,786560
+colormap_complex/data/steiger.npy,sha256=00IZ6AoOYn2xMpaq8t2fHPCFHXvOIpIu5UwM8Y4v0ig,786560
+colormap_complex/data/teulingfig2.npy,sha256=ZOT9-30_5R61O1JoW4n54SV5go9wzVn8xhEz_YPjtyo,786560
+colormap_complex/data/ziegler.npy,sha256=2BhdiUhfu4Hq28QuwUSVPELTttnBzn76s-QT8HXHZVs,786560
+colormap_complex-0.1.3.dist-info/licenses/LICENSE,sha256=z8d0m5b2O9McPEK1xHG_dWgUBT6EfBDz6wA0F7xSPTA,11358
+colormap_complex-0.1.3.dist-info/METADATA,sha256=l5wPMzWD6hdCV8PYOkY81jvZ-OJGIF3Eer8RJs7-1nc,5924
+colormap_complex-0.1.3.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+colormap_complex-0.1.3.dist-info/top_level.txt,sha256=98yceMt4rECmT0OUdP8_8ttZx_Q3WbuI-DnHMFSEFl8,17
+colormap_complex-0.1.3.dist-info/RECORD,,
