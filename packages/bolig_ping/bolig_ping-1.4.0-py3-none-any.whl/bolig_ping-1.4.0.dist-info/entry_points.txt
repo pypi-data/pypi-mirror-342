@@ -1,0 +1,4 @@
+[console_scripts]
+bolig-ping = bolig_ping.cli:main
+bolig_ping = bolig_ping.cli:main
+boligping = bolig_ping.cli:main
