@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+ILpyTHERMO/__init__.py
+ILpyTHERMO/core.py
+ILpyTHERMO/utils.py
+ILpyTHERMO.egg-info/PKG-INFO
+ILpyTHERMO.egg-info/SOURCES.txt
+ILpyTHERMO.egg-info/dependency_links.txt
+ILpyTHERMO.egg-info/requires.txt
+ILpyTHERMO.egg-info/top_level.txt
