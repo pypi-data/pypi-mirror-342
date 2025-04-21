@@ -1,0 +1,2 @@
+[console_scripts]
+bsb = bsb_2025.listener:main
