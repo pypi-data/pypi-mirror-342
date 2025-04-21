@@ -1,0 +1,3 @@
+[console_scripts]
+psregister = psdec.register:generate_register_file
+psverifier = psdec.verifier:verify_entrypoint
