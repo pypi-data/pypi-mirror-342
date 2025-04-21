@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: codeEditorSDK
+Version: 0.1.2
+Summary: Multi-language code editor SDK with Tree-sitter support
+Author: Ziyang
+Author-email: zyang253@ucr.edu
+Requires-Python: >=3.7, <=3.11
+Requires-Dist: tree_sitter==0.20.1
+Requires-Dist: tree_sitter_languages>=1.5.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

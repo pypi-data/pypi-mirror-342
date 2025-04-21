@@ -1,0 +1,17 @@
+README.md
+setup.py
+src/codeEditorSDK/__init__.py
+src/codeEditorSDK/exception.py
+src/codeEditorSDK/factories.py
+src/codeEditorSDK.egg-info/PKG-INFO
+src/codeEditorSDK.egg-info/SOURCES.txt
+src/codeEditorSDK.egg-info/dependency_links.txt
+src/codeEditorSDK.egg-info/requires.txt
+src/codeEditorSDK.egg-info/top_level.txt
+src/codeEditorSDK/core/EditBuilder.py
+src/codeEditorSDK/core/__init__.py
+src/codeEditorSDK/core/codeEditor.py
+src/codeEditorSDK/utils/ASTUnrollHelper.py
+src/codeEditorSDK/utils/__init__.py
+src/codeEditorSDK/utils/indent.py
+src/codeEditorSDK/utils/validation.py
