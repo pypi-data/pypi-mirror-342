@@ -1,0 +1,15 @@
+README.md
+setup.py
+canonical_loader/__init__.py
+canonical_loader/base_canonical_loader.py
+canonical_loader/canonical_loader.py
+canonical_loader/s3_canonical_loader.py
+canonical_loader/simple_loder.py
+canonical_loader.egg-info/PKG-INFO
+canonical_loader.egg-info/SOURCES.txt
+canonical_loader.egg-info/dependency_links.txt
+canonical_loader.egg-info/requires.txt
+canonical_loader.egg-info/top_level.txt
+canonical_loader/general_utils/__init__.py
+canonical_loader/general_utils/canonic_convert_utils.py
+canonical_loader/general_utils/canonic_date_utils.py
