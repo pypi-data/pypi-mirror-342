@@ -1,0 +1,2 @@
+[console_scripts]
+oci_documentation_mcp_server = oci_documentation_mcp_server.server:main
