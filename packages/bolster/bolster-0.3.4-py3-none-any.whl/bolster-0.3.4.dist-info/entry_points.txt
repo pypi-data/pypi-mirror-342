@@ -1,0 +1,5 @@
+[console_scripts]
+bolster = bolster.cli:cli
+
+[gui_scripts]
+
