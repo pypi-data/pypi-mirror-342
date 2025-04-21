@@ -1,0 +1,67 @@
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "evernote-plus"
+version = "1.28.1-dev2"
+description = "Evernote SDK for Python"
+authors = [
+    { name = "Evernote Corporation", email = "api@evernote.com" }
+]
+maintainers = [
+    { name = "vzhd1701", email = "vzhd1701@gmail.com" }
+]
+readme = "README.md"
+license = "BSD"
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "thrift (>=0.21.0)",
+]
+
+[project.urls]
+Repository = "https://github.com/vzhd1701/evernote-plus"
+Homepage = "http://dev.evernote.com"
+
+[tool.poetry]
+packages = [
+    { include = "evernote" },
+]
+
+[tool.bumpversion]
+parse = """(?x)
+    (?P<major>0|[1-9]\\d*)\\.
+    (?P<minor>0|[1-9]\\d*)\\.
+    (?P<patch>0|[1-9]\\d*)
+    (?:
+        -                             # dash separator for pre-release section
+        (?P<pre_l>[a-zA-Z-]+)         # pre-release label
+        (?P<pre_n>0|[1-9]\\d*)        # pre-release version number
+    )?                                # pre-release section is optional
+"""
+serialize = [
+    "{major}.{minor}.{patch}-{pre_l}{pre_n}",
+    "{major}.{minor}.{patch}",
+]
+tag = true
+sign_tags = true
+tag_name = "v{new_version}"
+tag_message = "bump version {current_version} → {new_version}"
+commit = true
+message = "chore: bump version {current_version} → {new_version}"
+
+[tool.bumpversion.parts.pre_l]
+values = ["dev", "rc", "final"]
+optional_value = "final"
