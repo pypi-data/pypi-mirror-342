@@ -1,0 +1,25 @@
+namespace np {
+    /**
+     * Array mean
+     */
+    float mean(float *array, const uint16_t count) {
+        float sum = 0;
+
+        for (uint16_t i = 0; i < count; i++)
+            sum += array[i];
+
+        return sum / count;
+    }
+
+    /**
+     * Array abs mean
+     */
+    float absmean(float *array, const uint16_t count) {
+        float sum = 0;
+
+        for (uint16_t i = 0; i < count; i++)
+            sum += abs(array[i]);
+
+        return sum / count;
+    }
+}
