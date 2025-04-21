@@ -1,0 +1,14 @@
+channels_postgres/__init__.py,sha256=M2-nieVGkUpLH3hb6rCSYIv97oZY5D1L5zm0vd-flp0,26
+channels_postgres/apps.py,sha256=AaeU-y-bmB4TRyyCLJxLFX_QjSXPWlcgnwWK3LKNb70,217
+channels_postgres/core.py,sha256=Y8CaOdYRjwC1DLsY27Ls5y5gkyz02nUw1I5fYOS7SDY,15273
+channels_postgres/db.py,sha256=VE9yVqtGph2Mc6Vhaxy7Mz-fRNdUE0J5Y7f172aiUMc,12518
+channels_postgres/models.py,sha256=CwykuvYM7YY3QSvc88_beLGUw2z5jf6DXoLor8cutok,1051
+channels_postgres/migrations/0001_initial.py,sha256=FrDAUSrio04oNr5aNcSl9BlmF4f2CYyQrhc6B20vPts,1567
+channels_postgres/migrations/0002_create_triggers_and_functions.py,sha256=wJz-N4J23PoAs2XgUaEpg52oDIPCzo3cvJZ7vBBRiN8,1052
+channels_postgres/migrations/0003_notify_smaller_payload.py,sha256=Y9PtKjSnt8F4GN1zPvdeWlqJ8KmypHwBPyW0tzx4bQQ,1691
+channels_postgres/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+channels_postgres-1.1.2.dist-info/licenses/LICENSE,sha256=oNCw9ozfGk97sWNk3mev8SYzSDXST86Vcj9sDLaFayg,1522
+channels_postgres-1.1.2.dist-info/METADATA,sha256=cCvGk6v5m5IyHmdYGqFMlb8KRzS4cihlXkDCrdG34Zw,7263
+channels_postgres-1.1.2.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+channels_postgres-1.1.2.dist-info/top_level.txt,sha256=PNo4om3YOHjklwA6uVujPoybnNrd95ki2j_AzM7R7LQ,18
+channels_postgres-1.1.2.dist-info/RECORD,,
