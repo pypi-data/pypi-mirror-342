@@ -1,0 +1,2 @@
+[console_scripts]
+funding-rates-mcp = funding_rates_mcp.cli:main
