@@ -1,0 +1,106 @@
+Metadata-Version: 2.4
+Name: psdec
+Version: 0.1.1
+Summary: A sample Python project
+Author-email: iepanda <iepanda@outlook.com>
+Maintainer-email: PulSpread <iepanda@outlook.com>
+License-Expression: MIT
+Keywords: psdec,setuptools,development
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: getmac
+Requires-Dist: py-cpuinfo
+Requires-Dist: pycryptodome
+Requires-Dist: loguru
+Requires-Dist: psutil
+Requires-Dist: pyudev
+Provides-Extra: dev
+Requires-Dist: check-manifest; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Dynamic: license-file
+
+# psdec
+
+一个用于设备验证的 Python 工具包，支持多平台和多 Python 版本。
+
+## 功能特点
+
+- 支持 Python 3.9 及以上版本
+- 使用 Cython 编译，提供更好的性能和代码保护
+- 支持 Linux 平台（x86_64 架构）
+- 提供设备验证功能
+
+## 安装
+
+```bash
+pip install psdec
+```
+
+## 系统要求
+
+- Python >= 3.9
+- 支持的平台：Linux (x86_64)
+
+## 依赖项
+
+- getmac：用于获取设备 MAC 地址
+- py-cpuinfo：用于获取 CPU 信息
+- loguru：提供日志功能
+
+## 使用方法
+
+### 验证设备
+
+```bash
+psverifier
+```
+
+## 开发
+
+如果您想参与开发，需要安装额外的开发依赖：
+
+```bash
+pip install psdec[dev]
+```
+
+## 测试
+
+安装测试依赖并运行测试：
+
+```bash
+pip install psdec[test]
+pytest
+```
+
+## 许可证
+
+本项目采用 MIT 许可证。详见 [LICENSE.txt](LICENSE.txt) 文件。
+
+## 作者
+
+- 作者：iepanda (iepanda@outlook.com)
+- 维护者：PulSpread (iepanda@outlook.com)
+
+## 版本历史
+
+当前版本：0.0.10
+
+## 构建说明
+
+本项目使用 Cython 进行编译，通过 cibuildwheel 构建多版本 wheel 包。构建过程已优化：
+
+- 使用多核心并行编译
+- 禁用不必要的运行时检查以提高性能
+- 支持 manylinux 标准
