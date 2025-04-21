@@ -1,0 +1,5 @@
+[console_scripts]
+metaso = metaso_sdk.cli:main
+
+[gui_scripts]
+
