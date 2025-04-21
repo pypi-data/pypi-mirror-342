@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+aldict/__init__.py
+aldict/alias_dict.py
+aldict/exception.py
+aldict.egg-info/PKG-INFO
+aldict.egg-info/SOURCES.txt
+aldict.egg-info/dependency_links.txt
+aldict.egg-info/requires.txt
+aldict.egg-info/top_level.txt
+tests/test_alias_dict.py
