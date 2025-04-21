@@ -1,0 +1,10 @@
+requests>=2.31.0
+selenium>=4.28.1
+geopy>=2.4.1
+webdriver_manager>=4.0.2
+argparse
+python-dotenv>=0.19.0
+beautifulsoup4>=0.0.2
+pandas>=2.2.3
+seaborn>=0.13.2
+matplotlib>=3.10.1
