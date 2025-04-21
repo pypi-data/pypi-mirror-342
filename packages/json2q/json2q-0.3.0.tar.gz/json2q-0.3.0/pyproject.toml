@@ -1,0 +1,134 @@
+[project]
+name = "json2q"
+version = "0.3.0"
+description = "Convert JSON filters to Q expression"
+authors = [
+    { name = "Cook Ding Developers", email = "developer@cookding.com" },
+]
+dependencies = []
+requires-python = ">=3.12"
+readme = "README.md"
+
+[project.license]
+text = "MIT"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.scripts]
+license-check = "licensecheck --zero"
+
+[tool.pdm.scripts.lint]
+shell = "set -ex\n    mypy src\n    ruff check src tests --fix\n    ruff format src tests\n"
+
+[tool.pdm.scripts.test]
+cmd = "pytest -r A"
+
+[tool.pdm.scripts.test.env]
+LOG_LEVEL = "error"
+
+[tool.pdm.scripts.test-cov]
+cmd = "pytest --cov-config=.coveragerc --verbosity=3 --cov=src/json2q --cov-branch --cov-report term-missing tests/"
+
+[tool.pdm.scripts.test-cov.env]
+LOG_LEVEL = "error"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.11.2",
+    "mypy>=1.15.0",
+]
+
+[tool.mypy]
+strict = true
+follow_imports = "silent"
+ignore_missing_imports = true
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+disallow_untyped_decorators = true
+enable_error_code = "explicit-override"
+overrides = [
+    { module = "src.*", warn_unused_ignores = false },
+    { module = "tests.*", check_untyped_defs = true },
+]
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+exclude = [
+    "tests/fixtures",
+]
+target-version = "py312"
+src = [
+    "src",
+]
+
+[tool.ruff.lint]
+select = [
+    "I",
+    "B",
+    "C4",
+    "F401",
+    "PGH",
+    "RUF",
+    "TID",
+    "W",
+    "YTT",
+]
+ignore = [
+    "B008",
+    "B018",
+    "B019",
+    "RUF018",
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.isort]
+known-first-party = [
+    "pdm",
+]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "src",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+addopts = [
+    "--import-mode=importlib",
+    "--strict-config",
+    "--strict-markers",
+]
+xfail_strict = true
+junit_family = "xunit2"
+testpaths = [
+    "tests/",
+]
+markers = [
+    "only",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "@abstractmethod",
+]
+
+[tool.licensecheck]
+using = "PEP631"
+format = "simple"
