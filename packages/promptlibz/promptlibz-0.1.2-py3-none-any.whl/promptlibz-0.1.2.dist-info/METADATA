@@ -1,0 +1,36 @@
+Metadata-Version: 2.4
+Name: promptlibz
+Version: 0.1.2
+Summary: 用来存储优质prompt的仓库
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: dill>=0.4.0
+Requires-Dist: llama-index>=0.12.31
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: pytest>=8.3.5
+Requires-Dist: pytest-html>=4.1.1
+Requires-Dist: pyyaml>=6.0.2
+
+# promptlib
+ 一个prompt仓库
+
+## 常规操作
+
+### 导出环境
+```
+uv export --format requirements-txt > requirements.txt
+```
+### 更新文档
+```
+mkdocs serve # 预览
+mkdocs gh-deploy -d ../.temp # 同步到github网站
+```
+### 发布
+```
+uv build
+uv publish
+```
+### 运行测试并同步到测试服务
+```
+bash run_test.sh
+```
