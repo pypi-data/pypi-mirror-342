@@ -1,0 +1,5 @@
+[console_scripts]
+procslib = procslib.cli:main
+
+[gui_scripts]
+
