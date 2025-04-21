@@ -1,0 +1,10 @@
+tensorflow>=2.0.0
+numpy
+matplotlib
+opencv-python
+scikit-learn
+seaborn
+scipy
+pandas
+keras
+torch
