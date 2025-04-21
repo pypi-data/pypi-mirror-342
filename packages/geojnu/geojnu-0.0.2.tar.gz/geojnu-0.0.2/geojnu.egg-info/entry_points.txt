@@ -1,0 +1,2 @@
+[console_scripts]
+geojnu = geojnu.cli:main
