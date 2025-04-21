@@ -1,0 +1,36 @@
+Metadata-Version: 2.4
+Name: aegisx
+Version: 0.1.0a1
+Summary: Extensible cryptography framework for Python 3.13+
+Home-page: https://github.com/tensorshield/python-aegisx
+Author: Immortal Izzy
+Author-email: immortal.izzy@tensorshield.ai
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Pydantic :: 2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Communications
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Security
+Classifier: Topic :: Security :: Cryptography
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: cryptography
+Requires-Dist: pydantic>=2
+Requires-Dist: libcanonical>=0.1.2
+Provides-Extra: develop
+Requires-Dist: pytest; extra == "develop"
+Requires-Dist: pytest_asyncio; extra == "develop"
+Requires-Dist: coverage; extra == "develop"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: summary

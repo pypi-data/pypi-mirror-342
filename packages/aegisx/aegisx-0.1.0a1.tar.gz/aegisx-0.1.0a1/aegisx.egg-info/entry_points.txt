@@ -1,0 +1,2 @@
+[console_scripts]
+aegisx = aegisx.core.cli:main

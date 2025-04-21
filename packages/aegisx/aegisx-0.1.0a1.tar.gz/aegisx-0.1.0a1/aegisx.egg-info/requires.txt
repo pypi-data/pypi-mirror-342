@@ -1,0 +1,8 @@
+cryptography
+pydantic>=2
+libcanonical>=0.1.2
+
+[develop]
+pytest
+pytest_asyncio
+coverage
