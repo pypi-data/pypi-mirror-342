@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+examples/__init__.py
+examples/creator_query.py
+examples/simple_query.py
+reservoir_sdk/__init__.py
+reservoir_sdk/client.py
+reservoir_sdk.egg-info/PKG-INFO
+reservoir_sdk.egg-info/SOURCES.txt
+reservoir_sdk.egg-info/dependency_links.txt
+reservoir_sdk.egg-info/requires.txt
+reservoir_sdk.egg-info/top_level.txt
