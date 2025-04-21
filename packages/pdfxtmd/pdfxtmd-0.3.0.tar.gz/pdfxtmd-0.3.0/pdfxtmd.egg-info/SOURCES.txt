@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+pdfxtmd.egg-info/PKG-INFO
+pdfxtmd.egg-info/SOURCES.txt
+pdfxtmd.egg-info/dependency_links.txt
+pdfxtmd.egg-info/not-zip-safe
+pdfxtmd.egg-info/top_level.txt
+wrappers/python/pyBindings.cpp
+wrappers/python/pyBindings.cpp
