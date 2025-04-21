@@ -1,0 +1,3 @@
+[console_scripts]
+mcp-tour-claude = mcp_tour.hosts.claude_desktop:install_to_claude_desktop
+mcp-tour-cursor = mcp_tour.hosts.cursor:install_to_cursor
