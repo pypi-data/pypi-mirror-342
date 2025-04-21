@@ -1,0 +1,2 @@
+[console_scripts]
+augment-atoms = augment_atoms:main
