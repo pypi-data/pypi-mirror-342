@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: libcanonical
+Version: 0.1.2
+Summary: Standardized application development library.
+Home-page: https://github.com/tensorshield/python-canonical
+Author: Immortal Izzy
+Author-email: immortal.izzy@tensorshield.ai
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: click
+Requires-Dist: pydantic>2
+Requires-Dist: email-validator
+Requires-Dist: langcodes>=3.5.0
+Requires-Dist: phonenumbers
+Requires-Dist: pytz
+Requires-Dist: typer
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
