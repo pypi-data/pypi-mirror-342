@@ -1,0 +1,2 @@
+[console_scripts]
+mdedup = mail_deduplicate.__main__:main
