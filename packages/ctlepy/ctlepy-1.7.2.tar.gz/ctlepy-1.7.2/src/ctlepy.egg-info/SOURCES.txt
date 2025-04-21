@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/ctlepy/__init__.py
+src/ctlepy/enum_generator.py
+src/ctlepy/file_checker.py
+src/ctlepy/formatted_output.py
+src/ctlepy.egg-info/PKG-INFO
+src/ctlepy.egg-info/SOURCES.txt
+src/ctlepy.egg-info/dependency_links.txt
+src/ctlepy.egg-info/top_level.txt
