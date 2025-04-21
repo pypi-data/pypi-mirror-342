@@ -1,0 +1,2 @@
+[console_scripts]
+atlas-init = atlas_init.cli:typer_main
