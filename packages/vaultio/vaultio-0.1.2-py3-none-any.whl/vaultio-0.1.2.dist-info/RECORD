@@ -1,0 +1,17 @@
+vaultio/.config/Bitwarden CLI/data.json,sha256=xgquLlCT_oLAVafBuL7nJlBtmtQ1leCcLpKwDdXAjyo,24
+vaultio/__init__.py,sha256=dlU7RB2scN6jHwgBYJTe_OC1YZ79tU0HvexJncCjYh0,58
+vaultio/cli.py,sha256=rFjClzR2lCWylUS-j8Te9fcCXN9E4B7jP2Cva52gj2k,1507
+vaultio/examples/backup.py,sha256=WoY0VkiHXxa2qbZ0oSaulR9QJEfC_42IL6oDqBSuEGo,5051
+vaultio/examples/shell.py,sha256=O5430oAknTFNhP8UJeR1erIFw6s0FzUCN9nUtJYxFqo,2462
+vaultio/scripts/build.py,sha256=_BLBYLuW4mm3dkuubDp6OkPSjGr3D77M0DCkDNz6ANM,4611
+vaultio/scripts/cli.py,sha256=ImDOXTqu0jVw_GH1MH3farK3DCyjVOud-qGiOwsUBjU,1506
+vaultio/util.py,sha256=xMvsiF7lOZvx64aoWOyip4_RdTXouJ3-ACGIhkyvhMY,1822
+vaultio/vault/__init__.py,sha256=p41uZJ4QJrA-9AH6jdxQZRx_Nbu1z1uUJu-GV9wAtCU,99
+vaultio/vault/server.py,sha256=w1Garxob1kUcZmzeErGXUfUSPjOMkomEfya_ZwQr37w,13884
+vaultio/vault/vault_cli.py,sha256=p8TCWyeV-fEK03Y3O3CtIpdWd4T-uwspcUJ9th6j9ZM,8620
+vaultio/vault/vault_server.py,sha256=x7pa3PLkZ9Y4KZSiVNWq0_fv2TmmxUhotnmpwHEHfNY,7354
+vaultio-0.1.2.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+vaultio-0.1.2.dist-info/METADATA,sha256=xIkpiQnLe0fW6xionW0g8WprinmcCZXTTVuD1MwFjtY,4390
+vaultio-0.1.2.dist-info/WHEEL,sha256=XbeZDeTWKc1w7CSIyre5aMDU_-PohRwTQceYnisIYYY,88
+vaultio-0.1.2.dist-info/entry_points.txt,sha256=S-mOi2An3Gxibe8KMAusPPI0oMTODEy0W8FXHbBC1GQ,52
+vaultio-0.1.2.dist-info/RECORD,,
