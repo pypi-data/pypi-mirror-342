@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+asgi_compression/__init__.py
+asgi_compression/base.py
+asgi_compression/brotli.py
+asgi_compression/gzip.py
+asgi_compression/identity.py
+asgi_compression/middleware.py
+asgi_compression/types.py
+asgi_compression/zstd.py
+asgi_compression.egg-info/PKG-INFO
+asgi_compression.egg-info/SOURCES.txt
+asgi_compression.egg-info/dependency_links.txt
+asgi_compression.egg-info/requires.txt
+asgi_compression.egg-info/top_level.txt
+tests/test_middleware.py

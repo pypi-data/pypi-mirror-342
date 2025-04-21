@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: asgi-compression
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: multidict>=6.2.0
+Provides-Extra: all
+Requires-Dist: brotli>=1.1.0; extra == "all"
+Requires-Dist: zstandard>=0.23.0; extra == "all"
+Provides-Extra: br
+Requires-Dist: brotli>=1.1.0; extra == "br"
+Provides-Extra: zstd
+Requires-Dist: zstandard>=0.23.0; extra == "zstd"
