@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+trsolver/__init__.py
+trsolver/client.py
+trsolver.egg-info/PKG-INFO
+trsolver.egg-info/SOURCES.txt
+trsolver.egg-info/dependency_links.txt
+trsolver.egg-info/requires.txt
+trsolver.egg-info/top_level.txt
