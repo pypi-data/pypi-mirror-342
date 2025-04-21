@@ -1,0 +1,16 @@
+nvs_sqa/__init__.py,sha256=qYtl28rYCVAaPhcg-7aQHPSGGWddhrLKEmsH-mUDnF4,69
+nvs_sqa/quality_assessor.py,sha256=DWFrJrWc-dSouaT0hEDqGZPEhGATA6OqiR67tu5knOU,4363
+nvs_sqa/utils.py,sha256=DHPK8aBGUfx5rW7HIxIOPzQ_NSuMSxy1l_OItF_W4WM,2020
+nvs_sqa/checkpoints/v0.0.1/models/SeqModel_TransEncoder_rgb_viewsz(192)_lowfeat(24+48+96)_fviewsz(360)_pretr(0)_fuse(last)angsz(384)_nlyr(2)_v0.0.1_100.pth,sha256=Mi3ZsTAWlPBDntHpTd8JNyQCSvvzIPZUWoa8b-btZJc,19065698
+nvs_sqa/checkpoints/v0.0.1/models/SeqModel_TransEncoder_rgb_viewsz(192)_lowfeat(24+48+96)_fviewsz(360)_pretr(0)_fuse(last)angsz(384)_nlyr(2)_v0.0.1_config.json,sha256=dyjx0pcBdzVDGddKCtRCu69mBVmMFAcQe2h5pacvKjo,321
+nvs_sqa/checkpoints/v0.0.1/regr/linear_regr.pkl,sha256=31rX7K4Crn7KS0jFThGqaJh9S6rbPRKU4XX1ooMSRSg,1955
+nvs_sqa/models/__init__.py,sha256=aaAE9gHW9sgePho5n73tFGlsnD7UfqIM4iMJ7fg_kJY,159
+nvs_sqa/models/encoders.py,sha256=h9NRqknI_500iP8AOBvQPI2EFL_Ng2RgyUmAeBukwno,11887
+nvs_sqa/models/qa_methods.py,sha256=Vm44WJeVRLqvNc_ZedIjduCfKccmGFmpOjqreQwaam0,13814
+nvs_sqa/models/sequence_models.py,sha256=-rPzMSkir6hzFnAtWr5HpZyUmAu0WYpjiQo9umZCTag,15341
+nvs_sqa/models/spatio_temporal_model.py,sha256=HpyR8D12SDKgBMsjcltX2F4jz9hhTp-uw2_dsHro99Y,9176
+nvs_sqa-0.1.1.dist-info/LICENSE,sha256=ogEPNDSH0_dhiv_lT3ifVIdgIzHAqNA_SemnxUfPBJk,7048
+nvs_sqa-0.1.1.dist-info/METADATA,sha256=x9bZaU0VDM31EidjCunsvTr-4M5VpcEzvUX1mc2nUdo,4124
+nvs_sqa-0.1.1.dist-info/WHEEL,sha256=ewwEueio1C2XeHTvT17n8dZUJgOvyCWCt0WVNLClP9o,92
+nvs_sqa-0.1.1.dist-info/top_level.txt,sha256=CRkAUZZB6cWb5tjVdy02SKzakEy7xP_ijkA6hGpk_xI,8
+nvs_sqa-0.1.1.dist-info/RECORD,,
