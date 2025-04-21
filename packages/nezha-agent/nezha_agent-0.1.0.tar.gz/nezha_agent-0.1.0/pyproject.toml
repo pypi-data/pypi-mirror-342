@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nezha-agent"
+version = "0.1.0"
+authors = [
+  { name="青雲", email="137844255@qq.com" },
+]
+description = "nezha 是一个命令行 AI 助手工具，支持模型选择、对话、计划生成、配置初始化等多种智能操作，适合开发者和 AI 爱好者快速集成和使用。"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Environment :: Console",
+]
+dependencies = [
+    "typer",
+    "rich",
+    "PyYAML",
+    "openai>=1.0",
+    "platformdirs"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/your-github-username-or-org/nezha"
+"Bug Tracker" = "https://github.com/your-github-username-or-org/nezha/issues"
+
+[project.scripts]
+nezha = "src.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"src.prompts" = ["*.prompt"]
+"src.config" = ["*.yaml", "*.yaml.example"]
