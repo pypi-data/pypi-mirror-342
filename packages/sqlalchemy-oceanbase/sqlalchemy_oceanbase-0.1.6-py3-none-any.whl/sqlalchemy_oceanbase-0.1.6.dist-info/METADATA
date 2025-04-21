@@ -1,0 +1,59 @@
+Metadata-Version: 2.3
+Name: sqlalchemy-oceanbase
+Version: 0.1.6
+Summary: Sqlalchemy dialect for OceanBase mysql tenant
+License: MIT
+Author: John Lyu
+Author-email: lvjunhong@citics.com
+Requires-Python: >=3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: pymysql (>=1.1.0)
+Requires-Dist: sqlalchemy (>=2.0.29)
+Description-Content-Type: text/markdown
+
+# Sqlalchemy-OceanBase
+
+[![](https://img.shields.io/pypi/v/sqlalchemy-oceanbase)](https://pypi.org/project/sqlalchemy-oceanbase/)
+[![PyPI - License](https://img.shields.io/pypi/l/sqlalchemy-oceanbase)](LICENSE)
+[![Python Version](https://img.shields.io/pypi/pyversions/sqlalchemy-oceanbase)](https://pypi.org/project/sqlalchemy-oceanbase/)
+
+OceanBase mysql tenant use pymysql to connect to OceanBase database.
+
+See [OceanBase Document](https://en.oceanbase.com/docs/common-oceanbase-database-10000000000829751)
+
+But the DDL of OceanBase is slightly different from MySQL, and user will get some warnings when reflecting metadata from OceanBase.
+
+Alembic thus cannot work with OceanBase directly.
+
+This package is a workaround to make Alembic work with OceanBase.
+
+## Installation
+
+```bash
+pip install sqlalchemy-oceanbase
+```
+
+## Usage
+
+```python
+from sqlalchemy import create_engine
+
+engin = create_engine('msyql+oceanbase://user:password@host:port/dbname')
+```
+
+
+### Async model
+
+```python
+from sqlalchemy.ext.asyncio import create_async_engine
+
+engin = create_async_engine('msyql+oceanbase://user:password@host:port/dbname')
+```
+
