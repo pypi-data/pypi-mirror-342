@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: minifysql
+Version: 0.1.0
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Summary: A Python module to use https://crates.io/crates/sql_minifier
+License: MIT
+Requires-Python: >=3.8
