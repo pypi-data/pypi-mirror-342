@@ -1,0 +1,104 @@
+Metadata-Version: 2.1
+Name: ml-dash
+Version: 0.3.27
+Summary: A Beautiful Visualization Dashboard For Machine Learning
+Home-page: https://github.com/dash-ml/dash-server
+Author: Ge Yang
+Author-email: ge.ike.yang@gmail.com
+Keywords: ml_logger,ml-logger,ml dash,ml-dash,ml_dash,dashboard,machine learning,vis_server,logging,debug,debugging
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE.md
+Requires-Dist: cloudpickle==3.1.1
+Requires-Dist: dill
+Requires-Dist: graphene==2.1.3
+Requires-Dist: graphql-core==2.1
+Requires-Dist: graphql-relay==0.4.5
+Requires-Dist: graphql-server-core==1.1.1
+Requires-Dist: multidict
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: params_proto>=2.10.5
+Requires-Dist: requests
+Requires-Dist: requests_futures
+Requires-Dist: ruamel.yaml
+Requires-Dist: sanic==20.9.0
+Requires-Dist: sanic-cors
+Requires-Dist: Sanic-GraphQL
+Requires-Dist: termcolor
+Requires-Dist: typing
+
+ML-Dash, A Beautiful Visualization Dashboard for ML
+===================================================
+
+|Downloads|
+
+*For detailed codumentation, see*
+`ml-dash-tutorial <https://ml-logger.readthedocs.io/en/latest/setting_up.html#ml-dash-tutorial>`__
+
+ML-dash replaces visdom and tensorboard. It allows you to see real-time
+updates, review 1000+ of experiments quickly, and dive in-depth into
+individual experiments with minimum mental effort.
+
+-  **Parallel Coordinates**
+-  **Aggregating Over Multiple Runs (with different seeds)**
+-  **Preview Videos, ``matplotlib`` figures, and images.**
+
+Usage
+-----
+
+To make sure you **install** the newest version of ``ml_dash``:
+
+.. code-block:: bash
+
+   conda install pycurl
+   pip install ml-logger ml-dash --upgrade --no-cache
+
+Just doing this would not work. The landscape of python modules is a lot
+messier than that of javascript. The most up-to-date graphene requires
+the following versioned dependencies:
+
+.. code-block:: zsh
+
+   pip install sanic==20.9.0
+   pip install sanic-cors==0.10.0.post3
+   pip install sanic-graphql==1.1.0
+   yes | pip install graphene==2.1.3
+   yes | pip install graphql-core==2.1
+   yes | pip install graphql-relay==0.4.5
+   yes | pip install graphql-server-core==1.1.1
+
+There are two servers:
+
+1. a server that serves the static web-application files ``ml_dash.app``
+
+   This is just a static server that serves the web application client.
+
+   To run this:
+
+   .. code-block:: bash
+
+      python -m ml_dash.app
+
+2. the visualization backend ``ml_dash.server``
+
+   This server usually lives on your logging server. It offers a
+   ``graphQL`` API backend for the dashboard client.
+
+   .. code-block:: bash
+
+      python -m ml_dash.server --logdir=my/folder
+
+   **Note: the server accepts requests from ``localhost`` only by
+   default for safety reasons.** To overwrite this, see the
+   documentation here:
+   `ml-dash-tutorial <https://ml-logger.readthedocs.io/en/latest/setting_up.html#ml-dash-tutorial>`__
+
+Implementation Notes
+~~~~~~~~~~~~~~~~~~~~
+
+See `https://github.com/episodeyang/ml_logger/tree/master/ml-dash-server/notes/README.md <https://github.com/episodeyang/ml_logger/tree/master/ml-dash-server/notes/README.md>`__
+
+.. |Downloads| image:: http://pepy.tech/badge/ml-dash
+   :target: http://pepy.tech/project/ml-dash
