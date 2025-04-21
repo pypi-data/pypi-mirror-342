@@ -1,0 +1,10 @@
+# MANIFEST.in
+include audio2topics/resources/icons/*.png
+recursive-include audio2topics/resources *
+recursive-include audio2topics *.py
+include README.md
+include LICENSE.txt
+# Exclude any config files
+global-exclude *.json
+global-exclude *.enc
+global-exclude .salt
