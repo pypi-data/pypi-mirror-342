@@ -1,0 +1,2 @@
+[console_scripts]
+resopath = resopath.cli:main
