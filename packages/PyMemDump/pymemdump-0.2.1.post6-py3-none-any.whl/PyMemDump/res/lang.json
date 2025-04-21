@@ -1,0 +1,61 @@
+
+{
+    "Version": "1.0.0",
+    "Desc": "Python Memory Dumper help string i18n",
+    "lang": {
+        "en_US": {
+            "tool_name": "PyMemDump",
+            "tool_desc": "Dumps the memory of a process.",
+            "scan_addr": "Scans all memory addresses of the target process and saves them to a json file.",
+            "concurrent": "Dumps the memory of the target process concurrently.",
+            "workers": "Number of concurrent workers to use for dumping the memory.",
+            "process": "Target process to dump the memory of.",
+            "by_addr": "Dumps the memory of the target process within a specified address range.",
+            "output": "Output file to save the memory dump to.",
+            "ignore-read-error": "Ignores read errors when dumping the memory. This can be useful when the target process is writing to memory while the dumper is reading it.",
+            "start-address" : "Start address of the memory range to dump.",
+            "end-address" : "End address of the memory range to dump.",
+            "content-fmt": "Format of the content to dump. Can be one of the following: {hex, ascii, bytes}.",
+            "encoding": "Encoding to use when decoding bytes to ASCII. Defaults to UTF-8.",
+            "verbose": "Enables verbose output.",
+            "search": "search the memory addr with critical bytes.",
+            "search_opt": "output the search result to a file."
+        },
+        "zh_CN": {
+            "tool_name": "PyMemDump",
+            "tool_desc": "转储系统进程中的内存",
+            "scan_addr": "扫描目标进程的所有内存地址并将其保存到 json 文件中。",
+            "concurrent": "并发转储目标进程的内存。",
+            "workers": "并发工作线程的数量。",
+            "process": "目标进程。",
+            "by_addr": "启用指定地址范围内的内存转储。",
+            "output": "输出文件，用于保存内存转储。",
+            "ignore-read-error": "忽略读取错误，转储内存。启用后会忽略一些读取上的错误，避免崩溃。",
+            "start-address" : "转储内存的起始地址。(需要启用 by_addr 参数，这可以再命令行中通过 --by_addr 来启用)",
+            "end-address" : "转储内存的结束地址。(需要启用 by_addr 参数，这可以再命令行中通过 --by_addr 来启用)",
+            "content-fmt": "转储内容的格式。可选格式：{hex, ascii, bytes}。",
+            "encoding": "用于解码字节到 ASCII 的编码。默认为 UTF-8。",
+            "verbose": "输出详细信息。",
+            "search": "根据关键字节搜索内存地址。",
+            "search_opt": "将搜索结果输出到文件。"
+        },
+        "fr_FR": {
+            "tool_name": "PyMemDump",
+            "tool_desc": "Outil de vidage de mémoire pour processus Python.",
+            "scan_addr": "Analyse toutes les adresses mémoire du processus cible et les enregistre dans un fichier json.",
+            "concurrent": "Vide la mémoire du processus cible de manière concurrente.",
+            "workers": "Nombre de travailleurs concurrents à utiliser pour vider la mémoire.",
+            "process": "Processus cible à vider la mémoire.",
+            "by_addr": "Vide la mémoire du processus cible dans une plage d'adresses spécifiée.",
+            "output": "Fichier de sortie pour enregistrer le vidage de la mémoire.",
+            "ignore-read-error": "Ignore les erreurs de lecture lors du vidage de la mémoire. Utile lorsque le processus cible écrit dans la mémoire pendant que le vidage se lit.",
+            "start-address": "Adresse de début de la plage de mémoire à vider.",
+            "end-address": "Adresse de fin de la plage de mémoire à vider.",
+            "content-fmt": "Format du contenu à vider. Peut être l'un des suivants : {hex, ascii, bytes}.",
+            "encoding": "Encodage à utiliser pour décoder les octets en ASCII. Par défaut : UTF-8.",
+            "verbose": "Active la sortie détaillée.",
+            "search": "recherche les adresses mémoire avec des octets critiques.",
+            "search_opt": "enregistre le résultat de la recherche dans un fichier."
+        }
+    }
+}
