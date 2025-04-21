@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+setup.py
+trdicom/__init__.py
+trdicom/netdicom.so
+trdicom.egg-info/PKG-INFO
+trdicom.egg-info/SOURCES.txt
+trdicom.egg-info/dependency_links.txt
+trdicom.egg-info/requires.txt
+trdicom.egg-info/top_level.txt

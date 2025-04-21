@@ -1,0 +1,2 @@
+include trdicom/*.so
+prune internal
