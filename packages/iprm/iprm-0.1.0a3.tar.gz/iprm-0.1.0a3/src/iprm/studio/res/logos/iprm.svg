@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <circle cx="200" cy="200" r="150" fill="#D6B978" />
+
+  <g transform="translate(200,200)">
+    <polygon points="0,-120 104,-60 104,60 0,120 -104,60 -104,-60" 
+             fill="none" stroke="#1E3A5F" stroke-width="7" />
+
+    <line x1="0" y1="0" x2="0" y2="-120" stroke="#1E3A5F" stroke-width="7" />
+    <line x1="0" y1="0" x2="104" y2="-60" stroke="#1E3A5F" stroke-width="7" />
+    <line x1="0" y1="0" x2="104" y2="60" stroke="#1E3A5F" stroke-width="7" />
+    <line x1="0" y1="0" x2="0" y2="120" stroke="#1E3A5F" stroke-width="7" />
+    <line x1="0" y1="0" x2="-104" y2="60" stroke="#1E3A5F" stroke-width="7" />
+    <line x1="0" y1="0" x2="-104" y2="-60" stroke="#1E3A5F" stroke-width="7" />
+
+    <circle cx="0" cy="0" r="12" fill="#1E3A5F" />
+    <circle cx="0" cy="-120" r="12" fill="#1E3A5F" />
+    <circle cx="104" cy="-60" r="12" fill="#1E3A5F" />
+    <circle cx="104" cy="60" r="12" fill="#1E3A5F" />
+    <circle cx="0" cy="120" r="12" fill="#1E3A5F" />
+    <circle cx="-104" cy="60" r="12" fill="#1E3A5F" />
+    <circle cx="-104" cy="-60" r="12" fill="#1E3A5F" />
+  </g>
+</svg>

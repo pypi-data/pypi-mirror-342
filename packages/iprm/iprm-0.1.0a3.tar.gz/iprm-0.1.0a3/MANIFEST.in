@@ -1,0 +1,6 @@
+recursive-exclude src/iprm/core/build* *
+exclude src/iprm/core/*.pdb
+
+recursive-exclude src/iprm/studio/build* *
+exclude src/iprm/studio/bin/*.pdb
+exclude src/iprm/studio/bin/*.ilk

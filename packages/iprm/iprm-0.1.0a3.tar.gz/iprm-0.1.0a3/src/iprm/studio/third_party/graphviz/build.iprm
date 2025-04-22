@@ -1,0 +1,65 @@
+graphviz = CppThirdParty('third_graphviz')
+if Env.platform.windows:
+    gv_pca_builder = graphviz.precompiled_archive(
+        CurrentSourceDir(),
+        'graphviz_12.2.1_windows_x64.zip',
+    )
+    gv_pca_builder.include_dir(BinaryDir('include'))
+    gv_pca_builder.implib_dir(BinaryDir('lib'))
+    gv_pca_builder.lib_dir(BinaryDir('bin'))
+    gv_pca_builder.bin_dir(BinaryDir('bin'))
+    gv_pca_builder.shared_libs(
+        'cdt',
+        'cgraph',
+        'gvc',
+        'gvplugin_core',
+        'gvplugin_pango',
+        'gvplugin_dot_layout',
+        'xdot',
+    )
+    graphviz.runtime_files(RootRelativeBinaryDir('bin'),
+        'config6',
+        'zlib1.dll',
+        'pathplan.dll',
+        'libexpat.dll',
+    )
+    gv_targets = gv_pca_builder.build()
+
+elif Env.platform.macos:
+    graphviz.homebrew(
+        package='graphviz',
+        shared_libs=[
+            'cdt',
+            'cgraph',
+            'gvc',
+            'gvplugin_core',
+            'gvplugin_pango',
+            'gvplugin_dot_layout',
+            'xdot',
+        ]
+    )
+elif Env.platform.linux:
+    graphviz.pkgconfig(
+        prefix='lib',
+        shared_libs=[
+            'libcdt',
+            'libcgraph',
+            'libxdot',
+            'libgvc',
+        ]
+    )
+    gvc6_plugins_target = 'third_graphviz_gvc6_plugins'
+    gvc6_plugins = CppThirdParty(gvc6_plugins_target)
+    distro = Env.linux.distro
+    if distro.debian_like:
+        gvc6_plugins.dpkg(
+            package='libgvc6-plugins-gtk',
+        )
+    elif distro.fedora or distro.centos or distro.rhel_like:
+        gvc6_plugins.rpm(
+            package='graphviz-gtk2',
+        )
+
+    graphviz.requires(
+        gvc6_plugins_target,
+    )

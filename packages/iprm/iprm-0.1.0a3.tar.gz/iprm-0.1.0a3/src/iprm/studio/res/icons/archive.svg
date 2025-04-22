@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Base document shape (same as original) -->
+  <path d="M96,32 h224 l96,96 v352 h-320 z" fill="#D6B978"/>
+  <path d="M320,32 v96 h96 z" fill="#1E3A5F"/>
+  
+  <!-- Archive-specific elements - moved down, thicker, and more spread out -->
+  <rect x="192" y="180" width="128" height="40" fill="#1E3A5F"/>
+  <rect x="192" y="250" width="128" height="40" fill="#1E3A5F"/>
+  <rect x="192" y="320" width="128" height="40" fill="#1E3A5F"/>
+  
+  <!-- Zipper line down the middle - longer and thicker -->
+  <line x1="256" y1="150" x2="256" y2="380" stroke="#1E3A5F" stroke-width="12"/>
+  
+  <!-- Small zip tag at bottom - adjusted position -->
+  <path d="M246,380 h20 l10,20 l-40,0 z" fill="#1E3A5F"/>
+</svg>

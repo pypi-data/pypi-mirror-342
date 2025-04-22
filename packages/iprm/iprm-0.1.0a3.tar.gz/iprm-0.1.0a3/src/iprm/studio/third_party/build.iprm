@@ -1,0 +1,7 @@
+SubDir('lemon')
+SubDir('pybind11')
+# TODO: Only include below if the IPRM_BUILD_STUDIO option is set
+SubDir('qt')
+SubDir('graphviz')
+# TODO: Add Meson support for building sources from a source archive
+SubDir('K-Editor')
