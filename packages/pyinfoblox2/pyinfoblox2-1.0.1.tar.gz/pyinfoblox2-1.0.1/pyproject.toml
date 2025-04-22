@@ -1,0 +1,37 @@
+[project]
+name = "pyinfoblox2"
+version = "1.0.1"
+description = "Python client for Infoblox WAPI"
+authors = [
+    {name="Andy Wilson", email="andy@shady.org"},
+]
+license = {file="LICENCE"}
+readme = "README.md"
+keywords = ["infoblox", "python", "pyinfoblox"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable"
+]
+dependencies = [
+    "MarkupSafe>=3.0.2",
+    "httpx>=0.28.1",
+    "aiofiles>=23.2.1",
+    "ijson>=3.2.3",
+    "alive-progress>=3.1.5"
+]
+
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/andy-shady-org/pyinfoblox2"
+Documentation = "https://pyinfoblox2.readthedocs.io/en/latest"
+Repository = "https://github.com/andy-shady-org/pyinfoblox2"
+Issues = "https://github.com/andy-shady-org/pyinfoblox2/issues"
+
+[build-system]
+requires = ['setuptools >= 64']
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools.packages.find]
+exclude = ["examples*", "media*", "*.tests*"]
+
+[tool.setuptools.package-data]
