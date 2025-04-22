@@ -1,0 +1,11 @@
+.github
+.gitignore
+.git
+.vscode
+__pycache__
+.venv
+.ruff_cache
+.mypy_cache
+.mcp-searxng.egg-info
+dist
+config.json
