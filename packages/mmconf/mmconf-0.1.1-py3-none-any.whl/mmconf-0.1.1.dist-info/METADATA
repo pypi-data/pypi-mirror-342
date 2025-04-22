@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: mmconf
+Version: 0.1.1
+Summary: A Python package for managing configuration files in a structured way.
+Requires-Python: >=3.11
+Requires-Dist: addict>=2.4.0
+Requires-Dist: numpy>=1.26.4
+Requires-Dist: packaging>=25.0
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: regex>=2024.11.6
+Requires-Dist: rich>=14.0.0
+Requires-Dist: rtoml>=0.12.0
+Requires-Dist: yapf>=0.43.0
+Description-Content-Type: text/markdown
+
+从mmengine中提取出来的配置管理模块，用于读取py格式配置文件。
+使用方法请参考：[mmengine官方文档](https://mmengine.readthedocs.io/zh-cn/v0.10.0/advanced_tutorials/config.html)
