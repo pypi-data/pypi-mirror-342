@@ -1,0 +1,24 @@
+[tool.isort]
+skip = [".git", "migrations"]
+include_trailing_comma = true
+multi_line_output = 7
+
+[project]
+name = "wazzup"
+version = "0.0.2"
+authors = [
+  { name="Rafael model", email="rafael.model@d7.dev" },
+]
+description = "A python package for sending messages using the official Whatsapp API"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/7ws/wazzup"
+Issues = "https://github.com/7ws/wazzup/issues"

@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: wazzup
+Version: 0.0.2
+Summary: A python package for sending messages using the official Whatsapp API
+Author-email: Rafael model <rafael.model@d7.dev>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/7ws/wazzup
+Project-URL: Issues, https://github.com/7ws/wazzup/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Dynamic: license-file
+
+# WaZZup
+
+
