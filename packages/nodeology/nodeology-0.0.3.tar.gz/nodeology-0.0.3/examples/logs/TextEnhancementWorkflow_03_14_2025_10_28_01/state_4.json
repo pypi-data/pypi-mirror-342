@@ -1,0 +1,20 @@
+{
+  "current_node_type": "prompt",
+  "previous_node_type": "parse_human_input",
+  "human_input": "Ptychography is a computational imaging technique",
+  "input": "",
+  "output": "",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Ptychography is a computational imaging technique"
+    },
+    {
+      "role": "user",
+      "content": "Text to analyze: Ptychography is a computational imaging technique\n\nAnalyze the above text for:\n- Clarity (1-10)\n- Grammar (1-10)\n- Style (1-10)\n- Suggestions for improvement\n\nOutput as JSON:\n{{\n    \"clarity_score\": int,\n    \"grammar_score\": int,\n    \"style_score\": int,\n    \"suggestions\": str\n}}\n"
+    }
+  ],
+  "analysis": "{\n  \"clarity_score\": 8,\n  \"grammar_score\": 10,\n  \"style_score\": 7,\n  \"suggestions\": \"While grammatically correct, the sentence could be improved by adding context or elaborating on what ptychography is used for to enhance understanding for a wider audience. For example: 'Ptychography is a computational imaging technique used for high-resolution microscopy.'\"\n}",
+  "text": "Ptychography is a computational imaging technique",
+  "continue_improving": false
+}

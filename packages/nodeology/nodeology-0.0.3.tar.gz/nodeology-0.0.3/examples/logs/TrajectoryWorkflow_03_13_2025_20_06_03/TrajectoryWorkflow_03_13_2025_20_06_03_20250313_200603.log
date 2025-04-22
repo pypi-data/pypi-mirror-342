@@ -1,0 +1,23 @@
+20250313-20:06:03 - ########## Settings ##########
+20250313-20:06:03 - Workflow name: TrajectoryWorkflow_03_13_2025_20_06_03
+20250313-20:06:03 - User name: shawny
+20250313-20:06:03 - Debug mode: False
+20250313-20:06:03 - ##############################
+20250313-20:06:03 - Starting UI for workflow: TrajectoryWorkflow
+20250313-20:06:03 - Found initialization kwargs: ['name', 'llm_name', 'vlm_name', 'state_defs', 'exit_commands', 'save_artifacts', 'debug_mode', 'max_history', 'checkpointer', 'tracing']
+20250313-20:06:03 - Serializing name as primitive type: NoneType
+20250313-20:06:03 - Serializing llm_name as primitive type: str
+20250313-20:06:03 - Serializing vlm_name as primitive type: str
+20250313-20:06:03 - Serializing state_defs as class reference: __main__.TrajectoryState
+20250313-20:06:03 - Serializing exit_commands as primitive type: NoneType
+20250313-20:06:03 - Serializing save_artifacts as primitive type: bool
+20250313-20:06:03 - Serializing debug_mode as primitive type: bool
+20250313-20:06:03 - Serializing max_history as primitive type: int
+20250313-20:06:03 - Serializing checkpointer as: memory
+20250313-20:06:03 - Serializing tracing as primitive type: bool
+20250313-20:06:03 - Using llm_client.model_name: gemini/gemini-2.0-flash
+20250313-20:06:03 - Using vlm_client.model_name: gemini/gemini-2.0-flash
+20250313-20:06:03 - Storing state_schema class: __main__.TrajectoryState
+20250313-20:06:03 - Serialized kwargs: ['name', 'llm_name', 'vlm_name', '_state_defs_class', 'exit_commands', 'save_artifacts', 'debug_mode', 'max_history', 'checkpointer', 'tracing', '_state_schema_class']
+20250313-20:06:03 - Serialized initial state
+20250313-20:06:03 - Starting Chainlit server

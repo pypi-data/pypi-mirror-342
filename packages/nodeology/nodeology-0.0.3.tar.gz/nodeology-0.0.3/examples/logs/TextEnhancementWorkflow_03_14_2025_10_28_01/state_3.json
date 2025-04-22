@@ -1,0 +1,16 @@
+{
+  "current_node_type": "parse_human_input",
+  "previous_node_type": "",
+  "human_input": "Ptychography is a computational imaging technique",
+  "input": "",
+  "output": "",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Ptychography is a computational imaging technique"
+    }
+  ],
+  "analysis": {},
+  "text": "Ptychography is a computational imaging technique",
+  "continue_improving": false
+}

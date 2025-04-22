@@ -1,0 +1,20 @@
+{
+  "current_node_type": "prompt",
+  "previous_node_type": "parse_human_input",
+  "human_input": "hello",
+  "input": "",
+  "output": "",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello"
+    },
+    {
+      "role": "user",
+      "content": "Text to analyze: hello\n\nAnalyze the above text for:\n- Clarity (1-10)\n- Grammar (1-10)\n- Style (1-10)\n- Suggestions for improvement\n\nOutput as JSON:\n{{\n    \"clarity_score\": int,\n    \"grammar_score\": int,\n    \"style_score\": int,\n    \"suggestions\": str\n}}\n"
+    }
+  ],
+  "analysis": "{\n  \"clarity_score\": 10,\n  \"grammar_score\": 10,\n  \"style_score\": 5,\n  \"suggestions\": \"While grammatically correct and clear, consider adding context or expanding upon 'hello' to provide more substance or stylistic interest. For example, 'Hello, world!' or 'Hello, how are you?' would add context.\"\n}",
+  "text": "hello",
+  "continue_improving": false
+}

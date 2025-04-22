@@ -1,0 +1,44 @@
+{
+  "current_node_type": "",
+  "previous_node_type": "",
+  "human_input": "",
+  "input": "",
+  "output": "",
+  "messages": [],
+  "mass": 9.1093837015e-31,
+  "charge": -1.602176634e-19,
+  "initial_velocity": {
+    "__type__": "ndarray",
+    "data": [
+      1000000.0,
+      1000000.0,
+      1000000.0
+    ],
+    "dtype": "float64"
+  },
+  "E_field": {
+    "__type__": "ndarray",
+    "data": [
+      5000000.0,
+      1000000.0,
+      5000000.0
+    ],
+    "dtype": "float64"
+  },
+  "B_field": {
+    "__type__": "ndarray",
+    "data": [
+      0.0,
+      0.0,
+      50000.0
+    ],
+    "dtype": "float64"
+  },
+  "confirm_parameters": false,
+  "parameters_updater_output": "",
+  "positions": [],
+  "trajectory_plot": "",
+  "trajectory_plot_path": "",
+  "analysis_result": {},
+  "continue_simulation": false
+}

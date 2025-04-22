@@ -1,0 +1,16 @@
+{
+  "current_node_type": "",
+  "previous_node_type": "",
+  "human_input": "hello",
+  "input": "",
+  "output": "",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello"
+    }
+  ],
+  "analysis": {},
+  "text": "",
+  "continue_improving": false
+}

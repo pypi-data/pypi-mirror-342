@@ -1,0 +1,16 @@
+{
+  "current_node_type": "parse_human_input",
+  "previous_node_type": "",
+  "human_input": "hello",
+  "input": "",
+  "output": "",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello"
+    }
+  ],
+  "analysis": {},
+  "text": "hello",
+  "continue_improving": false
+}

@@ -1,0 +1,21 @@
+20250314-10:12:46 - ########## Settings ##########
+20250314-10:12:46 - Workflow name: TextEnhancementWorkflow_03_14_2025_10_12_46
+20250314-10:12:46 - User name: shawny
+20250314-10:12:46 - Debug mode: False
+20250314-10:12:46 - ##############################
+20250314-10:12:46 - Starting UI for workflow: TextEnhancementWorkflow
+20250314-10:12:46 - Found initialization kwargs: ['name', 'llm_name', 'vlm_name', 'state_defs', 'exit_commands', 'save_artifacts', 'debug_mode', 'max_history', 'checkpointer', 'tracing']
+20250314-10:12:46 - Serializing name as primitive type: NoneType
+20250314-10:12:46 - Serializing llm_name as primitive type: str
+20250314-10:12:46 - Serializing vlm_name as primitive type: NoneType
+20250314-10:12:46 - Serializing state_defs as None (will use workflow's state_schema)
+20250314-10:12:46 - Serializing exit_commands as primitive type: NoneType
+20250314-10:12:46 - Serializing save_artifacts as primitive type: bool
+20250314-10:12:46 - Serializing debug_mode as primitive type: bool
+20250314-10:12:46 - Serializing max_history as primitive type: int
+20250314-10:12:46 - Serializing checkpointer as: memory
+20250314-10:12:46 - Serializing tracing as primitive type: bool
+20250314-10:12:46 - Using llm_client.model_name: gemini/gemini-2.0-flash
+20250314-10:12:46 - Storing state_schema class: __main__.TextAnalysisState
+20250314-10:12:46 - Serialized kwargs: ['name', 'llm_name', 'vlm_name', 'state_defs', 'exit_commands', 'save_artifacts', 'debug_mode', 'max_history', 'checkpointer', 'tracing', '_state_schema_class']
+20250314-10:12:46 - Starting Chainlit server

@@ -1,0 +1,4 @@
+{
+  "test_workflow.py::TestTemplateLoading::test_complex_template_loading": true,
+  "test_workflow.py::TestTemplateLoading::test_custom_components_loading": true
+}
