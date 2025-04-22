@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: soup_files
+Version: 1.0.0
+Summary: soup_files
+Author: Bruno
+Author-email: brunodasill@gmail.com
+License: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Dynamic: author-email
+
+# file-utils
+
+# Uso
+from file import File, Directory
+
+filename:str = 'path/to/file'
+dirpath:str = 'path/to/dir'
+
+f = File(filename)
+d = Directory(dirpath)
