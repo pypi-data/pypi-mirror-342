@@ -1,0 +1,7 @@
+typing_extensions
+boto3>=1.4.4
+types-boto3[ssm]>=1.37.34
+six>=1.11.0
+
+[test]
+pytest-factoryboy
