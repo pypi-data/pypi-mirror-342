@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: deploysition
+Version: 0.1.0
+Summary: CLI tool.
+Author: Deploysition
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+# Deploysition
+
+This is the python distribution of deploysition.
+
+Try it now at:
+
+https://deploysition.cloud
+
+More content is coming here soon
