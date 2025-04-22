@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "augmenta-ru"
+version = "0.1.1"
+description = "Text augmentation methods for Russian NLP"
+readme = "README.md"
+authors = [
+  {name="Protasov Aleksandr", email="mmerihsehc@icloud.com"}
+]
+license = "MIT"
+keywords = ["nlp", "text augmentation", "russian"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "deep-translator",
+    "transformers",
+    "torch",
+    "requests",
+    "gensim",
+    "pymorphy3",
+    "pymystem3",
+    "natasha",
+    "numpy",
+    "nltk",
+    "sentencepiece"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[project.urls]
+Homepage = "https://github.com/tymillnyc/augmenta-ru"

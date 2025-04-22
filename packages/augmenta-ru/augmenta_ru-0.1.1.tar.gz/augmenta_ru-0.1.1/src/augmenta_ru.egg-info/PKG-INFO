@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: augmenta-ru
+Version: 0.1.1
+Summary: Text augmentation methods for Russian NLP
+Author-email: Protasov Aleksandr <mmerihsehc@icloud.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/tymillnyc/augmenta-ru
+Keywords: nlp,text augmentation,russian
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: deep-translator
+Requires-Dist: transformers
+Requires-Dist: torch
+Requires-Dist: requests
+Requires-Dist: gensim
+Requires-Dist: pymorphy3
+Requires-Dist: pymystem3
+Requires-Dist: natasha
+Requires-Dist: numpy
+Requires-Dist: nltk
+Requires-Dist: sentencepiece
+
+# Augmenta-RU
+
+Набор методов аугментации текстов для русского языка.
+
+## Установка
+
+```bash
+pip install augmenta-ru
