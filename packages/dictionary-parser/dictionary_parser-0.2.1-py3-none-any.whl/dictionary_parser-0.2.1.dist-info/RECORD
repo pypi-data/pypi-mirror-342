@@ -1,0 +1,13 @@
+dictionary_parser/__init__.py,sha256=g8z6wtQ6lwfcVhC4VaipW90qST7sQhO79ttZGe6dV18,170
+dictionary_parser/__main__.py,sha256=2n80cpzJ3XLTbth8Ei7r3nGT2RCo5pfRviwrPWYV7cU,57
+dictionary_parser/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dictionary_parser/core/processor.py,sha256=2DOhfP8bsTxEeEzUTOUQ2TW-RhPNrPvbZCfMDSunhMg,2315
+dictionary_parser/main.py,sha256=estINcf5dGbnG5nYgRKeYVeIg9uRKFBeYh3td7i5cX4,1339
+dictionary_parser/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dictionary_parser/utils/case.py,sha256=TLAkGxiczNZDQ_Vr-tYCW3IuX6_tB1zKICYcamhb2HE,275
+dictionary_parser/utils/letters.py,sha256=H6fPcPXs2jCpn0X0ALo0S8C5YRAsfhfMv3nN9Mr_aK4,450
+dictionary_parser-0.2.1.dist-info/LICENSE,sha256=Qinmf2b_NUs-jvl6oapOLZZbOmpvGE-ibM8NK-XMrZE,1071
+dictionary_parser-0.2.1.dist-info/METADATA,sha256=Ptu9nhYAQmnRoysi0IO1VwWoD36JP27Nb20Wqk6P8tQ,3314
+dictionary_parser-0.2.1.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+dictionary_parser-0.2.1.dist-info/entry_points.txt,sha256=VBpXnHumJRkGCZRfIS6FrANyVrjxcg5WI8sSFtYmQj4,64
+dictionary_parser-0.2.1.dist-info/RECORD,,
