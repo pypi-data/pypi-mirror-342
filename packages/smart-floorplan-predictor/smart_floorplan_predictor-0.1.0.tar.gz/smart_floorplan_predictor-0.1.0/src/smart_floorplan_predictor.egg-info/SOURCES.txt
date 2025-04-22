@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+src/smart_floorplan_predictor/__init__.py
+src/smart_floorplan_predictor/predictor.py
+src/smart_floorplan_predictor.egg-info/PKG-INFO
+src/smart_floorplan_predictor.egg-info/SOURCES.txt
+src/smart_floorplan_predictor.egg-info/dependency_links.txt
+src/smart_floorplan_predictor.egg-info/requires.txt
+src/smart_floorplan_predictor.egg-info/top_level.txt
