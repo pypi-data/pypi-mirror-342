@@ -1,0 +1,17 @@
+flexvector/__init__.py,sha256=UYwCgsV3atA3ToVebxbMVCkkYp1EpUBa0N2hq1pMblI,179
+flexvector/chroma/__init__.py,sha256=0SvTB3Z1YbPPL99-2sNBU3vg57-5emzGFyhiAIv2P8A,70
+flexvector/chroma/_client.py,sha256=fIz0Gjv3ZNAnF_W3Pkm_ZYyL8Ig3LZ26MqrvfVq_wyc,16497
+flexvector/config.py,sha256=lujMCLvaBI3MKtXgHd9URMzQWKZwcJKkNRZ517onPCc,2544
+flexvector/core/__init__.py,sha256=qfybODUvkxp3m2hI3IMG-K5uchiUFVOBlQBOS9ofZsA,87
+flexvector/core/models.py,sha256=R_IdOsqGerSfpp-LkelKkaF2w9Jt3VIGA5s3UFeqg3o,3127
+flexvector/factory.py,sha256=NofZaGPxh3i44JRe3W4L56gVmLz3fbfBwqmcjie2Ndc,1617
+flexvector/pgvector/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+flexvector/pgvector/pgvector.py,sha256=v3DJXNEeAQWXMFe9PtomyQ0MOOXSU0YDxL_b8kgDQEA,378
+flexvector/qdrant/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+flexvector/qdrant/qdrant.py,sha256=a6yMu9V7Q2voIuSmeByx4LTwslZ0LI7exhVrtGvbjic,313
+flexvector/weaviate/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+flexvector/weaviate/weaviate.py,sha256=PJaiRQMSrQYStuQamdgAoipltznzStPoTl3Miyrpej0,299
+flexvector-0.1.0rc1.dist-info/LICENSE,sha256=carn7N1zr5uz5ean4ZMzboHy_Hmbwo6Ht3PuSO0-0x0,1079
+flexvector-0.1.0rc1.dist-info/METADATA,sha256=rvTo5SSvSaSHmhvBs1IjawmqOc86a0YyYhOHtyo2GDo,5380
+flexvector-0.1.0rc1.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+flexvector-0.1.0rc1.dist-info/RECORD,,
