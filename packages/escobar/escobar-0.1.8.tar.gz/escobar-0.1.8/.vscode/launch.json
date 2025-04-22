@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug JupyterLab Extension",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:8888/lab",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack://escobar/*": "${workspaceFolder}/*"
+      }
+    },
+    {
+      "name": "Debug JupyterLab (Python)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "jupyter",
+      "args": [
+        "lab",
+        "--no-browser",
+        "--debug"
+      ],
+      "cwd": "/Users/roman/DEVEL/sandbox",
+      "justMyCode": false
+    }
+  ]
+}

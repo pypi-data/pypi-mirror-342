@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .user-message {
+            background-color: #f0f0f0;
+            align-self: flex-end;
+        }
+
+        .assistant-message {
+            background-color: #e6f7ff;
+            align-self: flex-start;
+        }
+
+        .message-content {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* Markdown styles */
+        .message-content h1,
+        .message-content h2,
+        .message-content h3 {
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+
+        .message-content h1 {
+            font-size: 1.8em;
+            border-bottom: 1px solid #eee;
+        }
+
+        .message-content h2 {
+            font-size: 1.5em;
+        }
+
+        .message-content h3 {
+            font-size: 1.3em;
+        }
+
+        .message-content pre {
+            background-color: #f6f8fa;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .message-content code {
+            background-color: #f6f8fa;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        .message-content a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .message-content a:hover {
+            text-decoration: underline;
+        }
+
+        .message-content blockquote {
+            border-left: 4px solid #ddd;
+            padding-left: 10px;
+            color: #666;
+            margin-left: 0;
+            padding-left: 1em;
+        }
+
+        .message-content ul,
+        .message-content ol {
+            padding-left: 2em;
+        }
+
+        .message-content table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .message-content table th,
+        .message-content table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .message-content table th {
+            background-color: #f6f8fa;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Markdown Rendering Test</h1>
+
+    <div class="message user-message">
+        <div class="message-content">
+            Can you explain markdown formatting?
+        </div>
+    </div>
+
+    <div class="message assistant-message">
+        <div class="message-content">
+            <h1>Markdown Formatting Guide</h1>
+
+            <p>Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text
+                documents.</p>
+
+            <h2>Basic Syntax</h2>
+
+            <h3>Headers</h3>
+            <p>You can create headers using the # symbol:</p>
+            <pre><code># Header 1
+## Header 2
+### Header 3</code></pre>
+
+            <h3>Emphasis</h3>
+            <p>You can make text <em>italic</em> using *asterisks* or _underscores_.</p>
+            <p>You can make text <strong>bold</strong> using **double asterisks** or __double underscores__.</p>
+
+            <h3>Lists</h3>
+            <p>Unordered lists use asterisks, pluses, or hyphens:</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+
+            <p>Ordered lists use numbers:</p>
+            <ol>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+            </ol>
+
+            <h3>Links</h3>
+            <p>You can create <a href="https://www.example.com">links</a> using [text](URL).</p>
+
+            <h3>Code</h3>
+            <p>Inline code uses backticks: <code>code</code></p>
+            <p>Code blocks use triple backticks:</p>
+            <pre><code>function example() {
+  console.log("Hello, world!");
+}</code></pre>
+
+            <h3>Blockquotes</h3>
+            <blockquote>
+                <p>This is a blockquote. You can use the > symbol to create one.</p>
+            </blockquote>
+
+            <h3>Tables</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Header 1</th>
+                        <th>Header 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cell 1</td>
+                        <td>Cell 2</td>
+                    </tr>
+                    <tr>
+                        <td>Cell 3</td>
+                        <td>Cell 4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
