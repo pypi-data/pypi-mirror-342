@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+pyproject.toml
+src/ofxstatement_nordigen/__init__.py
+src/ofxstatement_nordigen/plugin.py
+src/ofxstatement_nordigen/schemas.py
+src/ofxstatement_nordigen.egg-info/PKG-INFO
+src/ofxstatement_nordigen.egg-info/SOURCES.txt
+src/ofxstatement_nordigen.egg-info/dependency_links.txt
+src/ofxstatement_nordigen.egg-info/entry_points.txt
+src/ofxstatement_nordigen.egg-info/requires.txt
+src/ofxstatement_nordigen.egg-info/top_level.txt
+tests/test_sample.py
+tests/test_schemas.py
