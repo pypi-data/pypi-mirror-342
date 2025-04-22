@@ -1,0 +1,2 @@
+[console_scripts]
+zzipdbk2htm = zzipdoc.dbk2htm:main
