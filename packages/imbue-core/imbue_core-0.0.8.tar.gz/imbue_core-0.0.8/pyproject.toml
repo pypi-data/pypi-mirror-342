@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "imbue-core"
+version = "0.0.8"
+description = "Utilities for imbue-desktop."
+readme = "README.md"
+authors = [
+  { name="Imbue", email="imbue@imbue.com" },
+]
+license = "MIT"
+dependencies = [
+    "anyio",
+    "attrs",
+    "cachetools",
+    "cattrs",
+    "httpx==0.27.0", # anthropic relies on the proxies== parameter to httpx.client, which was removed in 0.28.0
+    "loguru",
+    "pathspec",
+    "pydantic",
+    "pydantic-settings",
+    "pyhumps",
+    "pytest",
+    "pytest-asyncio",
+    "tblib==2.0.0", # pinning because Hammers code relies on "get_locals"
+    "traceback-with-variables>=2.2.0",
+    "yasoo",
+    "sentry-sdk",
+    "tenacity>=8.2.2",
+]
+requires-python = ">=3.11"
+
+[project.urls]
+"homepage" = "https://imbue.com/"
+
+[tool.setuptools]
+package-data.imbue = ["py.typed"]
+
+[tool.setuptools.packages.find]
+include = ["imbue_core*"]

@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: imbue-core
+Version: 0.0.8
+Summary: Utilities for imbue-desktop.
+Author-email: Imbue <imbue@imbue.com>
+License-Expression: MIT
+Project-URL: homepage, https://imbue.com/
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: anyio
+Requires-Dist: attrs
+Requires-Dist: cachetools
+Requires-Dist: cattrs
+Requires-Dist: httpx==0.27.0
+Requires-Dist: loguru
+Requires-Dist: pathspec
+Requires-Dist: pydantic
+Requires-Dist: pydantic-settings
+Requires-Dist: pyhumps
+Requires-Dist: pytest
+Requires-Dist: pytest-asyncio
+Requires-Dist: tblib==2.0.0
+Requires-Dist: traceback-with-variables>=2.2.0
+Requires-Dist: yasoo
+Requires-Dist: sentry-sdk
+Requires-Dist: tenacity>=8.2.2
+Dynamic: license-file
+
+# Imbue Core
+
+Utilities for `imbue-desktop`. This package is not meant to be installed on its own.
