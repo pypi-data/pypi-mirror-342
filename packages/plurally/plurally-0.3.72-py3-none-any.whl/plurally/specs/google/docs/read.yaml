@@ -1,0 +1,40 @@
+openapi: 3.0.0
+info:
+  title: Google Docs Reader API
+  version: 1.0.0
+  description: API to read the contents of a Google Docs document using Google Docs API
+
+servers:
+  - url: https://docs.googleapis.com/v1
+
+paths:
+  /documents/{documentId}:
+    get:
+      summary: Read a Google Doc
+      description: Returns the structured content of a Google Docs document.
+      operationId: getDocument
+      parameters:
+        - name: documentId
+          in: path
+          required: true
+          description: The ID of the Google Docs document to read.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successfully retrieved document content
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  documentId:
+                    type: string
+                  title:
+                    type: string
+                  body:
+                    type: object
+                    description: The document body
+      security:
+        - plurally_google:
+            - https://www.googleapis.com/auth/documents.readonly
