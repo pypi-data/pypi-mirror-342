@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "steamware"
+version = "0.1.1"
+description = "A modular part family and hardware assembly language for 3D printing."
+readme = "README.md"
+license = "BSD-3-Clause"  # Use SPDX expression for license
+authors = [
+    { name = "Michael C Ryan", email = "spacetime.engineer@gmail.com" }
+]
+requires-python = ">=3.9"
+
+dependencies = [
+    "loguru",
+    "pytest"
+]
+
+# Declare dynamic fields
+dynamic = ["classifiers", "scripts"]
+
+[tool.setuptools.packages.find]
+where = ["steamware"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]

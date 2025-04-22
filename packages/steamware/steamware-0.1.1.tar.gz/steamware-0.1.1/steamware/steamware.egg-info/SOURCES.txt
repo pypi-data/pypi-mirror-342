@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+Pipfile
+Pipfile.lock
+README.md
+pyproject.toml
+setup.py
+steamware/__init__.py
+steamware/steamware.py
+steamware/steamware.egg-info/PKG-INFO
+steamware/steamware.egg-info/SOURCES.txt
+steamware/steamware.egg-info/dependency_links.txt
+steamware/steamware.egg-info/entry_points.txt
+steamware/steamware.egg-info/requires.txt
+steamware/steamware.egg-info/top_level.txt
+tests/__init__.py
+tests/test_steamware.py
