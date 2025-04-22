@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+flagcapt/__init__.py
+flagcapt/__main__.py
+flagcapt.egg-info/PKG-INFO
+flagcapt.egg-info/SOURCES.txt
+flagcapt.egg-info/dependency_links.txt
+flagcapt.egg-info/entry_points.txt
+flagcapt.egg-info/top_level.txt
