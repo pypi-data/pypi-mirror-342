@@ -1,0 +1,6 @@
+prance>=23.6.21.0
+openapi-spec-validator>=0.7.1
+
+[dev]
+mypy>=1.15.0
+pytest>=8.3.5
