@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+gitea/__init__.py
+gitea/apiobject.py
+gitea/baseapiobject.py
+gitea/exceptions.py
+gitea/gitea.py
+py_gitea.egg-info/PKG-INFO
+py_gitea.egg-info/SOURCES.txt
+py_gitea.egg-info/dependency_links.txt
+py_gitea.egg-info/requires.txt
+py_gitea.egg-info/top_level.txt
+tests/test_api.py
+tests/test_api_longtests.py

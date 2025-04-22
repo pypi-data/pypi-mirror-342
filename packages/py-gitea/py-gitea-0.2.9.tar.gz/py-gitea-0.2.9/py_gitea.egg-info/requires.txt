@@ -1,0 +1,5 @@
+immutabledict
+requests
+
+[test]
+pytest
