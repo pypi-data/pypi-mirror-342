@@ -1,0 +1,144 @@
+Metadata-Version: 2.1
+Name: gllm-privacy-binary
+Version: 0.1.1
+Summary: 
+Author: GenAI SDK Team
+Author-email: gat-sdk@gdplabs.id
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: flair
+Provides-Extra: transformers
+Requires-Dist: faker (>=30.3.0,<31.0.0)
+Requires-Dist: flair (>=0.14.0) ; extra == "flair"
+Requires-Dist: gllm-core-binary
+Requires-Dist: huggingface_hub ; extra == "transformers"
+Requires-Dist: presidio-analyzer (>=2.2.0,<3.0.0)
+Requires-Dist: presidio_anonymizer (>=2.2.0,<3.0.0)
+Requires-Dist: requests-mock (>=1.12.1,<2.0.0)
+Requires-Dist: semver (>=3.0.4,<4.0.0)
+Requires-Dist: spacy_huggingface_pipelines ; extra == "transformers"
+Requires-Dist: transformers ; extra == "transformers"
+Description-Content-Type: text/markdown
+
+# GDP Labs GenAI Privacy
+
+## Description
+
+A library to protect Personal Identifiable Information (PII) in a Generative AI project.
+
+## Installation
+
+1. Python v3.11 or above:
+
+    You can install Python using [Miniconda](https://docs.anaconda.com/free/miniconda/index.html).
+
+2. [Poetry](https://python-poetry.org/docs/) v1.8.1 or above:
+
+    You can install Poetry using cURL (you need Python to install Poetry):
+    ```bash
+    curl -sSL https://install.python-poetry.org | python3 -
+    ```
+
+3. Install the library using Poetry:
+    ```bash
+    # Latest
+    poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git#subdirectory=libs/gllm-privacy"
+
+    # Specific version
+    poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@gllm_privacy-v0.0.7#subdirectory=libs/gllm-privacy"
+    ```
+   If you want to use TransformersRecognizer and/or FlairRecognizer, you need to install the `transformers` and/or `flair` extra dependencies.
+   ```bash
+    # Latest
+    poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git#subdirectory=libs/gllm-privacy" -E "transformers flair"
+
+    # Specific version
+    poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@gllm_privacy-v0.0.7#subdirectory=libs/gllm-privacy" -E "transformers flair"
+    ```
+
+4. At this step, you can deactivate Miniconda environment as Poetry will create and manage its own virtual environment for you.
+    ```bash
+    conda deactivate
+    ```
+
+5. Try running the unit test to see if it's working:
+    ```bash
+    poetry run pytest
+    ```
+
+## Usage
+
+```python
+from gllm_privacy.pii_detector import TextAnalyzer, TextAnonymizer
+from gllm_privacy.pii_detector.constants import Entities
+from gllm_privacy.pii_detector.anonymizer import Operation
+from asyncio import run
+
+text = """
+    contoh nomor ktp 3525011212941001
+    repeat nomor ktp 3525011212941001
+    contoh email john.doe@example.com
+    contoh nomor telepon +628121729819 dan 0812898029384.
+    contoh npwp 01.123.456.7-891.234
+"""
+text_analyzer = TextAnalyzer()
+entities = [Entities.EMAIL_ADDRESS, Entities.KTP, Entities.NPWP, Entities.PHONE_NUMBER]
+
+text_anonymizer = TextAnonymizer(text_analyzer)
+anonymized_text = run(text_anonymizer.run(text=text, entities=entities))
+print(anonymized_text)
+
+deanonymized_text = run(text_anonymizer.run(text=text, entities=entities, operation=Operation.DEANONYMIZE))
+print(deanonymized_text)
+```
+
+If you need to detect person, organization, or location entities in text written in Bahasa Indonesia, you can use either
+`TransformersRecognizer` or `ProsaRemoteRecognizer`. To use the `TransformersRecognizer`, you can use it like this:
+```python
+from gllm_privacy.pii_detector.recognizer.config import CAHYA_BERT_CONFIGURATION
+from gllm_privacy.pii_detector.recognizer.transformers_recognizer import TransformersRecognizer
+from gllm_privacy.pii_detector import TextAnalyzer, TextAnonymizer
+from gllm_privacy.pii_detector.constants import Entities
+
+# Load the model, if you run it for the first time, it will download the model from the Hugging Face model hub
+transformers_recognizer = TransformersRecognizer(
+  model_path=CAHYA_BERT_CONFIGURATION.get("DEFAULT_MODEL_PATH"),
+  supported_entities=CAHYA_BERT_CONFIGURATION.get("PRESIDIO_SUPPORTED_ENTITIES"),
+)
+transformers_recognizer.load_transformer(**CAHYA_BERT_CONFIGURATION)
+analyzer = TextAnalyzer(additional_recognizers=[transformers_recognizer])
+
+text = "John Doe adalah seorang karyawan PT ABCD yang berlokasi di Jakarta."
+text_analyzer = TextAnalyzer(additional_recognizers=[transformers_recognizer])
+entities = [Entities.PERSON, Entities.LOCATION]
+
+text_anonymizer = TextAnonymizer(text_analyzer)
+anonymized_text = text_anonymizer.anonymize(text=text, entities=entities)
+print(anonymized_text)
+
+deanonymized_text = text_anonymizer.deanonymize(text=text)
+print(deanonymized_text)
+```
+
+To use the `ProsaRemoteRecognizer`, you can use it like the following example.
+Please replace `<PROSA_API_URL>` and `<PROSA_API_KEY>` with the valid values.
+```python
+from gllm_privacy.pii_detector.recognizer.prosa_remote_recognizer import ProsaRemoteRecognizer
+from gllm_privacy.pii_detector import TextAnalyzer, TextAnonymizer
+from gllm_privacy.pii_detector.constants import Entities
+
+text = "John Doe adalah seorang karyawan PT ABCD yang berlokasi di Jakarta."
+prosa_recognizer = ProsaRemoteRecognizer('<PROSA_API_URL>', '<PROSA_API_KEY>')
+text_analyzer = TextAnalyzer(additional_recognizers=[prosa_recognizer])
+entities = [Entities.PERSON, Entities.LOCATION]
+
+text_anonymizer = TextAnonymizer(text_analyzer)
+anonymized_text = text_anonymizer.anonymize(text=text, entities=entities)
+print(anonymized_text)
+
+deanonymized_text = text_anonymizer.deanonymize(text=text)
+print(deanonymized_text)
+```
+
