@@ -1,0 +1,9 @@
+requests>=2.25.1
+
+[none]
+
+[s3]
+boto3
+
+[sftp]
+paramiko>=1.9.1
