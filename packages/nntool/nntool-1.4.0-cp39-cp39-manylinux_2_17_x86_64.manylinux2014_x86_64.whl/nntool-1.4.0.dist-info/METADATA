@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: nntool
+Version: 1.4.0
+Summary: NNTool is a package built on top of submitit designed to provide simple abstractions to conduct experiments on Slurm for machine learning research.
+Home-page: https://github.com/jhliu17/nntool
+Author: Junhao Liu
+Author-email: junhaoliu17@gmail.com
+License: MIT
+Keywords: deep learning,neural network,research
+Requires-Python: >=3.9
+Requires-Dist: setuptools >=68.0.0
+Requires-Dist: submitit >=1.5.2
+Requires-Dist: tyro >=0.8.12
+Requires-Dist: matplotlib >=3.8.0
+Requires-Dist: seaborn >=0.13.2
+Requires-Dist: wandb >=0.15.0
+Requires-Dist: tomli >=2.0.1
+Requires-Dist: cythonpackage
+Provides-Extra: dev
+Requires-Dist: pytest >=8.0.2 ; extra == 'dev'
+Requires-Dist: jax[cpu] >=0.4.0 ; extra == 'dev'
+Requires-Dist: torch >=2.2.0 ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: accelerate >=1.6.0 ; extra == 'dev'
+
