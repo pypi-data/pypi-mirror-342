@@ -1,0 +1,110 @@
+Metadata-Version: 2.1
+Name: gllm-docproc-binary
+Version: 0.1.8
+Summary: A library for orchestrating the processing of document. Typically in a Gen AI applications (but not limited to just Gen AI).
+Author: GenAI SDK Team
+Author-email: gat-sdk@gdplabs.id
+Requires-Python: >=3.11,<3.13
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: audio
+Provides-Extra: docx
+Provides-Extra: html
+Provides-Extra: kg
+Provides-Extra: pdf
+Provides-Extra: xlsx
+Requires-Dist: azure-ai-documentintelligence (>=1.0.0b3,<2.0.0) ; extra == "pdf"
+Requires-Dist: billiard (>=4.2.1,<5.0.0) ; extra == "html"
+Requires-Dist: docx2python (==2.8.0) ; extra == "docx"
+Requires-Dist: gllm-core-binary
+Requires-Dist: gllm-datastore-binary
+Requires-Dist: gllm-misc-binary[audio,kg]
+Requires-Dist: jpype1 (>=1.5.0,<2.0.0) ; extra == "pdf"
+Requires-Dist: langchain-text-splitters (>=0.3.2,<0.4.0)
+Requires-Dist: libmagic (>=1.0,<2.0) ; sys_platform == "win32"
+Requires-Dist: librosa (==0.10.1) ; extra == "audio"
+Requires-Dist: llama-index-embeddings-openai (>=0.3.0,<0.4.0) ; extra == "kg"
+Requires-Dist: llama-index-llms-openai (>=0.3.0,<0.4.0) ; extra == "kg"
+Requires-Dist: openpyxl (>=3.0.10,<4.0.0) ; extra == "xlsx"
+Requires-Dist: pandas (>=2.2.2,<3.0.0)
+Requires-Dist: pdfminer-six (>=20231228,<20231229) ; extra == "pdf"
+Requires-Dist: pdfplumber (>=0.11.4,<0.12.0) ; extra == "pdf"
+Requires-Dist: pdfservices-sdk (>=4.0.0,<5.0.0) ; extra == "pdf"
+Requires-Dist: playwright (>=1.40.0,<2.0.0) ; extra == "html"
+Requires-Dist: pydantic (>=2.9.1,<3.0.0)
+Requires-Dist: pymupdf (>=1.24.10,<2.0.0) ; extra == "pdf"
+Requires-Dist: python-docx (==1.1.0) ; extra == "docx"
+Requires-Dist: python-magic-bin (>=0.4.14,<0.5.0) ; sys_platform == "win32"
+Requires-Dist: scrapy (>=2.11.0,<3.0.0) ; extra == "html"
+Requires-Dist: scrapy-playwright (>=0.0.33,<0.1.0) ; extra == "html"
+Requires-Dist: scrapy_zyte_api (>=0.12.2,<0.13.0) ; extra == "html"
+Requires-Dist: tabula-py (>=2.9.3,<3.0.0) ; extra == "pdf"
+Requires-Dist: tabulate (>=0.9.0,<0.10.0) ; extra == "pdf"
+Requires-Dist: tqdm (==4.66.2) ; extra == "audio"
+Requires-Dist: zyte-api (>=0.4.8,<0.5.0) ; extra == "html"
+Description-Content-Type: text/markdown
+
+# GDP Labs Language Model Document Processing Orchestrator
+
+## Description
+
+A library for orchestrating the processing of document. Typically in a Gen AI applications (but not limited to just Gen AI).
+
+## Installation
+
+1. Python v3.11 or above:
+
+You can install Python using [Miniconda](https://docs.anaconda.com/free/miniconda/index.html).
+
+2. Make sure you're in the `base` conda environment:
+```bash
+conda activate
+```
+
+3. [Poetry](https://python-poetry.org/docs/) v1.8.1 or above:
+
+You can install Poetry using cURL (you need Python to install Poetry):
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+4. Install the library using Poetry:
+```bash
+# Latest
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git#subdirectory=libs/gllm-docproc"
+
+# Specific version
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@gllm_docproc-v0.0.1-beta.1#subdirectory=libs/gllm-docproc"
+
+# This PR
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@decision/separate-document-processing#subdirectory=libs/gllm-docproc"
+```
+
+5. At this step, you can deactivate Miniconda environment as Poetry will create and manage its own virtual environment for you.
+```bash
+conda deactivate
+```
+
+## Managing Dependencies
+1. Go to root folder of `gllm-docproc` module, e.g. `cd libs/gllm-docproc`.
+2. Run `poetry shell` to create a virtual environment.
+3. Run `poetry lock` to create a lock file if you haven't done it yet.
+4. Run `poetry install` to install the `gllm-docproc` requirements for the first time.
+5. Run `poetry update` if you update any dependency module version at `pyproject.toml`.
+
+
+## Contributing
+Please refer to this [Python Style Guide](https://docs.google.com/document/d/1uRggCrHnVfDPBnG641FyQBwUwLoFw0kTzNqRm92vUwM/edit?usp=sharing)
+to get information about code style, documentation standard, and SCA that you need to use when contributing to this project
+
+1. Activate `pre-commit` hooks using `pre-commit install`
+2. Run `poetry shell` to create a virtual environment.
+3. Run `poetry lock` to create a lock file if you haven't done it yet.
+4. Run `poetry install` to install the `gllm-docproc` requirements for the first time.
+5. Run `which python` to get the path to be referenced at Visual Studio Code interpreter path (`Ctrl`+`Shift`+`P` or `Cmd`+`Shift`+`P`)
+6. Try running the unit test to see if it's working:
+```bash
+poetry run pytest -s tests/unit_tests/
+```
+
