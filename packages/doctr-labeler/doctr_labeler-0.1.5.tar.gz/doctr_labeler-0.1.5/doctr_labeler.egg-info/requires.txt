@@ -1,0 +1,33 @@
+numpy<3.0.0,>=1.16.0
+opencv-python<5.0.0,>=4.5.0
+Pillow>=9.2.0
+tqdm>=4.30.0
+huggingface-hub<1.0.0,>=0.23.0
+sv-ttk>=2.6.0
+darkdetect>=0.8.0
+
+[:sys_platform != "darwin"]
+onnxtr[gpu]<1.0.0,>=0.6.0
+
+[:sys_platform == "darwin"]
+onnxtr[cpu]<1.0.0,>=0.6.0
+
+[dev]
+pytest>=5.3.2
+pytest-xvfb>=3.0.0
+coverage[toml]>=4.5.4
+requests>=2.20.0
+ruff>=0.1.5
+mypy>=0.812
+pre-commit>=2.17.0
+
+[quality]
+ruff>=0.1.5
+mypy>=0.812
+pre-commit>=2.17.0
+
+[testing]
+pytest>=5.3.2
+pytest-xvfb>=3.0.0
+coverage[toml]>=4.5.4
+requests>=2.20.0
