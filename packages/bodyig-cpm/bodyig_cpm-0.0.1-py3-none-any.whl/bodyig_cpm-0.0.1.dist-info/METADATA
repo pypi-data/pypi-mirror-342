@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: bodyig-cpm
+Version: 0.0.1
+Summary: A character-pair merging module for Classical Tibetan.
+Author-email: Elya Brown <elyavyale@gmail.com>
+Project-URL: Homepage, https://github.com/merzsielen/Bodyig-CPM
+Keywords: Classical Tibetan,character-pairs
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: bumpver; extra == "dev"
+Requires-Dist: pip-tools; extra == "dev"
+Dynamic: license-file
+
+# Bodyig-CPM
+ A character-pair merging module for Classical Tibetan.
