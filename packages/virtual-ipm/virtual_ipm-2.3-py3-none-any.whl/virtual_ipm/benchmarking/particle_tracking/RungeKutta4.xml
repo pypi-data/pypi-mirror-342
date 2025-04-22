@@ -1,0 +1,13 @@
+<Test>
+    <TestCases>DriftSpace, UniformElectricField, UniformMagneticFieldOnlyY, ExBDrift</TestCases>
+    <!--<TestCases>UniformElectricField</TestCases>-->
+    <ParticleTracking>
+        RungeKutta4
+            <Parameters/>
+    </ParticleTracking>
+    <Simulation>
+        <SimulationTime unit="s">10e-9</SimulationTime>
+        <NumberOfTimeSteps>50000</NumberOfTimeSteps>
+        <TrackedParticleType>Electron</TrackedParticleType>
+    </Simulation>
+</Test>

@@ -1,0 +1,12 @@
+<Test>
+    <TestCases>UniformElectricField</TestCases>
+    <ParticleTracking>
+        BasicEOnlyTracker
+            <Parameters/>
+    </ParticleTracking>
+    <Simulation>
+        <SimulationTime unit="s">100e-9</SimulationTime>
+        <NumberOfTimeSteps>1000</NumberOfTimeSteps>
+        <TrackedParticleType>Electron</TrackedParticleType>
+    </Simulation>
+</Test>

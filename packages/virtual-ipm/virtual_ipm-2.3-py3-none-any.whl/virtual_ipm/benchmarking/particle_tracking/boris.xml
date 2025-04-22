@@ -1,0 +1,13 @@
+<Test>
+    <!--<TestCases>UniformElectricField, UniformMagneticFieldOnlyY, ExBDrift</TestCases>-->
+    <TestCases>UniformElectricField</TestCases>
+    <ParticleTracking>
+        Boris
+            <Parameters/>
+    </ParticleTracking>
+    <Simulation>
+        <SimulationTime unit="s">10e-9</SimulationTime>
+        <NumberOfTimeSteps>1000</NumberOfTimeSteps>
+        <TrackedParticleType>Electron</TrackedParticleType>
+    </Simulation>
+</Test>

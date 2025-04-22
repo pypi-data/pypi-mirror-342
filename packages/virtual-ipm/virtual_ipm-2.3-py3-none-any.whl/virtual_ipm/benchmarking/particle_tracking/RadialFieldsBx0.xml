@@ -1,0 +1,16 @@
+<Test>
+    <TestCases>DriftSpace, UniformElectricField, UniformMagneticFieldOnlyY, ExBDrift</TestCases>
+    <!--<TestCases>DriftSpace, UniformElectricField</TestCases>-->
+    <ParticleTracking>
+        RadialFieldsBx0
+        <Parameters>
+            <!--Need to set something, will be adjusted in the test method.-->
+            <MagneticFieldStrengthInY unit="T">0</MagneticFieldStrengthInY>
+        </Parameters>
+    </ParticleTracking>
+    <Simulation>
+        <SimulationTime unit="s">10e-9</SimulationTime>
+        <NumberOfTimeSteps>50000</NumberOfTimeSteps>
+        <TrackedParticleType>Electron</TrackedParticleType>
+    </Simulation>
+</Test>
