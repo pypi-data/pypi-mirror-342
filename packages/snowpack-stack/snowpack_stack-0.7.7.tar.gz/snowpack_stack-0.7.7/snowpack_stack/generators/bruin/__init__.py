@@ -1,0 +1,1 @@
+"""Bruin-specific generator implementations."""
