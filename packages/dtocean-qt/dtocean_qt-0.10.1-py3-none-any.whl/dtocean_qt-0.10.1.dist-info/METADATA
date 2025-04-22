@@ -1,0 +1,19 @@
+Metadata-Version: 2.3
+Name: dtocean-qt
+Version: 0.10.1
+Summary: Qt extensions for the DTOcean GUI
+License: MIT
+Author: Mathew Topper
+Author-email: damm_horse@yahoo.co.uk
+Requires-Python: >=3.12
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Project-URL: Homepage, https://github.com/DTOcean/dtocean
+Project-URL: Issues, https://github.com/DTOcean/dtocean/issues
+Description-Content-Type: text/markdown
+
+# dtocean-qt
+
+This is a stub package for reserving the package name.
+
