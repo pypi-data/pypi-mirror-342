@@ -1,0 +1,26 @@
+# Python-specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Egg-specific
+*.egg-info/
+
+# VS Code specific
+.vscode/
+
+# Virtualenv/venv folders
+venv/
+env/
+
+# Local environments
+.env/
+
+# Others that are typically not needed in version control
+*.log
+*.bak
+.pypirc
+dist
+*.json
+
