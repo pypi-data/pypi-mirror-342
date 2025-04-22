@@ -1,0 +1,38 @@
+[project]
+name = "vinyl-models"
+description = "Vinyl DB Setup"
+dynamic = ["version"]
+authors = [
+    { name = "jakub", email = "jakub.m.szypicyn@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "sentence-transformers>=2.2.2,<3.0.0",
+    "vecs>=0.2.4,<0.3.0",
+    "matplotlib>=3.7.1,<4.0.0",
+    "sqlalchemy>=1.4.0,<3.0.0",   # Be explicit on compatibility
+    "supabase"                   # Add version constraint if needed
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",                      # For linting
+    "pytest",
+    "ipython",
+    "sqlfluff",
+    "dotenv",
+]
+
+[tool.hatch.version]
+path = "vinyl_models/__init__.py"
+
+[tool.hatch.build]
+packages = ["vinyl_models"]
+
+[tool.hatch.metadata]
+allow-implicit-optional-dependencies = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
