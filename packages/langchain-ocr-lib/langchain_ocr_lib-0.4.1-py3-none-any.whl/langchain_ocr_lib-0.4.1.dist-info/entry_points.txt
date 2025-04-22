@@ -1,0 +1,3 @@
+[console_scripts]
+langchain-ocr=langchain_ocr_lib.main:main
+
