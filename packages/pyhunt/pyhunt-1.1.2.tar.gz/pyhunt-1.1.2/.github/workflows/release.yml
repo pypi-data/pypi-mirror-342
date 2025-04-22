@@ -1,0 +1,108 @@
+name: Publish to PyPI and Create Release
+
+on:
+  push:
+    branches:
+      - main  # when pushing to main
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version_changed: ${{ steps.check_version.outputs.version_changed }}
+      new_version: ${{ steps.check_version.outputs.new_version }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # get current, previous commits
+      - name: Check if version changed
+        id: check_version
+        run: |
+          git show HEAD~1:pyproject.toml > old_pyproject.toml || echo "Previous file not found"
+          
+          if [ -f old_pyproject.toml ]; then
+            OLD_VERSION=$(grep -Po '(?<=version = ")[^"]*' old_pyproject.toml || echo "")
+            NEW_VERSION=$(grep -Po '(?<=version = ")[^"]*' pyproject.toml || echo "")
+            
+            echo "Old version: $OLD_VERSION"
+            echo "New version: $NEW_VERSION"
+            
+            if [ "$OLD_VERSION" != "$NEW_VERSION" ] && [ -n "$NEW_VERSION" ]; then
+              echo "version_changed=true" >> $GITHUB_OUTPUT
+              echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+              echo "Version changed from $OLD_VERSION to $NEW_VERSION"
+            else
+              echo "version_changed=false" >> $GITHUB_OUTPUT
+              echo "No version change detected or version not found"
+            fi
+          else
+            echo "version_changed=false" >> $GITHUB_OUTPUT
+            echo "Could not compare versions - previous file not found"
+          fi
+  
+  build-publish-tag-release:
+    needs: check-version
+    if: needs.check-version.outputs.version_changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # must be set to write tag, release, and release assets
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # get all commit history
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install the project
+        run: uv sync --all-extras --dev
+
+      - name: Build package
+        run: uv build
+
+      - name: Publish to PyPI
+        run: uv publish --token ${{ secrets.PYPI_API_TOKEN }}
+
+      - name: Create Tag
+        run: |
+          VERSION=${{ needs.check-version.outputs.new_version }}
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag -a "v$VERSION" -m "Release v$VERSION"
+          git push origin "v$VERSION"
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          if [ -z "$PREV_TAG" ]; then
+            CHANGELOG=$(git log --pretty=format:"- %s" ${{ github.sha }})
+          else
+            CHANGELOG=$(git log --pretty=format:"- %s" ${PREV_TAG}..HEAD)
+          fi
+          echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGELOG" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Set repo name output
+        id: repo_name
+        run: echo "REPO_NAME=${GITHUB_REPOSITORY#$GITHUB_REPOSITORY_OWNER/}" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ needs.check-version.outputs.new_version }}
+          body: |
+            ## 🔄Changes
+            ${{ steps.changelog.outputs.CHANGELOG }}
+
+            ## 📦Update
+            ```bash
+            uv add ${{ steps.repo_name.outputs.REPO_NAME }} --upgrade
+            ```

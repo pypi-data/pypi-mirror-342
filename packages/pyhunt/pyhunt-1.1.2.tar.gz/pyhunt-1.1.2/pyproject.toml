@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pyhunt"]
+
+[project.scripts]
+hunt = "pyhunt.cli:main"
+
+[project]
+name = "pyhunt"
+authors = [{ name = "EasyDev", email = "easydevv@gmail.com" }]
+description = "Lightweight Python logging tool for visual call tracing, tree-structured colored logs, and easy debugging with a simple decorator. Optimized for both standard and AI-generated codebases. "
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = ["dotenv>=0.9.9"]
+version = "1.1.2"
+
+[project.urls]
+source = "https://github.com/easydevv/pyhunt"
+
+[dependency-groups]
+dev = ["pytest-asyncio"]
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
