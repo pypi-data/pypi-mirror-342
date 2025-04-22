@@ -1,0 +1,35 @@
+[project]
+name = "zev"
+version = "0.3.0"
+description = "Lookup CLI commands easily"
+readme = "README.md"
+dependencies = [
+    "openai==1.72.0",
+    "platformdirs==4.3.7",
+    "pyperclip==1.9.0",
+    "pydantic==2.10.6",
+    "python-dotenv==1.0.1",
+    "questionary===2.1.0",
+    "rich==13.9.4"
+]
+requires-python = ">=3.9"
+urls = { Repository = "https://github.com/dtnewman/zev" }
+
+[project.scripts]
+zev = "zev.main:app"
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.11.2"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["zev"]
+
+[tool.ruff]
+line-length = 120
