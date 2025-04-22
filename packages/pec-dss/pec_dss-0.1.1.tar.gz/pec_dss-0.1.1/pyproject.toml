@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pec-dss"
+version = "0.1.1"
+authors = [
+    {name = "Hyunwoo Kim", email = "hwk06023@gmail.com"},
+]
+description = "Paralinguistic Event Classification from Diarized Speaker Segments"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "GPL-3.0-only"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Sound/Audio :: Analysis",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=1.10.0",
+    "torchaudio>=0.10.0",
+    "librosa>=0.9.1",
+    "soundfile>=0.10.0",
+    "numpy>=1.20.0",
+    "transformers>=4.15.0",
+    "huggingface_hub>=0.4.0",
+    "matplotlib>=3.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0.0",
+    "pytest-cov>=2.12.0",
+    "black>=21.5b2",
+    "isort>=5.9.1",
+    "flake8>=3.9.2",
+]
+docs = [
+    "sphinx>=4.0.2",
+    "sphinx-rtd-theme>=0.5.2",
+    "myst-parser>=0.15.1",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/hwk06023/PEC-DSS"
+"Bug Tracker" = "https://github.com/hwk06023/PEC-DSS/issues"
+
+[project.scripts]
+pec-dss = "pec_dss.cli:main"
+
+[tool.setuptools]
+packages = ["pec_dss"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38", "py39", "py310"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py" 

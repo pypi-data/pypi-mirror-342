@@ -1,0 +1,2 @@
+[console_scripts]
+pec-dss = pec_dss.cli:main
