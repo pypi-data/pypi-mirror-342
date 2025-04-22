@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: toolbox-iop
+Version: 0.1.2
+Summary: The toolbox for json load save and print, you may find more function in the future.
+Author-email: scorpion_free <scorpion_free@qq.com>
+Requires-Python: >=3.6
+Requires-Dist: rich>=10.11.0
+Requires-Dist: tqdm>=4.64.1
+Description-Content-Type: text/markdown
+
+# ToolBox_IOP
+
+# 使用方法
+
+```bash
+pip install toolbox_iop
+```
