@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: datav-client
+Version: 1.1.0.10
+Summary: datav爬取数据通用组件客户端
+Author: python之父·博思之光·杨瑞
+License-File: LICENSE
+Requires-Dist: pypinyin
+Requires-Dist: Style
+Requires-Dist: loguru (==0.7.2)
+Requires-Dist: Flask
+
