@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Usage: ./rmlinks.sh input.md > output.md
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <markdown-file>"
+    exit 1
+fi
+
+INPUT_FILE="$1"
+
+# Use sed to remove markdown links to /docs but keep the link text
+# Matches: [link text](/docs/whatever.md) and turns into: link text
+perl -pe 's/\[([^\]]+)\]\((\/?docs\/[^)]+)\)/\1/g' "$INPUT_FILE"
