@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: bartons
+Version: 0.0.1
+Summary: Python library for fetching stock prices from various sources.
+Author-email: Furechan <furechan@xsmail.com>
+License-File: LICENSE.txt
+Keywords: utility
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: polygon-api-client
+Requires-Dist: python-dateutil
+Requires-Dist: requests
+Requires-Dist: tiingo
+Requires-Dist: yfinance

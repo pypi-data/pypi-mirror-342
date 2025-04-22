@@ -1,0 +1,5 @@
+[bartons_prices]
+polygon = bartons.polygon:PolygonPrices
+random = bartons.random:RandomPrices
+tiingo = bartons.tiingo:TiingoPrices
+yahoo = bartons.yahoo:YahooPrices
