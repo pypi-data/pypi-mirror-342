@@ -1,0 +1,35 @@
+[project]
+description = "Tutorial strategy showcasing a basic swap on Uniswap V3."
+name = "tutorial_uniswap_swap"
+version = "0.0.1"
+authors = [{ name = "Almanak" }]
+#readme = "./README.md"
+requires-python = ">=3.11,<3.12"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+# dependencies = [] # Currently use requirements for dependencies
+keywords = ["tutorial", "uniswap", "swap"]
+
+[project.urls]
+# Homepage = ""
+# Issues = ""
+
+[tool.scope]
+is_private = true
+
+[tool.metadata]
+human_readable_name = "Tutorial - Uniswap Swap"
+
+[tool.presets.default]
+title = "Default"
+description = "Default preset for the Uniswap Swap Tutorial."
+chain = "ARBITRUM"
+config = "./presets/default/config.json"
+permissions = "./presets/default/permissions.json"
+env = ".env"

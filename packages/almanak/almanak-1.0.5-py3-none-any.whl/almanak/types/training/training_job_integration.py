@@ -1,0 +1,3 @@
+from .training_job_wandb_integration_object import TrainingJobWandbIntegrationObject
+
+TrainingJobIntegration = TrainingJobWandbIntegrationObject

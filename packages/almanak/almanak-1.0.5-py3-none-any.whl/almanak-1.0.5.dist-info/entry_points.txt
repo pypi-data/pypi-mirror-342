@@ -1,0 +1,3 @@
+[console_scripts]
+almanak=almanak.cli:almanak
+

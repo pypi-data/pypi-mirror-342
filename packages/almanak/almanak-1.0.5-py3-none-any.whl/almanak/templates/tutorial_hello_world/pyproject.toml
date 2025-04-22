@@ -1,0 +1,51 @@
+[project]
+description = "Tutorial strategy showcasing a basic Hello World example. No on-chain transaction, only displaying a message."
+name = "tutorial_hello_world"
+version = "0.0.1"
+authors = [{ name = "Almanak" }]
+#readme = "./README.md"
+requires-python = ">=3.11,<3.12"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+# dependencies = [] # Currently use requirements for dependencies
+keywords = ["helloworld", "tutorial", "howto"]
+
+[project.urls]
+# Homepage = ""
+# Issues = ""
+
+[tool.scope]
+is_private = false
+
+[tool.metadata]
+human_readable_name = "Tutorial - Hello World!"
+
+[tool.presets.saylor]
+title = "Hello World - Saylor"
+description = "Presets for the Hello World Tutorial with Saylor."
+chain = "ARBITRUM"
+config = "./presets/saylor/config.json"
+permissions = "./presets/saylor/permissions.json"
+env = ""
+
+[tool.presets.cz]
+title = "Hello World - CZ"
+description = "Presets for the Hello World Tutorial with CZ."
+chain = "ARBITRUM"
+config = "./presets/cz/config.json"
+permissions = "./presets/cz/permissions.json"
+env = ""
+
+[tool.presets.brian]
+title = "Hello World - Brian"
+description = "Presets for the Hello World Tutorial with Brian Armstrong."
+chain = "BASE"
+config = "./presets/brian/config.json"
+permissions = "./presets/brian/permissions.json"
+env = ""

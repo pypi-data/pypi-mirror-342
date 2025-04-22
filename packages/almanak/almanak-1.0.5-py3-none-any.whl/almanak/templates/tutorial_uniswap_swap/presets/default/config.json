@@ -1,0 +1,19 @@
+{
+  "strategy_configs": {
+    "UniswapSwap": {
+      "strategy_name": "Tutorial_Uniswap_Swap",
+      "parameters": {
+        "network": "ANVIL",
+        "chain": "ARBITRUM",
+        "protocol": "UNISWAP_V3",
+        "initiate_teardown": false,
+        "pause_strategy": false,
+        "wallet_address": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+        "pool_address": "0xdbaeB7f0DFe3a0AAFD798CCECB5b22E708f7852c",
+        "token_in_address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "token_in_amount": 1000000000000000,
+        "slippage_swap": 0.01
+      }
+    }
+  }
+}

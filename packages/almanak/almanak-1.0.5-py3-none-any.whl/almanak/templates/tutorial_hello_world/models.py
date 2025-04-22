@@ -1,0 +1,36 @@
+from enum import Enum
+
+from src.almanak_library.enums import Chain, Network, Protocol
+from src.strategy.models import PersistentStateBase, StrategyConfigBase
+
+
+class State(Enum):
+    """Enum representing the state of the strategy."""
+
+    INITIALIZATION = "INITIALIZATION"
+    DISPLAY_MESSAGE = "DISPLAY_MESSAGE"
+    COMPLETED = "COMPLETED"  # A "Cycle" is completed in between Checks for Rebalance
+    TEARDOWN = "TEARDOWN"
+    TERMINATED = "TERMINATED"  # The Strategy is terminated (manual intervention required)
+
+
+class SubState(Enum):
+    """Enum representing the substates of some of the strategy states. A state machine within a state machine."""
+
+    NO_SUBSTATE = "NO_SUBSTATE"
+
+
+class PersistentState(PersistentStateBase):
+    current_state: State
+    current_substate: SubState
+    last_message: str
+
+
+class StrategyConfig(StrategyConfigBase):
+    id: str
+    network: Network
+    chain: Chain
+    protocol: Protocol
+    initiate_teardown: bool
+    pause_strategy: bool
+    message: str

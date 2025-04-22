@@ -1,0 +1,524 @@
+- comment: Retrieve information and the latest or registered versions about an artifact by its name
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: get_artifact_by_name
+  methods:
+    - GET
+  name: get_artifact_info
+  url: library/artifacts/:artifactName
+
+  - name: get_artifact_by_name
+        query: |
+          query getArtifactByName ($artifactName: String!) {
+            artifacts(where: {name:{_eq:$artifactName}}) {
+              name
+              author
+              metadata
+              artifact_type {
+                value
+              }
+              date_created
+              description
+              id
+              is_public
+              pending_public_approval
+              latest_public_version_artifact {
+                author
+                date_created
+                description
+                name
+                id
+                uri
+                metadata
+              }
+              latest_registered_production_version_artifact {
+                author
+                date_created
+                description
+                id
+                name
+                uri
+                metadata
+              }
+              latest_registered_staging_version_artifact {
+                author
+                date_created
+                description
+                id
+                name
+                uri
+                metadata
+              }
+              latest_version_artifact {
+                author
+                description
+                id
+                name
+                uri
+                date_created
+                metadata
+              }
+            }
+          }
+
+
+- comment: Retrieve a list of all artifacts
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: list_artifacts
+  methods:
+    - GET
+  name: list_artifacts
+  url: library/artifacts
+
+
+  - name: list_artifacts
+    query: |
+      query GetAllArtifacts ($limit: Int = 100, $offset: Int = 0) {
+        artifacts(limit: $limit, offset: $offset) {
+          name
+          author
+          date_created
+          metadata
+          artifact_type {
+            value
+          }
+          description
+          id
+          is_public
+          pending_public_approval
+          latest_public_version_artifact {
+            author
+            date_created
+            description
+            name
+            id
+            uri
+            metadata
+          }
+          latest_registered_production_version_artifact {
+            author
+            date_created
+            description
+            id
+            name
+            uri
+            metadata
+          }
+          latest_registered_staging_version_artifact {
+            author
+            date_created
+            description
+            id
+            name
+            uri
+            metadata
+          }
+          latest_version_artifact {
+            author
+            description
+            id
+            name
+            uri
+            date_created
+            metadata
+          }
+        }
+      }
+
+
+  - comment: Retrieve information and the latest or registered versions about an artifact by its name
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: get_artifact_by_name_latest
+  methods:
+    - GET
+  name: get_artifact_latest
+  url: library/artifacts/:artifactName/latest
+
+
+- name: get_artifact_by_name_latest
+  query: |
+    query getArtifactByName ($artifactName: String!) {
+      artifacts(where: {name:{_eq:$artifactName}}) {
+        latest_public_version_artifact {
+          author
+          date_created
+          description
+          name
+          id
+          uri
+          metadata
+        }
+        latest_registered_production_version_artifact {
+          author
+          date_created
+          description
+          id
+          name
+          uri
+          metadata
+        }
+        latest_registered_staging_version_artifact {
+          author
+          date_created
+          description
+          id
+          name
+          uri
+          metadata
+        }
+        latest_version_artifact {
+          author
+          description
+          id
+          name
+          uri
+          date_created
+          metadata
+        }
+      }
+    }
+
+
+- comment: List all versions of an artifact
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: list_all_artifact_versions
+  methods:
+    - GET
+  name: list_artifact_versions
+  url: library/artifacts/:artifactName/versions
+
+
+
+- name: list_all_artifact_versions
+  query: |
+    query artifact_id_version($artifactName: String!) {
+      artifact_id_version(where: { artifact: { name: { _eq: $artifactName } } }) {
+        name
+        id
+        description
+        date_created
+        metadata
+        author
+        is_public
+      }
+    }
+
+
+
+- comment: Retrieve details about a specific artifact version by providing the version ID
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: get_artifact_version_by_artifact_name_and_version_name
+  methods:
+    - GET
+  name: get_artifact_version_details
+  url: library/artifacts/:artifactName/versions/:version
+
+
+- name: get_artifact_version_by_artifact_name_and_version_name
+  query: |
+    query artifact_id_version($version: String!, $artifactName: String!) {
+      artifact_id_version(
+        where: {
+          name: {_eq: $version}, 
+          artifact: {name: {_eq: $artifactName}}
+        }
+      ) {
+        name
+        author
+        date_created
+        description
+        is_public
+        metadata
+        artifact {
+          name
+          type
+              }
+      }
+    }
+
+
+
+  - comment: Generate download URL for artifact files
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: generate_artifact_download_url
+  methods:
+    - GET
+  name: generate_artifact_download_url
+  url: library/artifacts/:artifactName/versions/:version/url
+
+
+- name: generate_artifact_download_url
+  query: |
+    mutation generateArtifactDownloadUrl ($artifactName: String!, $version: String!) {
+      generateArtifactDownloadUrl(artifactName: $artifactName, version: $version) {
+        success
+        message
+        files {
+          id
+          presigned_url
+        }
+      }
+    }
+
+
+- comment: Get all uri for artifact
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: get_artifact_uri
+  methods:
+    - GET
+  name: get_artifact_uri
+  url: library/artifacts/:artifactName/versions/:version/uri
+
+
+
+- name: get_artifact_uri
+  query: |
+    query getArtifactUri ($artifactName: String!, $version: String!) {
+      artifacts(where: {name:{_eq:$artifactName}}) {
+        artifact_versions(where: {name:{_eq:$version}}) {
+          artifact_files {
+            uri
+          }
+        }
+      }
+    }
+
+
+- comment: Generate presigned URLs for uploading files and creates new artifact version
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: generate_artifact_version_upload_url
+  methods:
+    - POST
+  name: generate_artifact_version_upload_url
+  url: library/artifacts/:artifactName/versions
+
+
+- name: generate_artifact_version_upload_url
+  query: |
+    mutation generateArtifactVersionUploadUrl ($artifactName: String!, $files: [String!]!) {
+      generateArtifactVersionUploadUrl(artifactName: $artifactName, files: $files) {
+        success
+        message
+        version
+        urls {
+          id
+          presigned_url
+        }
+      }
+    }
+
+
+- comment: "Generates a presigned URL for uploading artifact files."
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: generate_upload_presigned_url_artifact
+  methods:
+    - POST
+  name: generate_upload_presigned_url_artifact
+  url: library/artifacts/:artifactName/versions/:version/upload
+
+
+- name: generate_upload_presigned_url_artifact
+  query: |
+    mutation generateArtifactUploadUrls ($artifactName: String!, $version: String!, $files: [String!]!) {
+      generateArtifactUploadUrls(artifactName: $artifactName, version: $version, files: $files) {
+        success
+        urls {
+          id
+          presigned_url
+        }
+      }
+    }
+
+
+  
+- comment: Create a new artifact entry and return the created artifact with its ID
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: create_artifact
+  methods:
+    - POST
+  name: create_artifact
+  url: library/artifacts
+
+
+- name: create_artifact
+  query: |
+    mutation create_artifact_entry (
+      $name: String!,
+      $description: String,
+      $type: artifact_types_enum!,
+      $metadata: jsonb = {},
+      $is_public: Boolean = false,
+    ) {
+      insert_artifacts_one(object: {
+        name: $name,
+        description: $description,
+        type: $type,
+        metadata: $metadata,
+        is_public: $is_public
+      }) {
+        id
+        name
+        author
+        date_created
+        description
+        is_public
+        pending_public_approval
+        metadata
+      }
+    }
+
+
+  - comment: Update multiple keys of an artifact by its name
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: update_artifact_keys_by_name
+  methods:
+    - POST
+  name: update_artifact_keys
+  url: library/artifacts/:artifactName
+
+
+  
+- name: update_artifact_keys_by_name
+  query: |
+    mutation update_artifact_keys_by_name (
+      $artifactName: String!, 
+      $updates: jsonb
+    ) {
+      update_artifacts(
+        where: {name: {_eq: $artifactName}}, 
+        _set: $updates
+      ) {
+        returning {
+          id
+          name
+        }
+      }
+    }
+
+
+- comment: Update multiple keys of an artifact version by its name and version
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: update_artifact_id_version_by_name_and_version
+  methods:
+    - POST
+  name: update_artifact_id_version_keys
+  url: library/artifacts/:artifactName/versions/:version
+
+
+- name: update_artifact_id_version_by_name_and_version
+  query: |
+    mutation update_artifact_id_version_by_name_and_version (
+      $artifactName: String!, 
+      $version: String!,
+      $updates: jsonb
+    ) {
+      update_artifact_id_version(
+        where: {
+          artifact: {name: {_eq: $artifactName}}, 
+          version: {_eq: $version}
+        }, 
+        _set: $updates
+      ) {
+        returning {
+          id
+          artifact {
+            name
+          }
+          name
+        }
+      }
+    }
+
+
+  - comment: Delete an artifact by its name
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: remove_artifact
+  methods:
+    - DELETE
+  name: delete_artifact
+  url: library/artifacts/:artifactName
+
+
+- name: remove_artifact
+        query: |
+          mutation delete_artifacts($artifactName: String!) {
+            delete_artifacts(where: {name: {_eq: $artifactName}}) {
+              returning {
+                id
+                name
+              }
+            }
+          }
+
+
+- comment: Delete an artifact version by its name and version
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: remove_artifact_version_by_name
+  methods:
+    - DELETE
+  name: delete_artifact_version
+  url: library/artifacts/:artifactName/versions/:version
+
+
+- name: remove_artifact_version_by_name
+  query: |
+    mutation delete_artifact_version_by_name ($artifactName: String!, $version: String!) {
+      delete_artifact_id_version(
+        where: {
+          artifact: {name: {_eq: $artifactName}}, 
+          version: {_eq: $version}
+        }
+      ) {
+        returning {
+          id
+          name
+        }
+      }
+    }
+
+
+- comment: Deletes an artifact file from the database using the file's unique ID
+  definition:
+    query:
+      collection_name: allowed-queries
+      query_name: delete_artifact_file_by_id
+  methods:
+    - DELETE
+  name: delete_artifact_file_by_id
+  url: library/delete_artifact_file_by_id
+
+
+- name: delete_artifact_file_by_id
+        query: |
+          mutation deleteArtifactFileById ($fileId: uuid!) {
+            delete_artifact_files(where: {id:{_eq:$fileId}}) {
+              affected_rows
+            }
+          }

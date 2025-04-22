@@ -1,0 +1,150 @@
+Metadata-Version: 2.3
+Name: almanak
+Version: 1.0.5
+Summary: A powerful Python SDK for developing and deploying autonomous DeFi agents. Features agent-based modeling, state machine architecture, and non-custodial execution through Safe smart accounts
+Author: engineering@almanak.co
+Requires-Python: >=3.10,<3.14
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Provides-Extra: dev
+Requires-Dist: aiofiles (>=24.1.0,<25.0.0)
+Requires-Dist: aiohttp (>=3.11.11,<4.0.0)
+Requires-Dist: almanak-src (>=0.0.8,<0.0.9)
+Requires-Dist: anyio (>=4.8.0,<5.0.0)
+Requires-Dist: click (>=8.1.8,<9.0.0)
+Requires-Dist: google-cloud-bigquery (>=3.17.2)
+Requires-Dist: google-cloud-logging (>=3.10.0)
+Requires-Dist: google-cloud-secret-manager (>=2.20.0)
+Requires-Dist: google-cloud-storage (>=2.14.0)
+Requires-Dist: gql (>=3.5.0,<4.0.0)
+Requires-Dist: httpx (>=0.28.1,<0.29.0)
+Requires-Dist: kaleido (==0.2.1)
+Requires-Dist: md-click-2 (>=0.0.1,<0.0.2) ; extra == "dev"
+Requires-Dist: pandas (>=2.2.3,<3.0.0)
+Requires-Dist: plotly (>=6.0.1,<7.0.0)
+Requires-Dist: pwinput (>=1.0.3,<2.0.0)
+Requires-Dist: pydantic (>=2.10.6,<3.0.0)
+Requires-Dist: pydoc-markdown (>=4.8.2) ; extra == "dev"
+Requires-Dist: pyjwt (>=2.10.1,<3.0.0)
+Requires-Dist: python-dotenv (>=1.0.1,<2.0.0)
+Requires-Dist: python-telegram-bot (>=22.0,<23.0)
+Requires-Dist: requests (>=2.32.3,<3.0.0)
+Requires-Dist: requests-toolbelt (>=1.0.0,<2.0.0)
+Requires-Dist: retry (>=0.9.2,<0.10.0)
+Requires-Dist: ruff (>=0.9.10,<0.10.0) ; extra == "dev"
+Requires-Dist: selenium (>=4.31.0,<5.0.0)
+Requires-Dist: setuptools (>=61) ; extra == "dev"
+Requires-Dist: sqlalchemy (>=2.0.39,<3.0.0)
+Requires-Dist: sqlmodel (>=0.0.24,<0.0.25)
+Requires-Dist: streamlit (>=1.44.1,<2.0.0)
+Requires-Dist: twine (>=6.1.0,<7.0.0) ; extra == "dev"
+Requires-Dist: web3 (>=6.8.0,<7.0.0)
+Requires-Dist: wheel (==0.34.1) ; extra == "dev"
+Description-Content-Type: text/markdown
+
+# Almanak SDK
+
+[![PyPI version](https://badge.fury.io/py/almanak.svg)](https://badge.fury.io/py/almanak)
+
+The Almanak SDK is a powerful Python library that enables technical users to develop, test, and deploy autonomous agents for DeFi operations. Built on top of the Almanak Platform, it provides a comprehensive framework for creating sophisticated trading strategies and automated portfolio management solutions.
+
+## Features
+
+- **Agent-Based Modeling**: Realistic simulation of complex DeFi systems and market interactions
+- **State Machine Architecture**: Robust framework for implementing complex trading strategies
+- **Non-Custodial Design**: Full control over your funds through Safe smart accounts
+- **Permissioned Execution**: Fine-grained access control through Zodiac Roles Modifier
+- **Multi-Chain Support**: Currently supports Arbitrum and Base, with Ethereum integration coming soon
+- **Protocol Integration**: Native support for Uniswap V3, with Aave V3 integration planned
+
+## Installation
+
+```bash
+pip install almanak
+```
+
+## Quick Start
+
+1. **Get Your API Key**
+   - Login to [Almanak Platform](https://app.almanak.co/) with your Web3 wallet
+   - Generate an API key from your User Profile
+   - Save your API key securely - it cannot be displayed again
+
+2. **Authenticate**
+   ```bash
+   almanak auth
+   ```
+
+3. **Download an Example Strategy**
+   ```bash
+   almanak strat example --strategy-name tutorial_uniswap_swap
+   ```
+
+5. **Test Your Strategy**
+   ```bash
+   cd tutorial_uniswap_swap
+   almanak strat test
+   ```
+
+## Core Components
+
+### Strategies
+Strategies are Python applications that define automated decision-making logic for your DeFi operations. They:
+- Operate as state machines for complex decision trees
+- Run on Almanak's high-reliability infrastructure
+- Maintain privacy through encryption
+- Abstract away low-level blockchain interactions
+
+### Agents
+Agents are autonomous software applications that:
+- Execute strategies on your behalf
+- Interact with on-chain protocols through permissioned access
+- Monitor market conditions and wallet states
+- Handle transaction formation and execution
+
+### Wallets
+Almanak uses a secure wallet architecture:
+- Non-custodial Safe smart accounts
+- Zodiac Roles Modifier for permission management
+- Encrypted Agent EOAs for transaction signing
+- Full user control over funds
+
+## Supported Features
+
+### Actions
+- Token transfers
+- Token swaps
+- Liquidity provision
+- Position management
+- Token approvals
+- Wrapping/unwrapping ETH
+
+### Networks
+- Arbitrum
+- Base
+- Ethereum (coming soon)
+
+### Protocols
+- Uniswap V3
+- Aave V3 (coming soon)
+
+## Security
+
+- All strategy code is encrypted at rest and in transit
+- Agent EOA private keys are encrypted and never accessible to humans
+- Fine-grained permission controls through Zodiac Roles Modifier
+- Non-custodial design ensures users maintain full control of funds
+
+## Documentation
+
+For detailed documentation, visit [docs.almanak.co](https://docs.almanak.co/)
+
+## Support
+
+- [Discord](https://discord.gg/c4jY28WrEB)
+- [Telegram](https://t.me/+G1O9NFuz-AAzYmQy)
+- [Twitter](https://x.com/Almanak__)
+

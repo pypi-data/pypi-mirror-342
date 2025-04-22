@@ -1,0 +1,14 @@
+{
+  "strategy_configs": {
+    "MyStrategy-EmptyConfig": {
+      "strategy_name": "MyStrategy",
+      "parameters": {
+        "network": "ANVIL",
+        "chain": "ARBITRUM",
+        "protocol": "UNISWAP_V3",
+        "initiate_teardown": false,
+        "pause_strategy": false
+      }
+    }
+  }
+}

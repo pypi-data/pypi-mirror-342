@@ -1,0 +1,12 @@
+{
+  "current_state": "INITIALIZATION",
+  "current_flowstatus": "PREPARING_ACTION",
+  "current_actions": [],
+  "current_substate": "NO_SUBSTATE",
+  "sadflow_counter": 0,
+  "sadflow_actions": [],
+  "not_included_counter": 0,
+  "initialized": false,
+  "completed": false,
+  "last_swap_amounts": [0,0]
+}
