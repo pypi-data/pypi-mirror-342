@@ -1,0 +1,9 @@
+typing
+numpy
+datetime
+
+[test]
+pytest
+coverage
+pyfakefs
+mock

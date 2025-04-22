@@ -1,0 +1,681 @@
+Metadata-Version: 2.4
+Name: plugnparse
+Version: 0.2.1
+Summary: Python utilities package for plugin style architectures with parsable classes for parameters.
+Author: Dylan DeSantis
+Maintainer: Dylan DeSantis
+License:                                  Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+        
+           END OF TERMS AND CONDITIONS
+        
+           APPENDIX: How to apply the Apache License to your work.
+        
+              To apply the Apache License to your work, attach the following
+              boilerplate notice, with the fields enclosed by brackets "[]"
+              replaced with your own identifying information. (Don't include
+              the brackets!)  The text should be enclosed in the appropriate
+              comment syntax for the file format. We also recommend that a
+              file or class name and description of purpose be included on the
+              same "printed page" as the copyright notice for easier
+              identification within third-party archives.
+        
+           Copyright [yyyy] [name of copyright owner]
+        
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+        
+               http://www.apache.org/licenses/LICENSE-2.0
+        
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+        
+Project-URL: Homepage, https://github.com/orthly/DDDeSantis/plugnparse
+Project-URL: Bug Reports, https://github.com/orthly/DDDeSantis/plugnparse
+Project-URL: Source, https://github.com/orthly/DDDeSantis/plugnparse
+Keywords: plugin,parsing,json
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: typing
+Requires-Dist: numpy
+Requires-Dist: datetime
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: coverage; extra == "test"
+Requires-Dist: pyfakefs; extra == "test"
+Requires-Dist: mock; extra == "test"
+Dynamic: license-file
+
+# Plug-n-Parse
+Python utilities package for plugin style architectures with parsable classes for parameters.
+
+- [Setting Up](#setting-up)
+- [Testing](#testing)
+- [Coverage](#coverage)
+- [Usage](#usage)
+
+## Setting Up
+
+### Setting Up Local Environment
+Install python >3.8 if it is not already installed.
+
+#### Set Up the Virtual Environment
+Set up the local environment and install pre-commit so that the hooks are automatically run locally:
+```shell
+python3 -m  venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+#### Setting Up for the Build
+To build the python wheels and distribution package, use the `build` python packages.
+
+To install the `build` package use the following command:
+
+```shell
+pip install --upgrade build
+```
+
+#### Building the Packages
+To execute the build, follow the commands below. More detailed instructions on using `build` can be found [here](https://pypa-build.readthedocs.io/en/latest/).
+
+```shell
+python -m build
+```
+
+This should generate  `plugnparse-<version>.tar.gz` and `plugnparse-<version>-py3-none-any.whl` files in either the current working 
+directory, `<cwd>/dist/`, or to a desired output directory using the argument `--outdir OUTDIR` in the build command 
+above. 
+
+#### Installing the Built Packages
+Use `pip` to install the generated package in another virtual environment or computer. This can be done using the
+following command:
+
+```shell
+pip install OUTDIR/plugnparse-<verison>-py3-none-any.whl
+```
+
+The `OUTDIR` is the directory location of the generated python wheel.
+
+#### Uploading to PyPi
+After building the packages, you will be able to upload the packages to PyPi. This requires that a new version be
+created, so any time you wish to upload a new package to PyPi you must increase the plugnparse version number. This is
+found in the pyproject.toml file
+
+To upload the built package use the following command and replace `<TOKEN>` with your PyPi token.
+```shell
+twine upload dist/*
+```
+
+## Testing
+To run the tests follow the below commands
+```shell
+cd plugnparse/src
+pytest ./tests
+```
+
+## Coverage
+To generate coverage reports follow the below commands
+```shell
+pip install -U coverage
+coverage run --rcfile=./.coveragerc -m pytest ./src/tests
+coverage html
+google-chrome ./artifacts/coverage_report/html/index.html
+```
+
+## Usage
+- [Using the Parsable Class](#using-the-parsable-class)
+- [Using the Plugin and Parameters Classes](#using-the-plugin-and-parameters-classes)
+
+### Using the Parsable Class
+The `Parsable` class allows for automatic serialization and deserialization of entire classes in a JSON format.
+The following example demonstrates a basic usage of the `Parsable` class.
+
+```python
+# --- external imports ---
+from enum import Enum, auto
+from typing import Optional
+# --- internal imports ---
+from plugnparse import Parsable, enum_setter, logger
+
+
+class EnumClass(Enum):
+    Foo = auto()
+    Bar = auto()
+    Baz = auto()
+
+
+class ClassA(Parsable):
+
+    def __init__(self, *args, **kwargs):
+        # --- init the parent ---
+        super().__init__(*args, **kwargs)
+        # --- update the lists of serializable attributes ---
+        self._serializable_attributes.extend(['foo'])
+        self._enum_attributes.extend(['bar'])
+        self._specialized_attributes.extend(['baz'])
+
+        # --- set the properties ---
+        self.foo = kwargs.get('foo')
+        self.bar = kwargs.get('bar')
+        self.baz = kwargs.get('baz')
+
+    ##########################################################################
+    # Foo Properties
+    ##########################################################################
+    @property
+    def has_foo(self):
+        return self._foo is not None
+
+    @property
+    def foo(self) -> int:
+        if self._foo is None:
+            logger.log_and_raise(AttributeError, "foo has not been set")
+        return self._foo
+
+    @foo.setter
+    def foo(self, input_value: Optional[int]):
+        if input_value is None or isinstance(input_value, int):
+            self._foo = input_value
+        else:
+            logger.log_and_raise(TypeError, "Invalid input type [", type(input_value), "].")
+
+    ##########################################################################
+    # Bar Properties
+    ##########################################################################
+    @property
+    def has_bar(self):
+        return self._bar is not None
+
+    @property
+    def bar(self) -> EnumClass:
+        if self._bar is None:
+            logger.log_and_raise(AttributeError, "bar has not been set")
+        return self._bar
+
+    @bar.setter
+    @enum_setter(EnumClass)
+    def bar(self, input_value: Optional[EnumClass]):
+        if input_value is None or isinstance(input_value, EnumClass):
+            self._bar = input_value
+        else:
+            logger.log_and_raise(TypeError, "Invalid input type [", type(input_value), "].")
+
+    ##########################################################################
+    # Baz Properties
+    ##########################################################################
+    @property
+    def has_baz(self):
+        return self._baz is not None
+
+    @property
+    def baz(self) -> float:
+        if self._baz is None:
+            logger.log_and_raise(AttributeError, "baz has not been set.")
+        return self._baz
+
+    @baz.setter
+    def baz(self, input_value: Optional[float]):
+        if input_value is None or isinstance(input_value, float):
+            self._baz = input_value
+        else:
+            logger.log_and_raise(TypeError, "Invalid input type [", type(input_value), "].")
+    
+    def baz_encode(self) -> dict:
+        """Special encoder function for baz"""
+        return {"baz_keyword": self.baz}
+    
+    def baz_decode(self, input_value: dict):
+        """Special decoder function."""
+        self.baz = input_value.get('baz_keyword')
+```
+
+You should then provide a json dictionary of serializable values with the `from_dict()` function.
+
+```python
+json_dictionary = {'foo': 1, 'bar': "Foo", 'baz': {'baz_keyword': 10.0}}
+class_a = ClassA()
+class_a.from_dict(json_dictionary)
+```
+
+To then get the original json dictionary from the updated class you use the `to_dict()` function
+
+```python
+print(class_a.to_dict())
+>>> {'parsable_type': 'ClassA', 'parsable_module': '__main__', 'foo': 1, 'bar': 'Foo', 'baz': {'baz_keyword': 10.0}}
+```
+
+Notice that the additional key-value pairs, `parsable_type` and `parsable_module`. These two key-values allow for generic
+creation and parsing directly from the json object without needing to know the class type that is being parsed. To leverage
+this type of functionality you can utilize the plugnparse properties module and specifically its `parse()` function.
+
+```python
+from plugnparse import properties
+
+full_json_dictionary = class_a.to_dict()
+new_class_a = properties.parse(full_json_dictionary)
+print("parsed type: ", type(new_class_a))
+print("parsed information: ", new_class_a.to_dict())
+
+>>> parsed type:  <class '__main__.ClassA'>
+>>> parsed information:  {'parsable_type': 'ClassA', 'parsable_module': '__main__', 'foo': 1, 'bar': 'Foo', 'baz': {'baz_keyword': 10.0}}
+```
+
+Once there is a single `Parsable` implementation then other `Parsable` classes can have attributes which can also be `Parsable` types.
+The class below demonstrates the additional type of attributes that can be automatically parsed which are:
+- Parsable attributes
+- A dictionary of parsable key-value pairs, specifically where the values are subclasses of `Parsable`.
+- A list of parsable values.
+
+```python
+from typing import Dict
+
+
+class ClassB(Parsable):
+
+    def __init__(self, *args, **kwargs):
+        # --- init the parent ---
+        super().__init__(*args, **kwargs)
+        # --- update the attributes ---
+        self._parsable_attributes.extend(['bingo'])
+        self._dict_of_parsables.extend(['bingo_dictionary'])
+        self._list_of_parsables.extend(['bango_list'])
+
+        # --- set the components ---
+        self.bingo = kwargs.get('bingo')
+        self.bingo_dictionary = kwargs.get('bingo_dictionary')
+        self.bango_list = kwargs.get('bango_list')
+
+    ##########################################################################
+    # Bingo Properties
+    ##########################################################################
+    @property
+    def has_bingo(self):
+        return self._bingo is not None
+
+    @property
+    def bingo(self) -> ClassA:
+        if self._bingo is None:
+            logger.log_and_raise(AttributeError, "bingo has not been set")
+        return self._bingo
+
+    @bingo.setter
+    @ClassA.static_class_setter()
+    def bingo(self, input_value: Optional[ClassA]):
+        if input_value is None or isinstance(input_value, ClassA):
+            self._bingo = input_value
+        else:
+            logger.log_and_raise(TypeError, "Invalid input type [", type(input_value), "].")
+
+    ##########################################################################
+    # Bingo Dictionary Properties
+    ##########################################################################
+    @property
+    def has_bingo_dictionary(self):
+        return self._bingo_dictionary is not None
+
+    @property
+    def bingo_dictionary(self) -> Dict[str, ClassA]:
+        if self._bingo_dictionary is None:
+            logger.log_and_raise(AttributeError, "bingo_dictionary has not been set")
+        return self._bingo_dictionary
+
+    @bingo_dictionary.setter
+    def bingo_dictionary(self, input_value: Optional[Dict[str, ClassA]]):
+        if input_value is None:
+            self._bingo_dictionary = None
+        elif isinstance(input_value, dict):
+            for key, value in input_value.items():
+                if not (isinstance(key, str) and isinstance(value, ClassA)):
+                    logger.log_and_raise(TypeError, "Invalid input type [", type(input_value), "].")
+            self._bingo_dictionary = input_value
+        else:
+            logger.log_and_raise(TypeError, "Invalid input type [", type(input_value), "].")
+
+    ##########################################################################
+    # Bango List Properties
+    ##########################################################################
+    @property
+    def has_bango_list(self):
+        return self._bango_list is not None
+
+    @property
+    def bango_list(self) -> List[ClassA]:
+        if self._bango_list is None:
+            logger.log_and_raise(AttributeError, "bango_list has not been set")
+        return self._bango_list
+
+    @bango_list.setter
+    def bango_list(self, input_value: Optional[List[ClassA]]):
+        if input_value is None:
+            self._bango_list = None
+        elif isinstance(input_value, list):
+            for value in input_value:
+                if not isinstance(value, ClassA):
+                    logger.log_and_raise(TypeError, "Invalid input type [", type(input_value), "].")
+            self._bango_list = input_value
+        else:
+            logger.log_and_raise(TypeError, "Invalid input type [", type(input_value), "].")
+```
+
+Again to populate the `ClassB`, you would provide it a serialized form of the json dictionary.
+
+```python
+class_b_json_dictionary = {'bingo': {'foo': 1, 'bar': "Foo"},
+                           'bingo_dictionary': {'a': {'parsable_type': 'ClassA', 'parsable_module': '__main__', 'foo': 5}},
+                           'bango_list': [{'parsable_type': 'ClassA', 'parsable_module': '__main__', 'foo': 10}]}
+class_b = ClassB()
+class_b.from_dict(class_b_json_dictionary)
+print(class_b.to_dict())
+>>> {'parsable_type': 'ClassB', 'parsable_module': '__main__', 'bingo': {'parsable_type': 'ClassA', 'parsable_module': '__main__', 'foo': 1, 'bar': 'Foo'}, 'bingo_dictionary': {'a': {'parsable_type': 'ClassA', 'parsable_module': '__main__', 'foo': 5}}, 'bango_list': [{'parsable_type': 'ClassA', 'parsable_module': '__main__', 'foo': 10}]}
+```
+
+### Using the Plugin and Parameters Classes
+Together the `Parameters` and the `Plugin` classes can be utilized to generate a plugin architecture very simply.
+The example below demonstrates the bare minimum implementations needed to create a plugin architecture.
+
+```python
+# --- external imports ---
+from typing import Optional
+from abc import ABC, abstractmethod
+# --- internal imports ---
+from plugnparse import Plugin, Parameters, logger
+
+
+class ExampleParameters(Parameters):
+    plugin_property_name = 'plugin_type'
+    plugin_module_property_name = 'plugin_module'
+    
+    def __init__(self, *args, **kwargs):
+        # --- init the parent ---
+        super().__init__(*args, **kwargs)
+        # --- update the attributes ---
+        self._serializable_attributes.extend(['plugin_type', 'plugin_module'])
+        
+        # --- set components ---
+        self.plugin_type = kwargs.get('plugin_type')
+        self.plugin_module = kwargs.get('plugin_module')
+        
+    ##########################################################################
+    # Plugin Type Properties
+    ##########################################################################
+    @property
+    def has_plugin_type(self):
+        return self._plugin_type is not None
+
+    @property
+    def plugin_type(self) -> str:
+        if self._plugin_type is None:
+            logger.log_and_raise(AttributeError, "plugin_type has not been set")
+        return self._plugin_type
+
+    @plugin_type.setter
+    def plugin_type(self, input_value: Optional[str]):
+        if input_value is None or isinstance(input_value, str):
+            self._plugin_type = input_value
+        else:
+            logger.log_and_raise(TypeError, "Invalid input type [", type(input_value), "].")
+
+    ##########################################################################
+    # Plugin Module Properties
+    ##########################################################################
+    @property
+    def has_plugin_module(self):
+        return self._plugin_module is not None
+
+    @property
+    def plugin_module(self) -> str:
+        if self._plugin_module is None:
+            logger.log_and_raise(AttributeError, "plugin_module has not been set")
+        return self._plugin_module
+
+    @plugin_module.setter
+    def plugin_module(self, input_value: Optional[str]):
+        if input_value is None or isinstance(input_value, str):
+            self._plugin_module = input_value
+        else:
+            logger.log_and_raise(TypeError, "Invalid input type [", type(input_value), "].")
+
+
+class BasePlugin(Plugin, ABC):
+    parameters_cls = ExampleParameters
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    ##########################################################################
+    # Dynamic Function
+    ##########################################################################
+    @abstractmethod
+    def execute(self):
+        pass  # pragma: no cover
+
+
+class PluginExampleA(BasePlugin):
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    ##########################################################################
+    # Dynamic Function
+    ##########################################################################
+    def execute(self):
+        print("PluginExampleA: Foo!")
+
+
+class PluginExampleB(BasePlugin):
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    ##########################################################################
+    # Dynamic Function
+    ##########################################################################
+    def execute(self):
+        print("PluginExampleB: Bar!")
+```
+
+To then utilize the architecture you would populate your parameters class and construct the desired plugins from it.
+```python 
+parameters = ExampleParameters(plugin_type="PluginExampleA", plugin_module="__main__")
+generated_plugin = BasePlugin.construct_from_parameters(parameters)
+generated_plugin.execute()
+>>> PluginExampleA: Foo!
+```
+
+To create a different plugin all you need to do is update the parameters used to generate the plugin (generally the module is also updated but since this code is all in one file the module is the same).
+
+```python
+parameters.plugin_type = "PluginExampleB"
+second_generated_plugin = BasePlugin.construct_from_parameters(parameters)
+second_generated_plugin.execute()
+>>> PluginExampleB: Bar!
+```
