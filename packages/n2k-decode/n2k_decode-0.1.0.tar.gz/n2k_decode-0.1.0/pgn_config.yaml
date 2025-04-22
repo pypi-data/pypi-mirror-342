@@ -1,0 +1,126 @@
+127245:
+  name: "Rudder"
+  single_frame: true
+  fields:
+    instance:
+      length: 8
+      type: "uint"
+    direction_order:
+      length: 3
+      type: "uint"
+    reserved-1:
+      length: 5
+      type: "uint"
+    angle_order:
+      length: 16
+      type: "float"
+      ratio: 0.0001
+      signed: true
+    position:
+      length: 16
+      type: "float"
+      ratio: 0.0001
+      signed: true
+
+127250:
+  name: "Vessel Heading"
+  single_frame: true
+  fields:
+    sid:
+      length: 8
+      type: "uint"
+    heading:
+      length: 16
+      type: "float"
+      ratio: 0.0001
+    deviation:
+      length: 16
+      type: "float"
+      ratio: 0.0001
+      signed: true
+    variation:
+      length: 16
+      type: "float"
+      ratio: 0.0001
+      signed: true
+    reference:
+      length: 2
+      type: "uint"
+    reserved-2:
+      length: 6
+      type: "uint"
+
+129026:
+  name: "COG & SOG, Rapid Update"
+  single_frame: true
+  fields:
+    sid:
+      length: 8
+      type: "uint"
+    cog_reference:
+      length: 2
+      type: "uint"
+    reserved_1:
+      length: 6
+      type: "uint"
+    cog:
+      length: 16
+      type: "float"
+      ratio: 0.0001
+    sog:
+      length: 16
+      type: "float"
+      ratio: 0.01
+    reserved_2:
+      length: 16
+      type: "uint" 
+
+
+130314:
+  name: "Actual Pressure"
+  single_frame: true
+  fields:
+    sid:
+      length: 8
+      type: "uint"
+    instance:
+      length: 8
+      type: "uint"
+    source:
+      length: 8
+      type: "uint"
+    pressure:
+      length: 32
+      type: "uint"
+      ratio: 0.1
+    reserved_1:
+      length: 8
+      type: "uint"
+
+
+65341:
+  name: "Simnet: Autopilot Angle"
+  single_frame: true
+  fields:
+    manufacturer_code:
+      length: 11
+      type: "uint"
+    reserved_1:
+      length: 2
+      type: "uint"
+    industry_code:
+      length: 3
+      type: "uint"
+    reserved_2:
+      length: 16
+      type: "uint"
+    mode:
+      length: 8
+      type: "uint"
+    reserved_3:
+      length: 8
+      type: "uint"
+    angle:
+      length: 16
+      type: "uint"
+      ratio: 0.0001
