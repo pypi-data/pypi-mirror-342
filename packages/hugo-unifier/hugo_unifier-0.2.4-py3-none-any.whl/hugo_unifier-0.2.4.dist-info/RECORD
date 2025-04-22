@@ -1,0 +1,14 @@
+hugo_unifier/__init__.py,sha256=H6dzXmZ_WYn4hOyJ7G--Fcl7HWx24yvieEY9feIStPo,146
+hugo_unifier/apply_changes.py,sha256=n-RYX3pUd1KQqJIYYRP3ZVJ5n0F7tts35EISXEnEnDA,1527
+hugo_unifier/create_graph.py,sha256=0mJh89Jbm8TrnhsnumtAPJ3FyT98hzDx0JoFHQhfNek,1241
+hugo_unifier/get_changes.py,sha256=NBKjb8pDw-50-utBGQ3mbp9WpIbTJ2RE4SckTe1VLsk,2286
+hugo_unifier/graph_manipulations.py,sha256=RZ3r35G2K206It1OU1MwgDd4KkFWiqxE0l-5B1T70jY,5132
+hugo_unifier/hugo_fetch.py,sha256=cYYYn-9cC8VCUkyRncdM87v-Hal6BWNhV98W_q_fxCg,3530
+hugo_unifier/main.py,sha256=uS9SGPgWCok3i1w6l2pClIcn68YeLERv6PcvO-EGbYM,3317
+hugo_unifier/orchestrated_fetch.py,sha256=x2dZYprLZr1CoAaNS2dNJV10BbYEWVPbuRr1_vxnbO4,1461
+hugo_unifier/plot_subgraph.py,sha256=6mvOTdOx-yYoWfUdYU9RI2bGOQwpi-gqWgFOdxSKEZE,1928
+hugo_unifier/symbol_manipulations.py,sha256=Vs5s_TDlf3Izu6TyLesNJhDUpaDmL01NMaJhqsFXo2c,585
+hugo_unifier-0.2.4.dist-info/METADATA,sha256=ItALBNnux86-8V0N50heldNGQCyKGbh9ZvAF3tLlXYI,7990
+hugo_unifier-0.2.4.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+hugo_unifier-0.2.4.dist-info/entry_points.txt,sha256=LIDCep7Pt-7S9WTEV0T8SsAV4QL6CDIDqB5Bw9pGyBY,56
+hugo_unifier-0.2.4.dist-info/RECORD,,
