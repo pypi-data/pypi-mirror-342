@@ -1,0 +1,82 @@
+[tool.poetry]
+name = "torchcache"
+version = "0.6.0"
+description = "Cache PyTorch module outputs on the fly"
+authors = ["Eren Akbiyik <erenakbiyik@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+torch = ">=2.0.0"
+zstd = "^1.5.5.1"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.3"
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+coverage = "^7.3.0"
+flake8 = "^6.1.0"
+black = "^23.7.0"
+isort = "^5.12.0"
+sphinx = "7.1.2"
+numpydoc = "^1.5.0"
+furo = "^2024.7.18"
+
+[tool.poetry_bumpversion.file."docs/source/conf.py"]
+search = 'release = "v{current_version}"'
+replace = 'release = "v{new_version}"'
+
+[tool.black]
+target-version = ["py310"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.toml
+  | \.venv
+  | \.venv
+  | \.bzr
+  | \.direnv
+  | \.eggs
+  | \.nox
+  | \.svn
+  | __pypackages__
+  | node_modules
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+ensure_newline_before_comments = true
+line_length = 88
+skip = [
+  '.bzr', '.direnv', '.eggs', '.git', '.hg',
+  '.mypy_cache', '.nox', '.svn', '.tox', '.venv',
+  '__pypackages__', '_build', 'buck-out', 'build',
+  'dist', 'node_modules', 'venv'
+]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+
+[tool.coverage.run]
+omit = [
+    "torchcache/**/__pycache__",
+]
+include = [
+    "torchcache/**",
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
