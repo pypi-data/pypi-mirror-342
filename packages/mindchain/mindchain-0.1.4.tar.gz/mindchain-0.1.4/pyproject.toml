@@ -1,0 +1,82 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "mindchain"
+version = "0.1.4"
+description = "An agentic AI framework with Master Control Program (MCP) supervision"
+authors = ["Md Ali <md.ali@example.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/Ali-Beg/mindchain"
+documentation = "https://ali-beg.github.io/mindchain"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+packages = [
+    { include = "mindchain", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.11"
+langchain = ">=0.0.267"
+openai = ">=0.27.0"
+numpy = ">=1.23.0"
+pydantic = ">=2.0.0"
+python-dotenv = ">=0.21.0"
+requests = ">=2.28.0"
+fastapi = ">=0.100.0"
+uvicorn = ">=0.22.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.0.0"
+pytest-cov = ">=4.1.0"
+pytest-asyncio = ">=0.21.0"
+black = ">=23.0.0"
+isort = ">=5.12.0"
+mypy = ">=1.0.0"
+pylint = ">=2.17.0"
+pre-commit = ">=3.3.3"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = ">=1.4.0"
+mkdocs-material = ">=9.1.0"
+mkdocstrings = ">=0.22.0"
+mkdocstrings-python = ">=1.1.2"
+
+[tool.poetry.scripts]
+mindchain = "mindchain.cli:main"
+
+[tool.black]
+line-length = 88
+target-version = ["py38", "py39", "py310"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+strict_optional = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+asyncio_mode = "auto"
