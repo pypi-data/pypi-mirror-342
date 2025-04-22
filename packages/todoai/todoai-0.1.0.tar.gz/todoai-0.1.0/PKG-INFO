@@ -1,0 +1,34 @@
+Metadata-Version: 2.4
+Name: todoai
+Version: 0.1.0
+Summary: A Python library for AI tasks like YouTube summarization using Gemini
+Home-page: https://github.com/yourusername/smartai
+Author: Manush Sanchela
+Author-email: Manush <manushsanchela796@email.com>
+License: MIT
+Keywords: youtube,gemini,langchain,summarizer,AI
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: langchain
+Requires-Dist: langchain-google-genai
+Requires-Dist: phidata
+Requires-Dist: youtube_transcript_api
+Requires-Dist: python-dotenv
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# taskAI
+
+taskAI is a simple Python library that allows you to summarize YouTube videos using Gemini models via LangChain.
+
+## Install
+```bash
+pip install taskai
+
+from taskAI import setup, summarize_youtube
+
+setup("YOUR_API_KEY")
+summary = summarize_youtube("https://youtu.be/xyz", summary_type="bullet")
+print(summary)
+```

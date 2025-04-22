@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+setup.py
+taskAI/__init__.py
+taskAI/config.py
+taskAI/agents/__init__.py
+taskAI/agents/youtube_agent.py
+taskAI/core/__init__.py
+taskAI/core/llm_brain.py
+taskAI/core/prompts.py
+todoai.egg-info/PKG-INFO
+todoai.egg-info/SOURCES.txt
+todoai.egg-info/dependency_links.txt
+todoai.egg-info/requires.txt
+todoai.egg-info/top_level.txt
