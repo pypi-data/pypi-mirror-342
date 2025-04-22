@@ -1,0 +1,2 @@
+[console_scripts]
+knarrow = knarrow.cli:app
