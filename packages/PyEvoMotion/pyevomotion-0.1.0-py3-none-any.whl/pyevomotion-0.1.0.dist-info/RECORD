@@ -1,0 +1,13 @@
+PyEvoMotion/__init__.py,sha256=NqFDD-EZBzouzTwXozZqhPC9sLr7GQaElRKtP0tkHoE,568
+PyEvoMotion/cli.py,sha256=424ATWV3P89sMYhXT2-i3eHN-VwmujWjcue0coxY-lQ,15498
+PyEvoMotion/core/__init__.py,sha256=1I-NkFFh6ljLgB_mqQVFLNvCrVKEHLVxa_5dsv3ihWQ,450
+PyEvoMotion/core/base.py,sha256=SvvJAuYx__NAI8Mzye9lZJM6mPsEuKnulcJuztiPU_E,13226
+PyEvoMotion/core/core.py,sha256=xCVGZxNvIKge0KINHO-tHK6aD4tdL7Zgua10eONAbi0,18311
+PyEvoMotion/core/parser.py,sha256=xbjTbIvNy6ta-8WBWwDdnUoTjARPE9eZyaHOXfQKW4U,17144
+PyEvoMotion/utils.py,sha256=Ye3eL1RXZOZzzs2KZy0R45u06DOtLYo-zqE45tN2t7g,2859
+share/mafft_install.sh,sha256=pCw70UsKkkNXUsZMwQlQ2b4zSXFrBA7jAj9iOfGLzUw,1007
+share/manuscript_figure.py,sha256=czznZchVsb7qsCXEGJo-NFG7DJuAE2XxydLmqsAQ66g,9704
+pyevomotion-0.1.0.dist-info/METADATA,sha256=tEv8So175_nhi-FAr_aCM3lo052xgIh-_HPJBGWCc6k,5950
+pyevomotion-0.1.0.dist-info/WHEEL,sha256=XbeZDeTWKc1w7CSIyre5aMDU_-PohRwTQceYnisIYYY,88
+pyevomotion-0.1.0.dist-info/entry_points.txt,sha256=UMzoojYwQi-713hRggkQXUIfGNygUARhTdGs77Usp7s,53
+pyevomotion-0.1.0.dist-info/RECORD,,
