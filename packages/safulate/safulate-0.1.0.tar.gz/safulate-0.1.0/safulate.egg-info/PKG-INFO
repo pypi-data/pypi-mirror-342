@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: safulate
+Version: 0.1.0
+Summary: Add your description here
+Project-URL: Issue tracker, https://github.com/cibere/safulate/issues
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Typing :: Typed
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: msgspec>=0.19.0
+Requires-Dist: packaging>=24.2
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: tomli-w>=1.2.0
+Dynamic: license-file
+
+# Safulate
+ 
