@@ -1,0 +1,3 @@
+[console_scripts]
+ccMonet=mcp_ccmonet.main:main
+

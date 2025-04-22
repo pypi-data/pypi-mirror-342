@@ -1,0 +1,188 @@
+Metadata-Version: 2.3
+Name: mcp-ccmonet
+Version: 0.1.0
+Summary: ccMonet MCP server for forwarding messages from clients like Claude to ccMonet API
+License: MIT
+Keywords: mcp,claude,ccMonet,ai
+Author: ccMonet
+Author-email: development@platoxai.com
+Requires-Python: >=3.11,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: httpx[socks] (>=0.28.1,<0.29.0)
+Requires-Dist: mcp[cli] (>=1.6.0,<2.0.0)
+Project-URL: Homepage, https://www.ccmonet.ai
+Project-URL: Repository, https://github.com/PlatoX-Type/mcp_ccmonet
+Description-Content-Type: text/markdown
+
+# ccMonet MCP Server
+
+This is a server using the Model Context Protocol (MCP) to forward messages from clients like the Claude desktop application to the ccMonet API.
+
+## Features
+
+- Provides an MCP tool `send_message` for sending messages to the ccMonet API and receiving replies
+- Supports session management (via thread_id and response_message_id)
+- Can be integrated with MCP clients such as the Claude desktop application
+
+## Requirements
+
+- Python 3.11 or higher
+- Poetry package manager
+
+## Installation
+
+```bash
+# Clone repository
+git clone https://your-repository-url/mcp_ccmonet.git
+cd mcp_ccmonet
+
+# Install dependencies
+poetry install
+```
+
+## Usage
+
+### Run Server Directly
+
+```bash
+poetry run python main.py
+```
+
+### Run with VS Code
+
+The project includes VS Code launch configurations for direct execution:
+
+1. Open the project in VS Code
+2. Select "Run MCP Server" or "Run API Test" in the "Run and Debug" panel
+3. Click the "Start Debugging" button (F5) to launch
+
+You can also use VS Code tasks:
+
+1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
+2. Type "Tasks: Run Task" and select it
+3. Choose "Run MCP Server" or "Run API Test"
+
+### Integration with Claude Desktop Application
+
+1. Make sure you have the latest version of the Claude desktop application installed
+2. Edit the Claude desktop application configuration file:
+
+macOS:
+```bash
+code ~/Library/Application\ Support/Claude/claude_desktop_config.json
+```
+
+Windows:
+```powershell
+code $env:AppData\Claude\claude_desktop_config.json
+```
+
+3. Add the server configuration:
+
+```json
+{
+    "mcpServers": {
+        "ccMonet": {
+            "command": "poetry",
+            "args": [
+                "run",
+                "python",
+                "/absolute/path/to/mcp_ccmonet/main.py"
+            ]
+        }
+    }
+}
+```
+
+4. Restart the Claude desktop application
+5. Access the ccMonet tool using the MCP tools icon (hammer icon)
+
+## Configuration
+
+The configuration file is located at `mcp_ccmonet/ccmonet_server/config.py`, where you can modify the following settings:
+
+- `API_URL`: The URL of the ccMonet API
+- `API_HEADERS`: API request headers, including authentication information
+- `SERVER_NAME`: MCP server name
+- `REQUEST_TIMEOUT`: API request timeout (seconds)
+
+### Environment Variable Configuration
+
+The server supports configuration of authentication information via environment variables, without modifying the code:
+
+- `CCMONET_ORG_ID`: Organization ID for API authentication
+- `CCMONET_AUTH_TOKEN`: Authentication token, without the "Bearer" prefix
+
+Examples:
+
+```bash
+# Linux/macOS
+export CCMONET_ORG_ID="your-org-id"
+export CCMONET_AUTH_TOKEN="your-auth-token"
+poetry run python main.py
+
+# Windows PowerShell
+$env:CCMONET_ORG_ID="your-org-id"
+$env:CCMONET_AUTH_TOKEN="your-auth-token"
+poetry run python main.py
+```
+
+When integrating with the Claude desktop application, you can include environment variables in the configuration:
+
+```json
+{
+    "mcpServers": {
+        "ccMonet": {
+            "command": "poetry",
+            "args": [
+                "run",
+                "python",
+                "/absolute/path/to/mcp_ccmonet/main.py"
+            ],
+            "env": {
+                "CCMONET_ORG_ID": "your-org-id",
+                "CCMONET_AUTH_TOKEN": "your-auth-token"
+            }
+        }
+    }
+}
+```
+
+## Development
+
+### Project Structure
+
+```
+mcp_ccmonet/
+├── .vscode/             # VS Code configuration
+│   ├── launch.json      # Launch configuration
+│   ├── settings.json    # Editor settings
+│   └── tasks.json       # Tasks configuration
+├── mcp_ccmonet/         # Main package directory
+│   ├── __init__.py      # Package initialization
+│   ├── main.py          # Main entry point
+│   └── ccmonet_server/  # Server subpackage
+│       ├── __init__.py  # Subpackage initialization
+│       ├── config.py    # Configuration file
+│       └── server.py    # MCP server implementation
+├── docs/
+│   └── FAQ.md           # Frequently asked questions
+├── tests/               # Test directory
+│   └── test_import.py   # Import tests
+├── poetry.lock          # Poetry lock file
+├── pyproject.toml       # Poetry project configuration
+├── README.md            # This file
+└── test_api.py          # API test script
+```
+
+### Adding New Features
+
+To add new API functionality, create a new tool function in `mcp_ccmonet/ccmonet_server/server.py` and register it using the `@mcp.tool()` decorator.
+
