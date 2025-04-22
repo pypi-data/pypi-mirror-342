@@ -1,0 +1,6 @@
+excel2flapjack==1.0.10
+excel2sbol==1.0.29
+
+[test]
+pytest<5.0.0
+pytest-cov[all]
