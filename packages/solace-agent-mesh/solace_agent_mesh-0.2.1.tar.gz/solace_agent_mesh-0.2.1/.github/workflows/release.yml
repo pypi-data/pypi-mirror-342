@@ -1,0 +1,32 @@
+name: Release
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: choice
+        required: true
+        description: "Version bump type"
+        options:
+          - patch
+          - minor
+          - major
+
+permissions:
+  id-token: write
+  checks: write
+  contents: write
+  packages: write
+jobs:
+  release:
+    uses: SolaceDev/solace-public-workflows/.github/workflows/hatch_release_pypi.yml@main
+    with:
+      ENVIRONMENT: pypi
+      version: ${{ github.event.inputs.version }}
+      npm_package_path: web-visualizer
+      node_version: 20
+      npm_lock_file: package-lock.json
+      pypi-project: solace-agent-mesh
+
+    secrets:
+      COMMIT_KEY: ${{ secrets.COMMIT_KEY }}
+      PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
