@@ -1,0 +1,41 @@
+# pyproject.toml
+[build-system]
+# Specifies tools needed to build the package
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# Core package metadata (used by pip, PyPI)
+name = "wondoner-interfaces"
+version = "0.1.4"
+description = "Interfaces and standard models for the Wondoner plugin system."
+readme = "README.md"
+license = { file = "LICENSE" } # Or { text = "MIT" }
+requires-python = ">=3.11" # Minimum Python version supported
+classifiers = [ # Standard PyPI classifiers
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Typing :: Typed",
+]
+
+# Optional: URLs shown on PyPI
+# [project.urls]
+# Homepage = "https://your-repo-url-here" # Link to your Git repo
+# Repository = "https://your-repo-url-here"
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0.0,<9.0.0",
+    "pytest-asyncio>=0.18.0,<0.24.0",
+]
+
+# Optional: Configuration for tools like pytest, ruff, black, mypy, etc.
+# [tool.pytest.ini_options]
+# pythonpath = ["src"]
+# testpaths = ["tests"]
