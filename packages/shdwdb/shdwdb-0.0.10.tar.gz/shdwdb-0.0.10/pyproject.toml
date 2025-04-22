@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shdwdb"
+version = "0.0.10"
+description = "a package for tables"
+readme = "README.md"
+requires-python = ">=3.8.18"
+license = {text = "MIT"}
+authors = [
+    { name = "shibby360", email = "shivank.chhaya@gmail.com" }
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/your_package"
