@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "fpiaioact"
+version = "1.0.2"
+description = ""
+authors = ["Aleksandr Yurlov <Sasha.yur@mail.ru>"]
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.70.0"
+
+
+[tool.poetry.group.dev.dependencies]
+build = "^1.2.2.post1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
