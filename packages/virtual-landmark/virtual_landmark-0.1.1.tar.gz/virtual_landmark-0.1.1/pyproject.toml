@@ -1,0 +1,62 @@
+[project]
+name = "virtual-landmark"
+version = "0.1.1"
+authors = [
+  { name = "Denys G. Santos", email = "gsdenys@gmail.com" },
+]
+description = "A Python package for defining custom landmarks in Mediapipe making easy to calculate some new virtual points with a single extention class"
+readme = "README.md"
+requires-python = ">=3.10"
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+]
+
+keywords = ["mediapipe", "custom landmarks", "ladmarks", "pose estimation", "computer vision", "biomechanics", "motion tracking"]
+
+license = "Apache-2.0"
+
+dependencies = [
+    "mediapipe >=0.10.0",
+    "numpy >=2.0.0",
+    "opencv-python >=4.7.0.72"
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "black", "ruff", "mypy"]
+
+[project.urls]
+Homepage = "https://cvpose.github.io/virtual_landmark_python"
+Documentation = "https://cvpose.github.io/virtual_landmark_python"
+Issues = "https://github.com/cvpose/virtual_landmark_python/issues"
+Source = "https://github.com/cvpose/virtual_landmark_python"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov=virtual_landmark --cov-report=term-missing --cov-report=html -p no:warnings"
+testpaths = [
+    "tests"
+]
+
+[tool.coverage.run]
+branch = true
+source = [
+    "src/virtual_landmark"
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "@abstractmethod"
+]

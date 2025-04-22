@@ -1,0 +1,96 @@
+Metadata-Version: 2.4
+Name: virtual-landmark
+Version: 0.1.1
+Summary: A Python package for defining custom landmarks in Mediapipe making easy to calculate some new virtual points with a single extention class
+Author-email: "Denys G. Santos" <gsdenys@gmail.com>
+License-Expression: Apache-2.0
+Project-URL: Homepage, https://cvpose.github.io/virtual_landmark_python
+Project-URL: Documentation, https://cvpose.github.io/virtual_landmark_python
+Project-URL: Issues, https://github.com/cvpose/virtual_landmark_python/issues
+Project-URL: Source, https://github.com/cvpose/virtual_landmark_python
+Keywords: mediapipe,custom landmarks,ladmarks,pose estimation,computer vision,biomechanics,motion tracking
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Image Recognition
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: mediapipe>=0.10.0
+Requires-Dist: numpy>=2.0.0
+Requires-Dist: opencv-python>=4.7.0.72
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Dynamic: license-file
+
+
+# Virtual Landmark 
+
+**virtual-landmark** is a modular and extensible system for working with custom landmarks on top of [MediaPipe Pose](https://google.github.io/mediapipe/solutions/pose.html). It enables developers to define additional pose points through geometric relationships, access them like native MediaPipe landmarks, and extend pose rendering and analysis.
+
+
+The complete documentation can be found on the [documentation page](https://cvpose.github.io/virtual_landmark_python/)
+
+---
+
+## Features
+
+- 🧩 Create virtual landmarks with `@landmark` decorator
+- 📐 Measure 2D and 3D joint angles
+- 🎨 Extend pose drawings with new connections and styles
+- 📚 Seamlessly integrate with MediaPipe’s landmark list
+- 🧠 Named access to all landmarks via enum-like interface
+
+---
+
+## How It Works
+
+The system works in three stages:
+
+### 1. **Definition**
+Virtual landmarks are declared using `@landmark("NAME", connection=[...])` decorators on methods that return a 3D point.
+
+### 2. **Discovery**
+Upon instantiating `VirtualLandmark`, all decorated methods are scanned, executed, and their results added to the landmark list.
+
+### 3. **Access**
+Virtual landmarks behave like native landmarks:
+- Access index via `.NAME.value`
+- Retrieve coordinates via landmark list
+- Draw using standard MediaPipe rendering tools
+
+---
+
+## Getting Started
+
+Install MediaPipe:
+
+```bash
+pip install mediapipe opencv-python virtual-landmark
+```
+
+Clone or copy this repo, then run the examples:
+
+```bash
+python examples/get_started.py
+python examples/hello_world.py
+python examples/video.py
+python examples/web_cam.py
+```
+
+There are also a [Jupyter](https://jupyter.org) notebook that you can run through the follow command:
+
+```bash
+pip install jupyterlab matplotlib
+jupyter lab examples
+```
+
+---
