@@ -1,0 +1,26 @@
+include upyboard/core/efr32mg/src/*
+include upyboard/core/efr32mg/typehints/*
+include upyboard/core/efr32mg/typehints/digi/*
+include upyboard/core/efr32mg/typehints/xbee/*
+include upyboard/core/esp32/src/*
+include upyboard/core/esp32/typehints/*
+include upyboard/core/rp2350/src/*
+include upyboard/core/rp2350/src/umqtt/*
+include upyboard/core/rp2350/typehints/*
+include upyboard/core/rp2350/typehints/aloble/*
+include upyboard/core/rp2350/typehints/mip/*
+include upyboard/core/rp2350/typehints/requests/*
+include upyboard/core/rp2350/typehints/rp2/*
+include upyboard/core/rp2350/typehints/umqtt/*
+
+include upyboard/device/autocon/src/*
+include upyboard/device/autocon/typehints/*
+include upyboard/device/smartfarm1/src/*
+include upyboard/device/smartfarm1/typehints/*
+include upyboard/device/xconvey/src/*
+include upyboard/device/xconvey/typehints/*
+include upyboard/device/xhome/src/*
+include upyboard/device/xhome/typehints/*
+include upyboard/device/xnode/src/*
+include upyboard/device/xnode/typehints/*
+
