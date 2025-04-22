@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: soup-files
+Version: 1.0.1
+Summary: Leitura e manipulação de arquivos
+Author: Bruno
+License: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# file-utils
+
+# Uso
+from soup_files import File, Directory
+
+filename:str = 'path/to/file'
+dirpath:str = 'path/to/dir'
+
+f = File(filename)
+d = Directory(dirpath)
