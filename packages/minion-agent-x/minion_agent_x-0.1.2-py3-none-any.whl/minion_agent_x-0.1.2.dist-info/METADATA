@@ -1,0 +1,46 @@
+Metadata-Version: 2.4
+Name: minion-agent-x
+Version: 0.1.2
+Summary: An enhanced version of minion-agent with extended capabilities
+Author-email: femtozheng <femtozheng@example.com>
+License-File: LICENSE
+Requires-Python: >=3.9
+Requires-Dist: browser-use>=0.0.1
+Requires-Dist: loguru>=0.0.1
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: smolagents>=0.0.1
+Provides-Extra: all
+Requires-Dist: asyncio>=3.4.3; extra == 'all'
+Requires-Dist: google-adk; extra == 'all'
+Requires-Dist: langchain-core>=0.3.49; extra == 'all'
+Requires-Dist: langchain-openai>=0.3.11; extra == 'all'
+Requires-Dist: litellm; extra == 'all'
+Requires-Dist: markdownify>=1.1.0; extra == 'all'
+Requires-Dist: mcp>=1.5.0; extra == 'all'
+Requires-Dist: minionx>=0.0.1; extra == 'all'
+Requires-Dist: openai>=1.75.0; extra == 'all'
+Requires-Dist: openinference-instrumentation-smolagents; extra == 'all'
+Requires-Dist: playwright>=1.51.0; extra == 'all'
+Requires-Dist: smolagents[litellm,mcp]>=1.10.0; extra == 'all'
+Requires-Dist: smolagents[mcp]>=1.13.0; extra == 'all'
+Provides-Extra: dev
+Requires-Dist: black>=23.0.0; extra == 'dev'
+Requires-Dist: isort>=5.12.0; extra == 'dev'
+Requires-Dist: pytest>=7.0.0; extra == 'dev'
+Provides-Extra: google
+Requires-Dist: google-adk; extra == 'google'
+Requires-Dist: litellm; extra == 'google'
+Provides-Extra: mcp
+Requires-Dist: asyncio>=3.4.3; extra == 'mcp'
+Requires-Dist: langchain-core>=0.3.49; extra == 'mcp'
+Requires-Dist: langchain-openai>=0.3.11; extra == 'mcp'
+Requires-Dist: markdownify>=1.1.0; extra == 'mcp'
+Requires-Dist: mcp>=1.5.0; extra == 'mcp'
+Requires-Dist: openai>=1.75.0; extra == 'mcp'
+Requires-Dist: playwright>=1.51.0; extra == 'mcp'
+Requires-Dist: smolagents[mcp]>=1.13.0; extra == 'mcp'
+Provides-Extra: minion
+Requires-Dist: minionx>=0.0.1; extra == 'minion'
+Provides-Extra: smolagents
+Requires-Dist: openinference-instrumentation-smolagents; extra == 'smolagents'
+Requires-Dist: smolagents[litellm,mcp]>=1.10.0; extra == 'smolagents'
