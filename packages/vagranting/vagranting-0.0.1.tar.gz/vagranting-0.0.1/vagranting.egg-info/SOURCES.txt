@@ -1,0 +1,10 @@
+README.md
+setup.py
+tests/test.py
+tests/test_import.py
+vagranting/__init__.py
+vagranting.egg-info/PKG-INFO
+vagranting.egg-info/SOURCES.txt
+vagranting.egg-info/dependency_links.txt
+vagranting.egg-info/requires.txt
+vagranting.egg-info/top_level.txt
