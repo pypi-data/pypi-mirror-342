@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+src/company_name_matcher/__init__.py
+src/company_name_matcher/company_name_matcher.py
+src/company_name_matcher/vector_store.py
+src/company_name_matcher.egg-info/PKG-INFO
+src/company_name_matcher.egg-info/SOURCES.txt
+src/company_name_matcher.egg-info/dependency_links.txt
+src/company_name_matcher.egg-info/requires.txt
+src/company_name_matcher.egg-info/top_level.txt
+tests/test_batch_processing.py
+tests/test_default_matcher.py
+tests/test_model_comparison.py
