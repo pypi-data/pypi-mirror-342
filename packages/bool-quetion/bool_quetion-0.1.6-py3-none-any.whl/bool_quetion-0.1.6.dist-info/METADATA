@@ -1,0 +1,41 @@
+Metadata-Version: 2.4
+Name: bool_quetion
+Version: 0.1.6
+Summary: Module for asking yes/no or accept/cancel questions
+Author-email: Pablo Alejandro Carravetti <gpablinux@gmail.com>
+License: GNU General Public License v3.0
+Project-URL: Homepage, https://github.com/pablinet/bool_quetion
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# bool_quetion
+## Module for asking yes/no or accept/cancel questions.
+
+### Installing
+Install on Debian 11 or older:
+
+`pip install bool_quetion`
+
+Install on Debian 12 and later:
+
+`pipx install bool_quetion`
+
+### Using the code in Python 3.x
+~~~
+from bool_quetion import true_false
+names = []
+reply = True
+while reply:
+    element = input ('Enter the full name: ')
+    names.append(element)
+    for name in names:
+        print (name)
+    reply = true_false('Do you wish to continue?', ['Yes', 'no'])
+else:
+    reply = True
+~~~
+
+It is also possible to highlight the characters that can be entered.
+
+`reply = true_false('Do you wish to continue?', ['Yes', 'no'], True)`
