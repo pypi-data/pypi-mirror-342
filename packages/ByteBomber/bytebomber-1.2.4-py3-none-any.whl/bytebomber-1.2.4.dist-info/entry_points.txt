@@ -1,0 +1,2 @@
+[console_scripts]
+bytebomber = bytebomber.__main__:build_zip_bomb
