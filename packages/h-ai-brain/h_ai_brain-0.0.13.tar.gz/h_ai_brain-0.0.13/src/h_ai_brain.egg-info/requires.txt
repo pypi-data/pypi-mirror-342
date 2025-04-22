@@ -1,0 +1,10 @@
+requests~=2.32.3
+h_message_bus~=0.0.17
+aiohttp~=3.11.16
+bs4~=0.0.2
+beautifulsoup4~=4.13.3
+tldextract~=5.2.0
+playwright~=1.51.0
+
+[dev]
+pytest
