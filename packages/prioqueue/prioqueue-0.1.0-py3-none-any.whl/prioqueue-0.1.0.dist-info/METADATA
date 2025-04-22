@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: prioqueue
+Version: 0.1.0
+Summary: A min priority queue, based on heapq
+Project-URL: Homepage, https://github.com/michaelhankin/prioqueue
+Project-URL: Issues, https://github.com/michaelhankin/prioqueue/issues
+Author-email: Michael Hankin <mjhankin1@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+
+# prioqueue
+
+A Python min priority queue, based on [heapq](https://docs.python.org/3/library/heapq.html).
