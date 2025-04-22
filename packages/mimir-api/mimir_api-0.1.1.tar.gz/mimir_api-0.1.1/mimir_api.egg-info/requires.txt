@@ -1,0 +1,6 @@
+httpx
+pydantic
+
+[dev]
+pytest
+black
