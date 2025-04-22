@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+pypql.egg-info/PKG-INFO
+pypql.egg-info/SOURCES.txt
+pypql.egg-info/dependency_links.txt
+pypql.egg-info/requires.txt
+pypql.egg-info/top_level.txt

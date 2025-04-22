@@ -1,0 +1,59 @@
+Metadata-Version: 2.4
+Name: pypql
+Version: 0.1.0.2
+Summary: A lightweight Pythonic interface for PostgreSQL
+Home-page: https://github.com/yourusername/pypql
+Author: Jake Biesinger
+Author-email: your@email.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: asyncpg
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# PyPQL
+
+**PyPQL** is a lightweight, Pythonic interface for interacting with PostgreSQL databases. It allows developers to build readable, composable, and expressive queries in pure Python — no need to write raw SQL.
+
+## Features
+
+- Intuitive, fluent query syntax
+- Built-in support for PostgreSQL async operations via `asyncpg`
+- Easy integration with FastAPI and modern Python web frameworks
+- Designed for clarity, flexibility, and developer happiness
+
+## Installation
+
+Install from PyPI:
+
+```bash
+pip install pypql
+```
+
+Or download the ZIP directly from the official website if preferred. GitHub repository coming soon.
+
+## Example
+
+```python
+from pypql import Table
+
+users = Table('users')
+query = users.select().where(users.age > 18)
+print(str(query))  # Outputs: SELECT * FROM users WHERE age > 18;
+```
+
+## License
+
+MIT License — see [LICENSE](./LICENSE) for details.
