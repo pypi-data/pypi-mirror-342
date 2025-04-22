@@ -1,0 +1,3 @@
+[console_scripts]
+snowpack=snowpack_stack.cli:run_cli
+
