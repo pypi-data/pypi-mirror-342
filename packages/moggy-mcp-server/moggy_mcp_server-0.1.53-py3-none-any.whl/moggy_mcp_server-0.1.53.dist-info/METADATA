@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: moggy-mcp-server
+Version: 0.1.53
+Summary: baidu search only
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: aiofiles>=23.1
+Requires-Dist: autogen-agentchat>=0.4
+Requires-Dist: autogen-ext>=0.4
+Requires-Dist: mcp[cli]>=1.4.1
+Requires-Dist: playwright>=1.39.0
+Requires-Dist: pydantic==2.10.6
+Description-Content-Type: text/markdown
+
+"typing-extensions>=4.6.0",
+"autogen-agentchat>=0.4.9",
+"autogen-ext[openai]>=0.4.9"
