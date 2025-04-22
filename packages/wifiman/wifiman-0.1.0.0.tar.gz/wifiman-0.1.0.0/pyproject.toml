@@ -1,0 +1,51 @@
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[project]
+name = "wifiman"
+version = "0.1.0.0"
+description = "Python based simple WiFi manager for Windows 10/11"
+readme = "README.md"
+authors = [
+    { name = "Krishnakanth Allika", email = "richly-human-grew@duck.com" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: Microsoft :: Windows :: Windows 10",
+    "Operating System :: Microsoft :: Windows :: Windows 11",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Networking",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pyinstaller>=6.13.0",
+    "pywin32>=310",
+]
+
+[project.license]
+text = "GNU GPL v3"
+
+[project.urls]
+Homepage = "https://go.allika.eu.org/wifiman"
+Releases = "https://go.allika.eu.org/wifimanreleases"
+Repository = "https://go.allika.eu.org/wifimanrepo"
+Documentation = "https://go.allika.eu.org/wifimandocs"
+Changelog = "https://go.allika.eu.org/wifimanchangelog"
+
+[project.scripts]
+wifiman = "project.main:app.mainloop"
+
+[project.gui-scripts]
+wifiman-gui = "project.main:app.mainloop"
+
+[tool.uv]
+link-mode = "copy"
