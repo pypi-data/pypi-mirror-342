@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "postmaniac"
+version = "1.0.0"
+description = "Postman OSINT tool to extract creds, token, username, email & more from Postman Public Workspaces."
+readme = "README.md"
+requires-python = ">=3.0"
+dependencies = [
+  'rich',
+  'requests'
+]
+keywords = ["osint", "pentest", "cybersecurity","investigation", "lespireshat", "postman"]
+authors = [{ name = "Pierre Ceberio", email = "boringthegod@tutanota.com"}]
+[project.scripts]
+postmaniac = 'postmaniac.postmaniac:main'
+[project.urls]
+"Homepage" = "https://github.com/boringthegod/postmaniac"
+"Bug Tracker" = "https://github.com/boringthegod/postmaniac/issues"
