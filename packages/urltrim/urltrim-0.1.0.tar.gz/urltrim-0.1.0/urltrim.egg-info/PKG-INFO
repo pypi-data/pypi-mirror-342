@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: urltrim
+Version: 0.1.0
+Summary: A Python library to trim long URLs in code
+Home-page: https://github.com/upraneethkumar/urltrim
+Author: PRANEETH KUMAR UDDARAJU
+Author-email: PRANEETH KUMAR UDDARAJU <upraneeth24@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/upraneethkumar/urltrim
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# URLTrim
+
+A Python library to trim long URLs in your code while retaining their full functionality.
+
+## Installation
+
+```bash
+pip install urltrim
+```
+
+from urltrim import URLTrim
+
+url = "https://www.example.com/some/very/long/path?query=123"
+link = URLTrim(url) # Default mode: domain + first path segment
+print(link) # Outputs: example.com/some
+print(link.get_full_url()) # Outputs: the full URL
+
+# Custom modes
+
+link_domain = URLTrim(url, mode="domain") # Domain only
+print(link_domain) # Outputs: example.com
+
+link_full = URLTrim(url, mode="full_path") # Full path
+print(link_full) # Outputs: example.com/some/very/long/path

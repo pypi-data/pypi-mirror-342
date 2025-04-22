@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+tests/test_urltrim.py
+urltrim/__init__.py
+urltrim/core.py
+urltrim.egg-info/PKG-INFO
+urltrim.egg-info/SOURCES.txt
+urltrim.egg-info/dependency_links.txt
+urltrim.egg-info/top_level.txt
