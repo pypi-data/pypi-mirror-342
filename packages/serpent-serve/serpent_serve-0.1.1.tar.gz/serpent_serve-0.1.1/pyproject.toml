@@ -1,0 +1,31 @@
+[project]
+name = "serpent-serve"
+version = "0.1.1"
+description = "A Python gRPC wrapper for classes"
+readme = "README.md"
+license = { text = "GPL-3.0-only" }
+requires-python = ">=3.8"
+authors = [
+    { name = "Pavel Oborin", email = "oborin.p@gmail.com" }
+]
+dependencies = [
+    "tblib",
+    "grpcio",
+    "grpcio-tools",
+    "protobuf"
+]
+
+[project.urls]
+homepage = "https://pypi.org/project/serpent-serve/"
+repository = "https://github.com/oborichkin/serpent-serve"
+
+[project.optional-dependencies]
+dev = [
+    "pytest"
+]
+
+[tool.poetry]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
