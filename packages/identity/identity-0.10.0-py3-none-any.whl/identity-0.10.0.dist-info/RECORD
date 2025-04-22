@@ -1,0 +1,15 @@
+docs/conf.py,sha256=WKjluo-OYn92Na1AMznpdA07VViJnx36hR8ZQ3qHdcU,5759
+identity/__init__.py,sha256=J0C638wRe5v6du151UKBS2HWrz_YHyLH2NCTiw3jeaM,147
+identity/django.py,sha256=GZB70ZLMufeCwASNhcCzbyFQAdD5L7uwo5oTb69LnYs,8729
+identity/flask.py,sha256=aM15tViPv0shlO7hXglTCiSTmmd2qQ0_DUVxnwrL1nk,6546
+identity/pallet.py,sha256=qre4Zt2BB8p-UglGR5olgrx1DlPv1T2RfrFShwNCCu4,4787
+identity/quart.py,sha256=cq6z1r144YzBOANDWW-8nA5v3u--6beSOnS7uuRPwPo,6649
+identity/version.py,sha256=0qyS-OJ2Rtd2kSpKngVluNLNmze1o-k6L0HLsEcD6xU,78
+identity/web.py,sha256=ovq2HWXa7y8HDlTzszAgUdsjG-JhXCgp9N2WAu082dI,24338
+identity/templates/identity/auth_error.html,sha256=UvBwtTGj3o2rWqYzz27yfjrBtotceRwD-KVQoZYZVx8,815
+identity/templates/identity/login.html,sha256=zH--cy4HZALf0OkEWkFwD83yF-lqQlN1glowMO5Th24,1471
+identity-0.10.0.dist-info/licenses/LICENSE,sha256=JxEfLmrvfJmzrl1K78wnqHjJpciCd2gAMJd6RZQaIoc,1064
+identity-0.10.0.dist-info/METADATA,sha256=JRhJHmnvHfQou9VuopNLsZMJe0ompoJvImGn1yvOcY4,8175
+identity-0.10.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+identity-0.10.0.dist-info/top_level.txt,sha256=Ib4NIwS64wFgoMeEjlYV6Qe9vAJwj1UNuxti_lLPCTs,19
+identity-0.10.0.dist-info/RECORD,,
