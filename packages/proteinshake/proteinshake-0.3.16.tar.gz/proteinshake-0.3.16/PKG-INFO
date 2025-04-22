@@ -1,0 +1,87 @@
+Metadata-Version: 2.4
+Name: proteinshake
+Version: 0.3.16
+Summary: Protein structure datasets for machine learning.
+Home-page: https://proteinshake.readthedocs.io/en/latest/index.html
+Author: Tim Kucera, Carlos Oliver, Dexiong Chen, Karsten Borgwardt
+Author-email: kucera@biochem.mpg.de
+Keywords: bioinformatics,deep-learning,computational-biology,macromolecular-structure
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: biopandas>=0.4.1
+Requires-Dist: pandas>=1.4.3
+Requires-Dist: rdkit>=2024.9.6
+Requires-Dist: tqdm>=4.64.0
+Requires-Dist: scikit-learn>=1.1.1
+Requires-Dist: joblib>=1.2.0
+Requires-Dist: requests>=2.27.1
+Requires-Dist: fastavro>=1.6.1
+Requires-Dist: freesasa>=2.2.0.post3
+Requires-Dist: goatools>=1.3.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/BorgwardtLab/proteinshake/main/docs/images/logo_subtitle.png" width="60%">
+</p>
+
+<div align="center">
+
+![build](https://img.shields.io/github/actions/workflow/status/borgwardtlab/proteinshake/build.yml?color=%2303A9F4&style=for-the-badge)
+[![pypi](https://img.shields.io/pypi/v/proteinshake?color=%2303A9F4&style=for-the-badge)](https://pypi.org/project/proteinshake/)
+[![docs](https://img.shields.io/readthedocs/proteinshake?color=%2303A9F4&style=for-the-badge)](https://proteinshake.readthedocs.io/en/latest/?badge=latest)
+[![downloads](https://img.shields.io/pypi/dm/proteinshake?color=%2303A9F4&style=for-the-badge)](https://pypi.org/project/proteinshake/)
+[![codecov](https://img.shields.io/codecov/c/gh/BorgwardtLab/proteinshake?color=%2303A9F4&style=for-the-badge&token=0NL6CQZ6MB)](https://codecov.io/gh/BorgwardtLab/proteinshake)
+</div>
+
+<p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://borgwardtlab.github.io/proteinshake/#quickstart">Quickstart</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://borgwardtlab.github.io/proteinshake">Website</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://proteinshake.readthedocs.io/en/latest/?badge=latest">Documentation</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="">Paper</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://proteinshake.readthedocs.io/en/latest/notes/contribution.html">Contribute</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://borgwardtlab.github.io/proteinshake/#leaderboard">Leaderboard</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://proteinshake.readthedocs.io/en/latest/notebooks/dataset.html">Tutorials</a>
+</p>
+
+<div align="center">
+
+### ProteinShake provides one-liner imports of large scale, preprocessed protein structure datasets and tasks for various model types and frameworks.
+
+We provide a collection of preprocessed and cleaned protein 3D structure datasets from RCSB and AlphaFoldDB, including annotations. Structures are easily converted to graphs, voxels, or point clouds and loaded natively into PyTorch, TensorFlow, NumPy, JAX, PyTorch Geometric, DGL and NetworkX. The task API enables standardized benchmarking on a variety of tasks on protein and residue level.
+
+Find more information on the <a href="https://borgwardtlab.github.io/proteinshake">Website</a> and the <a href="https://proteinshake.readthedocs.io/en/latest/?badge=latest">Documentation</a>, or check out the <a href="https://proteinshake.readthedocs.io/en/latest/notebooks/dataset.html">Tutorials</a>. The results of the paper and the baseline models can be found in the <a href="https://github.com/BorgwardtLab/ProteinShake_eval">Evaluation Repository</a>. If you would like to create your own release, see the <a href="https://github.com/BorgwardtLab/proteinshake_release">Release Repository</a>.
+
+</br>
+
+**Installation:**
+
+```
+pip install proteinshake
+```
+
+</br>
+
+<div align="center">
+
+*Code in this repository is licensed under [BSD-3](https://github.com/BorgwardtLab/proteinshake/blob/main/LICENSE), the dataset files on Zenodo are licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).*
+
+*To build ProteinShake, we obtained and modified data from various sources. Please see the documentation of the respective dataset classes for a reference to the original data, license, and paper.*
+
+</div>
