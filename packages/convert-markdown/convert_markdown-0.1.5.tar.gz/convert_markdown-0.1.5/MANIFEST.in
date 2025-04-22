@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+recursive-include convert_markdown/core *.py
+recursive-include convert_markdown/exporters *.py
+recursive-include convert_markdown/static *.py 
