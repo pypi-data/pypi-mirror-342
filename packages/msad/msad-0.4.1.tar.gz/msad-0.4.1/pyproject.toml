@@ -1,0 +1,34 @@
+[project]
+name = "msad"
+version = "0.4.1"
+authors = [
+  { name="Matteo Redaelli", email="matteo.redaelli@gmail.com" },
+]
+description = "msad is a commandline for interacting with Active Directory"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "ldap3",
+    "gssapi",
+    "cryptography",
+    "typer"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/matteoredaelli/msad"
+Issues = "https://github.com/matteoredaelli/msad/issues"
+
+[project.scripts]
+msad = "msad.main:app"
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
