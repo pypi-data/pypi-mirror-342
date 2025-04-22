@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: atopile-auth
+Version: 0.1.0
+Summary: A package to help manage authentication for atopile
+License-File: LICENSE
+Requires-Python: >=3.13
+Requires-Dist: supabase>=2.15.0
+Description-Content-Type: text/markdown
+
+# atopile-auth
+
+## Pitfalls
+
+```
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+```
+
+This happens when trying to return the `ClaimsResponse` object, rather than the `claims` attribute/field via FastAPI.
