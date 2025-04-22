@@ -1,0 +1,2 @@
+[console_scripts]
+alertalot = alertalot.main:main
