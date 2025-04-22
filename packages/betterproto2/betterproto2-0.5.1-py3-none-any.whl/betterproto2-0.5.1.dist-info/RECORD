@@ -1,0 +1,15 @@
+betterproto2/__init__.py,sha256=lyn44yERPet74cWVCxy2_S-QRzGr_UVbcPJ59VAuv5o,41249
+betterproto2/_types.py,sha256=31JGsGl2N6Mj0Yc3k5L3XL-707qo9-iU7_DYtyipgZY,336
+betterproto2/_version.py,sha256=URGTKprtMvtmPFGL-cj6-dgdmXRqbglLlhnhAOjcALE,1828
+betterproto2/casing.py,sha256=dotUvZ4-ZLYzVZCwkGqI_20kecdpVtbBgVWvayNZ4AA,3637
+betterproto2/enum.py,sha256=3CLpDLAXRFeXsvZ__sM88fKDxXqNEb3YXixotq85NTw,1252
+betterproto2/grpc/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+betterproto2/grpc/grpclib_client.py,sha256=NkIxbQNT2KKw3WVbTfGn9mMeXtvYrGtFRX8pKe5ajd0,5200
+betterproto2/grpc/grpclib_server.py,sha256=qL63g9_ux1TlGugdLd1OqJ05G5HLTnVPHCzkXuWyleU,868
+betterproto2/message_pool.py,sha256=0e_g8FO-f4tXmzZd1kh8L4dXAsqHc7bChJ9kTBn1XjY,1064
+betterproto2/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+betterproto2/utils.py,sha256=0Hg8QGC3paJsz9nessKa-FLarA5RM1yiQTgOBkNQgU0,852
+betterproto2-0.5.1.dist-info/LICENSE.md,sha256=Pgl2pReU-2yw2miGeQ55UFlyzqAZ_EpYVyZ2nWjwRv4,1121
+betterproto2-0.5.1.dist-info/METADATA,sha256=afMYURviTF8QXN9dA5mcvkFUNH0i-XX9XOuRngaGadc,4217
+betterproto2-0.5.1.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+betterproto2-0.5.1.dist-info/RECORD,,
