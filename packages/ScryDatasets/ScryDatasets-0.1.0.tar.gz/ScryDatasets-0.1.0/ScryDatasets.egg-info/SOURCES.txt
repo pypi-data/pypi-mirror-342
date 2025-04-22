@@ -1,0 +1,10 @@
+setup.py
+ScryDatasets/__init__.py
+ScryDatasets/dataset_info.py
+ScryDatasets/dataset_manager.py
+ScryDatasets.egg-info/PKG-INFO
+ScryDatasets.egg-info/SOURCES.txt
+ScryDatasets.egg-info/dependency_links.txt
+ScryDatasets.egg-info/requires.txt
+ScryDatasets.egg-info/top_level.txt
+tests/test_dataset_manager.py
