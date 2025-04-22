@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: mvcluster
+Version: 1.0
+Summary: A Python package for multiview unsupervised clustering
+Author-email: Hamady GACKOU <researcherdatascientist@gmail.com>
+License: MIT
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: torch
+Requires-Dist: scipy
+
+# mvcluster
+
+A Python package for multiview unsupervised clustering.
+
+## Installation
+
+```bash
+pip install mvcluster
+```
+# Usage
+
+```bash
+from mvcluster import core
+```
+
+---
+
+   
