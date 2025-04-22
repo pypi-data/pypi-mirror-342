@@ -1,0 +1,13 @@
+README.md
+setup.py
+doc_quality/__init__.py
+doc_quality/metrics.py
+doc_quality/suggestions.py
+doc_quality/utils.py
+doc_quality.egg-info/PKG-INFO
+doc_quality.egg-info/SOURCES.txt
+doc_quality.egg-info/dependency_links.txt
+doc_quality.egg-info/requires.txt
+doc_quality.egg-info/top_level.txt
+tests/test_metrics.py
+tests/test_suggestions.py
