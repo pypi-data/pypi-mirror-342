@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: New_AI_smvec
+Version: 0.1
+Summary: A simple chatbot using NLP
+Home-page: https://github.com/yourusername/your_package
+Author: Your Name
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: nltk
+Requires-Dist: scikit-learn
+Dynamic: author
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
