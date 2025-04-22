@@ -1,0 +1,11 @@
+__pycache__/
+.cache
+.coverage
+.vscode/settings.json
+*.log
+*/package.zip
+*/packages/
+*/requirements.txt
+coverage.xml
+html.sqlite
+output.html
