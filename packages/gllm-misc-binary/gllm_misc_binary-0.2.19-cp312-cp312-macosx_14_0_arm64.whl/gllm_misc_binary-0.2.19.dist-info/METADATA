@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: gllm-misc-binary
+Version: 0.2.19
+Summary: A library containing miscellaneous components for Gen AI applications.
+Author: Dimitrij Ray
+Author-email: dimitrij.ray@gdplabs.id
+Requires-Python: >=3.11,<3.13
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: audio
+Provides-Extra: google-translate
+Provides-Extra: kg
+Provides-Extra: langdetect
+Provides-Extra: language
+Provides-Extra: llmlingua
+Requires-Dist: Jinja2 (>=3.1.4,<4.0.0) ; extra == "kg"
+Requires-Dist: azure-search-documents (>=11.5.1,<12.0.0)
+Requires-Dist: gllm-core-binary
+Requires-Dist: gllm-datastore-binary
+Requires-Dist: gllm-inference-binary
+Requires-Dist: google-cloud-speech (==2.28.0) ; extra == "audio"
+Requires-Dist: google-cloud-storage (==2.18.2) ; extra == "audio"
+Requires-Dist: googletrans (==4.0.2) ; extra == "google-translate"
+Requires-Dist: langchain (>=0.3.0,<0.4.0)
+Requires-Dist: langchain-openai (>=0.3.1,<0.4.0)
+Requires-Dist: langcodes (==3.4.1) ; extra == "audio"
+Requires-Dist: langdetect (==1.0.9) ; extra == "langdetect"
+Requires-Dist: libmagic (>=1.0,<2.0) ; sys_platform == "win32"
+Requires-Dist: llama-index-core (>=0.12.0,<0.13.0) ; extra == "kg"
+Requires-Dist: llama-index-graph-stores-nebula (>=0.4.0,<0.5.0) ; extra == "kg"
+Requires-Dist: llama-index-graph-stores-neo4j (>=0.4.0,<0.5.0) ; extra == "kg"
+Requires-Dist: llmlingua (==0.2.2) ; extra == "llmlingua"
+Requires-Dist: pycountry (>=24.6.1,<25.0.0) ; extra == "langdetect" or extra == "language"
+Requires-Dist: pydub (==0.25.1) ; extra == "audio"
+Requires-Dist: python-magic-bin (>=0.4.14,<0.5.0) ; sys_platform == "win32"
+Requires-Dist: semantic-router (==0.0.72)
+Requires-Dist: torch (<=2.2.2)
+Requires-Dist: transformers (==4.49.0)
+Requires-Dist: youtube-transcript-api (==0.6.2) ; extra == "audio"
+Requires-Dist: yt-dlp (==2024.05.27) ; extra == "audio"
+Description-Content-Type: text/markdown
+
+# GLLM Miscellaneous
+
+## Description
+
+A library containing miscellaneous components for Gen AI applications.
+
+## Installation
+
+1. Python v3.11 or above:
+
+You can install Python using [Miniconda](https://docs.anaconda.com/free/miniconda/index.html).
+
+2. Make sure you're in the `base` conda environment:
+```bash
+conda activate
+```
+
+3. [Poetry](https://python-poetry.org/docs/) v1.8.1 or above:
+
+You can install Poetry using cURL (you need Python to install Poetry):
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+4. Install the library using Poetry:
+```bash
+# Latest
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git#subdirectory=libs/gllm-misc"
+
+# Specific version
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@gllm_misc-v0.0.1-beta.1#subdirectory=libs/gllm-misc"
+
+# Specific Branch Name
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@<BRANCH NAME>#subdirectory=libs/gllm-misc"
+```
+
+5. At this step, you can deactivate Miniconda environment as Poetry will create and manage its own virtual environment for you.
+```bash
+conda deactivate
+```
+
+## Managing Dependencies
+1. Go to root folder of `gllm-misc` module, e.g. `cd libs/gllm-misc`.
+2. Run `poetry shell` to create a virtual environment.
+3. Run `poetry lock` to create a lock file if you haven't done it yet.
+4. Run `poetry install` to install the `gllm-misc` requirements for the first time.
+5. Run `poetry update` if you update any dependency module version at `pyproject.toml`.
+
+
+## Contributing
+Please refer to this [Python Style Guide](https://docs.google.com/document/d/1uRggCrHnVfDPBnG641FyQBwUwLoFw0kTzNqRm92vUwM/edit?usp=sharing)
+to get information about code style, documentation standard, and SCA that you need to use when contributing to this project
+
+1. Activate `pre-commit` hooks using `pre-commit install`
+2. Run `poetry shell` to create a virtual environment.
+3. Run `poetry lock` to create a lock file if you haven't done it yet.
+4. Run `poetry install` to install the `gllm-misc` requirements for the first time.
+5. Run `which python` to get the path to be referenced at Visual Studio Code interpreter path (`Ctrl`+`Shift`+`P` or `Cmd`+`Shift`+`P`)
+6. Try running the unit test to see if it's working:
+```bash
+poetry run pytest -s tests/unit_tests/
+```
+
