@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: makefourcc
+Version: 1.0.1
+Summary: Makes a four character string from individual letters.
+Author: WCG847
+Author-email: heelmods@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+# makefourcc
+
+A minimal Python module that replicates the `MAKEFOURCC` macro from Windows APIs. This is useful for creating FOURCC codes in graphics, multimedia, or game development contexts.
+
+## Installation
+
+```bash
+pip install makefourcc
+```
+
+## Usage
+
+```python
+from makefourcc import MAKEFOURCC
+
+code = MAKEFOURCC('D', 'X', 'T', '1')
+print(hex(code))  # Outputs: 0x31545844
+```
