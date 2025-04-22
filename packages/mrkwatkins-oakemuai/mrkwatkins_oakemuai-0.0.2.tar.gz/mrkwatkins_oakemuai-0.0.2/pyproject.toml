@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "mrkwatkins-oakemuai"
+version = "0.0.2"
+authors = ["MrKWatkins <mrkwatkins@gmail.com>"]
+description = "AI extensions for mrkwatkins.oakemu."
+homepage = "https://www.mrkwatkins.co.uk"
+repository = "https://github.com/MrKWatkins/OakEmu-AI"
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "mrkwatkins/oakemuai", from = "src" }
+]
+classifiers = [
+    "Development Status :: 3 - Alpha"
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+pythonnet = "^3.0.5"
+gymnasium = "1.1.1"
+mrkwatkins-oakemu = "^0.0.16"
+opencv-python = "^4.11.0.86"
+pandas = "^2.2.3"
+pyarrow = "^19.0.0"
+pygame = "^2.6.1"
+ray = {extras = ["default"], version = "^2.44.1"}
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.0.1"
+ruff = "^0.11.6"
+
+[tool.poetry.group.test.dependencies]
+coverage = "^7.8.0"
+pytest = "^8.3.5"
+
+[tool.poetry.group.experiments.dependencies]
+dm-tree = "^0.1.8"
+lz4 = "^4.3.3"
+memray = "^1.15.0"
+onnx = "^1.17.0"
+scikit-image = "^0.25.1"
+tensorboardx = "^2.6.2.2"
+torch = "^2.6.0"
+typer = "^0.15.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
