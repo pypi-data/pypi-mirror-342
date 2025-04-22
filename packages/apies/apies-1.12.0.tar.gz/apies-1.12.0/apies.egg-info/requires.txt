@@ -1,0 +1,13 @@
+Flask
+requests
+elasticsearch<9.0.0,>=7.0.0
+datapackage
+flask_jsonpify
+demjson3
+xlwt
+xlsxwriter
+
+[develop]
+pylama
+tox
+dataflows-elasticsearch>=0.1.0
