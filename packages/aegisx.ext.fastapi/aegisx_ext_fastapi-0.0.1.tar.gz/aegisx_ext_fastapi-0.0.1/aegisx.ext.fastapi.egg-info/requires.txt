@@ -1,0 +1,7 @@
+aegisx>0.1.0a1
+pydantic>=2
+
+[develop]
+pytest
+pytest_asyncio
+coverage

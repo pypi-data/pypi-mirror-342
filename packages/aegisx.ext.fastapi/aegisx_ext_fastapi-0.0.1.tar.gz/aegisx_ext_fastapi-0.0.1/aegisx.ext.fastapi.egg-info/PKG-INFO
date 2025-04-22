@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: aegisx.ext.fastapi
+Version: 0.0.1
+Summary: FastAPI integration with AegisX
+Home-page: https://github.com/tensorshield/python-aegisx
+Author: Immortal Izzy
+Author-email: immortal.izzy@tensorshield.ai
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Pydantic :: 2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Communications
+Classifier: Topic :: File Formats :: JSON
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Security
+Classifier: Topic :: Security :: Cryptography
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: aegisx>0.1.0a1
+Requires-Dist: pydantic>=2
+Provides-Extra: develop
+Requires-Dist: pytest; extra == "develop"
+Requires-Dist: pytest_asyncio; extra == "develop"
+Requires-Dist: coverage; extra == "develop"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: summary

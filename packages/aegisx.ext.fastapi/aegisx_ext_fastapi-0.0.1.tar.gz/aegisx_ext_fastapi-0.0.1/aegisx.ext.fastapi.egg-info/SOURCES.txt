@@ -1,0 +1,9 @@
+MANIFEST.in
+VERSION
+setup.py
+aegisx.ext.fastapi.egg-info/PKG-INFO
+aegisx.ext.fastapi.egg-info/SOURCES.txt
+aegisx.ext.fastapi.egg-info/dependency_links.txt
+aegisx.ext.fastapi.egg-info/requires.txt
+aegisx.ext.fastapi.egg-info/top_level.txt
+aegisx/ext/fastapi/package.json
