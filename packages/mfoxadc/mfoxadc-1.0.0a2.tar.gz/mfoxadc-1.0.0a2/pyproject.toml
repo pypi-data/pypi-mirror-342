@@ -1,0 +1,22 @@
+[project]
+name = "mfoxadc"
+version = "1.0.0a2"
+description = "A tool for encoding LuckFox ADC values for sending as Meshtastic UDP messages"
+authors = [
+    {name = "Ben Lipsey",email = "ben@pdxlocations.com"}
+]
+license = "GPL-3.0-only"
+readme = "README.md"
+requires-python = ">=3.9,<3.14"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/pdxlocations/mfoxadc"
+Issues = "https://github.com/pdxlocations/mfoxadc/issues"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+mfoxadc = "mfoxadc.__main__:start"
