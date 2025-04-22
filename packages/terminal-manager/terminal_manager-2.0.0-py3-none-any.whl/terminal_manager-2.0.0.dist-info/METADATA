@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: terminal_manager
+Version: 2.0.0
+Summary: Use terminal commands to control and monitor devices
+Author-email: zhbjsh <zhbjsh@outlook.com>
+Project-URL: Homepage, https://github.com/zhbjsh/terminal-manager
+Project-URL: Bug Tracker, https://github.com/zhbjsh/terminal-manager/issues
+Keywords: terminal,console,shell,bash,cmd,power shell,commands,command line
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: python-slugify>=4.0.1
+Dynamic: license-file
+
+# Terminal Manager
+
+## Initialize
+
+```python
+from terminal_manager import Manager
+
+manager = Manager()
+```
