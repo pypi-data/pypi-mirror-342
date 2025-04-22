@@ -1,0 +1,54 @@
+variables:
+  PYTHONDONTWRITEBYTECODE: "1"
+  # .cache/ is in .gitignore to make sure it’s not included in builds
+  HATCH_CACHE_DIR: "$CI_PROJECT_DIR/.cache/hatch"
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+stages:
+  - test
+  - publish
+
+test-job:
+  stage: test
+  image: docker-registry.tools.wmflabs.org/toolforge-python311-sssd-base:latest
+  cache:
+    - key: pip-python-3.11
+      paths:
+        - .cache/hatch
+        - .cache/pip
+  script:
+    - python3 -m venv /tmp/venv &&
+      . /tmp/venv/bin/activate &&
+      python3 -m pip install --upgrade pip &&
+      python3 -m pip install hatch &&
+      make check
+
+publish-job:
+  stage: publish
+  image: docker-registry.tools.wmflabs.org/toolforge-python311-sssd-base:latest
+  rules:
+    - if: $CI_COMMIT_TAG
+  needs:
+    - "test-job"
+  cache:
+    - key: pip-python-3.11
+      paths:
+        - .cache/hatch
+        - .cache/pip
+  script:
+    - python3 -m venv /tmp/venv &&
+      . /tmp/venv/bin/activate &&
+      python3 -m pip install --upgrade pip &&
+      python3 -m pip install hatch &&
+      hatch build &&
+      hatch publish
+  # add these environment variables in Settings > CI/CD > Variables:
+  # - HATCH_INDEX_USER (probably “__token__”)
+  # - HATCH_INDEX_AUTH (probably looks like “pypi-[long base64]”)
+  # they should be “Masked” (not “Visible”), and “Protect variable” should be checked
+  # (the project has a `*` wildcard to protect all tags)
+  artifacts:
+    untracked: true
+    paths:
+      - dist/*
+    expire_in: 1 week

@@ -1,0 +1,156 @@
+[build-system]
+requires = [
+  "hatchling",
+  "hatch-vcs",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "toolforge-i18n"
+dynamic = [
+  "version",
+]
+description = 'A library for making Toolforge tools written in Python translatable.'
+readme = "README.md"
+requires-python = ">=3.11"
+license = "BSD-3-Clause"
+keywords = [
+  "wikimedia",
+  "toolforge",
+  "i18n",
+  "translation",
+]
+authors = [
+  { name = "Lucas Werkmeister", email = "mail@lucaswerkmeister.de" },
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: BSD License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Internationalization",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development :: Localization",
+]
+dependencies = [
+  "Babel",
+  "beautifulsoup4",
+  "mwapi",
+  "requests",
+]
+
+[project.optional-dependencies]
+Flask = [
+  "Flask",
+  "MarkupSafe",
+  "Werkzeug",
+]
+
+[project.urls]
+Documentation = "https://toolforge-i18n.readthedocs.io/en/latest/"
+Issues = "https://phabricator.wikimedia.org/tag/toolforge_i18n/"
+Source = "https://gitlab.wikimedia.org/lucaswerkmeister/toolforge_i18n/"
+
+[project.entry-points.pytest11]
+toolforge_i18n = "toolforge_i18n._pytest_plugin"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.envs.docs]
+dependencies = [
+  # note: a manually maintained copy of this list lives in docs/requirements.txt,
+  # make sure to keep them in sync
+  "Sphinx",
+  "sphinx-rtd-theme",
+]
+features = [
+  "Flask",
+]
+
+[tool.hatch.envs.docs.scripts]
+build = "sphinx-build -M html docs/ docs/_build/"
+
+[tool.hatch.envs.hatch-test]
+features = [
+  "Flask",
+]
+
+[tool.hatch.envs.types]
+template = "hatch-test"
+extra-dependencies = [
+  "mypy>=1.0.0",
+  "types-beautifulsoup4",
+  "types-requests",
+]
+
+[tool.hatch.envs.types.scripts]
+check = "mypy {args:src/toolforge_i18n tests}"
+
+[tool.coverage.run]
+source_pkgs = [
+  "toolforge_i18n",
+  "tests",
+]
+branch = true
+parallel = true
+
+[tool.coverage.paths]
+toolforge_i18n = [
+  "src/toolforge_i18n",
+]
+tests = [
+  "tests",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+]
+
+[tool.mypy]
+mypy_path = "stubs/"
+strict = true
+
+[[tool.mypy.overrides]]
+module = 'toolforge_i18n'
+implicit_reexport = true
+
+[tool.ruff.format]
+docstring-code-format = false
+quote-style = "single"
+
+[tool.ruff.lint]
+allowed-confusables = [
+  "’",
+  "–",
+]
+ignore = [
+  "EM101",
+  "EM102",
+  "EM103",
+  "PLW0603",
+  "PT018",
+  "RET504",
+  "RET505",
+  "S101",
+  "TCH003",
+  "TRY003",
+  "UP015",
+]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"docs/conf.py" = [
+  "INP001",
+]
+"src/toolforge_i18n/__init__.py" = [
+  "F401",
+]
+"tests/*" = [
+  "N802",
+]
+
+[tool.ruff.lint.flake8-pytest-style]
+parametrize-names-type = "csv"

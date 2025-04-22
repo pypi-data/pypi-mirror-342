@@ -1,0 +1,4 @@
+# note: this is a manually maintained copy of tool.hatch.env.docs.dependencies in pyproject.toml,
+# make sure to keep them in sync
+Sphinx
+sphinx-rtd-theme

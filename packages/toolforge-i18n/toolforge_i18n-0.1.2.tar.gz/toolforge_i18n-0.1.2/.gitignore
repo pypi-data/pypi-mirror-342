@@ -1,0 +1,6 @@
+# .cache is the cache dir in CI; put it in .gitignore to ensure it’s left out of builds (specifically the sdist tarball)
+/.cache/
+/.coverage
+/docs/_build/
+/dist/
+__pycache__/
