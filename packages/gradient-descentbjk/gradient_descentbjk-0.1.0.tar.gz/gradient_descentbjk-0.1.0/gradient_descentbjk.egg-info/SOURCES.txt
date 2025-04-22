@@ -1,0 +1,10 @@
+setup.py
+gradient_descent/__init__.py
+gradient_descent/loss_functions.py
+gradient_descent/optimizers.py
+gradient_descent/utils.py
+gradient_descentbjk.egg-info/PKG-INFO
+gradient_descentbjk.egg-info/SOURCES.txt
+gradient_descentbjk.egg-info/dependency_links.txt
+gradient_descentbjk.egg-info/requires.txt
+gradient_descentbjk.egg-info/top_level.txt
