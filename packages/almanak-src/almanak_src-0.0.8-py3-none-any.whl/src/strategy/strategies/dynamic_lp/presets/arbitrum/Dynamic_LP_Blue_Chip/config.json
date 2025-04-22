@@ -1,0 +1,94 @@
+{
+  "strategy_configs": {
+    "BLUECHIP_PENDLE_WETH": {
+      "strategy_name": "Dynamic_LP",
+      "parameters": {
+        "network": "MAINNET",
+        "chain": "ARBITRUM",
+        "protocol": "UNISWAP_V3",
+        "wallet_address": "0x1b074bf7c58697d18737c2b7e04b4e82001930ea",
+        "cosigner": {
+          "name": "NONE"
+        },
+        "data_source": "COINGECKO_DEX",
+        "max_sadflow_retries": 10,
+        "max_not_included_retries": 10,
+        "initiate_teardown": false,
+        "pause_strategy": false,
+        "run_duration": 32,
+        "granularity": "15m",
+        "time_window": 96,
+        "rebalance_frequency": 9999,
+        "rebalance_price_bounds": 0.8,
+        "volatility_factor": 2,
+        "pool_address": "0xdbaeB7f0DFe3a0AAFD798CCECB5b22E708f7852c",
+        "initialization": {
+          "initial_position_value_USD": 10,
+          "initial_funding_token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+          "initial_token0_pool": "0xdbaeB7f0DFe3a0AAFD798CCECB5b22E708f7852c",
+          "initial_token1_pool": "N/A"
+        }
+      }
+    },
+    "BLUECHIP_WETH_ARB": {
+      "strategy_name": "Dynamic_LP",
+      "parameters": {
+        "network": "MAINNET",
+        "chain": "ARBITRUM",
+        "protocol": "UNISWAP_V3",
+        "wallet_address": "0x1b074bf7c58697d18737c2b7e04b4e82001930ea",
+        "cosigner": {
+          "name": "NONE"
+        },
+        "data_source": "COINGECKO_DEX",
+        "max_sadflow_retries": 10,
+        "max_not_included_retries": 10,
+        "initiate_teardown": false,
+        "pause_strategy": false,
+        "run_duration": 32,
+        "granularity": "15m",
+        "time_window": 96,
+        "rebalance_frequency": 9999,
+        "rebalance_price_bounds": 0.8,
+        "volatility_factor": 2,
+        "pool_address": "0x92c63d0e701CAAe670C9415d91C474F686298f00",
+        "initialization": {
+          "initial_position_value_USD": 10,
+          "initial_funding_token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+          "initial_token0_pool": "N/A",
+          "initial_token1_pool": "0x92c63d0e701CAAe670C9415d91C474F686298f00"
+        }
+      }
+    },
+    "BLUECHIP_WETH_AAVE": {
+      "strategy_name": "Dynamic_LP",
+      "parameters": {
+        "network": "MAINNET",
+        "chain": "ARBITRUM",
+        "protocol": "UNISWAP_V3",
+        "wallet_address": "0x1b074bf7c58697d18737c2b7e04b4e82001930ea",
+        "cosigner": {
+          "name": "NONE"
+        },
+        "data_source": "COINGECKO_DEX",
+        "max_sadflow_retries": 10,
+        "max_not_included_retries": 10,
+        "initiate_teardown": false,
+        "pause_strategy": false,
+        "run_duration": 32,
+        "granularity": "15m",
+        "time_window": 96,
+        "rebalance_frequency": 9999,
+        "rebalance_price_bounds": 0.8,
+        "volatility_factor": 2,
+        "pool_address": "0xDD672b3B768A16b9BcB4eE1060d3e8221435BeAa",
+        "initialization": {
+          "initial_position_value_USD": 10,
+          "initial_funding_token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+          "initial_token0_pool": "N/A",
+          "initial_token1_pool": "0xDD672b3B768A16b9BcB4eE1060d3e8221435BeAa"
+        }
+      }
+    }
+  }
+}

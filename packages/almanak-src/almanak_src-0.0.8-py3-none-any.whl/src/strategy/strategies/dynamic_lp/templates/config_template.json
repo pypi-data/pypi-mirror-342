@@ -1,0 +1,31 @@
+{
+  "strategy_configs": {
+    "DegenLPChaser_PENDLE_WETH-1": {
+      "strategy_name": "Degen_LP_Chaser",
+      "parameters": {
+        "network": "MAINNET",
+        "chain": "ARBITRUM",
+        "protocol": "UNISWAP_V3",
+        "wallet_address": "0x031bA1D433c075f2C4F129FF312d4D27c988c0a4",
+        "max_sadflow_retries": 1,
+        "max_not_included_retries": 10,
+        "initiate_teardown": false,
+        "pause_strategy": false,
+        "run_duration": 32,
+        "granularity": "15m",
+        "time_window": 288,
+        "data_source": "BINANCE",
+        "rebalance_frequency": 0,
+        "rebalance_price_bounds": 0.8,
+        "volatility_factor": 3,
+        "pool_address": "0xdbaeB7f0DFe3a0AAFD798CCECB5b22E708f7852c",
+        "initialization": {
+          "initial_position_value_USD": 10,
+          "initial_funding_token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+          "initial_token0_pool": "0xdbaeB7f0DFe3a0AAFD798CCECB5b22E708f7852c",
+          "initial_token1_pool": "N/A"
+        }
+      }
+    }
+  }
+}

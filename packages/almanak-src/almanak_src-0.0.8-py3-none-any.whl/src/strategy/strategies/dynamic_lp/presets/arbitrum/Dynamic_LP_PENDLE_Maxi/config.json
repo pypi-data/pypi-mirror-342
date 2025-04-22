@@ -1,0 +1,34 @@
+{
+  "strategy_configs": {
+    "PENDLE_WETH_3000": {
+      "strategy_name": "Dynamic_LP",
+      "parameters": {
+        "network": "MAINNET",
+        "chain": "ARBITRUM",
+        "protocol": "UNISWAP_V3",
+        "wallet_address": "0x1B074BF7c58697D18737c2b7e04B4E82001930eA",
+        "cosigner": {
+          "name": "NONE"
+        },
+        "data_source": "COINGECKO_DEX",
+        "max_sadflow_retries": 10,
+        "max_not_included_retries": 10,
+        "initiate_teardown": false,
+        "pause_strategy": false,
+        "run_duration": 32,
+        "granularity": "15m",
+        "time_window": 96,
+        "rebalance_frequency": 9999,
+        "rebalance_price_bounds": 0.8,
+        "volatility_factor": 2,
+        "pool_address": "0xdbaeB7f0DFe3a0AAFD798CCECB5b22E708f7852c",
+        "initialization": {
+          "initial_position_value_USD": 10,
+          "initial_funding_token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+          "initial_token0_pool": "0xdbaeB7f0DFe3a0AAFD798CCECB5b22E708f7852c",
+          "initial_token1_pool": "N/A"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "current_state": "INITIALIZATION",
+  "current_flowstatus": "PREPARING_ACTION",
+  "current_actions": [],
+  "current_substate": "NO_SUBSTATE",
+  "initialized": false,
+  "completed": false,
+  "last_message": "N/A"
+}

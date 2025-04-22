@@ -1,0 +1,15 @@
+{
+  "strategy_configs": {
+    "HelloWorld-1": {
+      "strategy_name": "Tutorial_Hello_World",
+      "parameters": {
+        "network": "MAINNET",
+        "chain": "ARBITRUM",
+        "protocol": "UNISWAP_V3",
+        "initiate_teardown": false,
+        "pause_strategy": false,
+        "message": "There is no second best."
+      }
+    }
+  }
+}

@@ -1,0 +1,197 @@
+[
+    {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "clearance": 2,
+      "executionOptions": 0,
+      "functions": [
+        {
+          "selector": "0x095ea7b3",
+          "executionOptions": 0,
+          "wildcarded": false,
+          "condition": {
+            "paramType": 5,
+            "operator": 5,
+            "children": [
+              {
+                "paramType": 0,
+                "operator": 2,
+                "children": [
+                  {
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x00000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+                  },
+                  {
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "selector": "0xd0e30db0",
+          "executionOptions": 1,
+          "wildcarded": true
+        },
+        {
+          "selector": "0x2e1a7d4d",
+          "executionOptions": 0,
+          "wildcarded": true
+        }
+      ]
+    },
+    {
+      "address": "0x37a645648dF29205C6261289983FB04ECD70b4B3",
+      "clearance": 2,
+      "executionOptions": 0,
+      "functions": [
+        {
+          "selector": "0x095ea7b3",
+          "executionOptions": 0,
+          "wildcarded": false,
+          "condition": {
+            "paramType": 5,
+            "operator": 5,
+            "children": [
+              {
+                "paramType": 0,
+                "operator": 2,
+                "children": [
+                  {
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x00000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+                  },
+                  {
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "address": "0x6985884C4392D348587B19cb9eAAf157F13271cd",
+      "clearance": 2,
+      "executionOptions": 0,
+      "functions": [
+        {
+          "selector": "0x095ea7b3",
+          "executionOptions": 0,
+          "wildcarded": false,
+          "condition": {
+            "paramType": 5,
+            "operator": 5,
+            "children": [
+              {
+                "paramType": 0,
+                "operator": 2,
+                "children": [
+                  {
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x00000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+                  },
+                  {
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "address": "0x9623063377AD1B27544C965cCd7342f7EA7e88C7",
+      "clearance": 2,
+      "executionOptions": 0,
+      "functions": [
+        {
+          "selector": "0x095ea7b3",
+          "executionOptions": 0,
+          "wildcarded": false,
+          "condition": {
+            "paramType": 5,
+            "operator": 5,
+            "children": [
+              {
+                "paramType": 0,
+                "operator": 2,
+                "children": [
+                  {
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x00000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+                  },
+                  {
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "clearance": 2,
+      "executionOptions": 0,
+      "functions": [
+        {
+          "selector": "0x219f5d17",
+          "executionOptions": 0,
+          "wildcarded": true
+        },
+        {
+          "selector": "0x0c49ccbe",
+          "executionOptions": 0,
+          "wildcarded": true
+        },
+        {
+          "selector": "0x88316456",
+          "executionOptions": 0,
+          "wildcarded": true
+        },
+        {
+          "selector": "0xfc6f7865",
+          "executionOptions": 0,
+          "wildcarded": true
+        },
+        {
+          "selector": "0x42966c68",
+          "executionOptions": 0,
+          "wildcarded": true
+        },
+        {
+          "selector": "0xac9650d8",
+          "executionOptions": 0,
+          "wildcarded": true
+        }
+      ]
+    },
+    {
+      "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+      "clearance": 2,
+      "executionOptions": 0,
+      "functions": [
+        {
+          "selector": "0x04e45aaf",
+          "executionOptions": 0,
+          "wildcarded": true
+        }
+      ]
+    }
+  ]

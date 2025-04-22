@@ -1,0 +1,137 @@
+[
+    {
+      "address": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+      "clearance": 2,
+      "executionOptions": 0,
+      "functions": [
+        {
+          "selector": "0x095ea7b3",
+          "executionOptions": 0,
+          "wildcarded": false,
+          "condition": {
+            "$$id": "0x00a50002013000000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc450130000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88",
+            "paramType": 5,
+            "operator": 5,
+            "children": [
+              {
+                "$$id": "0x0002003000000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc450030000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88",
+                "paramType": 0,
+                "operator": 2,
+                "children": [
+                  {
+                    "$$id": "0x003000000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x00000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+                  },
+                  {
+                    "$$id": "0x0030000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88",
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "selector": "0xd0e30db0",
+          "executionOptions": 1,
+          "wildcarded": true
+        },
+        {
+          "selector": "0x2e1a7d4d",
+          "executionOptions": 0,
+          "wildcarded": true
+        }
+      ]
+    },
+    {
+      "address": "0x0c880f6761f1af8d9aa9c466984b80dab9a8c9e8",
+      "clearance": 2,
+      "executionOptions": 0,
+      "functions": [
+        {
+          "selector": "0x095ea7b3",
+          "executionOptions": 0,
+          "wildcarded": false,
+          "condition": {
+            "$$id": "0x00a50002013000000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc450130000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88",
+            "paramType": 5,
+            "operator": 5,
+            "children": [
+              {
+                "$$id": "0x0002003000000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc450030000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88",
+                "paramType": 0,
+                "operator": 2,
+                "children": [
+                  {
+                    "$$id": "0x003000000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc45",
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x00000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc45"
+                  },
+                  {
+                    "$$id": "0x0030000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88",
+                    "paramType": 1,
+                    "operator": 16,
+                    "compValue": "0x000000000000000000000000c36442b4a4522e871399cd717abdd847ab11fe88"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "address": "0xc36442b4a4522e871399cd717abdd847ab11fe88",
+      "clearance": 2,
+      "executionOptions": 0,
+      "functions": [
+        {
+          "selector": "0x219f5d17",
+          "executionOptions": 0,
+          "wildcarded": true
+        },
+        {
+          "selector": "0x0c49ccbe",
+          "executionOptions": 0,
+          "wildcarded": true
+        },
+        {
+          "selector": "0x88316456",
+          "executionOptions": 0,
+          "wildcarded": true
+        },
+        {
+          "selector": "0xfc6f7865",
+          "executionOptions": 0,
+          "wildcarded": true
+        },
+        {
+          "selector": "0x42966c68",
+          "executionOptions": 0,
+          "wildcarded": true
+        },
+        {
+          "selector": "0xac9650d8",
+          "executionOptions": 0,
+          "wildcarded": true
+        }
+      ]
+    },
+    {
+      "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+      "clearance": 2,
+      "executionOptions": 0,
+      "functions": [
+        {
+          "selector": "0x04e45aaf",
+          "executionOptions": 0,
+          "wildcarded": true
+        }
+      ]
+    }
+  ]

@@ -1,0 +1,15 @@
+{
+  "strategy_configs": {
+    "TroubleshootClosePosition": {
+      "strategy_name": "Troubleshoot_Close_Positions",
+      "parameters": {
+        "network": "MAINNET",
+        "chain": "BASE",
+        "protocol": "UNISWAP_V3",
+        "wallet_address": "0x031bA1D433c075f2C4F129FF312d4D27c988c0a4",
+        "specific_positions": [],
+        "specific_pools": []
+      }
+    }
+  }
+}

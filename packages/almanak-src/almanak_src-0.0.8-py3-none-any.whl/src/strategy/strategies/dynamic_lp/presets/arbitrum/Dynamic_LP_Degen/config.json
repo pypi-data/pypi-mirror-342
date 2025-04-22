@@ -1,0 +1,94 @@
+{
+    "strategy_configs": {
+      "DEGEN_ANIME_ETH_3000": {
+        "strategy_name": "Dynamic_LP",
+        "parameters": {
+          "network": "MAINNET",
+          "chain": "ARBITRUM",
+          "protocol": "UNISWAP_V3",
+          "wallet_address": "0x1B074BF7c58697D18737c2b7e04B4E82001930eA",
+          "cosigner": {
+            "name": "NONE"
+          },
+          "data_source": "COINGECKO_DEX",
+          "max_sadflow_retries": 10,
+          "max_not_included_retries": 10,
+          "initiate_teardown": false,
+          "pause_strategy": false,
+          "run_duration": 32,
+          "granularity": "15m",
+          "time_window": 96,
+          "rebalance_frequency": 9999,
+          "rebalance_price_bounds": 0.8,
+          "volatility_factor": 3,
+          "pool_address": "0xBBf3209130dF7d19356d72Eb8a193e2D9Ec5c234",
+          "initialization": {
+            "initial_position_value_USD": 10,
+            "initial_funding_token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "initial_token0_pool": "0xBBf3209130dF7d19356d72Eb8a193e2D9Ec5c234",
+            "initial_token1_pool": "N/A"
+          }
+        }
+      },
+      "DEGEN_ZRO_ETH_3000": {
+        "strategy_name": "Dynamic_LP",
+        "parameters": {
+          "network": "MAINNET",
+          "chain": "ARBITRUM",
+          "protocol": "UNISWAP_V3",
+          "wallet_address": "0x1B074BF7c58697D18737c2b7e04B4E82001930eA",
+          "cosigner": {
+            "name": "NONE"
+          },
+          "data_source": "COINGECKO_DEX",
+          "max_sadflow_retries": 10,
+          "max_not_included_retries": 10,
+          "initiate_teardown": false,
+          "pause_strategy": false,
+          "run_duration": 32,
+          "granularity": "15m",
+          "time_window": 96,
+          "rebalance_frequency": 9999,
+          "rebalance_price_bounds": 0.8,
+          "volatility_factor": 3,
+          "pool_address": "0x4CEf551255EC96d89feC975446301b5C4e164C59",
+          "initialization": {
+            "initial_position_value_USD": 10,
+            "initial_funding_token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "initial_token0_pool": "0x4CEf551255EC96d89feC975446301b5C4e164C59",
+            "initial_token1_pool": "N/A"
+          }
+        }
+      },
+      "DEGEN_ETH_GRT_3000": {
+        "strategy_name": "Dynamic_LP",
+        "parameters": {
+          "network": "MAINNET",
+          "chain": "ARBITRUM",
+          "protocol": "UNISWAP_V3",
+          "wallet_address": "0x1B074BF7c58697D18737c2b7e04B4E82001930eA",
+          "cosigner": {
+            "name": "NONE"
+          },
+          "data_source": "COINGECKO_DEX",
+          "max_sadflow_retries": 10,
+          "max_not_included_retries": 10,
+          "initiate_teardown": false,
+          "pause_strategy": false,
+          "run_duration": 32,
+          "granularity": "15m",
+          "time_window": 96,
+          "rebalance_frequency": 9999,
+          "rebalance_price_bounds": 0.8,
+          "volatility_factor": 3,
+          "pool_address": "0x74d0Ae8B8e1fCA6039707564704a25aD2ee036B0",
+          "initialization": {
+            "initial_position_value_USD": 10,
+            "initial_funding_token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "initial_token0_pool": "N/A",
+            "initial_token1_pool": "0x74d0Ae8B8e1fCA6039707564704a25aD2ee036B0"
+          }
+        }
+      }
+    }
+  }

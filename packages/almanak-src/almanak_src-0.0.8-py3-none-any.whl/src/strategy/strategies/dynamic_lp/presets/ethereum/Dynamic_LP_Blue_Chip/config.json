@@ -1,0 +1,94 @@
+{
+    "strategy_configs": {
+      "AAVE_WETH_3000": {
+        "strategy_name": "Dynamic_LP",
+        "parameters": {
+          "network": "MAINNET",
+          "chain": "ETHEREUM",
+          "protocol": "UNISWAP_V3",
+          "wallet_address": "0x1B074BF7c58697D18737c2b7e04B4E82001930eA",
+          "cosigner": {
+            "name": "NONE"
+          },
+          "data_source": "COINGECKO_DEX",
+          "max_sadflow_retries": 10,
+          "max_not_included_retries": 10,
+          "initiate_teardown": false,
+          "pause_strategy": false,
+          "run_duration": 32,
+          "granularity": "15m",
+          "time_window": 96,
+          "rebalance_frequency": 9999,
+          "rebalance_price_bounds": 0.8,
+          "volatility_factor": 2,
+          "pool_address": "0x5aB53EE1d50eeF2C1DD3d5402789cd27bB52c1bB",
+          "initialization": {
+            "initial_position_value_USD": 10,
+            "initial_funding_token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "initial_token0_pool": "0x5aB53EE1d50eeF2C1DD3d5402789cd27bB52c1bB",
+            "initial_token1_pool": "N/A"
+          }
+        }
+      },
+      "UNI_WETH_3000": {
+        "strategy_name": "Dynamic_LP",
+        "parameters": {
+          "network": "MAINNET",
+          "chain": "ETHEREUM",
+          "protocol": "UNISWAP_V3",
+          "wallet_address": "0x1B074BF7c58697D18737c2b7e04B4E82001930eA",
+          "cosigner": {
+            "name": "NONE"
+          },
+          "data_source": "COINGECKO_DEX",
+          "max_sadflow_retries": 10,
+          "max_not_included_retries": 10,
+          "initiate_teardown": false,
+          "pause_strategy": false,
+          "run_duration": 32,
+          "granularity": "15m",
+          "time_window": 96,
+          "rebalance_frequency": 9999,
+          "rebalance_price_bounds": 0.8,
+          "volatility_factor": 2,
+          "pool_address": "0x1d42064Fc4Beb5F8aAF85F4617AE8b3b5B8Bd801",
+          "initialization": {
+            "initial_position_value_USD": 10,
+            "initial_funding_token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "initial_token0_pool": "0x1d42064Fc4Beb5F8aAF85F4617AE8b3b5B8Bd801",
+            "initial_token1_pool": "N/A"
+          }
+        }
+      },
+      "LINK_WETH_3000": {
+        "strategy_name": "Dynamic_LP",
+        "parameters": {
+          "network": "MAINNET",
+          "chain": "ETHEREUM",
+          "protocol": "UNISWAP_V3",
+          "wallet_address": "0x1B074BF7c58697D18737c2b7e04B4E82001930eA",
+          "cosigner": {
+            "name": "NONE"
+          },
+          "data_source": "COINGECKO_DEX",
+          "max_sadflow_retries": 10,
+          "max_not_included_retries": 10,
+          "initiate_teardown": false,
+          "pause_strategy": false,
+          "run_duration": 32,
+          "granularity": "15m",
+          "time_window": 96,
+          "rebalance_frequency": 9999,
+          "rebalance_price_bounds": 0.8,
+          "volatility_factor": 2,
+          "pool_address": "0xa6Cc3C2531FdaA6Ae1A3CA84c2855806728693e8",
+          "initialization": {
+            "initial_position_value_USD": 10,
+            "initial_funding_token": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+            "initial_token0_pool": "0xa6Cc3C2531FdaA6Ae1A3CA84c2855806728693e8",
+            "initial_token1_pool": "N/A"
+          }
+        }
+      }
+    }
+  }
