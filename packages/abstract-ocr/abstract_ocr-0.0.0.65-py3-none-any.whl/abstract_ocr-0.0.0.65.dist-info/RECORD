@@ -1,0 +1,11 @@
+abstract_ocr/__init__.py,sha256=JhQaHKjltVKEzJzAKXYxJqFbRw71mkSei4iWpVHoRDM,104
+abstract_ocr/audio_utils.py,sha256=NT9Rt1l2PhRyUIeSauEtLdwR0q15pZ9-XBIHQOAr28o,7192
+abstract_ocr/download_pdf.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+abstract_ocr/linetest.py,sha256=Twd_mNtGKc5R3HoXKH7j6vhSLf2W2j96Biiy_IolIZ4,5863
+abstract_ocr/ocr_utils.py,sha256=YhCLDYXpDw7jml8jDwiCVIlWsxFSKoX3-4F6hrzAYyM,5951
+abstract_ocr/pdf_utils.py,sha256=llHfshJXAOb4Uya927eSaus1kTijORj_a_MmESjQCKw,816
+abstract_ocr/video_utils.py,sha256=v-yebq2Jg5T4rknXUComfIluMlNbhdq_ed3PTDNKL6Q,15067
+abstract_ocr-0.0.0.65.dist-info/METADATA,sha256=VJ_IbVxMAVPh8YATl0RRfYvxos1AnOl-ItfQ0_DYi_g,897
+abstract_ocr-0.0.0.65.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+abstract_ocr-0.0.0.65.dist-info/top_level.txt,sha256=NCrJCkd7PCzXo3AZLS1xG4BxX_5wxQ237kJn3q3YZa0,13
+abstract_ocr-0.0.0.65.dist-info/RECORD,,
