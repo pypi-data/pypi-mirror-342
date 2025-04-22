@@ -1,0 +1,181 @@
+[tool.poetry]
+name = "poetry-import-plugin"
+version = "3.0.1"
+description = "Convert requirements.txt to pyproject.toml"
+authors = ["Ben Chen <benbenbang@github.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/benbenbang/poetry-import-plugin"
+keywords = ["poetry", "pyproject", "toml", "requirements", "import"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+packages = [{ include = "poetry_import" }]
+
+[tool.poetry.plugins."poetry.application.plugin"]
+import = "poetry_import:ImportReqPlugin"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+# https://devguide.python.org/versions/
+# end of life cycle:
+# - 3.7
+
+
+[tool.poetry.group.dev.dependencies]
+poetry = "^1.3"
+pre-commit = [
+    { version = ">=3.7.0", python = ">=3.9" },
+    { version = "<3.7.0", python = "<3.9" },
+]
+ipython = [
+    { version = ">=8.23.0", python = ">=3.10" },
+    { version = "<8.23.0", python = "<3.10" },
+    { version = "7.34.0", python = "<3.8" },
+]
+pygments = [
+    { version = ">=2.18.0", python = ">=3.8" },
+    { version = "2.17.2", python = "<3.8" },
+]
+ruff = "^0.4.4"
+
+[tool.poetry.group.tests.dependencies]
+poetry = "^1.3"
+pytest = [
+    { version = "^8.2", python = ">=3.8" },
+    { version = "^7.4.4", python = "<3.8" },
+]
+pytest-mock = [
+    { version = "^3.14.0", python = ">=3.8" },
+    { version = "^3.0.0", python = "<3.8" },
+]
+pytest-cov = [
+    { version = "^5.0.0", extras = [
+        "toml",
+    ], python = ">=3.8" },
+    { version = "^4.0.0", extras = [
+        "toml",
+    ], python = "<3.8" },
+]
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = { version = "~1.6", python = ">=3.8" }
+mkdocs-material = { version = "~9.5", python = ">=3.8" }
+
+# [tool.poetry.group.publish.dependencies]
+# twine = "^5.0.0"
+# Note: having issue with docutils, install it when we need it for now
+# Package docutils (0.21.post1) not found.
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+reportImplicitStringConcatenation = false
+
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+unfixable = []
+# exclude = ["ALL"]
+# select = ["PL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.pytest.ini_options]
+addopts = '--basetemp=/tmp/pytest'
+# switch on `-s` for deep debuging
+# addopts = '-s --basetemp=/tmp/pytest'
+
+filterwarnings = [
+    "ignore:.*AsyncMockMixin.*:RuntimeWarning",
+    "ignore:.*pkg_resources.*:DeprecationWarning",
+    "ignore:.*content.*:DeprecationWarning",
+]
+
+testpaths = ["tests/"]
+
+markers = ["unittests: run unittests", "integrationtests: run integrationtests"]
+
+[tool.mypy]
+ignore_missing_imports = true
+warn_unreachable = true
+
+[tool.black]
+line-length = 120
+exclude = '''
+/(
+  | {{ cookiecutter.* }}
+  | hooks
+  | .venv
+  | .cache
+)/
+'''
+
+[tool.coverage.run]
+omit = ["tests/*", "**/__init__.py"]
+source = ["."]
+parallel = true
+
+[tool.coverage.report]
+exclude_lines = ["if TYPE_CHECKING:", '\.\.\.']
+exclude_also = [
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@(abc.)?abstractmethod",
+    '\.\.\.',
+]
