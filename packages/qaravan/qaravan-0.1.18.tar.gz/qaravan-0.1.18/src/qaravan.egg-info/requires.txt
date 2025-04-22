@@ -1,0 +1,5 @@
+numpy>=2.2.4
+scipy>=1.15.2
+matplotlib>=3.10.1
+tqdm>=4.67.1
+ncon>=2.0.0
