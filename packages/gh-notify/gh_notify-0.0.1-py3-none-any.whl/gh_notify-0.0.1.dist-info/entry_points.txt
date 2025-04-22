@@ -1,0 +1,2 @@
+[console_scripts]
+gh-notify = gh_notify:app
