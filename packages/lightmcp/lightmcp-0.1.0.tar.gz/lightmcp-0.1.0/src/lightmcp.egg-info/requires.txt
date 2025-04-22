@@ -1,0 +1,12 @@
+fastmcp>=0.1.0
+requests>=2.25.0
+
+[all]
+notion-client>=1.0.0
+requests>=2.25.0
+
+[github]
+requests>=2.25.0
+
+[notion]
+notion-client>=1.0.0

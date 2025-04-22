@@ -1,0 +1,33 @@
+[project]
+name = "lightmcp"
+version = "0.1.0"
+description = "A lightweight MCP tool layer for LLM agent frameworks."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+  { name = "Gök Bora Yılmaz", email = "gokbora@lightmcp.dev" }
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Libraries"
+]
+dependencies = [
+  "fastmcp>=0.1.0",
+  "requests>=2.25.0"
+]
+
+[project.optional-dependencies]
+notion = ["notion-client>=1.0.0"]
+github = ["requests>=2.25.0"]
+all = ["notion-client>=1.0.0", "requests>=2.25.0"]
+
+[project.scripts]
+lightmcp = "lightmcp.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

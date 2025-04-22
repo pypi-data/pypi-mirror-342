@@ -1,0 +1,4 @@
+{
+  "notion.query_tasks": "toolz/notion/query_tasks.py",
+  "github.list_issues": "toolz/github/list_issues.py"
+}
