@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: django-crm-events
+Version: 1.0.16
+Requires-Dist: Django
+Requires-Dist: requests
+Requires-Dist: cachetools
+Dynamic: requires-dist
