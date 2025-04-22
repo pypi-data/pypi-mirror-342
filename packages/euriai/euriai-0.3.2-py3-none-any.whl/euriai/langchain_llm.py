@@ -1,0 +1,29 @@
+from langchain_core.language_models.llms import LLM
+from typing import Optional, List
+from pydantic import PrivateAttr
+from .client import EuriaiClient
+
+
+class EuriaiLangChainLLM(LLM):
+    model: str = "gpt-4.1-nano"
+    temperature: float = 0.7
+    max_tokens: int = 300
+
+    _client: EuriaiClient = PrivateAttr()
+
+    def __init__(self, api_key: str, model: str = "gpt-4.1-nano", temperature: float = 0.7, max_tokens: int = 300):
+        super().__init__(model=model, temperature=temperature, max_tokens=max_tokens)
+        self._client = EuriaiClient(api_key=api_key, model=model)
+
+    @property
+    def _llm_type(self) -> str:
+        return "euriai"
+
+    def _call(self, prompt: str, stop: Optional[List[str]] = None) -> str:
+        response = self._client.generate_completion(
+            prompt=prompt,
+            temperature=self.temperature,
+            max_tokens=self.max_tokens,
+            stop=stop
+        )
+        return response.get("choices", [{}])[0].get("message", {}).get("content", "")
