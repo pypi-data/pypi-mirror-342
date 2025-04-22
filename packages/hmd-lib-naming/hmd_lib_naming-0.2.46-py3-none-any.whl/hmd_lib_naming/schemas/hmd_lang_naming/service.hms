@@ -1,0 +1,24 @@
+{
+  "name": "service",
+  "namespace": "hmd_lang_naming",
+  "metatype": "noun",
+  "attributes": {
+    "name": {
+      "type": "string",
+      "description": "Name of service",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the service"
+    },
+    "httpEndpoint": {
+      "type": "string",
+      "description": "HTTP URL endpoint used to access the service"
+    },
+    "arnEndpoint": {
+      "type": "string",
+      "description": "Lambda ARN for the service"
+    }
+  }
+}

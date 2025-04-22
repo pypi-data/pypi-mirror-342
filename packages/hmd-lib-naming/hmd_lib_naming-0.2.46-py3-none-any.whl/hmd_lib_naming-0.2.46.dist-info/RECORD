@@ -1,0 +1,10 @@
+hmd_lib_naming/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+hmd_lib_naming/hmd_lib_naming.py,sha256=gyNJtcnDJvtjc6VYjXvxC6lqiPjdAA3SbOdn6sOt3tU,2948
+hmd_lib_naming/service_manager.py,sha256=7Ic4BVcm2baK-DNyahm3pLTewMt7EF2MhiYZC0zODMg,5058
+hmd_lib_naming/schemas/hmd_lang_naming/service.hms,sha256=PNPWxgT0WPRmshIaW-nAp28C57wXr-KMrcLzJY9lWKQ,535
+hmd_lib_naming/schemas/hmd_lang_naming/service_consists_of_repo_instance_deployment.hms,sha256=SA71NGeNCGWfUW1hNmALM5o4f3htTbADOgLMsy64DUc,246
+hmd_lib_naming/schemas/hmd_lang_naming/service_is_in_environment.hms,sha256=vWqC4XRiOcjWWAF866kXrXT3o6IyXLAMdbGNJeovvHw,214
+hmd_lib_naming-0.2.46.dist-info/METADATA,sha256=I1kNvAko4IMqZhBotAOzxDi7ZLgLaNvhAWv_Iw3NoTI,2537
+hmd_lib_naming-0.2.46.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+hmd_lib_naming-0.2.46.dist-info/top_level.txt,sha256=fG1Q0BJvhWyylIHLLHOeN4x-sqlgryetRdij2ZhLCS0,15
+hmd_lib_naming-0.2.46.dist-info/RECORD,,
