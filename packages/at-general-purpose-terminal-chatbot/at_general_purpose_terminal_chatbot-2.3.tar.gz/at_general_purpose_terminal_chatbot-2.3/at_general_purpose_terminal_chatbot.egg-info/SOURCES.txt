@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.py
+at_general_purpose_terminal_chatbot.egg-info/PKG-INFO
+at_general_purpose_terminal_chatbot.egg-info/SOURCES.txt
+at_general_purpose_terminal_chatbot.egg-info/dependency_links.txt
+at_general_purpose_terminal_chatbot.egg-info/entry_points.txt
+at_general_purpose_terminal_chatbot.egg-info/requires.txt
+at_general_purpose_terminal_chatbot.egg-info/top_level.txt
+atgeneralpurposeterminalchatbot/.env
+atgeneralpurposeterminalchatbot/__init__.py
+atgeneralpurposeterminalchatbot/main.py
