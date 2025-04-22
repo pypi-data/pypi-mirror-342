@@ -1,0 +1,6 @@
+opentelemetry/exporter/otlp/proto/http/sigv4/__init__.py,sha256=4xf0gM6WNJiam1EPSiEV0dBS-nQWP6Axf0VOQbt8B5M,185
+opentelemetry/exporter/otlp/proto/http/sigv4/exporter.py,sha256=QYgD2_DbGlNh9ijuFM9KFGD1rwNbFPWnLfi9G-UCJOE,7220
+otel_sigv4_exporter-0.1.0.dist-info/METADATA,sha256=oj4FvHsiJhaNrWKmBbAe6w6esAISVeXF6GcPwe8HPt0,447
+otel_sigv4_exporter-0.1.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+otel_sigv4_exporter-0.1.0.dist-info/top_level.txt,sha256=5p97iTMneNm1LAKDalzEVpYhvPZsaqJZzdLuD_upSaQ,14
+otel_sigv4_exporter-0.1.0.dist-info/RECORD,,
