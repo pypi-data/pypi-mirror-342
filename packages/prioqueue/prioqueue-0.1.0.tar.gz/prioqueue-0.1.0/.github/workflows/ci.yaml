@@ -1,0 +1,34 @@
+name: Continuous Integration
+
+on: 
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint with ruff
+        uses: astral-sh/ruff-action@v3
+
+      - name: Check formatting with ruff
+        uses: astral-sh/ruff-action@v3
+        with:
+          args: "format --check --diff"
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          # Install a specific version of uv.
+          version: "0.6.14"
+
+      - name: Build the project
+        run: uv build

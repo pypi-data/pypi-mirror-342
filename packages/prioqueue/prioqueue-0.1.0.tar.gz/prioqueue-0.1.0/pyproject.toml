@@ -1,0 +1,29 @@
+[project]
+name = "prioqueue"
+version = "0.1.0"
+authors = [
+    { name = "Michael Hankin", email = "mjhankin1@gmail.com" }
+]
+description = "A min priority queue, based on heapq"
+readme = "README.md"
+requires-python = ">=3.13"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/michaelhankin/prioqueue"
+Issues = "https://github.com/michaelhankin/prioqueue/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+    "ruff>=0.11.6",
+]
