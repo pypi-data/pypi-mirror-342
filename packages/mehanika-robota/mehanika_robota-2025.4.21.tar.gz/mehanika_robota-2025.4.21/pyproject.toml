@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools >= 72.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mehanika_robota"
+version = "2025.4.21"
+dependencies = [
+    "numpy",
+    "pyniryo",
+    "pytest",
+    "ruff"
+]
+requires-python = ">= 3.12"
+authors = [
+    {name = "Vuk Todorovic", email = "vuk.todorovic01@gmail.com"}
+]
+maintainers = [
+    {name = "Vuk Todorovic", email = "vuk.todorovic01@gmail.com"}
+]
+description = "Biblioteka za proracun mehanike robota"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["mehanika", "roboti", "robotika", "inverzna kinematika"]
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Natural Language :: Serbian",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Education :: Testing",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.urls]
+homepage = "https://github.com/VuckoT/mehanika_robota"
+documentation = "https://github.com/VuckoT/mehanika_robota"
+source = "https://github.com/VuckoT/mehanika_robota/mehanika_robota"
+
+[tool.setuptools.packages.find]
+include = ["mehanika_robota*"]
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+# Enable E501 (line-too-long), I (sorted imports) rules, in addition to the
+# defaults
+select = ["E4", "E7", "E9", "F", "E501"]
+
+# Ignore E402 (module-import-not-at-top-of-file) because the docstrings are set
+# at the top of files
+ignore = ["E402"]
+
+[tool.ruff.lint.per-file-ignores]
+# Ignore `E402` (import violations) in all `__init__.py` files
+"__init__.py" = ["F403", "F401"]
