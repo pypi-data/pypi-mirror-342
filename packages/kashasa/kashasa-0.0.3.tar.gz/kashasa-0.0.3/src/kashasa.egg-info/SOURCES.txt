@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/kashasa/__init__.py
+src/kashasa/base.py
+src/kashasa/compat.py
+src/kashasa/native.py
+src/kashasa.egg-info/PKG-INFO
+src/kashasa.egg-info/SOURCES.txt
+src/kashasa.egg-info/dependency_links.txt
+src/kashasa.egg-info/requires.txt
+src/kashasa.egg-info/top_level.txt
