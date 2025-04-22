@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: awesome_pipeline
+Version: 0.0.8
+Summary: A framework for data standardised pipeline  platform
+Author: Andy Yang
+Author-email: yong.yang@health.nsw.gov.au
+License: private
+Keywords: None
+Requires-Python: >3.6
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: xmltodict
+Requires-Dist: sqlalchemy
+Requires-Dist: pyyaml
+Requires-Dist: beautifulsoup4
+Requires-Dist: pandasql
+Requires-Dist: cryptography
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Overview
+This project is used to build data ETL standardised pipeline
+
+The whole process works from end to end
+## Requirements
+Install the program.
+
+If you need to run the  pipeline, you need to this package first
+
+
+### Installation Instructions
+To install the package, run the following command in the base folder including 
+the `setup.py`
+
+``
+pip install -e .
+``
