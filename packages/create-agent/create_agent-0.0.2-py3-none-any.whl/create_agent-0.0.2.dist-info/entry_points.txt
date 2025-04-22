@@ -1,0 +1,2 @@
+[console_scripts]
+create-agent = create_agent.cli:main
