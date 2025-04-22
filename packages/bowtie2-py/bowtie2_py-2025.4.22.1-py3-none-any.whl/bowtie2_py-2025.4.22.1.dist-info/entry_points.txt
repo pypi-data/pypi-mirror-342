@@ -1,0 +1,2 @@
+[console_scripts]
+bowtie2 = bowtie2_py.main:main
