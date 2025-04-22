@@ -1,0 +1,267 @@
+"""Utility functions."""
+
+import warnings
+from typing import Tuple, Union
+
+import numpy as np
+from scipy.spatial import KDTree
+
+
+def _project_vector_onto_plane(vector, plane_normal):
+    """Project vector onto a plane defined by its normal.
+
+    Inputs should be normalized; output will be normalized.
+    """
+    normal_component = np.dot(vector, plane_normal)
+    if normal_component == 0:
+        # perfectly aligned
+        return vector
+    proj_plane = vector - normal_component * plane_normal
+    proj_plane /= np.linalg.norm(proj_plane)
+    return proj_plane
+
+
+def coaxial_y_vectors_from_z_vectors(
+    z: np.ndarray,
+    initial_y_vector: Union[np.ndarray, Tuple[float, float, float]] = (
+        0.3234,
+        0.6543,
+        0.978,
+    ),
+) -> np.ndarray:
+    """Calculate y vectors starting from z vectors.
+
+    This function will return the set of unit vectors perpendicular to the z-vectors
+    which are maximally coaxial to their neighbours. It assumes that z vectors (n, 3)
+    vary smoothly with increasing n.
+
+    Parameters
+    ----------
+    z : np.ndarray (n, 3)
+        The z vectors used to generate y vectors.
+    initial_y_vector: Union[np.ndarray, Tuple[float, float, float]]
+        The starting y vector projected onto the first z vector to start the projection
+        procedure. The default value is weird to make it less likely to match a manual
+        entry such as [0, 0, 1] or other simple values.
+
+    Returns
+    -------
+    y : np.ndarray (n, 3)
+        The computed y vectors.
+    """
+    # normalise z vectors and initialise y
+    z = z.copy()
+    z /= np.linalg.norm(z, axis=1, keepdims=True)
+    y = np.empty((len(z), 3))
+
+    if np.dot(initial_y_vector, z[0]) == 1:
+        raise ValueError(
+            "cannot generate y vectors because the provided initial_y_vector "
+            "and the first z vector are perfectly aligned."
+        )
+    # normalise initial y vector so that dot product is the projection
+    initial_y_vector = initial_y_vector / np.linalg.norm(initial_y_vector)
+
+    # initialise first y
+    y[0] = _project_vector_onto_plane(initial_y_vector, z[0])
+
+    # update y vectors in order
+    for i in range(len(y) - 1):
+        y[i + 1] = _project_vector_onto_plane(y[i], z[i + 1])
+    return np.atleast_2d(y)
+
+
+def deduplicate_points(coords: np.ndarray, exclusion_radius: float) -> np.ndarray:
+    """Remove "duplicates" points from an (n, 3) array of coordinates.
+
+    Points are clustered with their neighbours if they are closer than exclusion_radius.
+    Clusters are iteratively replaced with their centroid until no clusters remain.
+    """
+    coords = coords.copy()
+    while True:
+        tree = KDTree(coords)
+        # get clusters sorted by size (biggest first)
+        clusters = tree.query_ball_point(coords, exclusion_radius, workers=-1)
+        clusters_sorted = sorted(clusters, key=len, reverse=True)
+        biggest = clusters_sorted[0]
+        if len(biggest) == 1:
+            # we reached the degenerate clusters of points with themselves
+            break
+        centroid = np.mean(coords[biggest], axis=0)
+        coords[biggest[0]] = centroid
+
+        mask = np.ones(len(coords), np.bool)
+        mask[biggest[1:]] = False
+        coords = coords[mask]
+
+    return coords
+
+
+def minimize_closed_point_row_pair_distance(strips, expected_dist=None):
+    # assume closed, circular strips with equal length
+    result = [strips[0]]
+    ln = len(strips[0])
+    for arr, next in zip(strips, strips[1:]):
+        best_dist = None
+        for i in range(ln):
+            next_rolled = np.roll(next, i, axis=0)
+            roll_dist = np.linalg.norm(arr - next, axis=1)
+            avg_dist = np.mean(roll_dist)
+            if best_dist is None or avg_dist < best_dist:
+                best_dist = avg_dist
+                best_arr = next_rolled
+        if expected_dist is not None and best_dist >= expected_dist * np.sqrt(2):
+            warnings.warn(
+                "The grid is sheared by more than 1 separation in some places",
+                stacklevel=2,
+            )
+        result.append(best_arr)
+    return result
+
+
+def estimate_point_row_directions(rows):
+    """
+    Guess the directionality of rows of points relative to each other.
+
+    Returns a list of 1 or -1 that can be used as slice steps to index into
+    each row and obtain correctly oriented rows.
+
+    Direction is assumed to need inversion if the extrema of two subsequent rows
+    are closer to each other when swapped.
+    """
+    directions = [1]
+    for arr, next in zip(rows, rows[1:]):
+        start_dist = np.linalg.norm(arr[0] - next[0])
+        end_dist = np.linalg.norm(arr[-1] - next[-1])
+        dist = start_dist + end_dist
+        # now invert direction
+        start_dist_inv = np.linalg.norm(arr[0] - next[-1])
+        end_dist_inv = np.linalg.norm(arr[-1] - next[0])
+        dist_inv = start_dist_inv + end_dist_inv
+        if dist_inv < dist:
+            # opposite of previous direction
+            directions.append(-directions[-1])
+        else:
+            directions.append(directions[-1])
+    return directions
+
+
+def minimize_point_row_pair_distance(rows, expected_dist=None):
+    """Minimize average pair distance at the same index between any number of point rows.
+
+    Given rows of points lying on curves (row, n, xyz), offsets indices in each row in order
+    to minimize the euclidean distance between points with the same index in neighbouring rows.
+
+    Once the optimal offsets are found, rows are padded on both ends with nans so they are all the same length.
+
+    For example (- is nan, o is a real point, O are points that participated in the minimum distances):
+    -OOOo--
+    oOOO---
+    -OOOooo
+    """
+    min_idx = 0
+    max_idx = max(len(s) for s in rows)
+    offsets = [0]
+    # iterate over each row pair
+    for arr, next in zip(rows, rows[1:]):
+        # pad with enough nans to be able to offset the rows fully without
+        # having them roll over to the beginning
+        arr_padded = np.pad(
+            arr, ((len(next), len(next)), (0, 0)), constant_values=np.nan
+        )
+        next_padded = np.pad(
+            next, ((0, len(next) + len(arr)), (0, 0)), constant_values=np.nan
+        )
+        tot_len = len(next) + len(arr) + len(next)
+
+        # iterate over all possible offset values,
+        best_roll_idx = 0
+        best_dist = np.inf
+        for i in range(tot_len):
+            # roll the next row by 1 relative to the previous iteration
+            next_rolled = np.roll(next_padded, i, axis=0)
+            # calculate distance for each index pair and average it ignoring nans
+            roll_dist = np.linalg.norm(arr_padded - next_rolled, axis=1)
+            avg_dist = np.nanmean(roll_dist)
+
+            if np.isnan(avg_dist):
+                continue
+
+            if avg_dist < best_dist:
+                # if we got a lower average, save this as the best offset
+                best_dist = avg_dist
+                best_roll_idx = i
+
+        if expected_dist is not None and best_dist >= expected_dist * np.sqrt(2):
+            warnings.warn(
+                "The grid is sheared by more than 1 separation in some places",
+                stacklevel=2,
+            )
+
+        # we have the offset that minimises distances
+        offset = best_roll_idx - len(next)
+        total_offset = offset + offsets[-1]
+        offsets.append(total_offset)
+
+    # construct final aligned arrays by offsetting each row by the optimal offset and padding
+    # everything so that the lengths are all equal
+    aligned = []
+    min_idx = min(offsets)
+    max_idx = max(o + len(a) for o, a in zip(offsets, rows))
+    for arr, offset in zip(rows, offsets):
+        padded = np.pad(
+            arr,
+            ((offset - min_idx, max_idx - offset - len(arr)), (0, 0)),
+            mode="constant",
+            constant_values=np.nan,
+        )
+        aligned.append(padded)
+    return aligned
+
+
+def extrapolate_once(strips):
+    strips = strips.copy()
+    for strip in strips:
+        for direction in (-1, 1):
+            strip = strip[::-1]
+            nans = np.isnan(strip[:, 0])
+            first_finite = np.argmax(~nans)
+            if first_finite not in (0, len(strip) - 1):
+                strip[first_finite - 1] = strip[first_finite] + (strip[first_finite] - strip[first_finite + 1])
+    return strips
+
+
+def extrapolate_point_rows(strips):
+    while np.any(np.isnan(strips)):
+        extended_row = extrapolate_once(strips)
+        extended_col = extrapolate_once(strips.swapaxes(0, 1)).swapaxes(0, 1)
+        strips = np.nanmean([extended_row, extended_col], axis=0)
+    return strips
+
+
+def within_range(arr, low, high, atol=1e-15):
+    """Determine which elements in an array are within a range, with a given tolerance.
+
+    Equivalent to np.where(np.logical_and(arr>=low, arr<=high)), but with tolerance
+    for numerical imprecision.
+    """
+    diff_from_min = arr - low
+    diff_from_max = arr - high
+    above_min = (diff_from_min >= 0) | np.isclose(diff_from_min, 0, atol=atol)
+    below_max = (diff_from_max <= 0) | np.isclose(diff_from_max, 0, atol=atol)
+    return above_min & below_max
+
+
+def strip_true(arr):
+    """Strip the leading and trailing False from a bool array."""
+    first, last = get_mask_limits(arr)
+    return arr[first:last]
+
+
+def get_mask_limits(mask):
+    mask = np.pad(mask, 1)
+    beginnings = (mask ^ np.roll(mask, 1)) & mask
+    beginnings = np.where(beginnings)[0]
+    ends = (mask ^ np.roll(mask, -1)) & mask
+    ends = np.where(ends)[0]
+    return [(b - 1, e - 1) for b, e in zip(beginnings, ends) if b != e]
