@@ -1,0 +1,18 @@
+print("""
+The Zen of Spaghetti Code Maintenance
+      
+MORE SPAGHETTI THAN AN ITALIAN RESTAURANT!!!!!
+        
+NEVER BREAK SPAGHETTI!
+Add oil.
+Cook until soft.
+Make some homemade sauce.
+Add spice and alcohol if you are feeling naughty.
+Mix sauce into spaghetti and serve while while hot.
+Garnish with some fresh parsley.
+Go light on cheese!
+""")
+
+# Cudos Shaedil to  https://github.com/Shaedil/spaghetti-and-quines/
+_='_=%r #exec("""\n #@@@&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #    ========@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@ def MAMAMIAAAAA @@@@-:f#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@                    or sb, rs@@@@,  es in os.w@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@@@@@al   k  ".  /m  amami   a"-:@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@@@@@@@@f or f  iN Ne in es:pth= sb+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@@@@@@@o s.sep +f  iN  Neif pt   h.ends  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@@@@@@@@w  ith           ".s    auce"-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@o    rpth.endswit h@@@h ".pi@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@zz a"-o@r @@@fpth.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@e ndswi th " .noo@dl e@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@s "_   -:pr int fp th-f iN@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@N e=f p@@@@t h.rsplit   o s.split os@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@@@.@sep,1-[1]@f p=f pth.rsplit os.se  p,1-[1  ]col.st a@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@r t  fp+os.sep+fi  NN e,10-def ASasdfjlkal  sdj -:for sd  ,@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@ @@d, finos .walk ". /mamami       a"-:# mama miamam  @@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@a  mia mamam iaforflinf :#m  amama miama mamiamamami  afp= s@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@d +o  s.sep   +fl#mama   miamam  amiamamamiamamam ia if  fp .@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@ends  with   ".spaghetti "--:print fp-#Inallseri ousness ness, th i@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@s finds      filesendin  gin .noodles-, .  sauce-,and   .pi zza -an @@@@@@@@@@@@@#\n #@@@@@@@@@@@@d prints theirrelative file  pa ths"   -;pri  n t -----#----    "def MAMA@@@@@@@@@@@@@#\n #@@@@@@@@@@M IAAA AA -:forsb,rs ,e si nos.  walk "   ./ mam am  ia"-  :forfiN Nei  nes:@@@@@@@@@@@@#\n #@@@@@@@@@@ pth  =sb+ os.sep+f iN Ne if pth.e   ndswith   "  .sa uce"- orpth. ends with@@@@@@@@@@@@#\n #@@@@@@ ".pizza "- orfp     t  h.ends ".noodle s"--:print f pth  -fi NNe=fp th.rs pl it@@@@@@@@@@@@#\n #@@@  os.sep,1-[1]fp=fpth.rspl it os.sep,1-[0]col.start fp+os.  sep+fiNN e,1 0-defASa sd fjl  k @@@#\n #@a lsdj -:forsd ,d  ,fino  s.wal k "./mamamia"-:#mamamia mama   miamamamiaf orflin f: #mamam   #@@#\n #@i amamamiamamam  iafp=sd+os.sep+    fl#mama  miam amamia mamamiamamamiam amami   aif   fp.end  #@#\n #@@sw ith ".spag hetti"--:     print fp-#Inall seriousness,thisfindsfiles  endin     gin .noodles-@#\n #@@@@@@  .sauce-,and .pizza-andprintstheir relative filepaths-;%%%%%&&@@@@@@@@@@%.   *@@@@@@@@@@@@@#\n #@@@@@@@@@@/ .#@@@@@@@@@@@@@@@@@@@@&&&&&&%%%%%%%%%%%%%%%%&&&@@@@@@@@@@@@@@@@@%#.  &@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@%#,.            , ///%%%%%&@@@@@@&&&&&@&%% //, .  . @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@&% /,....  ...*  %%&&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#\n """);\nprint(_%%_)';
+print(_)
