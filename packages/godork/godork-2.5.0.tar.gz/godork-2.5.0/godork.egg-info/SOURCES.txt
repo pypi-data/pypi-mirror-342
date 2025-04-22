@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+godork.egg-info/PKG-INFO
+godork.egg-info/SOURCES.txt
+godork.egg-info/dependency_links.txt
+godork.egg-info/entry_points.txt
+godork.egg-info/requires.txt
+godork.egg-info/top_level.txt
+services/__init__.py
+services/driver.py
+services/recaptcha.py
+services/requester.py
+services/scrape.py
+services/update.py
+services/version.py
