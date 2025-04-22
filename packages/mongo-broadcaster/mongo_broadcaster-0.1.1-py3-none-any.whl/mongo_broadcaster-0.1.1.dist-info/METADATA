@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: mongo-broadcaster
+Version: 0.1.1
+Summary: Broadcast MongoDB change streams to WebSocket, Redis, HTTP, and more
+Author-email: Abdulazeez Abdulazeez Adeshina <youngestdev@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/Youngestdev/broadcaster
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Database :: Database Engines/Servers
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pymongo>=4.0
+Requires-Dist: motor>=3.0
+Requires-Dist: pydantic>=2.0
+Requires-Dist: aiohttp>=3.8
+Requires-Dist: redis>=5.2.1
+Requires-Dist: tenacity>=9.1.2
+Provides-Extra: fastapi
+Requires-Dist: fastapi>=0.95.0; extra == "fastapi"
+Requires-Dist: sse-starlette>=1.0.0; extra == "fastapi"
+Provides-Extra: test
+Requires-Dist: pytest-asyncio; extra == "test"
+Requires-Dist: pytest-mock; extra == "test"
+Dynamic: license-file
+
+# broadcaster
+Broadcast MongoDB change streams to WebSocket, Redis, HTTP, and more
