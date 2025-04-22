@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: hi-motor-designer
+Version: 0.1.0
+Author-email: Hi-Motor Team <hi.motor.cn@gmail.com>, Mingyang Bao <mingyangbob@gmail.com>
+Maintainer-email: Hi-Motor Team <hi.motor.cn@gmail.com>, Mingyang Bao <mingyangbob@gmail.com>
+Project-URL: Homepage, https://designer.hi-motor.site
+Project-URL: Documentation, https://designer.hi-motor.site/getting-start/what-is-hmd
+Project-URL: Repository, https://github.com/Hi-Motor/Hi-Motor-Designer.git
+Project-URL: Download, https://github.com/Hi-Motor/Hi-Motor-Designer/releases/latest
+Project-URL: Issues, https://github.com/Hi-Motor/Hi-Motor-Designer/issues
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Provides-Extra: dev
+Dynamic: license-file
+
+# Hi-Motor-Designer Release
+本仓库不包含 Hi-motor Designer 源代码，仅记录 Hi-motor Designer 发行版的版本更新及提供安装包。
+
