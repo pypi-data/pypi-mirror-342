@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+app/python_sample_xlsx_report/__init__.py
+app/python_sample_xlsx_report.egg-info/PKG-INFO
+app/python_sample_xlsx_report.egg-info/SOURCES.txt
+app/python_sample_xlsx_report.egg-info/dependency_links.txt
+app/python_sample_xlsx_report.egg-info/requires.txt
+app/python_sample_xlsx_report.egg-info/top_level.txt
+app/python_sample_xlsx_report/src/__init__.py
+app/python_sample_xlsx_report/src/python_generate_xlsx_report.py
+app/python_sample_xlsx_report/test/__init__.py
