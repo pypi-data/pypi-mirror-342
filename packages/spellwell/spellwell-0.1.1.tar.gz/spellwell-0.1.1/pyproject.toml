@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "spellwell"
+version = "0.1.1"
+description = "SpellWell is a CLI application which allows you to practice spelling using your own wordlist."
+authors = ["Emil <emil@wirely.se>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/ehmiiz/SpellWell"
+repository = "https://github.com/ehmiiz/SpellWell"
+documentation = "https://github.com/ehmiiz/SpellWell"
+packages = [{include = "spellwell"}]
+
+[tool.poetry.dependencies]
+python = ">=3.13"
+click = ">=8.1.8,<9.0.0"
+rich = ">=14.0.0,<15.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.3.5,<9.0.0"
+
+[tool.poetry.scripts]
+spellwell = "spellwell.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
