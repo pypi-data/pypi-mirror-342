@@ -1,0 +1,100 @@
+Metadata-Version: 2.4
+Name: merkle-patricia-trie
+Version: 0.4.0
+Summary: A simlpe Merkle Patricia Trie implementation
+Author-email: sterliakov <terlya.stas@gmail.com>
+License: Copyright (c) 2019 Igor Aleksanov
+        
+        Permission is hereby granted, free of charge, to any
+        person obtaining a copy of this software and associated
+        documentation files (the "Software"), to deal in the
+        Software without restriction, including without
+        limitation the rights to use, copy, modify, merge,
+        publish, distribute, sublicense, and/or sell copies of
+        the Software, and to permit persons to whom the Software
+        is furnished to do so, subject to the following
+        conditions:
+        
+        The above copyright notice and this permission notice
+        shall be included in all copies or substantial portions
+        of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF
+        ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+        TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+        PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT
+        SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+        CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+        OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
+        IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+        DEALINGS IN THE SOFTWARE.
+        
+Project-URL: Home, https://github.com/sterliakov/merkle-patricia-trie
+Project-URL: Issues, https://github.com/sterliakov/merkle-patricia-trie/issues
+Project-URL: Source, https://github.com/sterliakov/merkle-patricia-trie
+Keywords: trie,data-structures,datastructures,merkle-patricia-trie,blockchain,ethereum
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security :: Cryptography
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pycryptodome<4,>=3.22.0
+Requires-Dist: rlp<5.0,>=2.0
+Dynamic: license-file
+
+[![PyPi Version](https://img.shields.io/pypi/v/merkle-patricia-trie.svg)](https://pypi.python.org/pypi/merkle-patricia-trie/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/merkle-patricia-trie.svg)](https://pypi.python.org/pypi/merkle-patricia-trie/)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Code style: black](https://img.shields.io/badge/code%20style-blue-blue.svg)](https://blue.readthedocs.io/)
+
+
+# Credits
+
+This is a fork of [eth_mpt](https://github.com/popzxc/merkle-patricia-trie) package with minor improvements.
+
+# Modified Merkle Paticia Trie
+
+MPT is the data structure used in [Ethereum](https://www.ethereum.org/) as a cryptographically authenticated key-value data storage.
+
+This library is a Python implementation of Modified Merkle Patrica Trie with a very simple interface.
+
+## Example
+
+```python
+storage = {}
+trie = MerklePatriciaTrie(storage)
+
+trie.update(b'do', b'verb')
+trie.update(b'dog', b'puppy')
+trie.update(b'doge', b'coin')
+trie.update(b'horse', b'stallion')
+
+old_root = trie.root()
+old_root_hash = trie.root_hash()
+
+print("Root hash is {}".format(old_root_hash.hex()))
+
+trie.delete(b'doge')
+
+print("New root hash is {}".format(trie.root_hash().hex()))
+
+trie_from_old_hash = MerklePatriciaTrie(storage, root=old_root)
+
+print(trie_from_old_hash.get(b'doge'))
+
+try:
+    print(trie.get(b'doge'))
+except KeyError:
+    print('Not accessible in a new trie.')
+```
+
+## Installing
+
+Install and update using [pip](https://pip.pypa.io/en/stable/quickstart/):
+
+```
+pip install -U mercle_patricia_trie
+```
