@@ -1,0 +1,2 @@
+[console_scripts]
+aided = aided.__main__:main
