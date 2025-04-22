@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "extract-numbers"
+version = "1.0.1"
+description = "Extract numbers from strings with support for commas, decimals, negatives, and the European format."
+authors = [
+  { name="Talha Awan", email="talha@talhaawan.net" }
+]
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = []
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/talhaawan/extract-numbers"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.package-data]
+"extract_numbers" = ["py.typed"]
+
+[tool.mypy]
+python_version = "3.7"
+strict = true
+ignore_missing_imports = true
+
+keywords = [
+    "extract", "get", "find", "number", "numbers", "text", "string", "regex", "parser", "python"
+]
+
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Text Processing :: Linguistic",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
