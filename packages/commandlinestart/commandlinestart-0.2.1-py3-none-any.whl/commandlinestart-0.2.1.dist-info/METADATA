@@ -1,0 +1,12 @@
+Metadata-Version: 2.3
+Name: commandlinestart
+Version: 0.2.1
+Summary: 
+Author: Aleksandr Yurlov
+Author-email: Sasha.yur@mail.ru
+Requires-Python: >=3.12,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: rich (>=13.9.4,<14.0.0)
+Requires-Dist: typer (>=0.13.1,<0.14.0)
