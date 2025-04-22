@@ -1,0 +1,111 @@
+Metadata-Version: 2.4
+Name: svgftw
+Version: 0.1.0
+Summary: Advanced SVG manipulation with quantum, AI, and bio-algorithm features
+Home-page: https://github.com/svgftw/svgftw
+Author: SVGFTW Team
+Author-email: info@svgftw.org
+Project-URL: Bug Tracker, https://github.com/svgftw/svgftw/issues
+Project-URL: Documentation, https://svgftw.readthedocs.io/
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Quantum Computing
+Classifier: Topic :: Multimedia :: Graphics :: Graphics Conversion
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: lxml>=4.9.0
+Requires-Dist: pillow>=9.0.0
+Provides-Extra: ai-basic
+Requires-Dist: onnxruntime>=1.8.0; extra == "ai-basic"
+Provides-Extra: ai-full
+Requires-Dist: onnxruntime>=1.8.0; extra == "ai-full"
+Requires-Dist: torch>=1.9.0; extra == "ai-full"
+Provides-Extra: ai-cuda
+Requires-Dist: onnxruntime>=1.8.0; extra == "ai-cuda"
+Requires-Dist: torch>=1.9.0; extra == "ai-cuda"
+Requires-Dist: numba>=0.55.0; extra == "ai-cuda"
+Provides-Extra: quantum
+Requires-Dist: qiskit>=0.34.2; extra == "quantum"
+Provides-Extra: bio
+Requires-Dist: scikit-bio>=0.5.7; extra == "bio"
+Provides-Extra: minimal
+Requires-Dist: onnxruntime>=1.8.0; extra == "minimal"
+Provides-Extra: recommended
+Requires-Dist: onnxruntime>=1.8.0; extra == "recommended"
+Requires-Dist: torch>=1.9.0; extra == "recommended"
+Requires-Dist: qiskit>=0.34.2; extra == "recommended"
+Provides-Extra: complete
+Requires-Dist: onnxruntime>=1.8.0; extra == "complete"
+Requires-Dist: torch>=1.9.0; extra == "complete"
+Requires-Dist: qiskit>=0.34.2; extra == "complete"
+Requires-Dist: scikit-bio>=0.5.7; extra == "complete"
+Requires-Dist: numba>=0.55.0; extra == "complete"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-cov>=3.0.0; extra == "dev"
+Requires-Dist: black>=22.3.0; extra == "dev"
+Requires-Dist: mypy>=0.950; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# SVGFTW: SVG For The Win
+
+An advanced SVG manipulation library with quantum computing, AI, and bio-algorithm features.
+
+## Features
+
+- **Quantum-enhanced rendering** - Leverage quantum computing for generative art
+- **AI style transfer** - Apply neural style transfer techniques to SVG elements
+- **Bio-algorithm patterns** - Create organic patterns inspired by biological systems
+- **Holographic/3D effects** - Add depth and dimension to otherwise flat SVG
+- **Advanced filtering** - Apply complex filters beyond standard SVG capabilities
+
+## Installation
+
+```bash
+pip install svgftw
+```
+
+## Basic Usage
+
+```python
+from svgftw import SVGFTW
+
+# Create a new SVG canvas
+svg = SVGFTW(width=800, height=600)
+
+# Add a simple rectangle
+svg.add_element('rect', x=10, y=10, width=100, height=50, fill="blue")
+
+# Add a circle
+svg.add_element('circle', cx=400, cy=300, r=50, fill="red")
+
+# Save to file
+svg.save("my_drawing.svg")
+```
+
+## Documentation
+
+See the [tutorials](Tutorials/) for more examples and detailed documentation.
+
+## License
+
+MIT
