@@ -1,0 +1,73 @@
+Metadata-Version: 2.4
+Name: smart_floorplan_predictor
+Version: 0.1.1
+Summary: A package for making predictions using a pre-trained ONNX floorplan model
+Home-page: https://github.com/Resipedia/domusview_epc_floorplan_image_detection
+Author: BaseTeach
+Project-URL: Bug Tracker, https://github.com/Resipedia/domusview_epc_floorplan_image_detection/issues
+Project-URL: Source, https://github.com/Resipedia/domusview_epc_floorplan_image_detection
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: onnxruntime>=1.12.0
+Requires-Dist: numpy>=1.19.0
+Requires-Dist: requests>=2.25.0
+Requires-Dist: Pillow>=10.0.0
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Smart Floorplan Predictor
+
+A Python package for making predictions using a pre-trained ONNX floorplan model.
+
+## Installation
+
+```bash
+pip install smart-floorplan-predictor
+```
+
+## Usage
+
+```python
+from smart_floorplan_predictor import FloorplanPredictor
+
+# Initialize the predictor
+predictor = FloorplanPredictor()
+
+# Make a prediction
+# Replace input_data with your actual input data format
+result = predictor.predict(input_data)
+print(result)
+```
+
+## Features
+
+- Automatic model downloading if not present locally
+- Easy-to-use prediction interface
+- ONNX runtime integration
+- Built-in input preprocessing
+
+## Requirements
+
+- Python >= 3.7
+- onnxruntime
+- numpy
+- requests
+
+## License
+
+MIT License
+
+## Author
+
+Oliver Brown
