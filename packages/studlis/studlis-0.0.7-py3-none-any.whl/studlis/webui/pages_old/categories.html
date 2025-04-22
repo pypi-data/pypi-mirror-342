@@ -1,0 +1,48 @@
+<template tpl_id="page_category_list">
+    <div>
+        <h2>Kategorien</h2>
+        <div class="row">
+            <div class="col-8">
+                <table class="category-table table-modern">
+                    <thead ><tr>
+
+                        <td>Kategorie</td>
+                        <td>Anzahl Icons</td>
+                    </tr></thead>
+                    <tbody class="category-table-content"></tbody>
+                </table>
+            </div>
+            <div class="col-4">
+            </div>
+       
+    </div>
+</template>
+<template tpl_id="category_element">
+    <tr>
+        
+        <td class="category-name"></td>
+        <td class="category-count"></td>
+    </tr>
+
+</template>
+
+
+
+
+
+<script>
+    var page_categories = {};
+    page_categories.show = function(){
+        node=$("#main-view-content").tpl("page_category_list");
+        DoRequest("categories",{filter:""},function(data){
+            $(".category-table-content").empty();
+
+            $.each(data.value,function(index,item){
+                var node = $(".category-table-content").appendtpl("category_element");
+                node.find(".category-name").html(item.name);
+                node.find(".category-count").html(item.icon_count);
+                $(".category-table-content").append(node);
+            });
+        });
+    }
+</script>

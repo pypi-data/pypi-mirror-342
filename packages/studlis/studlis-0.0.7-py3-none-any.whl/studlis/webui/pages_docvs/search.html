@@ -1,0 +1,112 @@
+<template tpl_id="search">
+    <div class="d-flex flex-column flex-grow-1">
+        <div class="search-container w-100">
+            <div class="search-box input-group mb-3">
+                <input type="text" class="form-control" id="search-input" placeholder="Search for documents"
+                    aria-label="Search for documents">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" id="search-button" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="searchresult" class="w-100">
+
+                <div class="row">
+                    <div class="col-12">
+                        <table class="category-table table-modern">
+                            <thead>
+                                <tr class="d-none">
+                                    <td>Art</td>
+                                    <td>Name</td>
+                                    <td>Detail</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody class="resource-content"></tbody>
+                        </table>
+                    </div>
+                    <div class="col-4">
+                    </div>
+
+                </div>
+
+            </div>
+        
+        </div>
+        <div id="pdfviewer_container" class="d-none w-100 flex-grow-1">
+            <iframe id="pdfviewer" class="w-100" style="height:100%;border:none;"></iframe>
+        </div>
+    </div>
+</template>
+<template tpl_id="resource_pdfitem">
+    <tr class="" style="font-size:12pt;">
+        <td class="resource-type"><i class="fa-solid fa-file-pdf"></i></td>
+        <td class="resource-name"></td>
+        <td class="resource-desc"></td>
+        <td class="resource-options">
+
+            <button class="btn btn-outline-secondary btn-sm d-none editbutton">
+                <i class="fa fa-edit"></i>
+            </button>
+
+
+        </td>
+
+
+    </tr>
+
+</template>
+
+
+<script>
+    var page_search = {};
+    page_search.show = function () {
+        node = $("#main-view-content").tpl("search");
+
+        document.getElementById('search-input').addEventListener('input', function () {
+            var text = this.value;
+            if (text.length > 2) {
+
+                do_search(text);
+            } else {
+                $("#searchresult").addClass("d-none");
+                $(".resource-content").empty();
+            }
+        });
+        document.getElementById('search-input').focus();
+    }
+    var do_search = function (q) {
+        DoRequest("search", { "query": q }, function (data) {
+            if (data.value.length > 0) {
+                $("#searchresult").removeClass("d-none");
+
+            }
+            let resultnode = $(".resource-content").empty();
+            $.each(data.value, function (index, item) {
+
+                let itemnode = resultnode.appendtpl("resource_pdfitem");
+                itemnode.find(".resource-name").text(item.name);
+                itemnode.on('dblclick', function () {
+                    show_pdf(item.id);
+                });
+                itemnode.find(".editbutton").click(function () {
+                    page_edit.show_and_edit(item.id);
+                });
+            });
+            if (loggedin) {
+                $(".editbutton").removeClass("d-none");
+            }
+
+        });
+
+    }
+    var show_pdf = function (id) {
+        $("#searchresult").addClass("d-none");
+        $("#pdfviewer_container").removeClass("d-none");
+        $("#pdfviewer").attr("src", "http://localhost:8081/request/getpdf/" + id);
+        /*var pdfWindow = window.open("");
+        pdfWindow.document.write("<iframe width='100%' height='100%' src='localhost:8081/request/getpdf/"+path+"'></iframe>");
+        */
+    }
+</script>

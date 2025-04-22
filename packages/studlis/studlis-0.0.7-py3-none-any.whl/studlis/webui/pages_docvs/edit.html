@@ -1,0 +1,107 @@
+<template tpl_id="edit_resource">
+    <div>
+        <div class="add-box input-group mb-3">
+            <input type="text" class="form-control" id="load-input"
+                placeholder="Paste document path, web link or 'wiki'">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="load-button" type="button">
+                    <i class="fa fa-search"></i> Load
+                </button>
+            </div>
+        </div>
+        <div class="d-none" id="edit_resource_form">
+            <div class="form-group">
+                <label for="name-input">Name <small>(This is shown als search result)</small></label>
+                <input type="text" class="form-control" id="name-input" name="name">
+            </div>
+            <div class="form-group">
+                <label for="search-text-input">Search Text <small>(Diese Worte sind indexiert)</small></label>
+                <textarea class="form-control" id="search-text-input" name="search-text" rows="3"></textarea>
+                <br />
+
+            </div>
+            <div class="form-group">
+                <label for="description-input">Description</label>
+                <textarea class="form-control" id="description-input" name="description" rows="3"></textarea>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="fulltext-checkbox" name="fulltext">
+                <label class="form-check-label" for="fulltext-checkbox">Fulltext Index</label>
+            </div>
+            <input type="hidden" name="id" id="id_field" value="" />
+            <input type="hidden" name="type" id="type_field" value="" />
+            <button class="btn btn-primary" id="save-button" type="button" onclick="page_edit.save()">
+                <i class="fa fa-save"></i> Save
+            </button>
+        </div>
+    </div>
+
+</template>
+
+
+
+
+
+<template tpl_id="saved_successfully">
+    <div class="alert alert-success" id="save-alert" role="alert">
+        Gespeichert.
+    </div>
+
+
+</template>
+<script>
+    var page_edit = {};
+    page_edit.show = function () {
+        node = $("#main-view-content").tpl("edit_resource");
+        node.find("#search-input").focus();
+        node.find("#load-button").click(function () {
+            page_edit.load();
+        });
+    }
+    page_edit.show_and_edit = function (id) {
+        page_edit.show();
+        $("#load-input").val(id);
+        page_edit.load();
+    }
+    page_edit.load = function () {
+
+        var path = $("#load-input").val();
+
+        // if path is "wiki" abort and go to wiki mode
+        //if (path == "wiki") {
+        //    page_wiki_edit.showwiki();
+       //     return;
+        //}
+
+
+        DoRequest("edit_resource_load", { "path": path, "token": session_token }, function (data) {
+            if (data.value) {
+                $("#edit_resource_form").removeClass("d-none");
+                $("#load-input").val(data.value.path).prop("readonly", true);
+                $("#load-button").addClass("d-none");
+                $("#name-input").val(data.value.name);
+                $("#search-text-input").val(data.value.search_text);
+                $("#description-input").val(data.value.description);
+                $("#fulltext-checkbox").prop("checked", data.value.fulltext);
+                $("#id_field").val(data.value.id);
+                $("#type_field").val(data.value.type);
+
+
+            }
+        });
+
+    }
+    
+    page_edit.save = function () {
+        var name = $("#name-input").val();
+        var path = $("#load-input").val();
+        var search_text = $("#search-text-input").val();
+        var description = $("#description-input").val();
+        var fulltext = $("#fulltext-checkbox").prop("checked");
+        var id = $("#id_field").val();
+        var type = $("#type_field").val();
+        DoRequest("edit_resource_save", { "name": name, "search_text": search_text, "description": description, "fulltext": fulltext, "token": session_token, "path": path, "id": id, "type": type }, function (data) {
+            $("#main-view-content").tpl("saved_successfully");
+        });
+    }
+</script>

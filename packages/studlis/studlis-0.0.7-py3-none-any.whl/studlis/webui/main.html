@@ -1,0 +1,155 @@
+<%inherit file="_layout.html" />
+<div class="d-flex w-100 flex-column">
+
+  <div class="d-flex w-100 modern-top-menu">
+    <div class="modern-button d-none studlis-optional-button" id="back_button" onclick="studlis.current_state.on_back_event();">
+      Zurück
+    </div>
+    <div class="modern-button d-none studlis-optional-button" id="forward_button" onclick="studlis.current_state.on_forward_event();">
+      Vorwärts
+    </div>
+    <div class="modern-button d-none" id="state_view" onclick="">
+      
+    </div>
+    <div class="flex-grow-1" id="top_menu_center">
+
+    </div>
+    <div class="modern-button two d-none studlis-optional-button" id="exclude_study" onclick="studlis.current_state.on_exclude_event();">
+      Exkludieren/Inkludieren
+    </div>
+    <div class="modern-button studlis-optional-button d-none" id="edit_button" onclick="docvs.current_state.on();">
+      Edit
+    </div>
+    <div class="modern-button two d-none studlis-optional-button" id="saved_info">
+      Gespeichert!
+    </div>
+    <div class="modern-button two d-none" id="saved_info_timed">
+      Gespeichert!
+    </div>
+    <div class="modern-button one d-none studlis-optional-button" id="save_button" onclick="studlis.current_state.on_save_event();">
+      Speichern
+    </div>
+  </div>
+
+  <div class="main-view-content d-flex flex-colum" id="main-view-content">
+
+  </div>
+
+
+</div>
+
+<!-- Main content goes here -->
+<div class="main-view-content d-flex flex-colum" id="main-view-content">
+
+</div>
+
+
+<script>
+  var global_variants = ${ global_variants };
+  var studlis = {};
+  studlis.dirty = false; // flag to indicate if the document has been modified
+  studlis.on_save_event = undefined; // callback function to be called when save event is triggered
+
+  studlis.current_state={}
+
+  studlis.resetButtons = function(){
+    $(".studlis-optional-button").addClass("d-none");
+    $("#saved_info").addClass("d-none");
+    
+  }
+  studlis.setBack= function(f){
+    studlis.current_state.on_back_event = f;
+    $("#back_button").removeClass("d-none");
+  }
+
+  studlis.setForward= function(f){
+    studlis.current_state.on_forward_event = f;
+    $("#forward_button").removeClass("d-none");
+  }
+
+  studlis.setSave= function(f){
+    studlis.current_state.on_save_event = f;
+    $("#save_button").removeClass("d-none");
+  }
+  studlis.setExclude = function(f){
+    studlis.current_state.on_exclude_event = f;
+    $("#exclude_study").removeClass("d-none");
+  }
+
+studlis.setQuickstate = function(value){
+    $("#state_view").html(value).removeClass("d-none");
+  }
+
+  studlis.notifySaved = function(){
+    $("#saved_info").removeClass("d-none");
+  }
+  studlis.notifySavedTimed = function(text="Gespeichert!"){
+    $("#saved_info_timed").removeClass("d-none short-show")[0].offsetHeight;
+    $("#saved_info_timed").addClass("short-show").text(text);
+
+  }
+  studlis.newState = function(){
+    studlis.current_state={};
+    studlis.resetButtons();
+  }
+
+
+  studlis.modal = function(title,template_name,confirm_button_name,confirm_button_func){
+        let modal = $("#default_modal");
+        modal.find(".modal-title").text(title);
+        let contentnode=modal.find(".modal-body").tpl(template_name);
+
+        if(confirm_button_name){
+          $("#default_modal_confirm_button").removeClass("d-none");
+          $("#default_modal_confirm_button").text(confirm_button_name);
+          $("#default_modal_confirm_button").off("click").on("click",function(){
+            if(confirm_button_func){
+              confirm_button_func();
+            }
+            modal.modal('hide');
+          });
+        }else{
+          $("#default_modal_confirm_button").addClass("d-none");
+        }
+        modal.modal('show');
+        return contentnode;
+    }
+
+
+  window.addEventListener('beforeunload', function (e) {
+    if (!studlis.dirty) {
+      return; // Do nothing if no changes were made
+    }
+
+    var confirmationMessage = 'Eingaben wurden verändert, wirklich verlassen?';
+    e.returnValue = confirmationMessage;
+    return confirmationMessage;
+
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey && e.key === 's') {
+      e.preventDefault(); // Prevent the default save action
+      if (typeof studlis.on_save_event === 'function') {
+        studlis.on_save_event(); // Call the save event callback
+      }
+    }
+  }, true);
+
+
+</script>
+
+
+<!-- Include subpages --->
+
+<%include file="pages/login.html" />
+<%include file="pages/select_project.html" />
+<%include file="pages/project_overview.html" />
+<%include file="pages/study_browser.html" />
+<%include file="pages/study_viewer.html" />
+<%include file="pages/download.html" />
+<script>
+
+
+
+</script>
