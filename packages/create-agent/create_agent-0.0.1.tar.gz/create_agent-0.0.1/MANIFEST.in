@@ -1,0 +1,3 @@
+recursive-include src/create_agent/templates *
+include README.md
+include LICENSE 
