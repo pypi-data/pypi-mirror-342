@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "mcp-ccmonet"
+version = "0.1.0"
+description = "ccMonet MCP server for forwarding messages from clients like Claude to ccMonet API"
+authors = ["ccMonet <development@platoxai.com>"]
+readme = "README.md"
+repository = "https://github.com/PlatoX-Type/mcp_ccmonet"
+homepage = "https://www.ccmonet.ai"
+license = "MIT"
+keywords = ["mcp", "claude", "ccMonet", "ai"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+]
+package-mode = true
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mcp = {extras = ["cli"], version = "^1.6.0"}
+httpx = {extras = ["socks"], version = "^0.28.1"}
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+ccMonet = "mcp_ccmonet.main:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"] 
