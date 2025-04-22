@@ -1,0 +1,67 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[project]
+name = "mtg_parser"
+version = "0.0.1a47"
+requires-python = ">=3.9"
+license = "EUPL-1.2"
+description = "Magic: the Gathering decklist parser"
+readme = "README.md"
+authors = [
+    { name = "Ludovic Heyberger", email = "940408+lheyberger@users.noreply.github.com" },
+]
+dependencies = [
+    "beautifulsoup4 (>=4.12,<5.0)",
+    "httpx[brotli, http2, zstd] (>=0.28.0,<1.0.0)",
+    "pyparsing (>=3.1,<4.0)",
+]
+
+
+[project.urls]
+homepage = "https://github.com/lheyberger/mtg-parser"
+repository = "https://github.com/lheyberger/mtg-parser"
+documentation = "https://github.com/lheyberger/mtg-parser"
+
+
+[tool.poetry.group.dev.dependencies]
+check-wheel-contents = "^0.6"
+coverage = {extras = ["toml"], version = "^7.3"}
+more-itertools = "^10.1"
+pytest = "^7.4"
+python-dotenv = "^1.0.1"
+respx = "^0.21.1"
+ruff = "^0.11.6"
+tabulate = "^0.9"
+
+
+[tool.ruff]
+line-length = 120
+
+
+[tool.ruff.lint]
+select = [ "E", "W", "F", "UP", "B", "SIM", "I", "PL" ]
+
+
+[tool.ruff.lint.pylint]
+max-args = 6
+
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+
+
+[tool.coverage.run]
+source = [ "src" ]
+
+
+[tool.coverage.paths]
+source = [ "src" ]
+
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+]
