@@ -1,0 +1,47 @@
+{
+  "$id": "https://github.com/BlockScience/bdp-lib/tree/main/src/bdp_lib/schemas/system.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "System",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "A system is a collection of processors and wires which when loaded represent an actual block diagram. A system can be thought of as a directed multigraph.",
+  "properties": {
+    "ID": {
+      "type": "string",
+      "title": "ID",
+      "description": "A unique identifier for the system."
+    },
+    "Name": {
+      "type": "string",
+      "title": "Name",
+      "description": "The name of the system."
+    },
+    "Description": {
+      "type": "string",
+      "title": "Description",
+      "description": "A description of the system."
+    },
+    "Processors": {
+      "type": "array",
+      "title": "Processors",
+      "description": "A list of processor IDs that are part of the system.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Wires": {
+      "type": "array",
+      "title": "Wires",
+      "description": "A list of wire IDs that are part of the system.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "ID",
+    "Name",
+    "Processors",
+    "Wires"
+  ]
+}

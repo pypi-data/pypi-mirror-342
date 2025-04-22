@@ -1,0 +1,25 @@
+{"$id": "https://github.com/BlockScience/bdp-lib/tree/main/src/bdp_lib/schemas/bdp.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Project",
+    "type": "object",
+    "additionalProperties": false,
+    "description": "A project within the block diagram protocol. The toolbox contains the abstract representations and the workbench contains the implementations.",
+    "properties": {
+      "Toolbox": {
+        "type": "object",
+        "description": "A toolbox of abstract blocks and spaces.",
+        "title": "Toolbox",
+        "$ref": "./toolbox.schema.json"
+      },
+      "Workbench": {
+        "type": "object",
+        "description": "A workbench which contains instances of processors, wires and systems.",
+        "title": "Workbench",
+        "$ref": "./workbench.schema.json"
+      }
+    },
+    "required": [
+      "Toolbox",
+      "Workbench"
+    ]
+  }

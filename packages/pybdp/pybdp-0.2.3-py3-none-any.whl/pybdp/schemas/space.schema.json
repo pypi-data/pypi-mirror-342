@@ -1,0 +1,28 @@
+{"$id": "https://github.com/BlockScience/bdp-lib/tree/main/src/bdp_lib/schemas/space.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Space",
+    "type": "object",
+    "additionalProperties": false,
+    "description": "A typed dictionary of data.",
+    "properties": {
+      "ID": {
+        "title": "ID",
+        "description": "The unique identifier of the space.",
+        "type": "string"
+      },
+      "Name": {
+        "type": "string",
+        "description": "The name of the space.",
+        "title": "Name"
+      },
+      "Description": {
+        "type": "string",
+        "description": "The description of the space.",
+        "title": "Description"
+      }
+    },
+    "required": [
+      "ID",
+      "Name"
+    ]
+  }

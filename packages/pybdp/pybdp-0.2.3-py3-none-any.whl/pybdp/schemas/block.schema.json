@@ -1,0 +1,47 @@
+{
+  "$id": "https://github.com/BlockScience/bdp-lib/tree/main/src/bdp_lib/schemas/block.schema.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Block",
+  "type": "object",
+  "additionalProperties": false,
+  "description": "A block in the block diagram protocol which represents a function/computation that maps from a domain to a codomain.",
+  "properties": {
+    "ID": {
+      "type": "string",
+      "title": "ID",
+      "description": "A unique identifier for the block."
+    },
+    "Name": {
+      "type": "string",
+      "title": "Name",
+      "description": "The name of the block."
+    },
+    "Description": {
+      "type": "string",
+      "title": "Description",
+      "description": "A description of the block."
+    },
+    "Domain": {
+      "type": "array",
+      "title": "Domain",
+      "description": "The domain of the block which are IDs of spaces. Spaces may be repeated or it may be an empty array.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Codomain": {
+      "type": "array",
+      "title": "Codomain",
+      "description": "The codomain of the block which are IDs of spaces. Spaces may be repeated or it may be an empty array.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "ID",
+    "Name",
+    "Domain",
+    "Codomain"
+  ]
+}

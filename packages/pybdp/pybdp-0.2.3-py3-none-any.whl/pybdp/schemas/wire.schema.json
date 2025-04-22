@@ -1,0 +1,60 @@
+{"$id": "https://github.com/BlockScience/bdp-lib/tree/main/src/bdp_lib/schemas/wire.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Wire",
+    "type": "object",
+    "additionalProperties": false,
+    "description": "A wire connects a terminal to a port and is the implementation of an underlying space which is passed between these two.",
+    "properties": {
+      "ID": {
+        "type": "string",
+        "title": "ID",
+        "description": "A unique identifier for the wire."
+      },
+      "Parent": {
+        "type": "string",
+        "title": "Parent",
+        "description": "The ID of the space that the wire is passing."
+      },
+      "Source": {
+        "type": "object",
+        "title": "Source",
+        "description": "The source of the wire/space.",
+        "properties": {
+          "Processor": {
+            "type": "string",
+            "title": "Processor",
+            "description": "The ID of the processor that the wire is coming from."
+          },
+          "Index": {
+            "type": "integer",
+            "title": "Index",
+            "description": "The index of the terminal that the wire is coming from."
+          }
+        }
+      },
+      "Target": {
+        "type": "object",
+        "title": "Target",
+        "description": "The target of the wire/space.",
+        "properties": {
+          "Processor": {
+            "type": "string",
+            "title": "Processor",
+            "description": "The ID of the processor that the wire is going to."
+          },
+          "Index": {
+            "type": "integer",
+            "title": "Index",
+            "description": "The index of the port that the wire is going to."
+          }
+        }
+      }
+
+    },
+    "required": [
+      "ID",
+      "Parent",
+      "Source",
+      "Target"
+    ]
+  }
