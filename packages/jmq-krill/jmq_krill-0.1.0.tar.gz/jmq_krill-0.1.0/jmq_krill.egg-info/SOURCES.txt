@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+jmq_krill/__init__.py
+jmq_krill/krill_api.py
+jmq_krill.egg-info/PKG-INFO
+jmq_krill.egg-info/SOURCES.txt
+jmq_krill.egg-info/dependency_links.txt
+jmq_krill.egg-info/top_level.txt
