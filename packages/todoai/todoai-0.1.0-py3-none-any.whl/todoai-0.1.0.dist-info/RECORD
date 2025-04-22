@@ -1,0 +1,11 @@
+taskAI/__init__.py,sha256=hOKEbrVoWsqg7CWjGcbfdUNk_TZSakbgdhuLtlMQ4tM,138
+taskAI/config.py,sha256=6W2xi3aC55wjLc0N1tA2M-aZ9DYT4lQahYMtIDJ6nDw,718
+taskAI/agents/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+taskAI/agents/youtube_agent.py,sha256=5qsUdtU_N2eWCIdiOOQ5RzO3TTNeMbjrbwcvYwZueD8,480
+taskAI/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+taskAI/core/llm_brain.py,sha256=RzX0ZXU23suWlD22v0aSAdJns-QUIQKqtt2CNP0ztDY,600
+taskAI/core/prompts.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+todoai-0.1.0.dist-info/METADATA,sha256=d_jPu9-l_JsWwj6XHYFn8cNbTz_bm3x1kpLZ5m_0iCg,952
+todoai-0.1.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+todoai-0.1.0.dist-info/top_level.txt,sha256=uUAF1cTAfD5qtZbGQval_CtXS2sG9g9TjxTrO74ZX6I,7
+todoai-0.1.0.dist-info/RECORD,,
