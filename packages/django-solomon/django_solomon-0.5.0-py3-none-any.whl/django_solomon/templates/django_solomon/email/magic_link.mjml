@@ -1,0 +1,42 @@
+{% load i18n %}
+<mjml>
+    <mj-body>
+        <mj-section>
+            <mj-column>
+                <mj-text>
+                    <p>{% translate "Hello," %}</p>
+
+                    <p>
+                        {% blocktranslate %}
+                        You requested a magic link to log in to your account. Please click the link below
+                        to log in:
+                        {% endblocktranslate %}
+                    </p>
+                </mj-text>
+
+                <mj-button href="{{ magic_link_url }}">{% translate "Click here to log in" %}</mj-button>
+
+                <mj-text>
+                    <p>
+                        {% blocktranslate with expiry_time=expiry_time %}
+                        This link will expire in {{ expiry_time }} minutes. If you did not
+                        request this link, you can safely ignore this email.
+                        {% endblocktranslate %}
+                    </p>
+
+                    <p>
+                        {% translate "Thank you," %}
+                        <br>
+                        {% translate "The Django Solomon Team" %}
+                    </p>
+
+                    <p>
+                        ---
+                        <br>
+                        {% translate "This email was sent by Django Solomon." %}
+                    </p>
+                </mj-text>
+            </mj-column>
+        </mj-section>
+    </mj-body>
+</mjml>
