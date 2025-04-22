@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: ttwhy
+Version: 0.1.0
+Summary: A library for creating terminal-esque games with Pygame
+Project-URL: homepage, https://ttwhy.totallynotseth.dev
+Project-URL: github, https://github.com/TotallyNotSethP/HDLGame
+Project-URL: issues, https://github.com/TotallyNotSethP/HDLGame/issues
+Author-email: Seth Peace <ttwhy@totallynotseth.dev>
+License-Expression: GPL-3.0-or-later
+License-File: ttwhy/vendored/MxPlus_IBM_VGA_8x16_LICENSE
+License-File: ttwhy/vendored/iverilog_LICENSE
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Microsoft :: Windows :: Windows 11
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries :: pygame
+Classifier: Typing :: Typed
+Requires-Python: ~=3.12
+Requires-Dist: cocotb<2,>=1.9.2
+Requires-Dist: loguru<0.8,>=0.7.3
+Requires-Dist: pygame<3,>=2.6.1
