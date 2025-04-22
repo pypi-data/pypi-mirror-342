@@ -1,0 +1,1 @@
+from mehanika_robota.roboti import niryo_one
