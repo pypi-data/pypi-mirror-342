@@ -1,0 +1,15 @@
+mcp_agent_x-0.0.1.dist-info/licenses/LICENSE,sha256=wpntWnj2XFoHha8ZZuTh6PS9AN9q05nbhSWg2pOXrV4,1074
+mcpx/__init__.py,sha256=SoqGpQ4T4dO-xf4Sz7HxGbdLcZW8BnriqajNyEO1M4I,297
+mcpx/agent.py,sha256=AA-gI35xIBrrUHbbmbs1tZ1sYzepyzuGH-v05NE9THo,6674
+mcpx/cli.py,sha256=FDUzEZIPTr9nBG-4CdjQIe3b2lDRMy-dEBkA1fgBFWo,8919
+mcpx/config.py,sha256=xZ_lvNXiyDL1WA0HMEMc67c6yp6gMOp8-E6G14cMSa8,11404
+mcpx/main.py,sha256=K3Ssdl6qp8YHWXHhL0tQBzSEQYLtDb2hRN3tif_N9KA,3404
+mcpx/repl.py,sha256=1SrSzmurcI0TYpuDIEW66sJWV92qrqTeQKPkyGtdwdo,38099
+mcpx/utils.py,sha256=k03FRWvN5tUUPQx_lN45AxkpXhFMrQK6T0bamAEIH6M,1381
+mcpx/defaults/config.json,sha256=ahkfRNtnGF1BJPU6mbmCurYwrlzNYDo1tXZ74Rmfpto,225
+mcpx/defaults/system_prompt.md,sha256=qyjJJyyL-WpR-rpQ_fo6g0aXwg9jRwOEMgJ9gmsBi-c,34
+mcp_agent_x-0.0.1.dist-info/METADATA,sha256=wAg3-y00TwCJk7BzbuPB8mSnWyxrIDq9ZEls-CRZoF0,5822
+mcp_agent_x-0.0.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+mcp_agent_x-0.0.1.dist-info/entry_points.txt,sha256=oBC0fUdgrheNHX1cqjT53gx5913v3FJWTAZjSpdUuOc,39
+mcp_agent_x-0.0.1.dist-info/top_level.txt,sha256=2rmlgx1S_ZRR7j8Z0lxpYBJ6sZ7DsIvcbZkNI1Of5GQ,5
+mcp_agent_x-0.0.1.dist-info/RECORD,,

@@ -1,0 +1,2 @@
+[console_scripts]
+mcpx = mcpx.cli:main

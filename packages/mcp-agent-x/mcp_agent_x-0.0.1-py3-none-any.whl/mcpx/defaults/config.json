@@ -1,0 +1,1 @@
+{"agent":{"max_steps":10,"memory_enabled":true},"conversation":{"save":true},"ui":{"show_thinking":true,"display_mode":"markdown"},"llm":{"provider":"google","model":"gemini-2.0-flash","custom_providers":{}},"mcpServers":{}}
