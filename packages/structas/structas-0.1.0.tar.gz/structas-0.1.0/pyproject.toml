@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "structas"
+version = "0.1.0"
+description = "A library for chopping logs."
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+authors = [
+    {name = "Author", email = "rich@gluk0.dev"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "click>=8.1.8",
+    "kubernetes>=32.0.1",
+    "pyaml>=25.1.0",
+    "pytest>=8.3.5",
+    "regex>=2024.11.6",
+    "twine>=6.1.0",
+    "typing-extensions>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.1.5",
+    "pre-commit>=3.5.0",
+    "pytest>=7.4.3",
+    "pytest-cov>=4.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/gluk0/structas"
+Issues = "https://github.com/gluk0/structas/issues"
+
+[project.scripts]
+structas = "structas.cli:main"
+
+[tool.ruff]
+target-version = "py38"
+line-length = 88
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "C",  # flake8-comprehensions
+    "B",  # flake8-bugbear
+    "UP",  # pyupgrade
+]
+ignore = []
+
+[tool.ruff.isort]
+known-first-party = ["structas"]
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["structas/tests"]
+python_files = "test_*.py"
+markers = [
+    "unit: mark test as a unit test",
+    "integration: mark test as an integration test",
+]
+addopts = "-v" 

@@ -1,0 +1,72 @@
+Metadata-Version: 2.4
+Name: structas
+Version: 0.1.0
+Summary: A library for chopping logs.
+Home-page: https://github.com/author/structas
+Author: 
+Author-email: Author <rich@gluk0.dev>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/gluk0/structas
+Project-URL: Issues, https://github.com/gluk0/structas/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click>=8.1.8
+Requires-Dist: kubernetes>=32.0.1
+Requires-Dist: pyaml>=25.1.0
+Requires-Dist: pytest>=8.3.5
+Requires-Dist: regex>=2024.11.6
+Requires-Dist: twine>=6.1.0
+Requires-Dist: typing-extensions>=4.0.0
+Provides-Extra: dev
+Requires-Dist: ruff>=0.1.5; extra == "dev"
+Requires-Dist: pre-commit>=3.5.0; extra == "dev"
+Requires-Dist: pytest>=7.4.3; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# structas🪵
+A lightweight Python library that transforms 
+unstructed log data into structured data,
+this can be ran locally, as a kubernetes sidecar 
+or run as a service to parse logs for Data Engineering
+processes.
+
+## Install
+
+```shell
+uv pip install .  # or via pip/pipx/poetry.
+```
+
+## Quick Start
+
+1. Define your log structure in YAML:
+
+```shell
+structas sample > sample_logs.yaml
+```
+
+2. Parse logs with one command:
+
+```shell
+structas parse --structure <structure>.yaml --input <file_name> --format json
+```
+
+## Python API
+
+```python
+from structas import LogParser, StructureDefinition
+
+# Parse logs with just three lines of code
+structure = StructureDefinition.from_file("<structure>.yaml")
+parser = LogParser(structure)
+structured_data = parser.parse_file("<file>.log")
+```
