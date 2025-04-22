@@ -1,0 +1,384 @@
+Metadata-Version: 2.1
+Name: snowpack-stack
+Version: 0.7.5
+Summary: Snowpack Data's internal AI automations for simple, robust, and highly automated Data stack deployments
+Home-page: https://snowpack-data.com/
+License: MIT
+Keywords: data,data engineering,data analytics,pipeline,automation
+Author: Snowpack Data
+Author-email: company@snowpack-data.io
+Requires-Python: >=3.11,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: PyYAML (>=6.0,<7.0)
+Requires-Dist: packaging (>=24.0,<25.0)
+Requires-Dist: psycopg2-binary (>=2.9,<3.0)
+Requires-Dist: python-dotenv (>=1.0,<2.0)
+Requires-Dist: pyyaml (>=6.0.1,<7.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: tomli (>=2.0.1,<3.0.0)
+Requires-Dist: typing-extensions (>=4.9.0,<5.0.0)
+Project-URL: Repository, https://github.com/snowpackdata/snowpack_stack/
+Description-Content-Type: text/markdown
+
+# Snowpack Stack
+
+`snowpack_stack` is Snowpack Data's modular, configuration-driven data pipeline automation framework that enables comprehensive, robust, and highly automated Data stack deployments.
+
+## Installation
+
+Install Snowpack Stack from PyPI:
+
+```bash
+pip install snowpack-stack
+```
+
+For specific versions:
+
+```bash
+pip install snowpack-stack==X.Y.Z # Replace X.Y.Z with the desired version
+```
+
+## Version Information
+
+You can check the installed version in two ways:
+
+```bash
+# Via command line
+snowpack --version
+
+# In Python code
+from snowpack_stack import __version__, get_version
+
+print(f"Version from constant: {__version__}")
+print(f"Version from function: {get_version()}")
+```
+
+## Initial Setup
+
+### Environment Setup
+
+The system often requires environment variables for database connections and other configuration. Create a `.env` file in your project directory if needed by your tools or configurations:
+
+```bash
+# Example .env content (adjust based on your tools)
+# PostgreSQL database connection details
+CLOUD_SQL_USER=your-user
+CLOUD_SQL_PASSWORD=your-password
+CLOUD_SQL_DATABASE_NAME=your-database
+CLOUD_SQL_PORT=5432 # Standard PostgreSQL port
+
+# BigQuery settings
+SERVICE_ACCOUNT_FILE=.gcp-key.json
+PROJECT_ID=your-project-id
+```
+
+### Authentication / User Identification
+
+You can optionally set your email for identification and usage tracking:
+
+```bash
+snowpack setup auth --email your.email@example.com
+```
+This will store the email locally for use by Snowpack Stack features.
+
+### Configuration (Example: Asset Generation)
+
+If using features like automated asset generation, create an `autogen_config.yaml` file in your project:
+
+```yaml
+etl_owner: "your.email@example.com"
+
+source:
+  type: "postgres"
+  connection_name: "postgres_cronos"  # Must match your Bruin connection name
+  database:
+    user: "${CLOUD_SQL_USER}"
+    password: "${CLOUD_SQL_PASSWORD}"
+    database: "${CLOUD_SQL_DATABASE_NAME}"
+    port: "${CLOUD_SQL_PORT}"
+  schemas:
+    public:  # Process all tables in the public schema
+      tables: ["*"]
+
+ingestion: "ingestr"
+transformer: "bruin"
+
+destination:
+  type: "bigquery"
+  connection:
+    service_account_file: "${SERVICE_ACCOUNT_FILE}"
+    project_id: "${PROJECT_ID}"
+```
+
+## Command Line Interface
+
+Snowpack Stack provides a CLI for building assets, setting up the environment, and managing tools.
+
+### Build Commands (Example: Bruin Assets)
+
+```bash
+# Build all assets (behavior might depend on registered tools/config)
+snowpack build
+
+# Build only Bruin assets
+snowpack build bruin
+
+# Build specific Bruin asset types
+snowpack build bruin yaml
+snowpack build bruin sql
+```
+
+### Setup Commands
+
+```bash
+# Verify installation and configuration
+snowpack setup verify
+
+# Configure authentication/user email
+snowpack setup auth --email your.email@example.com
+
+# Run initial setup (may perform multiple steps)
+snowpack setup
+```
+
+### Tool Management
+
+Snowpack Stack includes a tool manager to help you add, verify, and remove data tools like dbt and Bruin.
+
+#### Adding a Tool
+
+To add a tool to your project:
+
+```bash
+snowpack add [tool_name]
+```
+
+For example:
+
+```bash
+snowpack add dbt
+```
+
+This will:
+1. Verify if the tool is installed.
+2. Provide installation guidance if needed.
+3. Check for outdated versions.
+4. Help you initialize a new project or register an existing one.
+5. Register the tool in your Snowpack Stack metadata.
+
+#### Removing a Tool
+
+To remove a tool from tracking:
+
+```bash
+snowpack remove [tool_name]
+```
+
+This will:
+1. Remove the tool from Snowpack Stack tracking.
+2. Provide guidance on manual cleanup.
+
+#### Supported Tools
+
+Currently supported tools:
+- dbt - Data Build Tool (getdbt.com)
+- bruin - Bruin transformation engine (getbruin.com)
+
+## Python API Usage (Example: Asset Generation)
+
+```python
+import snowpack_stack
+
+# Optional: set your email for identification if not done via CLI
+# snowpack_stack.set_user_email("your.email@example.com")
+
+# Generate YAML assets based on autogen_config.yaml
+yaml_results = snowpack_stack.generate_yaml_assets() # Assuming a generator is implemented
+print(f"Generated {len(yaml_results)} YAML assets")
+
+# Generate SQL transformation assets based on autogen_config.yaml
+sql_results = snowpack_stack.generate_sql_assets() # Assuming a generator is implemented
+print(f"Generated {len(sql_results)} SQL assets")
+
+# Or run all registered generators at once
+all_results = snowpack_stack.run_all() # Assuming a run_all mechanism exists
+print(f"Generated {len(all_results)} total assets")
+```
+
+## Output Files (Example: Asset Generation)
+
+Files generated by features like asset generation are typically placed relative to your project structure. For example, Bruin assets might be generated in:
+```
+{project_root}/bruin-pipeline/assets/
+```
+
+- **YAML Files** (`raw_{table}.asset.yml`): Table metadata, ingestion settings, columns.
+- **SQL Files** (`{table}.sql`): Transformation queries with metadata blocks.
+
+## Architecture
+
+Snowpack Stack follows a modular approach:
+
+- **Core Layer**: Configuration, validation, utilities, tool management.
+- **Generator Layer**: Asset creation logic (optional feature).
+- **CLI Layer**: Command interfaces.
+- **Authentication/Identification**: User identity management.
+
+## Key Features (Examples)
+
+1. **Tool Management**: Add, remove, and verify data tools.
+2. **YAML Asset Generation (Optional Feature)**
+   - Bruin-compatible YAML files.
+   - Automatic schema discovery.
+   - Proper data typing.
+3. **SQL Asset Generation (Optional Feature)**
+   - `@bruin` metadata blocks.
+   - Clean data access queries.
+   - Consistent transformation patterns.
+4. **Environment Management**
+   - Secure credential handling.
+   - Flexible configuration (`.env`, `autogen_config.yaml`).
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Authentication/Identification Failures**:
+   - Verify email format if using `setup auth`.
+   - Check if the environment variable `SNOWPACK_USER_EMAIL` is set correctly if required by a specific feature.
+
+2. **Environment Variables Not Found**:
+   - Ensure your `.env` file is in the project root or parent directory as expected by your tools/config.
+   - Check for typos in variable names.
+
+3. **Database Connection Issues (If applicable)**:
+   - Verify database credentials in your `.env` file or tool configuration.
+   - Check network connectivity to the database server.
+   - Ensure the database server is running.
+
+4. **Output Files Not Generated (If applicable)**:
+   - Check the log output for errors (`snowpack ...`).
+   - Verify the target output directory exists (e.g., `bruin-pipeline/assets`).
+   - Ensure the user running the command has write permissions.
+
+5. **Tool Not Found / Version Issues**: 
+    - Ensure the required tool (e.g., `dbt`, `bruin`) is installed and available in your PATH.
+    - Run `snowpack add <tool_name>` to verify the tool and potentially get installation help.
+
+## Development
+
+For development and contributing to Snowpack Stack, please refer to the [GitHub repository](https://github.com/snowpackdata/snowpack_stack) and the internal developer documentation (`README.md`).
+
+### Installing Pre-Release Versions
+
+For testing development or pre-release versions from TestPyPI:
+
+```bash
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ snowpack-stack==X.Y.Z-identifier
+```
+(Replace `X.Y.Z-identifier` with the specific pre-release version string).
+
+## License
+
+Snowpack Stack is released under the [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause).
+
+## Support
+
+If you encounter any issues or need assistance, please reach out to the Snowpack team. For Snowpack developers who need access to internal features, please contact the team directly.
+
+## Table of Contents
+- [Usage](#usage)
+- [Output Files](#output-files)
+- [Architecture](#architecture)
+- [Troubleshooting](#troubleshooting)
+
+## Usage
+
+### Python API
+
+```python
+import snowpack_stack
+
+# Optional: set your email for identification
+snowpack_stack.set_user_email("your.email@example.com")
+
+# Generate YAML assets for database tables
+yaml_results = snowpack_stack.generate_yaml_assets()
+
+# Generate SQL transformation assets
+sql_results = snowpack_stack.generate_sql_assets()
+
+# Or run all generators at once
+all_results = snowpack_stack.run_all()
+```
+
+## Output Files
+
+Files are generated in:
+```
+{parent_directory}/bruin-pipeline/assets/
+```
+
+Where `{parent_directory}` is typically the parent of your project directory.
+
+- **YAML Files** (`raw_{table}.asset.yml`): Table metadata, ingestion settings, columns
+- **SQL Files** (`{table}.sql`): Transformation queries with metadata blocks
+
+## Architecture
+
+Snowpack Stack follows a modular approach:
+
+- **Core Layer**: Configuration, validation, utilities
+- **Generator Layer**: Asset creation logic
+- **CLI Layer**: Command interfaces
+- **Authentication**: User identity management
+
+## Key Features
+
+1. **YAML Asset Generation**
+   - Bruin-compatible YAML files
+   - Automatic schema discovery
+   - Proper data typing
+
+2. **SQL Asset Generation**
+   - `@bruin` metadata blocks
+   - Clean data access queries
+   - Consistent transformation patterns
+
+3. **Environment Management**
+   - Secure credential handling
+   - Flexible configuration
+   - Symbolic link support
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Authentication Failures**
+   - Verify email format
+   - Check `SNOWPACK_USER_EMAIL` environment variable
+
+2. **Environment Variables Not Found**
+   - Ensure `.env` file is in the project root or parent directory
+   - Check for typos in variable names
+
+3. **Database Connection Issues (If applicable)**
+   - Verify database credentials in `.env` file or tool configuration
+   - Check network connectivity to the database server
+   - Ensure the database server is running
+
+4. **Output Files Not Generated (If applicable)**
+   - Check the log output for errors (`snowpack ...`)
+   - Verify the target output directory exists (e.g., `bruin-pipeline/assets`)
+   - Ensure the user running the command has write permissions
+
+5. **Tool Not Found / Version Issues**
+   - Ensure the required tool (e.g., `dbt`, `bruin`) is installed and available in your PATH
+   - Run `snowpack add <tool_name>` to verify the tool and potentially get installation help
