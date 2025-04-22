@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rpi5_wanbot_exporter"
+version = "0.3"
+description = "Application to check WAN connection and export metrics to Prometheus"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{ name = "Niklas Melin", email = "niklasme@pm.me" }]
+keywords = ["prometheus", "raspberrypi", "network", "exporter", "rpi5"]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+dependencies = [
+  "prometheus_client",
+  "psutil"
+]
+
+[project.urls]
+Homepage = "https://gitlab.com/wanbot"
+
+[project.scripts]
+wanbot-exporter = "rpi5_wanbot_exporter.wanbot_exporter:start"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"rpi5_wanbot_exporter" = [
+  "bin/bbk_cli_linux_aarch64-1.0",
+  "bin/bbk_cli_linux_amd64-1.0"
+]
