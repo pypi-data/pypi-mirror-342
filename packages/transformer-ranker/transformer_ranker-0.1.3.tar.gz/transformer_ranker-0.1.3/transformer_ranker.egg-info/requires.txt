@@ -1,0 +1,16 @@
+accelerate
+datasets
+sentencepiece
+tokenizers
+torch
+torchmetrics
+tqdm
+transformers
+
+[dev]
+black
+isort
+ruff
+
+[testing]
+pytest
