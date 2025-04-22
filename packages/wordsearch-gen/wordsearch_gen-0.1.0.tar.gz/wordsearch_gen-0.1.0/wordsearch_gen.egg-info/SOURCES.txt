@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+wordsearch-gen/__init__.py
+wordsearch-gen/alphabets.py
+wordsearch-gen/wordsearch.py
+wordsearch_gen.egg-info/PKG-INFO
+wordsearch_gen.egg-info/SOURCES.txt
+wordsearch_gen.egg-info/dependency_links.txt
+wordsearch_gen.egg-info/top_level.txt
