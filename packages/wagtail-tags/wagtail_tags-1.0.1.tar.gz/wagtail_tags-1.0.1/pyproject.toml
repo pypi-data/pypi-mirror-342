@@ -1,0 +1,91 @@
+[project]
+name = "wagtail-tags"
+version = "1.0.1"
+description = "A Wagtail add-on for managing tags"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+]
+
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+authors = [
+{ name = "Mikhail Robinson" },
+{ name = "The Interaction Consortium"},
+]
+maintainers = [
+    { name = "Mikhail Robinson" },
+    { name = "The Interaction Consortium"},
+]
+dependencies = [
+"wagtail>=5.2",
+"django>=4.2",
+]
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/mikhail-robinson/wagtail-tagmanager"
+Issues = "https://github.com/mikhail-robinson/wagtail-tagmanager/issues"
+
+[tool.ruff]
+# Python 3.10.5
+target-version = "py310"
+
+exclude = ["migrations", ".venv", "node_modules", "dist"]
+
+[tool.ruff.lint.mccabe]
+# Flag errors (`C901`) whenever the complexity level exceeds 6.
+max-complexity = 6
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # pycodestyle warnings
+    "W",
+
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-comprehensions
+    "C",
+    # flake8-django
+    "DJ",
+    # flake8-bandit
+    "S",
+    # flake8-simplify
+    "SIM",
+
+    # isort
+    "I",
+    # McCabe complexity
+    "C901",
+]
+
+ignore = [
+    "E501",
+    "F405",	# undefined-local-with-import-star-usage
+    "W291", # Trailing whitespace -- mostly used in default values...
+    "S311",  # N/A Standard pseudo-random generators are not suitable for cryptographic purposes
+    "DJ012", # Django models method, fields, etc. order
+    "S113",  # requests without timeout
+    "B017", # the error: `assertRaises(Exception)` should be considered evil"
+    "S308", # Use of `mark_safe` may expose cross-site scripting vulnerabilities
+    "E722", # Do not use bare `except`
+]
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 88
