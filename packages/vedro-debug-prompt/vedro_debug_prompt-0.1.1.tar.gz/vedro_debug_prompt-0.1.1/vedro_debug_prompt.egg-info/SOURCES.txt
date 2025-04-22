@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+vedro_debug_prompt/__init__.py
+vedro_debug_prompt/_debug_prompt.py
+vedro_debug_prompt/_prompt_builder.py
+vedro_debug_prompt/py.typed
+vedro_debug_prompt.egg-info/PKG-INFO
+vedro_debug_prompt.egg-info/SOURCES.txt
+vedro_debug_prompt.egg-info/dependency_links.txt
+vedro_debug_prompt.egg-info/requires.txt
+vedro_debug_prompt.egg-info/top_level.txt
