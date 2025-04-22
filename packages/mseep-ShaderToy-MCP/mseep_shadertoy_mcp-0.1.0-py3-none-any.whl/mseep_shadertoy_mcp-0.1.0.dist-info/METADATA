@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: mseep-ShaderToy-MCP
+Version: 0.1.0
+Summary: A package republished under mseep
+Home-page: https://github.com/mseep
+Author: mseep
+Author-email: support@skydeck.ai
+Keywords: mseep
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: requires-python
+Dynamic: summary
