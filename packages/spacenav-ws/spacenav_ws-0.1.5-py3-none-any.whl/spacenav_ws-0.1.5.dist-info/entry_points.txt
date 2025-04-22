@@ -1,0 +1,2 @@
+[console_scripts]
+spacenav-ws = spacenav_ws.main:cli
