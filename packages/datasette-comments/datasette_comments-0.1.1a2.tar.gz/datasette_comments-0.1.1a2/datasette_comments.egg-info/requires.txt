@@ -1,0 +1,9 @@
+datasette>=1.0a6
+python-ulid
+sqlite-migrate==0.1b0
+
+[test]
+pytest
+pytest-asyncio
+pytest-playwright
+syrupy
