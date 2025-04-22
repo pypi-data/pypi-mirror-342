@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: wasapi
+Version: 0.1.0
+Summary: A simple REST API using Flask
+Home-page: https://github.com/yourusername/wasapi
+Author: ucea-cse-2026
+Author-email: newtonbaskar04@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: Flask
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: flask
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# ItemAPI
+
+A simple local REST API using Flask for adding, updating, and deleting items.
+developed by ucea student 2026 batch cse
