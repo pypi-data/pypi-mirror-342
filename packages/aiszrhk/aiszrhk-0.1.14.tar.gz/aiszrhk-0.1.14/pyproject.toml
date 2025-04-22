@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=63", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aiszrhk"
+version = "0.1.14"
+dependencies = [
+    "requests",
+    "pandas",
+    "tiktoken",
+    "openai",
+    "InquirerPy",
+    "tqdm"
+]
+requires-python = ">=3.7"
+authors = [
+    {name = "Zhairui Shen(Laurent)", email = "century8613@gmail.com"}
+]
+maintainers = [
+    {name = "Zhairui Shen(Laurent)", email = "admin@szr.hk"}
+] 
+description = "A lightweight and customizable API wrapper designed to assist data analysts"
+keywords = ["LLM", "AI", "ChatGPT", "API", "Data analysts"]
+readme = "README.md"
+license = {text = "MIT"}
+
+[project.urls]
+Homepage = "https://szr.hk"
+MyHomepage = "https://szr.hk/me"
+Repository = "https://github.com/LaurentShen"
+DOWNLOAD = "https://pypi.org/project/aiszrhk/"
