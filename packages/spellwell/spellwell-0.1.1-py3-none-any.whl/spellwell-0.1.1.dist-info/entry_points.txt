@@ -1,0 +1,3 @@
+[console_scripts]
+spellwell=spellwell.cli:main
+
