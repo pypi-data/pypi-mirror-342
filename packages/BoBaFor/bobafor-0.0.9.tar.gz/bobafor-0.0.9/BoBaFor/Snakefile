@@ -1,0 +1,134 @@
+# configfile: "config.yaml"
+import os
+import time
+import random
+import BoBaFor
+#time.sleep(random.randint(0,100))
+time.sleep(random.uniform(0,20))
+
+if os.path.isdir("./snakemake/locks"):
+    os.remove("./snakemake/locks")
+
+if not os.path.isdir('BorutaOUT_'+str(config['boruta_perc'])+str(config['boruta_pval'])+'_'+str(config['model'])):
+    os.makedirs('BorutaOUT_'+str(config['boruta_perc'])+str(config['boruta_pval'])+'_'+str(config['model']))
+os.chdir('BorutaOUT_'+str(config['boruta_perc'])+str(config['boruta_pval'])+'_'+str(config['model']))
+
+# if os.path.isdir("./snakemake/locks"):
+#     os.remove("./snakemake/locks")
+
+print(os.getcwd())
+
+wildcard_constraints:
+  Predictor="[^/]+"
+
+rule all:
+    input:
+        # "TuningOUT/RFOptimal_Tuning1_"+str(config['sim'])+".pickle",
+        # "BorutaOUT/FinalFeatureMatrix_BorutaSelected_"+str(config['sim'])+".txt",
+        # "TuningOUT/RFOptimal_Tuning2_"+str(config['sim'])+".pickle",
+        "FinalFeatures_"+str(config['model'])+'/FeatureImportance_Ranked_'+config['sim']+'.out',
+    #    "FinalFeatures_"+str(config['model'])+"/SHAP_SummaryPlot_"+config['sim']+'.png',
+
+rule preFilter:
+    input:
+        predict = config['Predictor'],#"Predictors/{Predictor}.txt",
+        response = config['Response'],#"Response/{Predictor}.txt",
+    params:
+        outdir = config['PreFilterDir'],
+        outname = config['PreFilterFileName'],
+        thresh = config['FDRchi2Thresh'],
+        correct = config['chi2Correct']
+    output:
+        PreFilterPredict = config['PreFilterDir']+ config['PreFilterFileName'],
+    shell:
+        "python "+'/'.join(os.path.abspath(BoBaFor.__file__).split('/')[:-1])+"/scripts/GWAS_PreFilter_script0.py -p {input.predict} -r {input.response} -k {params.thresh} -c {params.correct} -t {params.outname} -o {params.outdir}"
+
+rule Tuning:
+    input:
+        predict = rules.preFilter.output.PreFilterPredict,
+        # predict = config['Predictor'],#"Predictors/{Predictor}.txt",
+        response = config['Response'],#"Response/{Predictor}.txt",
+        #"{sim}",
+    params:
+        sim = config['sim'],
+        NumRandSearch1 = config['RandSearch1_Niter'],
+        NumOptParams = config['GridParamDepth'],
+        NumGridSearchCV1 = config['GridSearch1_CV'],
+	    scorer = config['ScoreMetric'],
+        model = config['model']
+    output:
+        RFrandsearch = 'TuningOUT_'+str(config['model'])+'/randSearch1_' + str(config['sim'])+'.txt',
+        # RFrandsearchFIG = 'TuningOUT_'+str(config['model'])+'/RandSearchFIG1_'+str(config['sim'])+".png",
+        RFgridParms = 'TuningOUT_'+str(config['model'])+'/GridParamSpace1_'+str(config['sim'])+'.pickle',
+        RFgridsearch = 'TuningOUT_'+str(config['model'])+'/gridSearch1_'+str(config['sim'])+ '.txt',
+        RFgridsearchFIG = 'TuningOUT_'+str(config['model'])+'/GridSearchFIG1_'+str(config['sim'])+'.png',
+        RFparams = 'TuningOUT_'+str(config['model'])+'/Optimal_Tuning1_'+str(config['sim'])+".pickle",
+        
+    shell:
+        "python "+'/'.join(os.path.abspath(BoBaFor.__file__).split('/')[:-1])+"/scripts/GWAS_Tuning_script1.py -p {input.predict} -r {input.response} -s {params.sim} -n {params.NumRandSearch1} -t {params.NumOptParams} -k {params.NumGridSearchCV1} -a {params.scorer} -m {params.model}"
+
+rule Selecting:
+    input:
+        predict = rules.preFilter.output.PreFilterPredict,
+        response = config['Response'],
+        TunedFiles = rules.Tuning.output.RFparams
+    params:
+        sim = config['sim'],
+        perc = config['boruta_perc'],
+        pval = config['boruta_pval'],
+	    select = config['borutaSelect_perc'],
+        collect = config['collect'],
+        rep = config['boruta_reps'],
+        mod = config['model'],
+    output: 
+        BorutaSelected = 'BorutaOUT/'+str(config['model'])+'_Boruta_Selected_'+str(config['sim'])+'.txt', 
+        BorutaTentative = 'BorutaOUT/'+str(config['model'])+'_Boruta_Tentative_'+str(config['sim'])+'.txt',
+        FinalFeatureMatrix='BorutaOUT/'+str(config['model'])+'_FinalFeatureMatrix_BorutaSelected_'+str(config['sim'])+'.txt'
+    shell:
+        "python "+'/'.join(os.path.abspath(BoBaFor.__file__).split('/')[:-1])+"/scripts/GWAS_Selection_script2.py -p {input.predict} -r {input.response} -s {params.sim} -t {params.perc} -k {params.pval}  -n {params.rep} -m {params.mod} -l {params.select} -q {params.collect}" #-q {params.collect}
+
+# os.chdir('BorutaOUT_'+str(config['boruta_perc'])+str(config['boruta_pval'])+'/')
+
+rule ReTuning:
+    input:
+        # predict = 'BorutaOUT_'+str(config['boruta_perc'])+ str(config['boruta_pval']),#config['Boruta_Predictor'],
+        response = config['Response'],
+        SelectFiles = rules.Selecting.output.FinalFeatureMatrix
+    params:
+        sim = config['sim'],
+        NumRandSearch2 = config['RandSearch2_Niter'],
+        NumRandSearchCV2 = config['RandSearch2_CV'],
+        NumGridSearchCV2 = config['GridSearch2_CV'],
+        mod=config['model'],
+        scorer = config['ScoreMetric'],
+
+    output:
+        RFrandsearch = 'TuningOUT_'+str(config['model'])+'/randSearch2_' + str(config['sim'])+'.txt',
+        # RFrandsearchFIG = 'TuningOUT_'+str(config['model'])+'/RandSearchFIG2_'+str(config['sim'])+".png",
+        RFgridParms = 'TuningOUT_'+str(config['model'])+'/GridParamSpace2_'+str(config['sim'])+'.pickle',
+        RFgridsearch = 'TuningOUT_'+str(config['model'])+'/gridSearch2_'+str(config['sim'])+ '.txt',
+        RFgridsearchFIG = 'TuningOUT_'+str(config['model'])+'/GridSearchFIG2_'+str(config['sim'])+'.png',
+        RFparams = 'TuningOUT_'+str(config['model'])+'/Optimal_Tuning2_'+str(config['sim'])+".pickle",
+    shell:
+        "python "+'/'.join(os.path.abspath(BoBaFor.__file__).split('/')[:-1])+"/scripts/GWAS_ReTuning_script3.py -p {input.SelectFiles} -r {input.response} -s {params.sim} -n {params.NumRandSearch2} -t {params.NumRandSearchCV2} -k {params.NumGridSearchCV2} -a {params.scorer} -m {params.mod}"
+
+#### NEED 1 permutation rank, 1 feature rank, and 1 shap rank.
+rule FeatureRank:
+    input:
+        # predict = 'BorutaOUT_'+str(config['boruta_perc'])+ str(config['boruta_pval']),
+        predict = rules.Selecting.output.FinalFeatureMatrix,
+        response = config['Response'],
+        reTuned = rules.ReTuning.output.RFparams
+    params:
+        sim = config['sim'],
+        iter = config['RankingFeatureIters'],
+        PermImpIter = config['PermImpInteralIter'],
+        mod = config['model'],
+        scorer = config['ScoreMetric']
+    output:
+        # PermImp ="FinalFeatures_"+str(config['model'])+"/PermutationImportance_Ranked_"+config['sim']+'.out',
+        FeatImp = "FinalFeatures_"+str(config['model'])+"/FeatureImportance_Ranked_"+config['sim'] + '.out',
+        # Impplot = 'ImportanceBarPlot_' + config['sim']+'.png',
+        # Shap ="FinalFeatures_"+str(config['model'])+'/SHAPster_Ranked_'+config['sim']+'.out',
+    shell:
+        "python "+'/'.join(os.path.abspath(BoBaFor.__file__).split('/')[:-1])+"/scripts/GWAS_Ranking_script4.py -p {input.predict} -r {input.response} -s {params.sim} -n {params.iter} -k {params.PermImpIter} -m {params.mod} -t {params.scorer}"
