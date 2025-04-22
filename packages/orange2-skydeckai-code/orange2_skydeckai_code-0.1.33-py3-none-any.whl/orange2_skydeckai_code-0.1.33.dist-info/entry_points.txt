@@ -1,0 +1,3 @@
+[console_scripts]
+skydeckai-code = aidd:main
+skydeckai-code-cli = aidd.cli:main
