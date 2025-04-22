@@ -1,0 +1,17 @@
+canvas_cli/__init__.py,sha256=Xzad7Ejm7B1udhFKte50UfI0wjWyHOqjpDq7cdx-qVE,21
+canvas_cli/__version__.py,sha256=gaD8eFeLPM5dtcd6wZrDO1OndQ-7OttvveAWfhHmCD0,343
+canvas_cli/api.py,sha256=tVGEqUgff94C4etQ5IvPby5IcUzP2t5qyQuiv1uCJ98,15308
+canvas_cli/args.py,sha256=l7Fwq_brPfNk-e3Lhe2jSBhwYa9rNE4CrH-SAmd7zt4,14321
+canvas_cli/cli.py,sha256=5m2NavO4fcEhhoKrSAf__FWDCc0BbR5r9b4AoVmH3Sk,15189
+canvas_cli/cli_utils.py,sha256=26ZBE6a4D1DQBJyU5nJA3dONGLD4WS9AZk8nqemEId8,2950
+canvas_cli/command_clone.py,sha256=MFYxZ7_QxawCD1yZ0w702pke6vNHi1nsKX-aKSRj2Ik,15165
+canvas_cli/command_status.py,sha256=KH3MF88NHfqRsZJm8T_PBgokgz-0g7Dyc7p5nsTns7U,13877
+canvas_cli/config.py,sha256=xzXvYAd1raF34pYMxYd2yP3L-2vrz7rIyQIoL3h6nqs,4473
+canvas_cli/tui.py,sha256=cqDt7b5qRZ5I7BcwWyN5U1HUFL7ktKlj7AXvOOCp5HY,24130
+canvas_cli/tui_utils.py,sha256=9Ub06hwzP_GEdNw7sNiFWHnXIXQXLH668_Abc7grkOo,10039
+canvas_cmd-0.2.0.dist-info/licenses/COPYING,sha256=L8vFn9ZHT3RRpTtzuzhkgDTutx_NNhMzCw_9YpbZR4Q,35129
+canvas_cmd-0.2.0.dist-info/METADATA,sha256=ftCKdcFTHELk3O-VOpmMXzJvRSKreZnhQlimh7yMzHA,8229
+canvas_cmd-0.2.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+canvas_cmd-0.2.0.dist-info/entry_points.txt,sha256=6dDJD3wpRKdZnJsd08MsMlopoNk2wFpwfttSlaWL8Yw,47
+canvas_cmd-0.2.0.dist-info/top_level.txt,sha256=UTYkv9z1Oe6tHvybDY7gOZyDfoXPH34xEMNGGYvaumY,11
+canvas_cmd-0.2.0.dist-info/RECORD,,
