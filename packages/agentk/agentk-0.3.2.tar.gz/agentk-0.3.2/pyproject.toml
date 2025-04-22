@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "agentk"
+version = "0.3.2"  # Replace with the actual version from your `get_version` function
+description = '"AGENT" K is a complete minimalistic kubectl "doner"-wrap'
+authors = ["Yauhen Yakimovich <eugeny.yakimovitch@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://gitlab.com/kubic-ci/k"
+repository = "https://gitlab.com/kubic-ci/k"
+keywords = ["kubectl", "tool", "kubernetes"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+sh = ">=1.12.13"
+pick = ">=0.6.4"
+clint = ">=0.5.1"
+PyYAML = ">=5.1.2"
+windows-curses = { version = ">=2.0", markers = "platform_system == 'Windows'" }
+pbs = { version = "==0.110", markers = "platform_system == 'Windows'" }
+
+[tool.poetry.scripts]
+k = "agentk:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
