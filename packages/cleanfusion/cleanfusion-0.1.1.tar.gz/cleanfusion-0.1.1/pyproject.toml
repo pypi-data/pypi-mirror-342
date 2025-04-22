@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cleanfusion"
+version = "0.1.1"
+description = "A comprehensive data cleaning library"
+readme = "README.md"
+authors = [
+    {name = "Himanshu Chopade", email = "himanshuchopade97@gmail.com"},
+    {name = "Hriday Thaker", email = "hriday.thaker2604@gmail.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+dependencies = [
+    "pandas",
+    "numpy",
+    "scikit-learn",
+    "matplotlib",
+    "nltk",
+    "PyPDF2",
+    "pdfplumber",
+]
+
+[project.optional-dependencies]
+bert = ["sentence-transformers"]
+dev = ["pytest", "black", "isort"]
+
+[project.urls]
+"Homepage" = "https://github.com/himanshuchopade97/CleanFusion"
+"Bug Tracker" = "https://github.com/himanshuchopade97/CleanFusion/issues"
+
+[project.scripts]
+cleanfusion = "cleanfusion.cli:main"

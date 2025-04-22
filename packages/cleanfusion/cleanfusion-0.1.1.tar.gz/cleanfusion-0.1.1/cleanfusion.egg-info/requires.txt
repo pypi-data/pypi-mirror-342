@@ -1,0 +1,15 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+nltk
+PyPDF2
+pdfplumber
+
+[bert]
+sentence-transformers
+
+[dev]
+pytest
+black
+isort
