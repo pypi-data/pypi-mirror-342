@@ -1,0 +1,10 @@
+[project]
+name = "smtp-checker-cli"
+version = "0.1.0"
+description = "SMTP Checker CLI tool"
+
+dynamic = ["requires-python", "license", "authors", "classifiers", "scripts"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
