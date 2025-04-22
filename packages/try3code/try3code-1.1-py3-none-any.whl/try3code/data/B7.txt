@@ -1,0 +1,55 @@
+#B7	
+# Build a Python application to classify iris flowers using the Nearest Neighbor Rule. Use a given dataset with features such as petal length and width. Experiment with different values of K and evaluate the model's accuracy
+
+
+import numpy as np
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import accuracy_score, classification_report
+import matplotlib.pyplot as plt
+
+# Step 1: Load the Iris dataset
+iris = load_iris()
+X = iris.data  # Features (petal length, petal width, etc.)
+y = iris.target  # Labels (species of flowers)
+
+# Step 2: Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Step 3: Define a function to train and evaluate the KNN model with different K values
+def evaluate_knn(k_values):
+    for k in k_values:
+        # Initialize the KNN classifier with a given value of k
+        knn = KNeighborsClassifier(n_neighbors=k)
+        
+        # Train the classifier on the training data
+        knn.fit(X_train, y_train)
+        
+        # Make predictions on the test data
+        y_pred = knn.predict(X_test)
+        
+        # Calculate accuracy
+        accuracy = accuracy_score(y_test, y_pred)
+        print(f"K={k} - Accuracy: {accuracy * 100:.2f}%")
+        print(f"Classification Report for K={k}:\n{classification_report(y_test, y_pred)}")
+
+# Step 4: Experiment with different K values
+k_values = [1, 3, 5, 7, 9]  # Different values of K to try
+evaluate_knn(k_values)
+
+# Optional: Plot the effect of K on accuracy (for visualization)
+accuracies = []
+for k in k_values:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    knn.fit(X_train, y_train)
+    y_pred = knn.predict(X_test)
+    accuracies.append(accuracy_score(y_test, y_pred))
+
+# Plot accuracy vs K value
+plt.plot(k_values, accuracies, marker='o')
+plt.title('KNN Classifier Accuracy vs K')
+plt.xlabel('K value')
+plt.ylabel('Accuracy')
+plt.grid(True)
+plt.show()
