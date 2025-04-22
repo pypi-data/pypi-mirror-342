@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: wellapi
+Version: 0.2.1
+Summary: Add your description here
+Author-email: ramses <romayuhym@gmail.com>
+Requires-Python: >=3.12
+Requires-Dist: aws-cdk-lib>=2.189.1
+Requires-Dist: email-validator>=2.0.0
+Requires-Dist: pydantic==2.11.3
+Requires-Dist: typing-extensions>=4.8.0
+Provides-Extra: standard
+Requires-Dist: click>=8.1.8; extra == 'standard'
+Requires-Dist: watchdog>=4.0.2; extra == 'standard'
+Description-Content-Type: text/markdown
+
+TODO
+
+- [ ] OpenAPI
+  - [X] Request validation
+  - [ ] CORS
+  - [ ] x-api-key
+  - [ ] cache
+  - [ ] access log
+- [ ] Build
+  - [ ] Clean up 
+- [x] Use multi Value Request Parameters (Headers, QueryString)
+- [ ] Check AWS warning 
+
+  The API with ID 6526xo4n92 doesn’t include a resource with path /* having an integration arn:aws:lambda:eu-central-1:985539757029:function:MainHelloFunction on the ANY method.
+
+  The API with ID doesn’t include a resource with path /* having an integration on the ANY method.
+- [ ] [Dependency groups](https://docs.astral.sh/uv/concepts/projects/dependencies/)
