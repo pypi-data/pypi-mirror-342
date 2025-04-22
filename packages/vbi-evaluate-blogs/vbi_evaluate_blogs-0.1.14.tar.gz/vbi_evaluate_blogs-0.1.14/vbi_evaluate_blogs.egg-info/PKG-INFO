@@ -1,0 +1,248 @@
+Metadata-Version: 2.4
+Name: vbi-evaluate-blogs
+Version: 0.1.14
+Summary: Evaluate blogs
+Home-page: https://github.com/your_username/vbi-evaluate-blogs
+Author: LeeMinHoon
+Author-email: hunglm@gfigroup.io
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: langchain
+Requires-Dist: langchain-openai
+Requires-Dist: langchain-community
+Requires-Dist: langgraph
+Requires-Dist: playwright
+Requires-Dist: requests
+Requires-Dist: python-dotenv
+
+# VBI Evaluate Blogs
+
+`vbi_evaluate_blogs` is a Python package designed to evaluate the quality of blog content comprehensively. It combines advanced text analysis, image evaluation, and fact-checking capabilities to ensure the quality, relevance, and credibility of the content. The package leverages Azure OpenAI and other state-of-the-art tools to provide accurate and insightful evaluations.
+
+## Features
+
+### 1. Text Content Evaluation
+- Analyzes the grammar, structure, and coherence of the text.
+- Provides feedback on readability, keyword distribution, and SEO optimization.
+- Detects potential issues such as redundancy, lack of clarity, or missing components.
+
+### 2. Image Relevance Analysis
+- Evaluates the quality and relevance of images in the content.
+- Ensures that images align with the context and purpose of the document.
+- Extracts and describes image content for deeper analysis.
+
+### 3. Fact-Checking
+- Verifies the factual accuracy of the content using external sources.
+- Highlights potential inaccuracies or unsupported claims.
+- Ensures the credibility of the information presented.
+
+### 4. Modular Design
+- Each feature is implemented as a separate module, allowing for flexible usage.
+- Users can choose to run specific evaluations or combine them as needed.
+
+---
+
+## Installation
+
+To install the package, use the following commands:
+
+```bash
+pip install vbi-evaluate-blogs
+playwright install
+```
+
+---
+
+## Usage
+
+### 1. Initialization
+
+Before using the package, ensure you have set up your Azure OpenAI credentials in a `.env` file:
+
+```properties
+AZURE_OPENAI_API_KEY="your_api_key"
+AZURE_OPENAI_ENDPOINT="your_endpoint"
+```
+
+### 2. Importing the Package
+
+The package provides three main modules:
+- `check_text`: For text content evaluation.
+- `check_image`: For image relevance analysis.
+- `check_fact`: For fact-checking.
+
+You can import these modules as follows:
+
+```python
+from vbi_evaluate_blogs import check_text, check_image, check_fact
+from langchain_openai import AzureChatOpenAI
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+```
+
+### 3. Setting Up Azure OpenAI Models
+
+Initialize the Azure OpenAI models for text and image processing:
+
+```python
+text_llm = AzureChatOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+    model="o3-mini",
+    api_version="2024-12-01-preview"
+)
+
+image_llm = AzureChatOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+    model="gpt-4o-mini",
+    api_version="2024-08-01-preview",
+    temperature=0.7,
+    max_tokens=16000
+)
+```
+
+---
+
+### 4. Text Content Evaluation
+
+Use the `check_text` module to evaluate the structure, grammar, readability, and SEO of the text content:
+
+```python
+content = """
+# Sample Blog Content
+This is a sample blog content for evaluation.
+"""
+
+result = check_text(text_llm, content)
+print("Text Evaluation Result:")
+print(result)
+```
+
+---
+
+### 5. Image Relevance Analysis
+
+Use the `check_image` module to analyze images in the content:
+
+```python
+content_with_images = """
+![](https://example.com/sample-image.jpg)
+
+# Sample Blog Content with Images
+This is a sample blog content with images for evaluation.
+"""
+
+image_result = check_image(text_llm, image_llm, content_with_images)
+print("Image Analysis Result:")
+print(image_result)
+```
+
+---
+
+### 6. Fact-Checking
+
+Use the `check_fact` module to verify the factual accuracy of the content:
+
+```python
+content_with_claims = """
+# Sample Blog Content with Claims
+The Earth is flat.
+"""
+
+fact_result = check_fact(text_llm, content_with_claims)
+print("Fact-Checking Result:")
+print(fact_result)
+```
+
+---
+
+### 7. Comprehensive Evaluation
+
+You can combine all three modules for a comprehensive evaluation:
+
+```python
+content = """
+![](https://example.com/sample-image.jpg)
+
+# Sample Blog Content
+This is a sample blog content with images and claims for evaluation.
+"""
+
+text_result = check_text(text_llm, content)
+image_result = check_image(text_llm, image_llm, content)
+fact_result = check_fact(text_llm, content)
+
+print("Comprehensive Evaluation Result:")
+print({
+    "text": text_result,
+    "images": image_result,
+    "facts": fact_result
+})
+```
+
+---
+
+## Command-Line Usage
+
+You can also use the package via the command line for quick evaluations:
+
+```bash
+python -m vbi_evaluate_blogs --file path/to/your/blog.md
+```
+
+#### Additional Options
+- `--text`: Perform only text evaluation.
+- `--images`: Perform only image analysis.
+- `--facts`: Perform only fact-checking.
+
+Example:
+```bash
+python -m vbi_evaluate_blogs --file path/to/your/blog.md --text --images
+```
+
+---
+
+## Advanced Usage
+
+### Customizing the Model
+You can customize the Azure OpenAI model by providing additional parameters during initialization:
+
+```python
+model = AzureChatOpenAI(api_key="your_api_key", temperature=0.7, max_tokens=1000)
+```
+
+### Combining Modules
+You can combine multiple modules to perform a comprehensive evaluation:
+
+```python
+from vbi_evaluate_blogs import check_text, check_image, check_fact
+
+content = """
+# Sample Blog Content
+This is a sample blog content with images and claims for evaluation.
+"""
+
+text_result = check_text(text_llm, content)
+image_result = check_image(text_llm, image_llm, content)
+fact_result = check_fact(text_llm, content)
+
+combined_result = {
+    "text": text_result,
+    "images": image_result,
+    "facts": fact_result
+}
+
+print("Combined Evaluation Result:", combined_result)
+```
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
