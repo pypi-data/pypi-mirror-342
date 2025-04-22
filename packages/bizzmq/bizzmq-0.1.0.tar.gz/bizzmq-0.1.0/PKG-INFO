@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: bizzmq
+Version: 0.1.0
+Summary: A lightweight Redis-based message queue system with Dead Letter Queue support
+Author-email: Subham Mahanty <subhammahanty235@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/subhammahanty235/bizzmq-py
+Project-URL: Bug Tracker, https://github.com/subhammahanty235/bizzmq-py/issues
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: redis>=4.5.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.1.0; extra == "dev"
