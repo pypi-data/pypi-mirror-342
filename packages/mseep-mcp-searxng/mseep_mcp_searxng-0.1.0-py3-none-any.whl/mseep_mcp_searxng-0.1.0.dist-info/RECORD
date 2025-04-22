@@ -1,0 +1,11 @@
+src/mcp_searxng/__init__.py,sha256=2McGcKdpISyuKBdkVuHuNMtXV4jbNB_Cb4VLQ51NQ3I,91
+src/mcp_searxng/main.py,sha256=HFTRFSyP86EwQyftmXndZIQ5SiG0k9tXL4pO7Q7pS00,841
+src/mcp_searxng/prompts.py,sha256=pS8Rps9yfpUJEMM1w3HHqpKWvnwdYO1jfGjk9yLrqxY,1177
+src/mcp_searxng/search.py,sha256=FHScjwAOk3faDoq7Udg56xYRRkOlDijC_9ZsuT6JOJ4,2017
+src/mcp_searxng/server.py,sha256=UcjdjkVwqxniD8fLCV-bUgEjkW4CidBRg2c0grd53KM,80
+src/mcp_searxng/tools.py,sha256=52NVTf2HBxIgjOemDlyFr1wXMy2ga_PF-V_eoBVGosc,1486
+mseep_mcp_searxng-0.1.0.dist-info/METADATA,sha256=0NwIUXRy3j6INgPXJnRcNKTzyuj3j0XuWN7pF8SydJE,1906
+mseep_mcp_searxng-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mseep_mcp_searxng-0.1.0.dist-info/entry_points.txt,sha256=mxiHpCKgMTjf_D3Ojd3KO4OBjW91J7_EIDiPTaLvEww,49
+mseep_mcp_searxng-0.1.0.dist-info/licenses/LICENSE,sha256=XYoyidaA8Dw47VQFeFZHTREpyZtQm08I14viEkCq5AA,1068
+mseep_mcp_searxng-0.1.0.dist-info/RECORD,,
