@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: Google Drive Export API
+  version: 1.0.0
+  description: Export a Google Docs document as plain text using Google Drive API.
+
+servers:
+  - url: https://www.googleapis.com/drive/v3
+
+paths:
+  /files/{fileId}/export:
+    get:
+      summary: Export Google Doc as plain text
+      description: Exports a Google Docs file to plain text (.txt) format.
+      operationId: exportDocAsPlainText
+      parameters:
+        - name: fileId
+          in: path
+          required: true
+          description: The ID of the Google Docs file to export.
+          schema:
+            type: string
+        - name: mimeType
+          in: query
+          required: true
+          description: The MIME type to export to. Use `text/plain` for plain text.
+          schema:
+            type: string
+            enum: [text/plain]
+            default: text/plain
+      responses:
+        "200":
+          description: Successfully exported document as plain text
+          content:
+            text/plain:
+              schema:
+                type: string
+        "401":
+          description: Unauthorized. Invalid or missing OAuth token.
+        "403":
+          description: Permission denied or file not accessible.
+        "404":
+          description: File not found.
+      security:
+        - plurally_google:
+            - https://www.googleapis.com/auth/drive.readonly
