@@ -1,0 +1,76 @@
+[project]
+name = "AMS_BP"
+
+dynamic = ["version"]
+
+description = "Advanced Microscopy Simulations developed for the Weber Lab by Baljyot Singh Parmar"
+
+readme = "README.md"
+
+requires-python = ">=3.12"
+
+
+keywords = ["SMS"]
+
+authors = [
+  { name = "Baljyot Singh Parmar", email = "baljyotparmar@hotmail.com" },
+]
+
+maintainers = [
+  { name = "Baljyot Singh Parmar", email = "baljyotparmar@hotmail.com" },
+]
+
+dependencies = [
+  "numpy>=1.21.2",
+  "scipy>=1.7.1",
+  "scikit-image>=0.18.3",
+  "typer>=0.12.5",
+  "jsonschema>=4.23.0",
+  "pydantic>=2.9.2",
+  "tomli>=2.0.2",
+  "pyvista>=0.44.2",
+  "boundedfbm>=0.4.0",
+  "pyqt6>=6.9.0",
+  "tomlkit>=0.13.2",
+  "napari[all]>=0.5.6",
+  "tifffile>=2024.12.12",
+]
+
+[project.urls]
+Documentation = "https://joemans3.github.io/AMS_BP/"
+"Source code" = "https://github.com/joemans3/AMS_BP"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[tool.uv]
+dev-dependencies = [
+  "cluster-detection>=0.2.1",
+  "journalplots>=0.1.21",
+  "matplotlib>=3.10.0",
+  "matplotlib-scalebar>=0.9.0",
+  "microfilm>=0.3.0",
+  "mkdocs-material==9.5.40",
+  "mkdocstrings-python>=1.12.2",
+  "notebook>=7.3.2",
+  "pymdown-extensions>=10.11",
+  "pyright>=1.1.384",
+  "pytest>=8.3.3",
+  "ruff>=0.6.9",
+  "smrecon>=0.1.0",
+  "sptanalysis>=0.2.0",
+]
+
+[tool.uv.sources]
+sms-bp-adv = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/AMS_BP/__init__.py"
+
+[project.scripts]
+run_AMS_BP = "AMS_BP.main_cli:typer_app_asms_bp"

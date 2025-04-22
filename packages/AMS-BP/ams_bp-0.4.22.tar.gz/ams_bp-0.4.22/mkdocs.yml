@@ -1,0 +1,30 @@
+site_name: AMS_BP
+site_url: https://joemans3.github.io/AMS_BP/
+repo_url: https://github.com/joemans3/AMS_BP
+theme: 
+  name: material
+  logo: assets/icons/drawing.png
+  icon:
+    repo: fontawesome/brands/git-alt
+  features:
+    - navigation.footer
+    - search.suggest
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - toc:
+      permalink: "#"
+      baselevel: 2
+      separator: "-"
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+plugins:
+- mkdocstrings:
+    enabled: !ENV [ENABLE_MKDOCSTRINGS, true]
+    default_handler: python
+    handlers:
+      python:
+        options:
+          show_source: false
+- search
