@@ -1,0 +1,66 @@
+Metadata-Version: 2.4
+Name: unicorn_eval
+Version: 1.0
+Summary: Evaluation and adaption method for the UNICORN Challenge
+Home-page: https://github.com/DIAGNijmegen/unicorn_eval
+Author: Joeran Bosma, Clément Grisi, Marina D`Amato, Luc Builtjes, Lena Philipp, Fennie van der Graaf, Judith Lefkes, Michelle Stegeman, Rianne Weber
+Author-email: Clement.Grisi@radboudumc.nl
+Project-URL: Bug Tracker, https://github.com/DIAGNijmegen/unicorn_eval/issues
+Platform: unix
+Platform: linux
+Platform: osx
+Platform: cygwin
+Platform: win32
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: scikit-learn==1.1.1
+Requires-Dist: numpy==1.26.1
+Requires-Dist: pandas
+Requires-Dist: psutil
+Requires-Dist: torch==2.0.1
+Requires-Dist: torchvision==0.15.2
+Requires-Dist: scikit-survival
+Requires-Dist: pycocoevalcap
+Requires-Dist: transformers==4.28.1
+Requires-Dist: bert_score
+Requires-Dist: evalutils==0.3.1
+Requires-Dist: openslide-python
+Requires-Dist: pycm
+Provides-Extra: testing
+Requires-Dist: pytest>=6.0; extra == "testing"
+Requires-Dist: pytest-cov>=2.0; extra == "testing"
+Requires-Dist: mypy>=0.910; extra == "testing"
+Requires-Dist: flake8>=3.9; extra == "testing"
+Requires-Dist: tox>=3.24; extra == "testing"
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: project-url
+
+# 🧪 UNICORN Evaluation Toolkit
+
+Welcome to the official evaluation repository for the [UNICORN Challenge](https://unicorn.grand-challenge.org/) — a benchmark for foundation models in pathology, radiology and medical language processing. This repository provides the code used to evaluate submissions using frozen foundation model features. It ships with a set of feature adaptors that convert features into predictions and expects to community to contribute with custom & more fancy adaptors.
+
+## 🚀 Goal
+
+The challenge evaluates how well foundation models generalize across tasks without extensive fine-tuning. For language and vision-language tasks, the model should yield the prediction. For vision tasks, we adapt features using light-weight methods (adaptors). Participants are invited to use built-in adaptors or propose their own!
+
+## 🧩 Custom Adaptors
+
+Want to use a custom method to convert vision features to predictions?
+
+- add your adaptor under the adaptors/ directory
+- submit a pull request with a short description of your method, giving it a unique name that can be selected at submission time
+
+Once approved and merged, you’ll be able to submit your model using your custom adaptor.
+
+⚠️ All adaptors must follow the base adaptor interface (see `adaptors/base.py`).
