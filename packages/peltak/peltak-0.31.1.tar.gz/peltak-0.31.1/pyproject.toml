@@ -1,0 +1,68 @@
+[tool.poetry]
+name = "peltak"
+version = "0.31.1"
+description = "A command line tool to help manage a project"
+readme = "README.rst"
+repository = "http://github.com/novopl/peltak"
+homepage = "http://novopl.github.com/peltak"
+documentation = "http://novopl.github.com/peltak"
+authors = ["Mateusz Klos <novopl@gmail.com>"]
+license = "Apache 2.0"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Topic :: Utilities",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "License :: OSI Approved :: MIT License",
+]
+packages = [
+    { include = "peltak", from = "src" },
+    { include = "cliform", from = "src" },
+]
+include = ["LICENSE", "AUTHORS", "README.rst"]
+exclude = ["docs/**"]
+
+[tool.poetry.scripts]
+peltak = 'peltak.main:peltak_cli'
+
+[tool.poetry.dependencies]
+python = ">=3.7.2,<4.0"
+click = "^8.0"
+PyYAML = ">=6.0"
+jinja2 = ">=2.12"
+pygments = ">=2.7.4"
+tomlkit = ">=0.7.0"
+
+[tool.poetry.dev-dependencies]
+codecov = ">=2.1.12"
+coverage = ">=6.5.0"
+flake8 = ">=5.0.4"
+isort = ">=5.10.1"
+mypy = ">=0.982"
+psutil = ">=5.9.2"
+pycodestyle = ">=2.9.1"
+pylint = ">=2.15.4"
+pytest = ">=7.1.3"
+pytest-cov = ">=4.0.0"
+pytest-sugar = ">=0.9.5"
+Sphinx = ">=4.3.2"
+sphinx-material = ">=0.0.35"
+sphinx-autodoc-typehints = ">=1.11.1"
+types-PyYAML = ">=6.0.12"
+types-click = ">=7.1.8"
+sphinxcontrib-plantuml = ">=0.24"
+peltak-changelog = {path = "plugins/peltak-changelog", develop = true}
+peltak-gitflow = {path = "plugins/peltak-gitflow", develop = true}
+peltak-pypi = {path = "plugins/peltak-pypi", develop = true }
+peltak-todos = {path = "plugins/peltak-todos", develop = true }
+
+
+
+
+
+
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
