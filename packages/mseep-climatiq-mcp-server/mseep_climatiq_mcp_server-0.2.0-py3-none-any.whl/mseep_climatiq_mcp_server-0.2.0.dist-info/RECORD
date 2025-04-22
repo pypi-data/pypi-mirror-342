@@ -1,0 +1,16 @@
+examples/README.md,sha256=rRYjO4bkO1I_GihjNOcTyq43xfvuOCPmf2G-ED8DG5Q,2404
+examples/climatiq.ipynb,sha256=dnFlgrkYsJ8It5tqs9derKS1EMQqRHn7935ovaP8VUo,67338
+examples/simple_test.py,sha256=2yhuwOjow__INS8TGArOkbTqGR8339lPEp2OA0XRZGs,3106
+src/climatiq_mcp_server/__init__.py,sha256=KNZ1bD9ZGfyZwlv91Ueeega_1lsRDLs2fYQDgNbBdtc,212
+src/climatiq_mcp_server/server.py,sha256=j1zBwEyCfP2qx0ZHE4bsWnD8P6v6SVUWhOb5tLGCYig,12831
+src/climatiq_mcp_server/tools.py,sha256=9pNzfHMsTqX6wnFKh7SqIR8oriRq-XO74gVb2JCyIzQ,40240
+utils/README.md,sha256=ktAVUBo112KWUAqSgsx74ml3kXJpn7zrDerTu84VeOY,3078
+utils/climatiq_cli.py,sha256=gc9BjOa4TPpXzEVndYRRDPsIUyzhgKRFV4E7nw7_o-U,7141
+utils/llm_example_client.py,sha256=8i1ifBt1IfdWCNoiJGpPbKl5FLEZzMdb-cVSOkaXD6g,22416
+utils/run_mcp_server.py,sha256=2u6K-fQ_LfJwiF7VgqpTssCGLUhM2B9uWQqprSb_HXM,772
+utils/test_client.py,sha256=UYp8tmsimVJYe-XlYm0DQZu4DRgkYwyu6RMfkIi83o0,13965
+mseep_climatiq_mcp_server-0.2.0.dist-info/METADATA,sha256=WpXyz_Rws6GPIm-AYwckEQ53OC_NR6FCWrRkXdGHWbA,7594
+mseep_climatiq_mcp_server-0.2.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mseep_climatiq_mcp_server-0.2.0.dist-info/entry_points.txt,sha256=6OJsWPniMCc9_VJxnYUGy-JP3yHy1eb11A6YZNNM7Us,78
+mseep_climatiq_mcp_server-0.2.0.dist-info/licenses/LICENSE,sha256=bRu8IEYBSEJiUdKyV9fnb5ZSrrFfQnz6hJ3qWFQzL0o,1157
+mseep_climatiq_mcp_server-0.2.0.dist-info/RECORD,,
