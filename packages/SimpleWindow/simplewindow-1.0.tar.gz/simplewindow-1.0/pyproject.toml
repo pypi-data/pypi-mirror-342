@@ -1,0 +1,9 @@
+[project]
+name = "SimpleWindow"
+version = "1.0"
+description = "A package to easily create and manage windows in Python"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ "name" = "OleFranz" }]
+license = { file = "LICENSE" }
+dependencies = ["glfw", "numpy", "opencv-python", "PyOpenGL", "pywin32"]
