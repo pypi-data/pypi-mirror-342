@@ -1,0 +1,15 @@
+pybondmachine/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pybondmachine/converters/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pybondmachine/converters/pytorch2bm.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pybondmachine/converters/tensorflow2bm.py,sha256=-IBTRZIUv1o3BT3nuK-kzf4tto0PF1WQz5kWwlsCNLc,4765
+pybondmachine/overlay/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pybondmachine/overlay/aximmhandler.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pybondmachine/overlay/axisthandler.py,sha256=m3a_FrugK411YPnWXy80FeNPiBBKAO7AaHOyQUyiIxQ,14831
+pybondmachine/overlay/predictor.py,sha256=YNPxfQH1z26AgM-fzN8paRQZaEprgNGzPVvgcwVHD7k,3432
+pybondmachine/prjmanager/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pybondmachine/prjmanager/neuralnetwork.py,sha256=eq_CUZuUKEQfQprItpPOj-um2ijG9_mNa2XAd-Pvawo,3152
+pybondmachine/prjmanager/prjhandler.py,sha256=3m3XnnVPTqf0sbh9LXasepctgy6kwxXdouLYNNOD2OA,8345
+pybondmachine-1.1.12.dist-info/METADATA,sha256=lFoWpQc4FKo7z-notOeaEluP5Ievn5PJR5JhP76hEZA,4251
+pybondmachine-1.1.12.dist-info/WHEEL,sha256=P9jw-gEje8ByB7_hXoICnHtVCrEwMQh-630tKvQWehc,91
+pybondmachine-1.1.12.dist-info/top_level.txt,sha256=p9FkvqNwqEFOk671qvZIIJu-Ci5QxSzkKrtn7pCkf_w,14
+pybondmachine-1.1.12.dist-info/RECORD,,
