@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/taskcapsule/__init__.py
+src/taskcapsule/taskcapsule.py
+src/taskcapsule.egg-info/PKG-INFO
+src/taskcapsule.egg-info/SOURCES.txt
+src/taskcapsule.egg-info/dependency_links.txt
+src/taskcapsule.egg-info/requires.txt
+src/taskcapsule.egg-info/top_level.txt

@@ -1,0 +1,25 @@
+[project]
+name = "taskcapsule"
+authors = [{ name = "Scott Walsh", email = "scott@invisiblethreat.ca" }]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["pydantic>=2.11.3"]
+version = "0.2.1"
+description = "A simple task runner for Python"
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["taskcapsule"]
+
+[project.urls]
+repository = "https://github.com/invisiblethreat/taskcapsule"
+homepage = "https://github.com/invisiblethreat/taskcapsule"
+documentation = "https://github.com/invisiblethreat/taskcapsule"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
