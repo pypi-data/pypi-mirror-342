@@ -1,0 +1,11 @@
+{
+    "comm": "mqtt",
+    "dataset": "UNSW",
+    "message_layer": "Raw",
+    "fl": "DecentralizedSync",
+    "ml": "Keras",
+    "min_workers": 7,
+    "save_model": false,
+    "is_anchor": true,
+    "nn": "UNSW"
+}
