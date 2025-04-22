@@ -1,0 +1,31 @@
+[project]
+name = "fastapi_enum_errors"
+version = "0.2.2"
+description = "Addon for FastAPI that simplifies working with custom errors and allows you to operate on them as if they were values in an Enum."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.12",
+    "httpx>=0.28.1",
+    "pydantic>=2.11.0",
+]
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0",
+    "pre-commit>=4.2.0",
+    "ruff>=0.11.2",
+]
+
+[tool.mypy]
+python_version = "3.12"
+disallow_untyped_defs = true
+ignore_missing_imports = true
