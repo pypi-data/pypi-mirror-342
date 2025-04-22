@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: crushmycode
+Version: 0.1.0
+Summary: Codebase knowledge graph tools
+Author: Liam Tengelis
+Author-email: liam.tengelis@blacktuskdata.com
+Requires-Dist: btdcore
+Requires-Dist: expert_llm
+Requires-Dist: minikg
+Requires-Dist: future
+Requires-Dist: graspologic
+Requires-Dist: networkx
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pydantic
+Requires-Dist: pyvis
+Requires-Dist: requests
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary
