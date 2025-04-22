@@ -1,0 +1,2 @@
+[console_scripts]
+fragfit = fragfit.cli:main

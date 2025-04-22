@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fragfit"
+version = "0.1.0"
+description = "Utilities for handling chemical formulas and mass spec MS2 fragments"
+readme = "README.md"
+authors = [
+    {name = "Gabe Reder", email = "gk@reder.io"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Chemistry",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+keywords = ["mass spectrometry", "chemistry", "formula", "fragment", "MS2"]
+dependencies = [
+    "molmass>=2024.10.25",
+    "numpy>=1.20.0",
+    "more-itertools>=10.1.0",
+    "pandas>=1.3.0",
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+    "flake8>=6.0.0",
+    "build>=0.10.0",
+    "twine>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/gkreder/fragfit"
+Issues = "https://github.com/gkreder/fragfit/issues"
+
+[project.scripts]
+fragfit = "fragfit.cli:main"
+
+[tool.setuptools]
+packages = ["fragfit"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.black]
+line-length = 88
+target-version = ["py39", "py310", "py311", "py312"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true 
