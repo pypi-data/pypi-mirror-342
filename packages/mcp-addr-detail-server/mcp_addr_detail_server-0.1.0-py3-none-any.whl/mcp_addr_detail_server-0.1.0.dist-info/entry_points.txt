@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-addr-detail-server = mcp_addr_detail_server:main
