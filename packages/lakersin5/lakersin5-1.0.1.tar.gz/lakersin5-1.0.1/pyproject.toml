@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lakersin5"
+version = "1.0.1"
+description = "Pure Python cryptographic algorithms and cybersecurity command cheatsheets."
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "MIT"}
+authors = [
+  { name = "lebron", email = "youremail@example.com" }
+]
+keywords = ["cryptography", "cybersecurity", "python", "algorithms"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Security :: Cryptography"
+]
+
+[tool.setuptools]
+packages = ["lakersin5"]
+
+[tool.setuptools.package-data]
+"lakersin5" = ["cheatsheet/*.txt"]
