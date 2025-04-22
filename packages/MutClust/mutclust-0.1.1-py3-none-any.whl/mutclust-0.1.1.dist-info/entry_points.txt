@@ -1,0 +1,2 @@
+[console_scripts]
+mutclust = mutclust.__main__:main
