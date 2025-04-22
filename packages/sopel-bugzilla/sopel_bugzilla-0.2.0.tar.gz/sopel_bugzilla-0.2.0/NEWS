@@ -1,0 +1,13 @@
+## Changelog
+
+### 0.2.0
+
+* Modernized packaging & metadata; now properly Sopel 8.x-compatible (#2)
+* Automated releasing to PyPI (#3)
+
+
+### 0.1.0
+
+Initial release of `sopel-bugzilla`, extracted to a standalone package from the
+built-in `bugzilla` plugin from Sopel 7.x as of
+[sopel-irc/sopel@79b6bce](https://github.com/sopel-irc/sopel/commit/79b6bce73f4de083a5019443a1cc45896c3ec7f5).

@@ -1,0 +1,65 @@
+Metadata-Version: 2.4
+Name: sopel-bugzilla
+Version: 0.2.0
+Summary: Domain-based Bugzilla link handler plugin for Sopel IRC bots.
+Author: Ari Koivula, Elad Alfassa, Embolalia
+Maintainer-email: dgw <dgw@technobabbl.es>
+License-Expression: EFL-2.0
+Project-URL: Homepage, https://github.com/sopel-irc/sopel-bugzilla
+Project-URL: Bug Tracker, https://github.com/sopel-irc/sopel-bugzilla/issues
+Keywords: sopel,plugin,bot,irc
+Platform: Linux x86, x86-64
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: Communications :: Chat :: Internet Relay Chat
+Requires-Python: <4,>=3.8
+Description-Content-Type: text/markdown
+License-File: COPYING
+Requires-Dist: sopel>=8.0
+Dynamic: license-file
+
+# sopel-bugzilla
+
+Domain-based Bugzilla link handler plugin for Sopel IRC bots.
+
+
+## Installation
+
+```sh
+pip install sopel-bugzilla
+```
+
+
+## Configuration
+
+```ini
+[bugzilla]
+domains = 
+    bugzilla.mozilla.org
+    bugzilla.kernel.org
+    bugs.winehq.org
+
+# list of Bugzilla issue tracker domains from which to get information
+```
+
+Run `sopel-plugins configure bugzilla` to enter the domain list interactively.
+
+
+## Special thanks
+
+All contributors to [the original `bugzilla` plugin for
+Sopel](https://github.com/sopel-irc/sopel/commits/master/sopel/modules/bugzilla.py).
+
+## Changelog
+
+### 0.2.0
+
+* Modernized packaging & metadata; now properly Sopel 8.x-compatible (#2)
+* Automated releasing to PyPI (#3)
+
+
+### 0.1.0
+
+Initial release of `sopel-bugzilla`, extracted to a standalone package from the
+built-in `bugzilla` plugin from Sopel 7.x as of
+[sopel-irc/sopel@79b6bce](https://github.com/sopel-irc/sopel/commit/79b6bce73f4de083a5019443a1cc45896c3ec7f5).

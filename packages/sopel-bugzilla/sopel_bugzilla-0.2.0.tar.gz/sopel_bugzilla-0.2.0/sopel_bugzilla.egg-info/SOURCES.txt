@@ -1,0 +1,13 @@
+COPYING
+MANIFEST.in
+NEWS
+README.md
+pyproject.toml
+sopel_bugzilla/__init__.py
+sopel_bugzilla/plugin.py
+sopel_bugzilla.egg-info/PKG-INFO
+sopel_bugzilla.egg-info/SOURCES.txt
+sopel_bugzilla.egg-info/dependency_links.txt
+sopel_bugzilla.egg-info/entry_points.txt
+sopel_bugzilla.egg-info/requires.txt
+sopel_bugzilla.egg-info/top_level.txt
