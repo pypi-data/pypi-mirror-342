@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: grapherz
+Version: 0.1.5
+Summary: 负责提供graph之间的格式调度
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=2.2.4
+Requires-Dist: pytest>=8.3.5
+Requires-Dist: pytest-html>=4.1.1
+Requires-Dist: python-box>=7.3.2
+Requires-Dist: setuptools>=78.1.0
+
+# AIworker_graph
+
+控制和转换graph格式的Underlying capability
+用来提供各种graph之间的转换能力
+暴力编写 + AI优化 将垃圾代码转化为牛逼代码
+## 常规操作
+### 导出环境
+```
+uv export --format requirements-txt > requirements.txt
+```
+### 更新文档
+```
+mkdocs serve # 预览
+mkdocs gh-deploy -d ../.temp # 同步到github网站
+```
+
+### 发布
+```
+uv build
+uv publish
+```
+
+### 运行测试并同步到测试服务
+```
+bash run_test.sh
+```
