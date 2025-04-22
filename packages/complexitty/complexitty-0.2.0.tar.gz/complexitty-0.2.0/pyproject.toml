@@ -1,0 +1,76 @@
+[project]
+name = "complexitty"
+version = "0.2.0"
+description = "A simple Mandelbrot Set explorer for the terminal"
+authors = [
+    { name = "Dave Pearson", email = "davep@davep.org" }
+]
+dependencies = [
+    "textual>=3.1.0",
+    "textual-enhanced>=0.11.0",
+    "textual-canvas>=0.3.0",
+    "xdg-base-dirs>=6.0.2",
+]
+readme = "README.md"
+requires-python = ">= 3.10"
+license = { text = "GNU General Public License v3 or later (GPLv3+)" }
+keywords = [
+    "terminal",
+    "tui",
+    "chui",
+    "mandelbrot",
+    "fractal",
+    "maths",
+]
+classifiers = [
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Environment :: Console",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Terminals",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://complexitty.davep.dev/"
+Repository = "https://github.com/davep/complexitty"
+Documentation = "https://complexitty.davep.dev/"
+Source = "https://github.com/davep/complexitty"
+Issues = "https://github.com/davep/complexitty/issues"
+Discussions = "https://github.com/davep/complexitty/discussions"
+
+[project.scripts]
+complexitty = "complexitty.__main__:main"
+
+[build-system]
+# https://github.com/astral-sh/rye/issues/1446
+requires = ["hatchling==1.26.3", "hatch-vcs"]
+# requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "pre-commit>=4.2.0",
+    "codespell>=2.4.1",
+    "mypy>=1.15.0",
+    "textual-dev>=1.7.0",
+    "mkdocs-material>=9.6.12",
+    "markdown-exec>=1.10.3",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/complexitty"]
+
+[tool.pyright]
+venvPath="."
+venv=".venv"
+exclude=[".venv"]

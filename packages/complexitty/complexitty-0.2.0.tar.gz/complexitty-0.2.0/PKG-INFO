@@ -1,0 +1,95 @@
+Metadata-Version: 2.3
+Name: complexitty
+Version: 0.2.0
+Summary: A simple Mandelbrot Set explorer for the terminal
+Project-URL: Homepage, https://complexitty.davep.dev/
+Project-URL: Repository, https://github.com/davep/complexitty
+Project-URL: Documentation, https://complexitty.davep.dev/
+Project-URL: Source, https://github.com/davep/complexitty
+Project-URL: Issues, https://github.com/davep/complexitty/issues
+Project-URL: Discussions, https://github.com/davep/complexitty/discussions
+Author-email: Dave Pearson <davep@davep.org>
+License: GNU General Public License v3 or later (GPLv3+)
+Keywords: chui,fractal,mandelbrot,maths,terminal,tui
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Terminals
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Requires-Dist: textual-canvas>=0.3.0
+Requires-Dist: textual-enhanced>=0.11.0
+Requires-Dist: textual>=3.1.0
+Requires-Dist: xdg-base-dirs>=6.0.2
+Description-Content-Type: text/markdown
+
+# Complexitty
+
+[![Complexitty](https://raw.githubusercontent.com/davep/complexitty/refs/heads/main/.images/complexitty-social-banner.png)](https://complexitty.davep.dev/)
+
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/davep/complexitty/code-checks.yaml)](https://github.com/davep/complexitty/actions)
+[![GitHub commits since latest release](https://img.shields.io/github/commits-since/davep/complexitty/latest)](https://github.com/davep/complexitty/commits/main/)
+[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/davep/complexitty)](https://github.com/davep/complexitty/issues)
+[![GitHub Release Date](https://img.shields.io/github/release-date/davep/complexitty)](https://github.com/davep/complexitty/releases)
+[![PyPI - License](https://img.shields.io/pypi/l/complexitty)](https://github.com/davep/complexitty/blob/main/LICENSE)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/complexitty)](https://github.com/davep/complexitty/blob/main/pyproject.toml)
+[![PyPI - Version](https://img.shields.io/pypi/v/complexitty)](https://pypi.org/project/complexitty/)
+
+## Introduction
+
+Complexitty is a simple terminal-based application that lets you explore the
+classic Mandelbrot set in full character-based glory. It is the successor to
+and replacement for
+[`textual-mandelbrot`](https://github.com/davep/textual-mandelbrot).
+
+## Installing
+
+### pipx
+
+The package can be installed using [`pipx`](https://pypa.github.io/pipx/):
+
+```sh
+$ pipx install complexitty
+```
+
+### Homebrew
+
+The package is available via Homebrew. Use the following commands to install:
+
+```sh
+$ brew tap davep/homebrew
+$ brew install complexitty
+```
+
+## Using Complexitty
+
+Once you've installed Complexitty using one of the above methods, you can
+run the application using the `complexitty` command.
+
+The best way to get to know Complexitty is to read the help screen, once in the
+main application you can see this by pressing <kbd>F1</kbd>.
+
+![Complexitty help](https://raw.githubusercontent.com/davep/complexitty/refs/heads/main/.images/complexitty-help.png)
+
+For more information and details on configuring Complexitty, see [the online
+documentation](https://complexitty.davep.dev/).
+
+## Getting help
+
+If you need help, or have any ideas, please feel free to [raise an
+issue](https://github.com/davep/complexitty/issues) or [start a
+discussion](https://github.com/davep/complexitty/discussions).
+
+## TODO
+
+See [the TODO tag in
+issues](https://github.com/davep/complexitty/issues?q=is%3Aissue+is%3Aopen+label%3ATODO)
+to see what I'm planning.
+
+[//]: # (README.md ends here)
