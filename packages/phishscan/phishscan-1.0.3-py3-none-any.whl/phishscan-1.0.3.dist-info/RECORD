@@ -1,0 +1,11 @@
+phishscan/__init__.py,sha256=jESq7ftlDB8Kg0mmAcsPtQSIA_t3PZO7335uh0WruS4,23
+phishscan/cli.py,sha256=si6D11Rku542Jkzz1IyEACUCG52FBsmzRZR6B_KpjP0,2377
+phishscan/email_processor.py,sha256=3Z0qx0r51QPd2zILbiInfeXbR8RdIEWEcpcLvcR5bW0,1960
+phishscan/phishing_detector.py,sha256=zflqzfB8GD6ps5oIrwnVeoPpKqiPSLjtwolICdabrBU,4538
+phishscan/phishing_keywords.txt,sha256=hb_ZSAAhjfbqzK-4zJI3tvny3mYXhSGq51jLiZCwR8c,1095
+phishscan-1.0.3.dist-info/licenses/LICENSE,sha256=l6425dmjnidzk4JQwhT01C8SpICmjSBMNREAdPnPA9E,1087
+phishscan-1.0.3.dist-info/METADATA,sha256=W-u6SUrk6n2PHz-gt6HlLDwUUvgN62c9_DWMzRX8w2c,1293
+phishscan-1.0.3.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+phishscan-1.0.3.dist-info/entry_points.txt,sha256=u5DvUBVKtTeITFQeQg-HqFOiLMAybvTvA8uO2ddqch0,49
+phishscan-1.0.3.dist-info/top_level.txt,sha256=LCOP12FbxuXLYUn6i3QX7LyoG1UrKtAQzV8KrIY5EGk,10
+phishscan-1.0.3.dist-info/RECORD,,
