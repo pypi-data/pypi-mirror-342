@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+pygif_rbk/__init__.py
+pygif_rbk/converter.py
+pygif_rbk.egg-info/PKG-INFO
+pygif_rbk.egg-info/SOURCES.txt
+pygif_rbk.egg-info/dependency_links.txt
+pygif_rbk.egg-info/not-zip-safe
+pygif_rbk.egg-info/requires.txt
+pygif_rbk.egg-info/top_level.txt
