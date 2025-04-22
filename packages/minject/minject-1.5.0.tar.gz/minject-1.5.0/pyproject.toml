@@ -1,0 +1,47 @@
+[project]
+authors = [
+  { name = "Matt McHenry", email = "mmchenry@duolingo.com" },
+  { name = "Alek Binion", email = "alek@duolingo.com" },
+  { name = "Xiyan Shao", email = "xiyan@duolingo.com" },
+  { name = "Service Framework Team", email = "service-framework-team@duolingo.com" },
+]
+classifiers = ['Development Status :: 5 - Production/Stable']
+description = "A small dependency injection library for Python."
+dynamic = ["version"]
+license = { file = "LICENSE" }
+name = "minject"
+requires-python = ">=3.9"
+
+dependencies = ["attrs>=17.4", "packaging", "typing_extensions>=4.1"]
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling>=1.26.1"]
+
+[tool.hatch.version]
+path = "minject/__init__.py"
+
+[tool.hatch.envs.default]
+dependencies = [
+  # Developer dependencies. E.g. for testing, building, packaging, etc.
+  "coverage",
+  "mypy",
+  "pre-commit",
+  "pylint",
+  "pytest",
+  "pytest-asyncio",
+  "pytest-cov",
+  "pytest-mock",
+  "pytest-xdist",
+  'pytest-asyncio',
+  "typing",
+]
+
+[[tool.hatch.envs.hatch-test.matrix]]
+python = ["3.9", "3.10", "3.11", "3.12", "3.13"]
+
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive minject"
+
+[[tool.hatch.envs.types.matrix]]
+python = ["3.9", "3.10", "3.11", "3.12", "3.13"]
