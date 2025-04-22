@@ -1,0 +1,24 @@
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[workspace.dependencies]
+djls = { path = "crates/djls" }
+djls-project = { path = "crates/djls-project" }
+djls-server = { path = "crates/djls-server" }
+djls-templates = { path = "crates/djls-templates" }
+djls-worker = { path = "crates/djls-worker" }
+
+anyhow = "1.0"
+async-trait = "0.1"
+pyo3 = "0.24"
+pyo3-async-runtimes = "0.24"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+tokio = { version = "1.42", features = ["full"] }
+tower-lsp-server = { version = "0.21", features = ["proposed"] }
+
+[profile.dev.package]
+insta.opt-level = 3
+similar.opt-level = 3
