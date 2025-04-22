@@ -1,0 +1,8 @@
+pyproject.toml
+src/opentelemetry/exporter/otlp/proto/http/sigv4/__init__.py
+src/opentelemetry/exporter/otlp/proto/http/sigv4/exporter.py
+src/otel_sigv4_exporter.egg-info/PKG-INFO
+src/otel_sigv4_exporter.egg-info/SOURCES.txt
+src/otel_sigv4_exporter.egg-info/dependency_links.txt
+src/otel_sigv4_exporter.egg-info/requires.txt
+src/otel_sigv4_exporter.egg-info/top_level.txt

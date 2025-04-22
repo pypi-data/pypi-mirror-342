@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: otel-sigv4-exporter
+Version: 0.1.0
+Summary: An OpenTelemetry exporter with native AWS Sigv4 signing, compatible with containerized Lambda apps
+Author-email: Bryan Tran <bryan.tran@travania.app>
+License-Expression: MIT
+Requires-Dist: opentelemetry-api
+Requires-Dist: opentelemetry-sdk
+Requires-Dist: opentelemetry-exporter-otlp-proto-http
+Requires-Dist: boto3
+Requires-Dist: botocore
+Requires-Dist: requests
