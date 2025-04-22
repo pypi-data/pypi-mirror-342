@@ -1,0 +1,53 @@
+oscilloscope:
+  ch1: 
+    name: Magnetron
+    probe-multiplier: 1 # physical probe multiplier
+    volt-division: 8
+    volts-per-division: 8
+    channel-coupling: 0 # DC=0, AC=1
+    value-multiplier: 2.27 # raw measured value multiplier
+    off-voltage-threshold: 0.9 # threshold for voltage when measurement on channel is considered valid. If not specified (null or not defined at all) on any channel functionality is turned off globally 
+  ch2: 
+    name: Injector Current
+    probe-multiplier: 1
+    volt-division: 8
+    volts-per-division: 8
+    channel-coupling: 0
+    value-multiplier: 4
+  ch3: 
+    name: RF Forward
+    probe-multiplier: 1
+    volt-division: 8
+    volts-per-division: 8
+    channel-coupling: 0
+    value-multiplier: 4
+  ch4: 
+    name: RF Reflected
+    probe-multiplier: 1
+    volt-division: 8
+    volts-per-division: 8
+    channel-coupling: 0
+    value-multiplier: 4
+  window: 7
+  measurement-interval: 60 # seconds
+  n-snapshots: 1
+  channel-mode: 4 # 1, 2 or 4
+  channels-enabled: [1, 1, 1, 1]
+  channel-mask: 0x0F # 15 - all 4 channels are open
+  trigger-channel: 0 #CH1=0, CH2=1, CH3=2, CH4=3
+  trigger-slope: 0 # rising=0
+  trigger-mode: 0 # edge=0
+  trigger-sweep: 0 # Auto trigger
+  trigger-voltage: 0 # Trigger Voltage (vertical)
+  buffer-length: 4096
+  read-every-sample: 1 # step for reading every n-th sample of buffer data
+  yt-mode: 0 # 0=normal, 1=scan, 2=roll
+
+database:
+  host: localhost
+  port: 5432
+  name: oscilloscope
+  user: postgres
+  password: ""
+
+export_dir: outputs

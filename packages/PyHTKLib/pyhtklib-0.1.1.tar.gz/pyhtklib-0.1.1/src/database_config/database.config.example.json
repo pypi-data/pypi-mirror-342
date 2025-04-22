@@ -1,0 +1,9 @@
+{
+    "url": "https://9200",
+    "username": "elastic",
+    "password": "your-secure-password",
+    "timeout": 300,
+    "api_key": "your-api-key-if-used",
+    "use_api_key": false,
+    "verify_ssl": false
+} 

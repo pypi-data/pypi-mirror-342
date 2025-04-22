@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "PyHTKLib"
+version = "0.1.1"
+description = "Python library for Hantek oscilloscope control and data acquisition, specifically designed for the Hantek6254BC model"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = ["oscilloscope", "hantek", "measurement", "data-acquisition"]
+authors = [
+    {name = "Sára Šimkuláková", email = "sara.simkulak@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Operating System :: Microsoft :: Windows",
+]
+dependencies = [
+    "pyyaml>=6.0",
+    "click>=8.0.0",
+    "urllib3>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black>=21.0",
+    "isort>=5.0",
+    "flake8>=3.9",
+]
+
+[project.scripts]
+pyhtklib = "src.pyhtklib.cli:main"
+
+[project.urls]
+"Homepage" = "https://github.com/sarasimkulakova/PyHTKLib"
+"Bug Tracker" = "https://github.com/sarasimkulakova/PyHTKLib/issues"
+"Documentation" = "https://github.com/sarasimkulakova/PyHTKLib#readme"
+"Changelog" = "https://github.com/sarasimkulakova/PyHTKLib/blob/main/CHANGELOG.md"
+
+[flake8]
+max-line-length = 88
+
+[tool.black]
+line-length = 80
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pyhtklib"]
+version = "0.1.2"
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/pyhtklib/dlls" = "pyhtklib/dlls"

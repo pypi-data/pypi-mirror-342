@@ -1,0 +1,61 @@
+# Example custom configuration file for oscilloscope measurements
+oscilloscope:
+  # Channel 1 configuration
+  ch1: 
+    name: Custom Channel 1 Name  # Custom name for this channel
+    probe-multiplier: 10         # Physical probe multiplier (1x or 10x probe)
+    volt-division: 8             # Voltage division setting
+    volts-per-division: 8        # Volts per division setting
+    channel-coupling: 0          # Coupling type: DC=0, AC=1
+    value-multiplier: 1.0        # Raw measured value multiplier
+    off-voltage-threshold: 1.0   # Minimum voltage threshold for valid measurements
+  
+  # Channel 2 configuration 
+  ch2: 
+    name: Custom Channel 2 Name
+    probe-multiplier: 1
+    volt-division: 8
+    volts-per-division: 8
+    channel-coupling: 0
+    value-multiplier: 4.0
+  
+  # Channel 3 configuration
+  ch3: 
+    name: Custom Channel 3 Name
+    probe-multiplier: 1
+    volt-division: 8
+    volts-per-division: 8
+    channel-coupling: 0
+    value-multiplier: 4.0
+  
+  # Channel 4 configuration
+  ch4: 
+    name: Custom Channel 4 Name
+    probe-multiplier: 1
+    volt-division: 8
+    volts-per-division: 8
+    channel-coupling: 0
+    value-multiplier: 4.0
+  
+  # General oscilloscope settings
+  window: 7                      # Window setting
+  measurement-interval: 30       # Seconds between measurements 
+  n-snapshots: 2                 # Number of snapshots per measurement
+  channel-mode: 4                # Number of channels (1, 2, or 4)
+  channels-enabled: [1, 1, 1, 1] # Enable/disable channels (1=enabled, 0=disabled)
+  channel-mask: 0x0F             # Channel mask (15 = all 4 channels open)
+  
+  # Trigger settings
+  trigger-channel: 0             # Trigger channel (CH1=0, CH2=1, CH3=2, CH4=3)
+  trigger-slope: 0               # Trigger slope (rising=0, falling=1)
+  trigger-mode: 0                # Trigger mode (edge=0)
+  trigger-sweep: 0               # Trigger sweep (Auto=0)
+  trigger-voltage: 0             # Trigger voltage level
+  
+  # Buffer settings
+  buffer-length: 4096            # Buffer length for data acquisition
+  read-every-sample: 1           # Step for reading every n-th sample
+  yt-mode: 0                     # Y-T mode (0=normal, 1=scan, 2=roll)
+
+# Output directory for data files
+export_dir: custom_outputs       # Custom directory for storing output files 
