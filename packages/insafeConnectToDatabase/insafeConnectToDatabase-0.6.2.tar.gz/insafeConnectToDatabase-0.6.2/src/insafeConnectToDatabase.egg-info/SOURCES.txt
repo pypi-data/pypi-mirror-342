@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+src/insafeConnectToDatabase/__init__.py
+src/insafeConnectToDatabase/cloud-sql-proxy
+src/insafeConnectToDatabase/cloud-sql-proxy-linux
+src/insafeConnectToDatabase/database_close_connection.py
+src/insafeConnectToDatabase/database_open_connection.py
+src/insafeConnectToDatabase/database_query.py
+src/insafeConnectToDatabase.egg-info/PKG-INFO
+src/insafeConnectToDatabase.egg-info/SOURCES.txt
+src/insafeConnectToDatabase.egg-info/dependency_links.txt
+src/insafeConnectToDatabase.egg-info/requires.txt
+src/insafeConnectToDatabase.egg-info/top_level.txt
+src/insafeConnectToDatabase/util/__init__.py
+src/insafeConnectToDatabase/util/wait_for_proxy.py

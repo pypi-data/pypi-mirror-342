@@ -1,0 +1,2 @@
+include src/insafeConnectToDatabase/cloud-sql-proxy
+include src/insafeConnectToDatabase/cloud-sql-proxy-linux
