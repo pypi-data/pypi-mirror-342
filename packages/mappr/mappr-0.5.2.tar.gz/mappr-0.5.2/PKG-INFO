@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: mappr
+Version: 0.5.2
+Author-email: Mateusz Klos <novopl@gmail.com>
+Maintainer-email: Mateusz Klos <novopl@gmail.com>
+License: Proprietary
+Project-URL: Repository, https://github.com/novopl/mappr
+Project-URL: Homepage, https://novopl.github.io/mappr
+Project-URL: Documentation, https://novopl.github.io/mappr
+Project-URL: Issues, https://novopl.github.io/mappr/issues
+Requires-Python: >=3.10
+License-File: LICENSE
+License-File: AUTHORS
+Dynamic: license-file
