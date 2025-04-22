@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+adbfucker/__init__.py
+adbfucker/core.py
+adbfucker.egg-info/PKG-INFO
+adbfucker.egg-info/SOURCES.txt
+adbfucker.egg-info/dependency_links.txt
+adbfucker.egg-info/requires.txt
+adbfucker.egg-info/top_level.txt
