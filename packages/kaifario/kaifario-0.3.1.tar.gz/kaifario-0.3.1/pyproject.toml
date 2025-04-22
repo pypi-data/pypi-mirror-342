@@ -1,0 +1,37 @@
+[project]
+name = "kaifario"
+version = "0.3.1"
+description = "Configuration providing library"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "adaptix>=3.0.0b9",
+]
+license = { text = "MIT" }
+authors = [ { name = "Kurosawa", email = "145038102+KurosawaAngel@users.noreply.github.com" } ]
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Typing :: Typed",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.14",
+    "pytest>=8.3.5",
+    "ruff>=0.9",
+]
+
+[project.optional-dependencies]
+yaml = [
+    "pyyaml>=6.0"
+]

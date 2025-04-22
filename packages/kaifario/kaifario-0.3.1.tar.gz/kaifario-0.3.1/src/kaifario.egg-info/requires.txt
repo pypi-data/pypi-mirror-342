@@ -1,0 +1,4 @@
+adaptix>=3.0.0b9
+
+[yaml]
+pyyaml>=6.0
