@@ -1,0 +1,214 @@
+# Advanced Hello World Workflow
+# This workflow demonstrates several key features of the workflow engine:
+# - Input validation with error handling
+# - Conditional execution based on validation results
+# - File operations (read/write) in different formats (txt, json, yaml)
+# - Shell command execution
+# - Template rendering with variable substitution
+# - Multi-step workflow with dependencies
+# - Namespaced variable access (args.VAR)
+
+name: Advanced Hello World
+description: >
+  An advanced hello world workflow demonstrating:
+  - Input validation
+  - Conditional execution
+  - Error handling
+  - Multiple output formats
+  - Shell commands
+  - Template rendering
+  - Custom module tasks
+  - Namespaced variables
+
+params:
+  name:
+    description: Name to include in the greeting
+    default: World
+
+steps:
+  # Step 1: Validate the input name parameter
+  # Creates a validation result file that other steps will use
+  - name: validate_input
+    task: shell
+    inputs:
+      command: |
+        mkdir -p "output/"
+        if [ -z "{{ args.name|default('') }}" ]; then
+          echo "Error: Name parameter is required" > "output/validation_result.txt"
+        elif [ "{{ args.name|length }}" -lt 2 ]; then
+          echo "Error: Name must be at least 2 characters long" > "output/validation_result.txt"
+        elif [ "{{ args.name|length }}" -gt 50 ]; then
+          echo "Error: Name must not exceed 50 characters" > "output/validation_result.txt"
+        else
+          echo "Valid: {{ args.name }}" > "output/validation_result.txt"
+        fi
+    on_error:
+      action: fail
+      message: "Failed to validate input: {{ error }}"
+
+  # Step 2: Read the validation result file
+  # This step uses the file_tasks module to read the validation result
+  # The content is stored in the validation_content variable for the next step
+  - name: check_validation
+    task: read_file
+    # Default retry applies if validation_result.txt is temporarily unavailable
+    retry: 3
+    inputs:
+      file: output/validation_result.txt
+    on_error:
+      action: fail # If the file cannot be read after retries, fail hard
+      message: "Failed to read validation result: {{ error }}"
+
+  # Step 3: Process the validation result
+  # Creates a boolean flag file (validation_passed.txt) that will control conditional execution
+  - name: process_validation
+    task: shell
+    # Reads the raw result from output/, writes 'PASSED' or 'FAILED' to a new file inside output/
+    inputs:
+      command: |
+        mkdir -p output # Ensure output directory exists
+        # Read from the correct location (output/)
+        validation_result=$(cat output/validation_result.txt) 
+        # Check if the result STARTS WITH "Valid" - POSIX compliant version
+        case "$validation_result" in
+          Valid*)
+            echo "PASSED" > output/processed_validation.txt
+            ;;
+          *)
+            # Use printf to avoid extra newline in error case if needed, echo is likely fine
+            echo "FAILED: $validation_result" > output/processed_validation.txt
+            ;;
+        esac
+    on_error:
+      action: fail
+      message: "Failed to process validation result: {{ error }}"
+
+  # Step 3b: Read validation result
+  - name: read_validation
+    task: read_file
+    retry: 3
+    inputs:
+      file: output/processed_validation.txt
+    on_error:
+      action: fail
+      message: "Failed to read validation status: {{ error }}"
+
+  # Debug step to print all variables
+  - name: debug_vars
+    task: print_vars
+    inputs:
+      message: "Available variables"
+
+  # Debug step to print validation result
+  - name: debug_validation
+    task: shell
+    inputs:
+      command: |
+        echo "=== Debug Info ==="
+        printf "Validation Result File Content:"
+        cat "output/processed_validation.txt"
+        echo ""
+        # *** Correctly access step output using steps namespace ***
+        echo "Validation Content: {{ steps.read_validation.result.content }}"
+        echo "=== End Debug ==="
+
+  # Step 4: Get current timestamp
+  - name: get_timestamp
+    task: shell
+    inputs:
+      command: date -u +"%Y-%m-%dT%H:%M:%SZ"
+    # Use Jinja if to explicitly output "True" or "False"
+    condition: '{% if steps.read_validation.result.content.strip() == "PASSED" %}True{% else %}False{% endif %}'
+
+  # Step 4.5: Debug context AFTER timestamp
+  - name: debug_after_timestamp
+    task: print_vars
+    inputs:
+      message: "Context after get_timestamp"
+    condition: '{% if steps.read_validation.result.content.strip() == "PASSED" %}True{% else %}False{% endif %}'
+
+  # Step 5: Create greeting JSON
+  - name: create_greeting
+    task: write_json
+    inputs:
+      file: output/greeting.json
+      data:
+        name: "{{ args.name }}"
+        message: "Hello, {{ args.name }}! Welcome to the advanced workflow."
+        timestamp: "{{ steps.get_timestamp.result.stdout.strip() }}"
+    condition: '{% if steps.read_validation.result.content.strip() == "PASSED" %}True{% else %}False{% endif %}'
+    on_error:
+      action: fail
+      message: "Failed to create greeting JSON: {{ error }}"
+
+  # Step 6: Translate greeting (example)
+  - name: translate_greeting
+    task: write_yaml
+    inputs:
+      file: output/greetings.yaml
+      data:
+        en: "Hello, {{ args.name }}!"
+        es: "Hola, {{ args.name }}!"
+        fr: "Bonjour, {{ args.name }}!"
+    condition: '{% if steps.read_validation.result.content.strip() == "PASSED" %}True{% else %}False{% endif %}'
+    on_error:
+      action: fail
+      message: "Failed to write translated greetings: {{ error }}"
+
+  # Step 7: Format output message
+  - name: format_output
+    task: shell
+    inputs:
+      command: |
+        echo "Formatted Output:"
+        echo "================="
+        echo "Greeting (JSON): $(cat output/greeting.json)"
+        echo "Greetings (YAML): $(cat output/greetings.yaml)"
+    condition: '{% if steps.read_validation.result.content.strip() == "PASSED" %}True{% else %}False{% endif %}'
+    on_error:
+      action: fail
+      message: "Failed to format output: {{ error }}"
+
+  # Step 8: Handle Validation Errors
+  - name: handle_error
+    task: write_file
+    inputs:
+      file: output/error_report.txt
+      content: |
+        Workflow failed for input name: {{ args.name }}
+        Validation Status: {{ steps.read_validation.result.content.strip() }}
+        Timestamp: {% if steps.get_timestamp is defined %}{{ steps.get_timestamp.result.stdout.strip() }}{% else %}N/A (skipped){% endif %}
+    # Use Jinja if for the negative condition too
+    condition: '{% if steps.read_validation.result.content.strip() != "PASSED" %}True{% else %}False{% endif %}'
+    on_error:
+      action: continue # Allow workflow to proceed to notify_status
+      message: "Failed to write error report (continuing): {{ error }}"
+
+  # Step 9: Notify final status
+  - name: notify_status
+    task: print_message # Use print_message task to output directly
+    inputs:
+      message: | # Use Jinja templating for the message content
+        {% set validation_status = steps.read_validation.result.content.strip() %}
+        {% if validation_status == "PASSED" %}
+        Workflow completed successfully for {{ args.name }}!
+        Check the output files for detailed results:
+        - output/greeting.json: JSON formatted greeting
+        - output/greetings.yaml: Multi-language greetings
+        - output/validation_result.txt: Raw validation details
+        - output/processed_validation.txt: Processed validation status (PASSED/FAILED)
+        {% else %}
+        Workflow completed with validation errors for {{ args.name }}.
+        Check output/error_report.txt for details.
+        {# Optionally include error report content directly #}
+        {# {% if steps.handle_error and steps.handle_error.result and steps.handle_error.result.path and (workspace ~ '/' ~ steps.handle_error.result.path)|is_file %}
+        --- Error Report ---
+        {{ (workspace ~ '/' ~ steps.handle_error.result.path)|file_content }}
+        --------------------
+        {% endif %}
+        #}
+        {% endif %}
+    # Always run this step
+    on_error:
+      action: fail # Fail if printing status itself fails
+      message: "Failed to print final status: {{ error }}" 
