@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: snoopish_demo
+Version: 0.0.1
+Summary: Demo PyPI package linking to Snoopish website
+Home-page: https://snoopish.com
+Author: Snoopish
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Dynamic: author
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: summary
