@@ -1,0 +1,2 @@
+[console_scripts]
+grapheteria = grapheteria.server.main:run_app
