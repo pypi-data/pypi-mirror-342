@@ -1,0 +1,33 @@
+# mlops_sdk/voice/tts.py
+
+from typing import Optional
+from tang_yuan_mlops_sdk.core.http_client import BaseAsyncClient
+
+class TTSClient(BaseAsyncClient):
+    """
+    用于和文本转语音(TTS)服务交互的客户端
+    """
+
+    async def synthesize(self, tts_text: str, spk_id: str, endpoint: str = "inference_sft", params: Optional[dict] = None) -> bytes:
+        """
+        通过 GET 请求流式返回音频
+        :param tts_text: 合成文本
+        :param spk_id:   说话人ID
+        :param endpoint: 接口后缀, 默认 "inference_sft"
+        :param params:   额外的get参数(如果需要)
+        :return:         合成后的语音的原始二进制流
+        """
+        if params is None:
+            params = {}
+        params.update({
+            "tts_text": tts_text,
+            "spk_id": spk_id
+        })
+
+        # 调用基类里的 get_stream
+        resp_stream = await self.get_stream(endpoint, params=params)
+        # 将流式响应拼接成完整的二进制
+        audio_bytes = b""
+        async for chunk in resp_stream.aiter_bytes():
+            audio_bytes += chunk
+        return audio_bytes
