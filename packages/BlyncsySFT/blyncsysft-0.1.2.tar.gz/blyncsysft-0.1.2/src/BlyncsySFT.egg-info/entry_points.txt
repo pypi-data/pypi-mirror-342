@@ -1,0 +1,2 @@
+[console_scripts]
+blyncsysft = BlyncsySFT.cli:cli
