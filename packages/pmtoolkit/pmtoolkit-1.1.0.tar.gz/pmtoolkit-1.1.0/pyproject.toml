@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "pmtoolkit"
+version = "1.1.0"
+description = ""
+authors = ["qingxi <1917320383@qq.com>"]
+license = "MIT License"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+build = "^1.2.1"
+xmltodict = "^0.13.0"
+pyyaml = "6.0.1"
+uuid = "^1.30"
+uiautomation = "^2.0.20"
+setuptools = "^72.1.0"
+openpyxl = "^3.1.5"
+xlrd = "^2.0.1"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.8.0"
+commitizen = "^3.28.0"
+click = "^8.1.7"
+xmltodict = "^0.13.0"
+uuid = "^1.30"
+pyyaml = "6.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
