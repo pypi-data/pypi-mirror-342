@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+bipolar_explorer_mne/__init__.py
+bipolar_explorer_mne/__version__.py
+bipolar_explorer_mne/bipolar_explorer.py
+bipolar_explorer_mne/visualization.py
+bipolar_explorer_mne.egg-info/PKG-INFO
+bipolar_explorer_mne.egg-info/SOURCES.txt
+bipolar_explorer_mne.egg-info/dependency_links.txt
+bipolar_explorer_mne.egg-info/requires.txt
+bipolar_explorer_mne.egg-info/top_level.txt

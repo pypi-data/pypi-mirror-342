@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools >= 61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bipolar-explorer-mne"
+dynamic = ["version"]
+readme = "README.md"
+license = { file = "LICENSE" }
+description = "A tool for exploring bipolar montages in MNE files."
+authors = [{ name = "Ana Sofia Carmo", email = "anascacais@gmail.com" }]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent"
+]
+dependencies = [
+  "mne",
+  "plotly",
+  "pandas",
+  "plotly-resampler"
+]
+
+[project.urls]
+Repository = "https://github.com/anascacais/BipolarExplorerMNE"
+
+[tool.setuptools.dynamic]
+version = {attr = "bipolar_explorer_mne.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bipolar_explorer_mne"]
