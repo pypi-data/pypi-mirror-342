@@ -1,0 +1,11 @@
+LICENSE.md
+README.md
+setup.py
+ae/files.py
+ae_files.egg-info/PKG-INFO
+ae_files.egg-info/SOURCES.txt
+ae_files.egg-info/dependency_links.txt
+ae_files.egg-info/requires.txt
+ae_files.egg-info/top_level.txt
+ae_files.egg-info/zip-safe
+tests/test_files.py
