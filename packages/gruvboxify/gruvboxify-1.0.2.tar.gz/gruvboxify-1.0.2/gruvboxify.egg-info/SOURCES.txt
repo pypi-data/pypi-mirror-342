@@ -1,0 +1,11 @@
+LICENSE.md
+README.md
+setup.py
+gruvboxify/__init__.py
+gruvboxify/main.py
+gruvboxify.egg-info/PKG-INFO
+gruvboxify.egg-info/SOURCES.txt
+gruvboxify.egg-info/dependency_links.txt
+gruvboxify.egg-info/entry_points.txt
+gruvboxify.egg-info/requires.txt
+gruvboxify.egg-info/top_level.txt
