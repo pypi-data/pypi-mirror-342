@@ -1,0 +1,39 @@
+Metadata-Version: 2.4
+Name: pyROTMOD
+Version: 1.0.0
+Summary: Development Status :: 4 - Beta
+Project-URL: Homepage, https://github.com/PeterKamphuis/pyROTMOD
+Author-email: "P. Kamphuis" <peterkamphuisastronomy@gmail.com>
+License-Expression: GPL-3.0-or-later
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Requires-Python: >=3.6
+Requires-Dist: arviz
+Requires-Dist: astropy
+Requires-Dist: corner
+Requires-Dist: emcee
+Requires-Dist: future-fstrings
+Requires-Dist: galpy
+Requires-Dist: importlib-resources>=3.3.0
+Requires-Dist: jax
+Requires-Dist: lmfit
+Requires-Dist: matplotlib
+Requires-Dist: numdifftools
+Requires-Dist: numpy>=1.14
+Requires-Dist: numpyro
+Requires-Dist: omegaconf
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: sympy
+Requires-Dist: tinygp
+Requires-Dist: tqdm
+Description-Content-Type: text/markdown
+
+# pyROTMOD
+A python version of ROTMOD
