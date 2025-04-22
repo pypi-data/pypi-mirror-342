@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: F6Transform
+Version: 0.1.0
+Summary: F6 Transform: A minimal library for 3D rigid transformations.
+Home-page: https://github.com/iamxuxx/F6Transform
+Author: Xiangxing-Xu
+Author-email: iamxuxx@outlook.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: numpy
+
+# F6Transform
+
+**F6 Transform**: A minimal library for 3D rigid transformations.
+
+This library provides essential operations for 3D translations and rotations, including:
+- Conversion between Euler angles and rotation matrices
+- Conversion between 6D motion representations and homogeneous matrices
+- Inversion and combination of motions
+
+## Installation
+
+You can install F6Transform via pip:
+
+```bash
+pip install F6Transform
