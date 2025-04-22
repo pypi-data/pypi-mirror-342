@@ -1,0 +1,152 @@
+[project]
+name = "tc66c2mqtt"
+dynamic = ["version"]
+description = "Sends MQTT events from TC66C device"
+license = {text = "GPL-3.0-or-later"}
+readme = "README.md"
+authors = [
+    {name = 'Jens Diemer', email = 'github@jensdiemer.de'}
+]
+requires-python = ">=3.11"
+dependencies = [
+    "ha-services>=2.5.0",  # https://github.com/jedie/ha-services
+    "pycryptodome",  # https://github.com/Legrandin/pycryptodome/
+    "bleak",  # https://github.com/hbldh/bleak
+    "kaitaistruct", # https://github.com/kaitai-io/kaitai_struct_python_runtime
+    "cli-base-utilities>=0.17.0",  # https://github.com/jedie/cli-base-utilities
+    "bx_py_utils",  # https://github.com/boxine/bx_py_utils
+    "tyro",  # https://github.com/brentyi/tyro
+    "rich",  # https://github.com/Textualize/rich
+]
+
+[dependency-groups]
+dev = [
+    "manageprojects",  # https://github.com/jedie/manageprojects
+    "urllib3", # for bx_py_utils.test_utils.deny_requests.deny_any_real_request() in tests
+    "uv",  # https://github.com/astral-sh/uv
+    "setuptools",  # https://github.com/pypa/setuptools
+    "nox",  # https://github.com/wntrblm/nox
+    "coverage",  # https://github.com/nedbat/coveragepy
+    "autopep8",  # https://github.com/hhatto/autopep8
+    "pyupgrade",  # https://github.com/asottile/pyupgrade
+    "flake8",  # https://github.com/pycqa/flake8
+    "flake8-bugbear",  # https://github.com/PyCQA/flake8-bugbear
+    "pyflakes",  # https://github.com/PyCQA/pyflakes
+    "codespell",  # https://github.com/codespell-project/codespell
+    "EditorConfig",  # https://github.com/editorconfig/editorconfig-core-py
+    "pip-audit",  # https://github.com/pypa/pip-audit
+    "mypy",  # https://github.com/python/mypy
+    "twine",  # https://github.com/pypa/twine
+    "pre-commit",  # https://github.com/pre-commit/pre-commit
+    "typeguard",  # https://github.com/agronholm/typeguard/
+
+    # https://github.com/akaihola/darker
+    # https://github.com/ikamensh/flynt
+    # https://github.com/pycqa/isort
+    # https://github.com/pygments/pygments
+    "darker[flynt, isort, color]",
+]
+
+[project.urls]
+Documentation = "https://github.com/jedie/tc66c2mqtt"
+Source = "https://github.com/jedie/tc66c2mqtt"
+
+[project.scripts]
+tc66c2mqtt_app = "tc66c2mqtt.__main__:main"
+tc66c2mqtt_dev = "tc66c2mqtt.cli_dev:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "setuptools_scm>=7.1"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["tc66c2mqtt*"]
+
+[tool.setuptools.dynamic]
+version = {attr = "tc66c2mqtt.__version__"}
+
+
+[tool.cli_base.pip_audit]
+requirements=["requirements.dev.txt"]
+strict=true
+require_hashes=true
+ignore-vuln=[]
+
+
+[tool.cli_base]
+version_module_name = "tc66c2mqtt"  # Used by "update-readme-history" git hook
+
+
+[tool.darker]
+src = ['.']
+revision = "origin/main..."
+line_length = 119
+color = true
+skip_string_normalization = true
+diff = false
+check = false
+stdout = false
+isort = true
+log_level = "INFO"
+
+
+[tool.isort]
+# https://pycqa.github.io/isort/docs/configuration/config_files/#pyprojecttoml-preferred-format
+atomic=true
+profile='black'
+skip_glob=['.*', '*/htmlcov/*']
+known_first_party=['tc66c2mqtt']
+line_length=119
+lines_after_imports=2
+
+
+[tool.coverage.run]
+branch = true
+parallel = true
+concurrency = ["multiprocessing"]
+source = ['.']
+command_line = '-m unittest --verbose --locals --buffer'
+
+[tool.coverage.report]
+omit = ['.*', '*/tests/*']
+skip_empty = true
+fail_under = 30
+show_missing = true
+exclude_lines = [
+    'if self.debug:',
+    'pragma: no cover',
+    'raise NotImplementedError',
+    'if __name__ == .__main__.:',
+]
+
+
+[tool.mypy]
+warn_unused_configs = true
+ignore_missing_imports = true
+allow_redefinition = true  # https://github.com/python/mypy/issues/7165
+show_error_codes = true
+plugins = []
+exclude = ['.venv', 'tests']
+
+
+[manageprojects] # https://github.com/jedie/manageprojects
+initial_revision = "765b8fb"
+initial_date = 2024-03-12T09:08:01+01:00
+cookiecutter_template = "https://github.com/jedie/cookiecutter_templates/"
+cookiecutter_directory = "uv-python"
+applied_migrations = [
+    "b7f2cb5", # 2025-03-23T15:08:42+01:00
+]
+
+[manageprojects.cookiecutter_context.cookiecutter]
+full_name = "Jens Diemer"
+github_username = "jedie"
+author_email = "github@jensdiemer.de"
+package_name = "tc66c2mqtt"
+package_version = "0.4.0"
+package_description = "Sends MQTT events from TC66C device"
+package_url = "https://github.com/jedie/tc66c2mqtt"
+issues_url = "https://github.com/jedie/tc66c2mqtt/issues"
+license = "GPL-3.0-or-later"
+_template = "https://github.com/jedie/cookiecutter_templates/"
