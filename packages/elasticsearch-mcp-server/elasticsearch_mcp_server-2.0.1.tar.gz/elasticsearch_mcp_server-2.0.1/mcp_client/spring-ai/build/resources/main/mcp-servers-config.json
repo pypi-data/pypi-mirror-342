@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "elasticsearch-mcp-server": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/Users/I576375/Code/ai/mcp/elasticsearch-mcp-server",
+        "run",
+        "elasticsearch-mcp-server"
+      ],
+      "env": {
+        "ELASTICSEARCH_HOSTS": "https://localhost:9200",
+        "ELASTICSEARCH_USERNAME": "elastic",
+        "ELASTICSEARCH_PASSWORD": "test123"
+      }
+    }
+  }
+}
