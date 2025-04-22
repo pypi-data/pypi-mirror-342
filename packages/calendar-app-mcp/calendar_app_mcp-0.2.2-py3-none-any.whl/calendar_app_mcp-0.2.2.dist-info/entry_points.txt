@@ -1,0 +1,3 @@
+[console_scripts]
+calendar-app = calendar_app.cli:main
+calendar-app-mcp = calendar_app.cli:main
