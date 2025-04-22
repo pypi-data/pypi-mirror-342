@@ -1,0 +1,17 @@
+libmogra/.DS_Store,sha256=4waDP0kU2uucm6bK0XKiUgU3y3bqZIUr33o_ILfEYtQ,6148
+libmogra/__init__.py,sha256=S0D1ME9m4PLkfBlciPWKYKnQs6dSE6GDUuwM6uH7758,74
+libmogra/datatypes.py,sha256=0sejPwu0CaN7GpCu1KYy6RV__lwuuUXqDekp6nW_bIA,3457
+libmogra/raagfinder/__init__.py,sha256=kv5S_-6WLrejMntkMVp5ogL85699LSTRONEy-SaERw8,41
+libmogra/raagfinder/main.py,sha256=g0IlD22VvH_s9wmEg5xiuh5qQsYNIKOafYyRjKgtLsQ,2849
+libmogra/raagfinder/parse.py,sha256=9X2ylHdxtoJupDx4FsHMcRcGHTR-c8AcQakxrLq7J4Y,1784
+libmogra/raagfinder/parse_tanaranga_backup.py,sha256=fXML6eS7KKJ5EGaR6VnSRdQ-yjIkGijpzywvY4TiNDU,5751
+libmogra/raagfinder/raags.bkp.pkl,sha256=f2YHqU2P8baaQs30FFOrUak5iwrYlhy_YtGrd78OjBM,142306
+libmogra/raagfinder/raags.pkl,sha256=54vucss8btFtqqRx-DPVXMqPwqPVRJHlJuXGLU3TvEo,37106
+libmogra/shrutidata/hypothesized_gt_3_5.pkl,sha256=fCbVbQ3OWVVY8hWNL9Pl4LmpnyjN08CRaOVO4o-L_dQ,2264
+libmogra/shrutidata/make_tonnetz.ipynb,sha256=1ZOR_62h0U2Vj7Gw2zqiSMRgq1GIs-AOEqfZsWtUoV0,10670
+libmogra/tonnetz.py,sha256=klAnj97Y0Ue89FJgN9pmWANBUtGlR0yUmLJo7sGj4t4,8982
+libmogra-0.3.1.dist-info/LICENSE,sha256=KlCsvbceJLZK0SmCzzEnsftd3NYZ4gVOnzlmmy6CKRk,1074
+libmogra-0.3.1.dist-info/METADATA,sha256=n-yi2vbmT77PBRIE4CaZCTqOX5gUe1Raw0K3SXtucbA,2464
+libmogra-0.3.1.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+libmogra-0.3.1.dist-info/entry_points.txt,sha256=fdc8kxQyciaGyZ9HuNmDsnai01qumJpiu32Lu81m8jw,55
+libmogra-0.3.1.dist-info/RECORD,,
