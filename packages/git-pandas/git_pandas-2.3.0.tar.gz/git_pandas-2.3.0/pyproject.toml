@@ -1,0 +1,98 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "git-pandas"
+version = "2.3.0"
+description = "A utility for interacting with data from git repositories as Pandas dataframes"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "BSD"}
+authors = [
+    {name = "Will McGinnis"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["git", "pandas", "data", "analysis"]
+
+dependencies = [
+    "gitpython>=1.0.0",
+    "numpy>=1.9.0",
+    "pandas>=2.0.0",
+    "requests",
+    "redis",
+    "coverage>=5.0.0",
+]
+
+[project.urls]
+Documentation = "https://gitpandas.mcginniscommawill.com"
+Source = "https://github.com/wdm0006/git-pandas"
+Issues = "https://github.com/wdm0006/git-pandas/issues"
+
+[project.optional-dependencies]
+examples = [
+    "matplotlib",
+    "lifelines",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "sphinx>=7.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+    "ruff>=0.1.0",
+    "matplotlib",
+    "joblib"
+]
+all = [
+    "matplotlib",
+    "lifelines",
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "sphinx>=7.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+    "ruff>=0.1.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["gitpandas"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+python_classes = ["Test*"]
+addopts = "--verbose --strict-markers"
+markers = [
+    "slow: marks tests as slow (run with pytest -m slow)",
+    "remote: marks tests that require remote access",
+    "redis: marks tests that require Redis",
+]
+
+[tool.coverage.run]
+source = ["gitpandas"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+exclude=["docs/**"]
+
+[tool.ruff.lint]
+select = ["E", "F", "B", "I", "N", "UP", "C4", "SIM", "ERA"]
+ignore = ["UP017"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["gitpandas"]
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+suppress-none-returning = true
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto" 
