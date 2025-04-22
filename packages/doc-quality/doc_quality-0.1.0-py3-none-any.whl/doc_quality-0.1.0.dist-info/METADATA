@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: doc_quality
+Version: 0.1.0
+Summary: A Python library for evaluating documentation quality using 14 metrics.
+Author: Your Name
+Author-email: sristy.sumana@usask.ca
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Requires-Dist: nltk
+Requires-Dist: spacy
+Requires-Dist: textstat
+Requires-Dist: pandas
+Requires-Dist: beautifulsoup4
+Requires-Dist: scikit-learn
+
