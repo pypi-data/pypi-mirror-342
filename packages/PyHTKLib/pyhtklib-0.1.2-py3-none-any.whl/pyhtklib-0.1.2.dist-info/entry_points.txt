@@ -1,0 +1,2 @@
+[console_scripts]
+pyhtklib = src.pyhtklib.cli:main
