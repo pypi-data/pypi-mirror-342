@@ -1,0 +1,8 @@
+vedro<2.0,>=1.12
+
+[dev]
+build
+twine
+pyproject-flake8==7.0.0
+isort==6.0.1
+mypy==1.15.0

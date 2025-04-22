@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: vedro-debug-prompt
+Version: 0.1.0
+Summary: Auto‑generates AI‑ready debug prompts for failed scenarios
+Author-email: Nikita Tsvetkov <tsv1@fastmail.com>
+License: Apache-2.0
+Project-URL: Homepage, https://github.com/vedro-universe/vedro-debug-prompt
+Keywords: vedro
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Typing :: Typed
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: vedro<2.0,>=1.12
+Provides-Extra: dev
+Requires-Dist: build; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Requires-Dist: pyproject-flake8==7.0.0; extra == "dev"
+Requires-Dist: isort==6.0.1; extra == "dev"
+Requires-Dist: mypy==1.15.0; extra == "dev"
+Dynamic: license-file
+
+# vedro-debug-prompt
