@@ -1,0 +1,66 @@
+[project]
+name = "jaxbind"
+readme = "README.md"
+authors = [
+  {name = "Jakob Roth", email = "roth@mpa-garching.mpg.de"},
+  {name = "Martin Reinecke", email = "martin@mpa-garching.mpg.de"},
+  {name = "Gordian Edenhofer", email = "gordian.edenhofer@gmail.com"},
+]
+requires-python = ">=3.10"
+dependencies = [
+  "packaging",
+  "numpy >= 1.17.0",
+  "jax >= 0.5",
+  "jaxlib >= 0.5",
+]
+description = "Bind any function written in another language to JAX with support for JVP/VJP/batching/jit compilation"
+license = {file = "LICENSE"}
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Topic :: Scientific/Engineering :: Physics",
+  "License :: OSI Approved :: BSD License",
+  "Programming Language :: C++",
+  "Programming Language :: Python",
+]
+version = "1.2.1"
+
+[project.urls]
+"Source Code" = "https://github.com/NIFTy-PPL/JAXbind"
+"Bug Tracker" = "https://github.com/NIFTy-PPL/JAXbind/issues"
+"README" = "https://github.com/NIFTy-PPL/JAXbind/blob/main/README.md"
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+  "scipy",
+  "ducc0",
+]
+doc = [
+  "sphinx",
+  "pydata-sphinx-theme",
+  "myst-parser",
+  "ipykernel",
+  "jupyterlab",
+  "notebook",
+  "jupytext",
+  "nbconvert",
+  "ducc0",
+  "scipy",
+]
+all = ["jaxbind[test,doc]"]
+
+[build-system]
+requires = [
+  "scikit-build-core>0.5",
+  "nanobind >= 2.5.0",
+  "numpy >= 1.17.0",
+  "jax >= 0.5",
+  "jaxlib >= 0.5",
+]
+build-backend = "scikit_build_core.build"
+
+[tool.scikit-build]
+minimum-version = "build-system.requires"
+build-dir = "build/{wheel_tag}"
