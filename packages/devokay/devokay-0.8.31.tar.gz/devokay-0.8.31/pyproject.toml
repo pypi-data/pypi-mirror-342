@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devokay"
+version = "0.8.31"
+urls = { text = "https://github.com/devokay" }
+description = "tools for daily developing."
+authors = [
+    { name = 'sevenli', email = 'asusual.cn@gmail.com' }
+]
+readme = "READLME.md"
+requires-python = ">=3.6"
+license = { file = "LICENSE" }
+keywords = [
+    "develop tools",
+    "git",
+    "nginx"
+]
+classifiers = [
+    'Intended Audience :: Developers',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3'
+]
+dependencies = [
+    'requests',
+    'oss2',
+    'tabulate',
+    'cachetools',
+    'diskcache',
+    'paramiko',
+    'chardet',
+    'flask',
+    'pycryptodome',
+    'ply',
+    'openpyxl'
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["devocli", "devolib"]
+exclude = ["tmp", "img", "res", ".gitignore"]
+namespaces = false
+
+[tool.setuptools]
+license-files = []
+
+[project.scripts]
+devo = 'devocli.dummy:cli'

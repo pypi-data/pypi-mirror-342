@@ -1,0 +1,2 @@
+[console_scripts]
+devo = devocli.dummy:cli
