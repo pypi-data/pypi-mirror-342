@@ -1,0 +1,14 @@
+open_codex/agent_builder.py,sha256=fnv0a8jEBB49fNx0NwG0aNunVW7KDPBis7srD4vJcmE,548
+open_codex/main.py,sha256=yEMr4fLovafWazOUUtZsHnHNaE3HvbPJcPBESx0Kz_A,3123
+open_codex/agents/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+open_codex/agents/phi_4_mini.py,sha256=BRuD4VC0K2Gnj3JvnODgUB0E35VnBIi1X6vNrLV80oY,2329
+open_codex/interfaces/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+open_codex/interfaces/llm_agent.py,sha256=wYZnSejxHwokjmqfFp3cZIPzvH4q9W0qO2rVYE1bEBk,148
+open_codex/resources/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+open_codex/resources/prompt.txt,sha256=wJxUSfaAKp0HF188ud7tXozuzhz3E0ffAsdAoTo1Vl8,322
+open_codex-0.1.14.dist-info/licenses/LICENSE.md,sha256=32dMZWKaBXj3dY1rV0w2xyx66xtVHkfPB4m2q3O0vp4,1170
+open_codex-0.1.14.dist-info/METADATA,sha256=Y1yYVeuKoxsnVqVmlsGY2dw-AN8K6hyi6C5mjDSedu8,2612
+open_codex-0.1.14.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+open_codex-0.1.14.dist-info/entry_points.txt,sha256=QbOrKPoDCf7uXfT04qqj8k1k7iE2jGtCpnfcgL_xRE8,52
+open_codex-0.1.14.dist-info/top_level.txt,sha256=cVXmRZ_j6X8Tl4nDFYz7wDerJfUrczUB4PlW_xxnNLo,11
+open_codex-0.1.14.dist-info/RECORD,,
