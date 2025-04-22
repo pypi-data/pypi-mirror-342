@@ -1,0 +1,2 @@
+[console_scripts]
+copyright-code-extractor = copyright_code_extractor.cli:app
