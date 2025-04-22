@@ -1,0 +1,2 @@
+[jupyterhub.spawners]
+kubetemplate = kubetemplatespawner.spawner:KubeTemplateSpawner
