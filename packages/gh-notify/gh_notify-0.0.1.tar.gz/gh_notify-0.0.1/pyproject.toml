@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gh-notify"
+version = "0.0.1"
+description = "GitHub issue creation via webhook proxy"
+requires-python = ">=3.12"
+dependencies = [
+    "typer",
+    "httpx",
+    "rich",
+]
+
+[tool.hatch.build]
+include = ["gh_notify.py"]
+
+[project.scripts]
+gh-notify = "gh_notify:app"
