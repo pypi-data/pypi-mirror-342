@@ -1,0 +1,33 @@
+Metadata-Version: 2.2
+Name: Clomby
+Version: 1.0.0
+Summary: Un générateur de mots de passe interactif et sécurisé.
+Author: Arthur Ellies
+Author-email: aellies26@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: summary
+
+# Clomby
+
+Clomby est un générateur de mots de passe interactif et sécurisé.
+
+## Fonctionnalités
+- Génération de mots de passe avec des majuscules, chiffres, caractères spéciaux, et plus encore.
+- Options de personnalisation pour chaque utilisateur.
+- Interface en ligne de commande facile à utiliser.
+
+## Installation
+
+Pour installer Clomby, exécutez la commande suivante :
+
+```bash
+pip install Clomby
