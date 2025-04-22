@@ -1,0 +1,4 @@
+sentry-sdk==2.26.1
+
+[dev]
+pre-commit==4.2.0
