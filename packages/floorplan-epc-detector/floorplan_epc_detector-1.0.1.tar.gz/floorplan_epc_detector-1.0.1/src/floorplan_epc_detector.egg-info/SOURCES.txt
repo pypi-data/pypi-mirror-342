@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+src/floorplan_epc_detector/__init__.py
+src/floorplan_epc_detector/predictor.py
+src/floorplan_epc_detector.egg-info/PKG-INFO
+src/floorplan_epc_detector.egg-info/SOURCES.txt
+src/floorplan_epc_detector.egg-info/dependency_links.txt
+src/floorplan_epc_detector.egg-info/requires.txt
+src/floorplan_epc_detector.egg-info/top_level.txt
