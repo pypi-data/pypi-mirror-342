@@ -1,0 +1,64 @@
+[project]
+name = "lacia"
+version = "0.2.4"
+description = "A modern `Json-Rpc/Bson-Rpc` implementation, compatible with `Json-Rpc Ast` and `Json-Rpc 2.0` and `Json-Rpc X`, supports multiple network protocols and backend frameworks and supports bidirectional calls."
+authors = [
+    { name = "luxuncang", email = "luxuncang@qq.com" },
+]
+dependencies = [
+    "richuru>=0.1.1",
+    "nest-asyncio>=1.5.8",
+    "aiohttp>=3.8.6",
+    "orjson>=3.9.10",
+    "bson>=0.5.10",
+    "typing-extensions>=4.8.0",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+classifiers = [
+    "Typing :: Typed",
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+repository = "https://github.com/LaciaProject/lacia"
+
+[project.optional-dependencies]
+starlette = [
+    "starlette>=0.37.2",
+]
+uvicorn = [
+    "uvicorn[standard]>=0.30.1",
+]
+fastapi = [
+    "fastapi>=0.111.0",
+]
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "ruff>=0.1.5",
+]
+
+[tool.pdm.build]
+includes = [
+    "src/lacia",
+]
+
+[tool.pdm.scripts.test]
+cmd = "python tests/jsonast.py"
+
+[tool.pdm.scripts.test.env]
+PYTHONPATH = "src"
