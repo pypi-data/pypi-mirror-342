@@ -1,0 +1,17 @@
+cli/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cli/analytics_cli.py,sha256=kiwqmW12L5_839e38rsDGRrDIKAT-2rWe_N3Uf9vcOY,4189
+cli/pypxml_cli.py,sha256=GaA1v7omRVD5P98ztTbFhYz45CxkB9bEEgmvLuS-hhg,3272
+cli/search_cli.py,sha256=c0e5uTVkCfCLpc5KJ6DXZ-4Z7fx5IRzTkD-uofz0UGE,9367
+cli/transformation_cli.py,sha256=fLrq2Xnnq4QeboWCGDNime7H_MeGC-PobqMTizuVEtc,3560
+cli/util.py,sha256=DvzhjUFmNKDbtnwGuCNSh6A9Q9im-R_maEg2HRDLlyk,5114
+pypxml/__init__.py,sha256=Spw5XHdjWkl36gtwQBxaCKKR-kXZh0NZt2Uu5R_Cy5Y,96
+pypxml/pagelement.py,sha256=ekds318fjIZKsi1Mj3xo_WPwPCRtwsQDC8E0lWpyVOU,14324
+pypxml/pagetype.py,sha256=PS77FLLY5a3ZyNTWJNKGaSCcwBuOd_34zpnqMnBMpxM,8402
+pypxml/pagexml.py,sha256=CAfXcKV6jOZ4IfG3dgsGcV0XumRgTPwasri2UfFZyIA,24606
+pypxml-3.2.0.dist-info/licenses/LICENSE,sha256=FNrdnfKE3iYQxKvzH60l2VuIYB5_TrY_uyxvFueP4lY,11340
+resources/schema.json,sha256=kbGxWffUQ8jpw0CRYxHLKJI59p5ICGMdF0zvXP0S_a0,698
+pypxml-3.2.0.dist-info/METADATA,sha256=ZJ4dqtPtqzADm-hqaNBDm076riKv2bRwUegR-6P_YL4,1283
+pypxml-3.2.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+pypxml-3.2.0.dist-info/entry_points.txt,sha256=zkGOJGSpAat6xMZrzonPstt_BiHgTBkH0aEYb9SpX1w,46
+pypxml-3.2.0.dist-info/top_level.txt,sha256=eYNKPJB9pkSb2DuHBI3_yJTDq3mrwxOMJxtKAs0sta0,21
+pypxml-3.2.0.dist-info/RECORD,,
