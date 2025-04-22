@@ -1,0 +1,13 @@
+LICENSE
+README.rst
+pyproject.toml
+src/dqrobotics_extensions/pyplot/__init__.py
+src/dqrobotics_extensions/pyplot/_pyplot.py
+src/dqrobotics_extensions/pyplot/example.py
+src/dqrobotics_extensions/pyplot/example_animation.py
+src/dqrobotics_pyplot.egg-info/PKG-INFO
+src/dqrobotics_pyplot.egg-info/SOURCES.txt
+src/dqrobotics_pyplot.egg-info/dependency_links.txt
+src/dqrobotics_pyplot.egg-info/entry_points.txt
+src/dqrobotics_pyplot.egg-info/requires.txt
+src/dqrobotics_pyplot.egg-info/top_level.txt
