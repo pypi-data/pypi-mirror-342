@@ -1,0 +1,14 @@
+odoo/addons/connector_res_partner_keycloak/__init__.py,sha256=-i9dt3Wxf4ZYOdQFgBBC-XpR0uuQaUa-tl5Zaq39h4w,68
+odoo/addons/connector_res_partner_keycloak/__manifest__.py,sha256=JRZ7KrAzSZdsjmsTs4Qf351HQ858fxxgwD6UAfDH5v0,518
+odoo/addons/connector_res_partner_keycloak/listeners/__init__.py,sha256=g-Dp2ZwN6oB4CqdQfgRInNSzdMWAVQg1vjWL7S-ZODM,26
+odoo/addons/connector_res_partner_keycloak/listeners/res_partner.py,sha256=YO2kdE_76eqiwwhDVzpQIOtCW4rnu9qcwtQCfUDQQrw,562
+odoo/addons/connector_res_partner_keycloak/models/__init__.py,sha256=cjj67aJJyApVkHRejZUMKu-gnnBFFfNe4II9J1RrkOc,48
+odoo/addons/connector_res_partner_keycloak/models/company.py,sha256=JaWGEESLw6WMRkqahFnPix4-CM4cYvFk8yyRc0VQVx8,665
+odoo/addons/connector_res_partner_keycloak/models/res_partner.py,sha256=ndGHLdCDHKgtdyvsk4SPCmxw9HYvvuS-2nI6I0wznSU,410
+odoo/addons/connector_res_partner_keycloak/services/__init__.py,sha256=92OJWa9mbElR-0wx9WjFOPyzyWa4-xqB4iAe2RktZfs,23
+odoo/addons/connector_res_partner_keycloak/services/keycloak.py,sha256=_QBL0z2RZQ8pIQiZJvMfQHa6OFkkeur7PDc2YdmEsLg,1652
+odoo/addons/connector_res_partner_keycloak/views/res_company.xml,sha256=vlKGzwPM10ToDD1BMlzkAKKPsN5jRguACfyP9Y08K78,1029
+odoo_addon_connector_res_partner_keycloak-16.0.1.0.0.2.dist-info/METADATA,sha256=XGKi_qGus8bup29Vp291ME_K23MXtEdtxV1k_USdlKA,696
+odoo_addon_connector_res_partner_keycloak-16.0.1.0.0.2.dist-info/WHEEL,sha256=9fEMia4zL7ZuZbnCOrcYogUhmn4XFIVaJ8G4YGI31xc,81
+odoo_addon_connector_res_partner_keycloak-16.0.1.0.0.2.dist-info/top_level.txt,sha256=QE6RBQ0QX5f4eFuUcGgU5Kbq1A_qJcDs-e_vpr6pmfU,4
+odoo_addon_connector_res_partner_keycloak-16.0.1.0.0.2.dist-info/RECORD,,
