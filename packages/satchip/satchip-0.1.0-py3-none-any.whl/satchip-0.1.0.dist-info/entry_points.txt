@@ -1,0 +1,3 @@
+[console_scripts]
+chipdata = satchip.chip_data:main
+chiplabel = satchip.chip_label:main
