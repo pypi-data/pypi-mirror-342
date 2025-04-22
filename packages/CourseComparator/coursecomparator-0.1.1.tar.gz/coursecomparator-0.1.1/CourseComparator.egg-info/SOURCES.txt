@@ -1,0 +1,10 @@
+LICENCE
+README.md
+pyproject.toml
+CourseComparator/__init__.py
+CourseComparator/cc_classes.py
+CourseComparator/cc_functions.py
+CourseComparator.egg-info/PKG-INFO
+CourseComparator.egg-info/SOURCES.txt
+CourseComparator.egg-info/dependency_links.txt
+CourseComparator.egg-info/top_level.txt
