@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: django-small-view-set
+Version: 0.1.2
+Summary: A lightweight Django ViewSet alternative with minimal abstraction.
+Home-page: https://github.com/nateonguitar/django-small-view-set
+License: MIT
+Keywords: django,viewset
+Author: Nate Brooks
+Requires-Python: >=3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: django (>=3.2)
+Project-URL: Repository, https://github.com/nateonguitar/django-small-view-set
+Description-Content-Type: text/markdown
+
+# Django Small View Set
+
+A lightweight Django ViewSet alternative with minimal abstraction. This library provides a simple and transparent way to define API endpoints without relying on complex abstractions.
+
+## Documentation
+
+- [Getting Started](./README_SIMPLE.md): A bare-bones example to get the fundamentals.
+- [Register URLs](./README_REGISTER_URLS.md): How to register viewset urls.
+- [Custom Endpoints](./README_CUSTOM_ENDPOINT.md): Learn how to define custom endpoints alongside the default router.
+- [Handling Endpoint Exceptions](./README_HANDLE_ENDPOINT_EXCEPTIONS.md): Understand how to write your own decorators for exception handling.
+- [Custom Protections](./README_CUSTOM_PROTECTIONS.md): Learn how to subclass `SmallViewSet` to add custom protections like logged-in checks.
+- [DRF Compatibility](./README_DRF_COMPATIBILITY.md): Learn how to use some of Django Rest Framework's tools, like Serializers.
+- [Reason](./README_REASON.md): Reasoning behind this package.
+
