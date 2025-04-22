@@ -1,0 +1,167 @@
+.chat-history-pane {
+    flex: 0 0 33%;
+    background-color: var(--bg-chat-history-pane);
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.main-pane {
+    flex: 1;
+    background-color: var(--bg-primary);
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Top Bar Styling */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background-color: var(--bg-container);
+    border-bottom: 1px solid var(--border-color);
+    align-items: center;
+    padding: 0 10px;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+}
+
+/* Left Section: Logo and Buttons */
+.top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Blueprint Metadata Centered */
+.blueprint-metadata {
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* Right Section: Settings Button */
+.top-bar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* Buttons in the Top Bar */
+.top-bar-btn {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--text-color);
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.top-bar-btn img {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.top-bar-btn:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.top-bar-btn .btn-label {
+    display: inline-block;
+    white-space: nowrap;
+    visibility: visible;
+}
+
+/* Main Chat Pane */
+.main-pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Message Input Area */
+.message-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Vertical Divider for Resizing */
+.vertical-divider {
+    width: 10px;
+    cursor: col-resize;
+    background-color: var(--border-color);
+    opacity: 0;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.vertical-divider:hover {
+    opacity: 1;
+    background-color: var(--button-hover-bg);
+}
+
+/* Sidebar Reveal Buttons */
+.sidebar-reveal-btn {
+    position: absolute;
+    top: 10px; /* Adjusted to be higher */
+    z-index: 1000;
+    background-color: var(--button-primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: background-color var(--transition-duration) ease;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6; /* Dimmed */
+}
+
+.sidebar-reveal-btn:hover {
+    opacity: 1; /* Fully visible on hover */
+}
+
+.sidebar-reveal-btn + .sidebar-reveal-btn {
+    top: 60px; /* Reduced gap */
+    opacity: 0.6;
+}
+
+.sidebar-reveal-btn:hover + .sidebar-reveal-btn {
+    opacity: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .message-input-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block;
+}
