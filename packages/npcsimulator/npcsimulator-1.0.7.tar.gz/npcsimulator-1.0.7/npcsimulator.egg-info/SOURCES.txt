@@ -1,0 +1,13 @@
+LICENCE
+README.md
+pyproject.toml
+npcsimulator/__init__.py
+npcsimulator/centroids.py
+npcsimulator/emitters.py
+npcsimulator/plot.py
+npcsimulator/structure_parsing.py
+npcsimulator/templates.py
+npcsimulator.egg-info/PKG-INFO
+npcsimulator.egg-info/SOURCES.txt
+npcsimulator.egg-info/dependency_links.txt
+npcsimulator.egg-info/top_level.txt
