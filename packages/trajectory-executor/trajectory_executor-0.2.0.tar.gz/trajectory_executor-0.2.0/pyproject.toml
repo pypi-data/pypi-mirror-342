@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trajectory-executor"
+version = "0.2.0"
+description = "A lightweight executor for offline, time-based joint trajectories in robotic applications."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "bxtbold", email = "bxtbold@protonmail.com" },
+]
+license = { text = "MIT License" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Framework :: Robot Framework :: Tool",
+]
+dependencies = [
+    "loop-rate-limiters>=1.1.0",
+    "numpy>=1.26.4",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0.0",
+    "pytest-mock>=3.14.0",
+    "pytest-cov>=5.0.0",
+    "mujoco>=3.2.4",
+    "torch",
+    "genesis-world==0.2.1",
+]
+dev = [
+    "black>=24.8.0",
+    "flake8>=7.1.1",
+    "pre-commit>=3.8.0",
+    "trajectory-executor[test]",
+]
+
+[project.urls]
+Homepage = "https://github.com/bxtbold/trajectory-executor"
+Repository = "https://github.com/bxtbold/trajectory-executor"
+Issues = "https://github.com/bxtbold/trajectory-executor/issues"
