@@ -1,0 +1,34 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+build_fe/
+dist/
+wheels/
+wheels_private/
+.ipynb_checkpoints/
+*.ipynb
+.python-version
+.DS_Store
+
+# registries/*.hocon
+*.egg-info
+.pytest_cache/
+.coverage
+.hypothesis/
+
+# Virtual environments
+.venv
+
+# env variables
+.env
+
+# logs
+logs
+tree.txt
+test.ipynb
+test.json
+
+# keep the dist for prebuilt_frontend
+!nsflow/prebuilt_frontend/dist/
+!nsflow/prebuilt_frontend/dist/**
