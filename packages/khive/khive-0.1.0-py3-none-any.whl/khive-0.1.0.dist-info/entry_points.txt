@@ -1,0 +1,2 @@
+[console_scripts]
+khive = khive.khive_cli:main
