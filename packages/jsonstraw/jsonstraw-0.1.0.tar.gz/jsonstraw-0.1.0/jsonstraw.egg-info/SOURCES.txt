@@ -1,0 +1,12 @@
+LICENSE
+pyproject.toml
+readme.md
+setup.py
+jsonstraw/__init__.py
+jsonstraw/straw.py
+jsonstraw.egg-info/PKG-INFO
+jsonstraw.egg-info/SOURCES.txt
+jsonstraw.egg-info/dependency_links.txt
+jsonstraw.egg-info/top_level.txt
+test/__init__.py
+test/test_straw.py
