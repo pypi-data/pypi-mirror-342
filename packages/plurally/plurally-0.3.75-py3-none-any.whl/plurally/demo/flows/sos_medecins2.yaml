@@ -1,0 +1,820 @@
+container_id: null
+date_created: '2025-04-18T21:02:10.098384'
+desc: ''
+env_vars: {PLURALLY_PUBLIC_OUTPUT_LANGUAGE: French}
+flow_json:
+  _inter_subflow_run_links: {}
+  directed: true
+  graph: {}
+  id: fl-093d1ad3-e2dc-4313-a6b2-22aab601e253
+  links:
+  - {key: formatted_text###diag_prescription, label: Formatted Text -> diag_prescription,
+    source: nd-3ec382c7-9ab8-45d9-9e7b-0adf7530899d, src_handle: formatted_text, target: nd-7de8d854-0b03-4e4e-9de2-14abfbef1138,
+    tgt_handle: diag_prescription}
+  - {key: data###prescription, label: Data -> prescription, source: nd-6264c960-8fd9-4a8c-b764-f7e6fc8b5bce,
+    src_handle: data, target: nd-3ec382c7-9ab8-45d9-9e7b-0adf7530899d, tgt_handle: prescription}
+  - {key: output###input, label: Output -> input, source: nd-6e79efb7-b191-4b71-b2b6-73f7b60f303d,
+    src_handle: output, target: nd-7de8d854-0b03-4e4e-9de2-14abfbef1138, tgt_handle: input}
+  - {key: formatted_text###content, label: Formatted Text -> Content, source: nd-7de8d854-0b03-4e4e-9de2-14abfbef1138,
+    src_handle: formatted_text, target: nd-6f89bc73-945c-44e4-80aa-4686c601b266, tgt_handle: content}
+  - {key: diagnostic###diagnosis, label: Diagnostic -> diagnosis, source: nd-806a16b4-7c25-49e3-a63c-8c4b73ee21b5,
+    src_handle: diagnostic, target: nd-3ec382c7-9ab8-45d9-9e7b-0adf7530899d, tgt_handle: diagnosis}
+  - {key: prescription###json, label: Prescription -> Json, source: nd-806a16b4-7c25-49e3-a63c-8c4b73ee21b5,
+    src_handle: prescription, target: nd-6264c960-8fd9-4a8c-b764-f7e6fc8b5bce, tgt_handle: json}
+  - {key: antecedents###medical_history, label: Antecedents -> medical_history, source: nd-806a16b4-7c25-49e3-a63c-8c4b73ee21b5,
+    src_handle: antecedents, target: nd-6e79efb7-b191-4b71-b2b6-73f7b60f303d, tgt_handle: medical_history}
+  - {key: cat###conduct_to_follow, label: Cat -> conduct_to_follow, source: nd-806a16b4-7c25-49e3-a63c-8c4b73ee21b5,
+    src_handle: cat, target: nd-6e79efb7-b191-4b71-b2b6-73f7b60f303d, tgt_handle: conduct_to_follow}
+  - {key: exam###report, label: Exam -> report, source: nd-806a16b4-7c25-49e3-a63c-8c4b73ee21b5,
+    src_handle: exam, target: nd-c9838ff9-4440-40b9-a5c2-45c4641e335a, tgt_handle: report}
+  - {key: values###acronyms, label: Values -> acronyms, source: nd-a4d74224-9c19-47b9-bf38-ed15ed4c148b,
+    src_handle: values, target: nd-c9838ff9-4440-40b9-a5c2-45c4641e335a, tgt_handle: acronyms}
+  - {key: corrected_report###transcript, label: corrected_report -> transcript, source: nd-c9838ff9-4440-40b9-a5c2-45c4641e335a,
+    src_handle: corrected_report, target: nd-6e79efb7-b191-4b71-b2b6-73f7b60f303d,
+    tgt_handle: transcript}
+  multigraph: true
+  name: ''
+  nodes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-3ec382c7-9ab8-45d9-9e7b-0adf7530899d
+      input_schema:
+        additionalProperties: false
+        properties:
+          abbrev:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: abbrev
+          diagnosis:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: diagnosis
+          dosageArr:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: dosageArr
+          durationStr:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: durationStr
+          freqStr:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: freqStr
+          k:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: k
+          p:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: p
+          prescription:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: prescription
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+          tl:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: tl
+        title: InputSchema
+        type: object
+      is_output_fixable: false
+      is_trigger: false
+      kls: FormatJinja
+      name: Prescription and diagnosis
+      pos_x: 460.0
+      pos_y: 460.0
+      src_handles: [formatted_text]
+      template: |-
+        <h2>DIAGNOSTIC</h2>
+        <div class='section'>
+            <p>{{ diagnosis }}</p>
+        </div>
+
+        {%- set tl = {'morning': 'matin', 'noon': 'midi', 'evening': 'soir', 'bedtime': 'coucher', 'night': 'nuit'} -%}
+        {%- set abbrev = {'comprimé': 'cp', 'cuillère à soupe': 'c à s', 'gélule': 'gél',
+        'pulvérisation': 'pulv'}%}
+        {%- if prescription and prescription | length > 0 %}
+        <h2>PRESCRIPTION</h2>
+        <div class='section'>
+            <ul>
+                {%- for p in prescription %}
+                {%- set durationStr = 'Pendant ' ~ p.poso.duration ~ ' ' ~ p.poso.durationType -%}
+                {%- set freqStr = (p.poso.freq ~ ' ' ~ abbrev.get(p.unit, p.unit) ~ ' / ' ~ p.poso.freqType) if p.poso.freq else
+                '' -%}
+                {%- set dosageArr = [] -%}
+                {%- for k in ['morning', 'noon', 'evening', 'bedtime', 'night'] %}
+                {%- if p.poso[k] -%}
+                {{ dosageArr.append(p.poso[k] ~ ' ' ~ abbrev.get(p.unit, p.unit) ~ ' / ' ~ tl[k]) }}
+                {%- endif -%}
+                {%- endfor -%}
+                <li>
+                    <span class='med-name'>{{ p.name }}</span><br />
+                    {%- if freqStr -%}
+                    {{freqStr | lower}}
+                    {%- else -%}
+                    {{dosageArr | join(', ') | lower}}
+                    {%- endif -%} - voie {{p.route | lower}} - {{durationStr | lower}}
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+        {%- endif %}
+      tgt_handles: [prescription, diagnosis, run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-6264c960-8fd9-4a8c-b764-f7e6fc8b5bce
+      is_output_fixable: false
+      is_trigger: false
+      kls: ParseJson
+      name: ParseJson
+      pos_x: 640.0
+      pos_y: 300.0
+      src_handles: [data]
+      tgt_handles: [json, run]
+  - id:
+      PLURALLY_VERSION: 1
+      _node_id: nd-6e79efb7-b191-4b71-b2b6-73f7b60f303d
+      examples: ''
+      general_info: ''
+      input_fields:
+      - {free: medical_history, handle_id: c5ea, type: Text}
+      - {free: transcript, handle_id: dba7, type: Text}
+      - {free: conduct_to_follow, handle_id: 8b58, type: Text}
+      input_schema:
+        additionalProperties: false
+        can-add-fields: true
+        properties:
+          conduct_to_follow: {handle_id: 8b58, title: conduct_to_follow, type: string}
+          medical_history: {handle_id: c5ea, title: medical_history, type: string}
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+          transcript: {handle_id: dba7, title: transcript, type: string}
+        required: [medical_history, transcript, conduct_to_follow]
+        title: InputSchema
+        type: object
+      instruct: |-
+        <v0_info>
+          v0 is an advanced AI medical assistant.
+          v0 is designed to assist healthcare professionals in generating medical reports.
+          v0 is capable of understanding and processing complex medical terminology.
+          v0 is designed to emulate the world's best medical doctors.
+          v0 is always up-to-date with the latest medical reporting best practices.
+          v0 responds in French.
+          v0 does not generate fictional information.
+        </v0_info>
+
+        <general_info>
+        {PLURALLY_GENERAL_INFO}
+        </general_info>
+
+        <instructions>
+        Your goal is to fill in the Template with the extracted information from the user query.
+        </instructions>
+
+        <placeholders>
+          Placeholders are marked within double square brackets, for example `[[treatment_1]]`.
+          They might have a default value (e.g. `[[orientation | default('Retour domicile avec consignes')]]`).
+        </placeholders>
+
+        <clinical_exam>
+          `clinical_exam_*` sections are related to each body system (e.g. `clinical_exam_respiratory_system`, etc.).
+          `clinical_exam_other_systems` is meant only for information that does not fit into any other section.
+        </clinical_exam>
+
+        <rules>
+          v0 MUST include all information from the user query in the output.
+          v0 MUST replace placeholders with their default value if they are not filled.
+          v0 MUST remove placeholders without a default that were not filled.
+          v0 MUST place information in the correct sections of the Template.
+          v0 MUST infer full dates based when relative dates are provided (e.g. "hier" = yesterday) or day of the week (e.g. "lundi" = Monday).
+          v0 MUST use DD/MM/YYYY format.
+          v0 MUST use `additional_notes` only for information that cannot fit any other section in the report.
+          v0 MUST use `anamnesis` for the patient's history and symptoms.
+          v0 MUST use `clinical_exam_*` for the clinical examination findings.
+          v0 MUST use `clinical_exam_other_systems` for any other clinical examination findings that do not fit into the other sections.
+          v0 MUST make full sentences, avoid abbreviations, and use proper punctuation.
+          v0 should NEVER extra sections.
+          v0 should NEVER give advice or recommendations that are not in the Template or user query.
+        </rules>
+
+        <Template>
+        <- anamnesis
+        [[anamnesis]]
+        ->
+
+        <- vital_temperature
+        [[vital_temperature]]
+        ->
+
+        <- vital_pulse
+        [[vital_pulse]]
+        ->
+
+        <- vital_breathing
+        [[vital_breathing]]
+        ->
+
+        <- vital_blood_pressure
+        [[vital_blood_pressure]]
+        ->
+
+        <- vital_saturation
+        [[vital_saturation]]
+        ->
+
+        <- vital_blood_glucose
+        [[vital_blood_glucose]]
+        ->
+
+        <- clinical_exam_cardiac_system
+        Bruits du coeur réguliers, sans souffle audible, pas de signe de décompensation cardiaque, pas de douleurs thoraciques, pouls périphériques bien perçus, pas de signe de choc. Pas de signe de TVP/EP.
+        ->
+
+        <- clinical_exam_respiratory_system
+        Auscultation pulmonaire libre et symétrique, murmure vésiculaire perçu à tous les champs, sans bruits surajoutés, pas de dyspnée, pas de signe de détresse respiratoire.
+        ->
+
+        <- clinical_exam_abdomen
+        Abdomen souple dépressible et indolore, pas de nausée, pas de vomissement, pas de troubles du transit.
+        ->
+
+        <- clinical_exam_neurological_system
+        GCS 15, conscient et orienté, pas de signe de focalisation.
+        ->
+
+        <- clinical_exam_other_systems
+        [[clinical_exam_other_systems]]
+        ->
+
+        <- recommendations
+        [[recommendations]]
+        ->
+
+        <- orientation
+        [[orientation | default('Retour domicile avec consignes')]]
+        ->
+
+        <- additional_notes
+        [[additional_notes]]
+        ->
+        </Template>
+
+        <example>
+          <doc_string>This example shows how v0 can modify the Template and place the information in the appropriate `clinical_exam_*` sections without the need to use clinical_exam_other_systems.</doc_string>
+          <user_query>
+          chute 1er apres soire alcoolisee; a eu mal à la tête le lendemain; tachycardie à 120; trachée rouge et enflammée; vertiges.
+          </user_query>
+          <assistant_response>
+        <- anamnesis
+        Chute du 1er étage après une soirée alcoolisée, mal de tête le lendemain.
+        ->
+
+
+        <- vital_temperature
+        ->
+
+        <- vital_pulse
+        120
+        ->
+
+        <- vital_breathing
+        ->
+
+        <- vital_blood_pressure
+        ->
+
+        <- vital_saturation
+        ->
+
+        <- vital_blood_glucose
+        ->
+
+        <- clinical_exam_cardiac_system
+        Bruits du cœur réguliers, tachycardie à 120 présente, sans souffle audible, pas de signe de décompensation cardiaque, pas de douleurs thoraciques, pouls périphériques bien perçus, pas de signe de choc. Pas de signe de TVP/EP.
+        ->
+
+        <- clinical_exam_respiratory_system
+        Auscultation pulmonaire libre et symétrique, murmure vésiculaire perçu à tous les champs, sans bruits surajoutés, pas de dyspnée, pas de signe de détresse respiratoire. Trachée rouge et enflammée.
+        ->
+
+        <- clinical_exam_abdomen
+        Abdomen souple dépressible et indolore, pas de nausée, pas de vomissement, pas de troubles du transit.
+        ->
+
+        <- clinical_exam_neurological_system
+        GCS 15, conscient et orienté, pas de signe de focalisation. Présence de vertiges.
+        ->
+
+        <- clinical_exam_other_systems
+        ->
+
+        <- recommendations
+        ->
+
+        <- orientation
+        Retour domicile avec consignes
+        ->
+
+        <- additional_notes
+        ->
+          </assistant_response>
+        </example>
+
+        <user_query>
+        {{medical_history}}
+
+        {{transcript}}
+
+        {{conduct_to_follow}}
+        </user_query>
+      is_output_fixable: false
+      is_trigger: false
+      kls: Complete
+      model: gpt-4o
+      name: Complete
+      pos_x: 140.0
+      pos_y: 440.0
+      source: |-
+        import re
+
+        regex = r"<- (.*?)\n(.*?)\n->"
+        __plurally_output = dict(re.findall(regex, content))
+      src_handles: [output]
+      tgt_handles: [transcript, conduct_to_follow, medical_history, run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-6f89bc73-945c-44e4-80aa-4686c601b266
+      is_correctible: true
+      is_hidden: false
+      is_output_fixable: false
+      is_trigger: false
+      key: report_pdf
+      kls: HtmlToPdfOutput
+      name: HtmlToPdfOutput
+      pos_x: 360.0
+      pos_y: 820.0
+      src_handles: []
+      tgt_handles: [previous_content, run, content]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-7de8d854-0b03-4e4e-9de2-14abfbef1138
+      input_schema:
+        additionalProperties: false
+        properties:
+          diag_prescription:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: diag_prescription
+          input:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: input
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+        title: InputSchema
+        type: object
+      is_output_fixable: false
+      is_trigger: false
+      kls: FormatJinja
+      name: FormatJinja
+      pos_x: 280.0
+      pos_y: 660.0
+      src_handles: [formatted_text]
+      template: |
+        <!DOCTYPE html>
+        <html lang="fr">
+          <head>
+            <meta charset="UTF-8" />
+            <title>Rapport Médical</title>
+            <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  margin: 0px;
+                  line-height: 1.6;
+                }
+                h3,
+                h4,
+                h5 {
+                  margin: 0px;
+                }
+                h2 {
+                  margin: 0px;
+                  margin-bottom: 8px;
+                }
+                p {
+                  margin: 4px 0;
+                }
+                ul {
+                  margin-top: 4px;
+                  margin-bottom: 10px;
+                }
+                .section {
+                  border: 1px solid #aaa;
+                  margin-bottom: 16px;
+                  padding: 4px;
+                }
+                .line {
+                  border-top: 1px solid #aaa;
+                  margin: 32px 0;
+                }
+                .med-name {
+                  color: #008000;
+                }
+                #logo-container {
+                  display: flex;
+                  justify-content: center;
+                  margin-bottom: 32px;
+                }
+
+
+              html {
+              color: #393939;
+              font-family: Fira Sans;
+              font-size: 11pt;
+              font-weight: 300;
+              line-height: 1.5;
+              }
+
+              body {
+              margin: 0;
+              }
+
+              h1 {
+              color: #fbc847;
+              font-size: 38pt;
+              margin: 5cm 2cm 0 2cm;
+              page: no-chapter;
+              width: 100%;
+              }
+              h2, h3, h4 {
+              color: black;
+              font-weight: 400;
+              }
+              h2 {
+              # break-before: always;
+              font-size: 16pt;
+              # string-set: heading content();
+              }
+              h3 {
+              font-weight: 300;
+              font-size: 15pt;
+              }
+              h4 {
+              font-size: 13pt;
+              }
+              strong {
+              font-weight: 600;
+              }
+              #logo {
+                  height: 50px;
+              }
+            </style>
+          </head>
+          <body>
+            <div id="logo-container">
+              <img
+                id="logo"
+                src="data:image/png;base64,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"
+              />
+            </div>
+            <div class="section">
+              <strong>Dr Paul AIT GHEZALA</strong><br />
+              RPPS : 10101767035 - ADELI : 671050235<br />
+              98 Rue de Hochfelden - 67200 STRASBOURG<br />
+              Tél : 03 88 75 75 75 - Fax : 03 88 36 11 36<br />
+              <a href="mailto:sos.medecin-67@medical67.apicrypt.org"
+                >sos.medecin-67@medical67.apicrypt.org</a
+              >
+            </div>
+
+            {%- if input.get("anamnesis") %}
+            <h2>ANAMNESE</h2>
+            <div class="section">
+              <p>{{ input.anamnesis }}</p>
+            </div>
+            {% endif %}
+
+            <h2>EXAMEN CLINIQUE</h2>
+            <div class="section">
+              {%- if input.get("vital_temperature") %}
+              <strong>Température: </strong> {{input.vital_temperature}}
+              <br />
+              {%- endif %} {%- if input.get("vital_pulse") %}
+              <strong>Pouls: </strong> {{input.vital_pulse}}
+              <br />
+              {%- endif %} {%- if input.get("vital_breathing") %}
+              <strong>Fréquence respiratoire: </strong> {{input.vital_breathing}}
+              <br />
+              {%- endif %} {%- if input.get("vital_blood_pressure") %}
+              <strong>Tension artérielle: </strong> {{input.vital_blood_pressure}}
+              <br />
+              {%- endif %} {%- if input.get("vital_saturation") %}
+              <strong>Saturation en oxygène: </strong> {{input.vital_saturation}}
+              <br />
+              {%- endif %} {%- if input.get("vital_blood_glucose") %}
+              <strong>Glycémie: </strong> {{input.vital_blood_glucose}}
+              <br />
+              {%- endif %}
+
+              {%- if input.get("clinical_exam_cardiac_system") %}
+              <h3>Appareil cardiovasculaire</h3>
+              <p>{{ input.clinical_exam_cardiac_system }}</p>
+              {%- endif %} {%- if input.get("clinical_exam_respiratory_system") %}
+              <h3>Appareil respiratoire</h3>
+              <p>{{ input.clinical_exam_respiratory_system }}</p>
+              {%- endif %} {%- if input.get("clinical_exam_abdomen") %}
+              <h3>Appareil digestif</h3>
+              <p>{{ input.clinical_exam_abdomen }}</p>
+              {%- endif %} {%- if input.get("clinical_exam_neurological_system") %}
+              <h3>Appareil neurologique</h3>
+              <p>{{ input.clinical_exam_neurological_system }}</p>
+              {%- endif %} {%- if input.get("clinical_exam_other_systems") %}
+              <h3>Autres</h3>
+              <p>{{ input.clinical_exam_other_systems }}</p>
+              {%- endif %}
+            </div>
+
+            {{diag_prescription}}
+
+            <p>
+              Il s’agit d’une recommandation et non d’une prescription. Le patient doit
+              respecter les prescriptions réalisées lors de la prise en charge. En cas
+              d’évolution ou d’aggravation, il est recommandé de reconsulter son médecin
+              traitant, SOS médecins ou le 15 en cas d’urgence vitale.
+            </p>
+          </body>
+        </html>
+      tgt_handles: [input, diag_prescription, run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-806a16b4-7c25-49e3-a63c-8c4b73ee21b5
+      button_color: '#3b41cc'
+      button_on_same_row: false
+      button_text: Valider
+      form:
+      - col_span: 12
+        is_only_first_run: false
+        is_required: true
+        name: exam
+        options: []
+        placeholder: ''
+        type: text
+      - col_span: 12
+        is_only_first_run: false
+        is_required: false
+        name: cat
+        options: []
+        placeholder: ''
+        type: short_text
+      - col_span: 12
+        is_only_first_run: false
+        is_required: false
+        name: antecedents
+        options: []
+        placeholder: ''
+        type: short_text
+      - col_span: 12
+        is_only_first_run: false
+        is_required: false
+        name: prescription
+        options: []
+        placeholder: ''
+        type: short_text
+      - col_span: 12
+        is_only_first_run: false
+        is_required: true
+        name: diagnostic
+        options: []
+        placeholder: ''
+        type: short_text
+      is_output_fixable: false
+      is_trigger: true
+      kls: Form
+      name: Initialisation
+      output_schema:
+        properties:
+          antecedents:
+            default: ''
+            title: Antecedents
+            type: string
+            uiSchema: {ui:emptyValue: '', ui:label: true, ui:placeholder: ''}
+          cat:
+            default: ''
+            title: Cat
+            type: string
+            uiSchema: {ui:emptyValue: '', ui:label: true, ui:placeholder: ''}
+          diagnostic:
+            title: Diagnostic
+            type: string
+            uiSchema: {ui:label: true, ui:placeholder: ''}
+          exam:
+            title: Exam
+            type: string
+            uiSchema: {ui:label: true, ui:placeholder: '', ui:widget: textarea}
+          prescription:
+            default: ''
+            title: Prescription
+            type: string
+            uiSchema: {ui:emptyValue: '', ui:label: true, ui:placeholder: ''}
+        required: [exam, diagnostic]
+        title: Form
+        type: object
+        uiSchema:
+          ui:grid:
+          - [exam, 12]
+          - [cat, 12]
+          - [antecedents, 12]
+          - [prescription, 12]
+          - [diagnostic, 12]
+      pos_x: 476.5
+      pos_y: 0.0
+      show_label: true
+      src_handles: [cat, diagnostic, antecedents, prescription, exam]
+      tgt_handles: []
+      use_case: false
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-a4d74224-9c19-47b9-bf38-ed15ed4c148b
+      is_output_fixable: false
+      is_trigger: false
+      kls: SheetsRead
+      name: Acronyms
+      pos_x: 0.0
+      pos_y: 17.0
+      range_name: Acronymes
+      sheet_id: 1HudnqYsNZTeV5_ESxDe_JuXVL9MHaYuxlNDlcIzh1vg
+      src_handles: [values]
+      tgt_handles: [run]
+  - id:
+      PLURALLY_VERSION: 1
+      _node_id: nd-c9838ff9-4440-40b9-a5c2-45c4641e335a
+      add_chain_of_thought: false
+      add_explanation: false
+      examples: ''
+      general_info: ''
+      input_fields:
+      - {free: report, handle_id: 8f91, type: Auto}
+      - {free: acronyms, handle_id: 6eac, type: Auto}
+      input_schema:
+        $defs:
+          Auto:
+            properties: {}
+            title: Auto
+            type: object
+        additionalProperties: false
+        can-add-fields: true
+        properties:
+          acronyms:
+            handle_id: 6eac
+            properties: {}
+            title: acronyms
+            type: object
+            type-friendly: Auto (BETA)
+          report:
+            handle_id: 8f91
+            properties: {}
+            title: report
+            type: object
+            type-friendly: Auto (BETA)
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+        required: [report, acronyms]
+        title: InputSchema
+        type: object
+      instruct: |-
+        You are a Clinic AI-powered assistant, helping to correct **post-consultation reports**.
+
+        ------
+
+        General Instructions  
+        - Always up-to-date with the latest veterinary reporting best practices.  
+        - Respond in the **same language as the input language**.  
+        - Use only the provided context—do not make assumptions or generate fictional information.
+
+        ------
+
+        General Informations  
+        {PLURALLY_GENERAL_INFO}
+
+        ------
+
+        Task Objective  
+        Given:  
+        - A veterinary post-consultation **Report**.
+        - A list of common **Acronyms**, given as: **acronym**: **full meaning**.
+
+        Your goal is to make **Acronym** usage uniform in the **Report** according to the **Rules** below.
+
+        ------
+
+        Rules
+        <rules>
+        <rule id="1">
+        **Case Insensitive**
+        Acronym matching should be **case-insensitive**. 
+        </rule>
+        <rule id="2">
+        **Use Full Meaning**
+        - If an **acronym** is used (e.g., q4h), and it matches an entry in the **Acronyms** list, replace it with its **full meaning** (e.g., toutes les 4 heures).
+        - If the content already uses the **full meaning**, leave it **completely** unchanged.
+        - **Never** convert **full meanings** into **acronyms**.
+        </rule>
+        <rule id="3">
+        If some abbreviations or acronyms were used but are not in the **Acronyms** but are clear from context, replace by their **full meaning** as well.
+        <example>
+        <input name="Report">
+        mal de gorge++
+        tâches++
+        </input>
+        <input name="Acronyms">
+        ECG: électrocardiogramme
+        </input>
+        <expected_output>
+        Mal de gorge important
+        Tâches en nombre important
+        </expected_output>
+        </example>
+        </rule>
+        </rules>
+
+        ------
+
+        Inputs
+        <input name="Report">
+        {{report}}
+        </input>
+
+        <input name="Acronyms">
+        {%- for acronym in acronyms.data -%}
+        {{acronym.Acronym}}: {{acronym.Signification}}
+        {%- endfor -%}
+        </input>
+      is_output_fixable: false
+      is_table: false
+      is_trigger: false
+      kls: Instruct
+      model: gpt-4o
+      name: Rm acronyms
+      output_fields:
+      - {free: corrected_report, handle_id: e4e0, type: Text}
+      output_schema:
+        can-add-fields: true
+        properties:
+          corrected_report: {handle_id: e4e0, title: corrected_report, type: string}
+        required: [corrected_report]
+        title: OutputSchema
+        type: object
+      pos_x: 20.0
+      pos_y: 190.0
+      src_handles: [corrected_report]
+      tgt_handles: [report, run, acronyms]
+id: 30108137-5584-4dad-ac84-3ea1faaa1a7a
+is_running: false
+last_exec_dt: null
+last_updated: '2025-04-21T16:25:21.097903'
+logo: https://sosmedecins66.fr/wp-content/uploads/2024/09/sigle-sos-bleu.webp
+name: RC
+org_id: 98cc231e-32a6-40e7-8dca-30ef3b34e9fb
+owner_id: 83e1fa8e-a5db-487f-9780-c69846b9f8ca

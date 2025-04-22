@@ -1,0 +1,1032 @@
+container_id: null
+date_created: '2025-02-24T18:19:34.648765'
+desc: ''
+env_vars: {PLURALLY_PUBLIC_OUTPUT_LANGUAGE: French}
+flow_json:
+  _inter_subflow_run_links: {}
+  directed: true
+  graph: {}
+  id: fl-805e072c-064f-430c-9b21-22d5efa16042
+  links:
+  - {key: formatted_text###previous_content, label: Formatted Text -> Previous Content,
+    source: nd-0291f3bc-dbc1-4aec-b705-cd0fed5f22a4, src_handle: formatted_text, target: nd-2c8da2d1-4866-4781-98c2-1f61c5a39d68,
+    tgt_handle: previous_content}
+  - {key: formatted_text###template, label: Formatted Text -> template, source: nd-0e9124f3-31d5-4ccf-9269-148b735307c3,
+    src_handle: formatted_text, target: nd-0291f3bc-dbc1-4aec-b705-cd0fed5f22a4, tgt_handle: template}
+  - {key: formatted_text###template, label: Formatted Text -> template, source: nd-0e9124f3-31d5-4ccf-9269-148b735307c3,
+    src_handle: formatted_text, target: nd-194a358a-09f9-4057-aa18-fe8ef9368feb, tgt_handle: template}
+  - {key: formatted_text###content, label: Formatted Text -> Content, source: nd-194a358a-09f9-4057-aa18-fe8ef9368feb,
+    src_handle: formatted_text, target: nd-00a860f2-9619-453e-81a9-1e9eebe7c27b, tgt_handle: content}
+  - {key: formatted_text###template, label: Formatted Text -> template, source: nd-194a358a-09f9-4057-aa18-fe8ef9368feb,
+    src_handle: formatted_text, target: nd-9a9fa721-0e59-4830-a6a4-e4b9af98dfb5, tgt_handle: template}
+  - {key: formatted_text###content, label: Formatted Text -> Content, source: nd-26430211-b1c7-41b2-88a0-7092adc9cfe0,
+    src_handle: formatted_text, target: nd-138e918a-2d78-47f6-a43d-abfc196095b3, tgt_handle: content}
+  - {key: formatted_text###template_category, label: Formatted Text -> template_category,
+    source: nd-26430211-b1c7-41b2-88a0-7092adc9cfe0, src_handle: formatted_text, target: nd-85a43d42-b39c-42d2-9df6-635bfc05a309,
+    tgt_handle: template_category}
+  - {key: corrected_transcript###transcript, label: corrected_transcript -> transcript,
+    source: nd-2e699a47-f3d2-44e3-b1a4-e4aeb7dcdc54, src_handle: corrected_transcript,
+    target: nd-9a9fa721-0e59-4830-a6a4-e4b9af98dfb5, tgt_handle: transcript}
+  - {key: corrected_transcript###content, label: corrected_transcript -> Content,
+    source: nd-2e699a47-f3d2-44e3-b1a4-e4aeb7dcdc54, src_handle: corrected_transcript,
+    target: nd-b0561d56-4ae3-48be-87c5-ed0529cbd1ad, tgt_handle: content}
+  - {key: values###knowledge, label: Values -> Knowledge, source: nd-446f3480-90a9-45dc-aa39-50cd90edef31,
+    src_handle: values, target: nd-faf71e16-05fd-4d6e-87cd-6045a15d7c00, tgt_handle: knowledge}
+  - {key: compte_rendu###transcript, label: Compte rendu -> transcript, source: nd-806a16b4-7c25-49e3-a63c-8c4b73ee21b5,
+    src_handle: compte_rendu, target: nd-2e699a47-f3d2-44e3-b1a4-e4aeb7dcdc54, tgt_handle: transcript}
+  - {key: catégorie###query, label: Catégorie -> Query, source: nd-806a16b4-7c25-49e3-a63c-8c4b73ee21b5,
+    src_handle: catégorie, target: nd-faf71e16-05fd-4d6e-87cd-6045a15d7c00, tgt_handle: query}
+  - {key: formatted_text###category, label: Formatted Text -> category, source: nd-8231f361-7376-47a5-a67f-46bab03abd13,
+    src_handle: formatted_text, target: nd-26430211-b1c7-41b2-88a0-7092adc9cfe0, tgt_handle: category}
+  - {key: formatted_text###template_category, label: Formatted Text -> template_category,
+    source: nd-85a43d42-b39c-42d2-9df6-635bfc05a309, src_handle: formatted_text, target: nd-9a9fa721-0e59-4830-a6a4-e4b9af98dfb5,
+    tgt_handle: template_category}
+  - {key: corrected_report###content, label: corrected_report -> Content, source: nd-999eb7df-58f7-4f0b-a6b7-5f64246cac48,
+    src_handle: corrected_report, target: nd-2c8da2d1-4866-4781-98c2-1f61c5a39d68,
+    tgt_handle: content}
+  - {key: veterinary_report###report, label: Veterinary Report -> report, source: nd-9a9fa721-0e59-4830-a6a4-e4b9af98dfb5,
+    src_handle: veterinary_report, target: nd-999eb7df-58f7-4f0b-a6b7-5f64246cac48,
+    tgt_handle: report}
+  - {key: veterinary_report###content, label: Veterinary Report -> Content, source: nd-9a9fa721-0e59-4830-a6a4-e4b9af98dfb5,
+    src_handle: veterinary_report, target: nd-c319a4d2-8140-464a-902e-1d9416b676a3,
+    tgt_handle: content}
+  - {key: values###acronyms, label: Values -> acronyms, source: nd-a4d74224-9c19-47b9-bf38-ed15ed4c148b,
+    src_handle: values, target: nd-2e699a47-f3d2-44e3-b1a4-e4aeb7dcdc54, tgt_handle: acronyms}
+  - {key: formatted_text###examples, label: Formatted Text -> examples, source: nd-bb98af3e-61c7-4f7b-87b5-7908cb1f5b2d,
+    src_handle: formatted_text, target: nd-9a9fa721-0e59-4830-a6a4-e4b9af98dfb5, tgt_handle: examples}
+  - {key: report###report, label: Report -> report, source: nd-c1e190a6-7b01-4458-9737-c9f7cc1eac85,
+    src_handle: report, target: nd-0291f3bc-dbc1-4aec-b705-cd0fed5f22a4, tgt_handle: report}
+  - {key: template###template_saved, label: Template -> template_saved, source: nd-c1e190a6-7b01-4458-9737-c9f7cc1eac85,
+    src_handle: template, target: nd-194a358a-09f9-4057-aa18-fe8ef9368feb, tgt_handle: template_saved}
+  - {key: template_category###template_category_saved, label: Template Category ->
+      template_category_saved, source: nd-c1e190a6-7b01-4458-9737-c9f7cc1eac85, src_handle: template_category,
+    target: nd-85a43d42-b39c-42d2-9df6-635bfc05a309, tgt_handle: template_category_saved}
+  - {key: report_with_placeholders###previous_run, label: Report With Placeholders
+      -> previous_run, source: nd-c1e190a6-7b01-4458-9737-c9f7cc1eac85, src_handle: report_with_placeholders,
+    target: nd-9a9fa721-0e59-4830-a6a4-e4b9af98dfb5, tgt_handle: previous_run}
+  - {key: transcript###previous_transcript, label: Transcript -> previous_transcript,
+    source: nd-c1e190a6-7b01-4458-9737-c9f7cc1eac85, src_handle: transcript, target: nd-9a9fa721-0e59-4830-a6a4-e4b9af98dfb5,
+    tgt_handle: previous_transcript}
+  - {key: values###table, label: Values -> Table, source: nd-faf71e16-05fd-4d6e-87cd-6045a15d7c00,
+    src_handle: values, target: nd-0e9124f3-31d5-4ccf-9269-148b735307c3, tgt_handle: table}
+  - {key: values###table, label: Values -> Table, source: nd-faf71e16-05fd-4d6e-87cd-6045a15d7c00,
+    src_handle: values, target: nd-8231f361-7376-47a5-a67f-46bab03abd13, tgt_handle: table}
+  - {key: values###vocabulary, label: Values -> vocabulary, source: nd-fbf71c70-04cf-4e21-ba31-43a51cd117f0,
+    src_handle: values, target: nd-2e699a47-f3d2-44e3-b1a4-e4aeb7dcdc54, tgt_handle: vocabulary}
+  multigraph: true
+  name: ''
+  nodes:
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-00a860f2-9619-453e-81a9-1e9eebe7c27b
+      is_correctible: true
+      is_hidden: true
+      is_output_fixable: false
+      is_trigger: false
+      key: template
+      kls: TextOutput
+      name: template output
+      pos_x: 496.5
+      pos_y: 744.0
+      src_handles: []
+      tgt_handles: [content, run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-0291f3bc-dbc1-4aec-b705-cd0fed5f22a4
+      input_schema:
+        additionalProperties: false
+        properties:
+          report:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: report
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+          template:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: template
+        title: InputSchema
+        type: object
+      is_output_fixable: false
+      is_trigger: false
+      kls: FormatJinja
+      name: FormatJinja
+      pos_x: 341.5
+      pos_y: 611.0
+      src_handles: [formatted_text]
+      template: |-
+        {%- if report %}
+        {{report.content.content}}
+        {%- else %}
+        {{template | trim}}
+        {%- endif %}
+      tgt_handles: [template, run, report]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-0e9124f3-31d5-4ccf-9269-148b735307c3
+      is_output_fixable: false
+      is_trigger: false
+      kls: FormatTable
+      name: Table Formatter
+      pos_x: 0.0
+      pos_y: 466.5
+      prefix: ''
+      separator: |2+
+
+      src_handles: [formatted_text]
+      suffix: ''
+      template: '{template}'
+      tgt_handles: [table, run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-138e918a-2d78-47f6-a43d-abfc196095b3
+      is_correctible: true
+      is_hidden: true
+      is_output_fixable: false
+      is_trigger: false
+      key: template_category
+      kls: TextOutput
+      name: Template Category Save
+      pos_x: 7.0
+      pos_y: 611.0
+      src_handles: []
+      tgt_handles: [content, run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-194a358a-09f9-4057-aa18-fe8ef9368feb
+      input_schema:
+        additionalProperties: false
+        properties:
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+          template:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: template
+          template_saved:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: template_saved
+        title: InputSchema
+        type: object
+      is_output_fixable: false
+      is_trigger: false
+      kls: FormatJinja
+      name: FormatJinja
+      pos_x: 541.5
+      pos_y: 611.0
+      src_handles: [formatted_text]
+      template: |
+        {% if template_saved %}
+        {{template_saved.content}}
+        {% else %}
+        {{template}}
+        {% endif %}
+      tgt_handles: [template, template_saved, run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-26430211-b1c7-41b2-88a0-7092adc9cfe0
+      input_schema:
+        additionalProperties: false
+        properties:
+          category:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: category
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+        title: InputSchema
+        type: object
+      is_output_fixable: false
+      is_trigger: false
+      kls: FormatJinja
+      name: FormatJinja
+      pos_x: 230.0
+      pos_y: 466.5
+      src_handles: [formatted_text]
+      template: '{{category | trim}}'
+      tgt_handles: [category, run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-2c8da2d1-4866-4781-98c2-1f61c5a39d68
+      is_correctible: true
+      is_hidden: false
+      is_output_fixable: false
+      is_trigger: false
+      key: report
+      kls: MarkdownOutput
+      name: MarkdownOutput
+      pos_x: 403.5
+      pos_y: 1010.0
+      src_handles: []
+      tgt_handles: [previous_content, content, run]
+  - id:
+      PLURALLY_VERSION: 1
+      _node_id: nd-2e699a47-f3d2-44e3-b1a4-e4aeb7dcdc54
+      add_chain_of_thought: false
+      add_explanation: false
+      examples: ''
+      general_info: ''
+      input_fields:
+      - {free: transcript, handle_id: 8c56, type: Auto}
+      - {free: vocabulary, handle_id: 50fb, type: Auto}
+      - {free: acronyms, handle_id: 1a4a, type: Auto}
+      input_schema:
+        $defs:
+          Auto:
+            properties: {}
+            title: Auto
+            type: object
+        additionalProperties: false
+        can-add-fields: true
+        properties:
+          acronyms:
+            handle_id: 1a4a
+            properties: {}
+            title: acronyms
+            type: object
+            type-friendly: Auto (BETA)
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+          transcript:
+            handle_id: 8c56
+            properties: {}
+            title: transcript
+            type: object
+            type-friendly: Auto (BETA)
+          vocabulary:
+            handle_id: 50fb
+            properties: {}
+            title: vocabulary
+            type: object
+            type-friendly: Auto (BETA)
+        required: [transcript, vocabulary, acronyms]
+        title: InputSchema
+        type: object
+      instruct: |2+
+
+        You are an assistant for an emergency medical clinic, helping to optimize and correct transcriptions.
+
+        Your task is to ensure the **accuracy and clarity** of the transcription by correcting phonetic errors, using proper medical terminology, and maintaining consistency with best practices.
+
+        ---------
+
+        General Instructions 
+        - Always use **{{OUTPUT_LANGUAGE}}** as the output language. 
+        - Never invent or assume information not present in the provided input. 
+        - Follow practitioner best practices and make sure all phrases make contextual sense. 
+        - Pay special attention to **homophones**, **phonetically similar terms**, and **medical vocabulary**. 
+        - Use **global context** when correcting to ensure internal coherence.
+
+        ---------
+
+        General Information 
+        {PLURALLY_GENERAL_INFO}
+
+        ---------
+
+        Task Objective 
+        Given:
+        - A **Transcript** dictated by the practitioner
+        - Common **Vocabulary**
+
+        Your goal is to:
+        - Correct transcription errors using the **Vocabulary**
+        - Ensure clarity and correctness
+
+        ---------
+
+        Rules
+        <rules>
+        <rule>
+        **Phonetic Errors**
+        - Fix transcription phonetic mistakes using the provided **Vocabulary**. 
+         Examples: 
+         - `normes au therme` → `normotherme` 
+        </rule>
+        <rule>
+        **Watch Out For Acronyms**
+        - Keep in mind that the practitioner might be "speaking" some acronyms as well. Make sure to notice and correct acronyms in the **Transcript**
+         Examples: 
+         - `injection U nassim` → `injection UNACIM`
+         - `meloxicam bide` → `meloxicam BID`
+         - `ivétide` → `IV TID`
+        - Terms should be split and mapped if their components match **Vocabulary**.
+         Examples:
+         - `estocélanside` → `estocelan SID`
+         - `meloxicambid` → `meloxicam BID`
+        </rule>
+        <rule>
+        **Contextual Non-Sense**
+        - Use overall context to fix unclear or incoherent phrasing. 
+         Example: 
+         - `pour lait gazeux` → `relais gazeux`
+         - `vicril decimal 3 5` → `Vicryl décimal 3.5`
+        </rule>
+        </rules>
+
+        ---------
+
+        Inputs
+
+        <input id="Transcript">
+        {{transcript}}
+        </input>
+
+        <input id="Vocabulary">
+        {%- for vocab in vocabulary.data %}
+        - {{vocab.Vocabulaire}}
+        {%- endfor %}
+        {%- for acronym in acronyms.data %}
+        - {{acronym.Signification}}
+        - {{acronym.Acronym}}
+        {%- endfor %}
+        </input>
+
+        ---------
+
+        Output Expectations
+        - Output must follow this structure and adhere to language and formatting rules.
+        - Use DD/MM/YYYY for dates.
+        - Prioritize clarity, accuracy, and medically relevant phrasing.
+
+      is_output_fixable: false
+      is_table: false
+      is_trigger: false
+      kls: Instruct
+      model: gpt-4o
+      name: Correction des fautes
+      output_fields:
+      - {free: corrected_transcript, handle_id: fbc7, type: Text}
+      output_schema:
+        can-add-fields: true
+        properties:
+          corrected_transcript: {handle_id: fbc7, title: corrected_transcript, type: string}
+        required: [corrected_transcript]
+        title: OutputSchema
+        type: object
+      pos_x: 1001.5
+      pos_y: 611.0
+      src_handles: [corrected_transcript]
+      tgt_handles: [vocabulary, acronyms, run, transcript]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-446f3480-90a9-45dc-aa39-50cd90edef31
+      is_output_fixable: false
+      is_trigger: false
+      kls: SheetsRead
+      name: Choix template
+      pos_x: 122.5
+      pos_y: 16.5
+      range_name: Templates
+      sheet_id: 1HudnqYsNZTeV5_ESxDe_JuXVL9MHaYuxlNDlcIzh1vg
+      src_handles: [values]
+      tgt_handles: [run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-806a16b4-7c25-49e3-a63c-8c4b73ee21b5
+      button_color: '#3b41cc'
+      button_on_same_row: false
+      button_text: Valider
+      form:
+      - col_span: 12
+        is_only_first_run: true
+        is_required: true
+        name: Catégorie
+        options: [COMPTE RENDU STANDARD, OTITE]
+        placeholder: ''
+        type: select
+      - col_span: 12
+        is_only_first_run: false
+        is_required: true
+        name: Compte rendu
+        options: []
+        placeholder: ''
+        type: text
+      is_output_fixable: false
+      is_trigger: true
+      kls: Form
+      name: Initialisation
+      output_schema:
+        properties:
+          catégorie:
+            enum: [COMPTE RENDU STANDARD, OTITE]
+            title: Catégorie
+            type: string
+            uiSchema: {ui:label: true, ui:placeholder: ''}
+          compte_rendu:
+            title: Compte rendu
+            type: string
+            uiSchema: {ui:label: true, ui:placeholder: '', ui:widget: textarea}
+        required: [catégorie, compte_rendu]
+        title: Form
+        type: object
+        uiSchema:
+          ui:grid:
+          - [catégorie, 12]
+          - [compte_rendu, 12]
+      pos_x: 1638.0
+      pos_y: 0.0
+      show_label: true
+      src_handles: [compte_rendu, catégorie]
+      tgt_handles: []
+      use_case: false
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-8231f361-7376-47a5-a67f-46bab03abd13
+      is_output_fixable: false
+      is_trigger: false
+      kls: FormatTable
+      name: Table Formatter
+      pos_x: 215.0
+      pos_y: 322.0
+      prefix: ''
+      separator: |2+
+
+      src_handles: [formatted_text]
+      suffix: ''
+      template: '{category}'
+      tgt_handles: [table, run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-85a43d42-b39c-42d2-9df6-635bfc05a309
+      input_schema:
+        additionalProperties: false
+        properties:
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+          template_category:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: template_category
+          template_category_saved:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: template_category_saved
+        title: InputSchema
+        type: object
+      is_output_fixable: false
+      is_trigger: false
+      kls: FormatJinja
+      name: FormatJinja
+      pos_x: 801.5
+      pos_y: 611.0
+      src_handles: [formatted_text]
+      template: '{{ template_category_saved if template_category_saved else template_category
+        }}'
+      tgt_handles: [template_category, run, template_category_saved]
+  - id:
+      PLURALLY_VERSION: 1
+      _node_id: nd-999eb7df-58f7-4f0b-a6b7-5f64246cac48
+      add_chain_of_thought: false
+      add_explanation: false
+      examples: ''
+      general_info: ''
+      input_fields:
+      - {free: report, handle_id: '1173', type: Text}
+      input_schema:
+        additionalProperties: false
+        can-add-fields: true
+        properties:
+          report: {handle_id: '1173', title: report, type: string}
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+        required: [report]
+        title: InputSchema
+        type: object
+      instruct: |2
+
+        # Plurally System Prompts
+
+        ## Introduction 
+        You are a Veterinary Clinic AI-powered assistant, helping to generate **veterinary reports**.
+
+        ## General Informations
+        {PLURALLY_GENERAL_INFO}
+
+        ## Task Objective 
+        Given: 
+        - A veterinary **Report**
+
+        Your goal is to: 
+        - Remove **empty placeholders** that are left in the report.
+
+        ## Rules
+        ### Placeholder Definition
+        Placeholders are fields written between double square brackets that contain variable names or indicators like [[treatment_1]] - they are meant to be replaced with real values.
+
+        ### Remove Empty Placeholders
+        If a **Placeholder** is not filled, remove the entire line or bullet point containing the empty placeholder.
+
+        ### Remove Empty Section
+        If some sections end up being empty, **remove the placeholder and section title altogether**.
+        If there is no hospitalization, remove the section **SUIVI D'HOSPITALISATION**.
+
+        ## Examples
+        ### Example 1/3
+        ```markdown
+        ### EXAMENS COMPLEMENTAIRES
+        Analyse urine: pas d'anomalie
+        Radiologie: [[exam_result]]
+        ```
+        should be modified to:
+        ```markdown
+        ### EXAMENS COMPLEMENTAIRES
+        Analyse urine: pas d'anomalie
+        ```
+        ### Example 2/3
+        ```markdown
+        ### EXAMENS COMPLEMENTAIRES
+        Analyse urine: pas d'anomalie
+
+        ### SUIVI HOSPITALISATION
+        **Jour 1: (DD/MM)**
+        Traitements :
+        - [[treatment_1]]
+        - [[treatment_2]]
+
+        Évolution au cours de la journée :
+        (evolution)
+
+        **Jour 2: (DD/MM)**
+        Traitements :
+        - [[treatment_1]]
+        - [[treatment_2]]
+
+        Évolution au cours de la journée :
+        [[evolution]]
+        ```
+        Should be modified to
+        ```markdown
+        ### EXAMENS COMPLEMENTAIRES
+        Analyse urine: pas d'anomalie
+        ```
+
+        ### Example 3/3
+        ```markdown
+        ### SUIVI HOSPITALISATION
+        **Jour 1: (06/01)**
+        Traitements :
+        - Meloxidil
+
+        Évolution au cours de la journée :
+        Normotherme
+
+        **Jour 2: (DD/MM)**
+        Traitements :
+        - [[treatment_1]]
+        - [[treatment_2]]
+
+        Évolution au cours de la journée :
+        [[evolution]]
+        ```
+        Should be modified to
+        ```markdown
+        ### SUIVI HOSPITALISATION
+        **Jour 1: (06/01)**
+        Traitements :
+        - Meloxidil
+
+        Évolution au cours de la journée :
+        Normotherme
+        ```
+        ## Inputs
+        ### Report
+        ```plaintext
+        {{report}}
+        ```
+
+        ## Remember
+        There should not be any empty placeholder left in the output report.
+      is_output_fixable: false
+      is_table: false
+      is_trigger: false
+      kls: Instruct
+      model: gpt-4o
+      name: Rm placeholders
+      output_fields:
+      - {free: corrected_report, handle_id: 50f1, type: Text}
+      output_schema:
+        can-add-fields: true
+        properties:
+          corrected_report: {handle_id: 50f1, title: corrected_report, type: string}
+        required: [corrected_report]
+        title: OutputSchema
+        type: object
+      pos_x: 646.5
+      pos_y: 877.0
+      src_handles: [corrected_report]
+      tgt_handles: [run, report]
+  - id:
+      PLURALLY_VERSION: 1
+      _node_id: nd-9a9fa721-0e59-4830-a6a4-e4b9af98dfb5
+      add_chain_of_thought: false
+      add_explanation: false
+      examples: ''
+      general_info: ''
+      input_fields:
+      - {free: transcript, handle_id: a5d9, type: Auto}
+      - {free: template, handle_id: d34f, type: Auto}
+      - {free: examples, handle_id: bd16, type: Auto}
+      - {free: previous_run, handle_id: f60d, type: Auto}
+      - {free: template_category, handle_id: '3653', type: Auto}
+      - {free: previous_transcript, handle_id: 342a, type: Auto}
+      input_schema:
+        $defs:
+          Auto:
+            properties: {}
+            title: Auto
+            type: object
+        additionalProperties: false
+        can-add-fields: true
+        properties:
+          examples:
+            handle_id: bd16
+            properties: {}
+            title: examples
+            type: object
+            type-friendly: Auto (BETA)
+          previous_run:
+            handle_id: f60d
+            properties: {}
+            title: previous_run
+            type: object
+            type-friendly: Auto (BETA)
+          previous_transcript:
+            handle_id: 342a
+            properties: {}
+            title: previous_transcript
+            type: object
+            type-friendly: Auto (BETA)
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+          template:
+            handle_id: d34f
+            properties: {}
+            title: template
+            type: object
+            type-friendly: Auto (BETA)
+          template_category:
+            handle_id: '3653'
+            properties: {}
+            title: template_category
+            type: object
+            type-friendly: Auto (BETA)
+          transcript:
+            handle_id: a5d9
+            properties: {}
+            title: transcript
+            type: object
+            type-friendly: Auto (BETA)
+        required: [transcript, template, examples, previous_run, template_category,
+          previous_transcript]
+        title: InputSchema
+        type: object
+      instruct: |2
+
+
+        {%- set baseline = "Current Report State" if previous_run else "Template" %}
+        You are a Medical Clinic AI-powered assistant, helping to generate **consultation reports**. 
+        You are given a **Transcript** dictated by the practitioner after a consultation as well as a **{{baseline}}**. 
+
+        ----------
+
+        General Instructions 
+        - Always up-to-date with the latest medical reporting best practices. 
+        - Respond in the **same language as the input language**. 
+        - Use only the provided context—do not make assumptions or generate fictional information.
+
+        ----------
+
+        General Information
+        {PLURALLY_GENERAL_INFO}
+
+        ----------
+
+        Task Objective 
+        Given: 
+        - A **Transcript** dictated by the practitioner.
+        - The **{{baseline}}** of the report.
+
+        Your goal is to: 
+        - Modify the **{{baseline}}** based on the information in the **Transcript** and output a **Medical Report**.
+
+        ----------
+
+        Rules
+        <rule id="1">
+        **Placeholders**
+        - Some placeholders are marked within double square brackets, for example `[[treatment_1]]`.
+        - Do not remove placeholders that were not filled, rather **leave them as is**.
+        - If the **{{baseline}}** has placeholders for exams (e.g. "Analyse d'urine : [[exam_result]]"), and the practitioner gives results about them in the **Transcript**, fill them.
+        </rule>
+        <rule id="2">
+        **Keep All Information**
+        - **Important**: **All details** mentioned in the **Transcript** must appear in the output report, even if no placeholder or section was planned in **{{baseline}}**
+        - If some dosage (e.g. TID, SID) are mentioned keep them.
+        - If the practitioner says that something has not been done, make sure that it appears in the output report.
+        </rule>
+        <rule id="3">
+        **Fill Exams**
+        </rule>
+        <rule id="3">
+        **Avoid Repetitions**
+        - If some information is already present in the **{{baseline}}**, do not add it again.
+        - Content in **REMARQUES SUPPLÉMENTAIRES** (if any) should not duplicate content from other parts of the report.
+        </rule>
+        <rule id="4">
+        **Location Matters**
+        - If the practitioner specifies where the information should be, for instance by preceding a sentence with the section name, then what follows should be in that section. Sometimes the practitioner will switch to another section without specifying it. In that case, use your best judgement to detect that what is being dictated belongs to a different section and make changes accordingly.
+        - **REMARQUES SUPPLÉMENTAIRES** should only contain information that cannot fit any other section in the report.
+        <example id="1">
+        ```plaintext
+        Au niveau de l'examen clinique, on a un découvert un abcès au niveau du postérieur gauche. Donc, désinfection de l'abcès.
+        ```
+        Should give
+        ```markdown
+        ### EXAMEN CLINIQUE:
+        Abcès au niveau du postérieur gauche.
+
+        ### TRAITEMENT ET PRISE EN CHARGE:
+        Désinfection de l'abcès.
+        ```
+        </example>
+
+        {%- if not previous_run %}
+        - Generally, the beginning of the **Transcript** is about the **ANAMNESE**.
+        - If a diagnostic is given in another part of the report, it should also be given in the **DIAGNOSTIC**.
+        {%- endif %}
+        </rule>
+        <rule id="5">
+        **Formatting**
+        - Avoid formatting and white space changes.
+        </rule>
+        <rule id="6">
+        **Dates**
+        - If a **full date is explicitly mentioned** in the **Transcript** (e.g. "le 04/01/2025"), **keep it as is**. **Do not recalculate or convert it.**
+        - If a **day name only is mentioned** (e.g. "dimanche", "lundi") and no explicit date is given, **infer the full date** based on the General Information context provided.
+        - Use **DD/MM/YYYY** format.
+        <example id="1">
+        ```markdown
+        ### General Information
+        ```context
+        Today is Tuesday 4th of March 2025.
+        ```markdown
+        Alex a été hospitalisé le 5 janvier.
+        ```
+        should become
+        ```markdown
+        Alex a été hospitalisé le 05/01.
+        ```
+        </example>
+        <example id="2">
+        ```markdown
+        ### General Information
+        ```context
+        Today is Sunday 8th of June 2025.
+        ```markdown
+        Alex a été hospitalisé yesterday.
+        ```
+        should become
+        ```markdown
+        Alex a été hospitalisé le 07/06.
+        ```
+        </example>
+        </rule>
+        <rule id="7">
+        **Professional Tone**
+        - Rephrase to professional tone, making sure no information is lost, e.g. if practitioner says in **Transcript**: "I believe there could have been a fall", this should be rephrased as "Possible fall".
+        - Use newlines rather than use long paragraphs, group information semantically.
+        </rule>
+
+        ----------
+
+        Inputs
+        <input name="Transcript">
+        {{transcript}}
+        </input>
+
+        <input name="{{baseline}}">
+        {% if previous_run %}
+        {{previous_run.content.content}}
+        {% else %}
+        {{template | trim}}
+        {% endif %}
+        </input>
+
+        ----------
+
+        Output Expectations
+        - Do not include the **Transcript** or **{{baseline}}** again in your output.
+        - Output should be a **clean, complete, and human-readable report** in Markdown format. 
+      is_output_fixable: false
+      is_table: false
+      is_trigger: false
+      kls: Instruct
+      model: gpt-4o
+      name: Création du rapport
+      output_fields:
+      - {free: Veterinary Report, handle_id: 683e, type: Text}
+      output_schema:
+        can-add-fields: true
+        properties:
+          veterinary_report: {handle_id: 683e, title: Veterinary Report, type: string}
+        required: [veterinary_report]
+        title: OutputSchema
+        type: object
+      pos_x: 970.0
+      pos_y: 744.0
+      src_handles: [veterinary_report]
+      tgt_handles: [previous_run, template, transcript, examples, template_category,
+        run, previous_transcript]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-a4d74224-9c19-47b9-bf38-ed15ed4c148b
+      is_output_fixable: false
+      is_trigger: false
+      kls: SheetsRead
+      name: Acronyms
+      pos_x: 430.0
+      pos_y: 455.0
+      range_name: Acronymes
+      sheet_id: 1HudnqYsNZTeV5_ESxDe_JuXVL9MHaYuxlNDlcIzh1vg
+      src_handles: [values]
+      tgt_handles: [run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-b0561d56-4ae3-48be-87c5-ed0529cbd1ad
+      is_correctible: true
+      is_hidden: true
+      is_output_fixable: false
+      is_trigger: false
+      key: transcript
+      kls: TextOutput
+      name: TextOutput
+      pos_x: 1517.5
+      pos_y: 744.0
+      src_handles: []
+      tgt_handles: [content, run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-bb98af3e-61c7-4f7b-87b5-7908cb1f5b2d
+      input_schema:
+        additionalProperties: false
+        properties:
+          run:
+            default: true
+            description: Whether to run the block.
+            examples: [true, false]
+            title: Run
+            type: boolean
+        title: InputSchema
+        type: object
+      is_output_fixable: false
+      is_trigger: false
+      kls: FormatJinja
+      name: FormatJinja
+      pos_x: 1324.0
+      pos_y: 611.0
+      src_handles: [formatted_text]
+      template: |-
+        {% if false %}
+        {% endif %}
+      tgt_handles: [run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-c1e190a6-7b01-4458-9737-c9f7cc1eac85
+      is_output_fixable: false
+      is_trigger: false
+      keys: [report_with_placeholders, template, transcript, template_category, report]
+      kls: StateInput
+      name: StateInput
+      output_schema:
+        properties:
+          report:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: Report
+          report_with_placeholders:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: Report With Placeholders
+          template:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: Template
+          template_category:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: Template Category
+          transcript:
+            anyOf:
+            - {}
+            - {type: 'null'}
+            default: null
+            title: Transcript
+        title: OutputSchema
+        type: object
+        uiSchema:
+          ui:options: {label: false}
+      pos_x: 989.0
+      pos_y: 466.5
+      src_handles: [template, report, transcript, report_with_placeholders, template_category]
+      tgt_handles: [run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-c319a4d2-8140-464a-902e-1d9416b676a3
+      is_correctible: true
+      is_hidden: true
+      is_output_fixable: false
+      is_trigger: false
+      key: report_with_placeholders
+      kls: MarkdownOutput
+      name: MarkdownOutput
+      pos_x: 1162.5
+      pos_y: 877.0
+      src_handles: []
+      tgt_handles: [previous_content, content, run]
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-faf71e16-05fd-4d6e-87cd-6045a15d7c00
+      index_col: category
+      is_output_fixable: false
+      is_trigger: false
+      kls: Indexer
+      name: Smart Search
+      pos_x: 118.0
+      pos_y: 189.0
+      src_handles: [values]
+      tgt_handles: [knowledge, query, run]
+      top_k: 1
+  - id:
+      PLURALLY_VERSION: 0
+      _node_id: nd-fbf71c70-04cf-4e21-ba31-43a51cd117f0
+      is_output_fixable: false
+      is_trigger: false
+      kls: SheetsRead
+      name: Vocabulaire
+      pos_x: 1529.0
+      pos_y: 455.0
+      range_name: Vocabulaire
+      sheet_id: 1HudnqYsNZTeV5_ESxDe_JuXVL9MHaYuxlNDlcIzh1vg
+      src_handles: [values]
+      tgt_handles: [run]
+id: 4a3f3567-339c-4ac1-a403-ae0640787564
+is_running: false
+last_exec_dt: null
+last_updated: '2025-04-17T07:13:26.012301'
+logo: https://sosmedecins66.fr/wp-content/uploads/2024/09/sigle-sos-bleu.webp
+name: Rapport consultation
+org_id: 98cc231e-32a6-40e7-8dca-30ef3b34e9fb
+owner_id: 83e1fa8e-a5db-487f-9780-c69846b9f8ca
