@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "moggy-mcp-server"
+version = "0.1.53"
+description = "baidu search only"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.4.1",
+    "playwright>=1.39.0",
+    "pydantic==2.10.6",
+    "autogen-ext>=0.4",
+    "autogen-agentchat>=0.4",
+    "aiofiles>=23.1",
+]
+
+
+[project.scripts]
+moggy-mcp-server = "browse_mcp.browse_operation_server:main"
+
+# [tool.uv.sources]
+# moggy-mcp-server = { workspace = true }
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/browse_mcp"]
