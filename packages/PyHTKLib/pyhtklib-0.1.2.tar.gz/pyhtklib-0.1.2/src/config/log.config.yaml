@@ -1,0 +1,43 @@
+version: 1
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s:[%(lineno)d] - %(levelname)s - %(message)s"
+  elastic:
+    format: "%(asctime)s - %(name)s - %(levelname)s - Elastic: %(message)s"
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+  info_file_handler:
+    class: logging.handlers.TimedRotatingFileHandler
+    when: midnight
+    interval: 1
+    level: INFO
+    formatter: simple
+    filename: ./logs/info.log
+    # suffix: "%Y-%m-%d"
+    # maxBytes: 10485760
+    # backupCount: 20
+    encoding: utf8
+  error_file_handler:
+    class: logging.handlers.TimedRotatingFileHandler
+    when: midnight
+    interval: 1
+    level: ERROR
+    formatter: simple
+    filename: ./logs/error.log
+    # suffix: "%Y-%m-%d"
+    # maxBytes: 10485760
+    # backupCount: 20
+    encoding: utf8
+# loggers:
+#   elastic:
+#     level: DEBUG
+#     handlers: [console, info_file_handler, error_file_handler]
+#     propagate: no
+#     formatter: elastic
+root:
+  level: DEBUG
+  handlers: [console, info_file_handler, error_file_handler]
