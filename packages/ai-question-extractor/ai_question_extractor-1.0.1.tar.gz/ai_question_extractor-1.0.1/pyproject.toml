@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "ai-question-extractor"
+
+# Version format: MAJOR.MINOR.PATCH
+# MAJOR version for incompatible API changes
+# MINOR version for backwards-compatible new functionality
+# PATCH version for backwards-compatible bug fixes
+version = "1.0.1"
+
+description = "A Python library for extracting questions from text using natural language processing techniques"
+authors = ["ThakaCreator"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    {include = "extractor"},
+    {include = "models"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.32.3"
+python-dotenv = "^1.0.1"
+openai = "^1.75.0"
+pydantic = "^2.11.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

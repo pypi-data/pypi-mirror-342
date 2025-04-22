@@ -1,0 +1,30 @@
+Metadata-Version: 2.3
+Name: ai-question-extractor
+Version: 1.0.1
+Summary: A Python library for extracting questions from text using natural language processing techniques
+License: MIT
+Author: ThakaCreator
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: openai (>=1.75.0,<2.0.0)
+Requires-Dist: pydantic (>=2.11.3,<3.0.0)
+Requires-Dist: python-dotenv (>=1.0.1,<2.0.0)
+Requires-Dist: requests (>=2.32.3,<3.0.0)
+Description-Content-Type: text/markdown
+
+# Question Extractor
+
+A Python tool for extracting exam questions from PDF files using OpenAI's GPT models.
+
+## Features
+
+- Extracts exam questions and their subparts from PDF files
+- Structures the extracted questions into a standardized format
+- Skips non-text content like images
+- Uses OpenAI's GPT models for accurate extraction
+
