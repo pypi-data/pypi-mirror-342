@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-maven = mcp_server_maven:main
