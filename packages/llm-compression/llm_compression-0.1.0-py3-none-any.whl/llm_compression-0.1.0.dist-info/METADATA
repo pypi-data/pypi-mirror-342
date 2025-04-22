@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: llm-compression
+Version: 0.1.0
+Summary: Arithmetic compression using Llama LLM models
+License: GPL3
+Author: OdoctorG
+Author-email: grenoscar@gmail.com
+Requires-Python: >=3.10
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: llama-cpp-python (>=0.3.8,<0.4.0)
+Requires-Dist: numpy (>=2.2.5,<3.0.0)
+Description-Content-Type: text/markdown
+
+# LLM-Compression
+Arithmetic Compression using Llama LLM. 
+
+## Requirements
+To use the LLM model for compression you need to install ```llama-cpp-python``` and download a llama llm model in a .gguf format. I used the model ```Llama-3.2-1B-Instruct-Q4_K_M.gguf``` in my examples, [download link](https://huggingface.co/bartowski/Llama-3.2-1B-Instruct-GGUF). 
+
