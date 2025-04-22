@@ -1,0 +1,2 @@
+[console_scripts]
+calculator = main:app
