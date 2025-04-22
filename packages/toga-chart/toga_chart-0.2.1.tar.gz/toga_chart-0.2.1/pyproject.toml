@@ -1,0 +1,94 @@
+[build-system]
+requires = [
+    "setuptools==79.0.0",
+    "setuptools_scm==8.2.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+dynamic = ["version"]
+name = "toga-chart"
+description = "A Toga matplotlib backend."
+readme = "README.rst"
+requires-python = ">= 3.9"
+license.text = "New BSD"
+authors = [
+    {name="Russell Keith-Magee", email="russell@keith-magee.com"},
+]
+maintainers = [
+    {name="BeeWare Team", email="team@beeware.org"},
+]
+keywords = [
+    "matplotlib",
+    "toga",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: User Interfaces",
+]
+dependencies = [
+    "matplotlib >= 3.9.0",
+    "toga-core >= 0.5.0, < 0.6.0",
+]
+
+[project.optional-dependencies]
+# Extras used by developers *of* briefcase are pinned to specific versions to
+# ensure environment consistency.
+dev = [
+    "pre-commit == 4.2.0",
+    "pytest == 8.3.5",
+    "setuptools_scm == 8.2.0",
+    "tox == 4.25.0",
+    "toga-dummy >= 0.5.0, < 0.6.0",
+]
+# Docs are always built on a specific Python version; see RTD and tox config files.
+docs = [
+    "furo == 2024.8.6",
+    "pyenchant == 3.2.2",
+    "sphinx == 8.2.3",
+    "sphinx_tabs == 3.4.7",
+    "sphinx-autobuild == 2024.10.3",
+    "sphinx-copybutton == 0.5.2",
+    "sphinxcontrib-spelling == 8.0.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/beeware/toga-chart"
+Funding = "https://beeware.org/contributing/membership/"
+Documentation = "https://toga-chart.readthedocs.io/en/latest/"
+Tracker = "https://github.com/beeware/toga-chart/issues"
+Source = "https://github.com/beeware/toga-chart"
+
+[tool.isort]
+profile = "black"
+split_on_trailing_comma = true
+combine_as_imports = true
+
+[tool.setuptools_scm]
+# To enable SCM versioning, we need an empty tool configuration for setuptools_scm
+
+[tool.towncrier]
+directory = "changes"
+package = "toga_chart"
+package_dir = "src"
+filename = "docs/background/releases.rst"
+title_format = "{version} ({project_date})"
+template = "changes/template.rst"
+type = [
+    { directory = "feature", name = "Features", showcontent = true },
+    { directory = "bugfix", name = "Bugfixes", showcontent = true },
+    { directory = "removal", name = "Backward Incompatible Changes", showcontent = true },
+    { directory = "doc", name = "Documentation", showcontent = true },
+    { directory = "misc", name = "Misc", showcontent = false },
+]
