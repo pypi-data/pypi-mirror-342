@@ -1,0 +1,2 @@
+[console_scripts]
+fal-ai-mcp-server = fal_ai_mcp_server.main:main
