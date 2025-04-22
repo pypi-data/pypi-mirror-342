@@ -1,0 +1,2 @@
+[console_scripts]
+cb-signal-tui = cb_signal_tui.__main__:cli
