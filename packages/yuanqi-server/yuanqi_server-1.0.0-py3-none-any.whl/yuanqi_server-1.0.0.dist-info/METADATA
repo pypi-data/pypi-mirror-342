@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: yuanqi-server
+Version: 1.0.0
+Summary: A mcp server
+Author: yuanqi_mcp163
+Author-email: yuanqi_mcp_test@163.com
+License: MIT
+Requires-Python: >=3.12
+Requires-Dist: mcp
+Requires-Dist: httpx
+Requires-Dist: uvicorn
+Dynamic: author
+Dynamic: author-email
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
