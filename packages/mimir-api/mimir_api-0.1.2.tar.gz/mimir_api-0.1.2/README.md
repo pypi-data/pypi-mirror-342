@@ -1,0 +1,87 @@
+# Mimir API
+
+[![PyPI Version](https://img.shields.io/pypi/v/mimir-api?style=for-the-badge&color=%230094FF)](https://pypi.org/project/mimir-api/)
+
+Python API client for the Mimir AI platform. This library provides programmatic access to Mimir's repository analysis and code intelligence tools.
+
+## Installation
+
+You can install the package directly from PyPI:
+
+```bash
+pip install mimir-api
+```
+
+Alternatively, you can clone the repository and install the package locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/trymimirai/mimir-api.git
+cd mimir-api
+
+# Install the package
+pip install -e .
+```
+
+## Configuration
+
+The client requires configuration for the API base URL and authentication key. These can be provided in two different ways:
+
+1. **Environment Variables** (prioritized):
+
+   - `MIMIR_API_URL`: The base URL for the API (optional, default: "https://dev.trymimir.ai/api")
+   - `MIMIR_API_KEY`: Your API authentication key
+
+2. **Configuration File** (used when environment variables are missing):
+   Create a file at `~/.mimir/config.json` with the following structure:
+
+   ```json
+   {
+     "api_url": "https://dev.trymimir.ai/api",
+     "api_key": "your-api-key-here"
+   }
+   ```
+
+## Getting Started
+
+```python
+from mimir_api import MimirClient, load_config
+
+# Load the client configuration (from env vars or config file)
+config = load_config()
+
+# Initialize the client
+client = MimirClient(config)
+
+# Example: List repositories
+async def list_repos():
+    repos = await client.repositories.list()
+    print(repos)
+
+# Example: Search for files in a repository
+async def search_files(owner, repo, query):
+    results = await client.tools.agentic_file_search(
+        owner=owner,
+        name=repo,
+        query=query
+    )
+    print(results)
+```
+
+## Available APIs
+
+The client provides access to the following APIs:
+
+### Repositories API
+
+- `list()` - List repositories for the authenticated user
+
+### Tools API
+
+Code intelligence tools for analyzing repositories:
+
+- `agentic_file_search()` - Find relevant files using natural language search
+- `vector_search()` - Find code snippets with high similarity to a query
+- `text_search()` - Search for text patterns across the codebase (like grep)
+- `read_file()` - Read the contents of a specific file
+- `list_directory()` - List files and directories in a specific path
