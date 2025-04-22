@@ -1,0 +1,17 @@
+
+[all]
+uncertainties[arrays,doc,test]
+
+[arrays]
+numpy
+
+[doc]
+sphinx
+sphinx-copybutton
+python-docs-theme
+
+[test]
+pytest
+pytest_codspeed
+pytest_cov
+scipy
