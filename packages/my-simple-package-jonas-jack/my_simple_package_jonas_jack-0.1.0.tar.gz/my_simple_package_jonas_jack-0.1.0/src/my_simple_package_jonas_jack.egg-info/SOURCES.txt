@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/my_simple_package/__init__.py
+src/my_simple_package/core.py
+src/my_simple_package_jonas_jack.egg-info/PKG-INFO
+src/my_simple_package_jonas_jack.egg-info/SOURCES.txt
+src/my_simple_package_jonas_jack.egg-info/dependency_links.txt
+src/my_simple_package_jonas_jack.egg-info/top_level.txt
+tests/test_core.py

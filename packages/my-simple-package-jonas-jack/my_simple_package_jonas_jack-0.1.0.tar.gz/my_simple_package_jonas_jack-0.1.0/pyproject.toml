@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my-simple-package-jonas-jack"           # Name used for pip install (use hyphens)
+version = "0.1.0"                    # Initial version, sync with src/my_simple_package/__init__.py
+authors = [
+  { name="jonas", email="dzdengzhu@gmail.com" }, # <-- !!! REPLACE THIS !!!
+]
+description = "A simple example Python package with implemented content."
+readme = "README.md"                 # Points to the README file
+requires-python = ">=3.7"            # Minimum Python version supported
+license = { file="LICENSE" }         # Points to the LICENSE file
+keywords = ["example", "tutorial", "package", "simple"] # Optional keywords for search
+classifiers = [                      # Standard classifiers for PyPI
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+
+# Add runtime dependencies here if your package needs other libraries
+# dependencies = [
+#     "requests >= 2.20.0",
+#     'importlib-metadata; python_version<"3.8"', # Example conditional dependency
+# ]
+
+[project.urls] # Optional: Links for users
+Homepage = "https://github.com/dengzhu-hub/my-awesome-package.git" # <-- !!! REPLACE THIS !!!
+# Documentation = "https://readthedocs.org/..." # Example
+# Repository = "https://github.com/dengzhu-hub/my-awesome-package" # Example
+# "Bug Tracker" = "https://github.com/dengzhu-hub/my-awesome-package/issues" # Example
+
+# --- Configuration for setuptools ---
+[tool.setuptools.packages.find]
+where = ["src"]  # Tells setuptools to look for packages under the 'src' directory
+# include = ["my_simple_package*"] # Usually not needed if 'where' is correct
+# exclude = [] # Optional: directories/packages to exclude
+
+# --- Optional: Configure test runner (e.g., pytest) ---
+# [tool.pytest.ini_options]
+# minversion = "6.0"
+# addopts = "-ra -q"
+# testpaths = [
+#     "tests",
+# ]
+
+# --- Optional: Configure linters/formatters (e.g., ruff, black) ---
+# [tool.ruff]
+# select = ["E", "F", "W", "I"] # Example rules to enable
+# ignore = []
+# target-version = "py37"
+
+# [tool.black]
+# line-length = 88
+# target-version = ['py37']
