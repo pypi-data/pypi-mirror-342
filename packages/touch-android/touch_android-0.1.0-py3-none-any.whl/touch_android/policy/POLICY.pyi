@@ -1,0 +1,9 @@
+__all__ = ['POLICY', '_KEEP_ALIVE_PERIOD_', '_KEEP_ALIVE_EXPIRE_TIME_']
+
+class POLICY:
+    MAX_TIME_GAP_4CLICK: float
+    MAX_POS_GAP_4X: int
+    MAX_POS_GAP_4Y: int
+
+_KEEP_ALIVE_PERIOD_: float
+_KEEP_ALIVE_EXPIRE_TIME_: float

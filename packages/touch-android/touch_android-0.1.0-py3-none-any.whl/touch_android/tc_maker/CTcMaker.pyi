@@ -1,0 +1,13 @@
+from libuseful.exception import *
+from libuseful.lib_logger import *
+from _typeshed import Incomplete
+from touch_android.policy.POLICY import POLICY as POLICY
+
+logger: Incomplete
+
+class CTcMaker:
+    TouchMODE: Incomplete
+    def regist_source(self, path: str): ...
+    def make(self, alias: str, src_file: str, dev_name: str = None, test_target: str = None): ...
+    def __init__(self, out_root_path: str, mode: TouchMODE = ..., module_name: str = 'unknown', policy_duration: float = ..., policy_posgap: tuple = ...) -> None: ...
+    def __del__(self) -> None: ...
