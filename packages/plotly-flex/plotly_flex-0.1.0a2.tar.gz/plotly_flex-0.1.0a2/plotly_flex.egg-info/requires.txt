@@ -1,0 +1,8 @@
+dash>=2.18.2
+numpy>=2.0.2
+orjson>=3.10.15
+plotly>=6.0.0
+polars>=1.27.1
+
+[widget]
+anywidget>=0.9.13

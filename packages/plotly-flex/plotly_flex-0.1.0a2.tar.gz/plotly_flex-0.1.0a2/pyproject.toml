@@ -1,0 +1,57 @@
+[project]
+name = "plotly-flex"
+version = "0.1.0a2"
+description = "Visualizing large datasets with plotly by using polars as backend."
+keywords = ["big-data", "visualization", "plotly", "plotly-dash", "polars"]
+authors = [
+    {name = "Flex Analytics", email = "info@flexanalytics.pro"},
+    {name = "Jeroen Van Der Donckt", email = "jeroen@flexanalytics.pro"},
+]
+readme = "README.md"
+license = "AGPL-3.0"
+requires-python = ">=3.9, <3.14"
+dependencies = [
+    "dash>=2.18.2",
+    "numpy>=2.0.2",
+    "orjson>=3.10.15",
+    "plotly>=6.0.0",
+    "polars>=1.27.1",
+]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+]
+
+[project.urls]
+Homepage = "https://flexanalytics.pro"
+Repository = "https://github.com/flex-analytics/plotly-flex"
+
+[project.optional-dependencies]
+widget = ["anywidget>=0.9.13"]
+
+[tool.uv]
+dev-dependencies = [
+    "pandas>=2.2.3",
+    "pyarrow>=19.0.1",
+    "pytest-cov>=6.0.0",
+    "pytest>=8.3.4",
+    "ruff>=0.9.6",
+    "ipykernel>=6.7.0",
+    "anywidget>=0.9.13",
+]
+
+[tool.ruff]
+line-length = 88
+exclude = ["*.ipynb"] # skip notebooks (for now)
+
+[build-system]
+requires = ["setuptools", "wheel", "pip"]
+build-backend = "setuptools.build_meta"
