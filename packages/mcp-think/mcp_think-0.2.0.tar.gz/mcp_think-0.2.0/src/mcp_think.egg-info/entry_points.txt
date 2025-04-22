@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-think = mcp_think.__main__:main
