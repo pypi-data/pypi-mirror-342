@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: risk_package_grf
+Version: 0.0.12
+Summary: This is the first version of GRF package for Panama.
+Author: Mateo Rodriguez, Gerencias de Riesgos Financieros Corredores Davivienda S.A.
+Author-email: marodriguezr@corredores.com , gerenciaderiesgos@corredores.com
+Description-Content-Type: text/markdown
+Requires-Dist: datetime
+Requires-Dist: gcsfs
+Requires-Dist: google
+Requires-Dist: google-auth
+Requires-Dist: google-cloud
+Requires-Dist: google-cloud-bigquery
+Requires-Dist: google-cloud-storage
+Requires-Dist: IPython
+Requires-Dist: ipywidgets
+Requires-Dist: networkx
+Requires-Dist: numpy
+Requires-Dist: openpyxl
+Requires-Dist: pandas
+Requires-Dist: QuantLib
+Requires-Dist: scipy
+Requires-Dist: tk
+
+# This is my simple project
+This is the project README.
+
+The project contains several modules, each one included in only one of the following bins:
+A: Structure and general modules, used in all the other modules.
+ML: Local modules, related with local run scripts.
+MN: Cloud modules, related with cloud run scripts.
+Z: Testing modules. Show the structure of the executing code for production in local or cloud environments.
+
+All the required packages are included in setup.py except blpapi (due to legal restrictions). For this package, please use the next code for installing in your local. This package is only used for local processes, so you must not use it in any cloud run function.
+
+py -m pip install --index-url https://blpapi.bloomberg.com/repository/releases/python/simple/blpapi
