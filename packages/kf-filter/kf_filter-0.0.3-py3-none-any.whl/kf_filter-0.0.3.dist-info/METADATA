@@ -1,0 +1,69 @@
+Metadata-Version: 2.3
+Name: kf-filter
+Version: 0.0.3
+Summary: Filtering on the wavenumber-frequency domain based on WK99.
+License: MIT
+Author: Richard Zhuang
+Author-email: hz542@uw.edu
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: matplotlib (>=3.4,<4.0)
+Requires-Dist: numpy (>=1.21,<2.0)
+Requires-Dist: scipy (>=1.7,<2.0)
+Requires-Dist: seaborn (>=0.11,<0.12)
+Requires-Dist: xarray (>=2024.11.0,<2025.0.0)
+Description-Content-Type: text/markdown
+
+# KF Filter
+
+A Python package for filtering equatorial waves in the wavenumber-frequency domain.
+
+![Example Filter Visualization](example/figures/kelvin_filtered_OLR.png)
+
+## Features
+
+- Implements wavenumber-frequency filtering for equatorial waves.
+- Supports filtering for MJO and TD as well.
+- Provides visualization tools for filter masks.
+
+## Installation
+
+The easiest way to install is through pip.
+
+```bash
+pip install kf-filter
+```
+
+## Usage
+
+```python
+import xarray as xr
+from kf_filter import KF
+
+# Load your data as an xarray DataArray
+data = xr.open_dataset("your_data.nc")["variable_name"]
+
+# Initialize the KF filter
+kf_filter = KF(data, sampling_per_day=2, time_taper_frac=0.1)
+
+# Apply a Kelvin wave filter
+filtered_data = kf_filter.kelvin_filter()
+
+# Visualize the filter
+kf_filter.visualize_filter("kelvin")
+```
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
