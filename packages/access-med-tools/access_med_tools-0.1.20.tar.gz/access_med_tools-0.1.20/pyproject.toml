@@ -1,0 +1,42 @@
+[project]
+name = "access_med_tools"
+authors = [
+    { name = "ACCESS-NRI" },
+]
+description = "ACCESS MED Tools"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "APACHE-2.0"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = ["argparse", "pyyaml", "dask", "xarray",  "netcdf4"]
+dynamic = ["version"]
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+  "setuptools >= 61.0.0",
+  "versioneer[toml]",
+]
+
+[project.scripts]
+ilamb-tree-generator = "access_med_tools.ilamb:tree_generator"
+check-hackathon = "access_med_tools.hackathon:check_hackathon"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+access_med_tools = ["master_map.csv"]
+
+[tool.versioneer]
+VCS = "git"
+style = "pep440"
+versionfile_source = "access_med_tools/_version.py"
+versionfile_build = "access_med_tools/_version.py"
+tag_prefix = "v"
+parentdir_prefix = "access_med_tools-"

@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: access_med_tools
+Version: 0.1.20
+Summary: ACCESS MED Tools
+Author: ACCESS-NRI
+License: APACHE-2.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: argparse
+Requires-Dist: pyyaml
+Requires-Dist: dask
+Requires-Dist: xarray
+Requires-Dist: netcdf4
+Dynamic: license-file
+
+# ACCESS-MED-tools

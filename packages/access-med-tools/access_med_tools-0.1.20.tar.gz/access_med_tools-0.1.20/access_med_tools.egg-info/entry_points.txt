@@ -1,0 +1,3 @@
+[console_scripts]
+check-hackathon = access_med_tools.hackathon:check_hackathon
+ilamb-tree-generator = access_med_tools.ilamb:tree_generator
