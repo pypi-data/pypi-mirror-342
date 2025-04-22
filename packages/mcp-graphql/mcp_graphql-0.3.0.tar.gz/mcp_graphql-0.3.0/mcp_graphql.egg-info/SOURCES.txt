@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+mcp_graphql/__init__.py
+mcp_graphql/__main__.py
+mcp_graphql/py.typed
+mcp_graphql/server.py
+mcp_graphql/types.py
+mcp_graphql.egg-info/PKG-INFO
+mcp_graphql.egg-info/SOURCES.txt
+mcp_graphql.egg-info/dependency_links.txt
+mcp_graphql.egg-info/entry_points.txt
+mcp_graphql.egg-info/requires.txt
+mcp_graphql.egg-info/top_level.txt
