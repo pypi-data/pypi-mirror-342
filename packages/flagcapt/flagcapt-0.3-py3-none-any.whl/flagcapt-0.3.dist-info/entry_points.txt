@@ -1,0 +1,2 @@
+[console_scripts]
+flagcapt = flagcapt.__main__:main
