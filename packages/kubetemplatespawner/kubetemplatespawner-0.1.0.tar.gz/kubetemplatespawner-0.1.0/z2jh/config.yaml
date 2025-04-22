@@ -1,0 +1,50 @@
+hub:
+  image:
+    name: ghcr.io/manics/jupyterhub-kubetemplatespawner
+    tag: main
+    pullPolicy: Always
+
+  config:
+    JupyterHub:
+      spawner_class: kubetemplate
+    KubeTemplateSpawner:
+      template_path: /src/kubetemplatespawner/example/
+      extra_vars:
+        serviceEnabled: true
+      start_timeout: 180
+      # When the pod is fronted by a service it may take a while for the service to update
+      http_timeout: 180
+
+  # Development: you can copy a local file into the pod by uncommenting extraFiles.*,
+  # and passing helm args
+  #   --set-file hub.extraFiles.01-override.stringData=./kubetemplatespawner/_kubernetes.py
+  #   --set-file hub.extraFiles.02-override.stringData=./kubetemplatespawner/spawner.py
+
+  # extraFiles:
+  #   01-override:
+  #     mountPath: /usr/local/lib/python3.12/site-packages/kubetemplatespawner/_kubernetes.py
+  #   02-override:
+  #     mountPath: /usr/local/lib/python3.12/site-packages/kubetemplatespawner/spawner.py
+
+singleuser:
+  storage:
+    # Everything is done in kubetemplatespawner
+    type: none
+
+proxy:
+  service:
+    type: ClusterIP
+
+ingress:
+  enabled: true
+  hosts:
+    - example.127.0.0.1.nip.io
+
+scheduling:
+  userScheduler:
+    enabled: false
+  userPlaceholder:
+    enabled: false
+
+debug:
+  enabled: true
