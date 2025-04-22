@@ -1,0 +1,2 @@
+[console_scripts]
+nerd-compute = nerd_mega_compute.cli:main
