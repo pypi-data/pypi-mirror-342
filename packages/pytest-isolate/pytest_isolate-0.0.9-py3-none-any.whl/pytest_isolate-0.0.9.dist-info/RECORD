@@ -1,0 +1,10 @@
+pytest_isolate/__about__.py,sha256=46Yjk3fz9o8aTN8E95McnzpJcjGzVJmHmQqUZ5mXzfc,22
+pytest_isolate/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pytest_isolate/plugin.py,sha256=wzPmxxaIgqeF8BEl8HMp2QaMys8vunX-a3E6vxx7z7Q,24630
+pytest_isolate/resource_management.py,sha256=khnHEQjN4-JFbq8Ib3gCz3SpPiZqh4B7TDPGTbIUTOg,7404
+pytest_isolate/tracing.py,sha256=LQFFo0UUChBw3HGuVHTJzrLBIBU9hWxtPbaCjOfNEVA,533
+pytest_isolate-0.0.9.dist-info/METADATA,sha256=3RylReFIepSt9oMDQF0y4mRwflMTSljC2mzd3NGUIvk,4896
+pytest_isolate-0.0.9.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+pytest_isolate-0.0.9.dist-info/entry_points.txt,sha256=xRfxqeOju8mSl3hyR8uNEab_KzlUx05gPAyStfHfR6M,50
+pytest_isolate-0.0.9.dist-info/licenses/LICENSE.txt,sha256=YBuA6HswtHx7U4nTB3_aZ6N-fLayAEBeRSQheYnB_pI,1045
+pytest_isolate-0.0.9.dist-info/RECORD,,
