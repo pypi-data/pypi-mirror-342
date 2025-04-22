@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: ctesiphon
+Version: 0.1.9
+Summary: Фреймворк
+License: Apache-2.0
+Author: Anton Berdnikov
+Author-email: cto@icecloud.tech
+Requires-Python: >=3.11,<3.13
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: Hypercorn (==0.17.3)
+Requires-Dist: Jinja2 (==3.1.6)
+Requires-Dist: aioboto3 (==14.1.0)
+Requires-Dist: aioclock (==0.3.0)
+Requires-Dist: aiokafka (==0.12.0)
+Requires-Dist: aiosmtplib (==4.0.0)
+Requires-Dist: clickhouse-connect (==0.8.15)
+Requires-Dist: fastapi (==0.115.7)
+Requires-Dist: faststream[kafka] (==0.5.33)
+Requires-Dist: httpx (==0.28.1)
+Requires-Dist: orjson (==3.10.15)
+Requires-Dist: phonenumbers (==9.0.0)
+Requires-Dist: pydantic-extra-types (==2.10.3)
+Requires-Dist: pydantic-settings (==2.7.1)
+Requires-Dist: pydantic-yaml (==1.4.0)
+Requires-Dist: pydantic[email] (==2.10.6)
+Requires-Dist: python-multipart (==0.0.20)
+Requires-Dist: python-ulid (==3.0.0)
+Requires-Dist: redis[hiredis] (==5.2.1)
+Requires-Dist: rethinkdb (==2.4.10.post1)
+Requires-Dist: shortuuid (==1.0.13)
+Requires-Dist: toml (==0.10.2)
+Requires-Dist: uvloop (==0.21.0)
+Description-Content-Type: text/markdown
+
+# ctesiphon-base
+
+
