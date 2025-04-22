@@ -1,0 +1,11 @@
+oxvox-0.7.1.dist-info/METADATA,sha256=kDY4EPjwJNncOU0oYRpp_9Up4j2db2mzY0EMm5viOvI,3474
+oxvox-0.7.1.dist-info/WHEEL,sha256=Mgc7q3H5chuFJt-w6cZ-qv2aS5dlvenFVMCZtQp77B4,131
+oxvox-0.7.1.dist-info/licenses/LICENSE,sha256=T0GpQlFv9bUc8X48yExQKJpb56i6DvDl-uUn36ivGpc,1500
+oxvox/nns.py,sha256=o6zBDQCwWeygW--2H3GGhoVofoqIDDIOwSW78BW3fI0,5210
+oxvox/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+oxvox/indexing.py,sha256=Rjuzcx7DySoPP4hx4PqZVdflKLcS1WJQ1ZtI4f8SjTc,2979
+oxvox/tests/test_oxvox_indexing.py,sha256=2GAJwuSDJr8j2_V5FEQM4FIZjmXx34wbJH7dxn6StyU,1573
+oxvox/tests/test_ox_vox_nns.py,sha256=G60z3gmndaGX5LqLL8pwzBWzQ5BwAdxBgIk51ZdGRXk,1876
+oxvox/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+oxvox/_oxvox.cpython-311-aarch64-linux-gnu.so,sha256=1VibD1QxTdINqtJm9a9aIdEG7BsWjEknAoIYaInMuyM,1306648
+oxvox-0.7.1.dist-info/RECORD,,
