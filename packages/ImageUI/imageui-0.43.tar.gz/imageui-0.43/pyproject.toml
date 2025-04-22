@@ -1,0 +1,18 @@
+[project]
+name = "ImageUI"
+version = "0.43"
+description = "A package for easily creating UIs in Python, mainly using OpenCV's drawing functions."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ "name" = "OleFranz" }]
+license = { file = "LICENSE" }
+dependencies = [
+    "mouse",
+    "numpy",
+    "pillow",
+    "pynput==1.7.7",
+    "pywin32",
+    "keyboard",
+    "opencv-python",
+    "deep-translator"
+]

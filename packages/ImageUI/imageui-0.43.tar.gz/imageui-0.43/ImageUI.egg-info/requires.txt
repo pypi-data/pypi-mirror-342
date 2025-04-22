@@ -1,0 +1,8 @@
+mouse
+numpy
+pillow
+pynput==1.7.7
+pywin32
+keyboard
+opencv-python
+deep-translator
