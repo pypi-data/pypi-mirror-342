@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-todoist = todoist_server:main
