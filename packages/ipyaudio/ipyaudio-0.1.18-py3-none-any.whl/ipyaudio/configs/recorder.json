@@ -1,0 +1,13 @@
+{
+  "options": {
+    "backend": "WebAudio",
+    "container": "",
+    "waveColor": "#4BF2A7"
+  },
+  "recordOptions": {
+    "renderRecordedAudio": false,
+    "scrollingWaveform": true,
+    "scrollingWaveformWindow": 10,
+    "mediaRecorderTimeslice": 20
+  }
+}
