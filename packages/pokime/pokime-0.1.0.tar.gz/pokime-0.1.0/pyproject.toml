@@ -1,0 +1,27 @@
+# pyproject.toml 
+
+[project]
+name = "pokime"
+version = "0.1.0"
+description = "MCP server that gives information on Anime and Pokemon"
+readme = "README.md"
+authors = [
+    {name = "harsh_buddhdev", email = "harshbuddhdev5@gmail.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "mcp>=1.2.0",
+    "requests",
+]
+requires-python = ">=3.9"
+
+[project.scripts]
+mcp-web-extractor = "pokime.server:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
