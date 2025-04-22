@@ -1,0 +1,1 @@
+https://github.com/eagurin/myaiserv.git
