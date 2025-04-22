@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "websiterecon"
+version = "0.1.6"
+authors = [
+    { name="WebsiteRecon", email="websiterecon@example.com" },
+]
+description = "A comprehensive website reconnaissance and scanning tool"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "aiohttp>=3.9.3",
+    "rich>=13.7.0",
+    "beautifulsoup4>=4.12.3",
+    "dnspython>=2.6.1",
+    "aiohttp-client-cache>=0.8.2",
+    "aiodns>=3.1.1",
+    "aiosocks>=0.2.6",
+    "validators>=0.22.0",
+    "asyncio>=3.4.3",
+    "aiofiles>=23.2.1",
+    "tld>=0.13.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/websiterecon/websiterecon"
+Issues = "https://github.com/websiterecon/websiterecon/issues"
+
+[project.scripts]
+websiterecon = "websiterecon.cli:main" 

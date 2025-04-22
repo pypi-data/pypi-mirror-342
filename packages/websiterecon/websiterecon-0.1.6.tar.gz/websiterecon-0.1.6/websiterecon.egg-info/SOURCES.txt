@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+websiterecon/__init__.py
+websiterecon/cli.py
+websiterecon/scanner.py
+websiterecon.egg-info/PKG-INFO
+websiterecon.egg-info/SOURCES.txt
+websiterecon.egg-info/dependency_links.txt
+websiterecon.egg-info/entry_points.txt
+websiterecon.egg-info/requires.txt
+websiterecon.egg-info/top_level.txt
