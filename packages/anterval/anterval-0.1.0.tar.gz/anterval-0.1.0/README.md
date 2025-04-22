@@ -1,0 +1,3 @@
+# Anterval
+
+Abstract intervals class.

@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/anterval/__init__.py
+src/anterval/core.py
+src/anterval.egg-info/PKG-INFO
+src/anterval.egg-info/SOURCES.txt
+src/anterval.egg-info/dependency_links.txt
+src/anterval.egg-info/top_level.txt
