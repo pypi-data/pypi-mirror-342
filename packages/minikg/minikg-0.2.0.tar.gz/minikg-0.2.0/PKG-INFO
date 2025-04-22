@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: minikg
+Version: 0.2.0
+Summary: Hackable knowledge graph builder / retriever
+Author: Liam Tengelis
+Author-email: liam.tengelis@blacktuskdata.com
+Dynamic: author
+Dynamic: author-email
+Dynamic: summary
