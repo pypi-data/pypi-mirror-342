@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+aiia_sdk/__init__.py
+aiia_sdk/aiia_sdk.py
+aiia_sdk/utils.py
+aiia_sdk.egg-info/PKG-INFO
+aiia_sdk.egg-info/SOURCES.txt
+aiia_sdk.egg-info/dependency_links.txt
+aiia_sdk.egg-info/requires.txt
+aiia_sdk.egg-info/top_level.txt
+aiia_sdk/cache/actions_cache.json
+aiia_sdk/data/aiia_actions_v1.0.json
