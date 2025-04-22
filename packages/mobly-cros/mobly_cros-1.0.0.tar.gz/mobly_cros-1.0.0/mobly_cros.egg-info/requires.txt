@@ -1,0 +1,8 @@
+mobly>=1.12.2
+paramiko>=2.10.4
+pyzmq>=15.0.0
+selenium==4.0.0
+retry
+dacite
+grpcio
+protobuf

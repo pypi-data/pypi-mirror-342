@@ -1,0 +1,520 @@
+Metadata-Version: 2.4
+Name: mobly-cros
+Version: 1.0.0
+Summary: Mobly CrOS controller module for using Python code to operate CrOS devices in Mobly tests.
+Home-page: https://github.com/google/mobly-cros
+Author: Google Inc.
+Author-email: minghaoli@google.com
+Maintainer-email: Minghao Li <minghaoli@google.com>
+License: 
+                                         Apache License
+                                   Version 2.0, January 2004
+                                http://www.apache.org/licenses/
+        
+           TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        
+           1. Definitions.
+        
+              "License" shall mean the terms and conditions for use, reproduction,
+              and distribution as defined by Sections 1 through 9 of this document.
+        
+              "Licensor" shall mean the copyright owner or entity authorized by
+              the copyright owner that is granting the License.
+        
+              "Legal Entity" shall mean the union of the acting entity and all
+              other entities that control, are controlled by, or are under common
+              control with that entity. For the purposes of this definition,
+              "control" means (i) the power, direct or indirect, to cause the
+              direction or management of such entity, whether by contract or
+              otherwise, or (ii) ownership of fifty percent (50%) or more of the
+              outstanding shares, or (iii) beneficial ownership of such entity.
+        
+              "You" (or "Your") shall mean an individual or Legal Entity
+              exercising permissions granted by this License.
+        
+              "Source" form shall mean the preferred form for making modifications,
+              including but not limited to software source code, documentation
+              source, and configuration files.
+        
+              "Object" form shall mean any form resulting from mechanical
+              transformation or translation of a Source form, including but
+              not limited to compiled object code, generated documentation,
+              and conversions to other media types.
+        
+              "Work" shall mean the work of authorship, whether in Source or
+              Object form, made available under the License, as indicated by a
+              copyright notice that is included in or attached to the work
+              (an example is provided in the Appendix below).
+        
+              "Derivative Works" shall mean any work, whether in Source or Object
+              form, that is based on (or derived from) the Work and for which the
+              editorial revisions, annotations, elaborations, or other modifications
+              represent, as a whole, an original work of authorship. For the purposes
+              of this License, Derivative Works shall not include works that remain
+              separable from, or merely link (or bind by name) to the interfaces of,
+              the Work and Derivative Works thereof.
+        
+              "Contribution" shall mean any work of authorship, including
+              the original version of the Work and any modifications or additions
+              to that Work or Derivative Works thereof, that is intentionally
+              submitted to Licensor for inclusion in the Work by the copyright owner
+              or by an individual or Legal Entity authorized to submit on behalf of
+              the copyright owner. For the purposes of this definition, "submitted"
+              means any form of electronic, verbal, or written communication sent
+              to the Licensor or its representatives, including but not limited to
+              communication on electronic mailing lists, source code control systems,
+              and issue tracking systems that are managed by, or on behalf of, the
+              Licensor for the purpose of discussing and improving the Work, but
+              excluding communication that is conspicuously marked or otherwise
+              designated in writing by the copyright owner as "Not a Contribution."
+        
+              "Contributor" shall mean Licensor and any individual or Legal Entity
+              on behalf of whom a Contribution has been received by Licensor and
+              subsequently incorporated within the Work.
+        
+           2. Grant of Copyright License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              copyright license to reproduce, prepare Derivative Works of,
+              publicly display, publicly perform, sublicense, and distribute the
+              Work and such Derivative Works in Source or Object form.
+        
+           3. Grant of Patent License. Subject to the terms and conditions of
+              this License, each Contributor hereby grants to You a perpetual,
+              worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+              (except as stated in this section) patent license to make, have made,
+              use, offer to sell, sell, import, and otherwise transfer the Work,
+              where such license applies only to those patent claims licensable
+              by such Contributor that are necessarily infringed by their
+              Contribution(s) alone or by combination of their Contribution(s)
+              with the Work to which such Contribution(s) was submitted. If You
+              institute patent litigation against any entity (including a
+              cross-claim or counterclaim in a lawsuit) alleging that the Work
+              or a Contribution incorporated within the Work constitutes direct
+              or contributory patent infringement, then any patent licenses
+              granted to You under this License for that Work shall terminate
+              as of the date such litigation is filed.
+        
+           4. Redistribution. You may reproduce and distribute copies of the
+              Work or Derivative Works thereof in any medium, with or without
+              modifications, and in Source or Object form, provided that You
+              meet the following conditions:
+        
+              (a) You must give any other recipients of the Work or
+                  Derivative Works a copy of this License; and
+        
+              (b) You must cause any modified files to carry prominent notices
+                  stating that You changed the files; and
+        
+              (c) You must retain, in the Source form of any Derivative Works
+                  that You distribute, all copyright, patent, trademark, and
+                  attribution notices from the Source form of the Work,
+                  excluding those notices that do not pertain to any part of
+                  the Derivative Works; and
+        
+              (d) If the Work includes a "NOTICE" text file as part of its
+                  distribution, then any Derivative Works that You distribute must
+                  include a readable copy of the attribution notices contained
+                  within such NOTICE file, excluding those notices that do not
+                  pertain to any part of the Derivative Works, in at least one
+                  of the following places: within a NOTICE text file distributed
+                  as part of the Derivative Works; within the Source form or
+                  documentation, if provided along with the Derivative Works; or,
+                  within a display generated by the Derivative Works, if and
+                  wherever such third-party notices normally appear. The contents
+                  of the NOTICE file are for informational purposes only and
+                  do not modify the License. You may add Your own attribution
+                  notices within Derivative Works that You distribute, alongside
+                  or as an addendum to the NOTICE text from the Work, provided
+                  that such additional attribution notices cannot be construed
+                  as modifying the License.
+        
+              You may add Your own copyright statement to Your modifications and
+              may provide additional or different license terms and conditions
+              for use, reproduction, or distribution of Your modifications, or
+              for any such Derivative Works as a whole, provided Your use,
+              reproduction, and distribution of the Work otherwise complies with
+              the conditions stated in this License.
+        
+           5. Submission of Contributions. Unless You explicitly state otherwise,
+              any Contribution intentionally submitted for inclusion in the Work
+              by You to the Licensor shall be under the terms and conditions of
+              this License, without any additional terms or conditions.
+              Notwithstanding the above, nothing herein shall supersede or modify
+              the terms of any separate license agreement you may have executed
+              with Licensor regarding such Contributions.
+        
+           6. Trademarks. This License does not grant permission to use the trade
+              names, trademarks, service marks, or product names of the Licensor,
+              except as required for reasonable and customary use in describing the
+              origin of the Work and reproducing the content of the NOTICE file.
+        
+           7. Disclaimer of Warranty. Unless required by applicable law or
+              agreed to in writing, Licensor provides the Work (and each
+              Contributor provides its Contributions) on an "AS IS" BASIS,
+              WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+              implied, including, without limitation, any warranties or conditions
+              of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+              PARTICULAR PURPOSE. You are solely responsible for determining the
+              appropriateness of using or redistributing the Work and assume any
+              risks associated with Your exercise of permissions under this License.
+        
+           8. Limitation of Liability. In no event and under no legal theory,
+              whether in tort (including negligence), contract, or otherwise,
+              unless required by applicable law (such as deliberate and grossly
+              negligent acts) or agreed to in writing, shall any Contributor be
+              liable to You for damages, including any direct, indirect, special,
+              incidental, or consequential damages of any character arising as a
+              result of this License or out of the use or inability to use the
+              Work (including but not limited to damages for loss of goodwill,
+              work stoppage, computer failure or malfunction, or any and all
+              other commercial damages or losses), even if such Contributor
+              has been advised of the possibility of such damages.
+        
+           9. Accepting Warranty or Additional Liability. While redistributing
+              the Work or Derivative Works thereof, You may choose to offer,
+              and charge a fee for, acceptance of support, warranty, indemnity,
+              or other liability obligations and/or rights consistent with this
+              License. However, in accepting such obligations, You may act only
+              on Your own behalf and on Your sole responsibility, not on behalf
+              of any other Contributor, and only if You agree to indemnify,
+              defend, and hold each Contributor harmless for any liability
+              incurred by, or claims asserted against, such Contributor by reason
+              of your accepting any such warranty or additional liability.
+        
+           END OF TERMS AND CONDITIONS
+        
+           APPENDIX: How to apply the Apache License to your work.
+        
+              To apply the Apache License to your work, attach the following
+              boilerplate notice, with the fields enclosed by brackets "[]"
+              replaced with your own identifying information. (Don't include
+              the brackets!)  The text should be enclosed in the appropriate
+              comment syntax for the file format. We also recommend that a
+              file or class name and description of purpose be included on the
+              same "printed page" as the copyright notice for easier
+              identification within third-party archives.
+        
+           Copyright [yyyy] [name of copyright owner]
+        
+           Licensed under the Apache License, Version 2.0 (the "License");
+           you may not use this file except in compliance with the License.
+           You may obtain a copy of the License at
+        
+               http://www.apache.org/licenses/LICENSE-2.0
+        
+           Unless required by applicable law or agreed to in writing, software
+           distributed under the License is distributed on an "AS IS" BASIS,
+           WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+           See the License for the specific language governing permissions and
+           limitations under the License.
+        
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: mobly>=1.12.2
+Requires-Dist: paramiko>=2.10.4
+Requires-Dist: pyzmq>=15.0.0
+Requires-Dist: selenium==4.0.0
+Requires-Dist: retry
+Requires-Dist: dacite
+Requires-Dist: grpcio
+Requires-Dist: protobuf
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# Mobly ChromeOS Controller
+
+Mobly ChromeOS controller module for using Python code to operate ChromeOS
+(CrOS) devices in Mobly tests.
+
+This is not an officially supported Google product. This project is not eligible
+for the
+[Google Open Source Software Vulnerability Rewards Program](https://bughunters.google.com/open-source-security).
+
+## Requirements
+
+-   Python 3.11+
+-   Mobly 1.12.4+
+
+## Hardware Requirements
+
+1.  One or more ChromeOS devices (that are being tested).
+1.  A Linux workstation (host machine) to run Mobly test script.
+
+## Set Up ChromeOS Devices
+
+To control the ChromeOS device, users need to do some one-time settings on the
+ChromeOS device.
+
+Pre-setting requirements:
+
+-   [Flash a test image to ChromeOS device](https://www.chromium.org/chromium-os/developer-library/reference/tools/cros-flash/)
+    (prefer to use latest build).
+-   Connect the ChromeOS device to the same local network as the host machine
+    (your workstation).
+
+## Use ChromeOS Devices in a test
+
+This section introduces how to develop a basic Mobly ChromeOS controller test
+which runs one shell command on the ChromeOS device.
+
+### Define a Testbed
+
+Define the ChromeOS device in a testbed with CrosDevice type. Save the config in
+a local Mobly config yaml file. Example Testbed config:
+
+**sample_config.yaml**
+
+```yaml
+TestBeds:
+- Name: SampleCrosTestbed
+  Controllers:
+    CrosDevice:
+      - hostname: "DEVICE_IP"
+```
+
+### Write Test Script
+
+We use the "Hello World" test script as a simple example using ChromeOS device.
+In this example, we will connect to a ChromeOS device and execute a shell
+command on this ChromeOS device. Mobly test script:
+
+**hello_world_test.py**
+
+```python
+"""A sample test demonstrating using Mobly Cros controller."""
+
+from mobly import base_test
+from mobly import test_runner
+
+from mobly.controllers.cros import cros_device
+
+
+class HelloWorldTest(base_test.BaseTestClass):
+  """A sample test demonstrating using Mobly ChromeOS controller."""
+
+  def setup_class(self):
+    super().setup_class()
+    # Registers cros_device controller module. By default, we expect at
+    # least one ChromeOS device.
+    self._crosd = self.register_controller(cros_device)[0]
+
+  def test_ssh_execute_command(self):
+    # Executes console command 'ls' on the ChromeOS device and gets the result.
+    result = self._crosd.ssh.execute_command('ls')
+    self._crosd.log.info('ls result: %s', result)
+
+
+if __name__ == '__main__':
+  test_runner.main()
+```
+
+### Run Test
+
+```shell
+python hello_world_test.py -c sample_config.yaml
+```
+
+## ChromeOS Device Login
+
+Mobly ChromeOS controller provides the TastSessionService for tests to start a
+new Chrome user session with the given account and password. You should register
+it on CrosDevice objects:
+
+```python
+from mobly import base_test
+
+from mobly.controllers.cros import cros_device
+from mobly.controllers.cros.lib.tast_services import tast_session_service
+
+class MoblyTastExampleTest(base_test.BaseTestClass):
+
+  _crosd: cros_device.CrosDevice
+
+  def setup_class(self):
+    super().setup_class()
+    self._crosd = self.register_controller(cros_device)[0]
+
+    login_config = tast_session_service.Config(
+        # Note that keep_state=False will delete user data on the ChromeOS device.
+        # We recommend this setting as it helps us avoid test flakiness due to
+        # device state.
+        keep_state=False,
+    )
+    self._crosd.services.register('tast_session_service',
+                                  tast_session_service.TastSessionService,
+                                  login_config)
+```
+
+Regarding the login config,
+
+-   If your test doesn't require any account information, use the above config
+    and the ChromeOS device will log in with a default test account. If your
+    test requires logging in with specific account, e.g. pairing a ChromeOS
+    device and an Android device logged in with the same account, you need to
+    log in with an OTA account and following login config:
+
+```python
+login_config = tast_session_service.Config(
+    # GAIA login mode uses a GAIA backend to verify the login credential,
+    # which could be slow and sometimes flaky, use this mode only when you
+    # really need it.
+    login_mode=tast_session_service.LOGIN_MODE_GAIA_LOGIN,
+    username="xxxx",
+    password="xxxxxxx",
+    keep_state=False,
+)
+```
+
+### Set logging levels
+
+TastSessionService supports passing extra command line flags to Chrome. This is
+mostly used for setting logging levels. Here's an example usage:
+
+```python
+login_config = tast_session_service.Config(
+    ...,
+    extra_args=[
+        '--enable-logging',
+        # "ble_*=3" sets the VLOG level of files prefixed with "ble_" to 3
+        '--vmodule=ble_*=3,*blue*=3,device_event_log*=3',
+        # Sets the VLOG level of other files to be 1
+        '--v=1',
+    ]
+)
+```
+
+You can check that the flags are properly passed by checking chrome://version
+tab on the ChromeOS device. See
+[doc](https://www.chromium.org/for-testers/enable-logging/) for more details
+about ChromeOS logging.
+
+### Change ChromeOS feature flags
+
+TastSessionService supports enabling/disabling ChromeOS features. Instead of
+modifying feature flags via the chrome://flags page and then restarting Chrome,
+you only need to modify the login config, the features will be enabled/disabled.
+Here's an example:
+
+```python
+login_config = tast_session_service.Config(
+    ...,
+    enable_features=['EcheSWA', 'FastPair'],
+    disable_features=['EcheSWADebugMode'],
+    ...
+)
+```
+
+### Device Language Setting
+
+Some automation tools requires English as the system language. In the login
+config, we have set region='US' which asks the ChromeOS device to use English.
+
+## Device Log Collection
+
+This section describes using DeviceLogService to get logs on ChromeOS devices,
+which are critical for debugging tests. Here's an example which collects the
+chrome log /var/log/chrome/chrome and bluetooth monitor log from ChromeOS
+devices.
+
+```python
+from mobly.controllers.cros.lib.tast_services import device_log_service
+
+def setup_class(self):
+    super().setup_class()
+    self._crosd = self.register_controller(cros_device)[0]
+
+    log_service_config = device_log_service.Config(
+        log_types={
+            device_log_service.LogType.CHROME_LOG,
+            device_log_service.LogType.BLUETOOTH_MONITOR,
+        })
+    self._crosd.services.register('device_log_service',
+                                  device_log_service.DeviceLogService,
+                                  log_service_config)
+```
+
+Currently ChromeOS logs are scattered in different places, and different logs
+need to be obtained in different ways. So we need to increase the supported log
+types one by one. The supported log types can be found in LogType.
+
+## Screen Recording
+
+Screen recording can be critical for debugging tests that involve UI.
+
+Mobly ChromeOS controller provides the ScreenRecorderService to record the
+screen on ChromeOS devices. You should register it on CrosDevice objects:
+
+```python
+from mobly.controllers.cros.lib.tast_services import screen_recorder_service
+...
+
+def setup_class(self):
+  ...
+  self._crosd.services.register('tast_session_service',
+                                tast_session_service.TastSessionService,
+                                login_config)
+
+  # ScreenRecorderService can only be registered after TastSessionService
+  self._crosd.services.register('screen_recorder_service',
+                                screen_recorder_service.ScreenRecorderService)
+```
+
+## Keyboard Input Control
+
+The CrosDevice provides two interfaces to control keyboard input:
+
+-   input_text: Inputs text on the test device by simulating typing on the
+    keyboard.
+-   input_hotkey: Inputs the hotkey by simulating key events on the keyboard.
+
+Here's an example:
+
+```python
+  def test_keyboard_input_example(self):
+    # Input hotkey "Ctrl"+"t" to open the Chrome browser on ChromeOS device
+    self._crosd.input_hotkey('Ctrl+t')
+
+    # Input the given hotkey to get the cursor to the address bar of the browser
+    self._crosd.input_hotkey('Alt+d')
+
+    # Input the given text in the address bar
+    self._crosd.input_text('Test Type Successfully.')
+```
+
+## Webdriver
+
+[Webdriver](https://www.selenium.dev/documentation/webdriver/) is an open-source
+control mechanism that enables remote control of web browsers.
+
+Mobly ChromeOS controller creates a helper module for setting up and tearing
+down a remote Webdriver object, so users can use this object to operate the
+Chrome browser on ChromeOS devices, like navigating pages and calling JavaScript
+APIs to access the underlying HTML UI elements.
+
+Here is an example:
+
+```python
+  def test_webdriver_example(self):
+    # Open the Chrome browser
+    self._crosd.input_hotkey('Ctrl+t')
+
+    # Navigate to the setting page
+    self._crosd.webdriver.get('chrome://os-settings')
+
+    # Execute a JS script to click on the button "About ChromeOS"
+    self._crosd.webdriver.execute_script(
+        'return document'
+        '.querySelector("os-settings-ui").shadowRoot'
+        '.querySelector("os-settings-menu").shadowRoot'
+        '.querySelector("#aboutItem")').click()
+```
+
+## Tast services
+
+[`Tast`](https://github.com/google/mobly-cros/tree/main/tast) folder contain all generated files with services required for CrOS controller. 
+
+To update or regenerate services follow [`scripts/README`](https://github.com/google/mobly-cros/tree/main/scripts/README)
