@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+pyproject.toml
+tests/test_integration_async.py
+tests/test_integration_chat.py
+tests/test_integration_http.py
+tinfoil/__init__.py
+tinfoil.egg-info/PKG-INFO
+tinfoil.egg-info/SOURCES.txt
+tinfoil.egg-info/dependency_links.txt
+tinfoil.egg-info/requires.txt
+tinfoil.egg-info/top_level.txt
