@@ -1,0 +1,14 @@
+requests>=2.25.0
+
+[convert]
+markitdown[docx,pdf]>=0.1.0
+
+[full]
+rich
+markitdown[docx,pdf]>=0.1.0
+
+[gui]
+rich
+
+[windows]
+windows-curses
