@@ -1,0 +1,12 @@
+pymail/__init__.py,sha256=WcRxWOLQAXRgPGoO39lAJQ_GsUu87tckLGtey-eH6cc,289
+pymail/config.py,sha256=ifC-6-Zxtq0TMZwDhDjZs5bcuZuRFYGQ9cRUvz85nys,3528
+pymail/decorators.py,sha256=Um3XUjHshSaODQAip_CTP4rqhum9684neyp74XvjxAo,4124
+pymail/email_sender.py,sha256=SMJ8KrX5LAWMsFRKetZmSOWRWvMAjRRDGqFTHmxc-Zk,7919
+pymail/i18n.py,sha256=M_tYubtDPnlm1HePP5K-vSEiE7cjiYmIoFN-b6mgAiY,2556
+pymail/stats.py,sha256=ZLxGU0YjyRHTCTYNQONUWbDYElRjtOAg2jvx_-FB7ac,1975
+pymail/i18n/messages.yaml,sha256=2HkmAFMn2bQ-84UTKy6Yn3RWRUPKJeJkWeAz8lV2LWM,2060
+pymail_notify-0.1.5.dist-info/licenses/LICENSE,sha256=LTtQzLmmUsCNHxGX03P-UYzxRsmJhDNHKI80fuQ1Pek,1063
+pymail_notify-0.1.5.dist-info/METADATA,sha256=N3fbmYO2bDhwXltV195l_JfmN2hO9x_hXhtJKBCrt-8,6586
+pymail_notify-0.1.5.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+pymail_notify-0.1.5.dist-info/top_level.txt,sha256=RwsbYA0iMmXmFi_AhVRvdJx5TdbK2Cyjw_-35sdBEQ4,7
+pymail_notify-0.1.5.dist-info/RECORD,,
