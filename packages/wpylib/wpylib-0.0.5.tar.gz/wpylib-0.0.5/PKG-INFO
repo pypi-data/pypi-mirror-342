@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: wpylib
+Version: 0.0.5
+Summary: A simple and easy-to-use library in python
+License: MIT
+Author: Wgrape
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+
+# wpylib
+A simple and easy-to-use library in python / 一个简单易用的Python语言封装库
+
