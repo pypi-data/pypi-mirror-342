@@ -1,0 +1,170 @@
+# encar – Official Python Client for Encar API
+
+[![PyPI version](https://badge.fury.io/py/encar.svg)](https://pypi.org/project/encar/)
+[![API Docs](https://img.shields.io/badge/API%20Docs-Carapis%20Encar%20API-blue)](https://carapis.com/docs)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Carapis Catalog](https://img.shields.io/badge/Live%20Catalog-Carapis.com-green)](https://carapis.com/catalog)
+
+**encar** is the official Python client for the **Carapis Encar API**, providing seamless programmatic access to real-time Korean used car data from Encar.com. With the `encar` library, you can easily query, filter, and analyze vehicle listings, manufacturers, models, and more – all powered by the robust **Encar API** provided by Carapis.com.
+
+Explore a live catalog powered by this **Encar API**: [Carapis Catalog](https://carapis.com/catalog)
+
+## Features
+
+- Easy access to real-time Encar.com vehicle data via **Carapis Encar API**
+- List, filter, and retrieve detailed car listings using the **Encar API**
+- Fetch manufacturer, model, and vehicle details programmatically
+- Supports advanced search queries for the **Encar API**
+- Free tier available for testing the **Encar API** (up to 1,000 vehicles)
+
+## Installation
+
+Install the `encar` library using pip. Dependencies are handled automatically.
+
+```bash
+pip install encar
+```
+
+## Configuration
+
+1.  **API Key**: The client requires a **Carapis Encar API** key for full access. Get yours at [Carapis.com Pricing](https://carapis.com/pricing). Retrieve this key from a secure location, such as environment variables.
+
+    *Without an API key, **Encar API** access is limited to the latest 1,000 vehicles (Free Tier).*
+
+## How to use Encar API (Python Client)
+
+Initialize the client and make **Encar API** calls.
+
+```python
+import os
+from encar import CarapisClient, CarapisClientError
+
+# Retrieve the Encar API key from environment variables
+API_KEY = os.getenv("CARAPIS_API_KEY")
+
+if not API_KEY:
+    print("Error: CARAPIS_API_KEY environment variable not set. Exiting.")
+    # Full Encar API access requires a valid key.
+    exit()
+
+try:
+    # Initialize Encar API client
+    client = CarapisClient(api_key=API_KEY)
+    print("Carapis Encar API Client initialized successfully.")
+
+    # --- Proceed with Encar API calls below ---
+
+except CarapisClientError as e:
+    print(f"Encar API Client Error: {e}")
+except Exception as e:
+    print(f"An unexpected error occurred: {e}")
+```
+
+---
+
+## Encar API Python Usage Examples
+
+Below are examples for querying the **Encar API** using this client.
+
+### List Vehicles via Encar API
+
+Retrieve a list of vehicles with filtering.
+
+```python
+try:
+    print("\n--- Querying Encar API for Vehicles ---")
+    # Fetch vehicle data via Encar API
+    vehicles = client.list_vehicles(
+        limit=5,
+        min_year=2021,
+        fuel_type='gasoline',
+        max_mileage=50000,
+        ordering='-created_at'
+    )
+    print("Vehicles Found via Encar API:")
+    if vehicles and vehicles.get('results'):
+        for v in vehicles['results']:
+             print(f"- ID: {v.get('vehicle_id')}, Model: {v.get('model_name', 'N/A')}, Price: {v.get('price')}")
+    else:
+        print("No vehicles found.")
+
+except CarapisClientError as e:
+    print(f"Encar API Error listing vehicles: {e}")
+```
+
+### Get Vehicle Details via Encar API
+
+Retrieve details for a specific vehicle.
+
+```python
+try:
+    vehicle_id_to_get = 12345678 # Replace with a valid ID
+    print(f"\n--- Getting Vehicle Details from Encar API (ID: {vehicle_id_to_get}) ---")
+    # Fetch specific vehicle details via Encar API
+    vehicle_details = client.get_vehicle(vehicle_id=vehicle_id_to_get)
+    print("Vehicle Details Received from Encar API:")
+    print(vehicle_details)
+
+except CarapisClientError as e:
+    print(f"Encar API Error getting vehicle {vehicle_id_to_get}: {e}")
+```
+
+### List Manufacturers via Encar API
+
+Retrieve a list of vehicle manufacturers.
+
+```python
+try:
+    print("\n--- Listing Manufacturers from Encar API ---")
+    # Fetch manufacturers via Encar API
+    manufacturers = client.list_manufacturers(country='KR', limit=10)
+    print("Manufacturers Found via Encar API:")
+    if manufacturers and manufacturers.get('results'):
+        for mfr in manufacturers['results']:
+             print(f"- Code: {mfr.get('code')}, Name: {mfr.get('name')}")
+    else:
+        print("No manufacturers found.")
+
+except CarapisClientError as e:
+    print(f"Encar API Error listing manufacturers: {e}")
+```
+
+*(Other methods like `get_manufacturer`, `list_model_groups`, `get_model_group`, `list_models`, `get_model`, `get_vehicle_enums`, `get_vehicle_stats` follow a similar pattern. Refer to the documentation for details.)*
+
+---
+
+## Direct Encar API Access & Documentation
+
+Interact with the **Encar API** directly using `curl` or other HTTP clients.
+
+**Full Encar API Documentation:** [https://carapis.com/docs](https://carapis.com/docs)
+
+**Example `curl` Requests for Encar API:**
+
+*   **With API Key (Full Encar API Access):**
+    ```bash
+    # Query Encar API for vehicles
+    curl -X 'GET' \
+      'https://api.carapis.com/api/encar/v2/vehicles/?limit=5&min_year=2021' \
+      -H 'accept: application/json' \
+      -H 'Authorization: ApiKey YOUR_API_KEY_UUID'
+    ```
+
+*   **Without API Key (Free Tier Encar API Access - 1,000 Record Limit):**
+    ```bash
+    # Limited query to Encar API
+    curl -X 'GET' \
+      'https://api.carapis.com/api/encar/v2/vehicles/?limit=5' \
+      -H 'accept: application/json'
+    ```
+
+See [Carapis Pricing Plans](https://carapis.com/pricing) for **Encar API** access tiers.
+
+## Support & Contact
+
+- Website: [https://carapis.com](https://carapis.com)
+- Telegram: [t.me/markinmatrix](https://t.me/markinmatrix)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
