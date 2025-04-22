@@ -1,0 +1,16 @@
+[project]
+name = "run_rag"
+version = "0.1.0"
+description = "A lightweight RAG stack installer"
+authors = [{ name="Rishabh Deshpande", email="rishabh9to5@gmail.com" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+dependencies = [
+    "langchain",
+    "langgraph",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
