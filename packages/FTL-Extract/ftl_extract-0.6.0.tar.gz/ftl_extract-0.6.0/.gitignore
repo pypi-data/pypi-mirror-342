@@ -1,0 +1,13 @@
+*.mo
+*.pyc
+/.env
+/.idea/
+/.ruff_cache/
+/.venv/
+/tokei.exe
+__pycache__/
+/.coverage
+/dist/
+/docs/
+/reports/
+/htmlcov/
