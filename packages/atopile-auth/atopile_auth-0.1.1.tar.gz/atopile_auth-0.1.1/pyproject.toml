@@ -1,0 +1,29 @@
+[project]
+name = "atopile-auth"
+description = "A package to help manage authentication for atopile"
+readme = "README.md"
+requires-python = ">=3.13"
+dynamic = ["version"]
+dependencies = ["supabase>=2.15.0"]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/atopile_auth"]
+
+[tool.hatch.version]
+source = "vcs"
+
+[dependency-groups]
+dev = [
+    "typer>=0.15.2",
+    "fastapi[standard]>=0.115.12",
+    "httpx>=0.28.1",
+    "pytest>=8.3.5",
+    "ruff>=0.11.6",
+    "platformdirs>=4.3.7",
+]
+
+server = ["fastapi>=0.115.12"]
