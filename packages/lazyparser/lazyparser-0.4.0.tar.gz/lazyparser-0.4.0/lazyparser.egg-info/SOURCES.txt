@@ -1,0 +1,11 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+lazyparser.py
+pyproject.toml
+test.py
+lazyparser.egg-info/PKG-INFO
+lazyparser.egg-info/SOURCES.txt
+lazyparser.egg-info/dependency_links.txt
+lazyparser.egg-info/requires.txt
+lazyparser.egg-info/top_level.txt
