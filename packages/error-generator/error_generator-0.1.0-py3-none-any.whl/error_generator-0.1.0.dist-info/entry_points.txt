@@ -1,0 +1,2 @@
+[console_scripts]
+generate_errors = error_generator.main:generate_errors
