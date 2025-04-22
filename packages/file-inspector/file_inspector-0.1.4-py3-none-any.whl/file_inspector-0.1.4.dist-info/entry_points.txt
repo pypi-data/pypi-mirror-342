@@ -1,0 +1,2 @@
+[console_scripts]
+file-inspector = file_inspector.cli:main
