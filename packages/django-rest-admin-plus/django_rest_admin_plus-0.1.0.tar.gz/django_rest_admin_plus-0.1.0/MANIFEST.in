@@ -1,0 +1,2 @@
+recursive-include django_rest_admin/static *
+recursive-include django_rest_admin/templates *

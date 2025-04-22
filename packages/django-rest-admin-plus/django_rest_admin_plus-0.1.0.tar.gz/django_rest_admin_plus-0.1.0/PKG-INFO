@@ -1,0 +1,147 @@
+Metadata-Version: 2.4
+Name: django-rest-admin-plus
+Version: 0.1.0
+Summary: Add your description here
+Author-email: liuli <525334480@qq.com>
+Maintainer-email: liuli <525334480@qq.com>
+License: MIT License
+        
+        Copyright (c) 2021 Jiangshan00001
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: homepage, https://github.com/liuli01/django_rest_admin
+Project-URL: documentation, https://github.com/liuli01/django_rest_admin
+Project-URL: repository, https://github.com/liuli01/django_rest_admin
+Project-URL: changelog, https://github.com/liuli01/django_rest_admin/releases
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: django>=5.2
+Requires-Dist: django-filter>=25.1
+Requires-Dist: djangorestframework>=3.16.0
+Dynamic: license-file
+
+# django_rest_admin_plus
+在django_rest_admin的基础上，解决外键仅支持sqlite3的问题，兼容mysql和postgresql
+
+Adding table CRUD rest api with admin ui and without coding.
+
+requirements:
+
+1. django
+2. djangorestframework
+3. django-filter
+
+
+install:
+
+1. pip install django_rest_admin
+2. add django app:
+   in django project setttings.py file:
+   INSTALLED_APPS list, add:
+```
+    'rest_framework',
+    'django_filters',
+    'django_rest_admin',
+```
+
+3. start restapi app(the app name can change by user):
+
+```
+ python manage.py startapp myRestApiApp
+```
+  add myRestApiApp to INSTALLED_APPS:
+
+```
+    'myRestApiApp',
+``` 
+4 setings.py set apiapp
+write below in settings.py:
+
+add this line in settings.py
+
+```
+DJANGO_REST_ADMIN_TO_APP='myRestApiApp'
+```
+
+
+5. create admin user using command:
+```python manage.py createsuperuser```
+
+6. start project using:
+
+``` python manage.py runserver 0.0.0.0:8000 ```
+
+7. login to /admin/
+   in django_rest_admin --REST接口列表 --click button --生成RestAPI
+    
+8. add urls:
+
+```
+from django.urls import include
+urlpatterns=[
+path('api/', include ('myRestApiApp.urls')), #<<--add this line in the list
+
+]
+```
+
+9. finished!
+
+
+
+use:
+1. add table in your db:
+  this could be down in navicat or some other db editors.
+  of course you could coding in django,too.
+  
+2. open admin page: http://127.0.0.1/admin/
+
+	![admin-page](doc/admin_page.png)
+
+   after login, their should be a table:Table-REST-CRUD.
+   press Add. 
+   
+   the option MUST be filled:
+   
+   ```
+   A. route: the route name. eg: /Danwei
+   B. Table big name: the model name of a table. eg: Danwei
+   C. Table name: the table name. eg: danwei. ONLY needed if inspected_from_db=1
+   D. Inspected from db: set to 1 if table is just from db, not from django model. otherwise set to 0.
+   ```
+   
+   press Save
+   
+3. press RefreshRestAPI BUTTON in the list.
+4. the django project will restart automaticly if you use debug mode.
+    and then the rest api is generated already.
+	press OpenApi button to test the api.
+	
+	![admin-page](doc/rest_test_page.png)
+   
+
+   
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+[project]
+name = "django-rest-admin-plus"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "liuli", email = "525334480@qq.com" }]
+maintainers = [{ name = "liuli", email = "525334480@qq.com" }]
+
+requires-python = ">=3.12"
+dependencies = [
+    "django>=5.2",
+    "django-filter>=25.1",
+    "djangorestframework>=3.16.0",
+]
+
+[project.urls]
+homepage = "https://github.com/liuli01/django_rest_admin"
+documentation = "https://github.com/liuli01/django_rest_admin"
+repository = "https://github.com/liuli01/django_rest_admin"
+changelog = "https://github.com/liuli01/django_rest_admin/releases"
