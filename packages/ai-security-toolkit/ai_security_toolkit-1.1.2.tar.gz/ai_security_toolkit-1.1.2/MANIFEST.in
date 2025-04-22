@@ -1,0 +1,3 @@
+include README.md
+recursive-include ai_security_toolkit/modules *.py
+recursive-include ai_security_toolkit/shared *.py
