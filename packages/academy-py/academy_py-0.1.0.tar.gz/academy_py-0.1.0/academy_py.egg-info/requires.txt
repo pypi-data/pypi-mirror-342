@@ -1,0 +1,20 @@
+aiohttp
+proxystore>=0.8.0
+pydantic<3,>=2
+redis
+requests
+
+[:python_version < "3.11"]
+typing-extensions>=4.3.0
+
+[dev]
+covdefaults>=2.2
+coverage
+mypy
+pre-commit
+pytest
+pytest-asyncio
+pytest-cov
+ruff>=0.2.0
+tox
+virtualenv
