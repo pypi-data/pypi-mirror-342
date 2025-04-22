@@ -1,0 +1,12 @@
+torch
+transformers
+peft
+nltk
+numpy
+huggingface-hub
+safetensors
+tqdm
+bitsandbytes
+
+[gpu]
+accelerate
