@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastapi-project-creator"
+version = "0.2.2"
+description = "CLI tool to generate FastAPI project structure"
+readme = "README.md"
+authors = [{name = "Raihan Hidayatullah Djunaedi", email = "raihanhd.dev@gmail.com"}]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["fastapi", "generator", "template", "cli"]
+dependencies = []
+requires-python = ">=3.7"
+
+[project.urls]
+"Homepage" = "https://github.com/raihanhd12/fastapi-project-creator"
+"Bug Tracker" = "https://github.com/raihanhd12/fastapi-project-creator/issues"
+
+[project.scripts]
+create-fastapi-app = "fastapi_project_creator.main:main"
