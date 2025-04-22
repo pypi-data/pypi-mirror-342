@@ -1,0 +1,2 @@
+[console_scripts]
+jsonyx = jsonyx.__main__:main
