@@ -1,0 +1,2 @@
+[console_scripts]
+baiyx-mcp-server-dispatch = mcp_dispatch:main
