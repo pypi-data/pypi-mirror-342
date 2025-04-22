@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+shopagent/__init__.py
+shopify_graphql.egg-info/PKG-INFO
+shopify_graphql.egg-info/SOURCES.txt
+shopify_graphql.egg-info/dependency_links.txt
+shopify_graphql.egg-info/requires.txt
+shopify_graphql.egg-info/top_level.txt
