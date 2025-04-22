@@ -1,0 +1,12 @@
+
+[all]
+miska[ddd,http,mm]
+
+[ddd]
+izulu
+
+[http]
+requests
+
+[mm]
+marshmallow
