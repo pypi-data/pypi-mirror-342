@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+src/SEOberry.egg-info/PKG-INFO
+src/SEOberry.egg-info/SOURCES.txt
+src/SEOberry.egg-info/dependency_links.txt
+src/SEOberry.egg-info/entry_points.txt
+src/SEOberry.egg-info/not-zip-safe
+src/SEOberry.egg-info/requires.txt
+src/SEOberry.egg-info/top_level.txt
+src/seoberry/__init__.py
+src/seoberry/cli.py
+src/seoberry/scraper.py

@@ -1,0 +1,2 @@
+[console_scripts]
+seoberry = seoberry.cli:main
