@@ -1,0 +1,16 @@
+README package.md
+README.md
+pyproject.toml
+src/sbd.py
+src/ssg.py
+src/eral/__init__.py
+src/eral/alignment_prototyping_functions.py
+src/eral/eral.py
+src/eral/eral_score.py
+src/eral/time_series_alignment.py
+src/eral/time_series_helpers.py
+src/eral.egg-info/PKG-INFO
+src/eral.egg-info/SOURCES.txt
+src/eral.egg-info/dependency_links.txt
+src/eral.egg-info/requires.txt
+src/eral.egg-info/top_level.txt
