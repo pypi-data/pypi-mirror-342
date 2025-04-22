@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: vagranting
+Version: 0.0.1
+Summary: My short description for my project.
+Home-page: https://github.com/franceme/vagranting
+Author: Miles Frantz
+Author-email: frantzme@vt.edu
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
+Requires-Dist: paramiko==3.5.1
+Provides-Extra: all
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# PythonTemplate
+
+Simple Template
