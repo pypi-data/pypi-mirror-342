@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: tyler-python-helpers
+Version: 0.1.0
+Summary: A collection of Python helper functions
+Project-URL: Homepage, https://github.com/tylerjwoodfin/python-helpers
+Project-URL: Bug Tracker, https://github.com/tylerjwoodfin/python-helpers/issues
+Project-URL: Documentation, https://github.com/tylerjwoodfin/python-helpers#readme
+Author-email: Tyler Woodfin <feedback-python-helpers@tylerwoodfin.com>
+Requires-Python: >=3.10
+Requires-Dist: openai
+Description-Content-Type: text/markdown
+
+# Python Helpers
+
+A collection of helper utils for my personal projects.
+
+## Installation
+```
+pip install tyler-python-helpers
+```
+
+## ChatGPT
+```
+from python_helpers import ChatGPT
+
+chat = ChatGPT()
+val = chat.query("What is the capital of the moon?")
+print(val)
+```
