@@ -1,0 +1,169 @@
+.\"
+.\" This file is a part of DNSViz, a tool suite for DNS/DNSSEC monitoring,
+.\" analysis, and visualization.
+.\" Created by Casey Deccio (casey@deccio.net)
+.\"
+.\" Copyright 2015-2016 VeriSign, Inc.
+.\"
+.\" Copyright 2016-2024 Casey Deccio
+.\"
+.\" DNSViz is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 2 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" DNSViz is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License along
+.\" with DNSViz.  If not, see <http://www.gnu.org/licenses/>.
+.\"
+.TH dnsviz-grok 1 "26 September 2024" "0.11.0"
+.SH NAME
+dnsviz-grok \- assess diagnostic DNS queries
+.SH SYNOPSIS
+.B dnsviz
+\fBgrok\fR
+[ \fIoptions\fR ]
+[ \fIdomain_name...\fR ]
+.SH DESCRIPTION
+Process the results of diagnostic DNS queries previously performed, e.g., using
+\fBdnsviz-probe(1)\fR, to assess the health of the associated DNS deployments for one
+or more domain names specified.  The results of this processing are serialized
+into JSON format for further programmatic diagnostics or alerts.
+
+The source of the diagnostic query input is either a file specified with
+\fB-r\fR or standard input.
+
+Domain names to be processed may be passed either as command-line arguments, in
+a file (using the \fB-f\fR option), or simply implied using the diagnostic
+query input.  The latter is the preferred methodology (and the simplest) and is
+useful, except in cases where the input contains diagnostic queries for
+multiple domain names, only a subset of which are to be processed.
+
+If \fB-f\fR is not used and no domain names are supplied on the command line,
+then the domain names to be processed are extracted from the diagnostic query
+input.  If the \fB-f\fR option is used, then names may not be specified on the
+command line.
+
+The domain names passed as input are fully-qualified domain names, such as
+example.com, www.example.com, _443._tcp.example.com, 1.2.0.192.in-addr.arpa, or
+8.b.d.0.1.0.0.2.ip6.arpa.  Because it is implied that specified domain names
+are fully qualified, no trailing dot is necessary.
+
+.SH OPTIONS
+.TP
+.B -f, --names-file \fIfilename\fR
+Read names from a file (one name per line), instead of from command line.
+
+If this option is used, then names may not be specified on the command line.
+.TP
+.B -r, --input-file \fIfilename\fR
+Read diagnostic query input from the specified file, instead of from standard
+input.
+.TP
+.B -t, --trusted-keys-file \fIfilename\fR
+Use trusted keys from the specified file when processing diagnostic queries.
+This overrides the default behavior of using the installed keys for the root
+zone.
+
+The format of this file is master zone file format and should contain DNSKEY
+records that correspond to one more trusted keys for one or more DNS zones.
+
+This option may be used multiple times on the command line.
+.TP
+.B -a, --algorithms \fIalg\fR[,\fIalg...\fI]
+Support only the DNSSEC algorithms specified.  If this option is used, any
+algorithms not specified will appear as "unsupported."  The status of any RRSIG
+records corresponding to unsupported algorithms will be unknown.  Additionally,
+when a zone has only DS records with unsupported algorithms, the zone is
+treated as "insecure", assuming the DS records are properly authenticated.
+.TP
+.B -d, --digest-algorithms \fIdigest_alg\fR[,\fIdigest_alg...\fI]
+Support only the DNSSEC digest algorithms specified.  If this option is used,
+any digest algorithms not specified will appear as "unsupported."  The status
+of any DS records corresponding to unsupported digest algorithms will be
+unknown.  Additionally, when a zone has only DS records with unsupported digest
+algorithms, the zone is treated as "insecure", assuming the DS records are
+properly authenticated.
+.TP
+.B --ignore-rfc8624
+Ignore errors associated with RFC 8624, DNSSEC algorithm implementation
+requirements.  RFC 8624 designates some DNSSEC signing algorithms and some DS
+digest algorithms as prohibited ("MUST NOT") or not recommended for validation
+and/or signing.  If this option is used, then no warnings will be issued, and
+the code will still assess their cryptographic status, rather than ignoring
+them.
+.TP
+.B --ignore-rfc9276
+Ignore errors associated with RFC 9276, NSEC3 parameter settings.  RFC 9276
+specifies that if NSEC3 is used, the iterations count must be 0 and the salt
+length must be 0.  If this option is used, then no warnings will be issued for
+NSEC3 records that violate this specification.
+.TP
+.B -C, --enforce-cookies
+Enforce DNS cookies strictly. Require a server to return a "BADCOOKIE" response
+when a query contains a COOKIE option with no server cookie or with an invalid
+server cookie.
+.TP
+.B -P, --allow-private
+Allow private IP addresses for authoritative DNS servers.  By default, if the
+IP address corresponding to an authoritative server is in IP address space
+designated as "private", it is flagged as an error.  However, there are some
+cases where this is allowed.  For example, if the diagnostic queries are issued
+to servers in an experimental environment, this might be permissible.
+.TP
+.B --trust-cdnskey-cds
+Trust all CDNSKEY and CDS records, even if they are not "signed with a key that
+is represented in both the current DNSKEY and DS RRsets" (RFC 7344).  This is
+allowed if "the Parent uses the CDS or CDNSKEY RRset for initial enrollment; in
+that case, the Parent validates the CDS/CDNSKEY through some other means" (RFC
+7344).  Because there is no way for DNSViz to discover the out-of-band means
+with which the parent might have validated the CDNSKEY and/or CDS records, this
+trust is signaled with the use of the \fB--trust-cdnskey-cds\fR command-line
+option.
+.TP
+.B --multi-signer
+Don't issue errors for missing KSKs with DS RRs.  Typically an error is issued
+if a given DNSKEY is not found in the DNSKEY RRset returned by one or more
+servers.  If \fB--multi-signer\fR is specified, then no error is issued,
+in the case that 1) the DNSKEY is not signing any non-DNSKEY RRsets (i.e., is a
+zone-signing key or ZSK) and 2) the DNSKEY corresponds to a DS record in the
+parent.  This corresponds to the Model 2 use case in RFC 8901.
+.TP
+.B -o, --output-file \fIfilename\fR
+Write the output to the specified file instead of to standard output, which
+is the default.
+.TP
+.B -c, --minimize-output
+Format JSON output minimally instead of "pretty" (i.e., with indentation and
+newlines).
+.TP
+.B -l, --log-level \fIlevel\fR
+Display only information at the specified log priority or higher.  Valid values
+(in increasing order of priority) are: "error", "warning", "info", and "debug".
+The default is "debug".
+.TP
+.B -h, --help
+Display the usage and exit.
+
+.SH EXIT CODES
+The exit codes are:
+.IP 0
+Program terminated normally.
+.IP 1
+Incorrect usage.
+.IP 2
+Required package dependencies were not found.
+.IP 3
+There was an error processing the input or saving the output.
+.IP 4
+Program execution was interrupted, or an unknown error occurred.
+.SH SEE ALSO
+.BR dnsviz(1),
+.BR dnsviz-probe(1),
+.BR dnsviz-graph(1),
+.BR dnsviz-print(1),
+.BR dnsviz-query(1)
