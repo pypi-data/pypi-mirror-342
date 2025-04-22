@@ -1,0 +1,9 @@
+aiohttp
+colorama
+cryptography
+deep-translator
+easy-db==0.9.15
+jdatetime
+paramiko
+psutil
+requests
