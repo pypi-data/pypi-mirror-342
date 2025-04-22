@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: hmd-meta-types
+Version: 0.2.92
+Summary: Base classes and framework for representing HMD type definitions of basic metatypes in code.
+Home-page: UNKNOWN
+Author: Alex Burgoon
+Author-email: alex.burgoon@hmdlabs.io
+License: Apache 2.0
+Platform: UNKNOWN
+Requires-Dist: attrs (==24.2.0)
+Requires-Dist: jsonschema (==4.23.0)
+Requires-Dist: jsonschema-specifications (==2024.10.1)
+Requires-Dist: python-dateutil (==2.8.2)
+Requires-Dist: referencing (==0.35.1)
+Requires-Dist: rpds-py (==0.20.0)
+Requires-Dist: six (==1.16.0)
+
+UNKNOWN
+
