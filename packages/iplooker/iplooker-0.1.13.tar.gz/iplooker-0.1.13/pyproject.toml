@@ -1,0 +1,45 @@
+[project]
+name = "iplooker"
+version = "0.1.13"
+description = "Look up location, ISP, and more about an IP address from multiple sources"
+authors = [{ name = "Danny Stewart", email = "danny@stewart.cc" }]
+urls = { repository = "https://github.com/dannystewart/iplooker" }
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+    "polykit (>=0.10.2)",
+    "pycountry (>=24.6.1,<25.0.0)",
+    "requests (>=2.32.3,<3.0.0)",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Networking",
+    "Topic :: Utilities",
+]
+
+[tool.poetry.group.dev.dependencies]
+ruff = ">=0.11.6"
+mypy = ">=1.15.0"
+polykit = { path = "../polykit", develop = true }
+pytest = "^8.3.5"
+pytest-cov = "^6.1.1"
+pytest-mock = "^3.14.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[project.scripts]
+iplooker = "iplooker.ip_lookup:main"
