@@ -1,0 +1,21 @@
+[project]
+name = "mcp-addr-detail-server"
+version = "0.1.0"
+description = "使用高德地图API对地址进行解析"
+readme = "README.md"
+authors = [
+    { name = "yangjisong", email = "" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=1.6.0",
+    "requests>=2.32.3",
+]
+
+[project.scripts]
+mcp-addr-detail-server = "mcp_addr_detail_server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
