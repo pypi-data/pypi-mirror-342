@@ -1,0 +1,12 @@
+LICENCE.txt
+README.md
+setup.py
+Charm_tokenizer/Backbone.py
+Charm_tokenizer/ImageProcessor.py
+Charm_tokenizer/__init__.py
+Charm_tokenizer/model.py
+Charm_tokenizer.egg-info/PKG-INFO
+Charm_tokenizer.egg-info/SOURCES.txt
+Charm_tokenizer.egg-info/dependency_links.txt
+Charm_tokenizer.egg-info/requires.txt
+Charm_tokenizer.egg-info/top_level.txt
