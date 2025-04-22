@@ -1,0 +1,47 @@
+[project]
+name = "superparams"
+version = "0.0.11"
+
+authors = [
+    { name="Aral", email="me@aral.cc" }
+]
+
+description = "Programmatic space search with a focus on flexibility"
+readme = "readme.md"
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "filelock>=3.16.1",
+    "multiprocess>=0.70.17",
+    "polars>=1.27.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/Ar4l/superparams"
+Issues = "https://github.com/Ar4l/superparams/issues"
+
+[project.scripts]
+experiment = "superparams:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.3",
+    "uv>=0.4.28",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "superparams",
+]
+
+[tool.uv.sources]
+superparams = { workspace = true }
+
