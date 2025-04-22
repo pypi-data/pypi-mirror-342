@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: qui-server
+Version: 1.17.1
+Summary: QUI server-side
+Author: Calin Crisan
+Author-email: ccrisan@gmail.com
+License: Apache 2.0
+License-File: LICENSE.txt
+Requires-Dist: jinja2
+Requires-Dist: tornado
+Dynamic: author
+Dynamic: author-email
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
