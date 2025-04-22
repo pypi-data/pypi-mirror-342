@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: gllm-core-binary
+Version: 0.2.15
+Summary: A library containing core components for Gen AI applications.
+Author: Dimitrij Ray
+Author-email: dimitrij.ray@gdplabs.id
+Requires-Python: >=3.11,<3.13
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: colorama (>=0.4.6,<0.5.0)
+Requires-Dist: deprecation (>=2.1.0,<3.0.0)
+Requires-Dist: google (>=3.0.0,<4.0.0)
+Requires-Dist: google-auth (>=2.23.4,<3.0.0)
+Requires-Dist: gspread (>=6.1.3,<7.0.0)
+Requires-Dist: numpy (==1.26.4)
+Requires-Dist: pydantic (==2.9.2)
+Requires-Dist: scipy (>=1.14.1,<2.0.0)
+Description-Content-Type: text/markdown
+
+# GLLM Core
+
+## Description
+
+A library containing core components for Gen AI applications.
+
+## Installation
+
+1. Python v3.11 or above:
+
+You can install Python using [Miniconda](https://docs.anaconda.com/free/miniconda/index.html).
+
+2. Make sure you're in the `base` conda environment:
+```bash
+conda activate
+```
+
+3. [Poetry](https://python-poetry.org/docs/) v1.8.1 or above:
+
+You can install Poetry using cURL (you need Python to install Poetry):
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+4. Install the library using Poetry:
+```bash
+# Latest
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git#subdirectory=libs/gllm-core"
+
+# Specific version
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@gllm_core-v0.0.1-beta.1#subdirectory=libs/gllm-core"
+
+# Specific Branch Name
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@<BRANCH NAME>#subdirectory=libs/gllm-core"
+```
+
+5. At this step, you can deactivate Miniconda environment as Poetry will create and manage its own virtual environment for you.
+```bash
+conda deactivate
+```
+
+## Managing Dependencies
+1. Go to root folder of `gllm-core` module, e.g. `cd libs/gllm-core`.
+2. Run `poetry shell` to create a virtual environment.
+3. Run `poetry lock` to create a lock file if you haven't done it yet.
+4. Run `poetry install` to install the `gllm-core` requirements for the first time.
+5. Run `poetry update` if you update any dependency module version at `pyproject.toml`.
+
+
+## Contributing
+Please refer to this [Python Style Guide](https://docs.google.com/document/d/1uRggCrHnVfDPBnG641FyQBwUwLoFw0kTzNqRm92vUwM/edit?usp=sharing)
+to get information about code style, documentation standard, and SCA that you need to use when contributing to this project
+
+1. Activate `pre-commit` hooks using `pre-commit install`
+2. Run `poetry shell` to create a virtual environment.
+3. Run `poetry lock` to create a lock file if you haven't done it yet.
+4. Run `poetry install` to install the `gllm-core` requirements for the first time.
+5. Run `which python` to get the path to be referenced at Visual Studio Code interpreter path (`Ctrl`+`Shift`+`P` or `Cmd`+`Shift`+`P`)
+6. Try running the unit test to see if it's working:
+```bash
+poetry run pytest -s tests/unit_tests/
+```
+
