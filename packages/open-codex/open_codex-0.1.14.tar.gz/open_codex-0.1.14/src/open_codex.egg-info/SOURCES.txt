@@ -1,0 +1,17 @@
+LICENSE.md
+README.md
+pyproject.toml
+src/open_codex/agent_builder.py
+src/open_codex/main.py
+src/open_codex.egg-info/PKG-INFO
+src/open_codex.egg-info/SOURCES.txt
+src/open_codex.egg-info/dependency_links.txt
+src/open_codex.egg-info/entry_points.txt
+src/open_codex.egg-info/requires.txt
+src/open_codex.egg-info/top_level.txt
+src/open_codex/agents/__init__.py
+src/open_codex/agents/phi_4_mini.py
+src/open_codex/interfaces/__init__.py
+src/open_codex/interfaces/llm_agent.py
+src/open_codex/resources/__init__.py
+src/open_codex/resources/prompt.txt
