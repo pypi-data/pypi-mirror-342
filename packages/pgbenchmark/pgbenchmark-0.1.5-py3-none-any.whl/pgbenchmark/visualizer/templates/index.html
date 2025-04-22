@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Benchmark</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PostgreSQL Query Benchmark</h1>
+        </header>
+
+        <div class="main-content">
+            <!-- Chart section (left) -->
+            <div class="results-panel">
+                <h2>Benchmark Results</h2>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <span class="stat-label">Runs Completed:</span>
+                        <span id="runs-completed" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Average Time:</span>
+                        <span id="avg-time" class="stat-value">0 ms</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Min Time:</span>
+                        <span id="min-time" class="stat-value">0 ms</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Max Time:</span>
+                        <span id="max-time" class="stat-value">0 ms</span>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="benchmarkChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Configuration section (right) -->
+            <div class="setup-panel">
+                <h2>Connection Details</h2>
+                <div class="connection-fields">
+                    <div class="form-group">
+                        <label for="host">Host:</label>
+                        <input type="text" id="host" placeholder="localhost">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="port">Port:</label>
+                        <input type="text" id="port" placeholder="5432" value="5432">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" placeholder="postgres">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="database">Database:</label>
+                        <input type="text" id="database" placeholder="postgres">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sql">SQL Query:</label>
+                    <textarea id="sql" rows="8" placeholder="SELECT * FROM table WHERE condition"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="runs">Number of Runs:</label>
+                    <input type="number" id="runs" value="5" min="1" max="100">
+                </div>
+
+                <div class="button-group">
+                    <button id="start" class="btn btn-primary">Start Benchmark</button>
+                    <button id="pause" class="btn btn-secondary" disabled>Pause</button>
+                    <button id="resume" class="btn btn-secondary" disabled>Resume</button>
+                    <button id="stop" class="btn btn-danger" disabled>Stop</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let socket;
+        let chart;
+        let timeseries = [];
+        let durations = [];
+        let paused = false;
+        let totalRuns = 0;
+        let completedRuns = 0;
+
+        // Initialize Chart
+        function initChart() {
+            const ctx = document.getElementById('benchmarkChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Query Duration (ms)',
+                        data: [],
+                        borderColor: '#FEE715FF',
+                        backgroundColor: 'rgba(254, 231, 21, 0.1)',
+                        borderWidth: 2,
+                        tension: 0.1,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    animation: {
+                        duration: 0
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Duration (ms)',
+                                color: '#f5f5f5'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#f5f5f5'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Run Number',
+                                color: '#f5f5f5'
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#f5f5f5'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#f5f5f5'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(tooltipItems) {
+                                    return `Run #${tooltipItems[0].dataIndex + 1}`;
+                                }
+                            },
+                            backgroundColor: '#101820FF',
+                            titleColor: '#FEE715FF',
+                            bodyColor: '#f5f5f5',
+                            borderColor: '#FEE715FF',
+                            borderWidth: 1
+                        }
+                    }
+                }
+            });
+        }
+
+        // Update Chart with new data
+        function updateChart(timestamp, value) {
+            if (chart) {
+                completedRuns++;
+                timeseries.push(timestamp);
+                durations.push(value);
+
+                chart.data.labels.push(completedRuns);
+                chart.data.datasets[0].data.push(value);
+                chart.update();
+
+                // Update statistics
+                document.getElementById('runs-completed').textContent = completedRuns;
+
+                const avg = durations.reduce((a, b) => a + b, 0) / durations.length;
+                document.getElementById('avg-time').textContent = `${avg.toFixed(2)} ms`;
+
+                const min = Math.min(...durations);
+                document.getElementById('min-time').textContent = `${min.toFixed(2)} ms`;
+
+                const max = Math.max(...durations);
+                document.getElementById('max-time').textContent = `${max.toFixed(2)} ms`;
+            }
+        }
+
+        // Reset everything for a new benchmark
+        function resetBenchmark() {
+            if (chart) {
+                chart.data.labels = [];
+                chart.data.datasets[0].data = [];
+                chart.update();
+            }
+
+            timeseries = [];
+            durations = [];
+            completedRuns = 0;
+
+            document.getElementById('runs-completed').textContent = '0';
+            document.getElementById('avg-time').textContent = '0 ms';
+            document.getElementById('min-time').textContent = '0 ms';
+            document.getElementById('max-time').textContent = '0 ms';
+        }
+
+        // Build connection string from individual fields
+        function buildConnectionString() {
+            const host = document.getElementById('host').value || 'localhost';
+            const port = document.getElementById('port').value || '5432';
+            const username = document.getElementById('username').value || 'postgres';
+            const password = document.getElementById('password').value || '';
+            const database = document.getElementById('database').value || 'postgres';
+
+            return `postgresql://${username}:${password}@${host}:${port}/${database}`;
+        }
+
+        // Start websocket connection and benchmark
+        function startBenchmark() {
+            if (socket) {
+                socket.close();
+            }
+
+            resetBenchmark();
+
+            const connStr = buildConnectionString();
+            const sql = document.getElementById('sql').value;
+            const runs = document.getElementById('runs').value;
+
+            if (!sql) {
+                alert("Please provide an SQL query.");
+                return;
+            }
+
+            totalRuns = parseInt(runs);
+
+            socket = new WebSocket(`ws://${window.location.host}/ws`);
+
+            socket.onopen = function() {
+                socket.send(JSON.stringify({
+                    type: 'start',
+                    connection: connStr,
+                    sql: sql,
+                    runs: runs
+                }));
+
+                document.getElementById('start').disabled = true;
+                document.getElementById('pause').disabled = false;
+                document.getElementById('resume').disabled = true;
+                document.getElementById('stop').disabled = false;
+            };
+
+            socket.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                updateChart(data.timestamp, data.value);
+
+                if (completedRuns >= totalRuns) {
+                    stopBenchmark();
+                }
+            };
+
+            socket.onclose = function() {
+                document.getElementById('start').disabled = false;
+                document.getElementById('pause').disabled = true;
+                document.getElementById('resume').disabled = true;
+                document.getElementById('stop').disabled = true;
+            };
+
+            socket.onerror = function(error) {
+                console.error("WebSocket Error:", error);
+                alert("Error connecting to the server");
+                stopBenchmark();
+            };
+        }
+
+        function pauseBenchmark() {
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({ type: 'pause' }));
+                document.getElementById('pause').disabled = true;
+                document.getElementById('resume').disabled = false;
+                paused = true;
+            }
+        }
+
+        function resumeBenchmark() {
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({ type: 'resume' }));
+                socket.send("continue"); // Send text message to break the pause loop
+                document.getElementById('pause').disabled = false;
+                document.getElementById('resume').disabled = true;
+                paused = false;
+            }
+        }
+
+        function stopBenchmark() {
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({ type: 'stop' }));
+                socket.close();
+            }
+
+            document.getElementById('start').disabled = false;
+            document.getElementById('pause').disabled = true;
+            document.getElementById('resume').disabled = true;
+            document.getElementById('stop').disabled = true;
+        }
+
+        // Set up event listeners when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            initChart();
+
+            document.getElementById('start').addEventListener('click', startBenchmark);
+            document.getElementById('pause').addEventListener('click', pauseBenchmark);
+            document.getElementById('resume').addEventListener('click', resumeBenchmark);
+            document.getElementById('stop').addEventListener('click', stopBenchmark);
+
+            // Make the app fullscreen
+            function setFullHeight() {
+                const windowHeight = window.innerHeight;
+                document.querySelector('.container').style.height = `${windowHeight}px`;
+                document.querySelector('.main-content').style.height = `${windowHeight - 80}px`;
+            }
+
+            // Call once on load and add resize listener
+            setFullHeight();
+            window.addEventListener('resize', setFullHeight);
+
+            // Handle responsive layout
+            function handleResponsiveLayout() {
+                const mainContent = document.querySelector('.main-content');
+                if (window.innerWidth < 768) {
+                    mainContent.classList.add('mobile-layout');
+                } else {
+                    mainContent.classList.remove('mobile-layout');
+                }
+            }
+
+            // Call once on load and add resize listener
+            handleResponsiveLayout();
+            window.addEventListener('resize', handleResponsiveLayout);
+        });
+    </script>
+</body>
+</html>
