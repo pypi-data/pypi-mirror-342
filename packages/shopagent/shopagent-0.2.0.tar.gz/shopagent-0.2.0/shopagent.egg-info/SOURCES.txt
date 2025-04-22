@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+shopagent/__init__.py
+shopagent.egg-info/PKG-INFO
+shopagent.egg-info/SOURCES.txt
+shopagent.egg-info/dependency_links.txt
+shopagent.egg-info/requires.txt
+shopagent.egg-info/top_level.txt
