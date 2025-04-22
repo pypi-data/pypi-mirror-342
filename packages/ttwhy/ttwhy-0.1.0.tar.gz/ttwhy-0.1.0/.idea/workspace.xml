@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a938029d-e2d9-45b3-8d7c-ad5c1754a782" name="Changes" comment="Update scripts to auto-install uv if it isn't installed already.">
+      <change afterPath="$PROJECT_DIR$/ttwhy/vendored/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/licenses/MxPlus_IBM_VGA_8x16_LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ttwhy/vendored/MxPlus_IBM_VGA_8x16_LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/licenses/iverilog_LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ttwhy/vendored/iverilog_LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nuitka_build.py" beforeDir="false" afterPath="$PROJECT_DIR$/nuitka_build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttwhy/MxPlus_IBM_VGA_8x16.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/ttwhy/vendored/MxPlus_IBM_VGA_8x16.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttwhy/iverilog-v12-20220611-x64_setup.exe" beforeDir="false" afterPath="$PROJECT_DIR$/ttwhy/vendored/iverilog-v12-20220611-x64_setup.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ttwhy/terminal.py" beforeDir="false" afterPath="$PROJECT_DIR$/ttwhy/terminal.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;TotallyNotSethP&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/TotallyNotSethP/HDLGame.git&quot;,
+    &quot;accountId&quot;: &quot;076a2c1f-6ca5-4515-bd35-5f03f09e53c3&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pyoxidizer.bzl" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2tBJdCddgT2A1yg4wpgTZ190nWZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Python.Run Module.executor": "Run",
+    "Python.Run TTWhy Module.executor": "Run",
+    "Python.Run main.py.executor": "Run",
+    "Python.enforce_iverilog (1).executor": "Run",
+    "Python.enforce_iverilog.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Shell Script.Build & Run EXE.executor": "Run",
+    "Shell Script.Build & Run Executable.executor": "Run",
+    "Shell Script.Build EXE.executor": "Run",
+    "Shell Script.Build Executable (Debug).executor": "Run",
+    "Shell Script.Run Module.executor": "Run",
+    "bazel.project.detector.is.bazel.project": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/sethe/PycharmProjects/HDLGame/ttwhy/vendored",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JupyterPython"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sethe\PycharmProjects\HDLGame\ttwhy\vendored" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sethe\PycharmProjects\HDLGame\ttwhy\vendored" />
+      <recent name="C:\Users\sethe\PycharmProjects\HDLGame\ttwhy" />
+      <recent name="C:\Users\sethe\PycharmProjects\HDLGame\hdlgame" />
+      <recent name="C:\Users\sethe\PycharmProjects\HDLGame" />
+      <recent name="C:\Users\sethe\PycharmProjects\HDLGame\hdlgame\bin" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Shell Script.Run Module">
+    <list>
+      <item itemvalue="Shell Script.Build Executable" />
+      <item itemvalue="Shell Script.Build Executable (Debug)" />
+      <item itemvalue="Shell Script.Run Module" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-PY-243.24978.54" />
+        <option value="bundled-python-sdk-91e3b7efe1d4-466328ff949b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.24978.54" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a938029d-e2d9-45b3-8d7c-ad5c1754a782" name="Changes" comment="" />
+      <created>1739819619280</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739819619280</updated>
+      <workItem from="1739819620314" duration="2968000" />
+      <workItem from="1739914306131" duration="34193000" />
+      <workItem from="1740088030554" duration="3585000" />
+      <workItem from="1740092225473" duration="3389000" />
+      <workItem from="1740406869144" duration="652000" />
+      <workItem from="1740551286167" duration="1164000" />
+      <workItem from="1740588472332" duration="949000" />
+      <workItem from="1740590427594" duration="3719000" />
+      <workItem from="1740597250589" duration="1052000" />
+      <workItem from="1740601074172" duration="1144000" />
+      <workItem from="1740604265893" duration="1794000" />
+    </task>
+    <task id="LOCAL-00001" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1740596776655</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1740596776655</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add .gitignore">
+      <option name="closed" value="true" />
+      <created>1740597371890</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1740597371890</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added .idea folder, better nuitka_build.py handling">
+      <option name="closed" value="true" />
+      <created>1740601190108</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1740601190108</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update scripts to auto-install uv if it isn't installed already.">
+      <option name="closed" value="true" />
+      <created>1740603903932</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1740603903932</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.bzl" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.bat" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First Commit" />
+    <MESSAGE value="Add .gitignore" />
+    <MESSAGE value="Added .idea folder, better nuitka_build.py handling" />
+    <MESSAGE value="Update scripts to auto-install uv if it isn't installed already." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update scripts to auto-install uv if it isn't installed already." />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/HDLGame$enforce_iverilog__1_.coverage" NAME="enforce_iverilog (1) Coverage Results" MODIFIED="1739826060047" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/hdlgame" />
+    <SUITE FILE_PATH="coverage/HDLGame$Run_main_py.coverage" NAME="Run main.py Coverage Results" MODIFIED="1740108647090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/HDLGame$Run_Module.coverage" NAME="Run Module Coverage Results" MODIFIED="1740595193659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/HDLGame$main.coverage" NAME="Run TTWhy Module Coverage Results" MODIFIED="1740593083926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/HDLGame$enforce_iverilog.coverage" NAME="enforce_iverilog Coverage Results" MODIFIED="1739820355800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

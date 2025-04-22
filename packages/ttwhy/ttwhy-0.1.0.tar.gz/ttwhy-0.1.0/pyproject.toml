@@ -1,0 +1,61 @@
+[project]
+name = "ttwhy"
+dynamic = ["version"]
+description = "A library for creating terminal-esque games with Pygame"
+authors = [{ name = "Seth Peace", email = "ttwhy@totallynotseth.dev" }]
+requires-python = "~=3.12"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+dependencies = [
+    "pygame>=2.6.1,<3",
+    "cocotb>=1.9.2,<2",
+    "loguru>=0.7.3,<0.8",
+]
+license-files = [
+    "LICENSE",
+    "ttwhy/vendored/*_LICENSE",
+]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: pygame",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: Microsoft :: Windows :: Windows 11",
+    "Typing :: Typed",
+]
+
+[project.scripts]
+ttwhy = "ttwhy.main:main"
+
+[project.urls]
+homepage = "https://ttwhy.totallynotseth.dev"
+github = "https://github.com/TotallyNotSethP/HDLGame"
+issues = "https://github.com/TotallyNotSethP/HDLGame/issues"
+
+[dependency-groups]
+compiler = [
+    "nuitka>=2.6.7,<3",
+]
+
+[tool.uv]
+default-groups = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "ttwhy/__init__.py"
