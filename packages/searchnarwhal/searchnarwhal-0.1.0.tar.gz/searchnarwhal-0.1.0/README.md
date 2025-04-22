@@ -1,0 +1,1 @@
+SearchNarwhal is a browser engine written in python and it does have navigation and is freely customizable

@@ -1,0 +1,23 @@
+Metadata-Version: 2.2
+Name: searchnarwhal
+Version: 0.1.0
+Summary: a browser engine built in python
+Home-page: https://github.com/zohanhaqu/searchnarwhal
+Author: Zohan Haque
+Author-email: zohanuhaque@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+SearchNarwhal is a browser engine written in python and it does have navigation and is freely customizable

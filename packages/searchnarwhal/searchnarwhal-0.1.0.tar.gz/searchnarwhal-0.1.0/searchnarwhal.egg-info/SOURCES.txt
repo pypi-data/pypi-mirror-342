@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+searchnarwhal/__init__.py
+searchnarwhal/browser.py
+searchnarwhal/download.py
+searchnarwhal/localres.py
+searchnarwhal/web.py
+searchnarwhal.egg-info/PKG-INFO
+searchnarwhal.egg-info/SOURCES.txt
+searchnarwhal.egg-info/dependency_links.txt
+searchnarwhal.egg-info/top_level.txt
