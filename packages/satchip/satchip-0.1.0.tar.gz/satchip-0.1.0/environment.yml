@@ -1,0 +1,28 @@
+name: satchip
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python>=3.10
+  - pip
+  - gdal
+  - numpy
+  - shapely
+  - pyproj
+  - pystac-client
+  - rasterio
+  - zarr
+  - xarray
+  - rioxarray
+  - pandas
+  - geopandas
+  - asf_search
+  - hyp3_sdk
+  - tqdm
+  # For packaging, and testing
+  - setuptools_scm
+  - pytest
+  - pytest-console-scripts
+  - pytest-cov
+  - pip:
+      - -r requirements-static.txt
