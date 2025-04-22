@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+alqueda/__init__.py
+alqueda/alqueda.py
+alqueda.egg-info/PKG-INFO
+alqueda.egg-info/SOURCES.txt
+alqueda.egg-info/dependency_links.txt
+alqueda.egg-info/top_level.txt
