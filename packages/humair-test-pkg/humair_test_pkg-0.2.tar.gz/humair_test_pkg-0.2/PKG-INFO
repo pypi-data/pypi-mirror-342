@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: humair_test_pkg
+Version: 0.2
+Summary: Kubeflow Pipelines SDK
+Home-page: https://github.com/kubeflow/pipelines
+Author: The Kubeflow Authors
+Project-URL: Source, https://github.com/kubeflow/pipelines/tree/master/sdk
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.7.0,<3.13.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyyaml==6.0.2
+
+# Example Package
+
+This is a simple example package. You can use
+[GitHub-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
