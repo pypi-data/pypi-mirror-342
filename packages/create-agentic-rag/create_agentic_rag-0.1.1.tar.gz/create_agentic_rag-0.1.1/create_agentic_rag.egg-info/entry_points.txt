@@ -1,0 +1,2 @@
+[console_scripts]
+create-agentic-rag = create_agentic_rag.cli:main
