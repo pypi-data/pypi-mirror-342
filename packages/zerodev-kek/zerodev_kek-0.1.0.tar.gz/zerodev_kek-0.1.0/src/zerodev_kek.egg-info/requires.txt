@@ -1,0 +1,9 @@
+pysha3>=1.0.0
+eth-abi>=4.0.0
+eth-keys>=0.4.0
+click>=8.0.0
+ruff>=0.11.5
+
+[dev]
+pytest>=7.4.0
+ruff>=0.11.5
