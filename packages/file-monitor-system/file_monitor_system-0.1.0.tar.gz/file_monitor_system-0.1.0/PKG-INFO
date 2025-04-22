@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: file-monitor-system
+Version: 0.1.0
+Summary: Cross-platform real-time file monitoring and integrity verification
+Home-page: https://github.com/yourusername/file-monitor
+Author: Your Name
+Author-email: you@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: watchdog>=3.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# File Monitor Library
+
+A cross-platform file monitoring and integrity verification tool with real-time alerts.
+
+## Features
+
+- Real-time file change detection
+- SHA-256 file integrity check
+- Email alert support
+- Windows and Linux/macOS support
+- Audit log stubs for advanced access tracking
+
+## Usage
+
+```python
+from file_monitor import FileMonitor
+
+monitor = FileMonitor(path="/etc", alert_callback=print)
+monitor.start()
+```
