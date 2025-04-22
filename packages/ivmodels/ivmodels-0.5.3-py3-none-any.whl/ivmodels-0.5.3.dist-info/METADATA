@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: ivmodels
+Version: 0.5.3
+Summary: IV Models
+Author-email: Malte Londschien <malte@londschien.ch>
+Project-URL: homepage, https://github.com/mlondschien/ivmodels/
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: glum
+Requires-Dist: scipy
+Dynamic: license-file
+
+# ivmodels
+
+ivmodels is a Python library for instrumental variable estimation.
+It implements
+
+ - K-Class estimators, including the Limited Information Maximum Likelihood (LIML) estimator and the Two-Stage Least Squares (TSLS) estimator.
+ - Tests and confidence sets for the parameters of the model, including the Anderson-Rubin test, the the Lagrange multiplier test, the (conditional) likelihood-ratio test, and the Wald test.
+ - Auxiliary tests such as Anderson's (1951) test of reduced rank (a multivariate extension to the first-stage F-test) and the J-statistic (including its LIML variant).
+
+
