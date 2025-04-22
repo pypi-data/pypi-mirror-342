@@ -1,0 +1,2 @@
+[console_scripts]
+tokenscope = server:main
