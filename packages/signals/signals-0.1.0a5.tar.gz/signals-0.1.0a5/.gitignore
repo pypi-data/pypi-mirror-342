@@ -1,0 +1,6 @@
+__pycache__
+.venv
+dist/
+.ipynb_checkpoints/
+.DS_Store
+demos

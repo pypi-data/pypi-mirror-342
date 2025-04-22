@@ -1,0 +1,16 @@
+{
+	"lock": false,
+	"compilerOptions": {
+		"checkJs": true,
+		"lib": ["dom", "dom.iterable", "esnext"]
+	},
+	"fmt": {
+		"useTabs": true,
+		"exclude": ["*.ipynb"]
+	},
+	"lint": {
+		"rules": {
+			"exclude": ["prefer-const"]
+		}
+	}
+}
