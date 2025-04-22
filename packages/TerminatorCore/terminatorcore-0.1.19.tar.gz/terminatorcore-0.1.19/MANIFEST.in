@@ -1,0 +1,2 @@
+include TerminatorBaseCore/*
+prune TerminatorCore.egg-info
