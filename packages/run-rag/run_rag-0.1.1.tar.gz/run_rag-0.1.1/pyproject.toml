@@ -1,0 +1,41 @@
+[project]
+name = "run_rag"
+version = "0.1.1"
+description = "A lightweight RAG stack installer"
+authors = [{ name="Rishabh Deshpande", email="rishabh9to5@gmail.com" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+dependencies = [
+    "langchain",                     # Core LangChain
+    "langchain-openai",             # OpenAI tools
+    "langchain-community",          # 3rd party integrations (like SerpAPI, Weaviate, etc.)
+    "langchainhub",                 # LangChainHub for shared chains/prompts
+    "langchain-cli",                # Optional CLI for LangChain projects
+    "langchain-huggingface",        # HuggingFace model integration
+    "langchain_groq",
+    "langchain-google-genai",
+
+    "langgraph",                    # LangGraph for agent flows
+
+    "openai",                       # OpenAI APIs
+    "huggingface-hub",              # Pulling models from Hugging Face
+
+    "chromadb",                     # Chroma vector DB
+    "faiss-cpu",                    # FAISS for local embeddings
+
+    "tiktoken",                     # Token counting for OpenAI
+    "pydantic",                     # For typed config and schema
+    "python-dotenv",                # For .env file loading
+    "httpx",                        # Async HTTP client
+    "requests",                     # Simple HTTP client
+
+    "fastapi",                      # For building APIs
+    "uvicorn" ,                      # For serving FastAPI
+    "pinecone"
+]
+
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
