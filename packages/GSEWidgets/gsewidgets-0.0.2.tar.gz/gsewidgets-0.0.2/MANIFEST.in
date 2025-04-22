@@ -1,0 +1,2 @@
+include versioneer.py
+include gsewidgets/_version.py
