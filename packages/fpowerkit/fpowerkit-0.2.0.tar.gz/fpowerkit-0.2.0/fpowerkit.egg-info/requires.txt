@@ -1,0 +1,4 @@
+feasytools>=0.0.21
+cvxpy>=1.0
+numpy>=1.20.0
+ecos
