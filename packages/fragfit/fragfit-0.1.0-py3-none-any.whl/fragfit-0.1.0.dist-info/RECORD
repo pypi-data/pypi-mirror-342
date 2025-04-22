@@ -1,0 +1,14 @@
+fragfit/__init__.py,sha256=pW6MyefineU-kqG-kPuVkY_2uFS8vb023nIyLl0vrNM,522
+fragfit/cli.py,sha256=RNuONXlp0qabtqhGBbngjmHQGlZpR11fMoJeOaAdpD4,7445
+fragfit/version.py,sha256=afXZNxFc8ur033OT3pr3HJ2MMo0vHoqZVCLogtClK6M,199
+fragfit/adducts/__init__.py,sha256=U1j_JTKtG-RJkZGH8Zkw2KxqDc6d2DZorqiXo56ZAGg,150
+fragfit/adducts/core.py,sha256=MFb2fomgOuoedb33qFYEBESMxPzZNKFuIakvKfB4GZI,3237
+fragfit/formula/__init__.py,sha256=riC0Ypz3xJcnlYCe_k6BP47pVrSVRso1Xe7TLo_Qm58,251
+fragfit/formula/core.py,sha256=xG4NGYnVPB6qGSWfyUjWvVOu1rNyPFVhSgVD6vmHSqA,5792
+fragfit-0.1.0.dist-info/licenses/AUTHORS.md,sha256=VKucuU-KoVd_goHlyxP1ZOoHwbsa2JwUvb-xYGNFOfY,92
+fragfit-0.1.0.dist-info/licenses/LICENSE,sha256=iXyWAN2Yrm47jiZHo_PFicpX7QNRSp8Y90QycwlFXPo,1067
+fragfit-0.1.0.dist-info/METADATA,sha256=MHADsv0KV039AG2RWRuM2aojwQC2ZBr5EbGYWi2bj2o,4153
+fragfit-0.1.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+fragfit-0.1.0.dist-info/entry_points.txt,sha256=vjgVEp2M-trN7Ge6gCcoZxuPXP7BFD4u3iNe_W3Men4,45
+fragfit-0.1.0.dist-info/top_level.txt,sha256=vPZqm_SvaElzlFzCepu8DROW1MKQmh4SP43675CJZo0,8
+fragfit-0.1.0.dist-info/RECORD,,
