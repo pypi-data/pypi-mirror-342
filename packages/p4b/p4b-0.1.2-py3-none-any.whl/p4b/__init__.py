@@ -1,0 +1,1 @@
+from p4b.core import main
