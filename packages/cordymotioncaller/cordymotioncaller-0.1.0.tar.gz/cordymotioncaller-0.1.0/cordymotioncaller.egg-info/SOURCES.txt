@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+cordymotioncaller/CordyMotionCaller.py
+cordymotioncaller/__init__.py
+cordymotioncaller.egg-info/PKG-INFO
+cordymotioncaller.egg-info/SOURCES.txt
+cordymotioncaller.egg-info/dependency_links.txt
+cordymotioncaller.egg-info/entry_points.txt
+cordymotioncaller.egg-info/top_level.txt
+cordymotioncaller/bin/TcpClient

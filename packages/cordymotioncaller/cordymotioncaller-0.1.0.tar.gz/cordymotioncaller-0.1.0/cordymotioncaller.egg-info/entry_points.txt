@@ -1,0 +1,2 @@
+[console_scripts]
+cordymotioncaller-cli = cordymotioncaller.MotionCaller:main
