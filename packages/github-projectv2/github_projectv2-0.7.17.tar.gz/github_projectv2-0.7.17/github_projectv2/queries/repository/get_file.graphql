@@ -1,0 +1,9 @@
+{
+    repository(owner: "{{ org }}", name: "{{ repoName }}") {
+        object(expression: "master:{{ path }}") {
+            ... on Blob {
+                text
+            }
+        }
+    }
+}
