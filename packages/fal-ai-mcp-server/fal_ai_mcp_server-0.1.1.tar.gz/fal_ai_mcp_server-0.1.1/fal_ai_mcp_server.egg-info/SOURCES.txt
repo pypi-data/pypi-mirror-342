@@ -1,0 +1,15 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+uv.lock
+.github/workflows/publish.yml
+fal_ai_mcp_server/__init__.py
+fal_ai_mcp_server/_version.py
+fal_ai_mcp_server/main.py
+fal_ai_mcp_server.egg-info/PKG-INFO
+fal_ai_mcp_server.egg-info/SOURCES.txt
+fal_ai_mcp_server.egg-info/dependency_links.txt
+fal_ai_mcp_server.egg-info/entry_points.txt
+fal_ai_mcp_server.egg-info/requires.txt
+fal_ai_mcp_server.egg-info/top_level.txt
