@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: pyrnnoise
+Version: 0.3.6
+Summary: PyRnNoise
+Home-page: https://github.com/pengzhendong/pyrnnoise
+Author: Zhendong Peng
+Author-email: pzd17@tsinghua.org.cn
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: audiolab
+Requires-Dist: click
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: tqdm
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+# pyrnnoise
+
+```bash
+$ pip install pyrnnoise
+$ denoise in.wav out.wav --plot
+```
+
+## Build
+
+``` bash
+$ git submodule update --init
+$ cmake -B pyrnnoise/build -DCMAKE_BUILD_TYPE=Release
+$ cmake --build pyrnnoise/build --target install
+$ pip install -e .
+```
