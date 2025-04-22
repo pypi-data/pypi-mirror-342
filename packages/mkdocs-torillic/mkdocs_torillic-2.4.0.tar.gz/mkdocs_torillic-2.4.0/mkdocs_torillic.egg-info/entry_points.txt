@@ -1,0 +1,6 @@
+[mkdocs.plugins]
+torillic-ipa = mkdocs_torillic.plugins:TorillicIPAPlugin
+torillic-statblock = mkdocs_torillic.plugins:TorillicStatblockPlugin
+
+[mkdocs.themes]
+torillic = mkdocs_torillic
