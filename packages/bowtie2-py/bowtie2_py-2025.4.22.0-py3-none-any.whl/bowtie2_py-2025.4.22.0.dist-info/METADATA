@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: bowtie2-py
+Version: 2025.4.22.0
+Summary: bowtie2 python wrapper
+Project-URL: Repository, https://github.com/soda92/bowtie2_py
+License-File: LICENSE
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# bowtie2_py
+bowtie2 python wrapper
