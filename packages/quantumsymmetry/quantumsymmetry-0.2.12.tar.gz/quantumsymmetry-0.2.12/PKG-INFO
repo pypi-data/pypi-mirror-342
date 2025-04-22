@@ -1,0 +1,79 @@
+Metadata-Version: 2.3
+Name: quantumsymmetry
+Version: 0.2.12
+Summary: Quantum computing research package
+License: GNU General Public License v3.0
+Author: Dario Picozzi
+Requires-Python: >=3.7,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: ipython
+Requires-Dist: numpy
+Requires-Dist: openfermion
+Requires-Dist: pyscf (>=2.6,<3.0)
+Requires-Dist: qiskit (>=1.1,<1.2)
+Requires-Dist: qiskit_nature (>=0.7,<0.8)
+Requires-Dist: tabulate
+Description-Content-Type: text/markdown
+
+<img src="docs/quantumsymmetry_logo.png" alt="QuantumSymmetry" width="450"/>
+
+[![PyPI version](https://badge.fury.io/py/quantumsymmetry.svg)](https://badge.fury.io/py/quantumsymmetry)
+
+# QuantumSymmetry
+
+QuantumSymmetry is an open-source Python package for research in molecular physics using quantum computing. It allows to encode more efficiently information about a molecular system on a quantum computer using symmetry-adapted encodings.
+
+QuantumSymmetry uses [PySCF](https://github.com/pyscf/pyscf) to perform Hartre-Fock calculations, for the calculation of one- and two-electron integrals and the construction of symmetry-adapted molecular orbitals. It automatically retrieves from PySCF the largest Boolean symmetry group for the input molecular geometry, as well as the irreducible representation of its HF ground state.
+
+QuantumSymmetry takes arbitrary user input such as the molecular geometry and the atomic basis set and allows the user to construct the qubit operators that correspond to fermionic operators on the molecular system in the appropriate symmetry-adapted encoding. It is compatible with both [OpenFermion](https://github.com/quantumlib/OpenFermion) and [Qiskit](https://github.com/Qiskit).
+
+## Installation
+
+You can install QuantumSymmetry by running the following command from terminal:
+
+```bash
+$ pip install quantumsymmetry
+```
+
+## Quickstart
+
+In QuantumSymmetry, information about a symmetry-adapted encoding is in an `Encoding` object:
+
+```python
+from quantumsymmetry import Encoding
+
+encoding = Encoding(
+    atom = 'H 0 0 0; H 0.7414 0 0',
+    basis = 'sto-3g')
+```
+
+This can be used for example to obtain the symmetry-adapted encoding qubit Hamiltonian:
+
+```python
+encoding.hamiltonian
+```
+
+## Tutorials
+
+Interactive tutorials with code snippets hosted on Google Colab can be found [here](https://colab.research.google.com/github/dariopicozzi/quantumsymmetry/blob/master/docs/tutorials/01_welcome.ipynb).
+
+## How to cite
+
+> *Picozzi, D. and Tennyson, J. (2023). Symmetry-adapted encodings for qubit number reduction by point-group and other Boolean symmetries. Quantum Science and Technology, 8(3). DOI:https://doi.org/10.1088/2058-9565/acd86c*
+
+## Getting in touch
+
+For any question about QuantumSymmetry or my research, don't hesitate to get in touch.
+
+## License
+
+QuantumSymmetry was created by Dario Picozzi. It is licensed under the terms of the GNU General Public License v3.0 license.
+
