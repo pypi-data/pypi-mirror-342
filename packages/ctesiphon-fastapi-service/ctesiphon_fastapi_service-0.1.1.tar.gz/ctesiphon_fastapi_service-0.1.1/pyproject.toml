@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ctesiphon-fastapi-service"
+version = "0.1.1"
+description = "Типовой сервис FastAPI"
+authors = ["Anton Berdnikov <agratoth@yandex.ru>"]
+maintainers = ["Anton Berdnikov <agratoth@yandex.ru>"]
+readme = "README.md"
+license = "Apache-2.0"
+packages = [{include = "ctesiphon"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11, <3.13"
+ctesiphon = ">=0.1.9"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
