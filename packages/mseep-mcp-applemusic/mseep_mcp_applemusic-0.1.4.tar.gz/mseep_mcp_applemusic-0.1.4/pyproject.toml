@@ -1,0 +1,19 @@
+[project]
+name = "mseep-mcp-applemusic"
+version = "0.1.4"
+description = "A simple Apple Music API client for MCP"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mcp>=1.2.1",
+]
+
+[project.scripts]
+mcp-applemusic = "mcp_applemusic:main"
+
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
