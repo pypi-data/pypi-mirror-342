@@ -1,0 +1,72 @@
+Metadata-Version: 2.4
+Name: stukk
+Version: 0.0.1.dev1
+Summary: Library for designing graphical interfaces with Tkinter in a simple and stylized way.
+Home-page: https://github.com/wipodev/stukk
+Author: WipoDev
+Author-email: ajwipo@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+# Stukk
+
+> **Warning**: This library is currently in development and is not yet ready for production use. The features mentioned are still being worked on, and there may be significant changes in future updates. Use with caution.
+
+**Stukk** is a library for creating graphical user interfaces (GUIs) with Tkinter in a simple way, allowing for efficient definition of structures and styles.
+
+## Installation
+
+To install **Stukk** from PyPI, use `pip`:
+
+```bash
+pip install stukk
+```
+
+## Basic Usage Example
+
+```python
+from stukk import stk
+
+stk.window(
+    settings={
+        "title": "My App",
+        "size": (400, 300)
+    },
+    layout=[
+        # Definition of widgets here...
+    ],
+    styles={
+        # Optional styles...
+    }
+)
+```
+
+## Features
+
+- Definition of widgets like `Label`, `Button`, `Entry`, etc.
+- Simple styling system similar to CSS.
+- Support for custom events.
+
+## Contributing
+
+Contributions are welcome. If you find a bug or have an enhancement in mind, please open an issue or a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
