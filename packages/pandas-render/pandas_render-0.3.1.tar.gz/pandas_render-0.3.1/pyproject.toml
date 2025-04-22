@@ -1,0 +1,75 @@
+[project]
+name = "pandas-render"
+dynamic = ["version"]
+description = "A pandas extension for rendering DataFrames"
+readme = "README.md"
+authors = [
+    { name = "Darius Morawiec", email = "nok@users.noreply.github.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "ipython>=7.11.1",
+    "jinja2>=3.0.0",
+    "typer>=0.15.2",
+]
+license = "BSD-3-Clause"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Visualization"
+]
+
+[project.urls]
+Repository = "https://github.com/nok/pandas-render"
+Issues = "https://github.com/nok/pandas-render/issues"
+
+[project.optional-dependencies]
+pandas = [
+    "pandas>=1.0.0",
+]
+polars = [
+    "polars>=1.0.0",
+]
+examples = [
+    "jupyterlab>=4.3.6",
+]
+
+[dependency-groups]
+dev = [
+    "jupytext>=1.17.0",
+    "pytest>=8.3.5",
+    "pytest-cov>=6.0.0",
+    "pytest-sugar>=1.0.0",
+    "pytest-xdist>=3.6.1",
+]
+
+[project.scripts]
+pandas = "pandas_render.cli.__main__:app"
+
+[tool.coverage.run]
+source = ["pandas_render"]
+
+[tool.coverage]
+skip_empty = true
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402"]
+"examples/*.py" = ["E402"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+exclude = [
+  "/.*",
+  "/examples",
+  "/tests",
+  "Makefile",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["pandas_render"]
+
+[tool.hatch.version]
+path = "pandas_render/__init__.py"
