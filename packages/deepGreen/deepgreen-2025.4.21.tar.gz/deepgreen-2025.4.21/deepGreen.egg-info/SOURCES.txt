@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+deepGreen/__init__.py
+deepGreen/data.py
+deepGreen/model.py
+deepGreen/predictor.py
+deepGreen/trainer.py
+deepGreen/utils.py
+deepGreen.egg-info/PKG-INFO
+deepGreen.egg-info/SOURCES.txt
+deepGreen.egg-info/dependency_links.txt
+deepGreen.egg-info/not-zip-safe
+deepGreen.egg-info/requires.txt
+deepGreen.egg-info/top_level.txt

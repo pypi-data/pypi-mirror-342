@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: deepGreen
+Version: 2025.4.21
+Summary: deepGreen: a machine learning based tree-ring width model
+Home-page: https://github.com/fzhu2e/deepGreen
+Author: Feng Zhu
+Author-email: fengzhu@ucar.edu
+License: BSD-3
+Keywords: Machine Learning,Tree-ring Width,Proxy System Model
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: colorama
+Requires-Dist: tqdm
+Requires-Dist: torch
+
+# deepGreen
+Machine Learning based Tree-ring Width Modeling
