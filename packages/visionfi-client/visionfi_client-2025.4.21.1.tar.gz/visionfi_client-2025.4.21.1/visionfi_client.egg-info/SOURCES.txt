@@ -1,0 +1,30 @@
+ACKNOWLEDGMENTS.md
+LICENSE
+MANIFEST.in
+NOTICE.txt
+README.md
+pyproject.toml
+setup.py
+examples/README.md
+examples/basic_usage.py
+examples/cli/visionfi_ascii.txt
+examples/cli/python/README.md
+examples/cli/python/banner.py
+examples/cli/python/color_guide.py
+examples/cli/python/visionfi_cli.py
+examples/files/invoices/Sample Invoice 1.pdf
+examples/files/invoices/Sample Invoice 2.pdf
+examples/files/invoices/Sample Invoice 3.pdf
+tests/__init__.py
+tests/test_client.py
+visionfi/__init__.py
+visionfi/auth.py
+visionfi/client.py
+visionfi/exceptions.py
+visionfi/utils.py
+visionfi/visionfi_types.py
+visionfi_client.egg-info/PKG-INFO
+visionfi_client.egg-info/SOURCES.txt
+visionfi_client.egg-info/dependency_links.txt
+visionfi_client.egg-info/requires.txt
+visionfi_client.egg-info/top_level.txt
