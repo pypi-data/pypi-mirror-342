@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: movenet-pre-processor
+Version: 0.1.3
+Summary: 
+Author: will-s-stone
+Author-email: will@williamstone.me
+Requires-Python: >=3.12,<3.13
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: numpy (==1.26.0)
+Description-Content-Type: text/markdown
+
+# Example usage:
+```
+with open("data/labels.json", "r") as f:
+    metadata = json.load(f)
+
+label_map, angle_map = build_label_maps(metadata)
+
+X, y, angles = build_dataset(
+    metadata=metadata,
+    clip_dir=Path("data"),
+    label_to_idx=label_map,
+    angle_to_idx=angle_map,
+    max_people=2,
+    target_len=60,
+    fill_mode="last"
+)
+
+save_dataset(X, y, angles, Path("data/dataset.npz"))
+save_label_maps(label_map, angle_map, Path("data"))
+```
