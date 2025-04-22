@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: whl2pyz
+Version: 0.0.4
+Summary: Generate Python executable zip archive for each entry point from a wheel package.
+Author: Alexis Giraudet
+License-Expression: GPL-3.0-or-later
+Project-URL: Repository, https://github.com/alexis-giraudet/whl2pyz.git
+Keywords: whl,wheel,pyz,zipapp
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: System :: Archiving :: Packaging
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# whl2pyz
+Generate Python executable zip archive for each entry point from wheel packages.
