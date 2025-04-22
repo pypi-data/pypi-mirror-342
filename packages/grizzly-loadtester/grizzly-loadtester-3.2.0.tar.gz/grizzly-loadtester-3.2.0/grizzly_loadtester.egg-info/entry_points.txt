@@ -1,0 +1,8 @@
+[console_scripts]
+async-messaged = grizzly_extras.async_message.daemon:main
+
+[novella.markdown.preprocessors]
+grizzly = grizzly_extras.novella:GrizzlyMarkdownProcessor
+
+[novella.templates]
+grizzly-mkdocs = grizzly_extras.novella:GrizzlyMkdocsTemplate
