@@ -1,0 +1,11 @@
+capnhook_ml.cpython-312-darwin.so,sha256=VGJL8NVvr8fedzTwbnwveUmH-2MskdR0luYqzfTaJJM,179056
+capnhook_ml-0.1.2.dist-info/RECORD,,
+capnhook_ml-0.1.2.dist-info/WHEEL,sha256=KnN4pV-BVPEZeIM7z5o9qM60w0ZWQdxxne7jLu1QF1k,136
+capnhook_ml-0.1.2.dist-info/top_level.txt,sha256=fKF8XjkgG5sa2J43xB_dpKwWJH2LDkn0oBbNiN6FlOk,17
+capnhook_ml-0.1.2.dist-info/METADATA,sha256=3Oddd5VxtcjWN9utUqc97zfosMphX1cRYDjG3zWGAIM,42573
+capnhook_ml-0.1.2.dist-info/licenses/LICENSE,sha256=8RcifswLsvJ7ozIDJ-O5b9VFOwtOlkVbKMvV5OfbItI,35245
+simd/reduce.hpp,sha256=DjJ58ylkGOfJoycd6dp916HPwCxr5E0e8LLz63QQLa8,6047
+simd/unary.hpp,sha256=Edclf1744QmDAnEDQ6srkDjehAm72NEkZl0r1Hq_2ls,2848
+simd/binary.hpp,sha256=54d2RbBN7YWbrHuOXEUmAZp5QrTMt2bA1kOC1WOtdJU,3082
+simd/linalg.hpp,sha256=3U1Vwgn3Rg0jE4RvV8XoHv4xRnioz1KZorBlEpHgPEM,2760
+capnhook_ml.dylibs/libopenblas.0.3.dylib,sha256=kY1us5tPR22Dn4a-pgi8x9P1Gjgf4_nLIghrI9col0U,10384336
