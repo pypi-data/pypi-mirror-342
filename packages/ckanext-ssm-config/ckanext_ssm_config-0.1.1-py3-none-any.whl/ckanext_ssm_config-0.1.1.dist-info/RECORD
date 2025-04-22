@@ -1,0 +1,12 @@
+ckanext/ssm/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ckanext/ssm/config_declaration.yaml,sha256=GKjpagncNnFZwt6N7MuwGXdEXyTAp2ZZgx4c45aMexs,1596
+ckanext/ssm/plugin.py,sha256=Q6fMxJGzRVcRk6lxhkw90bcEGZoWa7qIkmCApjL0hts,6128
+ckanext/ssm/tests/test_plugin.py,sha256=d4nCXn_fJN8oyTvV59Gc4PLZTVcYBk7ONGc85zbyn_Q,2849
+ckanext_ssm_config-0.1.1.dist-info/licenses/LICENSE,sha256=iEtDSVe6aIMRlZDRzkl_1ESpyLcDC278TeglQBxnJb8,34501
+test/features/environment.py,sha256=Cxo9tTr4o8ld0i9UHYCPMcwJuBElAcWlLmHtS53XX7g,1820
+test/features/steps/steps.py,sha256=7oZ6Wfy_hhJIQ6d5YOx4VyYvYCbtYLwAfRuAOOtxo3w,2842
+ckanext_ssm_config-0.1.1.dist-info/METADATA,sha256=RqNXGW17eLPL18CQWwPPC6Q4HrS8OMqAMn-6IyNhvFs,4957
+ckanext_ssm_config-0.1.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+ckanext_ssm_config-0.1.1.dist-info/entry_points.txt,sha256=tq_MzlInOdhXougmN4K2vayR5hspEsLEybE70qK_kOQ,120
+ckanext_ssm_config-0.1.1.dist-info/top_level.txt,sha256=CHbt4l0aTOPTLVKgACXtoIFo_CyMiveOp0RykniCRBE,13
+ckanext_ssm_config-0.1.1.dist-info/RECORD,,
