@@ -1,0 +1,3 @@
+[console_scripts]
+dictionary-parser=dictionary_parser.main:app
+
