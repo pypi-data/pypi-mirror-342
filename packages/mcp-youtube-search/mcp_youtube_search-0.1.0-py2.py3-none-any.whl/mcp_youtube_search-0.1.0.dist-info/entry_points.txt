@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-youtube-search = mcp_youtube_search.cli:main
