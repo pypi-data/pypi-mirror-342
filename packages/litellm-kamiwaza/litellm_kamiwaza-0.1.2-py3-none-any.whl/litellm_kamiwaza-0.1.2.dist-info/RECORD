@@ -1,0 +1,12 @@
+litellm_kamiwaza/__init__.py,sha256=p7psUpQu-lF1thgYYwSP5x8t5pvYxJgff7I1jjhSDxI,289
+litellm_kamiwaza/kamiwaza_router.py,sha256=QiDdsBmwUO0DHOFrWS0Yf5c_D2iau5fWmxU4XaGFmzM,25087
+litellm_kamiwaza/version.py,sha256=kUR5RAFc7HCeiqdlX36dZOHkUI5wI6V_43RpEcD8b-0,22
+litellm_kamiwaza-0.1.2.dist-info/licenses/LICENSE,sha256=7InwZSkj8N7wIrjrwSup2zBNZeNjvrJSrp2SrP-R_wo,1065
+tests/__init__.py,sha256=Ujo9bk2otWhHV6ObQ9JcsNKAEnKLqiA1t1jJhS-VbsY,30
+tests/conftest.py,sha256=qSnP4CIqTajUNhZ1ZSKGIxGbhVPxp4SQEtBlF_erytE,430
+tests/static_models_conf.py,sha256=bDOabOcfA2D99t-qod7KKiPUrSSqPdirW61YN8U9PjM,1227
+tests/test_kamiwaza_router.py,sha256=FTvbU4ytqWvhj2sRYETxC8Qwv-gVNEb6n1Be0at2VWI,50587
+litellm_kamiwaza-0.1.2.dist-info/METADATA,sha256=D4e-SnwUtVxtVFvKkMgibhW0GpGx-Osu6wzNdzhQz-M,2904
+litellm_kamiwaza-0.1.2.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+litellm_kamiwaza-0.1.2.dist-info/top_level.txt,sha256=qX1Vkl4N8EZ8kaI2kvnmlA8FTZsNeFoudy5ALV57YDM,23
+litellm_kamiwaza-0.1.2.dist-info/RECORD,,
