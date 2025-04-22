@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: RuleTree
+Version: 0.0.4.post2
+Summary: Package description
+Home-page: https://github.com/riccotti/RuleTree
+Author: Cristiano Landi
+Author-email: cristiano.landi@phd.unipi.it
+License: BSD-Clause-2
+Keywords: keyword1 keyword2 keyword3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Other
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.12.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy<2.0.0
+Requires-Dist: scikit-learn>=1.5.0
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: category_encoders
+Requires-Dist: threadpoolctl
+Requires-Dist: tqdm
+Requires-Dist: progress-table
+Requires-Dist: graphviz>=0.20.3
+Requires-Dist: numba
+Requires-Dist: psutil
+Requires-Dist: setuptools
+Requires-Dist: matplotlib
+Requires-Dist: tempfile312
+Provides-Extra: flag
+
+# RuleTree
+TODO
