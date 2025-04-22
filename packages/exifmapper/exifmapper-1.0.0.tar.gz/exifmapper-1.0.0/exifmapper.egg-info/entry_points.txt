@@ -1,0 +1,2 @@
+[console_scripts]
+exifmapper = exifmapper.gui:main
