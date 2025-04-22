@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ctesiphon-fastapi-service
+Version: 0.1.1
+Summary: Типовой сервис FastAPI
+License: Apache-2.0
+Author: Anton Berdnikov
+Author-email: agratoth@yandex.ru
+Maintainer: Anton Berdnikov
+Maintainer-email: agratoth@yandex.ru
+Requires-Python: >=3.11,<3.13
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: ctesiphon (>=0.1.9)
+Description-Content-Type: text/markdown
+
+# ctesiphon-fastapi-service
+
+```bash
+git config --local core.hooksPath .githooks/
+```
