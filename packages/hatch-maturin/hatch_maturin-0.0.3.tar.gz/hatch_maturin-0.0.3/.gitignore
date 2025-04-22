@@ -1,0 +1,5 @@
+venv
+.venv
+chunks
+.pytest_cache
+__pycache__ 
