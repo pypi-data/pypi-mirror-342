@@ -1,0 +1,2 @@
+[console_scripts]
+hrms = hrms_connect.main:app
