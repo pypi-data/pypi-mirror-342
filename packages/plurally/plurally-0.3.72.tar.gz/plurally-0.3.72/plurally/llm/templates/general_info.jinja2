@@ -1,0 +1,8 @@
+Important: Following information should not be directly included in the output, they are given as context.
+<general_information>
+{%- if general_info %}
+{%- for info in general_info %}
+- {{ info }}
+{%- endfor -%}
+{%- endif %}
+</general_information>
