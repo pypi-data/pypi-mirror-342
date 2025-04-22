@@ -1,0 +1,20 @@
+cryptography
+cairosvg
+anytree
+matplotlib
+pandas
+Pillow
+pyside6
+qrcode
+QtAwesome
+qt-material
+requests
+
+[:platform_system == "Windows"]
+pypiwin32
+win-unicode-console
+winshell
+
+[devel]
+sphinx
+sphinx-rtd-theme
