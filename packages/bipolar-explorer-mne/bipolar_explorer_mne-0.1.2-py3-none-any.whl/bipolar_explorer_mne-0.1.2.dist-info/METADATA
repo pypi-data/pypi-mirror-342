@@ -1,0 +1,113 @@
+Metadata-Version: 2.4
+Name: bipolar-explorer-mne
+Version: 0.1.2
+Summary: A tool for exploring bipolar montages in MNE files.
+Author-email: Ana Sofia Carmo <anascacais@gmail.com>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2025, Ana Sofia Carmo
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        
+Project-URL: Repository, https://github.com/anascacais/BipolarExplorerMNE
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: mne
+Requires-Dist: plotly
+Requires-Dist: pandas
+Requires-Dist: plotly-resampler
+Dynamic: license-file
+
+# BipolarExplorerMNE
+
+A simple Python package built on top of [MNE-Python](https://mne.tools) to visualize **bipolar montages** of non-EEG signals (e.g., ECG, EMG, EOG) from `.EDF` or `.EEG` files, even when channel names are inconsistent or messy.
+
+---
+
+## 🚀 Motivation
+
+Working with physiological recordings from hospital systems often means dealing with inconsistently named or misconfigured channels. While EEG data typically follows the 10-20 naming convention, **ECG and other physiological signals often don't** — you'll find channel names like:
+
+- `ECG-`, `ECG+`
+- `E`, `Ecg`
+- `-0`, `Ecg`
+- ...and other unpredictable combinations.
+
+On top of that, **electrode placement can sometimes be reversed**, making interpretation more difficult.
+
+This package helps **quickly visualize possible bipolar combinations** between selected channels, so you can identify useful signals and confirm polarity before moving on to analysis.
+
+---
+
+## 📦 Features
+
+- Load `.EDF` or `.EEG` files using MNE
+- Visualize bipolar signals from non-EEG channels
+- Interactive (plotly) plots to scroll and inspect signals
+- Designed for **manual exploration and verification**
+
+---
+
+## 🔧 Installation
+
+You can install the package via pip (if uploaded to PyPI) or directly from GitHub:
+
+```bash
+pip install bipolar-explorer-mne
+```
+
+or
+
+```bash
+pip install git+https://github.com/anascacais/BipolarExplorerMNE.git
+```
+
+---
+
+## Usage
+
+```python
+from bipolar_explorer_mne.bipolar_explorer import BipolarExplorer
+
+# Load the data
+explorer = BipolarExplorer(filepath='test_file.edf')
+
+# Optional: list all available channels
+explorer.list_channels()
+
+# Open the UI
+bipolar_config, id = explorer.explore(extra_ui_info=['id'])
+```
+
+---
+
+## Notes
+
+- This tool is primarily meant for **channel exploration**, not as an automated pipeline.
+- You should still verify the actual electrode placements and channel meaning based on metadata or clinical notes when available.
+- It assumes you have `MNE` **installed and working** in your environment.
