@@ -1,0 +1,23 @@
+documentation/01_configuration_management.md,sha256=ijR7AZzQM-JDZ4-Hx59em2a705xqwSVtkFbF5p0o4qU,9258
+documentation/02_device_control_interfaces.md,sha256=6bNIAPeBPd8giabShTD5IT5JwRoJqrqZEUW96gMvU-M,13026
+documentation/03_govee_api_client.md,sha256=Jc6VlY8WP92jz3KCOklo-72B4twyL056u3J0T6CSfko,17498
+documentation/04_command_line_interface__cli_.md,sha256=OeFucjqse7sDZqrejGRIrKxXRy56uEy1JjzytYxPAgY,14385
+documentation/05_mcp_server_implementation.md,sha256=ZoKtOe-2CR1e2QINLfsse2pFKcCSQ7X6CsLhHU_mLg4,13743
+documentation/06_custom_error_handling.md,sha256=2IvfjadfM8BwuCwsZdEV_AUF2lO5LbWEDTRfwqRMxrc,15414
+documentation/index.md,sha256=EZPlENeaCgENMCApaRfW3T_4XwgO6aJxTVVUf74bMVc,1620
+slides/Meetup 30 janvier.pptx,sha256=5R0ucyJ4-zjTAXkyuubcbC8Ao9z-06wCijfAUURoajo,9420920
+src/govee_mcp_server/__init__.py,sha256=Z0fOPnJWI8GHvaVAMQHIekrkP0-P7rWK7LBAEF5Papg,901
+src/govee_mcp_server/api.py,sha256=lVpZwJwy4TWpqw5JYRJTGs67OyTx8WE9Ahi84msDTKY,7998
+src/govee_mcp_server/cli.py,sha256=T85aR_-lj0QcNtJ4lkrdzAUl0iOerUpQLF8q4wXMg1Q,3914
+src/govee_mcp_server/config.py,sha256=C-EjADAR7_JwomE6N-_b2IPJz5Mt6Lpls9xminKd-4I,1301
+src/govee_mcp_server/exceptions.py,sha256=1hdttBfMBaC3t3Vw0J8RQpVt5AfqDMGG2P0voud2NNA,574
+src/govee_mcp_server/interfaces.py,sha256=yQrAIvHVvkMy_jXd8wVQjRSx7eEzAjA3LKFle1ZzlGM,2640
+src/govee_mcp_server/server.py,sha256=PW0Zr5MJjeEBZvGq7JXQATnKAaE_H96FdkdB3ixuYRc,4005
+src/govee_mcp_server/transformers.py,sha256=8iQbai7JBNCxaXlOsrVGcAuHA8VGtRtjSozlYcKOeg4,2654
+tests/test_cli.py,sha256=1UmJ_QaKTk27pRzJZrUCTNuYu6-Ap8u0F8q2cHAItTE,1280
+tests/test_server.py,sha256=ALY-xE9nLVEX2d822Oidd1l4UCaaZS3ja5sCyfFfKG0,3880
+mseep_govee_mcp_server-0.1.0.dist-info/METADATA,sha256=UzcHr3Fj9AESb-UW4lM4TnVFOPD9uM1m1QOvvQKWGOs,425
+mseep_govee_mcp_server-0.1.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+mseep_govee_mcp_server-0.1.0.dist-info/entry_points.txt,sha256=W22fsgiIF5_HGRihNgd-n-URF2PPldTQj18qhafzuAY,60
+mseep_govee_mcp_server-0.1.0.dist-info/licenses/LICENSE,sha256=EMKsIend95CrW1C-1Ua1RhkrTa31K1yvVQ-LI7sWx1U,1061
+mseep_govee_mcp_server-0.1.0.dist-info/RECORD,,
