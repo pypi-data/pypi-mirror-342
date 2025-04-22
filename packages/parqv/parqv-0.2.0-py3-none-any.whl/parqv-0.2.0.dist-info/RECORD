@@ -1,0 +1,17 @@
+parqv/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+parqv/app.py,sha256=QmGEBtHoASdNzDmSgLQ2BvpTnZOuxQj2l0QGhYfp48w,6476
+parqv/parqv.css,sha256=C42ZXUwMX1ZXfGo0AmixbHxz0CWKzWBHZ_hkhq5aehg,2920
+parqv/handlers/__init__.py,sha256=gplqWWpt0npYosDZfoX1Ek0sfvAD0YITMjlQEo-IYVc,343
+parqv/handlers/base_handler.py,sha256=JjlI0QdUZmozaMhAZnhzzS8nC2J63QRDX3rZqzXOpW8,3662
+parqv/handlers/json.py,sha256=KgujRGimqzE3kVGQFwfkCb2Yv3YWxB8w-b17q5X2Yj8,19794
+parqv/handlers/parquet.py,sha256=kG46oeVONmi6cCVzf5MaF88PkmXP7jCEGIAlDkG6N2M,32221
+parqv/views/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+parqv/views/data_view.py,sha256=T_LPbXdxm_KOmwtTQWAxlUeNTlSGfIgQIg853WDMAME,2355
+parqv/views/metadata_view.py,sha256=GnzhPJolMDZU8AAwY0h_uToz1sdM54iJbM2GLkD3caI,1013
+parqv/views/schema_view.py,sha256=3QUYlOxTk9DYKdipEmt79U6hSlNJa_j3a3SK9UNwWHk,11332
+parqv-0.2.0.dist-info/licenses/LICENSE,sha256=Ewl2wCa8r6ncxHlpf-ZZXb77c82zdfxHuEeKzBbm6nM,11324
+parqv-0.2.0.dist-info/METADATA,sha256=q1K9Vqntt70-ffbJ3eT2g8_TW4XABsFHCkdYbBF4nXM,5387
+parqv-0.2.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+parqv-0.2.0.dist-info/entry_points.txt,sha256=8Tm8rTiIB-tbVItoOA4M7seEmFnrtK25BMH9UKzqfXg,44
+parqv-0.2.0.dist-info/top_level.txt,sha256=_t3_49ZluJbvl0QU_P3GNVuXxCffqiTp37dzZIa2GEw,6
+parqv-0.2.0.dist-info/RECORD,,
