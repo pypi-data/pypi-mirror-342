@@ -1,0 +1,164 @@
+[project]
+name = "mappr"
+version = "0.5.1"
+requires-python = ">=3.10"
+description = ""
+license = { text = "Proprietary" }
+maintainers = [{ name = "Mateusz Klos", email = "novopl@gmail.com" }]
+authors = [{ name = "Mateusz Klos", email = "novopl@gmail.com" }]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/novopl/mappr"
+Homepage = "https://novopl.github.io/mappr"
+Documentation = "https://novopl.github.io/mappr"
+Issues = "https://novopl.github.io/mappr/issues"
+
+
+[project.scripts]
+fae = 'fae.cli:cli'
+
+
+
+
+[dependency-groups]
+dev = [
+    "Sphinx>=7.1.2",
+    "coverage>=7.6.10",
+    "debugpy>=1.8.11",
+    "faker>=33.3.1",
+    "freezegun>=1.5.1",
+    "google-oauth>=1.0.1",
+    "isort>=5.13.2",
+    "mkdocs-material>=9.5.49",
+    "mkdocs>=1.6.1",
+    "mkdocstrings[python]>=0.28.2",
+    "mypy>=1.14.1",
+    "peltak-changelog>=0.0.4",
+    "peltak-todos>=0.0.10",
+    "peltak>=0.31.1",
+    "polyfactory>=2.21.0",
+    "pydantic[email]>=2.10.5",
+    "pytest-asyncio>=0.25.2",
+    "pytest-cov>=6.0.0",
+    "pytest-icdiff>=0.9",
+    "pytest-md-report>=0.6.3",
+    "pytest-sugar>=1.0.0",
+    "pytest>=8.3.4",
+    "rich>=13.9.4",
+    "ruff>=0.9.1",
+    "sphinx-autodoc-typehints>=1.24.0",
+    "sphinx-material>=0.0.35",
+    "sqlalchemy>=2.0.37",
+    "types-pygments>=2.19.0.20250107",
+    "types-pyyaml>=6.0.12.20241230",
+    "types-requests>=2.32.0.20241016",
+]
+
+
+[tool.uv]
+package = true
+
+
+##################
+#     PYTEST     #
+##################
+
+[tool.pytest.ini_options]
+addopts = "--durations=3"
+# addopts = """
+#     --durations=3
+#     --cov-report=term:skip-covered
+#     --cov=src/fae
+#     --cov-report=html:.build/coverage
+#     --doctest-modules
+#     --doctest-report=ndiff
+# """
+pythonpath = ['src']
+testpaths = ['tests', 'src', 'dosc/src']
+doctest_optionflags = "NORMALIZE_WHITESPACE IGNORE_EXCEPTION_DETAIL ELLIPSIS"
+asyncio_default_fixture_loop_scope = 'function'
+
+
+[tool.coverage.run]
+branch = true
+source = ['src']
+omit = [
+    '*/fae/asgi.py',
+    '*/fae/modules/example/**',
+    '*/fae/modules/foodcat/**',
+    '*/fae/cli/main.py',
+    '*/fae/cli/__init__.py',
+]
+
+[tool.coverage.report]
+exclude_lines = ['nocov']
+
+
+##################
+#      RUFF      #
+##################
+
+[tool.ruff]
+line-length = 90
+indent-width = 4
+output-format = 'concise'
+
+[tool.ruff.lint]
+# select = ["E", "F", "W", "D"]
+select = ["E", "F", "W"]
+preview = true
+exclude = [
+    "_local/**"
+]
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+no-lines-before = ['future', 'standard-library']
+section-order = [
+    'future',
+    'standard-library',
+    'third-party',
+    'first-party',
+    'local-folder',
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+
+##################
+#      MYPY      #
+##################
+
+[tool.mypy]
+python_version = 3.10
+mypy_path = 'src'
+check_untyped_defs = true
+no_error_summary = true
+files = [
+    'src',
+    'tests',
+]
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = [
+    'peltak.*',
+    'aiokafka.*',
+    'ulid',
+]
+
+
+##################
+#     ISORT      #
+##################
+
+[tool.isort]
+lines_after_imports = 2
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+sections = ['FUTURE', 'STDLIB', 'THIRDPARTY', 'FIRSTPARTY', 'LOCALFOLDER']
+directory = 'src'
+line_length = 90
