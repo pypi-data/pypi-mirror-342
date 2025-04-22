@@ -1,0 +1,2 @@
+[console_scripts]
+lightmcp = lightmcp.cli:main

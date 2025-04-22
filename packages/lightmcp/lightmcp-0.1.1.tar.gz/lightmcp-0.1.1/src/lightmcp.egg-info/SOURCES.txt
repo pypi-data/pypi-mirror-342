@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/lightmcp/__init__.py
+src/lightmcp/cli.py
+src/lightmcp/tool_loader.py
+src/lightmcp/tool_registry.json
+src/lightmcp.egg-info/PKG-INFO
+src/lightmcp.egg-info/SOURCES.txt
+src/lightmcp.egg-info/dependency_links.txt
+src/lightmcp.egg-info/entry_points.txt
+src/lightmcp.egg-info/requires.txt
+src/lightmcp.egg-info/top_level.txt
+tests/test_tool_loader.py
