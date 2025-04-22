@@ -1,0 +1,11 @@
+packaging
+rasterio>=1.4.3
+xarray>=2024.7.0
+pyproj>=3.3
+numpy>=1.23
+
+[all]
+scipy
+
+[interp]
+scipy
