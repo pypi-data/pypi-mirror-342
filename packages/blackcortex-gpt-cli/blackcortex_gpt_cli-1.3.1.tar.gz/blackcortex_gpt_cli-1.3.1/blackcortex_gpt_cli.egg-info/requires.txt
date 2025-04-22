@@ -1,0 +1,17 @@
+openai
+rich
+tiktoken
+prompt_toolkit
+python-dotenv
+
+[dev]
+build
+pre-commit
+pylint
+pytest
+pytest-cov
+pytest-testdox
+ruff
+setuptools
+twine
+wheel
