@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: mg400control
+Version: 0.0.4
+Summary: a package that contain my lovely plant
+Home-page: UNKNOWN
+Author: wsettawat
+Author-email: author@example.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10.12
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: numpy
+
+For control mg400 ros2
+
