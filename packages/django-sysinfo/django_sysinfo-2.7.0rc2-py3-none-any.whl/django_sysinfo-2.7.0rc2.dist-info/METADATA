@@ -1,0 +1,87 @@
+Metadata-Version: 2.4
+Name: django-sysinfo
+Version: 2.7.0rc2
+Summary: Simple django app to expose system infos: libraries version, databae server infos...
+Author-email: sax <s.apostolico@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django :: 3.2
+Classifier: Framework :: Django :: 4.2
+Classifier: Framework :: Django :: 5.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.10
+Requires-Dist: psutil>=7
+Requires-Dist: python-dateutil>=2.9.0.post0
+Description-Content-Type: text/markdown
+
+# django-sysinfo
+
+[![Pypi](https://badge.fury.io/py/django-sysinfo.svg)](https://badge.fury.io/py/django-sysinfo)
+[![coverage](https://codecov.io/github/saxix/django-sysinfo/coverage.svg?branch=develop)](https://codecov.io/github/saxix/django-sysinfo?branch=develop)
+[![Test](https://github.com/saxix/django-sysinfo/actions/workflows/test.yml/badge.svg)](https://github.com/saxix/django-sysinfo/actions/workflows/test.yml)
+[![Django](https://img.shields.io/pypi/frameworkversions/django/django-sysinfo)](https://pypi.org/project/django-sysinfo/)
+
+
+Simple django app to expose system infos like libraries version, database server.
+
+Easy to extend to add custom checks.
+
+## Features
+
+
+    - dump system informations
+    - admin integration
+    - API to add custom checks
+    - simple echo
+    - retrieve library version
+
+
+## Quickstart
+
+Install django-sysinfo::
+
+    pip install django-sysinfo
+
+put it in your `INSTALLED_APPS`::
+
+    INSTALLED_APPS=[...
+     'django_sysinfo'
+    ]
+
+add relevant entries in your url.conf::
+
+    urlpatterns = (
+        ....
+        url(r'', include(django_sysinfo.urls)),
+    )
+
+or customize them::
+
+    from django_sysinfo.views import http_basic_login, sysinfo
+
+    urlpatterns = (
+        url('sys/info/$', http_basic_login(sysinfo), name='sys-info'),
+        url('sys/version/(?P<name>.*)/$', version, name='sys-version')
+    )
+
+
+Known issues and limitations
+----------------------------
+
+There are some limitations in the metrics returned by sysinfo, anyway this package is
+not intended to be used as host/resources monitoring tool.
+
+    - Disk space returns device info, any soft limits are ignored
+    - Memory can be wrong in some virtual environments
