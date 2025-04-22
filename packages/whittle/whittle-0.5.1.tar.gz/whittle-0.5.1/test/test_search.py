@@ -1,0 +1,118 @@
+from __future__ import annotations
+
+import numpy as np
+import pytest
+from syne_tune.config_space import randint
+
+from whittle.sampling.param_bins import ParamBins
+from whittle.search import multi_objective_search
+from whittle.search.baselines import methods
+
+
+def objective(config, **kwargs):
+    return np.random.rand() * config["a"], np.random.rand() * config["b"]
+
+
+search_space = {"a": randint(0, 10), "b": randint(0, 100)}
+
+
+def param_bins(bin_n, bin_s, bin_t, max_config=100):
+    def params_estimator(config):
+        return config["a"]
+
+    min_config = {"a": 0}
+    max_config = {"a": max_config}
+
+    bins = ParamBins(
+        min_config,
+        max_config,
+        params_estimator,
+        num_bins=bin_n,
+        log_bins=False,
+        start_bin_size=bin_s,
+        empty_bin_tolerance=bin_t,
+    )
+    return bins
+
+
+@pytest.mark.parametrize("search_strategy", methods)
+def test_multi_objective_search(search_strategy, num_samples=5):
+    bins = (
+        param_bins(10, 2, 1, max_config=10)
+        if search_strategy == "stratified_random_search"
+        else (None, None)
+    )
+
+    results = multi_objective_search(
+        objective=objective,
+        search_strategy=search_strategy,
+        search_space=search_space,
+        objective_kwargs={},
+        num_samples=num_samples,
+        param_bins=bins,
+    )
+
+    assert all(
+        key in results for key in ["costs", "configs", "runtime", "is_pareto_optimal"]
+    )
+
+    assert results["costs"].shape == (num_samples, 2)
+    assert len(results["configs"]) == num_samples
+    assert len(results["runtime"]) == num_samples
+    assert len(results["is_pareto_optimal"]) == num_samples
+
+    if search_strategy != "nsga2":
+        # check that first config are the initial design
+        upper_bound = {hp_name: hp.upper for hp_name, hp in search_space.items()}
+        assert results["configs"][0] == upper_bound
+
+        lower_bound = {hp_name: hp.lower for hp_name, hp in search_space.items()}
+        assert results["configs"][1] == lower_bound
+
+        mid_point = {
+            hp_name: (hp.upper - hp.lower) // 2 for hp_name, hp in search_space.items()
+        }
+        assert results["configs"][2] == mid_point
+
+
+bin_tolerance = [0, 1]
+bin_size = [1, 2]
+num_bins = [3, 10]
+
+
+@pytest.mark.parametrize("bin_t", bin_tolerance)
+@pytest.mark.parametrize("bin_s", bin_size)
+@pytest.mark.parametrize("bin_n", num_bins)
+def test_param_bins(bin_t, bin_s, bin_n):
+    bin_width = 10
+    bins = param_bins(bin_n, bin_s, bin_t, max_config=bin_n * bin_width)
+
+    # fill up to bin_n - 1 bins
+    for j in range(bin_s):
+        for i in range(bin_n - bin_t):
+            if i == 1:
+                continue
+            assert bins.put_in_bin({"a": 1 + i * bin_width})
+
+        # fill the last one unless it'd be filled fully (leave 1 not full)
+        if j < bin_s - 1:
+            assert bins.put_in_bin({"a": 1 + bin_width})
+
+    assert bins.current_bin_length == bin_s
+
+    # last bin is not filled fully -> this should be false
+    assert not bins.put_in_bin({"a": 3})
+    assert bins.current_bin_length == bin_s
+
+    # all but one filled (- tolerance)
+    assert sum([b == bin_s for b in bins.bins]) == bin_n - bin_t - 1
+
+    # last bin is filled fully -> this should be true
+    assert bins.put_in_bin({"a": 2 + bin_width})
+    # all filled
+    assert sum([b == bin_s for b in bins.bins]) == bin_n - bin_t
+
+    assert bins.put_in_bin({"a": 3})
+    assert bins.current_bin_length == bin_s + 1
+    # all almost filled - 1 filled (- tolerance)
+    assert sum([b == bin_s for b in bins.bins]) == bin_n - bin_t - 1

@@ -1,0 +1,2 @@
+[console_scripts]
+whittle = whittle.__main__:main
