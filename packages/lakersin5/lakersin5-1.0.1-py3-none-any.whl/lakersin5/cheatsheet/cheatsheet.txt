@@ -1,0 +1,155 @@
+================= IPTABLES COMMANDS =================
+1. View current rules:
+   sudo iptables -S
+   sudo iptables -L
+
+2. Allow loopback connections:
+   sudo iptables -A INPUT -i lo -j ACCEPT
+   sudo iptables -A OUTPUT -o lo -j ACCEPT
+
+3. Block a specific IP:
+   sudo iptables -A INPUT -s 203.0.113.51 -j DROP
+
+4. Block IP on a specific interface:
+   sudo iptables -A INPUT -i eth0 -s 203.0.113.51 -j DROP
+
+5. List rules with line numbers:
+   sudo iptables -L --line-numbers
+
+6. Delete specific rule by line number:
+   sudo iptables -D INPUT <line_number>
+
+7. Flush specific chain:
+   sudo iptables -F INPUT
+
+8. Flush all rules:
+   sudo iptables -F
+
+9. Reject all TCP packets based on IP/port/mac:
+   sudo iptables -A INPUT -s 192.168.1.5 -p tcp --dport 22 -j REJECT
+
+10. Drop all other traffic:
+    sudo iptables -P INPUT DROP
+
+11. Allow traffic on specific ports:
+    sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
+====================================================
+=================== SNORT ==========================
+1. Install Snort:
+   sudo apt install snort
+
+2. Run Snort in IDS mode:
+   sudo snort -c /etc/snort/snort.conf -i eth0
+
+3. Create a custom rule:
+   echo 'alert tcp any any -> any 80 (msg:"HTTP connection detected"; sid:1000001;)' > /etc/snort/rules/local.rules
+
+4. Run Snort with rule:
+   sudo snort -A console -q -c /etc/snort/snort.conf -i eth0
+
+====================================================
+==================== NMAP ==========================
+1. Host discovery:
+   sudo nmap -sn www.manipal.edu
+
+2. Full port scan:
+   sudo nmap -p 1-65535 192.168.1.100
+
+3. Ping scan:
+   sudo nmap -sn 192.168.1.0/24
+
+4. Host scan (basic discovery):
+   sudo nmap -sP 192.168.1.0/24
+
+5. Port scanning techniques:
+   a. SYN Scan: sudo nmap -sS 192.168.1.100
+   b. TCP Connect: sudo nmap -sT 192.168.1.100
+   c. UDP Scan: sudo nmap -sU 192.168.1.100
+   d. TCP INIT Scan: sudo nmap -sI zombiehost 192.168.1.100
+   e. TCP NULL Scan: sudo nmap -sN 192.168.1.100
+
+6. OS Detection:
+   sudo nmap -O 192.168.1.100
+
+====================================================
+=================== OPENSSL ========================
+1. Generate a private key:
+   openssl genrsa -out private.key 2048
+
+2. Create a certificate signing request (CSR):
+   openssl req -new -key private.key -out request.csr
+
+3. Generate a self-signed SSL certificate:
+   openssl x509 -req -days 365 -in request.csr -signkey private.key -out certificate.crt
+
+====================================================
+=================== HASHCAT ========================
+1. Brute-force attack:
+   hashcat -m 0 -a 3 hash.txt ?a?a?a?a?a?a
+
+2. Dictionary attack:
+   hashcat -m 0 -a 0 hash.txt wordlist.txt
+
+3. Hybrid attack:
+   hashcat -m 0 -a 6 hash.txt wordlist.txt ?d?d
+
+4. Mask attack:
+   hashcat -m 0 -a 3 hash.txt ?l?l?l?l?d?d
+
+5. Rule-based attack:
+   hashcat -m 0 -a 0 hash.txt wordlist.txt -r rules/best64.rule
+
+6. PRINCE attack:
+   hashcat -a 9 -m 0 hash.txt wordlist.txt
+
+====================================================
+================= JOHN THE RIPPER ==================
+1. Basic cracking:
+   john --wordlist=rockyou.txt hash.txt
+
+2. Show cracked passwords:
+   john --show hash.txt
+
+====================================================
+===================== HYDRA ========================
+1. SSH login brute-force:
+   hydra -l root -P passwords.txt ssh://192.168.1.100
+
+2. HTTP form brute-force:
+   hydra -L users.txt -P passwords.txt 192.168.1.100 http-post-form "/login:user=^USER^&pass=^PASS^:F=incorrect"
+
+====================================================
+===================== HPING3 =======================
+1. Send ICMP Echo (Ping):
+   sudo hping3 -1 192.168.1.1
+
+2. Capture packets on interface:
+   sudo tcpdump -i eth0
+
+3. Custom port scan (TCP SYN):
+   sudo hping3 -S -p 80 -c 1 192.168.1.100
+
+4. Spoofed scan:
+   sudo hping3 -S -a 10.0.0.1 -p 80 192.168.1.100
+
+5. UDP Flood attack:
+   sudo hping3 --udp --flood -p 53 192.168.1.100
+
+6. ICMP Flood attack:
+   sudo hping3 -1 --flood 192.168.1.100
+
+7. Random source IP:
+   sudo hping3 -S -p 80 --rand-source --flood 192.168.1.100
+
+8. SYN flood (DDOS):
+   sudo hping3 -S --flood -p 80 192.168.1.100
+
+9. Change TTL:
+   sudo hping3 -S -t 100 -p 80 192.168.1.100
+
+10. Limit packet count:
+    sudo hping3 -c 10 -S -p 80 192.168.1.100
+
+11. Set custom flags:
+    sudo hping3 -F -P -U -S -A -R -p 80 192.168.1.100

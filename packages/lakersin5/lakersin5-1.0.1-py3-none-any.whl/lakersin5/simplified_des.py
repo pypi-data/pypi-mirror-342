@@ -1,0 +1,91 @@
+# lakersin5/simplified_des.py
+
+P10 = [3, 5, 2, 7, 4, 10, 1, 9, 8, 6]
+P8  = [6, 3, 7, 4, 8, 5, 10, 9]
+IP  = [2, 6, 3, 1, 4, 8, 5, 7]
+IP_INV = [4, 1, 3, 5, 7, 2, 8, 6]
+EP  = [4, 1, 2, 3, 2, 3, 4, 1]
+P4  = [2, 4, 3, 1]
+
+S0 = [[1,0,3,2],[3,2,1,0],[0,2,1,3],[3,1,3,2]]
+S1 = [[0,1,2,3],[2,0,1,3],[3,0,1,0],[2,1,0,3]]
+
+def permute(bits, pattern):
+    return [bits[i-1] for i in pattern]
+
+def left_shift(bits, n):
+    return bits[n:] + bits[:n]
+
+def xor(bits1, bits2):
+    return [b1 ^ b2 for b1, b2 in zip(bits1, bits2)]
+
+def sbox_lookup(bits, sbox):
+    row = (bits[0] << 1) | bits[3]
+    col = (bits[1] << 1) | bits[2]
+    val = sbox[row][col]
+    return [val >> 1 & 1, val & 1]
+
+def generate_keys(key):
+    key = permute(key, P10)
+    left, right = key[:5], key[5:]
+    
+    left = left_shift(left, 1)
+    right = left_shift(right, 1)
+    k1 = permute(left + right, P8)
+
+    left = left_shift(left, 2)
+    right = left_shift(right, 2)
+    k2 = permute(left + right, P8)
+
+    return k1, k2
+
+def fk(bits, key):
+    left, right = bits[:4], bits[4:]
+    expanded = permute(right, EP)
+    temp = xor(expanded, key)
+
+    left_sbox = sbox_lookup(temp[:4], S0)
+    right_sbox = sbox_lookup(temp[4:], S1)
+    sbox_output = permute(left_sbox + right_sbox, P4)
+
+    return xor(left, sbox_output) + right
+
+def sdes_encrypt(plaintext, key):
+    k1, k2 = generate_keys(key)
+    bits = permute(plaintext, IP)
+    bits = fk(bits, k1)
+    bits = bits[4:] + bits[:4]
+    bits = fk(bits, k2)
+    return permute(bits, IP_INV)
+
+def sdes_decrypt(ciphertext, key):
+    k1, k2 = generate_keys(key)
+    bits = permute(ciphertext, IP)
+    bits = fk(bits, k2)
+    bits = bits[4:] + bits[:4]
+    bits = fk(bits, k1)
+    return permute(bits, IP_INV)
+
+def str_to_bits(s, size=8):
+    return [int(b) for b in f"{s:0{size}b}"]
+
+def bits_to_str(bits):
+    return int("".join(map(str, bits)), 2)
+
+def run_simplified_des_demo():
+    print("\n=== Simplified DES (S-DES) Demo ===")
+    
+    plaintext = str_to_bits(0b10101010)
+    key = str_to_bits(0b1010000010, size=10)
+
+    print(f"Plaintext: {bits_to_str(plaintext):08b}")
+    print(f"Key:       {bits_to_str(key):010b}")
+
+    cipher = sdes_encrypt(plaintext, key)
+    print(f"Ciphertext: {bits_to_str(cipher):08b}")
+
+    decrypted = sdes_decrypt(cipher, key)
+    print(f"Decrypted:  {bits_to_str(decrypted):08b}")
+
+if __name__ == "__main__":
+    run_simplified_des_demo()
