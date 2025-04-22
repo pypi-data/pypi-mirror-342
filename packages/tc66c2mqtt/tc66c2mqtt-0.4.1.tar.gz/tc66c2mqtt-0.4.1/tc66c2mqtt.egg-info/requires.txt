@@ -1,0 +1,8 @@
+ha-services>=2.5.0
+pycryptodome
+bleak
+kaitaistruct
+cli-base-utilities>=0.17.0
+bx_py_utils
+tyro
+rich

@@ -1,0 +1,3 @@
+[console_scripts]
+tc66c2mqtt_app = tc66c2mqtt.__main__:main
+tc66c2mqtt_dev = tc66c2mqtt.cli_dev:main
