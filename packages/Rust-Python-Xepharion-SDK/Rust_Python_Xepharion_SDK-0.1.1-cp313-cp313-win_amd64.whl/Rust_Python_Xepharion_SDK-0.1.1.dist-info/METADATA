@@ -1,0 +1,160 @@
+Metadata-Version: 2.4
+Name: Rust_Python_Xepharion_SDK
+Version: 0.1.1
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+````markdown
+# Maturin: Build and Publish Rust-Based Python Packages
+
+Maturin is a powerful tool that helps you build and package Python extensions written in Rust. It streamlines the process of creating wheels (the standard Python package format) that can be easily installed using `pip`.
+
+## What is Maturin for?
+
+If you're looking to leverage the speed, safety, and rich ecosystem of Rust within your Python projects, Maturin is your go-to solution. It allows you to:
+
+* **Write performant Python extensions in Rust:** Unlock significant performance gains for computationally intensive tasks by implementing them in Rust.
+* **Create cross-platform Python wheels:** Maturin handles the complexities of building wheels for different operating systems and architectures.
+* **Seamlessly integrate Rust code into Python:** Maturin takes care of the necessary bindings and compilation steps, making the integration feel natural.
+* **Publish your Rust-backed Python packages to PyPI:** Share your high-performance Python libraries with the wider Python community.
+* **Develop and debug efficiently:** Maturin provides helpful commands for local development and testing.
+
+## Key Features
+
+* **Cargo Integration:** Built on top of Cargo, Rust's package manager, leveraging its dependency management and build system.
+* **Wheel Building:** Generates `.whl` files that adhere to Python's packaging standards.
+* **Cross-Platform Builds:** Supports building wheels for Linux, macOS, and Windows.
+* **Development Mode:** Enables rapid iteration by building extensions in place for easy testing.
+* **Publishing to PyPI:** Simplifies the process of uploading your packages to the Python Package Index.
+* **Support for Different Binding Mechanisms:** Works with popular Rust-Python binding libraries like PyO3 and rust-cpython.
+* **Virtual Environment Awareness:** Respects your active Python virtual environment.
+
+## Getting Started
+
+### Prerequisites
+
+* **Python:** Make sure you have Python 3.6 or later installed.
+* **pip:** Ensure you have the latest version of pip.
+* **Rust:** Install Rust from [rustup.rs](https://rustup.rs/).
+* **Cargo:** Cargo comes bundled with Rust.
+* **Maturin:** Install Maturin using pip:
+    ```bash
+    pip install maturin
+    ```
+
+### Creating a New Project
+
+Maturin can help you set up a new project structure. Navigate to the directory where you want to create your project and run:
+
+```bash
+maturin init --bindings pyo3 # Or rust-cpython, or none for pure Rust packages
+````
+
+This will create a basic project structure with:
+
+  * `Cargo.toml`: Rust's project manifest.
+  * `src/lib.rs`: Your Rust code.
+  * `pyproject.toml`: Python's build configuration file (PEP 517/518).
+  * A basic Python package structure.
+
+### Writing Your Rust Extension
+
+Open `src/lib.rs` and write your Rust code. You'll typically use a binding library like PyO3 to expose Rust functions and modules to Python.
+
+**Example (using PyO3):**
+
+```rust
+use pyo3::prelude::*;
+
+#[pyfunction]
+fn greet(name: &str) -> PyResult<String> {
+    Ok(format!("Hello, {}!", name))
+}
+
+#[pymodule]
+fn my_rust_module(_py: Python, m: &PyModule) -> PyResult<()> {
+    m.add_function(wrap_pyfunction!(greet)?)?;
+    Ok(())
+}
+```
+
+### Building Your Package
+
+Navigate to the root of your project directory in the terminal and run:
+
+```bash
+maturin build --release
+```
+
+This command will build an optimized release version of your Python wheel in the `target/wheels` directory. For development builds, you can use:
+
+```bash
+maturin build --develop
+```
+
+This builds the extension in place, allowing you to import and test it directly in your Python environment without installing the wheel.
+
+### Installing Your Package
+
+You can install the generated wheel using `pip`:
+
+```bash
+pip install target/wheels/your_package_name-*.whl
+```
+
+Replace `your_package_name-*.whl` with the actual name of your wheel file.
+
+### Publishing to PyPI
+
+1.  **Ensure you have an account on PyPI and have created an API token.**
+2.  **Install `twine`:**
+    ```bash
+    pip install twine
+    ```
+3.  **Build your package:**
+    ```bash
+    maturin build --release
+    ```
+4.  **Publish using `twine`:**
+    ```bash
+    twine upload dist/*
+    ```
+    You will be prompted for your PyPI username and password (or API token).
+
+## Configuration (`pyproject.toml`)
+
+Maturin uses the `[tool.maturin]` section in your `pyproject.toml` file for configuration. You can specify options like:
+
+  * `module-name`: The name of your Python module.
+  * `bindings`: The binding mechanism you are using (e.g., "pyo3", "rust-cpython").
+  * `compatibility`: Target Python versions.
+  * `sdist-include`: Files to include in the source distribution.
+
+**Example:**
+
+```toml
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[tool.maturin]
+module-name = "my_rust_module"
+bindings = "pyo3"
+compatibility = ["cp37", "cp38", "cp39", "cp310", "cp311", "cp312"]
+sdist-include = ["my_rust_module/**/*.pyi"]
+```
+
+## Further Resources
+
+  * **Maturin Documentation:** [https://docs.rs/maturin/latest/maturin/](https://www.google.com/search?q=https://docs.rs/maturin/latest/maturin/)
+  * **PyO3 Documentation:** [https://pyo3.rs/](https://pyo3.rs/)
+  * **rust-cpython Documentation:** [https://github.com/RustPython/rust-cpython](https://www.google.com/search?q=https://github.com/RustPython/rust-cpython)
+  * **Python Packaging User Guide:** [https://packaging.python.org/](https://packaging.python.org/)
+
+Maturin empowers you to write high-performance Python packages with the robustness of Rust. Dive in and experience the best of both worlds\!
+
+```
+```
