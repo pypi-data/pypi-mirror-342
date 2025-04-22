@@ -1,0 +1,65 @@
+Metadata-Version: 2.4
+Name: mcp-server-qq-music
+Version: 0.1.1
+Summary: QQ Music MCP Server
+Author-email: saltfishpr <saltfishpr@gmail.com>
+License-Expression: MIT
+Requires-Python: >=3.13
+Requires-Dist: fastmcp>=2.2.1
+Requires-Dist: mcp-server-lib
+Requires-Dist: mcp[cli]>=1.0.0
+Requires-Dist: playwright>=1.51.0
+Requires-Dist: pydantic>=2.0.0
+Description-Content-Type: text/markdown
+
+# QQ Music MCP Server
+
+## Tools
+
+- check login status
+- login
+- search songs
+- get song detail
+
+## Usage
+
+```json
+{
+    "mcpServers": {
+        "qq-music": {
+            "command": "uvx",
+            "args": [
+                "mcp-server-qq-music"
+            ]
+        }
+    }
+}
+```
+
+## Debugging
+
+```shell
+git clone https://github.com/saltfishpr/mcp-servers.git
+```
+
+```json
+{
+    "mcpServers": {
+        "qq-music": {
+            "command": "uv",
+            "args": [
+                "--directory",
+                "/<path to mcp-servers folder>",
+                "run",
+                "mcp-server-qq-music"
+            ]
+        }
+    }
+}
+```
+
+or
+
+```shell
+npx @modelcontextprotocol/inspector uv run mcp-server-qq-music
+```

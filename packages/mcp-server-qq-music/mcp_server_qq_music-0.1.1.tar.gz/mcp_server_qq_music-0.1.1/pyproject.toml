@@ -1,0 +1,23 @@
+[project]
+name = "mcp-server-qq-music"
+version = "0.1.1"
+description = "QQ Music MCP Server"
+readme = "README.md"
+authors = [{ name = "saltfishpr", email = "saltfishpr@gmail.com" }]
+requires-python = ">=3.13"
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "playwright>=1.51.0",
+    "pydantic>=2.0.0",
+    "mcp-server-lib",
+    "fastmcp>=2.2.1",
+]
+
+[project.scripts]
+mcp-server-qq-music = "mcp_server_qq_music:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
