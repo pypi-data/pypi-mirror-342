@@ -1,0 +1,2 @@
+example.com.	IN	NS	ns1.example.com.
+ns1.example.com.	IN	A	127.0.0.1
