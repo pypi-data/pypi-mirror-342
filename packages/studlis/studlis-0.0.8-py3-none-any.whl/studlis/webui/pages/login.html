@@ -1,0 +1,84 @@
+
+    <style>
+        .login-box {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .login-box .form-group {
+            position: relative;
+        }
+        .login-box .form-group .fa {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+        .login-box .form-control {
+            padding-left: 30px;
+        }
+    </style>
+<template tpl_id="login_box">
+    <div class="login-box">
+        <h2 class="text-center">Login</h2>
+            <div class="form-group">
+                <i class="fa fa-user"></i>
+                <input type="text" id="user" class="form-control" placeholder="Username" required>
+            </div>
+            <div class="form-group mt-1">
+                <i class="fa fa-lock"></i>
+                <input type="password"  id="pwd" class="form-control" placeholder="Password">
+            </div>
+            <button class="btn btn-primary btn-block mt-1" onclick="page_login.login();">Login</button>
+    </div>
+</template>
+<script>
+    var page_login = {
+        show: function() {
+            $('#main-view-content').tpl('login_box');
+        },
+        login: function(){
+            var username = $('#user').val();
+            var password = $('#pwd').val();
+            DoRequest("login",{"username":username,"password":password},function(data){
+                if(data.value.username){
+                    sessionStorage.setItem("token",data.value.token);
+                    sessionStorage.setItem("username",data.value.username);
+                    session_token = data.value.token;
+                    
+                    $("#loginbutton").addClass("d-none");
+                    loggedin=true;
+                    page_select_project.show();
+                }
+            });
+        }
+    }
+
+    var loggedin=false;
+    session_permission_groups="";
+    var session_token = sessionStorage.getItem("token");
+
+    $(function(){
+        if (session_token){
+            DoRequest("check_login",{"token":session_token},function(data){
+                if(data.value.username){
+                    
+                    $("#loginbutton").addClass("d-none");
+                    loggedin=true;
+                    page_select_project.show();
+                }else{
+                    page_login.show();
+                }
+            });
+            
+        }else {
+            page_login.show();
+        }
+
+    });
+
+
+</script>

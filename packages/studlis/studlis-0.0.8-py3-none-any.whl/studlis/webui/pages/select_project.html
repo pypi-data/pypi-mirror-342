@@ -1,0 +1,70 @@
+<template tpl_id="select_project">
+    <div>
+        <h2>Wähle Studie</h2>
+        <div class="project_list">
+            <div class="row">
+                <div class="col-12">
+                    <table class="project-table table-modern">
+                        <thead>
+                            <tr class="">
+                                <td>Name</td>
+                                <td>Beschreibung</td>
+                                <td>Studienzahl</td>
+
+                            </tr>
+                        </thead>
+                        <tbody class="project-content"></tbody>
+                    </table>
+                </div>
+                <div class="col-4">
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</template>
+<template tpl_id="project_item">
+    <tr class="" style="font-size:12pt;">
+        <td class="project-name"></td>
+        <td class="project-desc"></td>
+        <td class="project-count">
+
+        </td>
+
+    </tr>
+
+</template>
+<script>
+    var selected_project="";
+    page_select_project = {};
+    page_select_project.show = function () {
+        node = $("#main-view-content").tpl("select_project");
+        DoRequest("get_project_list", {"token":session_token}, function (data) {
+            if (data.value) {
+                for (var i = 0; i < data.value.length; i++) {
+                    var project = data.value[i];
+                    var node = $(".project-content").tpl("project_item");
+                    node.find(".project-name").text(project.name);
+                    node.find(".project-desc").text(project.description);
+                    node.find(".project-count").text(project.study_count);
+                    node.click(function () {
+                        page_select_project.select_project(project.name);
+                    });
+                    //$(".main-view-sidenav").removeClass("d-none");
+                
+                }
+            }
+        });
+    }
+    page_select_project.select_project = function (project_name) {
+        selected_project = project_name;
+        $(".main-view-sidenav").removeClass("d-none");
+        page_project_overview.show();
+        //page_study_browser.show();
+    }
+
+
+
+</script>

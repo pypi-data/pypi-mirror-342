@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MV</title>
+    <link href="static/bootstrap5.3/css/bootstrap.min.css" rel="stylesheet"crossorigin="anonymous">
+    <link href="static/fontawesome/css/all.min.css" rel="stylesheet">
+    <link href="static/main.css" rel="stylesheet">
+    <link href="static/ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/toastui/toastui-editor.min.css" />
+    <link rel="stylesheet" href="static/select2/select2.min.css" />
+    <link rel="stylesheet" href="static/jstree/themes/default/style.min.css" />
+</head>
+<body>
+    <div class="main-view main-view-outer" id="main_view" explorer='hidden'>
+        <div class="main-view-sidenav d-none" collapsed="false">
+            <ul>
+                <li onclick="page_project_overview.show();">
+                    
+                    <i class="fa-solid fa-house"></i>
+                    <span>Projekt Übersicht</span>
+                </li>
+                <li onclick="study_viewer.start_review_mode();">
+                  <i class="fa-solid fa-check-double"></i>
+                  <span>Review</span>
+              </li>
+                <li onclick="page_study_browser.show()">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Liste</span>
+                </li>
+                <li onclick="page_study_browser.show(true)">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Meine Reviews</span>
+                </li>
+                <li onclick="page_download.show()">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Download</span>
+                </li>
+                            
+            </ul>
+        </div>
+
+        <script src="static/bootstrap5.3/js/bootstrap.bundle.min.js"></script>
+        <script src="static/jquery/jquery-3.7.1.min.js"></script>
+        <script src="static/lang.js"></script>
+        <script src="static/ui.js"></script>
+        <script src="static/engine.js"></script>
+        <script src="static/editor.js"></script>
+        
+
+        ${self.body()}
+        <script src="static/toastui/toastui-editor-all.min.js"></script>
+        <script src="static/select2/select2.min.js"></script>
+        <script src="static/jstree/jstree.min.js"></script>
+        <script src="static/plotly/plotly.min.js"></script>
+    </div>
+
+    <div class="modal fade" id="default_modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+           
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary confirmbutton" id="default_modal_confirm_button" data-bs-dismiss="modal"></button>
+            <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Abbrechen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+    <div class="modal fade" id="error_modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalLabel">Error Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p id="error_text">Error text will be displayed here.</p>
+              <p id="error_detail">Error details will be displayed here.</p>
+              <!--<p id="error_log">Error log will be displayed here.</p>-->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>

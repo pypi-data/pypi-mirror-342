@@ -1,0 +1,34 @@
+
+<template tpl_id="project_download">
+    <div class="project-download  flex-use-height">
+        <h2>Project Download</h2>
+        <div class="dropdown mr-2">
+            <select id="dlDropdownMenu" class="form-control">
+                <option value="backup">Vollständiges Projekt</option>
+                <option value="csv">Kommaseparierte Datei .csv</option>
+                <option value="xlsx">Excel</option>
+            </select>
+            <button id="btn-download" class="btn btn-outline-primary mr-2" style="width: 150px;" onclick="page_download.download()">
+                <i class="fas fa-download"></i> Download
+            </button>
+        </div>
+        
+    </div>
+</template>
+<%text>
+<script>
+    page_download= {};
+    page_download.show = function () {
+        studlis.newState();
+        node = $("#main-view-content").tpl("project_download");
+    
+
+    }
+    page_download.download = function(){
+        let selected = $("#dlDropdownMenu").val();
+        data = {"token":session_token,"project":selected_project,"type":selected};
+        DoDownload("download",data);
+
+    }
+
+</script></%text>
