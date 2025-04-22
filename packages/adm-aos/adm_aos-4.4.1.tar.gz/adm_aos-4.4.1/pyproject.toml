@@ -1,0 +1,45 @@
+[project]
+name = "adm-aos"
+description = "Administer's AOS service for distributing apps."
+readme = "README.md"
+
+version = "4.4.1"
+requires-python = ">=3.11"
+
+authors = [{ name = "pyxfluff", email = "business@notpyx.me" }]
+dependencies = [
+    # HTTP
+    "uvicorn",
+    "fastapi",
+    "httpx",
+
+    # Utilities
+    "Levenshtein",
+    "colorthief",
+    "pymongo",
+    "pathlib",
+    "nanoid",
+    "orjson",
+    "psutil>=7.0.0",
+
+    # Discord
+    #"audioop-lts",
+    #"py-cord",
+    
+    # Development
+    "matplotlib",
+    "flake8>=7.2.0",
+]
+
+urls.homepage = "https://admsoftware.org"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch]
+metadata.allow-direct-references = true
+build.targets.wheel.packages = ["AOS/adm-aos"]
+
+[project.scripts]
+aos = "AOS.__main__:main"
