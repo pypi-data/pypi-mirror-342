@@ -1,0 +1,70 @@
+Metadata-Version: 2.4
+Name: wbx-workspaces
+Version: 1.3.2
+Summary: Commands to download Webex Workspaces stats
+Author-email: Stephane Cohen <stecohen@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2023 Stephane Cohen
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: Compliance,Control Hub,Webex
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: click
+Requires-Dist: pandas
+Requires-Dist: requests
+Description-Content-Type: text/markdown
+
+# Webex workspaces commands utilities 
+
+## Usage
+```
+Usage: python -m wbx_workspaces [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --version            Show the version and exit.
+  -t, --token TEXT     Your access token. Read from AUTH_BEARER env variable
+                       by default. You can find your personal token at
+                       https://developer.webex.com/docs/getting-started.
+  -d, --debug INTEGER  Debug level.
+  --help               Show this message and exit.
+
+Commands:
+  device-status  Show device status
+  devices        List devices in given location
+  locations      List locations IDs
+  metrics        Gather yesteray's hourly peopleCount or timeUsed metric
+  workspaces     List workspaces in given location
+```
+
+## Examples
+```
+# list all devices  
+python -m  wbx_workspaces devices
+
+# get device diagnostics 
+python -m wbx_workspaces device-status <deviceId> "Diagnostics.*.*"
+
+# get yesterday's peopleCount hourly metric for all workspaces under a location ID in a single JSON file
+python -m wbx_workspaces metrics -l <locationID> -a peopleCount 
+```
