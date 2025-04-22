@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: expert_llm
+Version: 0.1.9
+Summary: LLM client for 'expert'
+Author: Liam Tengelis
+Author-email: liam.tengelis@blacktuskdata.com
+Requires-Dist: btdcore
+Requires-Dist: jsonschema
+Requires-Dist: pydantic
+Requires-Dist: requests
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-dist
+Dynamic: summary
