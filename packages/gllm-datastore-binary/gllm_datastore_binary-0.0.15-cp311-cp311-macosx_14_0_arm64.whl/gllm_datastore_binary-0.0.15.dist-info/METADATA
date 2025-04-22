@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: gllm-datastore-binary
+Version: 0.0.15
+Summary: A library containing data store components for Gen AI applications.
+Author: Berty C L Tobing
+Author-email: berty.c.l.tobing@gdplabs.id
+Requires-Python: >=3.11,<3.13
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: chroma
+Provides-Extra: elasticsearch
+Provides-Extra: fuzzy
+Provides-Extra: kg
+Provides-Extra: redis
+Requires-Dist: Jinja2 (>=3.1.4,<4.0.0) ; extra == "kg"
+Requires-Dist: chromadb (>=0.6.3,<0.7.0) ; extra == "chroma"
+Requires-Dist: gllm-core-binary
+Requires-Dist: langchain-chroma (>=0.2.2,<0.3.0) ; extra == "chroma"
+Requires-Dist: langchain-elasticsearch (==0.3.0) ; extra == "elasticsearch"
+Requires-Dist: llama-index-core (>=0.12.0,<0.13.0) ; extra == "kg"
+Requires-Dist: llama-index-graph-stores-nebula (>=0.4.0,<0.5.0) ; extra == "kg"
+Requires-Dist: llama-index-graph-stores-neo4j (>=0.4.0,<0.5.0) ; extra == "kg"
+Requires-Dist: nebula3-python (>=3.8.3,<4.0.0)
+Requires-Dist: neo4j (>=5.28.1,<6.0.0)
+Requires-Dist: pandas (==2.2.2)
+Requires-Dist: pysqlite3-binary (>=0.5.4,<0.6.0) ; sys_platform == "linux"
+Requires-Dist: python-levenshtein (==0.26.1) ; extra == "fuzzy"
+Requires-Dist: redis (==5.2.1) ; extra == "redis"
+Requires-Dist: sqlalchemy (>=2.0.37,<3.0.0)
+Description-Content-Type: text/markdown
+
+# GLLM Datastore
+
+## Description
+
+A library for managing data stores for Gen AI applications.
+
+## Installation
+
+1. Python v3.11 or above:
+
+You can install Python using [Miniconda](https://docs.anaconda.com/free/miniconda/index.html).
+
+2. Make sure you're in the `base` conda environment:
+```bash
+conda activate
+```
+
+3. [Poetry](https://python-poetry.org/docs/) v1.8.1 or above:
+
+You can install Poetry using cURL (you need Python to install Poetry):
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+4. Install the library using Poetry:
+```bash
+# Latest
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git#subdirectory=libs/gllm-datastore"
+
+# Specific version
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@gllm_datastore-v0.0.1-beta.1#subdirectory=libs/gllm-datastore"
+
+# Specific Branch Name
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@<BRANCH NAME>#subdirectory=libs/gllm-datastore"
+
+# With extra dependencies
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git#subdirectory=libs/gllm-datastore" --extras "extra1 extra2"
+```
+
+5. At this step, you can deactivate Miniconda environment as Poetry will create and manage its own virtual environment for you.
+```bash
+conda deactivate
+```
+
+## Managing Dependencies
+1. Go to root folder of `gllm-datastore` module, e.g. `cd libs/gllm-datastore`.
+2. Run `poetry shell` to create a virtual environment.
+3. Run `poetry lock` to create a lock file if you haven't done it yet.
+4. Run `poetry install` to install the `gllm-datastore` requirements for the first time.
+5. Run `poetry update` if you update any dependency module version at `pyproject.toml`.
+
+
+## Contributing
+Please refer to this [Python Style Guide](https://docs.google.com/document/d/1uRggCrHnVfDPBnG641FyQBwUwLoFw0kTzNqRm92vUwM/edit?usp=sharing)
+to get information about code style, documentation standard, and SCA that you need to use when contributing to this project
+
+1. Activate `pre-commit` hooks using `pre-commit install`
+2. Run `poetry shell` to create a virtual environment.
+3. Run `poetry lock` to create a lock file if you haven't done it yet.
+4. Run `poetry install` to install the `gllm-datastore` requirements for the first time.
+5. Run `which python` to get the path to be referenced at Visual Studio Code interpreter path (`Ctrl`+`Shift`+`P` or `Cmd`+`Shift`+`P`)
+6. Try running the unit test to see if it's working:
+```bash
+poetry run pytest -s tests/unit_tests/
+```
+
