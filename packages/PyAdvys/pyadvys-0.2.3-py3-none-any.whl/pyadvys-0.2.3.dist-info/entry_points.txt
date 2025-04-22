@@ -1,0 +1,2 @@
+[console_scripts]
+pyadvys-config-ini = advys_configuracoes.inicializador:main
