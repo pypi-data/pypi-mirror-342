@@ -1,0 +1,18 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "dfembed"
+version = "0.1.4"
+description = "A Python library that embeds and indexes Arrow-based dataframes"
+authors = [{ name = "Alon Agmon", email = "alon.agmon@gmail.com" }]
+requires-python = ">=3.8"
+dependencies = ["polars>=0.18.0", "pyarrow>=11.0.0"]
+
+[project.optional-dependencies]
+test = ["pytest>=7.0.0"]
+
+[tool.maturin]
+python-source = "python"
+features = ["pyo3/extension-module"]
