@@ -1,0 +1,129 @@
+{
+  "resource": "\",/ping/{ping_id}\"",
+  "path": "\"/ping/123\"",
+  "httpMethod": "POST",
+  "headers": {
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Encoding": "gzip, compress, deflate, br",
+    "Authorization": "Bearer fake-token",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-ASN": "41435",
+    "CloudFront-Viewer-Country": "UA",
+    "Content-Type": "application/json",
+    "Host": "6526xo4n92.execute-api.eu-central-1.amazonaws.com",
+    "request-start-time": "1744731131125",
+    "User-Agent": "test",
+    "Via": "1.1 e1f996a9009532eeea33edfd32ef3240.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "UkzM7IbcWkwOlPdwAo_JOT7vxktT3Cst_3X_GufjbtHF_I_7rj8LIg==",
+    "X-Amzn-Trace-Id": "Root=1-67fe7bfb-6e4692b9746d964e23a7d176",
+    "X-Forwarded-For": "176.104.59.83, 130.176.223.147",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "multiValueHeaders": {
+    "Accept": [
+      "application/json, text/plain, */*"
+    ],
+    "Accept-Encoding": [
+      "gzip, compress, deflate, br"
+    ],
+    "Authorization": [
+      "Bearer fake-token"
+    ],
+    "CloudFront-Forwarded-Proto": [
+      "https"
+    ],
+    "CloudFront-Is-Desktop-Viewer": [
+      "true"
+    ],
+    "CloudFront-Is-Mobile-Viewer": [
+      "false"
+    ],
+    "CloudFront-Is-SmartTV-Viewer": [
+      "false"
+    ],
+    "CloudFront-Is-Tablet-Viewer": [
+      "false"
+    ],
+    "CloudFront-Viewer-ASN": [
+      "41435"
+    ],
+    "CloudFront-Viewer-Country": [
+      "UA"
+    ],
+    "Content-Type": [
+      "application/json"
+    ],
+    "Host": [
+      "6526xo4n92.execute-api.eu-central-1.amazonaws.com"
+    ],
+    "request-start-time": [
+      "1744731131125"
+    ],
+    "User-Agent": [
+      "test"
+    ],
+    "Via": [
+      "1.1 e1f996a9009532eeea33edfd32ef3240.cloudfront.net (CloudFront)"
+    ],
+    "X-Amz-Cf-Id": [
+      "UkzM7IbcWkwOlPdwAo_JOT7vxktT3Cst_3X_GufjbtHF_I_7rj8LIg=="
+    ],
+    "X-Amzn-Trace-Id": [
+      "Root=1-67fe7bfb-6e4692b9746d964e23a7d176"
+    ],
+    "X-Forwarded-For": [
+      "176.104.59.83, 130.176.223.147"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ]
+  },
+  "queryStringParameters": null,
+  "multiValueQueryStringParameters": null,
+  "pathParameters": {
+    "ping_id": "123"
+  },
+  "stageVariables": null,
+  "requestContext": {
+    "resourceId": "etju59",
+    "resourcePath": "\"/ping/{ping_id}\"",
+    "operationName": "handlers.other.ping",
+    "httpMethod": "POST",
+    "extendedRequestId": "JEhPUFaBFiAEdRg=",
+    "requestTime": "15/Apr/2025:15:32:11 +0000",
+    "path": "\"/prod/ping/123\"",
+    "accountId": "985539757029",
+    "protocol": "HTTP/1.1",
+    "stage": "prod",
+    "domainPrefix": "6526xo4n92",
+    "requestTimeEpoch": 1744731131275,
+    "requestId": "c6f8a9e3-1b53-4a9f-92f0-bf98e1b8ebfe",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "sourceIp": "176.104.59.83",
+      "principalOrgId": null,
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "test",
+      "user": null
+    },
+    "domainName": "6526xo4n92.execute-api.eu-central-1.amazonaws.com",
+    "deploymentId": "r5a53w",
+    "apiId": "6526xo4n92"
+  },
+  "body": "\"[{\n  \"name\": \"Lol\",\n  \"age\": \"22\"\n},\n{\n  \"name\": \"Lol2\",\n  \"age\": \"222\"\n}]\"",
+  "isBase64Encoded": false
+}
