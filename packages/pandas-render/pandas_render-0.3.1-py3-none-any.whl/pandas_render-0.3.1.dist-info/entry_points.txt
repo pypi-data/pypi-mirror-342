@@ -1,0 +1,2 @@
+[console_scripts]
+pandas = pandas_render.cli.__main__:app
