@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: rpi5-wanbot-exporter
+Version: 0.3
+Summary: Application to check WAN connection and export metrics to Prometheus
+Author-email: Niklas Melin <niklasme@pm.me>
+License: MIT
+Project-URL: Homepage, https://gitlab.com/wanbot
+Keywords: prometheus,raspberrypi,network,exporter,rpi5
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: prometheus-client
+Requires-Dist: psutil
+
+# Raspberry Pi 5 Wan Bot Exporter
+
+Raspberry Pi Prometheus exporter. Works in Docker or as a standalone script to export data to Prometheus. It uses python's internal webserver.
+Supports Raspberry Pi 5 and Raspbian-based images. Currently exports:
+
+* Ping to requested sites
+* Upload, Download and latency to Bredbandskollen
+
+## Requirements
+
+* Python 3.x
+* (optional) Docker
+
+## Usage
+
+### Docker
+
+It is recommended to build the image locally to ensure that it is compatible with you platform.
+```bash
+docker build -t rpi5_wanBot_exporter -t registry.gitlab.com/niklasme/wanbot:latest.
+```
+To bring up the container without mounted volumes for reading fan speed ant temperature sensors.
+```bash
+docker run -d -p 8878:8878 --name rpi5_wanBot_exporter rpi5_wanBot_exporter
+```
+
+### Docker compose
+You can also use Docker compose to simplify the process by placing the following content in the `docker-compose.yaml` file and also add the required links to the files containing the fan speed and cpu temperature. If the container fail to start, ensure that it is compatible with your platform; i.e. amd64 aarch64 etc.
+```yaml
+services:
+  rpi5_wanBfot_exporter:
+    image: registry.gitlab.com/niklasme/wanbot:latest
+    container_name: rpi5_wanBot_exporter
+    ports:
+     - 8878:8878
+    volumes:
+      - /sys/devices/platform/cooling_fan/hwmon/:/sensors/hwmon:ro
+      - /sys/class/thermal/thermal_zone0/temp:/sensors/temp:ro
+```
+
+Bring up the container after building it with `docker compose up`. The additional `-d` is to run in detached mode as a service.
+```bash
+docker build -t rpi5_wanBot_exporter .
+docker compose up -d
+```
+
+
+
+### Standalone
+
+* clone this repository or download the script to your Raspberry Pi 5
+* run the exporter `python3 rpi5_wanBot_exporter.py --webserver --port 8878`
+
+
+## Integration with Prometheus:
+
+To integrate with Prometheus, add the following job to your Prometheus configuration file (prometheus.yml):
+
+```yaml
+scrape_configs:
+  - job_name: 'rpi5_wanBot_exporter'
+    static_configs:
+      - targets: ['<Raspberry_Pi_IP>:8878']
+```
+
+## License
+
+This script is provided under the MIT License. See the LICENSE file for more details.
