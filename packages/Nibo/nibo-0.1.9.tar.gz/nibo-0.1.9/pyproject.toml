@@ -1,0 +1,46 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "setuptools_scm>=7",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Nibo"
+dynamic = ["version"]
+authors = [
+    { name = "Chen", email = "chenpsilva@gmail.com" }
+]
+description = "Extrai informações do Nibo"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "pydantic>=2.10",
+    "python-dotenv>=1.1",
+    "requests>=2.32"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nibo*"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -v --tb=short --disable-warnings"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py", "tests_*.py", "*_tests.py"]
+python_functions = ["test_*", "_test"]
+
+[tool.setuptools_scm]
+write_to = "nibo/__version__.py"
+local_scheme = "no-local-version"
+
+
+
