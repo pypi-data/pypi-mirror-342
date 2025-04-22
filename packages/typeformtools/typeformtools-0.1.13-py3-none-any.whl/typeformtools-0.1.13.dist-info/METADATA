@@ -1,0 +1,72 @@
+Metadata-Version: 2.4
+Name: typeformtools
+Version: 0.1.13
+Summary: TypeForm helpers
+Author: Olaf
+License: MIT License
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Typing :: Typed
+Requires-Python: >=3.12
+Requires-Dist: annotated-types
+Requires-Dist: more-itertools
+Requires-Dist: typing-extensions>=4.13
+Requires-Dist: useful-types
+Description-Content-Type: text/markdown
+
+# `typeformtools` - Helpers for [PEP 747](https://peps.python.org/pep-0747/) `TypeForm`s
+
+## Usage
+
+### Installation
+
+    > pip install typeformtools[refresh]
+
+Note this needs the `GitHub` version of `typing-extensions` to support `TypeForm`, which the `PyPI` version still lacks.
+That dependency in `typeformtools` would have `PyPI` purposely raise a `400` error, *Bad request*, upon publishing.
+
+Therefore, the first `import` of `typeformtools` dynamically downloads module `typing-extensions` fom `GitHub`, 
+which `pip install typeformtools` brings with the `[refresh]` option.
+
+If this worries you, don't use `typeformtools` with the `[refresh]` option. 
+Instead, fix it manually until the `PyPI` version of `typing-extensions` will be updated to 4.13, 
+when this hack will no longer be required.
+
+### Interactive usage
+
+    > python
+    >>> import typeformtools
+    >>> typeformtools.non_optional(int | None)
+    # <class 'int'>
+
+## Contents
+
+### Functions to reduce to more basic `TypeForm`s
+
+| function          | effect                              | otherwise |
+|:------------------|:------------------------------------|:----------|
+| `unaliased()`     | type A = T &rarr; T                 | original  |
+| `unannotated()`   | Annotated[T, ...] &rarr; T          | original  |
+| `undisguised()`   | type A = Annotated[T, ...] &rarr; T | original  |
+| `non_optional()`  | T &vert; None &rarr; T &vert; Never | original  |
+
+### Other functions
+
+| function            | effect                                                 | otherwise |
+|:--------------------|:-------------------------------------------------------|:----------|
+| `literal_values()`  | Literal[value, value, ...] &rarr; (value, value, ...)  | fail      |
+
+## Status
+
+This package is very much a *work in progress*:
+* it may fail, even for its limited supported scope
+* the scope of provided functions needs to be extended
+* more functions need to be provided
+* more documentation is required
+* there are still many `#TODO`s
+* the packaging needs hacks to handle the correct (`GitHub`) version of `typing-extensions`
+ 
