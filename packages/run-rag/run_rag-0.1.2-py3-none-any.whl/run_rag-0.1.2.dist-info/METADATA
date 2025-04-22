@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: run_rag
+Version: 0.1.2
+Summary: A RAG stack installer
+Author-email: Rishabh Deshpande <rishabh9to5@gmail.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: langchain
+Requires-Dist: langchain-openai
+Requires-Dist: langchain-community
+Requires-Dist: langchain-huggingface
+Requires-Dist: langchain_groq
+Requires-Dist: pymupdf
+Requires-Dist: langchain_core
+Requires-Dist: langgraph
+Requires-Dist: openai
+Requires-Dist: chromadb
+Requires-Dist: faiss-cpu
+Requires-Dist: langchain_pinecone
