@@ -1,0 +1,2 @@
+[console_scripts]
+power-slides = power_slides.cli:main

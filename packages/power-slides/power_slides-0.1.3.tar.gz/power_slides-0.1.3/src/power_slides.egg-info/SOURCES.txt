@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/power_slides/__init__.py
+src/power_slides/cli.py
+src/power_slides/generator.py
+src/power_slides/parser.py
+src/power_slides/presentation_template.html
+src/power_slides.egg-info/PKG-INFO
+src/power_slides.egg-info/SOURCES.txt
+src/power_slides.egg-info/dependency_links.txt
+src/power_slides.egg-info/entry_points.txt
+src/power_slides.egg-info/requires.txt
+src/power_slides.egg-info/top_level.txt
+src/power_slides/layouts/50-50.py
