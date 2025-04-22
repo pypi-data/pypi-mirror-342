@@ -1,0 +1,3 @@
+[console_scripts]
+pytraceability=pytraceability.cli:main
+
