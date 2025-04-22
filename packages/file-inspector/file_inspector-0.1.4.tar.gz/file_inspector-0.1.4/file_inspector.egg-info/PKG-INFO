@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: file-inspector
+Version: 0.1.4
+Summary: 파일 메타정보 추출 및 리포트 포맷 변환 유틸
+Home-page: https://github.com/alkaline2018/file-inspector
+Author: Song Seung Hwan
+Author-email: shdth117@gmail.com
+License: MIT
+Keywords: file inspection report slack markdown html json csv xlsx
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9
+Requires-Dist: chardet==5.2.0
+Requires-Dist: et_xmlfile==2.0.0
+Requires-Dist: numpy==2.2.4
+Requires-Dist: openpyxl==3.1.5
+Requires-Dist: pandas==2.2.3
+Requires-Dist: python-dateutil==2.9.0.post0
+Requires-Dist: pytz==2025.2
+Requires-Dist: setuptools==78.1.0
+Requires-Dist: six==1.17.0
+Requires-Dist: tabulate==0.9.0
+Requires-Dist: tzdata==2025.2
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
