@@ -1,0 +1,15 @@
+aiolitesql/__init__.py,sha256=kjZKcYP2eZ3IbBEHQ0D_Owsk_-FlRGEjQWlbybOs8jk,888
+aiolitesql/__version__.py,sha256=d7wQ5x5Qhx_FG1CdwsNCRZJP8WEsUPKIaQd1XuNkBP8,157
+aiolitesql/context.py,sha256=O8WCfO1yEckO9KaBZpHq6biPvHmR1LhKMyrCiD_SIhc,1447
+aiolitesql/core.py,sha256=w8cnrd70oNzoLyKNHb-m9zS6uy3LDsbi4-kHdYSUMck,12201
+aiolitesql/cursor.py,sha256=_tYtoJ54dds65znlLXL6IXMPH8iATuz0a3VUsTleFBQ,5197
+aiolitesql/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+aiolitesql/tests/__init__.py,sha256=sp0-HYboM6gOYrUxWy8xna-hdJyMUtKBvAKrpRBcDCE,90
+aiolitesql/tests/__main__.py,sha256=eZRuAxr1bwF9xAAqVjCi4vd1WFsFO35uyhtuVO0GjmY,162
+aiolitesql/tests/helpers.py,sha256=MWC839FiX63TBmFiIjabXNx-4G5eWYnE5MiInKIAdJw,722
+aiolitesql/tests/perf.py,sha256=Bra0M65DrhONFR5i9kyS368U-CC2yH8ohtwISWieIbo,6599
+aiolitesql/tests/smoke.py,sha256=qENyfyQGxLok1XpdZ2_bH9au3WRXwpqZGpQtFUBLa08,17257
+aiolitesql-0.21.0.dist-info/licenses/LICENSE,sha256=qwwXHcPvi_MlqEu3fYVUIfJhEzXd9uCIFrKSLE7cD3Y,1071
+aiolitesql-0.21.0.dist-info/WHEEL,sha256=G2gURzTEtmeR8nrdXUJfNiB3VYVxigPQ-bEQujpNiNs,82
+aiolitesql-0.21.0.dist-info/METADATA,sha256=PYwmehNVh79t46d8fpn1lLUkELZ8jRtqZAsospMqzbo,4308
+aiolitesql-0.21.0.dist-info/RECORD,,
