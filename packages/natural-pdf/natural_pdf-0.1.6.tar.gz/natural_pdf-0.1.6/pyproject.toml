@@ -1,0 +1,145 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "setuptools-scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+# --- Project Metadata (PEP 621) ---
+[project]
+name = "natural-pdf"
+# Version is now managed dynamically by setuptools-scm based on Git tags
+dynamic = ["version"]
+authors = [
+    { name = "Jonathan Soma", email = "jonathan.soma@gmail.com" },
+]
+description = "A more intuitive interface for working with PDFs"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pdfplumber",
+    "Pillow",
+    "colour",
+    "numpy",
+    "urllib3",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+interactive = [
+    "ipywidgets>=7.0.0,<9.0.0"
+]
+haystack = [
+    "haystack-ai",   # Core Haystack 2.0 beta (adjust version as needed)
+    "chroma-haystack",       # ChromaDB integration
+    "sentence-transformers", # Default text embedder
+    "protobuf<4",         # Pin protobuf for compatibility with dependencies
+    "natural-pdf[core-ml]", # Add dependency on core ML packages
+]
+easyocr = [
+    "easyocr",
+    "natural-pdf[core-ml]", # Add dependency on core ML packages
+]
+paddle = ["paddlepaddle", "paddleocr"]
+layout_yolo = [
+    "doclayout_yolo",
+    "natural-pdf[core-ml]",
+]
+surya = [
+    "surya-ocr",
+    "natural-pdf[core-ml]",
+]
+qa = [
+    "natural-pdf[core-ml]",
+]
+
+docling = [
+    "docling", 
+    "natural-pdf[core-ml]",
+]
+
+llm = [
+    "openai>=1.0", # For OpenAI compatibility layer / general LLM API interaction
+    "pydantic",    # For response schema definition / structured output
+]
+
+test = [
+    "pytest",
+]
+
+dev = [
+    "black",
+    "isort",
+    "mypy",
+    "pytest",
+    "nox",
+    "nox-uv",
+    "build",
+    "uv",
+    "pipdeptree",
+    "nbformat",
+    "jupytext",
+    "nbclient"
+]
+all = [
+    "natural-pdf[interactive]",
+    "natural-pdf[haystack]",
+    "natural-pdf[easyocr]",
+    "natural-pdf[paddle]",
+    "natural-pdf[layout_yolo]",
+    "natural-pdf[surya]",
+    "natural-pdf[qa]",
+    "natural-pdf[ocr-export]",
+    "natural-pdf[docling]",
+    "natural-pdf[llm]",
+    "natural-pdf[test]"
+]
+
+core-ml = [
+    "torch", 
+    "torchvision",
+    "transformers",
+    "huggingface_hub",
+]
+
+ocr-export = [
+    "ocrmypdf",
+    "pikepdf", 
+]
+
+[project.urls]
+Homepage = "https://github.com/jsoma/natural-pdf"
+Repository = "https://github.com/jsoma/natural-pdf"
+
+# --- Tool Configurations ---
+
+[tool.setuptools_scm]
+# Empty section uses default configuration (version from Git tags)
+
+[tool.black]
+line-length = 100
+target-version = ['py37']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["tests"]
+
+[tool.setuptools]
+# Why this is here I do not know
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests", "tests.*"]
