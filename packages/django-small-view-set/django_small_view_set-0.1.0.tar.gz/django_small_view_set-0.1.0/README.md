@@ -1,0 +1,30 @@
+# Django Small View Set
+
+A lightweight Django ViewSet alternative with minimal abstraction. This library provides a simple and transparent way to define API endpoints without relying on complex abstractions.
+
+## Documentation
+
+- [Getting Started](./README_SIMPLE.md): A bare-bones example to get the fundamentals.
+- [Register URLs](./README_REGISTER_URLS): How to register viewset urls.
+- [Custom Endpoints](./README_CUSTOM_ENDPOINT.md): Learn how to define custom endpoints alongside the default router.
+- [Handling Endpoint Exceptions](./README_HANDLE_ENDPOINT_EXCEPTIONS.md): Understand how to write your own decorators for exception handling.
+- [Custom Protections](./README_CUSTOM_PROTECTIONS.md): Learn how to subclass `SmallViewSet` to add custom protections like logged-in checks.
+- [DRF Compatibility](./README_DRF_COMPATIBILITY.md): Learn how to use some of Django Rest Framework's tools, like Serializers.
+
+## Reasoning behind this library:
+
+A note from the library creator:
+
+I feel like a justification to not "just use DRF" is in order.
+
+After working in Django Rest Framework for years, I liked how nice it was for getting an API up and running really quickly, but I hated how often I would get stuck debugging some abstracted thing in a serializer, or a viewset, then spend too much time implementing some niche (and usually hacky feeling) fix.
+
+Sadly, there are a lot of these pain points in DRF, and a lack of separation-of-concerns. For instance, I always disliked how serializers don't just serialize, they do operations like saving and updating, often resulting in business logic in serializers. That is not serialization. When using mixins on DRF viewsets, often customization methods are required, like which permissions to use for each endpoint, which serializer to use, add a custom "perform_create" method to help serializers save, etc. and it makes it difficult to do reverse lookups to endpoints. It also meant POSTing to reverse('foo-list') would happen, which really should be posting to the "foo-collection" or something else. It's nitpicky yes, but these nitpicks are all over.
+
+So I wrote this. No black box anything. Surprisingly (because it was not the goal), I reduced the number of lines of code in every single one of my viewsets because I didn't need to register so many mixins, set up complex decorators, or define so many helper methods.
+
+I still like some tools DRF provides, like throttles and serializers (when only used as validators or model => json conversions), those are still completely compatible and honestly amazing. I'm glad DRF exists, I've gotten a TON of use out of it over the years.
+
+I also really liked my Spring Boot experience (and other frameworks, but Spring Boot was recent) where the pattern is to throw exceptions and a global exception handler will convert the errors to json responses, allowing a developer to bail on an endpoint at any time, no matter how deep in business logic they may be.
+
+With this ViewSet and pattern, your call stack will never be far away from the real issue, letting you debug in peace.
