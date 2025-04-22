@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools", "setuptools_scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["fairops"]
+
+[tool.setuptools_scm]
+write_to = "fairops/version.py"
+version_scheme = "post-release"
+local_scheme = "no-local-version"
+
+[project]
+name = "fairops"
+description = "A Python library for FAIR AI/ML ops pipelines"
+authors = [{name = "Wade Schulz", email = "wade.schulz@yale.edu"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests (>=2.32.3,<3.0.0)",
+    "tqdm (>=4.67.1,<5.0.0)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "docker (>=7.1.0,<8.0.0)",
+    "click (>=8.0.0,<9.0.0)",
+    "questionary (>=2.1.0,<3.0.0)",
+    "rocrate (>=0.13.0,<1.0.0)"
+]
+dynamic = ["version"]
+
+[project.scripts]
+fairops = "fairops.cli:cli"
+
+[project.urls]
+Homepage = "https://github.com/acomphealth/fairops"

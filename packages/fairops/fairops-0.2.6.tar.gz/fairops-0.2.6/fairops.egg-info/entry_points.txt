@@ -1,0 +1,2 @@
+[console_scripts]
+fairops = fairops.cli:cli
