@@ -1,0 +1,14 @@
+pse
+mlx
+pillow
+requests
+transformers
+huggingface-hub
+
+[dev]
+black
+isort
+mypy
+pytest
+build
+twine
