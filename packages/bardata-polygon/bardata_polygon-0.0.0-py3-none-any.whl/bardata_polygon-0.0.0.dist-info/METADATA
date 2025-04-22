@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: bardata-polygon
+Version: 0.0.0
+Summary: Bardata engine for Polygon.io
+License-Expression: MIT
+Requires-Python: >=3.10
+Requires-Dist: pandas
+Requires-Dist: polygon-api-client
