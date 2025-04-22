@@ -1,0 +1,17 @@
+owa/env/desktop/__init__.py,sha256=ZYW8fbjgOQUqYJgcQnmFBW9vdKFS0Ij_AFa0vkmZmhw,272
+owa/env/desktop/constants.py,sha256=fTvsUA0G46zzRv4ZUab_0YUqFhOeUWMt9fwZ3MlkxAA,3018
+owa/env/desktop/msg.py,sha256=rlFLATQsN2QoCU3RQprEGGgTCw262iE88NEeRLOsTu8,1325
+owa/env/desktop/keyboard_mouse/__init__.py,sha256=2PZ8rKgW2Z0dkxeV_2EpNNZZgpXnmt2MRXuD2S0VhGk,112
+owa/env/desktop/keyboard_mouse/callables.py,sha256=tLXZS2jH2i84GUKH84uh0-AC3JMo4DipsMqb1fmLhP4,2393
+owa/env/desktop/keyboard_mouse/listeners.py,sha256=_2A94JRWoTE44_gUMrKTzn-P47-r-LnDhNAEkiUxsMs,1567
+owa/env/desktop/screen/__init__.py,sha256=dxm7INMbd2eOS3Mey53KGYWpWxlgsTvMKo7yfm9ldaE,55
+owa/env/desktop/screen/callables.py,sha256=whEOXoPCi_mPABkq8YRwlD4ah8KaCqkNrgjjb_VmsLk,233
+owa/env/desktop/utils/__init__.py,sha256=8tqAGVG6Uld-hcVxn1GTl0gzPqWb4cyLr97fHB7CMLc,219
+owa/env/desktop/utils/from_vk.py,sha256=211GSwrzlUY-VuWV71yKD65bxoddzM0OCYS3nx7KnCA,951
+owa/env/desktop/utils/to_vk.py,sha256=5d-PX-VEkxItuaok9HG6JFRsuloWOqlHu4Gq7DZ4O_I,1047
+owa/env/desktop/utils/windows_utils.py,sha256=lBP4kaHaPZ6MnGveNmWikDN7OJJ0jG0Han9L6PyY3VQ,2062
+owa/env/desktop/window/__init__.py,sha256=dxm7INMbd2eOS3Mey53KGYWpWxlgsTvMKo7yfm9ldaE,55
+owa/env/desktop/window/callables.py,sha256=eIVGK32k1O13jQrMZJwKm1l8a7e2kKzZ4Ey24hnW_Fc,5875
+owa_env_desktop-0.3.4.dist-info/METADATA,sha256=D0czxTdIrBoQxP_dLK26a3exoG_jbqpAbzAZzH-4j9c,510
+owa_env_desktop-0.3.4.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+owa_env_desktop-0.3.4.dist-info/RECORD,,
