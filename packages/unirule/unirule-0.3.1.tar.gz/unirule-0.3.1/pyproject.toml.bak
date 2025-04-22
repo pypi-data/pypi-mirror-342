@@ -1,0 +1,38 @@
+[project]
+name = "unirule"
+version = "0.3.0"
+description = "Rule converter for proxy platforms."
+authors = [
+    { name = "TargetLocked", email = "32962687+TargetLocked@users.noreply.github.com" },
+]
+dependencies = ["pyyaml>=6.0.2"]
+readme = "README.md"
+requires-python = ">= 3.10"
+license = { text = "GPL-3.0-or-later" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+
+[project.scripts]
+"unirule" = "unirule:main"
+
+[project.urls]
+Homepage = "https://github.com/TargetLocked/unirule"
+Repository = "https://github.com/TargetLocked/unirule"
+
+[build-system]
+requires = ["hatchling==1.26.3"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+universal = true
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/unirule"]
