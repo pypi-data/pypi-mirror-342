@@ -1,0 +1,2 @@
+[console_scripts]
+solfuse = solfuse.solfuse_ir.main:main
