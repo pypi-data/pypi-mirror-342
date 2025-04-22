@@ -1,0 +1,9 @@
+mediapipe>=0.10.0
+numpy>=2.0.0
+opencv-python>=4.7.0.72
+
+[dev]
+pytest
+black
+ruff
+mypy
