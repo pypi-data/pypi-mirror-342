@@ -1,0 +1,25 @@
+[project]
+name = "hrms-connect"
+version = "1.0.0"
+description = "A CLI tool to manage HRMS check-in/check-out via the command line"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "techie4coffee", email = "techie4coffee@gmail.com"}]
+keywords = ["cli", "hrms", "typer", "attendance", "automation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console"
+]
+dependencies = [
+    "prettytable>=3.7.0,<3.16.0",
+    "pyjwt>=2.10.1",
+    "questionary>=2.1.0",
+    "requests>=2.32.3",
+    "typer[all]>=0.15.2",
+]
+
+[project.scripts]
+hrms = "main:app"
