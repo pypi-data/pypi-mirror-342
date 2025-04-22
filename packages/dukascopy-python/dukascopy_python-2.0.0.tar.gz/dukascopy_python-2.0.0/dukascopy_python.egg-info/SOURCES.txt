@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+dukascopy_python/__init__.py
+dukascopy_python/instruments.py
+dukascopy_python.egg-info/PKG-INFO
+dukascopy_python.egg-info/SOURCES.txt
+dukascopy_python.egg-info/dependency_links.txt
+dukascopy_python.egg-info/requires.txt
+dukascopy_python.egg-info/top_level.txt
