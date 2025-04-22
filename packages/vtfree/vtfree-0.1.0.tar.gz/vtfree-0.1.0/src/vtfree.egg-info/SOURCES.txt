@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/vtfree/__init__.py
+src/vtfree/client.py
+src/vtfree/contrib.py
+src/vtfree/exceptions.py
+src/vtfree/log.py
+src/vtfree/utils.py
+src/vtfree.egg-info/PKG-INFO
+src/vtfree.egg-info/SOURCES.txt
+src/vtfree.egg-info/dependency_links.txt
+src/vtfree.egg-info/requires.txt
+src/vtfree.egg-info/top_level.txt
