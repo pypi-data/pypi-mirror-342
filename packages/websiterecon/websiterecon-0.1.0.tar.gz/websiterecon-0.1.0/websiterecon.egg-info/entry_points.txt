@@ -1,0 +1,2 @@
+[console_scripts]
+websiterecon = websiterecon.cli:main

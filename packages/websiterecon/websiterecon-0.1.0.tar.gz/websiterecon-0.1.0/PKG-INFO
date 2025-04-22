@@ -1,0 +1,89 @@
+Metadata-Version: 2.4
+Name: websiterecon
+Version: 0.1.0
+Summary: A comprehensive website reconnaissance and scanning tool
+Home-page: https://github.com/websiterecon/websiterecon
+Author: WebsiteRecon
+Author-email: WebsiteRecon <websiterecon@example.com>
+Project-URL: Homepage, https://github.com/websiterecon/websiterecon
+Project-URL: Issues, https://github.com/websiterecon/websiterecon/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp>=3.9.3
+Requires-Dist: rich>=13.7.0
+Requires-Dist: beautifulsoup4>=4.12.3
+Requires-Dist: dnspython>=2.6.1
+Requires-Dist: aiohttp-client-cache>=0.8.2
+Requires-Dist: aiodns>=3.1.1
+Requires-Dist: aiosocks>=0.2.6
+Requires-Dist: validators>=0.22.0
+Requires-Dist: asyncio>=3.4.3
+Requires-Dist: aiofiles>=23.2.1
+Requires-Dist: tld>=0.13.0
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# WebsiteRecon
+
+A comprehensive website reconnaissance and scanning tool that provides detailed information about websites, including subdomains, security headers, SSL certificates, and more.
+
+## Features
+
+- Subdomain enumeration
+- Port scanning
+- DNS information gathering
+- SSL certificate analysis
+- Security headers check
+- Technology detection
+- Content analysis
+- Form analysis
+- Contact information extraction
+- Beautiful console output using Rich
+
+## Installation
+
+```bash
+pip install websiterecon
+```
+
+## Usage
+
+### Command Line
+
+```bash
+websiterecon example.com
+```
+
+### Options
+
+- `--no-subdomains`: Skip subdomain scanning
+- `--no-ports`: Skip port scanning
+- `--no-ssl`: Skip SSL certificate analysis
+- `--no-content`: Skip content analysis
+- `-o` or `--output`: Save results to a JSON file
+
+### Examples
+
+```bash
+# Basic scan
+websiterecon example.com
+
+# Skip subdomain scanning
+websiterecon --no-subdomains example.com
+
+# Save results to a file
+websiterecon example.com -o results.json
+
+# Quick scan (skip intensive operations)
+websiterecon --no-subdomains --no-ports example.com
+```
+
+## License
+
+MIT License 
