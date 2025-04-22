@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fp8_coat"
+version = "1.0.10"
+description = "https://arxiv.org/abs/2410.19313. COAT: Compressing Optimizer states and Activation for Memory-Efficient FP8 Training"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "torch>=2.4.1",
+    "triton==3.1.0",
+    "transformers==4.45.2",
+    "wandb==0.18.5",
+    "matplotlib==3.9.2",
+    "gdown==5.2.0",
+    "peft",
+    "sentencepiece",
+    "IPython"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/NVlabs/COAT"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["coat*"]
+
+[tool.setuptools.package-data]
+"coat.optimizer.kernels" = ["*.cpp", "*.cu"]
+
+[tool.black]
+line-length = 120
