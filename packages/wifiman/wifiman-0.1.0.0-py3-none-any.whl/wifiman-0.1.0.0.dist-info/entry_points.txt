@@ -1,0 +1,6 @@
+[console_scripts]
+wifiman = project.main:app.mainloop
+
+[gui_scripts]
+wifiman-gui = project.main:app.mainloop
+
