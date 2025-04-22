@@ -1,0 +1,2 @@
+[console_scripts]
+graphgen = graphgen.generate:main
