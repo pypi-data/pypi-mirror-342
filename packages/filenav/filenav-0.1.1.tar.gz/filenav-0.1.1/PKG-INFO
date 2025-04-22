@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: filenav
+Version: 0.1.1
+Project-URL: Repository, https://github.com/tianze0926/filenav
+Requires-Dist: av
+Requires-Dist: fastapi[standard]
+Requires-Dist: pillow
+Provides-Extra: dev
+Requires-Dist: build; extra == 'dev'
