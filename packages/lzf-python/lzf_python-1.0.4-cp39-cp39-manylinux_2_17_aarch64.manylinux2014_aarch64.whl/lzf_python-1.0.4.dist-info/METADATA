@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: lzf-python
+Version: 1.0.4
+Summary: Python bindings for LZF compression library
+Home-page: https://github.com/author/lzf-python
+Author: Author
+Author-email: author@example.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: C
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Archiving :: Compression
+Requires-Python: >=3.6
+
