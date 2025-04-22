@@ -1,0 +1,3 @@
+[console_scripts]
+h2o_drive=h2o_drive.__main__:cli
+
