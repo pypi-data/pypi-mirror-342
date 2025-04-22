@@ -1,0 +1,11 @@
+polluter/__init__.py,sha256=B-jKySnQQZCzJWvFqDg1OKDppksDdm-8fsw8iaWyQIM,64
+polluter/find_getattr_gadgets.py,sha256=57bL6clZhDClzVk3dgTX-_vfB02XuLBD_0Zlu3eu6ZA,25
+polluter/pollutable.py,sha256=U0eoilXVH_5qJvA186pU-I9vclZs8E1Ji1mO4skUdP8,12090
+polluter/pollute.py,sha256=KDgi86LWEFjoXX-gPS645_XFz5LORY9UVhen5FcbSak,845
+polluter/utils.py,sha256=1Bm09tra2STn4jKBz8duGcUTlVlOi2UctNnbyeFXeQE,5800
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_math.py,sha256=paRlqij4mgxuoR_bfNxkStXyTkCLZIOC7SR7er53s6E,1295
+polluter-0.4.0.dist-info/METADATA,sha256=g63-yNO_fOQn1q7N5AnQpp3AycxHAzQuw0AbnLLZysw,82
+polluter-0.4.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+polluter-0.4.0.dist-info/top_level.txt,sha256=0UcXq3UJijQwoP27qkPlcm_BD7rVMdN5R51meXlzHoo,15
+polluter-0.4.0.dist-info/RECORD,,
