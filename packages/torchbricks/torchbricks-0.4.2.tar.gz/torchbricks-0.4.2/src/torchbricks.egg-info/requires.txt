@@ -1,0 +1,6 @@
+torch>=1.7
+torchmetrics>=0.10.0
+torchvision>=0.14.1
+typeguard>=2.13.3
+onnx>=1.14.1
+pillow>=9.5.0
