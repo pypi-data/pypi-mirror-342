@@ -1,0 +1,63 @@
+Metadata-Version: 2.4
+Name: proxy-inference-engine
+Version: 0.1.0
+Summary: Optimized LLM & MLX inference for Apple Silicon.
+Author-email: The Proxy Company <info@theproxy.co>
+License: MIT
+Project-URL: Homepage, https://github.com/TheProxyCompany/proxy-inference-engine
+Project-URL: Bug Tracker, https://github.com/TheProxyCompany/proxy-inference-engine/issues
+Project-URL: Documentation, https://github.com/TheProxyCompany/proxy-inference-engine
+Keywords: mlx,inference,llm,apple,vision,language,model,ai,proxy
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Operating System :: MacOS :: MacOS X
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: pse
+Requires-Dist: mlx
+Requires-Dist: pillow
+Requires-Dist: requests
+Requires-Dist: transformers
+Requires-Dist: huggingface-hub
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: build; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+
+# Proxy Inference Engine (PIE)
+
+<h3 align="center">
+  <strong>Optimized MLX inference engine for Apple Silicon, powering reliable AI within The Proxy Company ecosystem.</strong>
+</h3>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/TheProxyCompany/proxy-inference-engine/main/logo.png" alt="Proxy Inference Engine" style="object-fit: contain; max-width: 50%; padding-top: 20px;"/>
+</p>
+
+**Proxy Inference Engine (PIE)** is the specialized inference layer developed by The Proxy Company, built upon the foundation of Apple's [MLX framework](https://github.com/ml-explore/mlx). It is designed for high-performance execution of language models (including VLMs) on Apple Silicon hardware, with tight integration for the unique requirements of the [Proxy Structuring Engine (PSE)](https://github.com/TheProxyCompany/proxy-structuring-engine) and the [Proxy Base Agent (PBA)](https://github.com/TheProxyCompany/proxy-base-agent).
+
+This engine is the successor to the experimental `mlx-proxy` repository (now archived).
+
+## Installation
+
+```bash
+pip install proxy-inference-engine
+```
+
+*Note: Requires Python 3.12+ and macOS with Apple Silicon hardware.*
+
+## Features
+
+- Efficient key-value caching strategies for transformer models
+- Advanced logits processing for high-quality text generation
+- Multiple sampling methods (categorical, top-k, top-p, min-p)
+- Vision model support for multimodal inference
+- Optimized for MLX and Apple Silicon
