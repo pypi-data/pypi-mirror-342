@@ -1,0 +1,9 @@
+
+*.pyc
+*.toml
+*.ipynb
+src/sceptic/sceptic_object_test.py
+*dist
+test/scGEM/*.txt
+src/sceptic.egg-info*
+upload.md
