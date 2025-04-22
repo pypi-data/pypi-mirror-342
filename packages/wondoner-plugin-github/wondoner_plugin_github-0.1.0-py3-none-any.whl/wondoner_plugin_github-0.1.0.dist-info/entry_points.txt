@@ -1,0 +1,3 @@
+[wondoner.interfaces]
+github=wondoner.plugin_github.plugin:GitHubPlugin
+
