@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+fastapi_project_creator/__init__.py
+fastapi_project_creator/main.py
+fastapi_project_creator.egg-info/PKG-INFO
+fastapi_project_creator.egg-info/SOURCES.txt
+fastapi_project_creator.egg-info/dependency_links.txt
+fastapi_project_creator.egg-info/entry_points.txt
+fastapi_project_creator.egg-info/top_level.txt
