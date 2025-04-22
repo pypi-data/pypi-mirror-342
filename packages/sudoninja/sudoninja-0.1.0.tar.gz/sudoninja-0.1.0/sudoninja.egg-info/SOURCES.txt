@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+sudoninja/__init__.py
+sudoninja/core.py
+sudoninja.egg-info/PKG-INFO
+sudoninja.egg-info/SOURCES.txt
+sudoninja.egg-info/dependency_links.txt
+sudoninja.egg-info/top_level.txt
+tests/test_generator.py
