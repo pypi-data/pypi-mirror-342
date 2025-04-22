@@ -1,0 +1,3 @@
+[console_scripts]
+imbue-desktop = imbue_desktop.main:main
+imbue-local-sync = imbue_desktop.local_sync_client.main:main
