@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "imbue-desktop"
+version = "0.0.8"
+description = "A thin client for the Imbue AI coding tool."
+readme = "README.md"
+authors = [
+  { name="Imbue", email="imbue@imbue.com" },
+]
+license = "MIT"
+dependencies = [
+    "aiohttp>=3.9.3",
+    "anyio",
+    "toml",
+    "imbue-core==0.0.8",
+    "loguru>=0.7.0",
+    "psutil>=5.9.5",
+    "pydantic>=2.10.6",
+    "pyside6>=6.8.2.1",
+    "tenacity>=8.2.2",
+    "typer>=0.12.3",
+    "typing-extensions>=4.12.2",
+    "watchdog>=4.0.1",
+    "sentry-sdk>=2.22.0",
+    "pyjwt>=2.8.0",
+    "platformdirs>=4.3.6",
+]
+requires-python = ">=3.11"
+
+[project.urls]
+"homepage" = "https://imbue.com/"
+
+[project.scripts]
+imbue-desktop = "imbue_desktop.main:main"
+imbue-local-sync = "imbue_desktop.local_sync_client.main:main"
+
+[tool.setuptools.packages.find]
+include = ["imbue_desktop*"]
+
+[tool.uv.sources]
+imbue_core = { workspace = true }
