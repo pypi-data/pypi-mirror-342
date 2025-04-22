@@ -1,0 +1,7 @@
+include LICENSE
+include README.md
+recursive-include src/spectator *
+
+recursive-exclude tests *
+
+recursive-exclude * *.pyc *.pyo *.sw* *.sv* *.un~ *.DS_Store
