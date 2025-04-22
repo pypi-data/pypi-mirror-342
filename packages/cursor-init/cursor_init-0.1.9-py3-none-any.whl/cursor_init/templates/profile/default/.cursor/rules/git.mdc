@@ -1,0 +1,32 @@
+---
+description: Git 브랜치/커밋/머지 등 버전 관리 작업 시 이 규칙을 적용합니다.
+globs: 
+alwaysApply: false
+---
+# Git 운영 규칙
+
+## 브랜치 전략
+### 브랜치 명명 규칙
+- feature 브랜치: `feature/{task-name}`
+- 예시: `feature/user-authentication`
+
+### 브랜치 운영
+1. Task 시작 시
+   - main 브랜치인 것을 확인.
+   - 새로운 feature 브랜치 생성 후 이동
+
+2. 작업 중
+   - 수정된 모든 파일을 add ( git add . )
+   - 커밋 메시지는 작업 내용을 명확히 설명
+
+
+3. Task 완료 시
+   - main 브랜치로 merge 후 main 브랜치로 이동
+   - remote 에 push
+
+## Commit 메시지 규칙
+- feat: 새로운 기능 추가
+- fix: 버그 수정
+- docs: 문서 수정
+- refactor: 코드 리팩토링
+- test: 테스트 코드 추가/수정
