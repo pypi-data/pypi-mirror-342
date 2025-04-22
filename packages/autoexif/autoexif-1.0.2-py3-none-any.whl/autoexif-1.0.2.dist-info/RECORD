@@ -1,0 +1,16 @@
+autoexif/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+autoexif/cli.py,sha256=fEiKCCQb0n4HtfHS7sfgDcap2q5ghEtn2GWq1K_gC8s,34641
+autoexif/exiftool.py,sha256=XnMFIg9ssERKpYG4u-VMrI09AQtJ0uASiKq2nERW6zc,5636
+autoexif/operations.py,sha256=d0_LTAbhoUkCmew8GaxsN92wx7EtQIF4B8EYs2pksh4,2077
+autoexif/utils.py,sha256=O0I-him3T16rY2Cqc4IJNqXM9KQP4q4xKqAD_64ao3M,804
+autoexif/resources/exiftool.exe,sha256=51HdUMm0KUZD6nHIVfa7E1OY6hASSejYSpmoPpCPvWg,58368
+autoexif/resources/exiftool_files.zip,sha256=MeElZgBSsG_zUDka8Rx2IdfVwA8ulBf-aYP1L2LH43Q,10576937
+autoexif/resources/icon.png,sha256=Untncliem8iDDe7U_Qn_krYQHbyWtcstk_PHXe68i98,175044
+autoexif-1.0.2.data/data/scripts/init_exiftool.py,sha256=sqNBRySHOp97G52ZhP0e0z4iRXjwNZYBIzjHBzWuME0,752
+autoexif-1.0.2.data/data/scripts/install_exiftool.py,sha256=S8PmMHZzkDEs0fhD0l-9cLvo_09cEz5eXvnjW3i-fNc,3185
+autoexif-1.0.2.dist-info/licenses/LICENSE,sha256=pA5AfkbS7StLLnGpuI-6hw2jX4csHJOxC2n7TjgYCbs,1067
+autoexif-1.0.2.dist-info/METADATA,sha256=7V-eo6V0f84DIo0ciczED7rDAizrEGnn6X0Zge2E6_c,4661
+autoexif-1.0.2.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+autoexif-1.0.2.dist-info/entry_points.txt,sha256=JYftWkVge7IRCFPLzgaUWYoQMo-hIzpQpSb2B0YXqoc,46
+autoexif-1.0.2.dist-info/top_level.txt,sha256=sOM0YXgOnhJTghG2vu-lDnqYcGdDA6suKJFH1fsp8pI,9
+autoexif-1.0.2.dist-info/RECORD,,
