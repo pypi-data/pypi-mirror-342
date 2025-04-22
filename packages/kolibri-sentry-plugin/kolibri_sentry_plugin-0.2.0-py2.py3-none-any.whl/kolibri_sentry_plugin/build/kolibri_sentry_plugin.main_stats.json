@@ -1,0 +1,25 @@
+{
+  "status": "done",
+  "assets": {
+    "kolibri_sentry_plugin.main-0.2.0.js": {
+      "name": "kolibri_sentry_plugin.main-0.2.0.js",
+      "path": "/home/runner/work/kolibri-sentry-plugin/kolibri-sentry-plugin/kolibri_sentry_plugin/static/kolibri_sentry_plugin.main/kolibri_sentry_plugin.main-0.2.0.js",
+      "publicPath": "autokolibri_sentry_plugin.main-0.2.0.js"
+    },
+    "kolibri_sentry_plugin.main-0.2.0.js.map": {
+      "name": "kolibri_sentry_plugin.main-0.2.0.js.map",
+      "path": "/home/runner/work/kolibri-sentry-plugin/kolibri-sentry-plugin/kolibri_sentry_plugin/static/kolibri_sentry_plugin.main/kolibri_sentry_plugin.main-0.2.0.js.map",
+      "publicPath": "autokolibri_sentry_plugin.main-0.2.0.js.map"
+    }
+  },
+  "chunks": {
+    "kolibri_sentry_plugin.main": [
+      {
+        "name": "kolibri_sentry_plugin.main-0.2.0.js",
+        "path": "/home/runner/work/kolibri-sentry-plugin/kolibri-sentry-plugin/kolibri_sentry_plugin/static/kolibri_sentry_plugin.main/kolibri_sentry_plugin.main-0.2.0.js",
+        "publicPath": "autokolibri_sentry_plugin.main-0.2.0.js"
+      }
+    ]
+  },
+  "publicPath": "auto"
+}
