@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+onnxdiff/__init__.py
+onnxdiff/diff.py
+onnxdiff/ort_infer.py
+onnxdiff/structs_parameters.py
+onnxdiff/utils.py
+onnxdiffer.egg-info/PKG-INFO
+onnxdiffer.egg-info/SOURCES.txt
+onnxdiffer.egg-info/dependency_links.txt
+onnxdiffer.egg-info/entry_points.txt
+onnxdiffer.egg-info/requires.txt
+onnxdiffer.egg-info/top_level.txt
