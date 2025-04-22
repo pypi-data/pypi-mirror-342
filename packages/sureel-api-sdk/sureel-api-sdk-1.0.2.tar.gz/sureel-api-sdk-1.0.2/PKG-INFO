@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: sureel-api-sdk
+Version: 1.0.2
+Summary: Sureel API
+Home-page: 
+Author: OpenAPI Generator community
+Author-email: team@openapitools.org
+Keywords: OpenAPI,OpenAPI-Generator,Sureel API
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+This package provides a Python SDK for the Sureel API.
+
+                        The SDK is generated using the [OpenAPI specification](https://api.sureel.ai/b2b-docs/json) of the Sureel API and the [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator).
+
+                        ## Documentation
+
+                        Please refer to this [Documentation](https://github.com/sureel-labs/sureel-python/blob/dev/docs) for more information on how to use the SDK. 
+
+                        ## Installation
+
+                        You can install the SDK using pip:
+
+                        ```sh
+                        pip install sureel-api-sdk
+                        ```
+                     
