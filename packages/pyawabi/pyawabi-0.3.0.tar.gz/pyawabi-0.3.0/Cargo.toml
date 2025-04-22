@@ -1,0 +1,21 @@
+[package]
+name = "pyawabi"
+version = "0.3.0"
+authors = ["Hajime Nakagami <nakagami@gmail.com>"]
+edition = "2024"
+
+license = "MIT"
+description = "A python wrapper for awabi"
+repository = "https://github.com/nakagami/pyawabi"
+readme = "README.md"
+keywords = ["mecab", "awabi"]
+
+[dependencies]
+awabi = "0.3"
+
+[dependencies.pyo3]
+version = "0.24"
+features = ["extension-module"]
+
+[lib]
+crate-type = ["cdylib"]
