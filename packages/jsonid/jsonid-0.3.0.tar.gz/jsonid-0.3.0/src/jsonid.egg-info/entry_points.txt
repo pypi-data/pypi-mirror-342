@@ -1,0 +1,3 @@
+[console_scripts]
+jsonid = jsonid.jsonid:main
+momoa = jsonid.jsonid:main
