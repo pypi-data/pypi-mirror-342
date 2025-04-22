@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: drawingletters
+Version: 0.1.0
+Summary: A cute fish drawing module 🐟
+Author: 너의이름
+Author-email: youremail@example.com
+Requires-Python: >=3.6
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-python
+Dynamic: summary
