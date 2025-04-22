@@ -1,0 +1,15 @@
+asyncio>=3.4.3
+langchain-google-genai>=2.1.2
+langchain-openai>=0.1.20
+mcp-use>=1.1.5
+python-dotenv>=1.1.0
+rich>=13.5.0
+prompt_toolkit>=3.0.38
+platformdirs>=4.2.0
+click>=8.1.7
+
+[dev]
+pre-commit>=4.2.0
+pytest>=7.4.0
+pytest-asyncio>=0.23.0
+ruff>=0.2.0
