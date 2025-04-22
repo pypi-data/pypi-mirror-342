@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+pcalib/__init__.py
+pcalib.egg-info/PKG-INFO
+pcalib.egg-info/SOURCES.txt
+pcalib.egg-info/dependency_links.txt
+pcalib.egg-info/requires.txt
+pcalib.egg-info/top_level.txt
+pcalib/py/__init__.py
+pcalib/py/algorithms.py
+pcalib/py/libpca_lib.dylib
+pcalib/py/matrix.py
+tests/test_linalg.py
+tests/test_utils.py
