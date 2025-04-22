@@ -1,0 +1,74 @@
+# pyproject.toml
+
+[project]
+name = "pixelpacker"
+version = "0.3.0"
+description = "Automates TIFF stack processing: autoscale, convert to 8‑bit, tile 3D volumes into 2D atlases, and compress to WebP for web‑based volumetric viewing."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Brandon Scott", email = "brandon.scott@sdsmt.edu" },
+]
+keywords = ["tiff", "webp", "volumetric", "atlas", "imaging", "pipeline"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Image Processing",
+]
+dependencies = [
+    "typer>=0.9.0",
+    "matplotlib>=3.7,<4.0",
+    "numpy>=1.21,<3.0",
+    "pillow>=10.0,<12.0",
+    "scipy>=1.7,<2.0",
+    "tifffile>=2023.1.1",
+    "tqdm>=4.64",
+    "typing_extensions>=4.0.0",
+    "pyyaml>=6.0",
+    "scikit-image>=0.19",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0",
+    "pytest-html>=4.0",
+    "pytest-xdist>=3.0",
+    "pytest-cov>=3.0",
+    "pytest-mock>=3.10",
+]
+dev = [
+    "pixelpacker[test]",   # Include test dependencies
+    "ruff",                # Added Ruff
+    "pre-commit>=3.0.0",   # Added minimum version
+    "build>=1.2.0",        # Added minimum version
+    "twine>=6.0.0",        # Added minimum version
+    "snakeviz>=2.2.0",     # Added minimum version
+]
+
+[project.scripts]
+pixelpacker = "pixelpacker.cli:app"
+
+[project.urls]
+"Homepage" = "https://github.com/bscott711/PixelPacker"
+"Source"   = "https://github.com/bscott711/PixelPacker"
+"Tracker"  = "https://github.com/bscott711/PixelPacker/issues"
+
+[tool.pytest.ini_options]
+markers = [
+    "unit: mark test as a unit test (fast, isolated)",
+    "integration: mark test as an integration test (slower, end-to-end)",
+    "cli: mark test as a CLI test (requires command line interface)",
+    "mock: mark test as a mock test (uses mocking)",
+    "quick: mark test as a quick test (fast, minimal setup)",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
