@@ -1,0 +1,54 @@
+Metadata-Version: 2.4
+Name: hcolor
+Version: 0.0.4
+Summary: Color manipulation tool. Extension to colorsys.
+Home-page: https://gitlab.com/kamichal/hcolor
+Author: Michał Kaczmarczyk
+Author-email: michal.s.kaczmarczyk@gmail.com
+License: Custom MIT license
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+# hcolor - Color manipulation tool
+
+The goal of this package is to provide a color manipulation tool for use in the Python environments.
+The original intention was to bring mathematics to color space generation.
+
+The package provides the `HColor` class, which represents a color by RGBA components, stored as
+floats (0-to-1) and provides handy manipulation methods using the standard  `colorsys` library.
+
+The main features of the HColor class are:
+
+- instant cast to HTML color definition,
+- creation from HSL parameters (hue/saturation/lightness),
+- manipulation of HLS parameters,
+- creation of color palettes as a series of HLS variations
+- creation from HTML color definition (from string).
+
+*To be further documented.*
+
+For now, you can check the unit tests, since I focus there on testing the functionality that the
+package provides.
+
