@@ -1,0 +1,45 @@
+# 集成开发环境配置文件
+.idea/
+
+# 测试文件夹
+tests/
+
+# python 虚拟环境
+venv/
+start_env.bat
+
+# Python相关忽略项
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST.in
+.pypirc
+.pytest_cache/
+
+# 系统相关文件
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+
+# 配置文件
+ai_command_master/config/profiles/*
