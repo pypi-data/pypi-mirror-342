@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: phishscan
+Version: 1.0.4
+Summary: Phishing Email Scanner
+Author: Makara_Chann
+Author-email: makara.chann.work@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: confusables
+Requires-Dist: beautifulsoup4
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+# Phishscan - Phishing Email Scanner
+
+## Description
+Phishscan is a tool that scans email files for phishing content. It extracts key data from `.eml` files and analyzes the content to detect potential phishing threats.
+
+## Installation
+
+To install Phishscan, simply run:
+
+```bash
+pip install phishscan
+
+## Install Locally for Testing
+
+Once you have created the `setup.py` file, you can test the installation process locally. This ensures that everything works before publishing it.
+
+1. In your project directory (where `setup.py` is located), run the following command to install your package locally:
+   ```bash
+   pip install .
