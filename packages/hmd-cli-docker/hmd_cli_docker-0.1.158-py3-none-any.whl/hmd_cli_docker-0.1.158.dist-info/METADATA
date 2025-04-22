@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: hmd-cli-docker
+Version: 0.1.158
+Summary: Implementation for docker cli command
+Home-page: UNKNOWN
+Author: Jim Majure
+Author-email: jim.majure@hmdlabs.io
+License: Apache 2.0
+Platform: UNKNOWN
+Requires-Dist: attrs (==24.2.0)
+Requires-Dist: aws-secretsmanager-caching (==1.1.1.5)
+Requires-Dist: boto3 (==1.36.22)
+Requires-Dist: botocore (==1.36.23)
+Requires-Dist: cachetools (==5.2.0)
+Requires-Dist: cement (==3.0.6)
+Requires-Dist: certifi (==2022.12.7)
+Requires-Dist: charset-normalizer (==2.0.12)
+Requires-Dist: click (==8.0.4)
+Requires-Dist: colorlog (==6.6.0)
+Requires-Dist: docker (==7.0.0)
+Requires-Dist: google-auth (==2.9.1)
+Requires-Dist: hmd-cli-app (~=1.2.603)
+Requires-Dist: hmd-cli-tools (~=1.2.236)
+Requires-Dist: hmd-lang-deployment (~=0.1.78)
+Requires-Dist: hmd-lib-containers (~=0.1.51)
+Requires-Dist: hmd-meta-types (~=0.2.92)
+Requires-Dist: hmd-schema-loader (~=0.2.35)
+Requires-Dist: idna (==3.3)
+Requires-Dist: inquirerpy (==0.3.4)
+Requires-Dist: jinja2 (==3.0.3)
+Requires-Dist: jmespath (==0.10.0)
+Requires-Dist: jsonschema (==4.23.0)
+Requires-Dist: jsonschema-specifications (==2024.10.1)
+Requires-Dist: kubernetes (==24.2.0)
+Requires-Dist: markupsafe (==3.0.2)
+Requires-Dist: oauthlib (==3.2.2)
+Requires-Dist: packaging (==24.2)
+Requires-Dist: pfzy (==0.3.4)
+Requires-Dist: prompt-toolkit (==3.0.38)
+Requires-Dist: pyasn1 (==0.4.8)
+Requires-Dist: pyasn1-modules (==0.2.8)
+Requires-Dist: pydantic (==1.10.5)
+Requires-Dist: python-dateutil (==2.8.2)
+Requires-Dist: python-dotenv (==0.19.2)
+Requires-Dist: python-on-whales (==0.68.0)
+Requires-Dist: pyyaml (==6.0.1)
+Requires-Dist: referencing (==0.35.1)
+Requires-Dist: requests (==2.32.3)
+Requires-Dist: requests-oauthlib (==1.3.1)
+Requires-Dist: rpds-py (==0.20.0)
+Requires-Dist: rsa (==4.8)
+Requires-Dist: s3transfer (==0.11.2)
+Requires-Dist: six (==1.16.0)
+Requires-Dist: tqdm (==4.63.0)
+Requires-Dist: typer (==0.7.0)
+Requires-Dist: typing-extensions (==4.12.2)
+Requires-Dist: urllib3 (==1.26.8)
+Requires-Dist: wcwidth (==0.2.6)
+Requires-Dist: websocket-client (==1.3.3)
+
+UNKNOWN
+
