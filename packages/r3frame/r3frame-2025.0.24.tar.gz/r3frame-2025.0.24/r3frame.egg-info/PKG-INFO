@@ -1,0 +1,57 @@
+Metadata-Version: 2.4
+Name: r3frame
+Version: 2025.0.24
+Summary: A simple and powerful pygame framework
+Home-page: https://github.com/r3shape/r3frame
+Author: Izaiyah Stokes
+Author-email: d34d0s.dev@gmail.com
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pygame-ce
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+![logo](https://github.com/r3shape/koncept/blob/main/koncept/assets/r3-sticker.png?raw=true)  
+![PyPi Package version](https://img.shields.io/pypi/v/r3frame?style=for-the-badge&logo=pypi&logoColor=white&label=r3frame&labelColor=black&color=white&link=https%3A%2F%2Fpypi.org%2Fproject%2Fr3frame%2F2025.0.2%2F
+)  
+![GitHub Stars](https://img.shields.io/github/stars/r3shape/r3frame?style=for-the-badge&label=stars&labelColor=black&color=white)
+![License](https://img.shields.io/badge/mit-badge?style=for-the-badge&logo=mit&logoColor=white&label=License&labelColor=black&color=white)
+
+## What is r3frame?  
+**r3frame** is a game development framework designed to help developers create games with **more speed and less hassle**. It provides a structured foundation for handling scenes, objects, UI, input, and rendering, so you can focus on making games instead of reinventing the wheel.  
+
+## Why Use r3frame?  
+- **Save Time** â€“ No need to build a game structure from scratch.  
+- **Better Organization** â€“ Scenes, assets, and objects are neatly managed.  
+- **Pygame, but Better** â€“ All the flexibility of Pygame, with added convenience.  
+
+## Features  
+- **Modularity** â€“ Manage your game with a clean and modular API.  
+- **Scene & Object Management** â€“ Easily define and switch between game scenes.  
+- **Custom UI System** â€“ Buttons, text fields, and interface-scripting made simple.  
+- **Asset Loading** â€“ Load images and sprite sheets efficiently.  
+- **Input Handling** â€“ Keyboard and mouse events with built-in support.  
+- **Partitioning Systems** â€“ Efficient object management for game worlds of many sizes.  
+
+## Installation  
+Install **r3frame** via pip:  
+
+```sh
+pip install r3frame
+```
+
+## Contributing  
+Want to help improve **r3frame**? Feel free to contribute by submitting issues, suggesting features, or making pull requests!  
+
+## License  
+**r3frame** is open-source under the **MIT License.**
