@@ -1,0 +1,22 @@
+name: radarx-examples
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - matplotlib
+  - numpy
+  - pandas
+  - pooch
+  - setuptools
+  - radarx
+  - xarray
+  - xradar
+  - arm_pyart
+  - wradlib
+  - fsspec
+  - cmweather
+  - itables
+  - open-radar-data
+  - pip
+  - pip:
+    - git+https://github.com/MeteoSwiss/fast-barnes-py.git
