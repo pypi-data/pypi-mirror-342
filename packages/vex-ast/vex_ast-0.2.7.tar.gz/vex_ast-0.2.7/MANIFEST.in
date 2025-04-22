@@ -1,0 +1,20 @@
+include LICENSE
+include README.md
+include requirements.txt
+include pytest.ini
+include pyproject.toml
+
+# Include all documentation files
+recursive-include vex_ast *README.md
+recursive-include vex_ast *READMEAPI.md
+
+# Include test files
+recursive-include tests *.py
+
+# Exclude cache files
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.so
+global-exclude .DS_Store
+global-exclude .env
+global-exclude .coverage
