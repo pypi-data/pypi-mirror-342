@@ -1,0 +1,1 @@
+import adams_beautiful_dataframes; adams_beautiful_dataframes.install()
