@@ -1,0 +1,3 @@
+[pyocd.probe]
+mpsse=pyocd_mpsse.mpsse_probe:MPSSEProbePlugin
+
