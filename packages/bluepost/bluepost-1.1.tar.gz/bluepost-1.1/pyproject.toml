@@ -1,0 +1,53 @@
+[build-system]
+requires = ["flit_core >=3.11,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "bluepost"
+readme = "README.md"
+authors = [
+    {name="Amethyst Reese", email="amethyst@n7.gg"},
+]
+license = "MIT"
+license-files = ["LICENSE"]
+dynamic = ["version", "description"]
+requires-python = ">=3.12"
+dependencies = [
+    "atproto >= 0.0.60, < 1.0",
+    "click >= 8",
+    "platformdirs >= 4",
+    "pyserde >= 0.23",
+]
+
+[project.optional-dependencies]
+dev = [
+    "attribution>=1.8",
+    "black==25.1.0",
+    "build>=1.2",
+    "flake8==7.2.0",
+    "mypy==1.15.0",
+    "ufmt==2.8.0",
+    "usort==1.0.8",
+]
+
+[project.scripts]
+bluepost = "bluepost.cli:run_main"
+
+[project.urls]
+Home = "https://github.com/amyreese/bluepost"
+
+[tool.flit.sdist]
+exclude = [
+    ".github/",
+]
+
+[tool.attribution]
+name = "bluepost"
+package = "bluepost"
+version_file = true
+ignored_authors = ["dependabot[bot]"]
+signed_tags = true
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
