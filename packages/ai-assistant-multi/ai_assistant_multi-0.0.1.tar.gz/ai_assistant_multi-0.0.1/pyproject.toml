@@ -1,0 +1,41 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+
+requires = [ "setuptools>=61" ]
+
+[project]
+name = "ai-assistant-multi"
+version = "0.0.1"
+description = "A multi-provider CLI assistant for interacting with AI models (OpenAI, Google Gemini)."
+
+readme = "README.md"
+keywords = [ "ai", "assistant", "cli", "gemini", "gpt", "llm", "multi-provider", "openai", "terminal" ]
+
+license = "MIT"
+authors = [
+  { name = "Sudharshan V", email = "sudarshan61kv@gmail.com" },
+]
+requires-python = ">=3.7"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+  "google-generativeai>=0.8.5",
+  "openai>=1.75",
+  "questionary>=2.1",
+  "rich>=14",
+  "typer[all]>=0.15.2",
+]
+
+# Optional: Add URLs for your project
+urls.Homepage = "https://github.com/Sudharshan1409/assistant-cli"
+urls.Repository = "https://github.com/Sudharshan1409/assistant-cli"
+
+scripts.ai = "ai_assistant_multi.main:app"
