@@ -1,0 +1,130 @@
+Metadata-Version: 2.4
+Name: neuromorphopy
+Version: 0.3.1
+Summary: Lightweight standalone python CLI tool for downloading neuron morphologies from the NeuroMorpho archives.
+Project-URL: repository, https://github.com/kpeez/neuromorphopy
+Project-URL: documentation, https://neuromorphopy.readthedocs.io/en/latest/
+Author-email: Kyle Puhger <krpuhger@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2022, Kyle Puhger
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: morphology,neuromorpho,neurons,neuroscience
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.11
+Requires-Dist: aiohttp>=3.10.10
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: pydantic>=2.9.2
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: requests>=2.32.3
+Requires-Dist: tqdm>=4.66.6
+Requires-Dist: typer>=0.12.5
+Description-Content-Type: text/markdown
+
+# neuromorphopy
+
+[![License](https://img.shields.io/github/license/kpeez/neuromorphopy)](https://img.shields.io/github/license/kpeez/neuromorphopy)
+[![Documentation](https://img.shields.io/badge/docs-latest-blue.svg)](https://neuromorphopy.readthedocs.io/)
+[![PyPI](https://badge.fury.io/py/neuromorphopy.svg)](https://badge.fury.io/py/neuromorphopy)
+
+<p align="left">
+  <img src="https://raw.githubusercontent.com/kpeez/neuromorphopy/main/docs/assets/logo.png" width="350" alt="Neuromorphopy logo">
+</p>
+
+**neuromorphopy** is a lightweight standalone python CLI tool for downloading neuron morphologies from the [NeuroMorpho archives](https://neuromorpho.org/).
+
+## Features
+
+- Simple and intuitive API for searching NeuroMorpho.org
+- Efficient concurrent downloads of neuron morphologies
+- Flexible query system with validation
+- Automatic metadata handling
+- Support for both synchronous and asynchronous operations
+
+## Installation
+
+`neuromorphopy` is supported for python >= 3.11.
+
+**Using `uv` (Recommended):**
+
+The easiest way to install `neuromorphopy` as a standalone CLI tool is with [`uv`](https://github.com/astral-sh/uv):
+
+```bash
+# install the latest release
+uv tool install neuromorphopy
+# or install the latest development version from GitHub
+uv tool install git+https://github.com/kpeez/neuromorphopy.git
+```
+
+**Using `pip`:**
+
+Alternatively, you can install `neuromorphopy` into your project environment using `pip`:
+
+```bash
+# install the latest release
+pip install neuromorphopy
+# or install the latest development version directly from GitHub
+pip install git+https://github.com/kpeez/neuromorphopy.git
+```
+
+## Usage
+
+Create a query file (YAML or JSON) to specify what neurons you want:
+
+```yaml
+# query.yaml
+filters:
+  species: ["mouse"]
+  brain_region: ["neocortex"]
+  cell_type: ["pyramidal"]
+sort: # sorting is optional
+  field: "brain_region"
+  ascending: true
+```
+
+To download all neurons, you can use an empty query:
+
+```yaml
+# query.yaml
+filters: {}
+```
+
+Use the command line interface to explore available fields, preview a query, or download neurons:
+
+```bash
+# Explore available query fields and values
+neuromorpho fields
+neuromorpho fields species
+
+# Preview what a query would download
+neuromorpho preview -q query.yaml
+
+# Download neurons matching the query
+neuromorpho download -q query.yaml -o ./data
+```
+
+For more detailed usage, see our [documentation](docs/getting_started.md).
