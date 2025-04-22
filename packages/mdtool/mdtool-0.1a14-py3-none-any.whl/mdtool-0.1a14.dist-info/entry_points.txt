@@ -1,0 +1,3 @@
+[console_scripts]
+mdtools=mdtool.mdtool:cli
+
