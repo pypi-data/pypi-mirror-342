@@ -1,0 +1,42 @@
+============================
+Django MongoDB Backend 5.1.x
+============================
+
+5.1.0 beta 2
+============
+
+*April 21, 2025*
+
+- Backward-incompatible: :class:`~django_mongodb_backend.fields.ArrayField`\'s
+  :attr:`~.ArrayField.size` parameter is renamed to
+  :attr:`~.ArrayField.max_size`. The :attr:`~.ArrayField.size` parameter is now
+  used to enforce fixed-length arrays.
+- Added support for :doc:`database caching </topics/cache>`.
+- Fixed ``QuerySet.raw_aggregate()`` field initialization when the document key
+  order doesn't match the order of the model's fields.
+
+5.1.0 beta 1
+============
+
+*February 26, 2025*
+
+- Backward-incompatible:
+  :class:`~django_mongodb_backend.fields.ObjectIdAutoField` no longer accepts
+  integer values. The undocumented behavior eased testing with Django's test
+  suite which hardcodes many integer primary key values.
+- Fixed the inability to save nested embedded model forms.
+- Fixed :ref:`persistent database connections
+  <django:persistent-database-connections>`.
+- Added :doc:`async <django:topics/async>` support.
+- Added the ``db_name`` parameter to
+  :func:`~django_mongodb_backend.utils.parse_uri`.
+- Added ``django_mongodb_backend.routers.MongoRouter`` to allow
+  :djadmin:`dumpdata` to ignore embedded models. See
+  :ref:`configuring-database-routers-setting`.
+
+5.1.0 beta 0
+============
+
+*January 30, 2025*
+
+Initial Public Preview release.
