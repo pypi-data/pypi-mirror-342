@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/wondoner/interfaces/__init__.py
+src/wondoner/interfaces/enums.py
+src/wondoner/interfaces/interfaces.py
+src/wondoner/interfaces/models.py
+src/wondoner_interfaces.egg-info/PKG-INFO
+src/wondoner_interfaces.egg-info/SOURCES.txt
+src/wondoner_interfaces.egg-info/dependency_links.txt
+src/wondoner_interfaces.egg-info/requires.txt
+src/wondoner_interfaces.egg-info/top_level.txt
+tests/test_enums.py
+tests/test_interfaces.py
+tests/test_models.py
