@@ -1,0 +1,78 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    'setuptools',
+    # toml is in standard library in 3.11+
+    'toml>=0.10.1;python_version<"3.11"',
+]
+
+[project]
+authors = [{name = "sterliakov", email = "terlya.stas@gmail.com"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Developers",
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Topic :: Security :: Cryptography',
+]
+dependencies = [
+    "pycryptodome >=3.22.0, <4",
+    'rlp >=2.0, <5.0',
+]
+description = "A simlpe Merkle Patricia Trie implementation"
+keywords = ["trie", "data-structures", "datastructures", "merkle-patricia-trie", "blockchain", "ethereum"]
+license = {file = "LICENSE"}
+name = "merkle-patricia-trie"
+readme = "README.md"
+requires-python = ">=3.9"
+version = "0.4.0"
+
+[project.urls]
+Home = "https://github.com/sterliakov/merkle-patricia-trie"
+Issues = "https://github.com/sterliakov/merkle-patricia-trie/issues"
+Source = "https://github.com/sterliakov/merkle-patricia-trie"
+
+[tool.ruff]
+preview = true
+target-version = 'py39'
+
+[tool.ruff.analyze]
+detect-string-imports = true
+
+[tool.ruff.format]
+docstring-code-format = true
+quote-style = "single"
+
+[tool.ruff.lint]
+extend-ignore = [
+    "S101",  # Use of `assert` detected
+    "TRY003",  # Avoid specifying long messages outside the exception class
+    "EM101",  # Exception must not use a string literal, assign to variable first
+    "EM102",  # Exception must not use an f-string literal, assign to variable first
+    "ANN",  # Type hints
+    "D",  # Docstrings
+    "TD",  # To-do comment lints
+    "FIX",  # Line contains TODO/FIXME/HACK, consider resolving the issue
+    "DOC",  # Docstrings
+    "CPY",  # copyright
+    "PT",  # pytest
+    "TC00",  # Move ... import `...` into a type-checking block
+    "PLW1514",  # `open` in text mode without explicit `encoding` argument
+    # conflicts with ruff-fmt
+    "E501",  # Let ruff care about line width, if not splitable - go on
+    "COM812",
+    "Q000",
+    "Q003",
+    # Good to enable later
+    "FBT",
+]
+extend-safe-fixes = ["F401"]
+select = ['ALL']
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-wrap-aliases = true
+split-on-trailing-comma = false
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S311", "N802"]
