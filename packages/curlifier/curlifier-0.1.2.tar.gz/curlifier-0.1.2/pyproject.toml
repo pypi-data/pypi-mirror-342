@@ -1,0 +1,48 @@
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "curlifier"
+version = "0.1.2"
+description = "Converts Request objects to curl string"
+authors = [
+    "Timur Valiev <cptchunk@yandex.ru>"
+]
+license = "MIT"
+readme = "README.md"
+
+homepage = "https://github.com/imtoopunkforyou/curlifier"
+
+keywords = [
+  "curl",
+  "curlify",
+  "python requests to curl",
+  "curlifier",
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.30"
+
+
+[tool.poetry.group.lint.dependencies]
+wemake-python-styleguide = "^1.1.0"
+mypy = "^1.15.0"
+isort = "^6.0.1"
+types-requests = "^2.32.0.20250328"
+darglint = "^1.8.1"
+
+
+[tool.poetry.group.dev.dependencies]
+nitpick = "^0.35.0"
+ipython = "^9.1.0"
+
+
+[tool.poetry.group.tests.dependencies]
+pytest = "^8.3.5"
+faker = "^37.1.0"
+pytest-cov = "^6.1.1"
+
+[tool.nitpick]
+style = "https://raw.githubusercontent.com/imtoopunkforyou/itpfy-style/refs/heads/main/py/imtoopunkforyou.toml"
