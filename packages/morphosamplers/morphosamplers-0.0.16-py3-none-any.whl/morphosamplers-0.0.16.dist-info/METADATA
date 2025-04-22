@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: morphosamplers
+Version: 0.0.16
+Summary: A library for sampling image data along morphological objects such as splines and surfaces.
+Author: Kevin Yamauchi
+Author-email: kevin.yamauchi@gmail.com
+License: BSD 3-Clause License
+Project-URL: homepage, https://github.com/kevinyamauchi/morphosamplers
+Project-URL: repository, https://github.com/kevinyamauchi/morphosamplers
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: einops
+Requires-Dist: numpy
+Requires-Dist: psygnal
+Requires-Dist: pydantic
+Requires-Dist: pydantic-compat
+Requires-Dist: scipy
+Requires-Dist: typing_extensions
+Provides-Extra: segment
+Requires-Dist: skan; extra == "segment"
+Requires-Dist: scikit-image; extra == "segment"
+Requires-Dist: dijkstra3d; extra == "segment"
+Requires-Dist: pandas; extra == "segment"
+Provides-Extra: test
+Requires-Dist: pytest>=6.0; extra == "test"
+Requires-Dist: pytest-cov; extra == "test"
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: cruft; extra == "dev"
+Requires-Dist: flake8-bugbear; extra == "dev"
+Requires-Dist: flake8-docstrings; extra == "dev"
+Requires-Dist: flake8-pyproject; extra == "dev"
+Requires-Dist: flake8-typing-imports; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: ipython; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: pdbpp; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: pydocstyle; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: rich; extra == "dev"
+Dynamic: license-file
+
+# morphosamplers
+
+[![License](https://img.shields.io/pypi/l/morphosamplers.svg?color=green)](https://github.com/kevinyamauchi/morphosamplers/raw/main/LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/morphosamplers.svg?color=green)](https://pypi.org/project/morphosamplers)
+[![Python Version](https://img.shields.io/pypi/pyversions/morphosamplers.svg?color=green)](https://python.org)
+[![CI](https://github.com/morphometrics/morphosamplers/actions/workflows/ci.yml/badge.svg)](https://github.com/morphometrics/morphosamplers/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/morphometrics/morphosamplers/branch/main/graph/badge.svg)](https://codecov.io/gh/morphometrics/morphosamplers)
+
+A library for sampling image data along morphological objects such as splines and surfaces.
