@@ -1,0 +1,74 @@
+Metadata-Version: 2.4
+Name: fermipy
+Version: 1.4.0
+Summary: A Python package for analysis of Fermi-LAT data
+Home-page: https://github.com/fermiPy/fermipy
+Author: The Fermipy developers
+License: BSD
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Development Status :: 5 - Production/Stable
+Description-Content-Type: text/x-rst
+License-File: LICENSE.rst
+Requires-Dist: numpy>=1.16
+Requires-Dist: pyyaml
+Requires-Dist: scipy<1.14
+Requires-Dist: astropy
+Requires-Dist: matplotlib>=3.3
+Requires-Dist: gammapy>=1.0
+Requires-Dist: healpy
+Requires-Dist: astropy-healpix
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+FermiPy
+=======
+
+Fermi-LAT Python Analysis Framework
+
+* Documentation: http://fermipy.readthedocs.org/
+* Installation: http://fermipy.readthedocs.org/en/latest/install.html
+
+.. image:: https://github.com/fermiPy/fermipy/actions/workflows/python-package.yml/badge.svg?branch=master
+    :target: https://github.com/fermiPy/fermipy/actions/workflows/python-package.yml
+    :alt: Python Package
+
+.. image:: https://img.shields.io/coveralls/fermiPy/fermipy.svg
+    :target: https://coveralls.io/r/fermiPy/fermipy
+    :alt: Code Coverage
+
+.. image:: http://img.shields.io/pypi/v/fermipy.svg?text=version
+    :target: https://pypi.python.org/pypi/fermipy/
+    :alt: Latest release
+
+.. image:: https://anaconda.org/conda-forge/fermipy/badges/version.svg
+    :target: https://anaconda.org/conda-forge/fermipy
+    :alt: Latest conda release
+
+.. image:: https://img.shields.io/docker/automated/fermipy/fermipy.svg
+    :target: https://hub.docker.com/r/fermipy/fermipy/
+    :alt: Automated Docker Image
+
+.. image:: https://readthedocs.org/projects/fermipy/badge/?version=latest
+    :target: https://readthedocs.org/projects/fermipy/?badge=latest
+    :alt: Documentation Status
+
+License
+-------
+This project is licensed under a 3-clause BSD style license - see the
+``LICENSE.rst`` file.
+
+
+
