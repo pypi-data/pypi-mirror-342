@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools==68.2.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scsarchive"
+version = "1.0.4"
+description = "A Python archive format plugin for creating uncompressed SCS (Euro Truck Simulator 2 mod) archives."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+  { name = "Allie Nikol Modern", email = "a.modern.freelancing@gmail.com" }
+]
+dependencies = []
+dynamic = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Lil-Allie-Astra/scsarchive"
+"Bug Tracker" = "https://github.com/Lil-Allie-Astra/scsarchive/issues"
