@@ -1,0 +1,2 @@
+[mkdocs.plugins]
+mcp = mkdocs_mcp.plugin:MkDocsMCP
