@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tyler-python-helpers"
+version = "0.1.2"
+authors = [
+    { name = "Tyler Woodfin", email = "feedback-python-helpers@tylerwoodfin.com" },
+]
+description = "A collection of Python helper functions"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai",
+]
+
+[project.urls]
+Homepage = "https://github.com/tylerjwoodfin/python-helpers"
+"Bug Tracker" = "https://github.com/tylerjwoodfin/python-helpers/issues"
+Documentation = "https://github.com/tylerjwoodfin/python-helpers#readme"
+
+[project.scripts]
+python_helpers = "python_helpers:main"
