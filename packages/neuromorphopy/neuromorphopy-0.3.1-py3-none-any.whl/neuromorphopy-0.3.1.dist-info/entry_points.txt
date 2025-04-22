@@ -1,0 +1,2 @@
+[console_scripts]
+neuromorpho = neuromorphopy.cli:main
