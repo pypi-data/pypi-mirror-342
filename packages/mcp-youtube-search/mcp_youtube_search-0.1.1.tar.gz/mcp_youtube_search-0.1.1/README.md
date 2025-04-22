@@ -1,0 +1,107 @@
+# MCP YouTube Search
+
+A YouTube search service built with Google's Agent Developer Kit (ADK) and Model Context Protocol (MCP). This service enables AI models to search for YouTube videos using SerpAPI.
+
+## What is Model Context Protocol?
+
+The Model Context Protocol (MCP) is a standard developed by Anthropic that enables AI models to use tools by defining a structured format for tool descriptions, calls, and responses. This project implements an MCP tool using Google's ADK that can be used by Claude and other MCP-compatible models.
+
+## Installation
+
+```bash
+# Install from PyPI
+pip install mcp-youtube-search
+
+# Or install from the project directory (development mode)
+git clone https://github.com/arjunprabhulal/mcp-youtube-search.git
+cd mcp-youtube-search
+pip install -e .
+```
+
+## Prerequisites
+
+This project requires:
+- Google's Agent Developer Kit (`google-adk`)
+- MCP Python SDK (`mcp`)
+- SerpAPI API key (`serpapi`)
+- Python 3.11+
+
+## Usage
+
+Once installed, you can run the server by importing and calling the run_server function:
+
+```python
+from mcp_youtube_search.mcp_server import run_server
+
+# Ensure SERP_API_KEY is set as an environment variable or in a .env file
+run_server()
+```
+
+## Environment Variables
+
+Set the SerpAPI key as an environment variable:
+
+```bash
+export SERP_API_KEY="your-api-key-here"
+```
+
+Alternatively, create a `.env` file in the directory where you run the server:
+
+```
+SERP_API_KEY=your_api_key_here
+```
+
+## Features
+
+* MCP-compliant tool using Google's Agent Developer Kit (ADK) for YouTube search functionality
+* Integration with SerpAPI YouTube search
+* Support for searching YouTube videos with customizable result limits
+* Packaged for easy installation and use
+
+## MCP Tool
+
+This package provides the following Model Context Protocol tool:
+
+* `search_youtube`: Search for YouTube videos with parameters:
+   * `search_query`: The search query to find videos
+   * `max_results`: Maximum number of results to return (default: 10)
+
+## Python API
+
+You can also use the search functionality directly in your Python code:
+
+```python
+import os
+import asyncio
+from mcp_youtube_search.mcp_server import search_youtube
+
+# Set your API key
+os.environ["SERP_API_KEY"] = "your_api_key_here"
+
+async def search_videos():
+    # Search for videos
+    results = await search_youtube("python tutorial", max_results=5)
+    
+    # Process results
+    for video in results["results"]:
+        print(f"Title: {video['title']}")
+        print(f"Link: {video['link']}")
+        print(f"Channel: {video['channel']}")
+        print(f"Views: {video['views']}")
+        print(f"Duration: {video['duration']}")
+        print(f"Published: {video['published_date']}")
+        print("---")
+
+# Run the async search
+asyncio.run(search_videos())
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Author
+
+Arjun Prabhulal
+
+For more articles on AI/ML and Generative AI, follow me on Medium: [https://medium.com/@arjun-prabhulal](https://medium.com/@arjun-prabhulal)
