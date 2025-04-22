@@ -1,0 +1,19 @@
+{
+  "identifier": "{{ cookiecutter.project_name }}",
+  "name": "repo_name",
+  "description": "{{ cookiecutter.description }}",
+  "project_type": {
+    "name": "transform"
+  },
+  "build": {
+    "commands": [["docker"]]
+  },
+  "docker": {
+    "build": {"context_dir": "./", "install_local": true}
+  },
+  "deploy": {
+    "commands": [["docker"]],
+    "dependencies": {},
+    "default_configuration": {}
+  }
+}

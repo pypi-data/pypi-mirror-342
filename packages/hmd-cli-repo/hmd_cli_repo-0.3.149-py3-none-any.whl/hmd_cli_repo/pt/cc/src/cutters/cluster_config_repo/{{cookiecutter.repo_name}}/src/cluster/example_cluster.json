@@ -1,0 +1,5 @@
+{
+  "cluster_name": "example-cluster",
+  "compute_config_name": "example-compute",
+  "application_config_name": "example-app"
+}

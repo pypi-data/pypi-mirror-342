@@ -1,0 +1,20 @@
+{
+  "compute_config_name": "example-compute",
+  "repo_class_name": "hmd-inf-eks-node-group",
+  "repo_class_version": "0.1.16",
+  "instance_configuration": {
+    "instance_type": ["t3.medium"],
+    "scaling_config": {
+      "desired_size": 1,
+      "min_size": 1,
+      "max_size": 1
+    },
+    "disk_size": 128,
+    "capacity_type": "ON_DEMAND",
+    "force_update_version": false
+  },
+  "dependencies": {
+    "base-vpc": "base-vpc",
+    "eks-cluster": "eks-cluster"
+  }
+}

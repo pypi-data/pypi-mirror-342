@@ -1,0 +1,4 @@
+{
+  "_repo_type": "intg-",
+  "__test_name": "01_{{ cookiecutter.short_name|lower|replace('-', '_') }}"
+}

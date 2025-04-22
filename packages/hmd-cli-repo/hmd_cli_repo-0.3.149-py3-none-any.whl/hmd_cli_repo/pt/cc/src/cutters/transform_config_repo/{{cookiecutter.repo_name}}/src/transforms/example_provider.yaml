@@ -1,0 +1,21 @@
+# Example Provider Transform
+# Edit or delete
+type: provider
+query_config:
+  query_name: by_ns_day_content_item_type
+  query_string: "g.V().hasLabel('hmd_lang_librarian.ns_day').as('a').where(__.in('hmd_lang_librarian.content_item_has_ns_day').out('hmd_lang_librarian.content_item_has_content_item_type').has('short_name', '{item_type}')).select('a').not(inE('hmd_lang_transform.transform_instance_depends_on_entity').outV().not(has('status', 'scheduling_failed')).inE('hmd_lang_transform.transform_version_has_transform_instance').outV().inE('hmd_lang_transform.transform_has_transform_version').outV().has('name', '{tf_name}')).select('a').id().as('b').select('a').label().as('c').select('b','c').limit(10)"
+  query_value:
+    item_type: example_csv
+    tf_name: example_provider
+config:
+  provider_package: hmd_operators.trino
+  provider_class: TrinoOperator
+  params:
+    sql: |
+      INSERT INTO {% raw %}{{ ns_context['schema_name'] }}{% endraw %}.example_final
+      SELECT * FROM {% raw %}{{ ns_context['schema_name''] }}{% endraw %}.example_source WHERE p_iso_date = {% raw %}{{ ns_context['iso_date'] }}{% endraw %}
+    trino_conn_id: trino_conn
+    autocommit: true
+  run_params:
+    schema_name: test
+    iso_date: entity.iso_date

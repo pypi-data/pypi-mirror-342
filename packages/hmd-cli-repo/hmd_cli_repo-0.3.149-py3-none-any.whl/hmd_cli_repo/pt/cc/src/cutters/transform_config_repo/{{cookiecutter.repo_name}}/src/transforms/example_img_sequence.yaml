@@ -1,0 +1,58 @@
+# Example Provider Transform
+# Edit or delete
+type: image_sequence
+query_config:
+  query_name: by_content_item_type_transform_name
+  query_value:
+    item_type: example_source_csv
+    tf_name: example_img_sequence
+config:
+  image_sequence:
+    - name: download-content-item
+      image_name: ghcr.io/neuronsphere/hmd-img-content-item-sync:0.1.5
+      env:
+        HMD_ENVIRONMENT: default
+        HMD_CUSTOMER_CODE: default
+        HMD_AUTH_TOKEN: default
+        TARGET_LIBRARIAN: device
+        SYNC_DIRECTION: pull
+        CONTENT_ITEM_PATH: entity.content_item_path
+        FILE_PATH: "/hmd_transform/input/{source_path[1]}/{source_path[2]}/{source_path[3]}"
+        hmd_device_librarian_url: default
+        hmd_device_librarian_key: default
+      cmd: ["python"]
+      args: ["entrypoint.py"]
+      volumes:
+        input: /hmd_transform/input/
+        output: /hmd_transform/output/
+    - name: convert-csv
+      image_name: ghcr.io/neuronsphere/hmd-tf-example:0.1.1
+      env:
+        INPUT_PATH: "/hmd_transform/input/{source_path[1]}/{source_path[2]}/{source_path[3]}"
+        OUTPUT_PATH: "/hmd_transform/output/{source_path[1]}/{source_path[2]}/{source_path[3]}.parquet"
+        HMD_ENVIRONMENT: default
+        HMD_CUSTOMER_CODE: default
+        HMD_AUTH_TOKEN: default
+      cmd: ["python"]
+      args: ["entrypoint.py"]
+      volumes:
+        input: /hmd_transform/input/
+        output: /hmd_transform/output/
+    - name: upload-content-item
+      image_name: ghcr.io/neuronsphere/hmd-img-content-item-sync:0.1.5
+      env:
+        HMD_ENVIRONMENT: default
+        HMD_CUSTOMER_CODE: default
+        HMD_AUTH_TOKEN: default
+        TARGET_LIBRARIAN: datalake
+        SYNC_DIRECTION: push
+        CONTENT_ITEM_PATH: device_data:/{source_path[1]}/{source_path[3]}.parquet
+        CONTENT_ITEM_TYPE: device_results_parquet
+        FILE_PATH: "/hmd_transform/output/{source_path[1]}/{source_path[2]}/{source_path[3]}.parquet"
+        hmd_datalake_librarian_url: default
+        hmd_datalake_librarian_key: default
+      cmd: ["python"]
+      args: ["entrypoint.py"]
+      volumes:
+        input: /hmd_transform/input/
+        output: /hmd_transform/output/

@@ -1,0 +1,12 @@
+{
+  "name": "Librarian",
+  "description": "Project for creating a semantic Librarian in the NeuronSphere",
+  "allowed_entities": {},
+  "category": "NeuronSphere Librarian",
+  "templates": [
+    {
+      "name": "librarian_repo",
+      "version": "0.2.77"
+    }
+  ]
+}

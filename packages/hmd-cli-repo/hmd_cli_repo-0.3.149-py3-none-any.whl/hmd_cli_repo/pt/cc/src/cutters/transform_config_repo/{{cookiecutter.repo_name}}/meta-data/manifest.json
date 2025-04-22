@@ -1,0 +1,21 @@
+{
+  "name": "{{ cookiecutter.repo_name }}",
+  "description": "{{ cookiecutter.description }}",
+  "project_type": {
+    "name": "transform config"
+  },
+  "build": {
+    "commands": [["transform"]]
+  },
+  "deploy": {
+    "commands": [["transform"]],
+    "dependencies": {
+      "ms-transform": {
+        "repo_class_name": "hmd-ms-transform",
+        "required": "true",
+        "version_spec": "~=0.1.276"
+      }
+    },
+    "default_configuration": {}
+  }
+}

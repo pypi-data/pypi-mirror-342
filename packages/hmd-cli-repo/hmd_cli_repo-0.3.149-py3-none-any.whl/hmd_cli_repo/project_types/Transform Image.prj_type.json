@@ -1,0 +1,12 @@
+{
+  "name": "Transform Image",
+  "description": "Basic project for creating a custom Transform Image",
+  "category": "NeuronSphere Transforms",
+  "allowed_entities": {},
+  "templates": [
+    {
+      "name": "transform_repo",
+      "version": "0.2.63"
+    }
+  ]
+}

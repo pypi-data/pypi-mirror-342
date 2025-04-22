@@ -1,0 +1,12 @@
+{
+  "name": "Transform Config",
+  "description": "Basic project for creating a NeuronSphere Transform Config YAMLs",
+  "category": "NeuronSphere Transforms",
+  "allowed_entities": {},
+  "templates": [
+    {
+      "name": "transform_config_repo",
+      "version": "0.2.63"
+    }
+  ]
+}

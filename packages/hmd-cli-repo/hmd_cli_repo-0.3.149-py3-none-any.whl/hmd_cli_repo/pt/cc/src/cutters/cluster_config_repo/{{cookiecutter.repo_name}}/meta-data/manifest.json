@@ -1,0 +1,51 @@
+{
+  "name": "{{ cookiecutter.repo_name }}",
+  "description": "{{ cookiecutter.description }}",
+  "project_type": {
+    "name": "cluster config"
+  },
+  "build": {
+    "commands": [["cluster"]]
+  },
+  "deploy": {
+    "commands": [["cluster"]],
+    "dependencies": {
+      "ms-cluster": {
+        "repo_class_name": "hmd-ms-cluster",
+        "required": "true",
+        "version_spec": "~=0.1"
+      },
+      "eks-cluster": {
+        "repo_class_name": "hmd-inf-eks-cluster",
+        "required": "true",
+        "version_spec": "~= 0.3"
+      },
+      "eks-alb": {
+        "repo_class_name": "hmd-inf-eks-alb",
+        "required": "true",
+        "version_spec": "~= 0.1"
+      },
+      "ext-secrets": {
+        "repo_class_name": "hmd-inf-ext-secrets",
+        "version_spec": "~= 0.1.4",
+        "required": "true"
+      },
+      "bucket-access": {
+        "repo_class_name": "hmd-inf-trino-store-access",
+        "required": "false",
+        "version_spec": "~= 0.1.9"
+      },
+      "metastore": {
+        "repo_class_name": "hmd-inf-hive-metastore",
+        "required": "false",
+        "version_spec": "~= 0.1.23"
+      },
+      "users": {
+        "repo_class_name": "hmd-inf-credentials",
+        "required": "true",
+        "version_spec": "~= 0.1"
+      }
+    },
+    "default_configuration": {}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Cluster Config",
+  "description": "Basic project for creating a NeuronSphere Cluster Configs",
+  "category": "NeuronSphere Transforms",
+  "allowed_entities": {},
+  "templates": [
+    {
+      "name": "cluster_config_repo",
+      "version": "0.2.63"
+    }
+  ]
+}

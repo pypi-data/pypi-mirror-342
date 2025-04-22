@@ -1,0 +1,18 @@
+{
+  "application_config_name": "example-app",
+  "repo_class_name": "hmd-inf-trino",
+  "repo_class_version": "0.1.138",
+  "instance_configuration": {
+    "server": {
+      "workers": 1
+    }
+  },
+  "dependencies": {
+    "bucket-access": "bktacc",
+    "compute": "compute",
+    "eks-alb": "eks-alb",
+    "ext-secrets": "ext-secrets",
+    "metastore": "metastore",
+    "users": "users"
+  }
+}

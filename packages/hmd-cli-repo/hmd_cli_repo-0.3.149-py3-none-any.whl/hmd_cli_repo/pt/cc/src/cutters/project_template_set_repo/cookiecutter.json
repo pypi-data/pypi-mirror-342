@@ -1,0 +1,5 @@
+{
+  "_repo_type": "tmpl-",
+  "_cc_repo_name": "{{ cookiecutter.repo_name }}",
+  "template_set_name": ""
+}

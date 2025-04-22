@@ -1,0 +1,16 @@
+{
+  "name": "Notebook Transform",
+  "description": "Basic project for creating a custom Transform Image to run a Jupyter Notebook via papermill",
+  "category": "NeuronSphere Transforms",
+  "allowed_entities": {},
+  "templates": [
+    {
+      "name": "notebooks_repo",
+      "version": "0.2.56"
+    },
+    {
+      "name": "notebook_transform_repo",
+      "version": "0.2.63"
+    }
+  ]
+}

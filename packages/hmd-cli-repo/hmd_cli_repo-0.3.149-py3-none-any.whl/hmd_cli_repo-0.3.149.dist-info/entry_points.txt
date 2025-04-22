@@ -1,0 +1,4 @@
+[hmd_cli_repo.remotes]
+codecommit = hmd_cli_repo.remotes.codecommit:CodeCommitRemote
+github = hmd_cli_repo.remotes.github:GitHubRemote
+
