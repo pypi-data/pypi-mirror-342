@@ -1,0 +1,11 @@
+accelerate
+backports.tarfile
+colorlog
+datasets
+importlib-metadata
+jaraco.collections
+pandas
+protobuf
+pysocks
+sentencepiece
+tomli
