@@ -1,0 +1,9 @@
+.*
+~*
+dist/
+*.py[cod]
+__pycache__
+manage.py
+!.github
+!.pre-commit-config.yaml
+src/django_sysinfo/version.py
