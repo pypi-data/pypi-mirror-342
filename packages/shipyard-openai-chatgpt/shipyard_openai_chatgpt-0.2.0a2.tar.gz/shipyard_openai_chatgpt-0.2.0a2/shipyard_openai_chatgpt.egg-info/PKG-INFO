@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: shipyard-openai-chatgpt
+Version: 0.2.0a2
+Requires-Python: >=3.11
+Requires-Dist: pandas>=1.5.3
+Requires-Dist: openai==0.28.1
+Requires-Dist: shipyard-bp-utils>=1.3.0
