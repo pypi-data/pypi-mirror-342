@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mimir-api"
+version = "0.1.0"
+description = "Python API client for Mimir AI"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Justin Garofolo", email = "justin@trymimir.ai"}
+]
+dependencies = [
+    "httpx",
+    "pydantic"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/trymimirai/mimir-api"
+"Bug Tracker" = "https://github.com/trymimirai/mimir-api/issues"
+"License" = "https://github.com/trymimirai/mimir-api/blob/main/LICENSE"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black"
+]
+
+[tool.setuptools.packages.find]
+include = ["mimir_api*"]
+
+[tool.setuptools]
+license-files = []

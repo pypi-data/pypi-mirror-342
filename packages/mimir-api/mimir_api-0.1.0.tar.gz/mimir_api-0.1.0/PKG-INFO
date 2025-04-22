@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: mimir-api
+Version: 0.1.0
+Summary: Python API client for Mimir AI
+Author-email: Justin Garofolo <justin@trymimir.ai>
+License: MIT
+Project-URL: Homepage, https://github.com/trymimirai/mimir-api
+Project-URL: Bug Tracker, https://github.com/trymimirai/mimir-api/issues
+Project-URL: License, https://github.com/trymimirai/mimir-api/blob/main/LICENSE
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: httpx
+Requires-Dist: pydantic
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: black; extra == "dev"
