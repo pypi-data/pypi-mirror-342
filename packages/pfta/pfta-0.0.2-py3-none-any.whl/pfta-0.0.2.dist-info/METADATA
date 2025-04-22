@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: pfta
+Version: 0.0.2
+Summary: Public Fault Tree Analyser (PFTA)
+Author-email: Conway <pypi.sheep257@passmail.net>
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Project-URL: issues, https://github.com/public-fta/pfta/issues
+Project-URL: repository, https://github.com/public-fta/pfta
+
+# Public Fault Tree Analyser (PFTA)
+
+**(Work in progress)**
+
+Free and open-source fault tree analysis.
+
+For an overview of the mathematics, see [`MATHS.md`].
+
+
+[`MATHS.md`]: MATHS.md
+
