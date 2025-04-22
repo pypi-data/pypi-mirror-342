@@ -1,0 +1,95 @@
+# plada
+**PlaDa** (**Pla**tform for **Da**ta market)
+
+PlaDa is a simulation platform designed to model and analyze data marketplaces. It provides tools for setting up market models, configuring simulation parameters, running simulations, and analyzing results.
+
+PlaDaは、データ市場のモデル化や分析を行うためのシミュレーションプラットフォームです。PlaDaを使うことで、市場のモデル化、シミュレーションのパラメータ設定、シミュレーションの実行、結果の分析が行えます。
+
+## Install
+PlaDa is available on PyPI and can be installed using pip.
+
+PlaDaはPyPIから利用でき、pipを使ってインストールできます。
+
+#### Using pip
+```
+$ pip install plada
+$ python
+>> import plada
+```
+#### Using pip in a Jupyter Notebook
+When installing within a Jupyter Notebook, use the !pip command:
+```
+!pip install plada
+import plada
+```
+
+#### Using Google Colab
+Google Colabで使用する場合は、以下のノートブックを参考にしてください：
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/junsashihara/plada/blob/master/examples/test.ipynb)
+
+For more detailed examples, refer to the [test.ipynb](https://github.com/junsashihara/plada/blob/master/examples/test.ipynb) notebook.
+
+詳細については、[test.ipynb](https://github.com/junsashihara/plada/blob/master/examples/test.ipynb)をご覧ください。
+
+## Usage
+#### Step1：Set up the Market Model.
+Note: The model must be a Graph object and must contain "variables".
+```
+model = nx.read_graphml("test.graphml")
+```
+#### Step2：Configure Settings
+Define the configuration for the simulation, market, and agents.
+```
+config = {
+    "Simulation":{
+        "num_iterations": 10,
+        "num_steps": 10,
+        "isPrice": True,
+    },
+    "Market":{
+        "model": model,
+    },
+    "Agent": {
+        "num_buyers": 10,
+        "strategy_weights": {
+            "random": 0.0,
+            "related": 0.0,
+            "ranking": 1.0,
+        },
+        "new_buyer_probability": 0.8,
+    }
+}
+```
+#### Step3：Run the Simulation
+Initialize the `Saver` and `Runner` classes with the configuration settings and logger. Then, execute the main simulation process.
+```
+saver = Saver()
+runner = Runner(settings=config, logger=saver)
+
+runner.main()
+```
+
+## Explanation
+buyer.py
+- **Configuration of Buyer Agent**
+- Manages the state and strategies of buyers, updates budget, and saves purchased data.
+
+market.py
+- **Market Class**: Manages the overall market.
+- **Data Class**: Manages the data.
+- **Variable Class**: Manages the variables.
+- Primarily responsible for updating prices and related market dynamics.
+
+simulator.py
+- **Setup of the Purchase Simulation Workflow**
+- Organizes the information to be logged (requires improvement)
+
+runner.py
+- **Execution of the Simulation**
+
+logger.py
+- **Saving the Results of the Simulation**
+
+analyzer.py
+- **Basic Analysis of the Results**
+- Visualizes the distribution of purchase counts.
