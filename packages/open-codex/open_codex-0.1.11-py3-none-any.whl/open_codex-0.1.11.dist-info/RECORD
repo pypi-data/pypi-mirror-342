@@ -1,0 +1,12 @@
+open_codex/agent_builder.py,sha256=u9xifHkXDdT0EaE88aKK48XFs2K8Iv36ZRwPGhEIg5Q,477
+open_codex/main.py,sha256=mQyRYeK96BXl5REDT_Yv4S7vJYeulWgFBvYCtf43xDs,2936
+open_codex/agents/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+open_codex/agents/phi_4_mini.py,sha256=AMshSLKk1UBTs03RSNnOIelVmIDug6Uykcw__x0hYpE,2093
+open_codex/interfaces/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+open_codex/interfaces/llm_agent.py,sha256=wYZnSejxHwokjmqfFp3cZIPzvH4q9W0qO2rVYE1bEBk,148
+open_codex-0.1.11.dist-info/licenses/LICENSE.md,sha256=32dMZWKaBXj3dY1rV0w2xyx66xtVHkfPB4m2q3O0vp4,1170
+open_codex-0.1.11.dist-info/METADATA,sha256=3uvoJZWCH2lZ53hJsFBw2I5xueLaCa42pS16e0M9jU8,2612
+open_codex-0.1.11.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+open_codex-0.1.11.dist-info/entry_points.txt,sha256=QbOrKPoDCf7uXfT04qqj8k1k7iE2jGtCpnfcgL_xRE8,52
+open_codex-0.1.11.dist-info/top_level.txt,sha256=cVXmRZ_j6X8Tl4nDFYz7wDerJfUrczUB4PlW_xxnNLo,11
+open_codex-0.1.11.dist-info/RECORD,,
