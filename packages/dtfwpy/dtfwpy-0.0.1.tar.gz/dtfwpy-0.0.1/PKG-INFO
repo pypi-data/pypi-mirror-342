@@ -1,0 +1,49 @@
+Metadata-Version: 2.3
+Name: dtfwpy
+Version: 0.0.1
+Summary: DealerTower Framework: reusable building‑blocks for DealerTower services
+Author: Reza Shirazi
+Author-email: reza@dealertower.com
+Requires-Python: >=3.11.9,<3.12.0
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: api
+Provides-Extra: bucket
+Provides-Extra: database
+Provides-Extra: ftp
+Provides-Extra: redis
+Provides-Extra: request
+Provides-Extra: security
+Provides-Extra: streamer
+Provides-Extra: utils
+Provides-Extra: worker
+Requires-Dist: SQLAlchemy (>=2.0.39,<2.1.0) ; extra == "database"
+Requires-Dist: asyncpg (>=0.30.0,<0.31.0) ; extra == "database"
+Requires-Dist: boto3 (>=1.37.19,<1.38.0) ; extra == "bucket"
+Requires-Dist: botocore (>=1.37.19,<1.38.0) ; extra == "bucket"
+Requires-Dist: celery (>=5.4.0,<5.5.0) ; extra == "worker"
+Requires-Dist: celery-redbeat (>=2.3.2,<2.4.0) ; extra == "worker"
+Requires-Dist: fastapi (>=0.115.12,<0.116.0) ; extra == "api"
+Requires-Dist: gunicorn (>=23.0.0,<23.1.0) ; extra == "api"
+Requires-Dist: paramiko (>=3.5.1,<3.6.0) ; extra == "ftp"
+Requires-Dist: passlib[bcrypt] (>=1.7.4,<1.8.0) ; extra == "security"
+Requires-Dist: psycopg2 (>=2.9.10,<2.10.0) ; extra == "database"
+Requires-Dist: python-dateutil (>=2.9.0,<2.10.0) ; extra == "ftp"
+Requires-Dist: python-jose (>=3.4.0,<3.5.0) ; extra == "security"
+Requires-Dist: python-multipart (>=0.0.18,<0.1.0) ; extra == "api"
+Requires-Dist: redis (>=5.2.1,<5.3.0) ; extra == "redis" or extra == "streamer" or extra == "worker"
+Requires-Dist: requests (>=2.32.3,<2.33.0) ; extra == "request"
+Requires-Dist: uvicorn (>=0.34.0,<0.35.0) ; extra == "api"
+Description-Content-Type: text/markdown
+
+# Dealer Tower Python Framework
+
+DealerTower Framework: reusable building‑blocks for DealerTower services
+
+## Installation
+
+You can install the package via pip:
+
+```bash
+pip install dtfwpy
+```
+
