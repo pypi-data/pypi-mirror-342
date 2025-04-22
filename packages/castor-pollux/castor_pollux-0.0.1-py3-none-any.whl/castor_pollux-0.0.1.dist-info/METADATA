@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: castor-pollux
+Version: 0.0.1
+Summary: A library for 'gemini' models
+Author-email: Alexander Fedotov <alex.fedotov@aol.com>
+Project-URL: Homepage, https://github.com/alxfed/castor-pollux
+Project-URL: Bug Tracker, https://github.com/alxfed/castor-pollux/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# castor-pollux
+Package Name
+<pre>
+  pip install castor-pollux
+</pre>
+Then:
+```Python
+  # Python
+  import castor_pollux
+```
