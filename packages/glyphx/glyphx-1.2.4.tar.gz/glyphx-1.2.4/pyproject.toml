@@ -1,0 +1,10 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+    "numpy",
+    "ipython",
+    "ipywidgets",
+    "pandas"
+]
+build-backend = "setuptools.build_meta"
