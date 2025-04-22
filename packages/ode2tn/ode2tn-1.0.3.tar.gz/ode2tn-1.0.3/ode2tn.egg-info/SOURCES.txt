@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+ode2tn/__init__.py
+ode2tn/transform.py
+ode2tn.egg-info/PKG-INFO
+ode2tn.egg-info/SOURCES.txt
+ode2tn.egg-info/dependency_links.txt
+ode2tn.egg-info/requires.txt
+ode2tn.egg-info/top_level.txt
