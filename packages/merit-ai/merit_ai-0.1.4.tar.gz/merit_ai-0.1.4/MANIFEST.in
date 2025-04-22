@@ -1,0 +1,18 @@
+include LICENSE
+include README.md
+include pyproject.toml
+include setup.py
+include setup.cfg
+
+# Include HTML templates
+include merit/templates/*.html
+
+# Include all Python files
+recursive-include merit *.py
+
+# Exclude cache files
+global-exclude __pycache__
+global-exclude *.py[cod]
+global-exclude *.so
+global-exclude .*.swp
+global-exclude .DS_Store
