@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: gh-notify
+Version: 0.0.0
+Summary: GitHub issue creation via webhook proxy
+Requires-Python: >=3.12
+Requires-Dist: httpx
+Requires-Dist: rich
+Requires-Dist: typer
