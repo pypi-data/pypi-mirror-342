@@ -1,0 +1,13 @@
+[project]
+name = "grapherz"
+version = "0.1.5"
+description = "负责提供graph之间的格式调度"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.2.4",
+    "pytest>=8.3.5",
+    "pytest-html>=4.1.1",
+    "python-box>=7.3.2",
+    "setuptools>=78.1.0",
+]
