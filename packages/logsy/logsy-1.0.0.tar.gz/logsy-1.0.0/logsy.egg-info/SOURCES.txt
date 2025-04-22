@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+logsy/__init__.py
+logsy/formatter.py
+logsy.egg-info/PKG-INFO
+logsy.egg-info/SOURCES.txt
+logsy.egg-info/dependency_links.txt
+logsy.egg-info/top_level.txt
