@@ -1,0 +1,172 @@
+<template tpl_id="study_browser">
+    <div class="flex-use-height">
+        <h2>Wähle Studie</h2>
+        <div class="study_list flex-use-height">
+            <div class="flex-use-height">
+                
+                <div class="controls d-flex">
+
+                    <div class="dropdown mr-2">
+                        <select id="sortDropdownMenu" class="form-control" onchange="page_study_browser.sort(this.value)">
+                            <option value="pseudorandom">Pseudorandom</option>
+                            <option value="asc">Asc</option>
+                            <option value="desc">Desc</option>
+                            <option value="date_desc">Date Desc</option>
+                            <option value="date_asc">Date Asc</option>
+                        </select>
+                    </div>
+
+                    <div class="dropdown mr-2">
+                        <select id="sortDropdownMenu2" class="form-control" onchange="page_study_browser.included_filter(this.value)">
+                            <option value="included" selected>Inkludiert</option>
+                            <option value="excluded">Excludiert</option>
+                        </select>
+                    </div>
+                    <button id="btn-back" class="btn btn-outline-primary mr-2" style="width: 150px;" onclick="page_study_browser.back()">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button id="btn-forward" class="btn btn-outline-primary mr-2" style="width: 150px;"onclick="page_study_browser.forward()">
+                        Forward <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <div class="input-group mr-2">
+                        <input type="text" id="filter-box" class="form-control" placeholder="Filter" oninput="page_study_browser.filter()">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-filter"></i></span>
+                        </div>
+                    </div>
+                </div>
+            
+
+                <div class="flex-use-height mt-2" style="overflow-y: auto;">
+                    <table class="study-table table-modern">
+                        <thead style="position: sticky; top: 0;">
+                            <tr class="datatable-header">
+                                <td>Sortierung</td>
+                                <td style="min-width:300px;">Name</td>
+                                <td>Kurzbeschreibung</td>
+                                <td>Jahr</td>
+                                <td>Studienzahl</td>
+
+                            </tr>
+                        </thead>
+                        <tbody class="study-content"></tbody>
+                    </table>
+                </div>
+                <div class="col-4">
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</template>
+<template tpl_id="study_item">
+    <tr class="" style="font-size:12pt;">
+        <td class="study-sort"></td>
+        <td class="study-name"></td>
+        <td class="study-short" style="font-size:7pt;"></td>
+        <td class="study-comment"></td>
+        <td class="study-state">
+
+        </td>
+
+    </tr>
+
+</template>
+
+<script>
+    var selected_study="";
+    var pos=0;
+    var limit=30;
+    page_study_browser = {};
+    page_study_browser.show = function (validated_own=false) {
+        node = $("#main-view-content").tpl("study_browser");
+        page_study_browser.load(validated_own);
+        $("#sortDropdownMenu").val("pseudorandom");
+    }
+    page_study_browser.load=function(validated_own=false){
+        studlis.newState();
+        textfilter=$("#filter-box").val();
+        if (textfilter.length<3)filter="";
+        filter = {}
+        filter["name"] = textfilter;
+        filter["included"] = $("#sortDropdownMenu2").val()=="included" ? 1 : 0;
+        
+        order_mode=$("#sortDropdownMenu").val();
+
+        DoRequest("get_study_list", {"token":session_token,"project":selected_project,"from":pos,"filter":filter,"order_mode":order_mode,"validated_own":validated_own}, function (data) {
+            if (data.value) {
+                $(".study-content").empty();
+
+                if(data.value.length>0){
+                    let study = data.value[0];
+                    let trnode=node.find(".datatable-header");
+                    node.find(".datatable-header-element").remove();
+                    
+                    $.each(study, function (key, value) {
+                        if (key.startsWith("data_")) {
+                            let caption = "..."+key.replace("data_", "").replace(/_/g, " ").slice(-10);
+                            trnode.append("<td class='text-small datatable-header-element' name='"+key+"'>" + caption  + "</td>");
+                        }
+                    
+                    });
+
+
+                }
+
+
+
+                for (var i = 0; i < data.value.length; i++) 
+                {
+                    let study = data.value[i];
+                    let index = i+pos;
+                    let node = $(".study-content").appendtpl("study_item");
+                    node.find(".study-name").text(study.name);
+                    node.find(".study-short").text(study.short);
+                    node.find(".study-comment").text(study.comment);
+                    node.find(".study-state").text((study.state>=0) ? "Incl." : "Excl.");
+                    node.find(".study-sort").text(index);
+                  
+                    $.each(study, function (key, value) {
+                        if (key.startsWith("data_")) {
+                            node.append("<td name='"+key+"'>" + value + "</td>");
+                        }
+                    
+                    });
+
+                    node.click(function(){
+                        selected_study=$(this).find(".study-name").text();
+                        study_viewer.start_list(study.id,index ,{"token":session_token,"project":selected_project,"from":pos,"filter":filter,"order_mode":order_mode});
+                    });
+                    //$(".main-view-sidenav").removeClass("d-none");
+                
+                }
+            }
+        });
+    }
+    page_study_browser.back=function(){
+        if (pos==0) return;
+        pos-=limit;
+        if(pos<0) pos=0;
+        page_study_browser.load();
+    }
+    page_study_browser.forward=function(){
+        pos+=limit;
+        page_study_browser.load();
+    }
+    page_study_browser.filter=function(){
+        page_study_browser.load();
+    }
+    page_study_browser.sort=function(type){
+        page_study_browser.load();
+        
+    }
+    page_study_browser.included_filter=function(type){
+        pos=0;
+        page_study_browser.load();
+        
+    }
+
+
+</script>

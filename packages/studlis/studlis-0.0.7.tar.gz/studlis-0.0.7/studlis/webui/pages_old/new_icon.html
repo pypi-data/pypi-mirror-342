@@ -1,0 +1,98 @@
+
+<template tpl_id="page_new_icon">
+    <div>
+        <h3> New Icon</h3>
+        
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Icon Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="...icon name...">
+        </div>
+        <div class="mb-3">
+            <label for="iconcat" class="form-label">Category</label>
+            <select class="form-select" id="iconcat" aria-label="Icon Category">
+                <option selected>loading...</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="iconlic" class="form-label">License</label>
+            <select class="form-select" id="iconlic" aria-label="Icon Category">
+                <option selected>loading...</option>
+            </select>
+        </div>   
+    
+        <div class="mb-3">
+            <label for="iconlic" class="form-label">Icon SVG</label>
+            <div class="mb-3">
+                Please drop the .svg file here!
+    
+            </div>
+
+            <div id="svg_target">
+
+            </div>
+        </div>   
+        <button type="button" class="btn btn-primary" onclick="new_icon.save();return false;">
+            <i class="fas fa-save"></i> Save
+         </button>
+
+
+    </div>
+</template>
+
+
+
+<script>
+    var new_icon={};
+    new_icon.show=function(){
+        node=$("#main-view-content").tpl("page_new_icon");
+        set_svg_drop($("#main-view-content"),$("#svg_target"),function(file){
+            if($("#exampleFormControlInput1").val().length==0){
+                $("#exampleFormControlInput1").val(formatFileName(file.name));
+            }
+        });
+
+
+        DoRequest("categories_and_licences",{},function(data){
+            $("#iconlic").empty();
+            $.each(data.value.licenses,function(index,item){
+                var node = document.createElement("option");
+                node.innerHTML=item.name;
+                node.setAttribute("item_id",item.id);
+                $("#iconlic").append(node);
+            });
+            $("#iconcat").empty();
+            $.each(data.value.categories,function(index,item){
+                var node = document.createElement("option");
+                node.innerHTML=item.name;
+                node.setAttribute("item_id",item.id);
+                $("#iconcat").append(node);
+            });
+
+        });
+
+    }
+    new_icon.save = function(){
+        data={}
+        data.data = $("#svg_target").find("svg")[0].outerHTML;
+        data.name=$("#exampleFormControlInput1").val();
+        data.license_id=$("#iconlic option:selected").attr("item_id");
+        data.category_id=$("#iconcat option:selected").attr("item_id");
+        DoRequest("create_icon",data,function(data){
+            $("#exampleFormControlInput1").val("");
+            $("#svg_target").empty();
+        });
+
+
+    }
+
+
+
+
+    function formatFileName(fileName) {
+        // Remove the file extension
+        const nameWithoutExtension = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
+        // Capitalize the first letter
+        const capitalized = nameWithoutExtension.charAt(0).toUpperCase() + nameWithoutExtension.slice(1);
+        return capitalized;
+    }
+</script>

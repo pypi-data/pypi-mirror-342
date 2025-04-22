@@ -1,0 +1,114 @@
+.flex-use-height{
+  display:flex;
+  flex-direction:column;
+  min-height:0px;
+  flex-grow:1;
+}
+
+
+.table-modern {
+    width: 100%;
+    border-collapse: collapse; /* Collapse borders */
+    margin: 20px 0; /* Add some space around the table */
+    font-size: 0.9em; /* Adjust font size */
+    font-family: sans-serif; /* Use a modern font family */
+    min-width: 400px; /* Ensure table is not too narrow */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Add some shadow for depth */
+  }
+  
+  .table-modern thead tr {
+    background-color: #009879; /* Darker shade for header row */
+    color: #ffffff; /* White text for contrast */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .table-modern th,
+  .table-modern td {
+    padding: 12px 15px; /* Add space inside cells */
+  }
+  
+  .table-modern tbody tr {
+    border-bottom: 1px solid #dddddd; /* Light line between rows */
+  }
+  
+  /* Alternating row background colors */
+  .table-modern tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3; /* Light color for even rows */
+  }
+  
+  .table-modern tbody tr:nth-of-type(odd) {
+    background-color: #ffffff; /* Keep odd rows white for contrast */
+  }
+  
+  /* Hover effect for rows */
+  .table-modern tbody tr:hover {
+    background-color: #b0d0d8; /* Light grey background on hover */
+  }
+  
+  /* Style for links within the table, if any */
+  .table-modern a {
+    color: #009879;
+    text-decoration: none; /* Optional: removes underline from links */
+  }
+
+
+
+  .modern-top-menu{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  .modern-button {
+    border: none;
+    padding: 12px 24px;
+    font-weight: 500;
+    border-radius: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s, box-shadow 0.3s;
+    color: black;
+    cursor: pointer;
+  }
+  
+  .modern-button:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modern-button.one { background: #AFF5DB; }
+  .modern-button.one:hover { background: #7AE7BE; }
+  .modern-button.two { background: #cff8f8; }
+  .modern-button.two:hover { background: #72aeb9; }
+  
+
+
+
+
+  .site-item{
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: #94d9e6;
+    color: #141010;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    margin:10px;
+    
+  }
+  .site-item:hover{
+    background-color: #79d7e7;
+
+  }
+  .site-editor{
+    position: relative;
+    border: 1px solid black;
+    cursor: move;
+    min-width:200px;
+    min-height:200px;
+  }
+  .color-box
+  {
+    width: 30px;
+    height: 10px;
+    border: 1px solid black;
+    display: inline-block;
+    margin: 0 5px;
+  }

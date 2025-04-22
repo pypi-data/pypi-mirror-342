@@ -1,0 +1,25 @@
+<template tpl_id="page_export">
+    <div>
+        <h2>Export</h2>
+        Download all icons as a zip file.
+        
+
+        <button type="button" class="btn btn-primary" onclick="export_icons();return false;">Download</button>
+        <%!
+        import platform
+        %>
+
+        % if platform.system() == 'Windows':
+            <p><span style="color:red">Server is running on Windows platform, this is currently not supported</span></p>
+        % endif
+    </div>
+</template>
+<script>
+    var page_export = {};
+    page_export.show = function(){
+        node=$("#main-view-content").tpl("page_export");
+    }
+    var export_icons = function(){
+        DoDownload("download_icons",{},"icons.zip");
+    }
+</script>
