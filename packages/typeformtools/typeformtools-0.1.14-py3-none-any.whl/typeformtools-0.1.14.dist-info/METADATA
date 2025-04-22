@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: typeformtools
+Version: 0.1.14
+Summary: TypeForm helpers
+Author: Olaf
+License: MIT License
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Typing :: Typed
+Requires-Python: >=3.12
+Requires-Dist: annotated-types
+Requires-Dist: more-itertools
+Requires-Dist: typing-extensions>=4.13
+Requires-Dist: useful-types
+Description-Content-Type: text/markdown
+
+# `typeformtools` - Helpers for [PEP 747](https://peps.python.org/pep-0747/) `TypeForm`s
+
+## Usage
+
+### Installation
+
+    > pip install typeformtools
+
+### Interactive usage
+
+    > python
+    >>> import typeformtools
+    >>> typeformtools.non_optional(int | None)
+    # <class 'int'>
+
+## Contents
+
+### Functions to reduce to more basic `TypeForm`s
+
+| function          | effect if argument is intended `TypeForm` | otherwise |
+|:------------------|:------------------------------------------|:----------|
+| `unaliased()`     | type A = T &rarr; T                       | original  |
+| `unannotated()`   | Annotated[T, ...] &rarr; T                | original  |
+| `undisguised()`   | type A = Annotated[T, ...] &rarr; T       | original  |
+| `non_optional()`  | T &vert; None &rarr; T &vert; Never       | original  |
+
+### Other functions
+
+| function            | effect if argument is intended `TypeForm`             | otherwise |
+|:--------------------|:------------------------------------------------------|:----------|
+| `literal_values()`  | Literal[value, value, ...] &rarr; (value, value, ...) | fail      |
+
+## Status
+
+This package is very much a *work in progress*:
+* it may fail, even for its limited supported scope
+* the scope of provided functions needs to be extended
+* more functions need to be provided
+* more documentation is required
+* there are still many `#TODO`s
+ 
