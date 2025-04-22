@@ -1,0 +1,14 @@
+.gitattributes
+.gitignore
+CONTRIBUTING.md
+LICENSE.txt
+README.md
+pyproject.toml
+hi_motor_designer.egg-info/PKG-INFO
+hi_motor_designer.egg-info/SOURCES.txt
+hi_motor_designer.egg-info/dependency_links.txt
+hi_motor_designer.egg-info/entry_points.txt
+hi_motor_designer.egg-info/requires.txt
+hi_motor_designer.egg-info/top_level.txt
+hmd/__main__.py
+hmd/__version__.py
