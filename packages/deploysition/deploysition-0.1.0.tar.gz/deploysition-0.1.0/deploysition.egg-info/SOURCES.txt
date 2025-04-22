@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.py
+deploysition/__main__.py
+deploysition.egg-info/PKG-INFO
+deploysition.egg-info/SOURCES.txt
+deploysition.egg-info/dependency_links.txt
+deploysition.egg-info/entry_points.txt
+deploysition.egg-info/top_level.txt
