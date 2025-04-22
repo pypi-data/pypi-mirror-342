@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: doc_quality
+Version: 0.1
+Summary: A library to assess documentation quality for README and release notes.
+Author: Sristy Sumana Nath
+License: MIT
+Requires-Dist: nltk
+Requires-Dist: spacy
+Requires-Dist: textstat
+Requires-Dist: scikit-learn
+Requires-Dist: pandas
+Requires-Dist: beautifulsoup4
+

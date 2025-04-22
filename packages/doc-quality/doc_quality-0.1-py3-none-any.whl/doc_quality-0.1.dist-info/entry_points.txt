@@ -1,0 +1,2 @@
+[console_scripts]
+doc-quality = doc_quality.__main__:main
