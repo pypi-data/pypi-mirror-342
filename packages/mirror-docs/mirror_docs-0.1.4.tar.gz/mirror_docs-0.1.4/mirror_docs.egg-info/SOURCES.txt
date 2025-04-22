@@ -1,0 +1,10 @@
+LICENSE
+README.md
+mirror_docs.py
+pyproject.toml
+mirror_docs.egg-info/PKG-INFO
+mirror_docs.egg-info/SOURCES.txt
+mirror_docs.egg-info/dependency_links.txt
+mirror_docs.egg-info/entry_points.txt
+mirror_docs.egg-info/requires.txt
+mirror_docs.egg-info/top_level.txt
