@@ -1,0 +1,2 @@
+[console_scripts]
+symbolang = symbolang.cli:main
