@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: pcalib
+Version: 0.1.4
+Summary: PCA and linear algebra library with C++ backend
+Author: Selim Poladov
+Author-email: main@netherite.ru
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: matplotlib
+Requires-Dist: scikit-learn
+
