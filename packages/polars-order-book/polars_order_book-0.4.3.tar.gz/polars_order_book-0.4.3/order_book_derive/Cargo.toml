@@ -1,0 +1,17 @@
+[package]
+name = "order-book-derive"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+authors = ["Christopher Russell"]
+description = "Procedural macros for the order book library"
+
+[dependencies]
+syn = "2"
+quote = "1"
+proc-macro2 = "1"
+hashbrown = "0.15.2"
+
+
+[lib]
+proc-macro = true
