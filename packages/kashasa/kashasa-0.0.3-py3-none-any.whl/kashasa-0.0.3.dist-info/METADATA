@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: kashasa
+Version: 0.0.3
+Author-email: Alex Kalaverin <alex@kalaver.in>
+License: BSD License
+Keywords: decorators,descriptors,serialization
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: construct>=2.10.70
+Requires-Dist: hiredis>=3.1.0
+Requires-Dist: kalib>=0.21.23
+Requires-Dist: lz4>=4.4.3
+Requires-Dist: orjson>=3.10.16
+Requires-Dist: pydantic>=2.10.6
+Requires-Dist: pymongo>=4.11.3
+Requires-Dist: redis>=5.2.1
+Requires-Dist: vedis>=0.7.2
+Requires-Dist: xxhash>=3.5.0
+Requires-Dist: zstd>=1.5.6.6
+Provides-Extra: full
+Requires-Dist: lmdb>=1.6.2; extra == "full"
+Requires-Dist: plyvel>=1.5.1; extra == "full"
+Requires-Dist: rocksdb-py; extra == "full"
