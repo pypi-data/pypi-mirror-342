@@ -1,0 +1,135 @@
+Metadata-Version: 2.4
+Name: yaml-workflow
+Version: 0.4.0
+Summary: A lightweight, powerful, and flexible workflow engine that executes tasks defined in YAML configuration files
+Project-URL: Homepage, https://github.com/orieg/yaml-workflow
+Project-URL: Issues, https://github.com/orieg/yaml-workflow/issues
+Project-URL: Documentation, https://orieg.github.io/yaml-workflow/
+Author-email: Nicolas Brousse <nicolas@brousse.info>
+License: MIT License
+        
+        Copyright (c) 2024 YAML Workflow Contributors
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE. 
+License-File: LICENSE
+Keywords: automation,batch-processing,configuration,data-pipeline,data-processing,distributed-tasks,etl,job-scheduler,modular-workflows,orchestration,parallel-processing,pipeline,process-automation,reports,retry-mechanism,state-management,task-orchestration,task-runner,templating,workflow,workflow-automation,workflow-engine,workflow-management,yaml,yaml-configuration
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Systems Administration
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Requires-Dist: click<9.0,>=8.0
+Requires-Dist: jinja2<4.0,>=3.0
+Requires-Dist: pyyaml<7.0,>=6.0
+Provides-Extra: dev
+Requires-Dist: black==25.1.0; extra == 'dev'
+Requires-Dist: build<2.0.0,>=1.0.0; extra == 'dev'
+Requires-Dist: isort<7.0,>=5.0; extra == 'dev'
+Requires-Dist: twine<7.0.0,>=4.0.0; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: docstring-parser<1.0,>=0.16.0; extra == 'doc'
+Requires-Dist: griffe>=0.49.0; extra == 'doc'
+Requires-Dist: mkdocs-gen-files<1.0,>=0.5.0; extra == 'doc'
+Requires-Dist: mkdocs-literate-nav<1.0,>=0.6.0; extra == 'doc'
+Requires-Dist: mkdocs-material<10.0,>=9.6.0; extra == 'doc'
+Requires-Dist: mkdocs-section-index<1.0,>=0.3.0; extra == 'doc'
+Requires-Dist: mkdocs<2.0,>=1.6.0; extra == 'doc'
+Requires-Dist: mkdocstrings[python]<1.0,>=0.29.0; extra == 'doc'
+Provides-Extra: test
+Requires-Dist: mypy<2.0,>=1.0; extra == 'test'
+Requires-Dist: pytest-cov<7.0,>=4.0; extra == 'test'
+Requires-Dist: pytest-ordering; extra == 'test'
+Requires-Dist: pytest<9.0,>=7.0; extra == 'test'
+Requires-Dist: types-pyyaml<7.0,>=6.0; extra == 'test'
+Description-Content-Type: text/markdown
+
+# YAML Workflow
+
+A lightweight, powerful, and flexible workflow engine that executes tasks defined in YAML configuration files. This engine allows you to create modular, reusable workflows by connecting tasks through YAML definitions, with support for parallel processing, batch operations, and state management.
+
+## Features
+
+- 📝 YAML-driven workflow definition
+- 🔌 Dynamic module and function loading
+- 🔄 Input/output variable management
+- ⚠️ Comprehensive error handling
+- 🔁 Retry mechanisms
+- ⚡ Parallel processing support
+- 📊 Progress tracking and logging
+- 💾 State persistence and resume capability
+- 🔄 Batch processing with chunking
+- 🌐 Template variable substitution
+- 🔀 Flow control with custom step sequences
+
+## Quick Start
+
+1. Install the package:
+```bash
+pip install yaml-workflow
+```
+
+2. Initialize example workflows:
+```bash
+# Create workflows directory with examples
+yaml-workflow init
+
+# Or specify a custom directory
+yaml-workflow init --dir my-workflows
+
+# Initialize with specific examples only
+yaml-workflow init --example hello_world
+```
+
+3. Run the example workflow:
+```bash
+# Run with input parameters
+yaml-workflow run workflows/hello_world.yaml name=Alice
+
+# List available workflows
+yaml-workflow list
+
+# Validate a workflow
+yaml-workflow validate workflows/hello_world.yaml
+
+# Resume a failed workflow
+yaml-workflow run workflows/hello_world.yaml --resume
+```
+
+## Documentation
+
+- [Task Types](https://github.com/orieg/yaml-workflow/blob/main/docs/tasks.md) - Available task types and how to use them
+- [Workflow Structure](https://github.com/orieg/yaml-workflow/blob/main/docs/workflow-structure.md) - Detailed workflow configuration
+- [Development Guide](https://github.com/orieg/yaml-workflow/blob/main/docs/development.md) - Setup, building, and contributing
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
