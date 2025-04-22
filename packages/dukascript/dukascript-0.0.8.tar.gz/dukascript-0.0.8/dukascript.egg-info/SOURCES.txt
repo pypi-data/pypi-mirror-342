@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+dukascript/__init__.py
+dukascript/instruments.py
+dukascript.egg-info/PKG-INFO
+dukascript.egg-info/SOURCES.txt
+dukascript.egg-info/dependency_links.txt
+dukascript.egg-info/requires.txt
+dukascript.egg-info/top_level.txt
