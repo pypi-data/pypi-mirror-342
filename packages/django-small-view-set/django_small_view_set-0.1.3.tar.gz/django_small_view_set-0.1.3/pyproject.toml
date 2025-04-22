@@ -1,0 +1,28 @@
+[build-system]
+requires = ["poetry>=1.2"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "django-small-view-set"
+version = "0.1.3"
+description = "A lightweight Django ViewSet alternative with minimal abstraction."
+readme = "README.md"
+authors = ["Nate Brooks"]
+license = "MIT"
+repository = "https://github.com/nateonguitar/django-small-view-set"
+keywords = ["django", "viewset"]
+packages = [
+    { include = "small_view_set", from = "src" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+django = ">=3.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+pytest-django = "*"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+python_files = ["test_*.py"]
