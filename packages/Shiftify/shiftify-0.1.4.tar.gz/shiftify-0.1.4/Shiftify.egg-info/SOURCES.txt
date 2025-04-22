@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+Shiftify.egg-info/PKG-INFO
+Shiftify.egg-info/SOURCES.txt
+Shiftify.egg-info/dependency_links.txt
+Shiftify.egg-info/entry_points.txt
+Shiftify.egg-info/requires.txt
+Shiftify.egg-info/top_level.txt
+shiftify/__init__.py
+shiftify/csv_convertor.py
+shiftify/json_convertor.py
+tests/test_csv.py
+tests/test_json.py
