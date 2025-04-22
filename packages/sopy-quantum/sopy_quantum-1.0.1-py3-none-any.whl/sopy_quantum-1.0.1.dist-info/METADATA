@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: sopy-quantum
+Version: 1.0.1
+Summary: Representation and Decomposition with Sums of Product for Operations in separated dimensions
+Author-email: Jonathan Jerke <jonathan@quantumgalaxies.org>
+License-Expression: MIT
+Project-URL: Homepage, https://sopy.quantumgalaxies.org
+Project-URL: Issues, https://github.com/quantumgalaxies/sopy/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: tensorflow>=2.16.1
+Requires-Dist: scikit-learn>=1.6.1
+Dynamic: license-file
+
+# SoPy
+
+## Representation and Decomposition with Sums of Product for Operations in separated dimensions
+
+### How to Contribute
+	* Wrap work in a class for user friendliness
+        * Write to disk/database/json
+    * Develop amplitude/component to various non-local resources
+	* Engage with Quantum Galaxies deploying matrices in separated dimensions
+
+### Contact Info
+    sopy.quantumgalaxies.org
