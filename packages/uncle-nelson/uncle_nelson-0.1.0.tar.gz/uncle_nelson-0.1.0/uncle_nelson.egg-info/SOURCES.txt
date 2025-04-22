@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+uncle_nelson/__init__.py
+uncle_nelson/enums.py
+uncle_nelson/mix.py
+uncle_nelson/rules.py
+uncle_nelson.egg-info/PKG-INFO
+uncle_nelson.egg-info/SOURCES.txt
+uncle_nelson.egg-info/dependency_links.txt
+uncle_nelson.egg-info/requires.txt
+uncle_nelson.egg-info/top_level.txt

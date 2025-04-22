@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uncle-nelson"
+authors = [{ name="codeofandrin" }]
+description = ""
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dynamic = ["version", "dependencies"]
+
+[project.urls]
+Documentation = "https://uncle-nelson.readthedocs.io/latest/"
+Repository = "https://github.com/codeofandrin/uncle-nelson"
+Issues = "https://github.com/codeofandrin/uncle-nelson/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "uncle_nelson.__version__" }
+
+[project.optional-dependencies]
+docs = [
+    "sphinx==7.1.2",
+    "furo",
+]
+
+[tool.setuptools]
+packages = [
+    "uncle_nelson",
+]
+include-package-data = true
+
+[tool.black]
+line-length = 110
+skip-string-normalization = true
+
+[tool.pyright]
+include = [
+    "uncle_nelson",
+]
+exclude = [
+    "**/__pycache__",
+    "build",
+    "dist",
+]
+reportUnnecessaryTypeIgnoreComment = "warning"
+reportUnusedImport = "error"
+pythonVersion = "3.9"
+typeCheckingMode = "basic"
