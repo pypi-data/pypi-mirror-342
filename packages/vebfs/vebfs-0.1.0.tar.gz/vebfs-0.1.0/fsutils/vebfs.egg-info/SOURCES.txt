@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+docs/bat_image.png
+fsutils/vebfs.egg-info/PKG-INFO
+fsutils/vebfs.egg-info/SOURCES.txt
+fsutils/vebfs.egg-info/dependency_links.txt
+fsutils/vebfs.egg-info/top_level.txt
+tests/test_file_operations.py
+tests/test_file_search.py
