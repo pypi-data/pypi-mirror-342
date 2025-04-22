@@ -1,0 +1,3 @@
+from gllm_retrieval.retrieval_parameter_extractor.lm_based_retrieval_parameter_extractor import LMBasedRetrievalParameterExtractor as LMBasedRetrievalParameterExtractor
+
+__all__ = ['LMBasedRetrievalParameterExtractor']
