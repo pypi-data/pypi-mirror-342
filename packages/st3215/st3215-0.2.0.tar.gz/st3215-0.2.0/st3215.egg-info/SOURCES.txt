@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+st3215/__init__.py
+st3215/group_sync_read.py
+st3215/group_sync_write.py
+st3215/port_handler.py
+st3215/protocol_packet_handler.py
+st3215/st3215.py
+st3215/values.py
+st3215.egg-info/PKG-INFO
+st3215.egg-info/SOURCES.txt
+st3215.egg-info/dependency_links.txt
+st3215.egg-info/requires.txt
+st3215.egg-info/top_level.txt
