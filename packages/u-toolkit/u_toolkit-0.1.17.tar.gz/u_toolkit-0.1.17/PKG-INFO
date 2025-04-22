@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: u-toolkit
+Version: 0.1.17
+Summary: Add your description here
+Requires-Python: >=3.11
+Requires-Dist: pydantic>=2.11.3
+Provides-Extra: fastapi
+Requires-Dist: fastapi>=0.115.12; extra == 'fastapi'
+Requires-Dist: pydantic-settings>=2.9.1; extra == 'fastapi'
+Provides-Extra: sqlalchemy
+Requires-Dist: sqlalchemy>=2.0.40; extra == 'sqlalchemy'
