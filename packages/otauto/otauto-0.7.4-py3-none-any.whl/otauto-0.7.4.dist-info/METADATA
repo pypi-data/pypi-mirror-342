@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: otauto
+Version: 0.7.4
+Summary: vnc_tool
+Author: ordtie
+Author-email: 283044916@qq.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Requires-Dist: aiohttp==3.11.11
+Requires-Dist: aircv==1.4.6
+Requires-Dist: altgraph==0.17.4
+Requires-Dist: cuda-python==12.8.0
+Requires-Dist: deepdiff==8.2.0
+Requires-Dist: docker==7.1.0
+Requires-Dist: flask
+Requires-Dist: numpy
+Requires-Dist: func-timeout==4.3.5
+Requires-Dist: fuzzywuzzy==0.18.0
+Requires-Dist: geventhttpclient==2.3.3
+Requires-Dist: grpcio-tools==1.33.2
+Requires-Dist: imagecodecs==2024.9.22
+Requires-Dist: importlib-resources==6.4.0
+Requires-Dist: jaraco.collections==5.1.0
+Requires-Dist: loguru
+Requires-Dist: mkl-fft==1.3.11
+Requires-Dist: mkl-random==1.2.8
+Requires-Dist: opencv-python==4.11.0.86
+Requires-Dist: pefile==2023.2.7
+Requires-Dist: pip-chill==1.0.3
+Requires-Dist: pipreqs==0.5.0
+Requires-Dist: pyinstaller-hooks-contrib==2025.1
+Requires-Dist: pymongo
+Requires-Dist: pytest==8.3.4
+Requires-Dist: python-levenshtein==0.26.1
+Requires-Dist: pywinauto==0.6.9
+Requires-Dist: pyyaml==6.0.2
+Requires-Dist: redis
+Requires-Dist: scikit-image==0.24.0
+Requires-Dist: sphinx==7.4.7
+Requires-Dist: tinycss2==1.4.0
+Requires-Dist: tritonclient==2.53.0
+Requires-Dist: ttkbootstrap==1.10.1
+Requires-Dist: twine==6.1.0
+Requires-Dist: vncdotool
+Requires-Dist: watchdog
+
