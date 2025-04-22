@@ -1,0 +1,113 @@
+from lightweight_b2.core.b2_client import B2Clientfrom ctypes import pythonapi
+
+        ___       __    __                _       __    __     __   ___ 
+       / (_)___ _/ /_  / /__      _____  (_)___ _/ /_  / /_   / /_ |__ \
+      / / / __ `/ __ \/ __/ | /| / / _ \/ / __ `/ __ \/ __/  / __ \__/ /
+     / / / /_/ / / / / /_ | |/ |/ /  __/ / /_/ / / / / /_   / /_/ / __/ 
+    /_/_/\__, /_/ /_/\__/ |__/|__/\___/_/\__, /_/ /_/\__/  /_.___/____/ 
+        /____/                          /____/                                
+
+# lightweight-b2
+Ultra-lightweight B2 client. Memory leakage not implemented yet (unlike boto3)
+```commandline
+pip install lightweight-b2
+```
+
+
+## Supports:  
+- sending existing files  
+- sending string as zipped json (data sinks)
+- Operates within a session refreshed every four hours; be sure to shut down the client when you’re done.
+
+<details>
+  <summary>Usage </summary>
+Create StorageConnectionParameters:
+
+```python 
+from lightweight_b2 import StorageConnectionParameters
+
+storage_connection_parameters = StorageConnectionParameters(
+    backblaze_access_key_id='access_key_id',
+    backblaze_secret_access_key='secret_access_key',
+    backblaze_endpoint_url='endpoint_url',
+    backblaze_bucket_name='bucket_name'
+)
+```
+Or just put em into the .env file. Load the .env using load_dotenv()  
+StorageConnectionParameters() will read all of parameters in format:  
+
+```
+BACKBLAZE_ACCESS_KEY_ID=  
+BACKBLAZE_SECRET_ACCESS_KEY=  
+BACKBLAZE_ENDPOINT_URL=  
+BACKBLAZE_BUCKET_NAME=  
+```
+or
+```
+AZURE_BLOB_PARAMETERS_WITH_KEY=  
+AZURE_CONTAINER_NAME=
+```
+then:
+```python
+load_dotenv(env_path)
+storage_connection_parameters = StorageConnectionParameters()
+```
+
+
+```python
+b2_client = B2Client(storage_connection_parameters)
+
+b2_client.upload_existing_file(file_path='C:/JohnnySins/Documents/SomeFile.csv')
+
+b2_client.upload_zipped_jsoned_string(
+    data='{some_sophisticated_data....}',
+    file_name='some_csv_name.csv'
+)
+
+b2_client.shutdown()
+```
+
+
+</details>
+
+<details>
+  <summary>Sample Main </summary>
+And the final sample main.py would look like:
+
+```python
+from lightweight_b2 import B2Client, StorageConnectionParameters
+
+
+if __name__ == '__main__ ':
+
+    storage_connection_parameters = StorageConnectionParameters(
+        backblaze_access_key_id='access_key_id',
+        backblaze_secret_access_key='secret_access_key',
+        backblaze_endpoint_url='endpoint_url',
+        backblaze_bucket_name='bucket_name'
+    )
+
+    """
+    Or just put em into the .env file. Load the .env using:
+    
+            load_dotenv(env_path)
+    
+    and then read it using:
+    
+            storage_connection_parameters = StorageConnectionParameters()
+    """
+
+    b2_client = B2Client(storage_connection_parameters)
+
+    b2_client.upload_existing_file(file_path='C:/JohnnySins/Documents/SomeFile.csv')
+
+    b2_client.upload_zipped_jsoned_string(
+        data='some_sophisticated_data....',
+        file_name='some_csv_name.csv'
+    )
+
+    b2_client.shutdown()
+
+```
+
+

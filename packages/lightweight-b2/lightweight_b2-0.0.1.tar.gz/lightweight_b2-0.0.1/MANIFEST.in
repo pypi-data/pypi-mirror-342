@@ -1,0 +1,2 @@
+include lightweight_b2/py.typed
+include lightweight_b2/core/*.pyi
