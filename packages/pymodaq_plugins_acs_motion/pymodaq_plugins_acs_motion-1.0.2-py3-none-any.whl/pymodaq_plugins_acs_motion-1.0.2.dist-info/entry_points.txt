@@ -1,0 +1,5 @@
+[pymodaq.instruments]
+acs_motion = pymodaq_plugins_acs_motion
+
+[pymodaq.plugins]
+acs_motion = pymodaq_plugins_acs_motion
