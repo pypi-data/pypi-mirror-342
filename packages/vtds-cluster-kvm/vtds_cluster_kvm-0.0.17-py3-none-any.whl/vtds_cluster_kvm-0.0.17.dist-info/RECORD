@@ -1,0 +1,16 @@
+vtds_cluster_kvm/__init__.py,sha256=aQ7x2vZNpmBSwf9p6Tp7GZc3CV1CFlDeUr9zFrsepI0,1241
+vtds_cluster_kvm/private/__init__.py,sha256=R-bZJU5Nu0ve43g9SRZesWmLCbc-zrC-n0lw1k-6_v0,1502
+vtds_cluster_kvm/private/api_objects.py,sha256=5q49y27RyPAR8vIO2EC-XG7R9BESv6AWLqVrUL7qlr4,33250
+vtds_cluster_kvm/private/cluster.py,sha256=hQnXqD9LuEpxOL9kHy0v5VuHVUGDG9e9ab4fctw78Iw,24756
+vtds_cluster_kvm/private/common.py,sha256=jQfzSVJ23Yq-Jz-NYXd3Hx9UL1cU-HjuH4yQVrCEn0w,22055
+vtds_cluster_kvm/private/config.py,sha256=V_WRj9q6Nu8I7PbZJZ3O4Su78lf1ou2fkyxevM3VtC8,1599
+vtds_cluster_kvm/private/config/README.md,sha256=xoRzLo1XLYUMDNm2UBKEmllI1w-23PSenWgbQEO_tCw,109
+vtds_cluster_kvm/private/config/config.yaml,sha256=PeUMP_3xAkdGyIxsQ5-xngtM2rT3NRf2e-O1ITrgH68,19943
+vtds_cluster_kvm/private/config/test_overlay.yaml,sha256=GG1tjAg5pBZoPPyMP952rBmW_rd4cbKnPsdapXRTUlU,12
+vtds_cluster_kvm/private/config/virtual_node_template.xml,sha256=VhLER6EuhzTPkTf3mPBFqnUZIo653ipWBUAcOD6gyPQ,2702
+vtds_cluster_kvm/private/scripts/deploy_cluster_to_blade.py,sha256=ZcJxANFbveC-mJRtRtu2vISeh6nNTjhYQMh0U2Vkj3Q,67920
+vtds_cluster_kvm-0.0.17.dist-info/LICENSE,sha256=s_1-2EsRZPr25mKIveTgbbBL0a5d5pwoKKXbI6kK2K0,1067
+vtds_cluster_kvm-0.0.17.dist-info/METADATA,sha256=T4vY1e7Bog9B9uSWigXSmoNC9hCTRzwQ8U9Dyn4PjY4,2451
+vtds_cluster_kvm-0.0.17.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+vtds_cluster_kvm-0.0.17.dist-info/top_level.txt,sha256=UtIZMdFNAPenB03BYk3l0Au_sI_7zSYCG0xOA9MZP0g,17
+vtds_cluster_kvm-0.0.17.dist-info/RECORD,,
