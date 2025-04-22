@@ -1,0 +1,2 @@
+[console_scripts]
+web-search-agent = web_search_agent.agent:main
