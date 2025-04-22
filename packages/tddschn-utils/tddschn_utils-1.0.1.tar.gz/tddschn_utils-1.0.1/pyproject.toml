@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "tddschn-utils"
+version = "1.0.1"
+description = "Collection of command line utility tools"
+authors = ["Teddy Xinyuan Chen <45612704+tddschn@users.noreply.github.com>"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/tddschn/tddschn-utils"
+repository = "https://github.com/tddschn/tddschn-utils"
+classifiers = ["Topic :: Utilities"]
+keywords = ["utils"]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/tddschn/tddschn-utils/issues"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+webvtt-py = "^0.4.6"
+pyperclip = "^1.9.0"
+
+[tool.poetry.scripts]
+vtt2txt = "tddschn_utils.webvtt2txt:main"
+gpt_repo_loader = "tddschn_utils.gpt_plain_text_file_loader:main"
+gptrl = "tddschn_utils.gpt_plain_text_file_loader:main"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: tddschn-utils
+Version: 1.0.1
+Summary: Collection of command line utility tools
+Home-page: https://github.com/tddschn/tddschn-utils
+License: MIT
+Keywords: utils
+Author: Teddy Xinyuan Chen
+Author-email: 45612704+tddschn@users.noreply.github.com
+Requires-Python: >=3.12,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Utilities
+Requires-Dist: pyperclip (>=1.9.0,<2.0.0)
+Requires-Dist: webvtt-py (>=0.4.6,<0.5.0)
+Project-URL: Bug Tracker, https://github.com/tddschn/tddschn-utils/issues
+Project-URL: Repository, https://github.com/tddschn/tddschn-utils
+Description-Content-Type: text/markdown
+
+# tddschn-utils
+
