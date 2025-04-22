@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: p4b
+Version: 0.1.2
+Summary: god bless you
+Requires-Python: >=3.11
+Requires-Dist: cython
+Requires-Dist: google-generativeai
+Requires-Dist: keyboard
+Requires-Dist: pillow
+Requires-Dist: pyarmor
+Requires-Dist: pyautogui
+Requires-Dist: pygame
+Requires-Dist: pyperclip
+Requires-Dist: setuptools
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
