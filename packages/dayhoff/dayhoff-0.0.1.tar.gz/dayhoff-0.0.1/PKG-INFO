@@ -1,0 +1,74 @@
+Metadata-Version: 2.4
+Name: dayhoff
+Version: 0.0.1
+Summary: Python package for generation of protein sequences and evolutionary alignments via discrete diffusion models
+Author: Sarah A. Alamdari, Neil Tenenholtz, Samir Char, Kaeli Kaymak-Loveless, Alex J. Lee, Garyk Brixi, Carles Domingo-Enrich, Nicolo Fusi
+Author-email: "Kevin K. Yang" <kevyan@microsoft.com>, "Ava P. Amini" <ava.amini@microsoft.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/microsoft/dayhoff
+Project-URL: Repository, https://github.com/microsoft/dayhoff
+Project-URL: Issues, https://github.com/microsoft/dayhoff/issues
+Project-URL: HuggingFaceDatasets, https://huggingface.co/datasets/microsoft/DayhoffDataset
+Project-URL: HuggingFaceModels, https://huggingface.co/microsoft/Dayhoff
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10.16
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch-geometric~=2.5.2
+Requires-Dist: torch-scatter~=2.1.2
+Requires-Dist: causal-conv1d>=1.2.0
+Requires-Dist: mamba-ssm~=2.2.4
+Requires-Dist: transformers~=4.42.4
+Requires-Dist: datasets~=3.2.0
+Requires-Dist: biopython~=1.83
+Requires-Dist: biotite~=0.40.0
+Requires-Dist: blosum~=2.0.3
+Requires-Dist: fair-esm~=2.0.0
+Requires-Dist: evodiff~=1.1.0
+Requires-Dist: sequence-models~=1.8.0
+Requires-Dist: pandas~=2.2.3
+Requires-Dist: numpy~=2.2.4
+Requires-Dist: lmdb~=1.4.1
+Requires-Dist: mdanalysis~=2.7.0
+Requires-Dist: python-dotenv~=1.0.1
+Requires-Dist: matplotlib~=3.10.1
+Requires-Dist: seaborn~=0.13.2
+Requires-Dist: h5py~=3.13.0
+Requires-Dist: scikit-learn~=1.5.0
+Requires-Dist: scipy~=1.15.2
+Requires-Dist: mlflow
+Requires-Dist: pdb-tools~=2.5.0
+Requires-Dist: wandb~=0.16.6
+Requires-Dist: tqdm~=4.67.1
+Requires-Dist: ijson~=3.3.0
+Requires-Dist: pyfastx~=2.2.0
+Requires-Dist: huggingface_hub~=0.27.1
+Requires-Dist: azure-identity~=1.21.0
+Dynamic: license-file
+
+# Project
+
+
+## Contributing
+
+This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
+the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+
+When you submit a pull request, a CLA bot will automatically determine whether you need to provide
+a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
+provided by the bot. You will only need to do this once across all repos using our CLA.
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+## Trademarks
+
+This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
+trademarks or logos is subject to and must follow 
+[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
+Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
+Any use of third-party trademarks or logos are subject to those third-party's policies.
