@@ -1,0 +1,2 @@
+[console_scripts]
+automython = interpret.interpreter:interpret
