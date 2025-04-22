@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+qrcodex/__init__.py
+qrcodex/exceptions.py
+qrcodex/generator.py
+qrcodex/utils.py
+qrcodex.egg-info/PKG-INFO
+qrcodex.egg-info/SOURCES.txt
+qrcodex.egg-info/dependency_links.txt
+qrcodex.egg-info/entry_points.txt
+qrcodex.egg-info/requires.txt
+qrcodex.egg-info/top_level.txt
