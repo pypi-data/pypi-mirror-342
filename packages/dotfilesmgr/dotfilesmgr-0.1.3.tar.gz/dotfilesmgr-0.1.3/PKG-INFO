@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: dotfilesmgr
+Version: 0.1.3
+Summary: Simple tool to manage your dotfiles
+Project-URL: Repository, https://github.com/J0schu/dotfilemgr
+Project-URL: Issues, https://github.com/J0schu/dotfilemgr/issues
+Project-URL: Changelog, https://github.com/J0schu/dotfilemgr/releases
+Author: J0schu
+License-Expression: MIT
+License-File: LICENSE
+Requires-Python: >=3.8
+Requires-Dist: colorama
+Requires-Dist: toml
+Description-Content-Type: text/markdown
+
+## Dotfilesmgr
+Simple tool to manage your dotfiles.
+### Installation
+```bash
+pipx install dotfilesmgr
+```
+### Options
+```bash
+  -h, --help           show this help message and exit
+  -c, --config CONFIG  Path to TOML config file
+  -s, --sync           Perform dotfile syncing
+  -l, --list           List synced symlinks
+  -r, --remove         Remove the currently active symlinks
+```
+### Configutation
+```toml
+[settings]
+dotfiles_dir = "~/dotfiles"  # optional, used as base for relative sources
+
+[kitty]
+source = "./kitty"
+destination = "~/.config/kitty"
+
+[nvim]
+source = "./nvim/init.lua"
+destination = "~/.config/test/nvim/init.lua"
+
+[custom_script]
+source = "~/scripts/special_config.sh"  # absolute path, ignored dotfiles_dir
+destination = "~/.config/special.sh"
+```
+#### TODO's
+- documentation
+- better terminal output
