@@ -1,0 +1,13 @@
+vtds_platform_ubuntu/__init__.py,sha256=rXJnWJXQ6sMIC2jCviC-jNTOzSyzT5LnA4Q6tVquFk4,1243
+vtds_platform_ubuntu/private/__init__.py,sha256=1miJpQDXMHZolMOzI6vFe7pAn29zYPbuWHc0-VAHHc0,1428
+vtds_platform_ubuntu/private/config.py,sha256=b-cc89urgo-QKfIfnAUuhx5hm8ipfBBSe9Hu_yR6uqQ,1612
+vtds_platform_ubuntu/private/platform.py,sha256=VqpPwzpMMueYxhC-v8fb4Hofx0E-FTRBiutIKdgHNO0,5730
+vtds_platform_ubuntu/private/config/README.md,sha256=lsXQIVKGgODKjoV-0HSEAOg4DKSDwLctL7xRPsfGedQ,117
+vtds_platform_ubuntu/private/config/config.yaml,sha256=vZ8ShxN7clE2pmuPNAitET1_Z7pn5ezk7c9Icg3UckE,4749
+vtds_platform_ubuntu/private/config/test_overlay.yaml,sha256=N8HfdpJuJsLpJ_OgjWJ4Ssc-EFpHBLu5ftUsWsRvfVE,163
+vtds_platform_ubuntu/private/scripts/deploy_platform_to_blade.py,sha256=2pEMB41REwCLB0K6BQlGVZCWsCi7X7XM_FhhgkHIJp8,13742
+vtds_platform_ubuntu-0.0.10.dist-info/LICENSE,sha256=8aF3a-x-rvr9IzBq5Wy-W-EjVHDnmDqhBDPT_fxp4v8,1067
+vtds_platform_ubuntu-0.0.10.dist-info/METADATA,sha256=IO3hX8DpVSl9g_1pSh5PP6lzuR_3c8nTFPTDuvD73-0,2158
+vtds_platform_ubuntu-0.0.10.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+vtds_platform_ubuntu-0.0.10.dist-info/top_level.txt,sha256=WUd-m2n8tjaO5Z-BPNM4VfVcQI79uuvvfwf7dZohwJ8,21
+vtds_platform_ubuntu-0.0.10.dist-info/RECORD,,
