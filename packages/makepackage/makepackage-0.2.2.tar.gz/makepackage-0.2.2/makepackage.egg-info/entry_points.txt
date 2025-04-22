@@ -1,0 +1,2 @@
+[console_scripts]
+makepackage = makepackage.__main__:main

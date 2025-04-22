@@ -1,0 +1,9 @@
+easycheck
+
+[dev]
+wheel
+black
+pytest
+mypy
+setuptools
+build
