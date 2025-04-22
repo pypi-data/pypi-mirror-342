@@ -1,0 +1,14 @@
+langchain<0.4.0,>=0.1.0
+fastmcp>=3.0.0
+pydantic<3.0.0,>=2.0.0
+
+[dev]
+pytest>=7.0.0
+black>=23.0.0
+isort>=5.0.0
+flake8>=5.0.0
+langchain-mcp-adapters
+langgraph
+langchain-openai
+twine>=4.0.0
+build>=0.10.0
