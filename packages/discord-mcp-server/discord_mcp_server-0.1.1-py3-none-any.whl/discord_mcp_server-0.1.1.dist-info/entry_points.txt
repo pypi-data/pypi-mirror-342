@@ -1,0 +1,2 @@
+[console_scripts]
+discord-mcp-server = src.__main__:main
