@@ -1,0 +1,61 @@
+Metadata-Version: 2.4
+Name: vebboard
+Version: 0.1.0
+Summary: Интерактивная библиотека для создания дашбордов из различных источников данных.
+Home-page: https://github.com/yourusername/vebboard
+Author: Твое Имя
+Author-email: you@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: openpyxl
+Requires-Dist: gspread
+Requires-Dist: oauth2client
+Requires-Dist: matplotlib
+Requires-Dist: plotly
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# vebboard
+
+**vebboard** — Python-библиотека для создания дашбордов из файлов и баз данных (CSV, Excel, JSON, SQLite, Google Sheets и др.).
+
+## Возможности
+
+- Простое создание дашбордов с графиками.
+- Импорт данных из CSV, Excel, JSON, Parquet, SQLite, Google Sheets.
+- Экспорт дашборда в HTML.
+- Сохранение/загрузка конфигурации в JSON.
+- Поддержка тем и кастомного оформления.
+
+## Установка
+
+```
+pip install vebboard
+```
+
+## Пример использования
+
+```python
+from vebboard.core.dashboard import Dashboard
+import pandas as pd
+
+df = pd.DataFrame({
+    'day': ['Mon', 'Tue', 'Wed'],
+    'revenue': [100, 200, 150]
+})
+
+dashboard = Dashboard(\"Мой дашборд\")
+dashboard.add_chart(df, chart_type='bar', x='day', y='revenue')
+dashboard.show()
+```
