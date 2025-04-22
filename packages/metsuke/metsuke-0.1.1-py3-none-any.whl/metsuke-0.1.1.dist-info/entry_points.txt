@@ -1,0 +1,2 @@
+[console_scripts]
+metsuke = metsuke.__main__:main
