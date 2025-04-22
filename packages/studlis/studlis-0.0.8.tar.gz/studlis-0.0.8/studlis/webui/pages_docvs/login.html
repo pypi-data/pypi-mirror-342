@@ -1,0 +1,44 @@
+<div style="display:fixed;bottom:0px;right:0px;" id="loginbutton">
+    <button class="btn btn-outline-primary" onclick="do_login()">Login</button>
+</div>
+
+
+<script>
+    var loggedin=false;
+    session_permission_groups="";
+    var session_token = sessionStorage.getItem("token");
+    var do_login = function(){
+        DoRequest("login",{},function(data){
+            if(data.value.token){
+                sessionStorage.setItem("token",data.value.token);
+                sessionStorage.setItem("username",data.value.username);
+                sessionStorage.setItem("permission_groups",data.value.permission_groups);
+                session_token = data.value.token;
+                session_permission_groups=data.value.permission_groups;
+                $(".main-view-sidenav").removeClass("d-none");
+                $("#loginbutton").addClass("d-none");
+                loggedin=true;
+            }
+        });
+    }
+    var do_logout = function(){
+        sessionStorage.removeItem("token");
+        sessionStorage.removeItem("username");
+        sessionStorage.removeItem("permission_groups");
+        $(".main-view-sidenav").addClass("d-none");
+        $("#loginbutton").removeClass("d-none");
+        loggedin=false;
+        session_permission_groups="";
+    }
+    $(function(){
+      if (session_token){
+        $(".main-view-sidenav").removeClass("d-none");
+        $("#loginbutton").addClass("d-none");
+        loggedin=true;
+        
+        }
+        });
+
+
+
+</script>

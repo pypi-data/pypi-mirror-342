@@ -1,0 +1,146 @@
+<template tpl_id="page_variants_list">
+    <div>
+        <h2>Variants</h2>
+        <div class="row">
+            <div class="col-8">
+                <table class="variant-table table-modern">
+                    <thead ><tr>
+
+                        <td>Name</td>
+                        <td>Color</td>
+                        <td>Size</td>
+                        <td>Default</td>
+                        <td>Icons</td>
+                    </tr></thead>
+                    <tbody class="variant-table-content"></tbody>
+                </table>
+                <button type="button" class="btn btn-primary" onclick="page_variants.new();return false;">New Variant</button>
+            </div>
+            <div class="col-4">
+                <div class="d-none ml-5 mt-5" id="variant_config">
+                    <div class="mb-3">
+                        <label id="variant_id" class="form-label">Variant ID: (new)</label>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label for="variant_name" class="form-label">Variant Name</label>
+                        <input type="text" class="form-control" id="variant_name" placeholder="...variant name...">
+                    </div>
+                    <div class="mb-3">
+                        <label for="variant_abbreviation" class="form-label">Variant Abbreviation</label>
+                        <input type="text" class="form-control" id="variant_abbreviation" placeholder="max 3 chars">
+                    </div>
+                    <div class="mb-3">
+                        <label for="variant_color" class="form-label">Color</label>
+                        <input type="text" class="form-control" id="variant_color" placeholder="#000000">
+                        <small>Leave empty to preserve original</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="variant_height" class="form-label">Height</label>
+                        <input type="text" class="form-control" id="variant_height" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="variant_width" class="form-label">Width</label>
+                        <input type="text" class="form-control" id="variant_width" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="variant_prefix" class="form-label">Prefix</label>
+                        <input type="text" class="form-control" id="variant_prefix" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="variant_postfix" class="form-label">Postfix</label>
+                        <input type="text" class="form-control" id="variant_postfix" placeholder="">
+                    </div>
+                    <small>Either prefix or postfix must be set, the combination must be unique!</small>
+                    <div class="mb-3">
+                        <label for="variant_default_export" class="form-label">Default</label>
+                        <input type="checkbox" class="form-check-input ml-3" id="variant_default_export" /><br />
+                        <small>If enabled, this variant is added to each new icon.</small><br />
+                        <small>If enabled for a new variant, it is added to each icon.</small>
+                    </div>
+                    
+                    <hr>
+                    <button type="button" class="btn btn-primary" onclick="page_variants.save();return false;">Save</button>
+                </div>
+            </div>
+       
+    </div>
+</template>
+<template tpl_id="variant_element">
+    <tr>
+        
+        <td class="variant-name"></td>
+        <td class=""><div class="color-box"></div><span class="variant-color"></span></td>
+        <td class="variant-size"></td>
+        <td class="variant-default"></td>
+        <td class="variant-count"></td>
+    </tr>
+
+</template>
+
+
+
+
+
+<script>
+    var page_variants = {};
+    page_variants.show = function(){
+        $("#variant_config").addClass("d-none");
+        node=$("#main-view-content").tpl("page_variants_list");
+        DoRequest("variants",{filter:""},function(data){
+            $(".variant-table-content").empty();
+
+            $.each(data.value,function(index,item){
+                var node = $(".variant-table-content").appendtpl("variant_element");
+                node.find(".variant-name").html(item.name);
+                node.find(".variant-color").html(item.color);
+                node.find(".color-box").css("background-color",item.color);
+                node.find(".variant-size").html(item.width+"x"+item.height);
+                node.find(".variant-default").html((item.is_default==1?"Yes":"No"));
+                node.find(".variant-count").html(item.icon_count);
+                node.click(function(){page_variants.edit(item);});
+                $(".variant-table-content").append(node);
+            });
+        });
+    }
+    page_variants.new = function(){
+        $("#variant_config").removeClass("d-none");
+        $("#variant_id").html("Variant ID: (new)").attr("variant_id","-1");
+        $("#variant_name").val("");
+        $("#variant_abbreviation").val("");
+        $("#variant_color").val("");
+        $("#variant_height").val("");
+        $("#variant_width").val("");
+        $("#variant_prefix").val("");
+        $("#variant_postfix").val("");
+        $("#variant_default_export").prop("checked",false);
+    }
+    page_variants.edit = function(item){
+        $("#variant_config").removeClass("d-none");
+        $("#variant_id").html("Variant ID: "+item.id).attr("variant_id",item.id);
+        $("#variant_name").val(item.name);
+        $("#variant_abbreviation").val(item.abbreviation);
+        $("#variant_color").val(item.color);
+        $("#variant_height").val(item.height);
+        $("#variant_width").val(item.width);
+        $("#variant_prefix").val(item.prefix);
+        $("#variant_postfix").val(item.postfix);
+        $("#variant_default_export").prop("checked",item.is_default==1);
+    }
+    page_variants.save = function(){
+        var data = {
+            variant_id:$("#variant_id").attr("variant_id"),
+            name:$("#variant_name").val(),
+            abbreviation:$("#variant_abbreviation").val(),
+            color:$("#variant_color").val(),
+            height:$("#variant_height").val(),
+            width:$("#variant_width").val(),
+            prefix:$("#variant_prefix").val(),
+            postfix:$("#variant_postfix").val(),
+            is_default:$("#variant_default_export").prop("checked")
+        }
+        DoRequest("update_variant",data,function(data){
+            page_variants.show();
+        });
+    }
+</script>

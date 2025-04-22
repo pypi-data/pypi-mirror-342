@@ -1,0 +1,155 @@
+<template tpl_id="page_icon_list">
+    <div>
+        <h2>Icons</h2>
+        <div class="row">
+            <div class="col-8">
+                <table class="icon-table table-modern">
+                    <thead ><tr>
+                        <td>Icon</td>
+                        <td>Name</td>
+                        <td>Category</td>
+                        <td>Variant Count</td>
+                        
+                    </tr></thead>
+                    <tbody class="icon-table-content">
+
+                        </div>          
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                <div class="icon-edit d-none">
+                    <div class="mb-3">
+                        <label for="icon_name" class="form-label">Icon Name</label>
+                        <input type="text" class="form-control" id="icon_name" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="iconcat" class="form-label">Category</label>
+                        <select class="form-select" id="iconcat" aria-label="Icon Category">
+                            <option selected>loading...</option>
+                        </select>
+                    </div>
+                               
+                    <button type="button" class="btn btn-primary" onclick="page_icons.save();return false;">
+                        <i class="fas fa-save"></i> Save
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="page_icons.download();return false;">
+                        <i class="fas fa-download"></i> Download
+                    </button>
+                    
+                    <hr>
+                    <div class="mb-3">
+                        <label  class="form-label">Variants</label>
+                        <div class="icon-variants">
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+    </div>
+</template>
+<template tpl_id="icon_element">
+    <tr>
+        <td class="icon-icon"></td>
+        <td class="icon-name"></td>
+        <td class="icon-category"></td>
+        <td class="icon-variant_count"></td>
+        
+    </tr>
+
+</template>
+<template tpl_id="variant_select_element">
+    <div class="mb-3 row" style="font-size:8pt;">
+        <div class="col-3 variant_name"></div>
+        <div class="col-3 variant_color"></div>
+        <div class="col-3 variant_size"></div>
+        <div class="col-3 variant_active">
+            <input type="checkbox" class="form-check-input" />
+
+        </div>
+
+    </div>
+
+</template>
+
+
+
+
+
+<script>
+    var page_icons = {};
+    page_icons.show = function(){
+        $(".icon-edit").addClass("d-none");
+        node=$("#main-view-content").tpl("page_icon_list");
+        DoRequest("icons",{filter:""},function(data){
+            $(".icon-table-content").empty();
+            categories=Object.fromEntries(data.value.categories.map(item => [item.id, item.name]));
+
+            $.each(data.value.icons,function(index,item){
+                var node = $(".icon-table-content").appendtpl("icon_element");
+                node.find(".icon-icon").html(item.data);
+                node.find(".icon-icon").find("svg").attr("width","32").attr("height","32");
+                node.find(".icon-name").html(item.name);
+                node.find(".icon-variant_count").html(item.variant_count).attr("icon_id",item.id);
+                node.find(".icon-category").html(categories[item.category]);
+                $(".icon-table-content").append(node);
+                node.click(function(){page_icons.edit(item);});
+            });
+            $("#iconcat").empty();
+            $.each(data.value.categories,function(index,item){
+                var node = document.createElement("option");
+                node.innerHTML=item.name;
+                node.setAttribute("item_id",item.id);
+                $("#iconcat").append(node);
+            });
+    });
+};
+   page_icons.edit = function(item){
+       
+        $(".icon-edit").removeClass("d-none");
+
+        $("#icon_name").val(item.name).attr("icon_id",item.id);
+        $("#iconcat option[item_id="+item.category+"]").prop("selected",true);
+        //$("#icon_id").html("Icon ID: "+item.id).attr("icon_id",item.id);
+        let icon_id=item.id;
+        DoRequest("icon_variants",{icon_id:item.id},function(data){
+            $(".icon-variants").empty();
+
+
+            $.each(data.value.variants,function(index,item){
+                var node = $(".icon-variants").appendtpl("variant_select_element");
+                node.find(".variant_name").html(item.name);
+                node.find(".variant_color").html(item.color);
+                node.find(".variant_size").html(item.width+"x"+item.height);
+                node.find(".variant_active").find("input").attr("variant_id",item.id).attr("icon_id",icon_id).on("change",function(el){
+                    data={};
+                    data.icon_id=$(el.target).attr("icon_id");
+                    data.variant_id=$(el.target).attr("variant_id");
+                    data.active=$(el.target).prop("checked");
+                    DoRequest("update_icon_variant",data,function(data){
+                        $(".icon-variant_count[icon_id="+icon_id+"]").html(data.value + " (updated)");
+                    });
+                });
+                $(".icon-variants").append(node);
+            });
+            $.each(data.value.variants_active,function(index,item){
+                $(".icon-variants").find("input[variant_id="+item+"]").prop("checked",true);
+            });
+
+
+        });
+    }
+    page_icons.save = function(item){
+        data={}
+        data.icon_id=$("#icon_name").attr("icon_id");
+        data.name=$("#icon_name").val();
+        data.category_id=$("#iconcat option:selected").attr("item_id");
+        DoRequest("update_icon",data,function(data){
+            page_icons.show();
+        });
+    }
+    page_icons.download = function(){
+        DoDownload("download_icons",{icon_id:$("#icon_name").attr("icon_id")},"icon.zip");
+    }
+</script>

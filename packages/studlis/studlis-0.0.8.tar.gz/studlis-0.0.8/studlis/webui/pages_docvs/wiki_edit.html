@@ -1,0 +1,416 @@
+<template tpl_id="edit_wiki">
+    <div class="w-100 d-flex flex-column">
+        <div class="input-group mb-3 w-100 d-flex">
+            .<div class="form-control" style="max-width:30vw">
+                <select id="select_wiki_category" class="form-select">
+                    <option value="(all)">(Alle Kategorien)</option>
+
+
+                </select>
+            </div>
+
+
+            <input type="text" class="form-control" id="search_wiki" placeholder="Suche..." />
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="load_wiki_button" type="button">
+                    <i class="fa fa-search"></i> Load
+                </button>
+            </div>
+        </div>
+
+        <div id="resource_select_container" class="d-flex w-100">
+            <div id="edit_wiki_category_tree_container">
+                <div id="edit_wiki_category_tree">
+
+                </div>
+
+            </div>
+
+            <div id="edit_wiki_search_container" class="d-none w-100 flex-grow-1 d-flex flex-column">
+                <h2 id="edit_wiki_create_title" class="d-none">Erstelle neuen Artikel</h2>
+                <div id="inform_invalid_title" class="d-none alert alert-danger" role="alert">
+                    Der Titel ist ungültig.<br />
+                    <ul>
+                        <li>Beginnend mit einem Buchstaben</li>
+                        <li>Mindestens 3 Zeichen</li>
+                        <li>Maximal 128 Zeichen</li>
+                        <li>Alphanumerisch (inklusive äöü...), Unterstrich, Leerzeichen, Punkt</li>
+                    </ul>
+                </div>
+                <table class="edit-wiki-search-table table-modern">
+                    <thead>
+                        <tr class="">
+                            <td>Name</td>
+                            <td>Pfad</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="edit_wiki_search_table_content"></tbody>
+                </table>
+            </div>
+        </div>
+        ## Wiki Editor
+        <div class="d-none flex-grow-1 d-flex flex-column" id="edit_wiki_container">
+            <h2 id="wiki_path"></h2>
+            <div class="form-group flex-grow-1" id="wikieditor">
+
+            </div>
+
+
+
+            <div class="form-group">
+                <h3>Index Modus</h3>
+                <div class="btn-group" role="group" aria-label="Index Mode" id="index-mode">
+                    <button type="button" name="index" value="full" class="btn btn-secondary"
+                        onclick="wiki_edit.update_index_mode(this);">Full Index</button>
+                    <button type="button" name="index" value="default" class="btn btn-secondary"
+                        onclick="wiki_edit.update_index_mode(this);">Standard (Titel, Zitate,...) </button>
+                    <button type="button" name="index" value="name" class="btn btn-secondary"
+                        onclick="wiki_edit.update_index_mode(this);">Name Index, Suchtext</button>
+                    <button type="button" name="index" value="searchwords" class="btn btn-secondary"
+                        onclick="wiki_edit.update_index_mode(this);">Suchtext</button>
+                    <button type="button" name="index" value="none" class="btn btn-secondary"
+                        onclick="wiki_edit.update_index_mode(this);">No Index</button>
+                </div>
+
+                <small class="form-text text-muted d-none index_description" value="full">Indexiert den gesamten
+                    Text</small>
+                <small class="form-text text-muted d-none index_description" value="default">Indexiert den Namen, alle
+                    Titel im Text, alle Zitate im Text und Suchtext</small>
+                <small class="form-text text-muted d-none index_description" value="name">Indexiert den Namen und den
+                    Suchtext</small>
+                <small class="form-text text-muted d-none index_description" value="searchwords">Indexiert nur den
+                    Suchtext</small>
+                <small class="form-text text-muted d-none index_description" value="none">Keine Indexierung</small>
+                <h3>Suchtext</h3>
+                <textarea class="form-control" id="searchwords-input" name="searchtext" rows="3"
+                    placeholder="Geben Sie hier falls erforderlich zusätzliche Suchparameter (Keywords, Fehlermeldungen,...) ein"></textarea>
+
+            </div>
+
+
+
+            <div class="row">
+
+                <button class="btn btn-primary d-none" type="button" onclick="wiki_edit.preview()">
+                    <i class="fa fa-eye"></i> Preview
+                </button>
+
+                <div class="col-6">
+                    <button class="btn btn-primary" type="button" onclick="wiki_edit.save_wiki()">
+                        <i class="fa fa-save"></i> Speichern
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+</template>
+
+
+<template tpl_id="wiki_search_item">
+    <tr class="" style="font-size:12pt;">
+        <td class="wiki_name"></td>
+        <td class="wiki_path"></td>
+        <td>
+            <button class="btn btn-outline-secondary wiki-create-button" type="button"
+                onclick="wiki_edit.load_for_edit(this);">
+                <i class="fa fa-plus"></i> Erstellen
+            </button>
+        </td>
+    </tr>
+</template>
+
+<script>
+    wiki_edit = {};
+
+
+    wiki_edit.show = function () {
+        node = $("#main-view-content").tpl("edit_wiki");
+        select_box = node.find("#select_wiki_category").select2();
+        node.find("#search_wiki").focus();
+
+        select_box.change(function () {
+            v = select_box.val();
+            if (v == "(all)") {
+                $("#search_wiki").attr("placeholder", "Suche...");
+            } else {
+                $("#search_wiki").attr("placeholder", "Suche, Titel, Datei- oder Weblink");
+            }
+            if ($("#search_wiki").val().length > 2) {
+                wiki_edit.search($("#search_wiki").val());
+            }
+        });
+        wiki_edit.init_editor();
+        let edit_wiki_search_table = $("#edit_wiki_search_table_content");
+        $.each(global_variants["categories"], function (index, item) {
+            node.find("#select_wiki_category").append("<option value='" + item["path"] + "'>" + item["path"] + "</option>");
+            let node2 = edit_wiki_search_table.appendtpl("wiki_search_item");
+            node2.find(".wiki_path").text(item["path"]);
+            node2.addClass("edit-wiki-create").addClass("d-none");
+            node2.attr("data-path", item["path"]);
+
+        });
+
+
+
+        document.getElementById('search_wiki').addEventListener('input', function () {
+            var text = this.value;
+            if (text.length > 2) {
+
+                wiki_edit.search(text);
+            } else {
+                $("#searchresult").addClass("d-none");
+                $(".resource-content").empty();
+            }
+        });
+        populateCategoryTree($("#edit_wiki_category_tree"));
+    }
+
+    wiki_edit.search = function (q) {
+        if (!docvs.dirty_continue()) {
+
+            return;
+        }
+
+
+        DoRequest("search", { "query": q, "entity": "wiki","edit_mode":true,"token":session_token }, function (data) {
+
+            $("#edit_wiki_search_container").removeClass("d-none");
+            $("#edit_wiki_container").addClass("d-none");
+            let resultnode = $("#edit_wiki_search_table_content");
+
+
+            if (data.value.length == 0) {
+                $("#edit_wiki_create_title").removeClass("d-none");
+                cat = select_box.val();
+
+                if (match_title(q)) {
+                    $("#inform_invalid_title").addClass("d-none");
+                    if (cat != "(all)") {
+                        resultnode.find(".edit-wiki-create").addClass("d-none");
+                        let n = resultnode.find(".edit-wiki-create[data-path=\"" + cat + "\"]").removeClass("d-none");
+                        n.find(".wiki_name").text(q);
+                        //n.find(".wiki-create-button").attr("data-path", cat+"/"+q);
+                    } else {
+                        resultnode.find(".edit-wiki-create").removeClass("d-none");
+                        resultnode.find(".wiki_name").text(q);
+                        // resultnode.find(".wiki-create-button").attr("data-path", cat+"/"+q);
+                    }
+
+                } else {
+                    $("#inform_invalid_title").removeClass("d-none");
+                }
+
+
+
+
+            } else {
+                $("#edit_wiki_create_title").addClass("d-none");
+                resultnode.find(".edit-wiki-create").addClass("d-none");
+
+                $.each(data.value, function (index, item) {
+
+                    let itemnode = resultnode.appendtpl("resource_pdfitem");
+                    itemnode.find(".resource-name").text(item.name);
+                    itemnode.on('dblclick', function () {
+                        show_pdf(item.id);
+                    });
+                    itemnode.find(".editbutton").click(function () {
+                        page_edit.show_and_edit(item.id);
+                    });
+                });
+            }
+            if (loggedin) {
+                $(".editbutton").removeClass("d-none");
+            }
+
+        });
+    }
+
+
+
+    wiki_edit.load_for_edit = function (node) {
+        let t = $(node).parent().parent();
+        let name = t.find(".wiki_name").text();
+        let path = t.attr("data-path") + "/" + t.find(".wiki_name").text();
+
+        console.log(path);
+
+
+        DoRequest("load_wiki", { "path": path, "token": session_token }, function (data) {
+            if (data.value) {
+                alert("yes");
+            } else {
+                wiki_edit.wiki_editor.setMarkdown("# " + name);
+                wiki_edit.update_index_mode($("button[name='index'][value='default']")[0]);
+
+            }
+            $("#edit_wiki_search_container").addClass("d-none");
+            $("#edit_wiki_container").removeClass("d-none");
+            $("#wiki_path").text(path);
+            docvs.dirty = false;
+        });
+    }
+
+    wiki_edit.update_index_mode = function (node) {
+        let mode = $(node).attr("value");
+        $("#index-mode button").removeClass("btn-success").addClass("btn-secondary");
+
+        $(node).addClass("btn-success").removeClass("btn-secondary");
+        $(".index_description").addClass("d-none");
+        $(".index_description[value=\"" + mode + "\"]").removeClass("d-none");
+        docvs.dirty = true;
+    }
+
+    docvs.dirty_continue = function () {
+        if (docvs.dirty) {
+            let ret = confirm("Eingaben wurden verändert, wirklich verlassen?");
+            if (ret) {
+                docvs.dirty = false;
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    wiki_edit.wiki_editor = undefined;
+    docvs.dirty = false;
+    wiki_edit.init_editor = function () {
+        const options = {
+            el: document.querySelector('#wikieditor'),
+            usageStatistics: false,
+            initialEditType: 'wysiwyg',
+            plugins: [wikiLinkPlugin],
+            events: {
+                change: () => {
+                    docvs.dirty = true;
+                }
+            }
+
+        };
+
+        wiki_edit.wiki_editor = new toastui.Editor(options);
+        docvs.on_save_event = function () {
+            if (!docvs.dirty) return;
+            wiki_edit.save_wiki();
+        }
+    }
+
+    wiki_edit.preview = function () {
+        let markdown = wiki_edit.wiki_editor.getMarkdown();
+        DoRequest("parse_wiki", { "text": markdown }, function (data) {
+            console.log(data);
+        });
+    }
+
+    wiki_edit.save_wiki = function () {
+
+        let content = wiki_edit.wiki_editor.getMarkdown();
+        let searchtext = $("#searchwords-input").val();
+        let path = $("#wiki_path").text();
+        let id = $("#id_field").val();
+        let index_mode = $("#index-mode button.btn-success").attr("value");
+        DoRequest("save_wiki", { "content": content, "searchwords": searchtext, "path": path, "id": id, "index_mode": index_mode, "token": session_token }, function (data) {
+            if (data.value) {
+                docvs.dirty = false;
+
+                alert("Speichern erfolgreich");
+            } else {
+                alert("Speichern fehlgeschlagen");
+            }
+        });
+
+
+
+    }
+
+    function wikiLinkPlugin() {
+        return {
+            toHTMLRenderers: {
+                text(node) {
+                    const regex = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
+                    let html = node.literal;
+
+                    html = html.replace(regex, (match, link, linkText) => {
+                        const displayText = linkText || link;
+                        return `<span onclick="wiki_link('` + link + `')" style="color: blue; cursor: pointer; text-decoration: underline;">` + displayText + `</span>`;
+                    });
+
+                    return [
+                        { type: 'openTag', tagName: 'span', outerNewLine: true },
+                        { type: 'html', content: html },
+                        { type: 'closeTag', tagName: 'span', outerNewLine: true }
+
+                    ];
+                }
+            }
+        };
+    }
+    function populateCategoryTree(element) {
+        element.jstree({
+            "core":
+            {
+                "check_callback": true,
+                "multiple": false
+            }
+        });
+        let tree = element.jstree(true);
+
+
+        element.on('select_node.jstree', function (e, data) {
+            let path = data.instance.get_node(data.selected[0]).data.path;
+            $("#select_wiki_category").val(path).trigger('change');
+        });
+        $("#select_wiki_category").on('select2:select', function (e) {
+            tree.deselect_all(true);
+            tree.select_node(e.params.data.id, true);
+        });
+
+        walkCategoryTree(tree, global_variants["category_tree"]);
+    }
+
+    function walkCategoryTree(tree, datanode, parentnode = undefined, depth = 0) {
+        let opened = (depth < 2);
+        if (parentnode == undefined) {
+            parentnode = "#";
+        }
+
+
+
+        datanode.forEach(category => {
+            let allowed = false;
+            let sessionGroups = session_permission_groups;
+          
+
+            for (let group of category.permission_group_filter) {
+                if (sessionGroups.includes(group)) {
+                    allowed = true;
+                    break;
+                }
+            }
+            let a_attr = {};
+            if (!allowed) a_attr = { style: "color:red;" }
+
+
+
+
+
+            let categoryNode = tree.create_node(parentnode, {
+                text: category.caption,
+                id: category.path,
+                "state": { "opened": opened },
+                "a_attr": a_attr,
+                data: { path: category.path, permissions: category.permission_group_filter }
+            });
+
+            if (category.children && category.children.length > 0) {
+                walkCategoryTree(tree, category.children, categoryNode, depth + 1);
+            }
+        });
+    }
+</script>

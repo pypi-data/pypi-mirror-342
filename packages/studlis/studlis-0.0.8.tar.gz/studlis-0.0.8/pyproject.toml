@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "studlis"
+version = "0.0.8"
+authors = [
+  { name="Rodemund Niklas", email="nrodemund@gmail.com" },
+]
+description = "Studlis is a scriptable project manager providing a frontend for reviews."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+license = { file = "LICENCE.md" }
+
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "mako",
+  "aiosqlite",
+  "aiohttp",
+  "openpyxl",
+  "aiofiles"
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "studlis/**/*.py",
+  "studlis/**/*.html",
+  "studlis/**/*.js",
+  "studlis/**/*.css",
+  "studlis/**/*.woff",
+  "studlis/**/*.woff2",
+  "studlis/**/*.ttf",
+  "studlis/**/*.png",
+  "studlis/**/*.gif",
+  "studlis/**/*.jpg"
+]
+
+
+[project.urls]
+Homepage = "https://github.com/umitnrodemund/studlis"
+Issues = "https://github.com/umitnrodemund/studlis/issues"

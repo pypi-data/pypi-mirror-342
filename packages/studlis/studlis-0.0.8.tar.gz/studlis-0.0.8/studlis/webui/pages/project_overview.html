@@ -1,0 +1,92 @@
+
+<template tpl_id="project_overview">
+    <div class="project-overview  flex-use-height">
+        <h2>Project Übersicht</h2>
+        <div class="row">
+            <div id="inclusion-pie" class="col-4"></div>
+            <div id="validation-pie" class="col-4"></div>
+            <div id="user-validation-pie" class="col-4"></div>
+        </div>
+        
+    </div>
+</template>
+<%text>
+<script>
+    page_project_overview = {};
+    page_project_overview.show = function () {
+        studlis.newState();
+        node = $("#main-view-content").tpl("project_overview");
+        DoRequest("get_stats",{"token":session_token,"project":selected_project},function(data){
+            if (data.value) {
+                console.log(data.value);
+                page_project_overview.validation_chart(data.value);
+            }
+
+        });
+
+    }
+
+    page_project_overview.validation_chart = function(data){
+        const labels = data.validation.map((_, i) => 
+            i === 1 ? `${i} Validation` : `${i} Validations`
+        );
+
+        const plotData = [{
+            type: 'pie',
+            labels: labels,
+            values: data.validation,
+            hole: 0.4,
+            textinfo: 'label+percent',
+            insidetextorientation: 'radial'
+        }];
+
+        const layout = {
+            title: 'Validierung Verteilung',
+            margin: { t: 20, b: 20, l: 20, r: 20 },
+            showlegend: false
+        };
+
+        Plotly.newPlot('validation-pie', plotData, layout);
+
+
+         // --- Inclusion Chart ---
+         const includedCount = data.included;
+        const excludedCount = data.count - data.included;
+
+        const inclusionData = [{
+            type: 'pie',
+            labels: ['Included', 'Excluded'],
+            values: [includedCount, excludedCount],
+            hole: 0.4,
+            textinfo: 'label+percent',
+            insidetextorientation: 'radial',
+            marker: {
+                colors: ['#28a745', '#dc3545'] }
+        }];
+
+        Plotly.newPlot('inclusion-pie', inclusionData, {
+            margin: { t: 20, b: 20, l: 20, r: 20 },
+            showlegend: false
+        });
+               // --- User Validation Contribution Chart ---
+               const userValidations = data.user_validations;
+        const otherValidations = data.count - userValidations;
+
+        const userValidationData = [{
+            type: 'pie',
+            labels: ['Your Validations', 'Remaining'],
+            values: [userValidations, otherValidations],
+            hole: 0.4,
+            textinfo: 'label+percent',
+            insidetextorientation: 'radial',
+            marker: {
+                colors: ['#40E0D0', '#adb5bd'] // turquoise / modern grey
+            }
+        }];
+
+        Plotly.newPlot('user-validation-pie', userValidationData, {
+            margin: { t: 20, b: 20, l: 20, r: 20 },
+            showlegend: false
+        });
+    }
+</script></%text>

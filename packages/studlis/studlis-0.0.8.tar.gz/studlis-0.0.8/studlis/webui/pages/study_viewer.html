@@ -1,0 +1,460 @@
+<template tpl_id="study_viewer">
+    <div  class="flex-use-height">
+       <!-- <div class="controls d-flex">
+
+            <div class="mr-2 list-sort"></div>
+            <button id="btn-back" class="btn btn-outline-primary mr-2" style="width: 150px;" onclick="study_viewer.back();">
+                <i class="fas fa-arrow-left"></i> 
+            </button>
+            <button id="btn-forward" class="btn btn-outline-primary mr-2" style="width: 150px;"onclick="study_viewer.next();">
+             <i class="fas fa-arrow-right"></i>
+            </button>
+            
+        </div>-->
+        <div class="row">
+            <div class="alert alert-danger study-excluded d-none" role="alert">
+                <strong></strong> Diese Studie ist exkludiert.
+            </div>
+            <div class="col-8">
+                <div class="study-doi">
+                    <a href="#" class="study-doi-link" target="_blank">
+    
+                    </a>
+                </div>
+                <div class="study-name fw-bold">
+    
+                </div>
+               <div class="abstract">
+    
+               </div> 
+    
+            </div>
+            <div class="col-4 ">
+                <div class="study-fields">
+    
+                </div>
+            
+            </div>
+    
+    
+        </div>
+    </div>
+    
+
+
+</template>
+<template tpl_id="study_item_int">
+    
+    <div class="m-1 card">
+        <span class="study-field-title"></span><br />
+        <input type="text" class="study-field-value m-1 mx-auto d-block" />
+
+    </div>
+
+
+ </template>   
+ <template tpl_id="study_item_multibool">
+    
+    <div class="m-1 card">
+        <span class="study-field-title"></span>
+        
+        <div class="btn-group flex-wrap multibool-options" role="group" style="max-width: 500px;">
+    
+          </div>
+          
+    </div>
+ </template>   
+ <template tpl_id="study_item_multibool_item">
+    <div>
+        <input type="checkbox"  class="btn-check" autocomplete="off" />
+        <label class="btn btn-outline-primary rounded-0" for="" style="font-size:0.8rem">Three</label>
+    </div>
+    
+ </template>
+ <template tpl_id="study_item_select">
+    
+    <div class="m-1 card">
+        <span class="study-field-title"></span>
+        
+        <div class="btn-group flex-wrap select-options" role="group" style="max-width: 500px;">
+    
+          </div>
+          
+    </div>
+ </template>   
+ <template tpl_id="study_item_select_item">
+    <div>
+        <input type="checkbox"  class="btn-check" autocomplete="off" />
+        <label class="btn btn-outline-primary rounded-0" for="" style="font-size:0.8rem">Three</label>
+    </div>
+    
+ </template>
+ <template tpl_id="study_validation_override">
+    <div>
+        <div>
+            Daten wurden verändert. Überschreiben?
+        </div>
+        <div class="mt-2">
+            <b>User: </b><span class="study-validation-user"></span><br />
+            <b>Datum: </b><span class="study-validation-date"></span>
+
+        </div>    
+        <div class="mt-2 border study-validation-changes">
+
+
+        </div>    
+    </div>
+    
+ </template>
+ <template tpl_id="study_exclude">
+    <div>
+        <div>
+            Studie ausschließen?
+        </div>
+        <div class="mt-2 study-exclude-reasons">
+
+
+        </div>    
+
+    </div>
+ </template>
+ <template tpl_id="study_exclude_item">
+    <button type="button" class="btn btn-outline-primary rounded-0 study-exclude-reason" name="" value="">
+        <span class="study-exclude-reason-text"></span>
+    </button>
+ </template>
+<script>
+    var study_viewer = {};
+    study_viewer.list=undefined;
+    study_viewer.index=0;
+    study_viewer.start_list = function(first_id,first_index,study_list_request_data){
+        study_viewer.review_mode =false;
+        study_viewer.index=first_index;
+        study_viewer._load_view(first_id);
+        DoRequest("get_study_list_ids",study_list_request_data, function (data) {
+            if (data.value) {
+                study_viewer.list=data.value;
+                study_viewer.index=first_index;
+            }
+        });
+    }
+    study_viewer.start_review_mode = function(){
+       
+        study_viewer.list = []
+        study_viewer.index = 0;
+        study_viewer.review_mode = true;
+        let study_list_request_data = {"token":session_token,"project":selected_project};
+        DoRequest("get_next_study_for_validation",study_list_request_data, function (data) {
+            if (data.value) {
+                study_viewer.list.push(data.value.study.id);
+                study_viewer.index=0; 
+                study_viewer._view(data.value);
+            }
+        });
+    }
+    study_viewer.next = function(){
+        if (study_viewer.list==undefined)return;
+        if (study_viewer.index<study_viewer.list.length-1){
+            study_viewer.index++;
+            study_viewer._load_view(study_viewer.list[study_viewer.index]);
+            studlis.setQuickstate(study_viewer.index+1+"/"+study_viewer.list.length);
+            
+        }else{
+            if(!study_viewer.review_mode){
+                alert("no more studies in this project");
+            }else{
+                DoRequest("get_next_study_for_validation",{"token":session_token,"project":selected_project}, function (data) {
+                    if (data.value) {
+                        study_viewer.list.push(data.value.study.id);
+                        study_viewer.index=study_viewer.list.length-1; 
+                        study_viewer._view(data.value);
+                        studlis.setQuickstate(study_viewer.index+1+"/"+study_viewer.list.length);
+                    }
+                });
+            }
+
+
+            
+        }
+    }
+    study_viewer.back = function(){
+        if (study_viewer.list==undefined)return;
+        if (study_viewer.index>0){
+            study_viewer.index--;
+            study_viewer._load_view(study_viewer.list[study_viewer.index]);
+            studlis.setQuickstate(study_viewer.index+1+"/"+study_viewer.list.length);
+        }else{
+            alert("no more studies in this project");
+        }
+    }
+
+
+
+    study_viewer.view=function(study_id){
+        study_viewer.list=undefined;
+        study_viewer.index=0;
+        study_viewer._load_view(study_id);
+    }
+    study_viewer._load_view=function(study_id){
+        DoRequest("get_study", {"token":session_token,"project":selected_project,"study_id":study_id}, function (data) {
+            if (data.value) {
+                study_viewer._view(data.value)
+            }
+        });
+    }
+
+    
+    study_viewer._view=function(data){
+        
+        node = $("#main-view-content").tpl("study_viewer");
+               
+                studlis.newState();
+                studlis.current_state.study_id=data.study.id;
+                node.find(".study-name").text(data.study.name);
+                node.find(".study-doi-link").text(data.study.doi);
+                node.find(".study-doi-link").attr("href","https://doi.org/"+data.study.doi);
+                let abstract = node.find(".abstract").text(data.study.abstract);
+
+
+                if(data.study.state == -1){
+                    node.find(".study-excluded").removeClass("d-none").find("strong").text(data.study.excluded_reason);
+                }else{  
+                    node.find(".study-excluded").addClass("d-none").find("strong").text("");
+                }
+
+                $.each(data.project.fields, function (index, field) {
+                    let fieldnode=undefined;
+                    switch(field.type){
+                        case "int":
+                            fieldnode = $(".study-fields").appendtpl("study_item_int");
+                            fieldnode.addClass("study-field-data");
+                            fieldnode.find(".study-field-value").val(data.study["data_"+field.name]);
+                            fieldnode[0].studlis_get_value= function(){
+                                let val=fieldnode.find(".study-field-value").val();
+                                return isNaN(parseInt(val)) ? undefined : parseInt(val);
+                            }
+                            fieldnode[0].studlis_get_name= function(){return field.name;};
+                            inputFilterInteger(fieldnode.find(".study-field-value")[0]);
+                            break;
+                        case "select":
+
+                            fieldnode = $(".study-fields").appendtpl("study_item_select");
+                            fieldnode.attr("id","fld_"+field.name);
+
+                            fieldnode.addClass("study-field-data");
+                            
+                            fieldnode[0].studlis_get_value= function(){
+                                if(fieldnode.find(".btn-check:checked").length==0)return undefined;
+                                return  fieldnode.find(".btn-check:checked").attr("name");
+                            
+                            
+                            }
+                            fieldnode[0].studlis_get_name= function(){return field.name;};
+                            let val =data.study["data_"+field.name];
+                            
+
+                            $.each(field.reference, function (name, item) {
+                                let onode=fieldnode.find(".select-options").appendtpl("study_item_select_item");
+                                onode.find("label").text(name);
+                                onode.find("value").val(name);
+                                onode.find(".btn-check").attr("name",name);
+                                if (val==name){onode.find(".btn-check").prop("checked",true);};
+                                onode.click(function(){
+                                        fieldnode.find(".select-options").find(".btn-check").prop("checked",false);
+                                        $(this).find(".btn-check").prop("checked",true);
+                                        
+                                    });
+                                onode.find("label").attr("for","fld_"+field.name+"_"+name);
+
+
+                            });
+                            break;
+                        case "multibool":
+                            fieldnode = $(".study-fields").appendtpl("study_item_multibool");
+                            $.each(field.reference, function (name, item) {
+                                let onode=fieldnode.find(".multibool-options").appendtpl("study_item_multibool_item");
+                                onode.find("label").text(name);
+                                onode.find("input").attr("id","fld_"+field.name+"_"+name);
+                                onode.find("label").attr("for","fld_"+field.name+"_"+name);
+
+                                if(data.study["data_"+field.name+"_"+name] == 1 || data.study["data_"+field.name+"_"+name] == true){
+                                    onode.find(".btn-check").prop("checked",true);
+                                }
+                                //onode.click(function(){
+                                //    let checked = $(this).find(".btn-check").attr("checked")=="checked";
+                                //    $(this).find(".btn-check").attr("checked",!checked);
+                                //    });
+                                onode.addClass("study-field-data");
+                                onode[0].studlis_get_name= function(){
+                                    
+                                    return field.name+"_"+name;
+                                
+                                }; 
+                                onode[0].studlis_get_value = function(){
+                                    return onode.find(".btn-check").is(":checked") ? 1 : 0;
+                                };
+                            });
+                            break;
+                        default:
+                            console.log("unknown field type");
+                            return;
+                    }   
+                    study_viewer.update_style(abstract,field);
+                    fieldnode.find(".study-field-title").text(field.caption);
+                    fieldnode.find(".study-field-value").val(data.study["data_"+field.name]);
+                    fieldnode.attr("field_type",field.type);
+                    
+
+                });
+                studlis.setForward(study_viewer.next);
+                studlis.setBack(study_viewer.back);
+                studlis.setSave(study_viewer.update_validation);
+            
+                if(Object.keys(data.project.exclude_reasons).length > 0){
+                
+                    studlis.setExclude(function(){
+
+                        let node=studlis.modal("Studie ausschließen","study_exclude");
+
+                        let onode=node.find(".study-exclude-reasons").appendtpl("study_exclude_item");
+                        onode.find(".study-exclude-reason-text").text("Einschluss");
+                        onode.removeClass("btn-outline-primary").addClass("btn-success");
+                        onode.click(function(){
+                            DoRequest("exclude_study", {"token":session_token,"project":selected_project,"study_id":data.study.id,"reason":""}, function (data) {
+                                if (data.value) {
+                                    studlis.setQuickstate("Studie eingeschlossen");
+                                    node.modal('hide');
+                                }
+                            });
+                        });
+                        $.each(data.project.exclude_reasons, function (name, value) {
+                            let onode=node.find(".study-exclude-reasons").appendtpl("study_exclude_item");
+                            onode.find(".study-exclude-reason-text").text(name);
+
+
+                            onode.click(function(){
+                                DoRequest("exclude_study", {"token":session_token,"project":selected_project,"study_id":data.study.id,"reason":name}, function (data) {
+                                    if (data.value) {
+                                        studlis.setQuickstate("Studie ausgeschlossen");
+                                        node.modal('hide');
+                                        study_viewer.next();
+                                    }
+                                });
+                            });
+                        });
+                    } );
+                }
+                   
+    }
+
+    study_viewer.update_style = function(tx, field) {
+    if (!field.style) return;
+
+    let st = JSON.parse(field.style);
+    let content = tx.html();
+
+    // Use a temporary container to work with actual DOM
+    let tempDiv = $('<div>').html(content);
+
+    function applyHighlight(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            let text = node.nodeValue;
+            let replaced = false;
+
+            $.each(st.common_regex, function(regex, className) {
+                const pattern = new RegExp(regex, 'g');
+                if (pattern.test(text)) {
+                    replaced = true;
+
+                    // Replace the node with HTML wrapped spans
+                    let newHtml = text.replace(pattern, function(match) {
+                        return `<span class="`+className+`">`+match+`</span>`;
+                    });
+
+                    $(node).replaceWith(newHtml);
+                    return false; // Break out of loop; one style per token
+                }
+            });
+
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            $(node).contents().each(function() {
+                applyHighlight(this);
+            });
+        }
+    }
+
+    tempDiv.contents().each(function() {
+        applyHighlight(this);
+    });
+
+    tx.html(tempDiv.html());
+};
+
+    study_viewer.update_validation = function(increase_confidence=false){
+
+        let validation_data={};
+        $(".study-field-data").each(function(index,element){
+            let item = $(element);
+            let name =element.studlis_get_name();
+            let value = element.studlis_get_value();
+            console.log("update validation",name,value);
+            validation_data[name]=value;
+        });
+        let confidence=1;
+        if(increase_confidence){
+            confidence++;
+        }
+        let request = {"token":session_token,"project":selected_project,"study_id":studlis.current_state.study_id,"validation_data":validation_data,"confidence":confidence};
+        DoRequest("update_validation",request, function (data) {
+            if (data.value) {
+
+                if(data.value.result =="saved"){
+                    studlis.dirty=false;
+                    studlis.notifySavedTimed();
+                    study_viewer.next();
+                }
+                if(data.value.result=="nothing_changed"){
+                    studlis.dirty=false;
+                    studlis.notifySavedTimed("Keine Änderung");
+                    study_viewer.next();
+                }
+                if(data.value.result=="confidence_requested"){
+                    studlis.dirty=true;
+                    let node = studlis.modal("Überprüfung erforderlich","study_validation_override","Übernehmen",function(){
+                        study_viewer.update_validation(true);
+                    });
+                    node.find(".study-validation-user").text(data.value.last_validation.validator);
+                    let date = new Date(data.value.last_validation.ts);
+                    node.find(".study-validation-date").text(date.toLocaleString());
+                    let cnode=node.find(".study-validation-changes");
+                    $.each(data.value.changes, function (index, field) {
+                        let fieldnode = $("<div></div>");
+                        fieldnode.append("<b>"+field.name+"</b>: "+field.old_value+" -> "+field.new_value);
+                        cnode.append(fieldnode);
+                    });
+
+                }
+                
+            }else{
+                studlis.setQuickstate("error saving data");
+            }
+        });
+    }
+
+    inputFilterInteger = function(input){
+        input.addEventListener('input', function () {
+        // Remove spaces, commas, and non-digit characters
+        this.value = this.value.replace(/[\s,]/g, '').replace(/\D/g, '');
+    });
+    }
+
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "ArrowLeft") {
+            study_viewer.back();
+        } else if (event.key === "ArrowRight") {
+            study_viewer.next();
+        }
+    });
+
+</script>
