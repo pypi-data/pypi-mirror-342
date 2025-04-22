@@ -1,0 +1,364 @@
+Metadata-Version: 2.3
+Name: haniwers
+Version: 0.22.0
+Summary: Analysis tool for TanQ/FunQ project
+License: MIT
+Keywords: muon
+Author: Shota Takahashi (KMI)
+Author-email: shotakaha@kmi.nagoya-u.ac.jp
+Requires-Python: >=3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: altair (>=5.2.0)
+Requires-Dist: click (>=8.1.3)
+Requires-Dist: deprecated (>=1.2.14)
+Requires-Dist: hvplot (>=0.11.0)
+Requires-Dist: icecream (>=2.1.2)
+Requires-Dist: loguru (>=0.7.0)
+Requires-Dist: matplotlib (>=3.8.4)
+Requires-Dist: pandas (>=2.2.3)
+Requires-Dist: pendulum (>=3.0.0)
+Requires-Dist: platformdirs (>=4.2.2)
+Requires-Dist: plotly (>=6.0.1)
+Requires-Dist: polars (>=1.5.0)
+Requires-Dist: pyarrow (>=18.1.0)
+Requires-Dist: pydantic (>=2.7.1)
+Requires-Dist: pyserial (>=3.5)
+Requires-Dist: scipy (>=1.11.1)
+Requires-Dist: tomli (>=2.0.1)
+Requires-Dist: tqdm (>=4.65.0)
+Requires-Dist: typer (>=0.15.2)
+Requires-Dist: vl-convert-python (>=1.1.0)
+Project-URL: Homepage, https://qumasan.gitlab.io/haniwers/docs/
+Project-URL: Repository, https://gitlab.com/qumasan/haniwers/
+Description-Content-Type: text/markdown
+
+
+
+![GitLab Tag](https://img.shields.io/gitlab/v/tag/qumasan%2Fhaniwers?sort=semver&style=for-the-badge) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/haniwers?style=for-the-badge) ![GitLab License](https://img.shields.io/gitlab/license/qumasan%2Fhaniwers?style=for-the-badge)
+![PyPI - Downloads](https://img.shields.io/pypi/dd/haniwers?style=for-the-badge) ![PyPI -Downloads](https://img.shields.io/pypi/dw/haniwers?style=for-the-badge) ![PyPI - Downloads](https://img.shields.io/pypi/dm/haniwers?style=for-the-badge)
+![Gitlab Pipeline Status](https://img.shields.io/gitlab/pipeline-status/qumasan%2Fhaniwers?style=for-the-badge) ![GitLab Last Commit](https://img.shields.io/gitlab/last-commit/qumasan%2Fhaniwers?style=for-the-badge)
+
+---
+
+# Haniwers : ハニワーズ
+
+墳Qの解析コード（個人用）
+
+![w:300](./docs/_static/haniwer.png)
+
+# クイックスタート
+
+- PyPiで公開しているパッケージをインストールしてください
+  - https://pypi.org/project/haniwers/
+- `pipx`でインストールします（`pip3`よりオススメ）
+
+```console
+$ pipx install haniwers
+```
+
+- バージョンを指定する場合は`haniwers==バージョン番号`としてください
+- 有効なバージョン番号は[リリース履歴](https://pypi.org/project/haniwers/#history)で確認できます
+
+```console
+$ pipx install haniwers==0.19.3
+```
+
+- パスを確認してください
+
+```console
+$ which haniwers
+~/.local/bin/haniwers
+```
+
+- `haniwers --help`でサブコマンドを確認してください
+
+```console
+$ haniwers --help
+
+ Usage: haniwers [OPTIONS] COMMAND [ARGS]...
+
+╭─ Commands ───────────────────────────────────────────────
+│ version    Show haniwers version.
+│ docs       Open online document.
+│ ports      Search available ports and show device names.
+│ scan       スレッショルド測定
+│ fit        スレッショルド計算
+│ vth        スレッショルド設定
+│ daq        Start DAQ. Set up with daq.toml.
+│ raw2tmp    Parse raw_data into CSV format. Should be used temporarily for quick analysis.
+│ run2csv    Parse raw_data into CSV format. Specify RunID.
+│ mock-daq   Dummy DAQ
+╰──────────────────────────────────────────────────────────
+```
+
+- パッケージを最新版に更新できます
+
+```console
+$ pipx upgrade haniwers
+```
+
+---
+
+# セットアップ
+
+## 作業ディレクトリを作成
+
+- データを取得するディレクトリを作成してください。
+- 以後、このディレクトリをデータ取得するときのルートディレクトリとします。
+
+```console
+$ mkdir ~/repos/hnw-daq/
+```
+
+## 設定ファイルを作成
+
+[haniwers/examples](https://gitlab.com/qumasan/haniwers/-/tree/main/examples)にある設定ファイルをダウンロードして、
+作業ディレクトリに配置してください。
+（とてもめんどくさくてすみません。そのうちデフォルト設定を自動で生成できるようにしようと思います）
+
+---
+
+# ドキュメント
+
+関連ドキュメントはGitLab Pagesで公開しています。
+
+- ``haniwers``の使い方（built with sphinx）: https://qumasan.gitlab.io/haniwers/docs/
+- 解析ログブック（built with mystmd）: https://qumasan.gitlab.io/haniwers/
+
+それぞれのコマンドの使い方は``haniwers docs``でオンラインヘルプを確認できます。
+
+```console
+$ haniwers docs
+$ haniwers docs --page version
+$ haniwers docs --page scan
+$ haniwers docs --page fit
+$ haniwers docs --page vth
+$ haniwers docs --page daq
+$ haniwers docs --page raw2tmp
+$ haniwers docs --page run2csv
+```
+
+---
+
+# できること／したいこと
+
+- [x] 宇宙線検出器OSECHIで取得したデータを、解析可能なCSVファイルに変換する
+- [ ] データを理解するのに必要は基本プロットを作成する
+- [ ] まとめスライドのテンプレートを作成する
+
+---
+
+![w:300](./docs/_static/osechi/IMG_1551.jpeg)
+
+> 以下はあまり整理できてない
+
+# 開発者向け
+
+- `haniwers`のリポジトリはDAQツールと解析ツールが同梱されています
+- ツールの開発環境は`Docker`で構築できます
+- 測定環境と解析環境は作業ディレクトリを分けて、別々にクローンことを推奨します
+
+## 環境構築（with docker）
+
+- Docker環境（DockerもしくはDocker Desktop）がある場合、`docker compose`で開発環境を構築できます
+- 慣れる簡単（＆移植性が高い）ので、こちらの手法をオススメします。
+
+```bash
+$ git clone https://gitlab.com/qumasan/haniwers.git
+$ cd haniwers
+```
+
+- `docker compose build base`でベースとなるカスタムイメージ（`haniwers:latest`）を作成します
+
+```bash
+$ docker compose build base
+[+] Building 1/1
+ ✔ base  Built
+```
+
+- `docker compose run --rm サービス名 コマンド`で用途別のコマンドを実行できます
+
+```bash
+$ docker compose run --rm cli
+Creating virtualenv haniwers-xS3fZVNL-py3.11 in /root/.cache/pypoetry/virtualenvs
+
+ Usage: haniwers [OPTIONS] COMMAND [ARGS]...
+
+╭─ Commands ───────────────────────────────────
+│ version    Show haniwers version.
+│ docs       Open online document.
+│ ports      Search available ports and show device names.
+│ scan       スレッショルド測定
+│ fit        スレッショルド計算
+│ vth        スレッショルド設定
+│ daq        Start DAQ. Set up with daq.toml.
+│ raw2tmp    Parse raw_data into CSV format. Should be used temporarily for quick analysis.
+│ run2csv    Parse raw_data into CSV format. Specify RunID.
+│ mock-daq   Dummy DAQ
+```
+
+## 環境構築（with poetry）
+
+```bash
+$ git clone https://gitlab.com/qumasan/haniwers.git
+$ cd haniwers
+```
+
+```bash
+$ pipx install poetry
+$ poetry install
+$ poetry run haniwers --help
+```
+
+## 環境構築（with uv）
+
+- Experimental
+- そのうち`poetry`かんりから`uv`管理に完全移行する予定です
+
+```bash
+$ pipx install uv
+$ uv tool install poetry
+$ uvx poetry run haniwers --help
+```
+
+---
+
+### 作業ディレクトリを作成する
+
+```console
+// 作業環境を作成する（ディレクトリ名は任意）
+$ cd mkdir ~/repos/hnw/
+
+// 測定に使う環境（ディレクトリ）
+$ mkdir hnw-daq
+
+// 解析に使う環境（ディレクトリ）
+$ mkdir hnw-analysis
+```
+
+- 測定環境：タグを指定してリポジトリをクローンする
+- 解析環境：最先端のブランチ（``main``）をクローンし、解析トピックごとにブランチを作成する
+
+### 測定に使う環境を構築する
+
+```console
+$ cd ~/repos/hnw/hnw-daq/
+// タグを指定してクローンする
+$ git clone https://gitlab.com/qumasan/haniwers.git -b 0.13.1 --depth 1
+$ cd haniwers
+$ poetry install
+$ poetry shell
+(.venv) $ cd sandbox/
+(.venv) $ haniwers --help
+```
+
+- データ測定環境を構築する場合は、``-b タグ番号``でタグを指定してshallowクローン（``--depth 1``）する
+  - 最新のタグ番号は[タグ一覧](https://gitlab.com/qumasan/haniwers/-/tags)で調べる
+  - それぞれのタグの内容は[変更履歴（CHANGELOG）](https://gitlab.com/qumasan/haniwers/-/blob/main/CHANGELOG.md)を調べる
+- データ測定中に不意にソースコードが更新されないようにする必要がある
+  - 測定中にソースコードを更新してしまった場合、どのような動作になるかは分からない
+  - 取得したデータの健全性を確保するため、意図しない更新はできるだけ避けるようにする
+
+### 解析に使う環境を構築する
+
+```console
+$ cd ~/repos/hnw/hnw-analysis/
+$ git clone https://gitlab.com/qumasan/haniwers.git
+$ cd haniwers
+$ poetry install
+$ poetry shell
+(.venv) $ git switch ブランチ名
+(.venv) $ cd sandbox/
+(.venv) $ haniwers --help
+```
+
+---
+
+# 事前準備
+
+## 必要な開発環境
+
+1. [Gitのインストール](https://kumaroot.readthedocs.io/ja/latest/git/git-install.html)
+2. [Pythonのインストール](https://kumaroot.readthedocs.io/ja/latest/python/python-install.html)
+3. [Poetryのインストール](https://kumaroot.readthedocs.io/ja/latest/python/python-poetry.html)
+4. [VS Codeのインストール](https://kumaroot.readthedocs.io/ja/latest/vscode/vscode-install.html)
+
+## Gitの設定
+
+```console
+// 現在の設定内容を確認する
+$ git config -l
+
+// 基本項目が設定されてない場合
+$ git config --global user.name "名前"
+$ git config --global user.email "メールアドレス"
+$ git config --global pull.rebase false
+
+// エディターを設定したい場合（どれかひとつ）
+$ git config --global core.editor emacsclient    # Emacsに設定
+$ git config --global core.editor "code --wait"  # VS Codeに設定
+$ git config --global core.editor hx             # Helixに設定
+```
+
+- Gitをはじめて使う場合、ユーザー名／メールアドレスの基本設定が必要
+- 必要であればエディターを設定する（これは後回しでもOK）
+
+## Python環境 /Poetry環境を構築する
+
+```console
+$ poetry install
+$ poetry shell
+(.venv) $ cd sandbox
+(.venv) $ haniwers --help
+(.venv) $ haniwers version
+haniwers 0.12.0
+```
+
+---
+
+# ポータブル環境を作成する
+
+Dockerを使ってポータブルな環境（Dockerイメージ）を作成する
+
+## イメージを作成する
+
+```console
+$ cd docker
+$ docker build --platform=linux/arm64 -t myhaniwers .
+```
+
+- Raspberry Piで動作するイメージを作る場合は、``ARM``ベース（``--platform=linux/arm64``）でビルドする
+- MacBookなどRPi以外のパソコンでビルドする
+  - RPiでイメージをビルドすると、かなり時間がかかる
+
+## イメージを移動する
+
+```console
+// MBPで実行する
+$ docker save myhaniwers:latest > myhaniwers.tar
+
+// RPiで実行する
+$ docker load -i myhaniwers.tar
+```
+
+- 作成したイメージを``.tar``形式に出力し、USBメモリにコピーする
+- USBメモリから測定用のRPiにイメージをコピーする
+- RPiでイメージを読み込む
+
+## コンテナを起動する
+
+```console
+$ docker run --rm -it \
+    -v $PWD/sandbox:/home/app/haniwers/sandbox \
+    --device=/dev/ttyUSB0:/dev/ttyUSB0 \
+    myhaniwers:latest bash
+```
+
+- ホスト側の``sandbox``をコンテナ側にマウントする
+- ホスト側のUSBポート（``/dev/ttyUSB0``）をコンテナ側のUSBポート（``/dev/ttyUSB0``）に接続する
+
