@@ -1,0 +1,29 @@
+# Created automatically by setuptools-scm
+src/wakepy/_version.py
+
+# python stuff
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# builds
+dist/
+docs/build/
+
+# Unit tests, checks, coverage reports
+htmlcov/
+.tox/
+.coverage
+.ruff_cache
+.mypy_cache
+
+# pyenv
+.python-version
+
+# Virtual environments
+.venv
+venv/
+
+# IDEs
+.vscode/*
+.idea/*

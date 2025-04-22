@@ -1,0 +1,177 @@
+[project]
+name = "wakepy"
+dynamic = ["version"]
+description = "wakelock / keep-awake / stay-awake"
+authors = [
+    {name = "Niko Föhr", email = "fohrloop@gmail.com"},
+]
+dependencies = [
+    # For using the D-Bus based methods. All Unix-öike FOSS desktop operating
+    # systems should be listed here (as they might use Gnome, XFCE, etc.)
+    # Full list of the environment markers at https://peps.python.org/pep-0508/
+    "jeepney >= 0.7.1;platform_system=='Linux' or platform_system=='FreeBSD' or platform_system=='OpenBSD' or platform_system=='NetBSD' or platform_system=='DragonFly' or platform_system=='SunOS' or platform_system=='AIX' or platform_system=='Minix'",
+    # The typing.Literal was introduced in Python 3.8. Need to install
+    # typing-extensions for Python 3.7 support.
+    'typing-extensions; python_version < "3.8.0"',
+]
+
+# Python 3.7 introduces from __future__ import annotations
+requires-python = ">=3.7"
+readme = "README.md"
+license = { file = "LICENSE.txt"}
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: POSIX :: BSD",
+    "Operating System :: POSIX :: BSD :: OpenBSD",
+    "Operating System :: POSIX :: BSD :: FreeBSD",
+    "Operating System :: POSIX :: BSD :: NetBSD",
+    "Operating System :: POSIX :: Other",
+    "Operating System :: Unix",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Utilities",
+]
+
+
+[project.urls]
+Homepage = "https://github.com/fohrloop/wakepy"
+"Source Code" = "https://github.com/fohrloop/wakepy"
+"Issue Tracker" = "https://github.com/fohrloop/wakepy/issues"
+Documentation = "https://wakepy.readthedocs.io/"
+Changelog = "https://wakepy.readthedocs.io/stable/changelog.html"
+
+[project.scripts]
+wakepy = "wakepy.__main__:main"
+
+[build-system]
+requires = ["setuptools==69.1.0", "setuptools_scm==8.1.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+version_file = "src/wakepy/_version.py"
+
+[tool.mypy]
+exclude = ['venv/*', '.venv/*', 'docs/*', '.tox/*']
+check_untyped_defs = true
+disallow_any_generics = true
+no_implicit_optional = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+warn_unused_ignores = true
+no_implicit_reexport = true
+disallow_untyped_defs = true
+disallow_any_unimported = true
+
+[[tool.mypy.overrides]]
+module = [
+    'jeepney.*',
+    'tox.*'
+]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ['tests.*', 'tasks']
+disallow_untyped_defs = false
+
+[[tool.mypy.overrides]]
+module = ['toxfile']
+disallow_any_unimported = false
+
+[tool.coverage.run]
+plugins = ["coverage_conditional_plugin"]
+omit = [
+    "tests/*",
+]
+[tool.coverage.paths]
+source = [
+    # This makes the coverage report paths shorter for the tox results, which
+    # otherwise are of the format: .tox/py311/lib/python3.11/site-packages/wakepy/somefile.py
+    "src/wakepy",
+    "**/site-packages/wakepy"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if (?:typing\\.)?TYPE_CHECKING:",
+    "@(abc\\.)?abstractmethod",
+    "@(typing\\.)?overload",
+    "raise NotImplementedError"
+]
+
+[tool.coverage.coverage_conditional_plugin.omit]
+# Dbus adapters are only available on linux
+"platform_system != 'Linux'" = "**/wakepy/dbus_adapters/*.py"
+# Windows methods only need to be tested on Windows
+"platform_system != 'Windows'" = "**/wakepy/methods/windows.py"
+
+[tool.coverage.coverage_conditional_plugin.rules]
+no-cover-if-no-dbus = "platform_system != 'Linux'"
+no-cover-if-py-gte-38 = "sys_version_info >= (3, 8)"
+no-cover-if-py-lt-38 = "sys_version_info < (3, 8)"
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+# Same as Black.
+line-length = 88
+fix = true
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".eggs",
+    ".git",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".tox",
+    "__pypackages__",
+    "_build",
+    "build",
+    "dist",
+    ".venv",
+    "venv",
+]
+
+[tool.ruff.lint]
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+select = [
+    # E: pycodestyle
+    "E",
+    # F: Pyflakes
+    "F",
+    # W505: doc-line-too-long. Ref: https://docs.astral.sh/ruff/rules/doc-line-too-long/
+    "W505",
+    # W291: trailing-whitespace. Ref: https://docs.astral.sh/ruff/rules/trailing-whitespace/
+    "W291",
+    # Disallow TODO (these should be either fixed before merging, or
+    # alternatively, use a LATER tag. In addition, disallow XXX, FIXME and HACK
+    "FIX001",
+    "FIX002",
+    "FIX003",
+    "FIX004",
+]
+ignore = []
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.pycodestyle]
+# limits docstring and comments to 79 characters.
+max-doc-length = 79
