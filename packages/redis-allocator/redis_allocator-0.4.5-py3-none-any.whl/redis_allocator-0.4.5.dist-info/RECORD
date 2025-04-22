@@ -1,0 +1,15 @@
+redis_allocator/__init__.py,sha256=TVjUm-8YEu_MQD_PkfeIKiVknpCJBrUY9cWN1LlaZcU,1016
+redis_allocator/_version.py,sha256=jMc7UM2pASY9F8z0XMALQbSXxGCAxWPyeXQlarwD0VI,22
+redis_allocator/allocator.py,sha256=VkJk6ioN6hwe227lMKjNdyeO0QkJ8sajTDPkEQgDcWg,52964
+redis_allocator/lock.py,sha256=fqf6WUWHKYenEArWopMIF6kWEnDfADC-bZvnQImsQVo,27400
+redis_allocator/task_queue.py,sha256=8DjNr2uxhzCsHatV_CHOeGh7_K9pqQZFApSbe2blRO0,14989
+redis_allocator-0.4.5.dist-info/licenses/LICENSE,sha256=Wt4X1rHpffQfEiyWcDUx8BMLjXxfPqaiYZ7Lgsj7L4c,1068
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/conftest.py,sha256=Ts82uylQSzP_GcaN0E02o3xcFdjw20cXNzh3RAdYKW4,3967
+tests/test_allocator.py,sha256=zOBdaOhlpLsv63J4QZ9vOhL1k1gu_vO68x4CpPDa9_4,23350
+tests/test_lock.py,sha256=MDMRNN46VhWqkHUIhYOMEDgZkFFCW_WjwRLTOjkFF-Q,46952
+tests/test_task_queue.py,sha256=Fh5naikFajfOvL6GngEy_TPfOYCYZolZfVwtR6T4dTY,31710
+redis_allocator-0.4.5.dist-info/METADATA,sha256=qNua-7xwZmj7Vyexpugt2h65v1c8Tn7SCKfRJc6CLZI,21727
+redis_allocator-0.4.5.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+redis_allocator-0.4.5.dist-info/top_level.txt,sha256=0hXzU7sK5FCeSolTEYxThOt3HOybnwaXv1FLRJvHVgI,22
+redis_allocator-0.4.5.dist-info/RECORD,,
