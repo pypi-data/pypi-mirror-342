@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+django-msgraph-mail/__init__.py
+django-msgraph-mail/backend.py
+django-msgraph-mail/utils.py
+django_msgraph_mail.egg-info/PKG-INFO
+django_msgraph_mail.egg-info/SOURCES.txt
+django_msgraph_mail.egg-info/dependency_links.txt
+django_msgraph_mail.egg-info/requires.txt
+django_msgraph_mail.egg-info/top_level.txt
