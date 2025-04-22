@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+pycommentcleaner/__init__.py
+pycommentcleaner/cli.py
+pycommentcleaner/core.py
+pycommentcleaner.egg-info/PKG-INFO
+pycommentcleaner.egg-info/SOURCES.txt
+pycommentcleaner.egg-info/dependency_links.txt
+pycommentcleaner.egg-info/entry_points.txt
+pycommentcleaner.egg-info/top_level.txt
+tests/test_cli.py
+tests/test_core.py
