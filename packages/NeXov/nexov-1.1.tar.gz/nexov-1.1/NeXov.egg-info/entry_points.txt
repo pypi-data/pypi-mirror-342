@@ -1,0 +1,2 @@
+[console_scripts]
+nexov = NeXov.cli:main

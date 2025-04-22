@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+NeXov/cli.py
+NeXov/core.py
+NeXov/tokenizer.py
+NeXov.egg-info/PKG-INFO
+NeXov.egg-info/SOURCES.txt
+NeXov.egg-info/dependency_links.txt
+NeXov.egg-info/entry_points.txt
+NeXov.egg-info/requires.txt
+NeXov.egg-info/top_level.txt
