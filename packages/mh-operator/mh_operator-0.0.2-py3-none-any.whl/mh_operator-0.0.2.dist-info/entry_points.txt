@@ -1,0 +1,2 @@
+[console_scripts]
+mh-operator = mh_operator.__main__:app
