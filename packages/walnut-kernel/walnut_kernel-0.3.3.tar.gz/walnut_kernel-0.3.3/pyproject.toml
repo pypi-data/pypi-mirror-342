@@ -1,0 +1,46 @@
+[build-system]
+requires = [
+    "hatchling>=1.10.0", "ipykernel"
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "walnut-kernel"
+dynamic = [
+    "version",
+]
+description = "Simple kernel for Walnut"
+readme = "README.md"
+license = { file = "LICENSE" }
+maintainers = [{ name = "Nicolas Ollinger", email = "nopid@free.fr" }]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "ipykernel",
+    "jupyter_client",
+    "metakernel",
+    "licofage",
+    "ratser"
+]
+
+[project.urls]
+Homepage = "https://github.com/nopid/walnut_kernel"
+
+[tool.hatch.version]
+path = "walnut_kernel/_version.py"
+
+# Used to call hatch_build.py
+[tool.hatch.build.hooks.custom]
+
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/walnut_kernel",
+]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"data_kernelspec/share" = "share"
