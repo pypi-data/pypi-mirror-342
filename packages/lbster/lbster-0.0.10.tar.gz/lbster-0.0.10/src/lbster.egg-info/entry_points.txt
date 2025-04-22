@@ -1,0 +1,8 @@
+[console_scripts]
+lobster_embed = lobster.cmdline:embed
+lobster_eval = lobster.cmdline:eval_embed
+lobster_intervene = lobster.cmdline:intervene
+lobster_intervene_multiproperty = lobster.cmdline:intervene_multiproperty
+lobster_perplexity = lobster.cmdline:perplexity
+lobster_predict = lobster.cmdline:predict
+lobster_train = lobster.cmdline:train

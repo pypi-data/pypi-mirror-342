@@ -1,0 +1,135 @@
+[project]
+name = "lbster"
+readme = "README.md"
+description = "Language models for Biological Sequence Transformation and Evolutionary Representation."
+authors = [{name = "Nathan C. Frey", email = "frey.nathan.nf1@gene.com"}]
+dynamic = ["version"]
+requires-python = ">=3.11, <3.13"
+dependencies = [
+    "pooch",
+    "torch",
+    "flash-attn; sys_platform == 'linux'",
+    "tqdm",
+    "lightning",
+    "torchmetrics",
+    "biopython",
+    "torchvision",
+    "universal_pathlib",
+    "pandas",
+    "scipy",
+    "pyarrow",
+    "s3fs[boto3]",
+    "biopandas",
+    "wandb",
+    "hydra-core",
+    "torchdata",
+    "datasets",
+    "tokenizers",
+    "transformers>=4.24.0",
+    "scikit-learn",
+    "python-dotenv",
+    "torcheval",
+    "datasketch",
+    "peft",
+    "icecream",
+    "captum",
+    "edlib",
+    "onnx",
+    "onnxscript",
+    "einops",
+    "beignet[datasets]",
+    "deepspeed",
+    "dotenv>=0.9.9",
+]
+
+[build-system]
+requires = ["setuptools >= 65", "setuptools_scm[toml]>=6.2"]
+build-backend = 'setuptools.build_meta'
+
+[project.scripts]
+lobster_train = "lobster.cmdline:train"
+lobster_embed = "lobster.cmdline:embed"
+lobster_predict = "lobster.cmdline:predict"
+lobster_intervene = "lobster.cmdline:intervene"
+lobster_intervene_multiproperty = "lobster.cmdline:intervene_multiproperty"
+lobster_perplexity = "lobster.cmdline:perplexity"
+lobster_eval = "lobster.cmdline:eval_embed"
+
+[project.optional-dependencies]
+mgm = [
+    "rdkit>=2024.9.4",
+    "selfies>=2.1.2",
+]
+beignet_mdtraj = [
+    "beignet[mdtraj]"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+lobster = ["*.txt", "*.json", "*.yaml"]
+"lobster.assets" = ["**/*.txt", "**/*.json", "**/*.yaml"]
+"lobster.hydra_config" = [ "**/*.yaml"]
+
+[tool.setuptools_scm]
+search_parent_directories = true
+version_scheme = "no-guess-dev"
+fallback_version = "0.0.0"
+local_scheme = "no-local-version" # see https://github.com/pypa/setuptools-scm/issues/455
+
+[tool.ruff]
+line-length = 120
+exclude = [
+  "scripts",
+  "notebooks",
+  "src/lobster/model/openfold_utils",
+  "src/lobster/model/modern_bert"
+]
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+]
+
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "B905",  # requires python >= 3.10
+    "B007",  # unused-loop-control-variable
+    "E741",  # ambiguous-variable-name
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = [
+    "F401", # MODULE IMPORTED BUT UNUSED
+]
+"tests/**/*.py" = [
+  "D"
+]
+
+[tool.uv]
+environments = ["sys_platform == 'darwin'", "sys_platform == 'linux'"]
+constraint-dependencies = ["torch==2.5.1", "flash-attn==2.7.4.post1"]
+
+
+[tool.uv.sources]
+flash_attn = [
+  { url = "https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp311-cp311-linux_x86_64.whl", marker = "sys_platform == 'linux' and python_version == '3.11'"},
+  { url = "https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp312-cp312-linux_x86_64.whl", marker = "sys_platform == 'linux' and python_version == '3.12'"},
+]
+beignet = { git = "https://github.com/Genentech/beignet" }
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+    "mypy>=1.14.1",
+    "pre-commit>=4.0.1",
+    "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.9.1",
+]
