@@ -1,0 +1,2 @@
+[console_scripts]
+murf-mcp = src.server:main
