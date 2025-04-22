@@ -1,0 +1,11 @@
+deep-translator
+transformers>=4.40.0
+numpy<3.0,>=1.21
+torch
+requests
+gensim
+pymorphy3
+pymystem3
+natasha
+nltk
+sentencepiece
