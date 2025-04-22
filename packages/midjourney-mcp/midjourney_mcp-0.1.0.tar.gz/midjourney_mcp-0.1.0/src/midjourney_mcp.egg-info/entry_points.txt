@@ -1,0 +1,2 @@
+[console_scripts]
+midjourney-mcp = midjourney_mcp.midjourney:main
