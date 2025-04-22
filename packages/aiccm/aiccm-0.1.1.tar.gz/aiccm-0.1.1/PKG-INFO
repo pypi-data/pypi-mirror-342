@@ -1,0 +1,45 @@
+Metadata-Version: 2.4
+Name: aiccm
+Version: 0.1.1
+Summary: 用于分析和处理角膜共聚焦显微镜角膜神经图像的Python软件包
+Home-page: https://https://github.com/SummerColdWind
+Author: Qincheng Qiao
+Author-email: jugking6688@gmail.com
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+Requires-Dist: onnxruntime
+Requires-Dist: pillow
+Requires-Dist: scipy
+Requires-Dist: scikit-image
+Requires-Dist: onnx
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# aiccm
+
+> 用于分析和处理角膜共聚焦显微镜角膜神经图像的Python软件包
+
+## setup
+```shell
+pip install aiccm
+```
+or
+```shell
+conda create -n aiccm python=3.10
+conda activate aiccm
+pip install -r requirements.txt
+```
