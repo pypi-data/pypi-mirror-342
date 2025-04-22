@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+ncmdump/__init__.py
+ncmdump/__main__.py
+ncmdump/core.py
+ncmdump/crypto.py
+ncmdump_py.egg-info/PKG-INFO
+ncmdump_py.egg-info/SOURCES.txt
+ncmdump_py.egg-info/dependency_links.txt
+ncmdump_py.egg-info/requires.txt
+ncmdump_py.egg-info/top_level.txt
