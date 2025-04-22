@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: ssh_terminal_manager
+Version: 2.0.0
+Summary: Use terminal commands to control and monitor remote devices
+Author-email: zhbjsh <zhbjsh@outlook.com>
+Project-URL: Homepage, https://github.com/zhbjsh/ssh-terminal-manager
+Project-URL: Bug Tracker, https://github.com/zhbjsh/ssh-terminal-manager/issues
+Keywords: ssh,terminal,console,shell,bash,cmd,power shell,commands,command line
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: icmplib>=3.0
+Requires-Dist: paramiko>=3.4.1
+Requires-Dist: terminal-manager==2.0.0
+Requires-Dist: wakeonlan>=3.0.0
+Dynamic: license-file
+
+# SSH Terminal Manager
+
+## Initialize
+
+```python
+from ssh_terminal_manager import SSHManager
+
+manager = SSHManager("192.168.0.123", username="user", password="1234")
+
+await manager.async_update_state(raise_errors=True)
+```

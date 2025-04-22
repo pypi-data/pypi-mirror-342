@@ -1,0 +1,4 @@
+icmplib>=3.0
+paramiko>=3.4.1
+terminal-manager==2.0.0
+wakeonlan>=3.0.0
