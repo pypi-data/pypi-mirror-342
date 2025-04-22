@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+mimir_mcp/__init__.py
+mimir_mcp/main.py
+mimir_mcp.egg-info/PKG-INFO
+mimir_mcp.egg-info/SOURCES.txt
+mimir_mcp.egg-info/dependency_links.txt
+mimir_mcp.egg-info/entry_points.txt
+mimir_mcp.egg-info/requires.txt
+mimir_mcp.egg-info/top_level.txt

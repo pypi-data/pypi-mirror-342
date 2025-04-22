@@ -1,0 +1,9 @@
+httpx
+pydantic
+mcp
+fastmcp>=2.2.0
+mimir-api>=0.1.2
+
+[dev]
+pytest
+black
