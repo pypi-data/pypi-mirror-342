@@ -1,0 +1,16 @@
+
+[all]
+scikit-learn
+hyperopt
+
+[dev]
+pandas
+ipython
+numpy
+scipy
+scikit-learn<1.6
+hyperopt<0.2.8
+setuptools
+
+[polyaxon]
+polyaxon
