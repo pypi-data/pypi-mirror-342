@@ -1,0 +1,2 @@
+[console_scripts]
+run_AMS_BP = AMS_BP.main_cli:typer_app_asms_bp
