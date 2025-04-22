@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: oarepo-workflows
+Version: 1.1.14
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: invenio-records-resources
+Requires-Dist: invenio-requests
+Requires-Dist: oarepo-runtime
+Dynamic: license-file
+
+# OARepo workflows
