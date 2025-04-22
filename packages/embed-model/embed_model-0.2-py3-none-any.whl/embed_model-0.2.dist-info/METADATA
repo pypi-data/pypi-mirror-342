@@ -1,0 +1,49 @@
+Metadata-Version: 2.2
+Name: embed_model
+Version: 0.2
+Summary: Um modelo de embeds não oficial para discord.py. Feito em Português.
+Home-page: https://github.com/LucaCunha001/DiscordEmbedModel
+Author: Luca Cunha (Frisk)
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: discord
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# 📦 Discord Embed Editor Bot
+
+Um modelo para Discord que permite editar embeds de mensagens de forma interativa utilizando **modais**, **botões** e **menus de seleção** da UI do Discord. Ideal para quem deseja personalizar mensagens de maneira rápida, visual e organizada.
+
+## ✨ Funcionalidades
+
+- 📑 Editar título, descrição, conteúdo e cor do embed.
+- 🖼️ Definir ou alterar thumbnail, imagem principal e timestamp.
+- 👣 Editar o footer (texto e imagem).
+- ➕ Adicionar novos fields (campos) ao embed.
+- ✏️ Editar campos existentes.
+- 🗑️ Remover campos específicos.
+- ✅ Confirmar e enviar embeds editados.
+- ❌ Cancelar e excluir mensagens temporárias de edição.
+
+## 📦 Tecnologias Utilizadas
+
+- [Python 3.11+](https://www.python.org/)
+- [discord.py 2.x](https://discordpy.readthedocs.io/en/stable/)
+- Componentes interativos: `discord.ui.Modal`, `discord.ui.Button`, `discord.ui.Select`
+
+## 🚀 Como usar
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/LucaCunha001/DiscordEmbedModel.git
+   cd DiscordEmbedModel.git
