@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: balif
+Version: 0.1.1
+Summary: Bayesian Active Learning Isolation Forest
+Author-email: davidesartor <davide.sartor.4@studenti.unipd.it>
+License-Expression: MIT
+Requires-Python: <=3.12,>=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: ipykernel>=6.29.5
+Requires-Dist: jaxtyping>=0.3.1
+Requires-Dist: pyod>=2.0.4
