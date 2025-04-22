@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/parquet_path_rewriter/__init__.py
+src/parquet_path_rewriter/rewriter.py
+src/parquet_path_rewriter.egg-info/PKG-INFO
+src/parquet_path_rewriter.egg-info/SOURCES.txt
+src/parquet_path_rewriter.egg-info/dependency_links.txt
+src/parquet_path_rewriter.egg-info/requires.txt
+src/parquet_path_rewriter.egg-info/top_level.txt
+tests/test_rewriter.py
