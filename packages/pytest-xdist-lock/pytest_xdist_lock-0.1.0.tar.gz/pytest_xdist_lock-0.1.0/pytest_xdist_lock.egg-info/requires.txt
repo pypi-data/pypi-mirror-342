@@ -1,0 +1,9 @@
+pytest>=6.0
+pytest-xdist>=2.0
+
+[dev]
+pytest
+pytest-cov
+
+[redis]
+redis>=4.0
