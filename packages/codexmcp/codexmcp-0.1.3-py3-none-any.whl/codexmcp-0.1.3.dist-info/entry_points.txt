@@ -1,0 +1,2 @@
+[console_scripts]
+codexmcp = codexmcp.server:main
