@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hatch_maturin"
+version = "0.0.4"
+description = "Hatch build hook that invokes maturin to compile Rust extensions"
+requires-python = ">=3.8"
+dependencies = ["maturin>=1.4"]
+authors = [
+    {name = "oha", email = "aaronoh2015@gmail.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "hatchling>=1.18.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hatch_maturin"]
+
+[project.entry-points."hatch.build.hook"]
+maturin = "hatch_maturin.hook:MaturinHook"

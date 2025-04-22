@@ -1,0 +1,158 @@
+Metadata-Version: 2.4
+Name: hatch_maturin
+Version: 0.0.4
+Summary: Hatch build hook that invokes maturin to compile Rust extensions
+Author-email: oha <aaronoh2015@gmail.com>
+License: MIT
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Python: >=3.8
+Requires-Dist: maturin>=1.4
+Provides-Extra: dev
+Requires-Dist: hatchling>=1.18.0; extra == 'dev'
+Requires-Dist: pytest-cov>=4.0.0; extra == 'dev'
+Requires-Dist: pytest>=7.0.0; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# hatch-maturin
+
+[![PyPI - Version](https://img.shields.io/pypi/v/hatch-maturin.svg)](https://pypi.org/project/hatch-maturin)
+
+A [Hatch](https://hatch.pypa.io/) build hook plugin that integrates with [Maturin](https://www.maturin.rs/) to compile Rust extensions for Python packages.
+
+---
+
+## Description
+
+hatch-maturin is a simple build hook plugin for Hatch that:
+
+- Runs Maturin during the Hatch build process to compile Rust code
+- Extracts the resulting wheel files and includes them in your Python package
+- Allows configuration through `pyproject.toml`
+
+## Features
+
+- Seamlessly integrate Rust extensions into your Python packages
+- Support for multiple Rust crates in a single Python package
+- Configurable build options for different environments
+- Platform-specific configuration
+- Works with the modern Python build system (Hatch)
+
+## Installation
+
+```bash
+pip install hatch-maturin
+```
+
+## Usage
+
+### Basic Configuration
+
+Add your `hatch-maturin` following to your `pyproject.toml`:
+
+```toml
+[build-system]
+requires = ["hatchling>=1.18.0", "hatch-maturin>=0.0.1"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.hooks.maturin]
+path = "rust_extension"  ###### Path to your Rust crate
+```
+
+### Advanced Configuration
+
+```toml
+[tool.hatch.build.hooks.maturin]
+path = "rust_extension"                 # Path to your Rust crate
+features = ["feature1", "feature2"]     # Cargo features to enable
+maturin_args = ["--cargo-extra-args=--offline"]  # Additional arguments for Maturin
+skip_auditwheel = true                  # skip auditwheel repair step
+target_python = "/path/to/python"       # Specific Python interpreter to target
+target = "x86_64-unknown-linux-gnu"     # Set target platform directly
+
+# Environment variables for the build
+env = { RUSTFLAGS = "-C target-cpu=native", CARGO_TERM_COLOR = "always" }
+
+# Pre/post build scripts
+pre_build_script = "scripts/pre_build.sh"   # Script to run prior to building
+post_build_script = "scripts/post_build.sh" # Script to run after building
+
+# Platform-specific configuration
+[tool.hatch.build.hooks.maturin.platform_linux]
+features = ["linux_feature"]
+target = "x86_64-unknown-linux-gnu"
+
+[tool.hatch.build.hooks.maturin.platform_windows]
+features = ["windows_feature"]
+target = "x86_64-pc-windows-msvc"
+
+# Multiple crates support
+[tool.hatch.build.hooks.maturin.multi_crate]
+module1 = "path/to/crate1"
+module2 = "path/to/crate2"
+
+# Parallel build settings for multi-crate builds
+parallel_build = true  # Build multiple crates in parallel
+max_jobs = 4           # Max number of concurrent builds
+```
+
+## Project Structure
+
+Your project structure might look like this below:
+
+```
+your_package/
+├── pyproject.toml
+├── src/
+│   └── your_package/
+│       ├── __init__.py ## Your Python script
+│       └── module.py
+└── rust_extension/
+    ├── Cargo.toml
+    └── src/
+        └── lib.rs ## Your Rust script
+```
+
+## Building Your Package
+
+Once configured, you can build your package with Hatch as usual:
+
+```bash
+pip install build
+python -m build
+```
+
+or using Hatch directly:
+
+```bash
+hatch build
+```
+
+## Development
+
+To set up the development environment:
+
+```bash
+git clone https://github.com/duriantaco/hatch-maturin.git
+cd hatch-maturin
+pip install -e ".[dev]"
+```
+
+To run tests:
+
+```bash
+pytest
+```
+
+## License
+
+`hatch-maturin` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
