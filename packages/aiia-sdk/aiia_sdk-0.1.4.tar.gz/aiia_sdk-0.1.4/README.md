@@ -1,0 +1,140 @@
+# AIIA SDK
+
+The official SDK for integrating the AIIA protocol (Artificial Intelligence Interaction Agreement) into your AI systems.  
+This library allows AI applications to log actions in a secure, auditable, and legally traceable way.
+
+## What this SDK does
+
+The AIIA SDK enables developers to integrate plug & play action logging and auditing into any AI-based system. It offers a dual-layer logging mechanism:
+
+### Layer 1: Developer-registered actions
+
+- Developers define explicitly which actions their IA is allowed to perform using the `@aiia_action("action_code")` decorator.
+- These logs are cryptographically signed, verified against the official dictionary, and marked as `registered`.
+
+### Layer 2: Semantic autodetection
+
+- A built-in semantic model analyzes all outputs from the AI system.
+- If an action is detected that was **not registered** via decorator, it's logged as `non_registered`.
+- If more than 10 `non_registered` logs are detected, the developer receives a warning to review their configuration.
+
+This ensures full traceability of AI behavior while minimizing developer overhead.
+
+## Features
+
+- ✅ Plug & play: install, import, and you're done
+- ✅ Compatible with outputs from OpenAI, Gemini, LLaMA and others
+- ✅ Automatically detects and logs actions using a pretrained semantic model
+- ✅ Verifies and signs logs using HMAC and client secret
+- ✅ Supports `.env` file credentials
+- ✅ Classifies actions by risk and domain
+- ✅ Identifies and flags unregistered activity
+- ✅ Fully auditable logs for enterprise compliance
+
+## Installation
+
+```bash
+pip install aiia_sdk
+```
+
+The semantic model is installed with the SDK and runs locally for maximum performance and privacy.
+
+## Usage
+
+```python
+from aiia_sdk import AIIA, aiia_action
+
+ai = AIIA()
+
+@aiia_action("email.send")
+def enviar_email(to, subject):
+    print("Enviando email a", to)
+    # Aquí iría la lógica de la IA
+
+enviar_email("user@example.com", "Bienvenido")
+```
+
+This example will generate a secure log entry for the action `email.send`.
+
+Meanwhile, the semantic engine also monitors all AI outputs to detect any additional behavior that may require logging.
+
+## Semantic Matching
+
+- The SDK includes a pretrained local model based on `sentence-transformers` (e.g., MiniLM).
+- It compares AI outputs against the full action dictionary.
+- When a match exceeds a threshold (e.g., 0.90 similarity), it logs the action.
+- If the action was not decorated via `@aiia_action(...)`, it’s marked as `non_registered`.
+
+## Logging Mechanism
+
+When the SDK logs an action, it:
+
+1. Validates the action against the official dictionary
+2. Matches it to the associated category and risk level
+3. Signs it using HMAC with the client secret
+4. Registers whether the action was declared via decorator
+5. Sends it to the server using a secure POST
+
+## Registered vs Non-Registered
+
+| Field         | Description                            |
+|---------------|----------------------------------------|
+| `registered`  | `true` if action used the decorator     |
+| `registered`  | `false` if only detected semantically   |
+
+## Example with Environment File
+
+You can use a `.env` file:
+
+```
+AIIA_API_KEY=your_api_key
+AIIA_CLIENT_SECRET=your_client_secret
+AIIA_IA_ID=your_ia_id
+AIIA_ENDPOINT=https://yourserver.com/receive_log
+```
+
+Then instantiate:
+
+```python
+ai = AIIA()
+```
+
+## Action Dictionary
+
+The SDK uses `aiia_actions_v1.0.json` which includes:
+
+- Action name and code
+- Associated category (e.g., email, finance)
+- Risk level (low, medium, high)
+
+## Legal and Security Notes
+
+- Logs are digitally signed and tamper-proof
+- AIIA Trace Inc. cannot be held liable for false negatives in semantic detection
+- Developers must review their logs and warnings proactively
+
+## Developer Responsibility and Certification
+
+By installing the AIIA SDK, developers agree to act responsibly in the registration of their AI's actions.
+
+- Every action performed by the AI must be registered using the `@aiia_action("...")` decorator.
+- If a specific action is not available in the official dictionary (`aiia_actions_v1.0.json`), developers must contact javier.sanchez@aiiatrace.com to request its inclusion.
+- The `non_registered` column exists as a transparency mechanism so that companies can monitor undeclared activity.
+- If a developer accumulates more than 10 logs marked as `non_registered`, a notification will be sent requiring them to review and properly register those actions.
+- If the developer does not update their configuration within 1 month, the IA will receive an internal warning tag and may appear as "non-compliant" on the AIIA Trust Portal.
+- The semantic detection model included in the SDK may occasionally result in imprecise matches. AIIA reserves the right to improve this model dynamically based on evolving trends in AI system development. Therefore, some actions may not be accurately traced. It remains the developer's responsibility to use the `@aiia_action(...)` decorator to ensure every action is properly logged. If a particular action does not yet exist in the official dictionary, this will not result in warnings provided the developer notifies AIIA via email at javier.sanchez@aiiatrace.com.
+
+### AIIA Trust Portal
+
+Within the AIIA portal, companies will be able to:
+
+- View all AIs that have downloaded and installed the AIIA certificate
+- Verify the transparency level of each AI (clean / warning)
+- See how many warnings are registered for each implementation
+- Make informed decisions about integrating external AI systems
+
+This structure ensures that both developers and companies uphold the standards of safe, auditable AI.
+
+## License
+
+This SDK is released under the MIT License. See `LICENSE` for more information.
