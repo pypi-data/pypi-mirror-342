@@ -1,0 +1,116 @@
+{"$id": "https://github.com/BlockScience/bdp-lib/tree/main/src/bdp_lib/schemas/processor.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Processor",
+    "type": "object",
+    "additionalProperties": false,
+    "description": "A processor is an instance of a block where computation or actions would happen. When the optional parameter of subsystem is present, the processor is a composite processor and it represents a system as a processor with the systsem ID it is a processor for as well as the wires that connect the processor ports and terminals to the system ports and terminals.",
+    "properties": {
+      "ID": {
+        "type": "string",
+        "title": "ID",
+        "description": "A unique identifier for the processor."
+      },
+      "Name": {
+        "type": "string",
+        "title": "Name",
+        "description": "The name of the processor."
+      },
+      "Description": {
+        "type": "string",
+        "title": "Description",
+        "description": "A description of the processor."
+      },
+      "Parent": {
+        "type": "string",
+        "title": "Parent",
+        "description": "The ID of the block that the processor is an instance of."
+      },
+      "Ports": {
+        "type": "array",
+        "title": "Ports",
+        "description": "The IDs of spaces which must match the domain of the parent block.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "Terminals": {
+        "type": "array",
+        "title": "Terminals",
+        "description": "The IDs of spaces which must match the codomain of the parent block.",
+        "items": {
+          "type": "string"
+        }
+      },
+      "Subsystem": {
+        "type": "object",
+        "title": "Subsystem",
+        "description": "The subsystem of the processor which is a system that the processor represents and passes its ports to and receives spaces to its terminals from.",
+        "properties": {
+          "System ID": {
+            "type": "string",
+            "title": "System ID",
+            "description": "The ID of the system that the processor is a processor for."
+          },
+          "Port Mappings": {
+            "type": "array",
+            "title": "Port Mappings",
+            "description": "This array, which is equal in length to the number of ports on the processor, maps each port to an internal processor within the subsystem and its port index that the port should be passed on to.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Processor": {
+                  "type": "string",
+                  "title": "Processor",
+                  "description": "The ID of the processor in the system."
+                },
+                "Index": {
+                  "type": "integer",
+                  "title": "Index",
+                  "description": "The index of the terminal."
+                }
+            },
+            "required": [
+          "Processor",
+          "Index"
+        ]
+            }
+          },
+          "Terminal Mappings": {
+            "type": "array",
+            "title": "Terminal Mappings",
+            "description": "This array, which is equal in length to the number of terminals on the processor, maps terminal port to an internal processor within the subsystem and its terminal index that the outer terminal should receive output from.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Processor": {
+                  "type": "string",
+                  "title": "Processor",
+                  "description": "The ID of the processor in the system."
+                },
+                "Index": {
+                  "type": "integer",
+                  "title": "Index",
+                  "description": "The index of the terminal."
+                }
+            },
+            "required": [
+          "Processor",
+          "Index"
+        ]
+          }
+        }
+      },
+      "required": [
+          "System ID",
+          "Port Mappings",
+          "Terminal Mappings"
+        ]
+    }},
+    "required": [
+      "ID",
+      "Name",
+      "Parent",
+      "Ports",
+      "Terminals"
+    ]
+  }

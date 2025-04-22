@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: pybdp
+Version: 0.2.3
+Summary: A library for creating block diagrams based on the block diagram protocol.
+Author-email: Sean McOwen <Sean@Block.Science>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: jsonschema>=4.21.1
+Requires-Dist: jsonref
+Requires-Dist: IPython
+
+# pybdp
+
+This library is the python client for the block diagram protocol. Please refer to the block diagram protocol website [here](https://blockscience.github.io/bdp-lib/) for more details.

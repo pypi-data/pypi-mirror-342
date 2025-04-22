@@ -1,0 +1,29 @@
+{"$id": "https://github.com/BlockScience/bdp-lib/tree/main/src/bdp_lib/schemas/toolbox.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Toolbox",
+    "type": "object",
+    "additionalProperties": false,
+    "description": "The abstract classes of blocks and spaces which the workbench will instantiate.",
+    "properties": {
+      "Spaces": {
+        "type": "array",
+        "description": "A list of spaces in the block diagram protocol that follow the space schema. One can think of a space as a typed dictionary of data.",
+        "title": "Spaces",
+        "items": {
+          "$ref": "./space.schema.json"
+        }
+      },
+      "Blocks": {
+        "type": "array",
+        "description": "A list of blocks in the block diagram protocol that follow the block schema.",
+        "title": "Blocks",
+        "items": {
+          "$ref": "./block.schema.json"
+        }
+      }
+    },
+    "required": [
+      "Spaces",
+      "Blocks"
+    ]
+  }
