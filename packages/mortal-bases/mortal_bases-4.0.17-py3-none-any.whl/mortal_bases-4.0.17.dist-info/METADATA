@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: mortal-bases
+Version: 4.0.17
+Summary: 'mortal工具集::bases'
+Author: MJ
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: ply
+Requires-Dist: PyYAML
+Requires-Dist: jsonpath-ng
+Requires-Dist: requests
+Requires-Dist: pycryptodome
+
+'mortal工具集::bases'
+
