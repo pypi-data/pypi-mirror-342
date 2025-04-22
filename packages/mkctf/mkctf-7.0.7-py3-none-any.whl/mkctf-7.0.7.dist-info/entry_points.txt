@@ -1,0 +1,3 @@
+[console_scripts]
+mkctf-cli = mkctf.cli:app
+mkctf-monitor = mkctf.monitor:app
