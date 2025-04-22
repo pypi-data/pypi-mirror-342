@@ -1,0 +1,163 @@
+Metadata-Version: 2.3
+Name: pyshortio
+Version: 0.2.1
+Summary: PyShortIO is a Pythonic client library for the Short.io URL shortening service that provides a clean, well-documented API with comprehensive error handling and pagination support.
+License: MIT
+Author: Sanhe Hu
+Author-email: husanhe@gmail.com
+Maintainer: Sanhe Hu
+Maintainer-email: husanhe@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Provides-Extra: auto
+Provides-Extra: dev
+Provides-Extra: doc
+Provides-Extra: sync
+Provides-Extra: test
+Requires-Dist: Sphinx (>=7.4.7,<8.0.0) ; extra == "doc"
+Requires-Dist: build (>=1.2.1,<2.0.0) ; extra == "dev"
+Requires-Dist: docfly (==3.0.0) ; extra == "doc"
+Requires-Dist: furo (==2024.8.6) ; extra == "doc"
+Requires-Dist: ipython (>=8.18.1,<8.19.0) ; extra == "doc"
+Requires-Dist: jupyterlab ; extra == "doc"
+Requires-Dist: nbsphinx (>=0.8.12,<1.0.0) ; extra == "doc"
+Requires-Dist: polars (>=1.0.0) ; extra == "sync"
+Requires-Dist: pygments (>=2.18.0,<3.0.0) ; extra == "doc"
+Requires-Dist: pytest (>=8.2.2,<9.0.0) ; extra == "test"
+Requires-Dist: pytest-cov (>=6.0.0,<7.0.0) ; extra == "test"
+Requires-Dist: requests
+Requires-Dist: rich (>=13.8.1,<14.0.0) ; extra == "dev"
+Requires-Dist: rstobj (==1.2.1) ; extra == "doc"
+Requires-Dist: sphinx-copybutton (>=0.5.2,<1.0.0) ; extra == "doc"
+Requires-Dist: sphinx-design (>=0.6.1,<1.0.0) ; extra == "doc"
+Requires-Dist: sphinx-jinja (>=2.0.2,<3.0.0) ; extra == "doc"
+Requires-Dist: twine (>=6.0.0,<7.0.0) ; extra == "dev"
+Requires-Dist: typing-extensions (>=4.11.0) ; python_version < "3.11"
+Requires-Dist: wheel (>=0.45.0,<1.0.0) ; extra == "dev"
+Project-URL: Changelog, https://github.com/MacHu-GWU/pyshortio-project/blob/main/release-history.rst
+Project-URL: Documentation, https://pyshortio.readthedocs.io/en/latest/
+Project-URL: Download, https://pypi.org/pypi/pyshortio#files
+Project-URL: Homepage, https://github.com/MacHu-GWU/pyshortio-project
+Project-URL: Issues, https://github.com/MacHu-GWU/pyshortio-project/issues
+Project-URL: Repository, https://github.com/MacHu-GWU/pyshortio-project
+Description-Content-Type: text/x-rst
+
+
+.. image:: https://readthedocs.org/projects/pyshortio/badge/?version=latest
+    :target: https://pyshortio.readthedocs.io/en/latest/
+    :alt: Documentation Status
+
+.. image:: https://github.com/MacHu-GWU/pyshortio-project/actions/workflows/main.yml/badge.svg
+    :target: https://github.com/MacHu-GWU/pyshortio-project/actions?query=workflow:CI
+
+.. .. image:: https://codecov.io/gh/MacHu-GWU/pyshortio-project/branch/main/graph/badge.svg
+    :target: https://codecov.io/gh/MacHu-GWU/pyshortio-project
+
+.. image:: https://img.shields.io/pypi/v/pyshortio.svg
+    :target: https://pypi.python.org/pypi/pyshortio
+
+.. image:: https://img.shields.io/pypi/l/pyshortio.svg
+    :target: https://pypi.python.org/pypi/pyshortio
+
+.. image:: https://img.shields.io/pypi/pyversions/pyshortio.svg
+    :target: https://pypi.python.org/pypi/pyshortio
+
+.. image:: https://img.shields.io/badge/✍️_Release_History!--None.svg?style=social&logo=github
+    :target: https://github.com/MacHu-GWU/pyshortio-project/blob/main/release-history.rst
+
+.. image:: https://img.shields.io/badge/⭐_Star_me_on_GitHub!--None.svg?style=social&logo=github
+    :target: https://github.com/MacHu-GWU/pyshortio-project
+
+------
+
+.. image:: https://img.shields.io/badge/Link-API-blue.svg
+    :target: https://pyshortio.readthedocs.io/en/latest/py-modindex.html
+
+.. image:: https://img.shields.io/badge/Link-Install-blue.svg
+    :target: `install`_
+
+.. image:: https://img.shields.io/badge/Link-GitHub-blue.svg
+    :target: https://github.com/MacHu-GWU/pyshortio-project
+
+.. image:: https://img.shields.io/badge/Link-Submit_Issue-blue.svg
+    :target: https://github.com/MacHu-GWU/pyshortio-project/issues
+
+.. image:: https://img.shields.io/badge/Link-Request_Feature-blue.svg
+    :target: https://github.com/MacHu-GWU/pyshortio-project/issues
+
+.. image:: https://img.shields.io/badge/Link-Download-blue.svg
+    :target: https://pypi.org/pypi/pyshortio#files
+
+
+Welcome to ``pyshortio`` Documentation
+==============================================================================
+.. image:: https://pyshortio.readthedocs.io/en/latest/_static/pyshortio-logo.png
+    :target: https://pyshortio.readthedocs.io/en/latest/
+
+PyShortIO provides a clean, well-documented API client for the `Short.io <https://short.io/>`_ URL shortening service with comprehensive error handling and pagination support. It follows Pythonic design principles to make URL shortening operations intuitive and efficient.
+
+📖 `Complete Documentation <https://pyshortio.readthedocs.io/en/latest/>`_
+
+
+Quick Start
+------------------------------------------------------------------------------
+.. code-block:: python
+
+    from pyshortio.api import Client
+
+    # Initialize client with your API token
+    client = Client(token="your_api_token")
+
+    # Get your domain
+    response, domain = client.get_domain_by_hostname("your-domain.short.gy")
+    domain_id = domain.id
+
+    # Create a shortened link
+    response, link = client.create_link(
+        hostname="your-domain.short.gy",
+        original_url="https://example.com/very-long-url-path",
+        title="Example Link"
+    )
+    print(f"Shortened URL: {link.short_url}")
+
+    # List all your links
+    response, links = client.list_links(domain_id=domain_id)
+    for link in links:
+        print(f"{link.title}: {link.short_url} -> {link.original_url}")
+
+
+🚀 Bulk URL Management with Sync TSV
+------------------------------------------------------------------------------
+Managing multiple Short.io links doesn't have to be tedious! PyShortIO includes a powerful Sync TSV feature that lets you create, update, and delete hundreds of shortened URLs in a single operation using spreadsheet files. Maintain your links in Google Sheets, export as TSV, and sync them to Short.io with just a few lines of code. Perfect for marketing campaigns, documentation management, or any scenario requiring bulk URL operations.
+
+.. code-block:: python
+
+    # Install with sync dependencies
+    # pip install pyshortio[sync]
+    with open("links.tsv", "r") as file:
+        client.sync_tsv(hostname="yourdomain.short.gy", file=file)
+
+
+.. _install:
+
+Install
+------------------------------------------------------------------------------
+
+``pyshortio`` is released on PyPI, so all you need is to:
+
+.. code-block:: console
+
+    $ pip install pyshortio
+
+To upgrade to latest version:
+
+.. code-block:: console
+
+    $ pip install --upgrade pyshortio
+
