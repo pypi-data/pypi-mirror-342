@@ -1,0 +1,15 @@
+expert_llm/__init__.py,sha256=0cQmH3KJ3am2qvdC0UW6maHX_hdJHCnTNNDU_lChzA0,227
+expert_llm/api.py,sha256=gY-CZJebeagnnQUti3uhy7lGWd5o01W5z-hGraCAdZ8,2232
+expert_llm/cached_embedder.py,sha256=NrrCwPRP-rehBA8qQNsWKKxPfdqHHkaLnOwj794NI7Y,1927
+expert_llm/models.py,sha256=j1OgeFaLzERIk_7gsef0-tVUkzItsrYRVfy1fkb7QQk,1962
+expert_llm/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+expert_llm/remote/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+expert_llm/remote/jina_ai_client.py,sha256=SHVaY0bBVVq-lJJ5HrqNY_KtCtS54amm2lWinwAeyew,1332
+expert_llm/remote/openai_shaped_client.py,sha256=A1cSK2dMxQYIHGYzhnkWVkLC9A6VoKhjSOQHCX4aIkY,6543
+expert_llm/remote/openai_shaped_client_implementations.py,sha256=LUpHTKqEJ3i2N4hiPOeTxyI21rMIjovHsr07sQoFErk,2459
+expert_llm/tools/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+expert_llm/tools/analyze_requests.py,sha256=8hT2Pz62SDX0yxTdnTGbX19GGUPF32N0iQOvphlAxCk,450
+expert_llm-0.1.9.dist-info/METADATA,sha256=RBMvoer_yZE8AZ21--hv7n8mx6WDcPc4VbrvyFdgVRw,330
+expert_llm-0.1.9.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+expert_llm-0.1.9.dist-info/top_level.txt,sha256=1eiESwAzpIB81EefGGKuKfgGgQdwRLo0CWamVjlu9NY,11
+expert_llm-0.1.9.dist-info/RECORD,,
