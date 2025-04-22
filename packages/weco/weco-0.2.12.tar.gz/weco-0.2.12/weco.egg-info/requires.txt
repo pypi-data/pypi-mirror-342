@@ -1,0 +1,7 @@
+requests
+rich
+
+[dev]
+ruff
+build
+setuptools_scm
