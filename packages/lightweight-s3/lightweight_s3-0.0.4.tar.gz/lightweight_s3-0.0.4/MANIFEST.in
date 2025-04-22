@@ -1,0 +1,2 @@
+include lightweight_s3/py.typed
+include lightweight_s3/core/*.pyi
