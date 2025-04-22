@@ -1,0 +1,55 @@
+[project]
+name = "copyright-code-extractor"
+version = "0.1.0"
+description = "A tool to extract source code for China Software Copyright application."
+authors = [{ name = "Kirk Lin", email = "linkirk@163.com" }]
+requires-python = ">=3.8"
+license = { text = "GNU General Public License v3.0" }
+readme = "README.md"
+dependencies = [
+  "typer>=0.9.0,<1.0.0",
+  "python-docx>=1.1.0,<2.0.0",
+  "pydantic>=2.5.0,<3.0.0",
+  "rich>=13.0.0,<14.0.0",      # For better console output with typer
+]
+
+[project.scripts]
+copyright-code-extractor = "copyright_code_extractor.cli:app"
+
+[project.urls]
+Repository = "https://github.com/kirklin/copyright-code-extractor"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.rye] # If using Rye (which uses uv internally)
+managed = true
+dev-dependencies = [
+  "pytest>=7.0.0,<8.0.0",
+  "ruff>=0.1.0",          # Linter and formatter
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "F",
+  "W",
+  "I",
+  "UP",
+  "PL",
+  "PT",
+] # Enable common rules + pyupgrade, pylint, pytest
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

@@ -1,0 +1,124 @@
+Metadata-Version: 2.4
+Name: copyright-code-extractor
+Version: 0.1.0
+Summary: A tool to extract source code for China Software Copyright application.
+Project-URL: Repository, https://github.com/kirklin/copyright-code-extractor
+Author-email: Kirk Lin <linkirk@163.com>
+License: GNU General Public License v3.0
+License-File: LICENSE
+Requires-Python: >=3.8
+Requires-Dist: pydantic<3.0.0,>=2.5.0
+Requires-Dist: python-docx<2.0.0,>=1.1.0
+Requires-Dist: rich<14.0.0,>=13.0.0
+Requires-Dist: typer<1.0.0,>=0.9.0
+Description-Content-Type: text/markdown
+
+# Copyright Code Extractor
+
+A tool to automatically extract source code lines from a project, designed to meet the requirements for China Software Copyright (软著) application.
+
+It scans a project directory, finds relevant source files based on common extensions, removes comments, and concatenates the code into a single DOCX file, formatted with approximately 50 lines per page.
+
+## Features
+
+*   Extracts a configurable number of code lines (default: 3000).
+*   Optionally extracts all code for the "first 30 + last 30 pages" rule.
+*   Removes single-line (`//`, `#`) and multi-line (`/* ... */`) comments.
+*   Ignores common binary files, version control directories, dependencies (`node_modules`, `.venv`, etc.), and configuration files by default.
+*   Supports configuration via a `.copyright-extractor.json` file in the project root.
+*   Outputs a `.docx` file ready for submission.
+
+## Installation
+
+It's recommended to use a modern Python package manager like `uv` or `pip` within a virtual environment.
+
+```bash
+# Using uv (recommended)
+uv venv # Create virtual environment (if not already done)
+source .venv/bin/activate # Activate environment (Linux/macOS)
+# or .\.venv\Scripts\activate (Windows)
+uv pip install -e .
+
+# Using pip
+python -m venv .venv
+source .venv/bin/activate # Activate environment (Linux/macOS)
+# or .\.venv\Scripts\activate (Windows)
+pip install -e .
+```
+
+## Usage
+
+After installation, you can run the extractor from your terminal. Provide the path to the root directory of the project you want to analyze.
+
+**Basic Usage:**
+
+```bash
+copyright-code-extractor /path/to/your/project
+```
+
+Or, if you prefer using `python -m`:
+
+```bash
+# Using uv
+uv run python -m copyright_code_extractor /path/to/your/project
+
+# Using python directly from the activated venv
+python -m copyright_code_extractor /path/to/your/project
+```
+
+This will generate an `extracted_code.docx` file in the current directory.
+
+**Common Options:**
+
+*   `-o, --output FILE_PATH`: Specify a different output DOCX file path.
+*   `-l, --lines NUM_LINES`: Override the total number of lines to extract.
+*   `--all`: Extract all lines (for the "first 30 + last 30 pages" rule), overrides `--lines`.
+*   `-c, --config CONFIG_FILE`: Specify a path to a custom configuration file.
+*   `-v, --verbose`: Enable more detailed logging output.
+*   `--version`: Show the version and exit.
+*   `--help`: Show help message with all options.
+
+## Configuration
+
+You can customize the extraction process by creating a `.copyright-extractor.json` file in the **root directory of the project being analyzed** (e.g., `/path/to/your/project/.copyright-extractor.json`).
+
+The tool will automatically detect and use this file if it exists. You can override settings from the config file using command-line options.
+
+**Example `.copyright-extractor.json`:**
+
+```json
+{
+  "output_file": "MyProject_SourceCode_ForCopyright.docx",
+  "lines_to_extract": 4000,
+  "extract_all": false,
+  "source_root": "src", // Optional: Specify if main source code is in a sub-directory
+  "ignore_patterns": [
+    ".git",
+    ".idea",
+    ".vscode",
+    ".venv",
+    "node_modules",
+    "dist",
+    "build",
+    "__pycache__",
+    "*.log",
+    "tests", // Add project-specific patterns
+    "docs"
+  ],
+  "include_extensions": [
+    // List only the extensions you want to include
+    ".py",
+    ".ts",
+    ".tsx",
+    ".vue",
+    ".java",
+    ".go"
+  ]
+}
+```
+
+See `src/copyright_code_extractor/config.py` for all available configuration options and their defaults.
+
+## License
+
+This project is licensed under the [GNU General Public License v3.0](LICENSE). 
