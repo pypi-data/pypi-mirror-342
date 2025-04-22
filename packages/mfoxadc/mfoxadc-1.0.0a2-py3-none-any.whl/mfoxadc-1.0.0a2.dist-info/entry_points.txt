@@ -1,0 +1,3 @@
+[console_scripts]
+mfoxadc=mfoxadc.__main__:start
+
