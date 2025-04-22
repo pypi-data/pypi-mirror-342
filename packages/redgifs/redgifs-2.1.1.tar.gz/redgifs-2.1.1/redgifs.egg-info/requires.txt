@@ -1,0 +1,10 @@
+requests>=2.31.0
+aiohttp<4,>=3.9.0
+click>=8
+
+[docs]
+Sphinx==6.0
+furo==2024.01.29
+
+[test]
+pytest==8.0.0
