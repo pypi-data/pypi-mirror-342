@@ -1,0 +1,14 @@
+virtual_landmark/__init__.py,sha256=KypteaZa34HyRSrA1uQqwHecOqkyL0g-rXXNBQQJN_8,387
+virtual_landmark/abstract_landmark.py,sha256=6ohENha5MoWrXZEmE5zHrGB-IqRnb7bn7nhxV8Xlcq4,4940
+virtual_landmark/calculus.py,sha256=cE_MCQ45nw5LS1n1B-z1xpeOX4ADJFGI42h_QyixGyo,6750
+virtual_landmark/decorator.py,sha256=ygCpx9wmF6ISY4OcguIMBcfP-6KT-cvdcRNg0MAFVtw,2988
+virtual_landmark/virtual_landmark.py,sha256=vYGfQ_Wrj96RvHLFlHKuaDXoGZ5wQFVUPT1UG5pol3M,1855
+virtual_landmark/virtual_pose_landmark.py,sha256=ai-rMpzY5YOxuh5IUvjz6NdrSRUqk49O2G9rlsNKQpQ,4092
+virtual_landmark/drawing_utils/__init__.py,sha256=z_3LyYOKYmRGlqEgS68J3PyG43zJAQX3jTaiN1LR-KQ,161
+virtual_landmark/drawing_utils/connections.py,sha256=cn7SPY4NWRgUliyoXW184dJCu89CUBnwpT7lHJCl7wg,1915
+virtual_landmark/drawing_utils/style.py,sha256=ZwcHNahY1H3XJfPGA2x4ePgLjPX0Jeuep-qcSyaK-Rs,1391
+virtual_landmark-0.1.1.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+virtual_landmark-0.1.1.dist-info/METADATA,sha256=gLPXLiNdRX-VbKV7ulXOMlJ9fkbFHJBx0qrR10qsXTc,3337
+virtual_landmark-0.1.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+virtual_landmark-0.1.1.dist-info/top_level.txt,sha256=hYMbRaobEhdb-egksHCMjEtPhZQa-Tt7qSjzPrwsMY4,17
+virtual_landmark-0.1.1.dist-info/RECORD,,
