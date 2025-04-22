@@ -1,0 +1,12 @@
+geojikuu/aggregation/point_aggregators.py,sha256=oofMwMMbQNhWYMqV8K4qITfwzJmKDjOVjCB5N6LMZXM,40357
+geojikuu/descriptives/spacetime_distribution.py,sha256=I4f8fJQGq8dJmMDpK1Jl5yv-dP3P5rasgQXayY_DeYs,11640
+geojikuu/descriptives/spatial_distribution.py,sha256=eR6f6eTMryXNyEm4pCKWmQACDVhTSlx0pWeKDkWOfQ4,7083
+geojikuu/hypothesis_testing/autocorrelation.py,sha256=WlfuHaEcgtrXW6i6CP6xCLAeKAb4obZei_Vlt-Ls-xQ,7162
+geojikuu/hypothesis_testing/hot_spot_analysis.py,sha256=AAAKvnDPm7y_NrtA9MY-aAHEF5yCPFta_C0SiTK0Yac,18176
+geojikuu/preprocessing/conversion_tools.py,sha256=17yk875c0YBnidSTHH17IgYogHhtQR1OfPT9VLuH-Tc,1777
+geojikuu/preprocessing/normalisation.py,sha256=RrotFhN8iMAFphC9pprDdwm5gtrwVpbZ8okmDHBQ3a8,1835
+geojikuu/preprocessing/projection.py,sha256=e6R0fV7TXrAgdaqY0yY_hKIUU-UfocW1MSl9AHhUr7o,18814
+geojikuu-0.27.55.dist-info/METADATA,sha256=U1Y_4ZFDVjSmTT4Asl-w5lJwGSq_Bc_9hNawy47gJro,3148
+geojikuu-0.27.55.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+geojikuu-0.27.55.dist-info/licenses/LICENSE.txt,sha256=Pd-b5cKP4n2tFDpdx27qJSIq0d1ok0oEcGTlbtL6QMU,11560
+geojikuu-0.27.55.dist-info/RECORD,,
