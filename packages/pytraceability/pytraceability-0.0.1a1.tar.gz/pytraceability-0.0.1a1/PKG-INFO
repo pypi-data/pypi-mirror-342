@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pytraceability
+Version: 0.0.1a1
+Summary: A python library for linking code to requirements
+License: MIT
+Author: Max Shepherd
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: click (>=8.0.0)
+Requires-Dist: colorama (>=0.4.6,<0.5.0)
+Requires-Dist: eval-type-backport (>=0.2.2,<0.3.0)
+Requires-Dist: jinja2 (>=3.1.6,<4.0.0)
+Requires-Dist: pydantic (>=2.10.6,<3.0.0)
+Requires-Dist: pydriller (>=2.7,<3.0)
+Requires-Dist: tomli (>=2.2.1,<3.0.0)
+Description-Content-Type: text/markdown
+
+**pytraceability** is a Python library that helps you link code to requirements.
+
+> [!WARNING]
+> This project is still a work in flux. Although the core functionality is largely there,
+> the API is not stable and some parts will definitely change in the future.
+
+It provides a command line interface (CLI) and a Python API for tracing the relationships
+between code and requirements. It also tracks the history of the implementation through git.
+
+It defines a decorator that can be used to annotate functions, classes, and methods with traceability information,
+linking back to requirements and other relevant documentation.
+
+For further information, please refer to the [documentation](https://mjms3.github.io/pytraceability/).
+
