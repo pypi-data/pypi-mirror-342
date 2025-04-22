@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-github = mcp_github.__init__:main
