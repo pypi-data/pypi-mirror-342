@@ -1,0 +1,10 @@
+pg_probackup2/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pg_probackup2/app.py,sha256=yukBkJr-OipnOn4ra_EPu4AOKi3scxgTsirJL8CrEoQ,31315
+pg_probackup2/gdb.py,sha256=pOzKmtN0puahyh1xPkPwFrsTBlY6zmbp87LWIaqMvRs,10098
+pg_probackup2/init_helpers.py,sha256=pLu3IujLz_A5CuYKvTVi-V_bmppskGeaY7y9fevDNbg,8392
+pg_probackup2/storage/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pg_probackup2/storage/fs_backup.py,sha256=EsUBU_3Ed7TCihGwH8osFwjv6WPcOr0ke60db_J76gk,3404
+testgres_pg_probackup2-0.1.0.dist-info/METADATA,sha256=beV9trUH_LaIzUCRvRQpwuDIkhk7b6djjqDCPmXGI-U,538
+testgres_pg_probackup2-0.1.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+testgres_pg_probackup2-0.1.0.dist-info/top_level.txt,sha256=u_wH4GLHXhlgIwNar9-iv65Y3WDDg1b8v8bm5jUHulk,14
+testgres_pg_probackup2-0.1.0.dist-info/RECORD,,
