@@ -1,0 +1,11 @@
+numpy
+PuLP>=2.7.0
+symengine>=0.14.0
+sympy>=1.13.3
+psutil
+cachetools
+sortedcontainers
+setuptools
+
+[sage]
+sagemath-standard
