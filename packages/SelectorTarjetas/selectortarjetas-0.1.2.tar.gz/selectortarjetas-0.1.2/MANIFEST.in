@@ -1,0 +1,2 @@
+include selector_tarjetas/*      # Incluye archivos Python
+recursive-include frontend/build *
