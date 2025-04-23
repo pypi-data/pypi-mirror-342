@@ -1,0 +1,2 @@
+[console_scripts]
+mongodb-mcp-server = mcp_server_mongodb.server:main
