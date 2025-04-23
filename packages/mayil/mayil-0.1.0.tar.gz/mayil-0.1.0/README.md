@@ -1,0 +1,182 @@
+# Mayil
+
+A Python library for generating beautiful, structured HTML emails with a simple and intuitive interface.
+
+## Installation
+
+```bash
+pip install mayil
+```
+
+## Quick Start
+
+```python
+from mayil import Mayil
+
+# Create a new email builder instance
+my = Mayil()
+
+# Add components to your email
+my.header("Welcome to Our Newsletter")
+my.text("This is a sample text paragraph.")
+my.text("This is another paragraph.")
+
+# Get the complete HTML body
+html_content = my.body
+```
+
+## Features
+
+- 🎨 Beautiful, modern email templates
+- 📊 Rich components for data visualization
+- 📱 Responsive design that works on all devices
+- 🎯 Chainable methods for easy composition
+- 🛠️ Built-in styling and formatting
+- 📦 Easy to install and use
+
+## Components
+
+### Basic Components
+
+#### Header
+```python
+my.header("Your Header Text")
+```
+
+#### Subheader
+```python
+my.subheader("Your Subheader Text")
+```
+
+#### Text
+```python
+my.text("Your paragraph text")
+```
+
+#### Divider
+```python
+my.divider()
+```
+
+### Data Components
+
+#### Metric
+```python
+my.metric("Total Users", 1000, "10% increase")
+```
+
+#### Sticky Note
+```python
+my.sticky_note("Important message here")
+```
+
+#### DataFrame
+```python
+import pandas as pd
+df = pd.DataFrame({
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Score': [85, 92, 78]
+})
+my.dataframe(df)
+```
+
+#### Formatted Table
+```python
+data = [
+    ['Name', 'Age', 'Score'],
+    ['Alice', 25, 85],
+    ['Bob', 30, 92],
+    ['Charlie', 28, 78]
+]
+my.ftable(data, rules=[(1, '>', 80, 'green')])
+```
+
+### Layout Components
+
+#### Columns
+```python
+my.columns([
+    my.metric("Users", 1000),
+    my.metric("Revenue", "$10,000"),
+    my.metric("Growth", "15%")
+])
+```
+
+#### Hyperlink
+```python
+my.hyperlink("Click here", "https://example.com")
+```
+
+## Advanced Usage
+
+### Custom Styling
+```python
+my = Mayil(style={
+    'primary_color': '#88C0D0',
+    'accent_color': '#A3BE8C',
+    'text_color': '#2E3440'
+})
+```
+
+### Template Customization
+```python
+my = Mayil(template='custom_template.html')
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Publishing to PyPI
+
+To publish Mayil to PyPI, follow these steps:
+
+1. First, make sure you have the latest version of `twine` and `build`:
+   ```bash
+   pip install --upgrade twine build
+   ```
+
+2. Build the distribution packages:
+   ```bash
+   python -m build
+   ```
+   This will create a `dist` directory with `.tar.gz` and `.whl` files.
+
+3. Test the package locally before publishing:
+   ```bash
+   pip install dist/mayil-*.whl
+   ```
+
+4. Create an account on [PyPI](https://pypi.org/) if you don't have one.
+
+5. Create a `.pypirc` file in your home directory with your PyPI credentials:
+   ```ini
+   [pypi]
+   username = your_username
+   password = your_password
+   ```
+
+6. Upload the package to PyPI (use one of these commands):
+   ```bash
+   # Option 1: Using quotes to escape the wildcard
+   python -m twine upload "dist/*"
+   
+   # Option 2: Explicitly listing the files
+   python -m twine upload dist/mayil-*.whl dist/mayil-*.tar.gz
+   ```
+
+7. For test releases, you can use TestPyPI:
+   ```bash
+   python -m twine upload --repository testpypi "dist/*"
+   ```
+
+After publishing, users can install your package using:
+```bash
+pip install mayil
+```
+
+Note: Make sure to update the version number in `setup.py` before each new release. 
