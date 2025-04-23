@@ -1,0 +1,51 @@
+Metadata-Version: 2.4
+Name: quantybt
+Version: 0.1.9.1
+Summary: lightweight backtesting framework with in-built advanced statistical backtesting methods and custom models
+Author-email: Niklas <niklasschluetter.business@gmail.com>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE-txt
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: plotly
+Requires-Dist: kaleido
+Requires-Dist: vectorbt
+Requires-Dist: seaborn
+Requires-Dist: hyperopt
+Requires-Dist: ccxt
+Requires-Dist: pyarrow
+Dynamic: license-file
+
+# QuantyBT 🪐
+
+**A lightweight backtesting framework based on [vectorbt](https://github.com/polakowo/vectorbt) focused on statistical robustness, modularity, and seamless strategy integration with custom-implemented models and crypto focused data-loader.**
+
+---
+
+## Features
+
+- **Simple integration** with vectorbt as the backtesting engine (`bt_instance`).
+- **Custom model support**: native wrappers for Hawkes processes, Kalmanfilter, and other statistical frameworks.
+- **Built-in data loaders** for cryptocurrencies (e.g., Bitcoin, Ethereum).
+- **Modular architecture**: define strategies by inheriting from a base `Strategy` class (`preprocess`, `generate_signals`, `param_space`).
+- **Robust validation**: out-of-sample splits, walk-forward optimization, and hyperparameter tuning via `hyperopt`.
+- **Statistical analysis tools**: Monte Carlo simulations, bootstrapping of trade outcomes, and sensitivity analysis.
+- **Performance reporting**: generate equity curves, heatmaps, and metric summaries with minimal boilerplate.
+
+---
+
+## Installation
+
+Install the package via pip:
+
+```bash
+pip install quantybt
+
+```
+
