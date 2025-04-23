@@ -1,0 +1,17 @@
+from __future__ import annotations
+from .blood_type import MaleoMetadataBloodTypeHTTPClientController
+from .gender import MaleoMetadataGenderHTTPClientController
+from .organization_role import MaleoMetadataOrganizationRoleHTTPClientController
+from .organization_type import MaleoMetadataOrganizationTypeHTTPClientController
+from .service import MaleoMetadataServiceHTTPClientController
+from .system_role import MaleoMetadataSystemRoleHTTPClientController
+from .user_type import MaleoMetadataUserTypeHTTPClientController
+
+class MaleoMetadataHTTPClientControllers:
+    BloodType = MaleoMetadataBloodTypeHTTPClientController
+    Gender = MaleoMetadataGenderHTTPClientController
+    OrganizationRole = MaleoMetadataOrganizationRoleHTTPClientController
+    OrganizationType = MaleoMetadataOrganizationTypeHTTPClientController
+    Service = MaleoMetadataServiceHTTPClientController
+    SystemRole = MaleoMetadataSystemRoleHTTPClientController
+    UserType = MaleoMetadataUserTypeHTTPClientController
