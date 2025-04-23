@@ -1,0 +1,29 @@
+[16/Apr/2025 19:41:24] ERROR [daphne.server:297] Exception inside application: 'NoneType' object has no attribute 'log_info' - /home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/daphne/server.py
+Traceback (most recent call last):
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/channels/routing.py", line 48, in __call__
+    return await application(scope, receive, send)
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/channels/routing.py", line 118, in __call__
+    return await application(
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/channels/consumer.py", line 95, in app
+    return await consumer(scope, receive, send)
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/channels/consumer.py", line 62, in __call__
+    await await_many_dispatch([receive], self.dispatch)
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/channels/db.py", line 13, in thread_handler
+    return super().thread_handler(loop, *args, **kwargs)
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/channels/consumer.py", line 126, in dispatch
+    handler(message)
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/.venv/lib/python3.8/site-packages/channels/generic/websocket.py", line 64, in websocket_receive
+    self.receive(text_data=message["text"])
+  File "/home/jefcolbi/Projets/Connectivo/sweetagent/tests/djangotest/chat/consumers.py", line 38, in receive
+    self.stdio.log_info(f"{text_data = }")
+AttributeError: 'NoneType' object has no attribute 'log_info'

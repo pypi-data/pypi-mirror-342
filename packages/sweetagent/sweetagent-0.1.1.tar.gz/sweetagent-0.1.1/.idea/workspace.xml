@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7510516c-ff78-4895-a8be-a869a3f9dcea" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/sweetagent/long_term_memory/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sweetagent/long_term_memory/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sweetagent/long_term_memory/memzero.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sweetagent/long_term_memory/void.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sweetagent/llm_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/sweetagent/llm_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sweetagent/llm_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/sweetagent/llm_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sweetagent/prompt.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/sweetagent/prompt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sweetagent/short_term_memory/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/sweetagent/short_term_memory/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sweetagent/short_term_memory/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/sweetagent/short_term_memory/session.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sweetagent/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/sweetagent/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_agent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uv.lock" beforeDir="false" afterPath="$PROJECT_DIR$/uv.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2vaGMOxq1iw4aTG6huOHrEkHfpS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jefcolbi/Projets/Connectivo/sweetagent&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/sweetagent" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for test_agent.LLMAgentTestCase.test_04_weather_agent">
+    <configuration name="Python tests for test_agent.LLMAgentTestCase.test_01_weather_agent" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="sweetagent" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_agent.LLMAgentTestCase.test_01_weather_agent&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_agent.LLMAgentTestCase.test_02_assistant_agent" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="sweetagent" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_agent.LLMAgentTestCase.test_02_assistant_agent&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_agent.LLMAgentTestCase.test_04_weather_agent" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="sweetagent" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_agent.LLMAgentTestCase.test_04_weather_agent&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_prompting.PromptEngineTestCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="sweetagent" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_prompting.PromptEngineTestCase&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_prompting.PromptEngineTestCase.test_01_system_message" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="sweetagent" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_prompting.PromptEngineTestCase.test_01_system_message&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python tests.Python tests for test_agent.LLMAgentTestCase.test_04_weather_agent" />
+      <item itemvalue="Python tests.Python tests for test_agent.LLMAgentTestCase.test_01_weather_agent" />
+      <item itemvalue="Python tests.Python tests for test_agent.LLMAgentTestCase.test_02_assistant_agent" />
+      <item itemvalue="Python tests.Python tests for test_prompting.PromptEngineTestCase" />
+      <item itemvalue="Python tests.Python tests for test_prompting.PromptEngineTestCase.test_01_system_message" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_agent.LLMAgentTestCase.test_04_weather_agent" />
+        <item itemvalue="Python tests.Python tests for test_agent.LLMAgentTestCase.test_01_weather_agent" />
+        <item itemvalue="Python tests.Python tests for test_agent.LLMAgentTestCase.test_02_assistant_agent" />
+        <item itemvalue="Python tests.Python tests for test_prompting.PromptEngineTestCase" />
+        <item itemvalue="Python tests.Python tests for test_prompting.PromptEngineTestCase.test_01_system_message" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7510516c-ff78-4895-a8be-a869a3f9dcea" name="Changes" comment="" />
+      <created>1744375724565</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744375724565</updated>
+      <workItem from="1744375725838" duration="18946000" />
+      <workItem from="1744453007754" duration="2696000" />
+      <workItem from="1744462472980" duration="17078000" />
+      <workItem from="1744638230323" duration="14482000" />
+      <workItem from="1744658768112" duration="4255000" />
+      <workItem from="1744716276015" duration="50756000" />
+      <workItem from="1745005722855" duration="1884000" />
+      <workItem from="1745241794320" duration="46145000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/sweetagent$io.coverage" NAME="io Coverage Results" MODIFIED="1744378415971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/sweetagent/io" />
+    <SUITE FILE_PATH="coverage/sweetagent$prompt.coverage" NAME="prompt Coverage Results" MODIFIED="1744467939111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/sweetagent" />
+    <SUITE FILE_PATH="coverage/sweetagent$.coverage" NAME=" Coverage Results" MODIFIED="1745345475610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/sweetagent$pytest_for_test_prompting_PromptEngineTestCase_test_01_system_message.coverage" NAME="pytest for test_prompting.PromptEngineTestCase.test_01_system_message Coverage Results" MODIFIED="1744469796069" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+  </component>
+</project>
