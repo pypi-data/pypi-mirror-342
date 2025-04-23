@@ -1,0 +1,17 @@
+[project]
+name = "protoc-wrapper"
+version = "0.1.0"
+description = "A Python wrapper around the protoc compiler"
+readme = "README.md"
+authors = [
+    { name = "Jo", email = "10510431+j178@users.noreply.github.com" }
+]
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+protoc = "protoc:main"
+
+[build-system]
+requires = ["uv_build>=0.6.16,<0.7"]
+build-backend = "uv_build"
