@@ -1,0 +1,12 @@
+superfile/__init__.py,sha256=cnSe667BwCbg3APxCtGKkgKmOSXjYydju7oB5JdSc60,25
+superfile/amazon_simple_storage_service.py,sha256=DlFr33WK8HQWTs5yyk24T6leuIxuCZQVjLhLOYPc-44,1985
+superfile/google_cloud_storage.py,sha256=nu7qbN4-Irykmjv6IhaB1ims5U1q5MPagrFAws6otjs,1139
+superfile/interfaces.py,sha256=5t6c3JfGMJixcj0Cq-Ve8JqUBJQlLu6B6N9ct57m9lI,2131
+superfile/local_storage.py,sha256=pYO6_2PjxDVD5blaZdJZGJt-3vF3ZHLM-tEzZlyzrJ0,1400
+superfile/local_storage_test.py,sha256=PG4548HY60Tr0GhxRoLZv4RgJYdWeoZdw1tMXUSzyxk,2960
+superfile/superfile.py,sha256=Yfc8pepmeI9T6bxLW9vdOndqdpZ4dhbZ1V2FWRBdYSw,1290
+superfile-0.0.6.dist-info/licenses/LICENSE.md,sha256=kX5NQnRkVBCB2r74_jYyCqVPYWp7y2ULfcYElUZ1h54,1066
+superfile-0.0.6.dist-info/METADATA,sha256=fWAAESn204h-7TVnORtU5gFFdyNOpdPGKwyztxxKJ7U,3949
+superfile-0.0.6.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+superfile-0.0.6.dist-info/top_level.txt,sha256=fI-EcZVSols4DVADFSYyQ-xneH7NVmrtAgGOYy5iO2c,10
+superfile-0.0.6.dist-info/RECORD,,
