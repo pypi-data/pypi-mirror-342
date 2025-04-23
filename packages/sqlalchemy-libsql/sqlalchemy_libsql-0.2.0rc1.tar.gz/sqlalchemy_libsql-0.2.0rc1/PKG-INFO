@@ -1,0 +1,29 @@
+Metadata-Version: 2.3
+Name: sqlalchemy-libsql
+Version: 0.2.0rc1
+Summary: SQLAlchemy dialect for libSQL
+License: MIT
+Keywords: sqlalchemy,libsql,database,dialect
+Author: Levy Albuquerque
+Author-email: levy@turso.tech
+Requires-Python: >=3.12
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Database
+Provides-Extra: dev
+Requires-Dist: greenlet (>=3.0.3)
+Requires-Dist: libsql-experimental (>=0.0.47)
+Requires-Dist: pytest (>=8.3.5) ; extra == "dev"
+Requires-Dist: pytest-asyncio (>=0.23.5) ; extra == "dev"
+Requires-Dist: pytest-cov (>=4.1.0) ; extra == "dev"
+Requires-Dist: sqlalchemy (>=2.0.0)
+Project-URL: Documentation, https://github.com/tursodatabase/libsql-sqlalchemy#readme
+Project-URL: Homepage, https://github.com/tursodatabase/libsql-sqlalchemy
+Project-URL: Issues, https://github.com/tursodatabase/libsql-sqlalchemy/issues
+Project-URL: Repository, https://github.com/tursodatabase/libsql-sqlalchemy.git
+Description-Content-Type: text/markdown
+
+
