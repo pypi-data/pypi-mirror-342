@@ -1,0 +1,3 @@
+include naif_leapseconds/latest_leapseconds.tls
+include naif_leapseconds/latest_leapseconds.md5
+include LICENSE
