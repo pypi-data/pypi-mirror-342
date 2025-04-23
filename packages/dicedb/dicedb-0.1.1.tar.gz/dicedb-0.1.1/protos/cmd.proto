@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package wire;
+option go_package = "./wire";
+
+message Command {
+    string cmd = 1;
+    repeated string args = 2;
+}

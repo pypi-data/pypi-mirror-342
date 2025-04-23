@@ -1,0 +1,22 @@
+target-version = "py38"
+line-length = 79
+indent-width = 4
+exclude = [
+    "*_pb2.py",
+    "*_pb2.pyi",
+    "test_*.py",
+    "commands.py"
+]
+
+[format]
+quote-style = "single"
+indent-style = "space"
+
+[lint]
+extend-select = [
+  "UP",  # pyupgrade
+  "D",   # pydocstyle
+]
+
+[lint.pydocstyle]
+convention = "google"
