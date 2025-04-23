@@ -1,0 +1,14 @@
+ragflow_sdk/__init__.py,sha256=FL9OnjU24APz2XeilNDGIU9vNKXyd2rR300AA-9yTWs,1131
+ragflow_sdk/ragflow.py,sha256=UcTV5val4fkYguAQf919-e_Xv0Pn64pd9uPGMAoDxR8,9112
+ragflow_sdk/modules/__init__.py,sha256=DtJrJ7GDarHWMVPEmGRRhi0uIQdWvHsgfKzAuaIck-w,621
+ragflow_sdk/modules/agent.py,sha256=EdaEVxT-NhIQA4e1KLnUsGbSOJioO0dEBkV7EIHmIRE,3284
+ragflow_sdk/modules/base.py,sha256=ez7tI6DKaBOIc2UuM-cVQ8iTMDh49ta1DTj_3xAdyQk,1725
+ragflow_sdk/modules/chat.py,sha256=PFlG5aYJDUsK3HNvfHjLfDkg9pJGEI0bZeEUSfvQH0M,3779
+ragflow_sdk/modules/chunk.py,sha256=j_VjWf6Vo2oEu5mjJnbzU0nzsX527zNL1JULQe44aOI,1771
+ragflow_sdk/modules/dataset.py,sha256=LQi3oyNMRidNP2ZjX9DHmwg8jpzjpPRVsavbYAkZIHw,3542
+ragflow_sdk/modules/document.py,sha256=khWJz9i-GhVMjy0ecdKq2WJ85menWWd9Y0jlAybZZDo,3499
+ragflow_sdk/modules/session.py,sha256=9iJR7ly_qtnYiXvugf9JYWqGxX2Lw2GNmjOI_lUnoJo,4190
+ragflow_sdk-0.18.0.dist-info/METADATA,sha256=4U3aYZ9DzYDo2kUt_WtP1N7mduKfvdlZiagdK0lYIgA,994
+ragflow_sdk-0.18.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+ragflow_sdk-0.18.0.dist-info/top_level.txt,sha256=ep9RG2ggpS-qOwUXbtEbjfVyi6mVgQ407otRgO-xNdA,12
+ragflow_sdk-0.18.0.dist-info/RECORD,,
