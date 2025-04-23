@@ -1,0 +1,19 @@
+[project]
+name = "ljs-example-pkg"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "lijunshi", email = "lijunshi2015@163.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+]
+
+[project.scripts]
+ljs-example-pkg = "ljs_example_pkg:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
