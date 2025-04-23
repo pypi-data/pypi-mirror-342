@@ -1,0 +1,40 @@
+Metadata-Version: 2.2
+Name: yolo_inference
+Version: 2.0.0
+Summary: A YOLO-based inference library for object detection, providing easy-to-use APIs for loading models and performing inference on images.
+Author: Shubham Nayak
+Author-email: sn85076@outlook.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/plain
+Requires-Dist: torch
+Requires-Dist: numpy
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+        yolo_inference is a Python library designed for object detection tasks using YOLO models. 
+        It simplifies the process of loading pre-trained YOLO models and running inference on images. 
+        The library is lightweight and easy to integrate into existing projects.
+
+        Example Usage:
+        ----------------
+        from yolo_inference.detect import ObjectDetection
+
+        # Initialize the model
+        model = ObjectDetection(model_path="path/to/yolo_model.pt")
+
+        # Perform inference on an image
+        result = model.inference(image="path/to/image.jpg")
+
+        # Process the result
+        print(result)
+    
