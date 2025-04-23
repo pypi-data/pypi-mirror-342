@@ -1,0 +1,26 @@
+
+# File: MANIFEST.in
+include README.md
+include LICENSE
+include pyproject.toml
+include setup.py
+
+# Include Python source files from src directory
+graft src/trianglengin
+# Include all tests generically
+graft tests
+
+# Include C++ source files and CMakeLists.txt
+graft src/trianglengin/cpp
+
+# Include the py.typed marker file
+include src/trianglengin/py.typed
+
+# Exclude specific files no longer present
+exclude src/trianglengin/config/display_config.py
+exclude src/trianglengin/core/environment/shapes/templates.py
+
+# Exclude build artifacts and caches
+global-exclude __pycache__ *.py[co] *.so *.pyd *.dylib *.egg-info CMakeCache.txt CMakeFiles
+prune build
+prune dist
