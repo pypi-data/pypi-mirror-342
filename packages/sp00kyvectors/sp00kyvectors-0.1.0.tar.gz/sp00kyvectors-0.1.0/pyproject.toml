@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "sp00kyvectors"
+version = "0.1.0"
+description = "A spooky vector analysis library"
+authors = ["Lila James <lilaresearch@gmail.com>"]
+license = "MIT"
+packages = [{ include = "sp00kyvectors" }]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+numpy = "^1.23.0"
+pandas = "<=2.2.3"
+matplotlib = "3.10.1"
+scikit-learn = "1.6.1"
+scipy = "1.15.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
