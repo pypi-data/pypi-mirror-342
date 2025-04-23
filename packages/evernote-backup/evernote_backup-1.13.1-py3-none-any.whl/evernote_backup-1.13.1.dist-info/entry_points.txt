@@ -1,0 +1,3 @@
+[console_scripts]
+evernote-backup=evernote_backup.cli:main
+
