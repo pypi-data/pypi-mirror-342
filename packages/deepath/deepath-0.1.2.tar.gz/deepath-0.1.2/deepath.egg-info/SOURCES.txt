@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+deepath/__init__.py
+deepath/cli.py
+deepath/env.py
+deepath/resolver.py
+deepath.egg-info/PKG-INFO
+deepath.egg-info/SOURCES.txt
+deepath.egg-info/dependency_links.txt
+deepath.egg-info/entry_points.txt
+deepath.egg-info/top_level.txt
+tests/test_resopath.py
