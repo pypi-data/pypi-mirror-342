@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: hafnia
+Version: 0.1.9
+Summary: Python tools for communication with Hafnia platform.
+Author-email: Ivan Sahumbaiev <ivsa@milestone.dk>
+Requires-Python: >=3.10
+Requires-Dist: boto3>=1.35.91
+Requires-Dist: click>=8.1.8
+Requires-Dist: datasets>=3.2.0
+Requires-Dist: pillow>=11.1.0
+Requires-Dist: pyarrow>=18.1.0
+Requires-Dist: pydantic>=2.10.4
+Requires-Dist: rich>=13.9.4
+Requires-Dist: tqdm>=4.67.1
+Provides-Extra: torch
+Requires-Dist: flatten-dict>=0.4.2; extra == 'torch'
+Requires-Dist: torch>=2.6.0; extra == 'torch'
+Requires-Dist: torchvision>=0.21.0; extra == 'torch'
+Description-Content-Type: text/markdown
+
+# Project Hafnia 
+
+Project Hafnia is a comprehensive solution for managing data science experiments and resources. It provides tools and interfaces for experiment management, data handling, and container orchestration.
+
+
+## Documentation
+
+- [CLI Documentation](docs/cli.md) - Detailed guide for the Hafnia command-line interface
+- [Script2Model Documentation](docs/s2m.md) - Detailed guide for script2model
+- [Release lyfecycle](docs/release.md) - Details about package release lifecycle.
+
+
+## Key Components
+
+- **CLI Tool**: Command-line interface for platform interaction
+
+
+## Install
+
+```bash
+pip install hafnia
+```
