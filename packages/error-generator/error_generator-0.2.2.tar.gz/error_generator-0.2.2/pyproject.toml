@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "error-generator"
+version = "0.2.2"
+description = "A package for generating realistic errors in data"
+readme = "README.md"
+authors = [
+    {name = "Joshua Immanuel", email = "joshua9@tamu.edu"}
+]
+dependencies = [
+    "pandas",
+    "numpy"
+]
+requires-python = ">=3.6"
+
+[project.scripts]
+generate_errors = "error_generator.main:generate_errors"
+
+[tool.setuptools]
+packages = ["error_generator"] 
