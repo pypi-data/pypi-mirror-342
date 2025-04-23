@@ -1,0 +1,73 @@
+{% extends "admin/base_site.html" %}
+
+{% block content_title %}
+  <h1 style="width:100%;">{{ title }}</h1>
+
+  <div style="margin-bottom: 1rem;width:100%;">
+    <strong>Info:</strong> This page compares all currently installed pip packages against the <code>requirements.txt</code> file. ✅ means the package is present in both. – means it is not listed in <code>requirements.txt</code>. Use ➕ to add missing packages or 🔄 to update existing entries.
+  </div>
+  {% endblock %}
+
+
+
+{% block content %}
+<form method="post" style="margin-bottom: 1rem;width:100%;">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-warning" name="run_reqcheck" value="1">🔍 Compare pip list with requirements.txt</button>
+</form>
+
+
+
+{% if show_check %}
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Installed package</th>
+      <th>Version</th>
+      <th>Status</th>
+      <th>in Requirements.txt</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in compare_data %}
+    <tr>
+      <td>{{ row.name }}</td>
+      <td>{{ row.installed }}</td>
+      <td>
+        {% if row.status == "➕ Unlisted" %}
+        <form method="post" style="display:inline;">
+          {% csrf_token %}
+          <input type="hidden" name="add_to_requirements" value="1">
+          <input type="hidden" name="package" value="{{ row.name }}">
+          <input type="hidden" name="version" value="{{ row.installed }}">
+          <button type="submit" class="btn btn-sm">➕</button>
+        </form>
+        {% elif row.status == "🔄 Update" %}
+        <form method="post" style="display:inline;">
+          {% csrf_token %}
+          <input type="hidden" name="update_requirement" value="1">
+          <input type="hidden" name="package" value="{{ row.name }}">
+          <input type="hidden" name="version" value="{{ row.installed }}">
+          <button type="submit" class="btn btn-sm btn-warning">🔄</button>
+        </form>
+        {% else %} ✅
+        {% endif %}
+      </td>
+      <td>{{ row.required }}</td>
+    </tr>
+    {% endfor %}
+    {% if compare_data|length == 0 %}
+    <tr><td colspan="4" class="text-center text-muted">⚠️ Geen pakketten gevonden</td></tr>
+    {% endif %}
+  </tbody>
+</table>
+<div class="card p-3 mt-4" style="border: 1px solid #ddd; border-radius: 0.5rem; background-color: #f9f9f9;">
+  <h5 style="margin-bottom: 1rem;">📁 Download comparison data:</h5>
+  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+    <a href="{% url 'export_requirements_json' %}" class="btn btn-outline-secondary">📤 JSON</a>
+    <a href="{% url 'export_requirements_csv' %}" class="btn btn-outline-secondary">📤 CSV</a>
+    <a href="{% url 'export_requirements_txt' %}" class="btn btn-outline-secondary">📤 TXT</a>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

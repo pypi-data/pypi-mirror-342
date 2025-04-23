@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+recursive-include pupdater/templates *
+recursive-include pupdater/static *
+recursive-include pupdater/install *
+recursive-include pupdater/cli *

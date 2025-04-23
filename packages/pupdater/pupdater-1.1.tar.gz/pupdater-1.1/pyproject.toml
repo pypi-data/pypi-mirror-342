@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pupdater"
+version = "1.1"
+description = "🐾 Pupdater: A Django Admin pip manager."
+readme = "README.md"
+requires-python = ">=3.7"
+license = "BSD-3-Clause"
+authors = [
+    {name = "Wilko Rietveld", email = "wilkorietveld@icloud.com"}
+]
+dependencies = [
+    "django>=3.2"
+]
+
+[project.scripts]
+install_pupdater = "pupdater.install.install_pupdater:main"
+
+[tool.setuptools.packages.find]
+include = ["pupdater*"]
