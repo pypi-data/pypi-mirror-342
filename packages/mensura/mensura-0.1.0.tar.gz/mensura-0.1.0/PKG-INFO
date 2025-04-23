@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: mensura
+Version: 0.1.0
+Summary: Unit converter
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pytest>=8.3.5
+Requires-Dist: pytest-cov>=6.1.1
+Dynamic: license-file
+
+# mensura
+
+#### By *Albert Dow*
+
+#### *A simple Python package for converting between units*
+
+## Description
+
+A lightweight and simple package for converting between units,
+`mensura` uses a graph-based approach to determine the shortest
+path to the desired unit.
