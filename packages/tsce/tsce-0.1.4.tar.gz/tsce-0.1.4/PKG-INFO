@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: tsce
+Version: 0.1.4
+Summary: Tiny TSCE helper: anchor pass + final pass for OpenAI / Azure OpenAI
+Author: Kaleb Cadenhead
+License: MIT
+Project-URL: Homepage, https://github.com/AutomationOptimization/tsce_demo
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: openai>=1.14.1
+Requires-Dist: tiktoken>=0.5.2
