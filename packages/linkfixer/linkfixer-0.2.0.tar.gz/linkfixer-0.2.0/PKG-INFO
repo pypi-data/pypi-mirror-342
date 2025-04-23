@@ -1,0 +1,127 @@
+Metadata-Version: 2.1
+Name: linkfixer
+Version: 0.2.0
+Summary: A Python library to normalize, clean, and validate URLs.
+Author: Renukumar R
+Author-email: renu2babu1110@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP :: Site Management
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# linkfixer
+
+**linkfixer** is a Python library for cleaning, normalizing, and validating messy or partial URLs.
+It transforms any input — paths, queries, or malformed links — into well-formed, full URLs.
+
+---
+
+## 🚀 Features
+
+- Default scheme handling (auto-prepends `https://` if needed)
+- Optional base domain attachment for partial URLs
+- Path and query cleanup
+- www prefix enforcement
+- Tracking parameter stripping (`utm_source`, `gclid`, etc.)
+- Trailing slash and fragment removal
+- DNS resolution check
+- Smart relative-to-absolute URL building
+- Structured output or clean URL string
+- Friendly error messages for malformed input
+
+---
+
+## 🧠 Smart Use Case Handling
+
+```python
+normalize_url("example.com/path")
+→ https://example.com/path
+
+normalize_url("/docs", base_domain="example.com")
+→ https://example.com/docs
+
+normalize_url("?ref=abc", base_domain="example.com")
+→ https://example.com/?ref=abc
+
+normalize_url("ftp://example.com", allow_non_http=False)
+→ https://example.com
+```
+
+---
+
+## ⚙️ Parameters
+
+| Parameter               | Type     | Description |
+|-------------------------|----------|-------------|
+| `raw_url`               | `str`    | The input URL (may be partial or relative) |
+| `base_domain`           | `str`    | Optional domain to attach to relative URLs |
+| `default_scheme`        | `str`    | Scheme to use when missing (default: `https`) |
+| `force_https`           | `bool`   | Enforces HTTPS |
+| `force_www`             | `bool`   | Add `www.` if missing |
+| `remove_tracking`       | `bool`   | Strip known tracking query params |
+| `remove_query_string`   | `bool`   | Remove entire query string |
+| `clear_paths`           | `bool`   | Remove all paths |
+| `remove_trailing_slash` | `bool`   | Remove trailing slash from path |
+| `strip_fragment`        | `bool`   | Remove `#fragment` |
+| `add_query`             | `dict`   | Add or override query params |
+| `output`                | `str`    | "url" or "parts" |
+| `allow_non_http`        | `bool`   | Allow `ftp://`, `mailto:`, etc. |
+| `blacklist_domains`     | `set`    | Domains to reject |
+| `allowlist_tlds`        | `set`    | Allow only certain TLDs |
+| `shortlink_domains`     | `set`    | Domains to detect as shortlinks |
+| `tracking_params`       | `set`    | Custom keys to remove from query |
+| `idn_format`            | `str`    | `"punycode"` or `"unicode"` |
+| `verify_dns`            | `bool`   | Ensure domain resolves via DNS |
+| `verbose`               | `bool`   | Enable debug logs |
+
+---
+
+## ✅ Error Handling
+
+Invalid URLs return a clear structured result:
+
+```python
+{
+  "success": False,
+  "error": "Missing domain — please provide a valid raw_url or base_domain"
+}
+```
+
+---
+
+## 📤 Output Modes
+
+### ✅ Full URL (default)
+
+```python
+normalize_url("example.com/path")
+→ "https://example.com/path"
+```
+
+### ✅ Structured Parts
+
+```python
+normalize_url("example.com/path", output="parts")
+→ {
+  "success": True,
+  "url": "https://example.com/path",
+  "parts": {
+    "scheme": "https",
+    "netloc": "example.com",
+    "path": "/path",
+    ...
+  }
+}
+```
+
+---
+
+## 📄 License
+
+MIT © 2025 Renukumar R
