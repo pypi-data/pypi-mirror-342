@@ -1,0 +1,35 @@
+name: publish-test
+# publish to test.pypi.org on merge to default branch
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [trigger_publish_test]
+
+jobs:
+  publish-test-main:
+    environment: cucu-publish-test  # match name in test.PyPI.org OIDC
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # Required for connection to pypi OIDC
+      contents: read  # For non-public repo
+    steps:
+      - name: checkout main
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5
+        with:
+          version: "latest"
+      - name: Install cucu with Python 3.12
+        run: |
+          uv sync -p 3.12
+      - name: build package
+        run: |
+          uv build
+      - name: publish to test.pypi.org
+        uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc # v1.12.4
+        with:
+          repository-url: https://test.pypi.org/legacy/

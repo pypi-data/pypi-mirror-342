@@ -1,0 +1,259 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
+---
+version: 2.1
+
+workflows:
+  build-test-publish:
+    jobs:
+      - build
+      - test:
+          name: test-chrome
+          browser: chrome
+          requires:
+            - build
+      - test:
+          name: test-edge
+          browser: edge
+          requires:
+            - build
+      - test:
+          name: test-firefox
+          browser: firefox
+          requires:
+            - build
+      - coverage:
+          requires:
+            - test-chrome
+            - test-edge
+            - test-firefox
+
+jobs:
+  build:
+    docker:
+      - image: cimg/python:3.13@sha256:a00bfa949271c5519c63d623c6c5ab61fa0868f88ffa3a66b0983bf7df376f3d
+    resource_class: medium
+    steps:
+      - checkout
+      - inline-orb-uv/setup-uv
+      - run:
+          name: install cucu with Python 3.13
+          command: uv sync -p 3.13 --dev
+      - run:
+          name: run pre-commit validations
+          command: uv run pre-commit run --show-diff-on-failure --from-ref origin/HEAD --to-ref HEAD
+      - run:
+          name: build the cucu python package
+          command: uv build
+      - run:
+          name: install cucu globally
+          command: pip install dist/cucu-*.tar.gz
+
+  test:
+    parameters:
+      browser:
+        type: string
+        default: "chrome"
+    docker:
+      - image: cimg/python:3.13@sha256:a00bfa949271c5519c63d623c6c5ab61fa0868f88ffa3a66b0983bf7df376f3d
+      - image: selenium/standalone-<<parameters.browser>>:126.0
+        environment:
+          SE_ENABLE_TRACING: false
+          SE_NODE_MAX_SESSIONS: 12
+          SE_NODE_OVERRIDE_MAX_SESSIONS: true
+          SE_NODE_SESSION_TIMEOUT: 300
+          SCREEN_WIDTH: 1366
+          SCREEN_HEIGHT: 768
+    resource_class: xlarge
+    steps:
+      - setup_remote_docker
+      - checkout
+      - inline-orb-uv/setup-uv
+      - run:
+          name: install cucu dependencies
+          command: uv sync
+      - run:
+          name: install test dependencies
+          command: |
+            set +eo pipefail
+            sudo apt-get update
+            sudo apt-get install -y expect
+      - run:
+          name: wait_for_selenium
+          # retry connection every 5s x 60 which is a total of 5 minutes
+          command: curl --retry 60 --retry-delay 5 --retry-connrefused http://localhost:4444
+      - run:
+          name: run_functional_tests
+          command: uv run cucu run features --workers 8 --selenium-remote-url http://localhost:4444 --generate-report --junit junit_results --browser "<<parameters.browser>>"
+          environment:
+            COVERAGE_PROCESS_START: pyproject.toml  # set to config file
+      - run:
+          name: run unit tests
+          command: uv run coverage run -m pytest --junit-xml=results/unit-tests.xml
+      - run:
+          name: code_coverage_check
+          command: |
+            set -euxo pipefail
+            uv run coverage combine .coverage.*
+            uv run coverage html
+            uv run coverage report
+            uv run coverage xml
+            mv .coverage .coverage.<<parameters.browser>>
+            mv coverage.xml coverage-<<parameters.browser>>.xml
+      - persist_to_workspace:
+          root: .
+          paths:
+            - coverage-<<parameters.browser>>.xml
+            - .coverage.<<parameters.browser>>
+      - run:
+          name: tar up results and reporting
+          command: |
+            tar cvfz results.tgz results
+            tar cvfz report.tgz report
+            tar cvfz junit_results.tgz junit_results
+          when: always
+      - store_artifacts:
+          path: .coverage.<<parameters.browser>>
+      - store_artifacts:
+          path: coverage-<<parameters.browser>>.xml
+      - store_artifacts:
+          path: results.tgz
+      - store_artifacts:
+          path: junit_results.tgz
+      - store_artifacts:
+          path: report.tgz
+      - store_test_results:
+          path: junit_results
+
+  coverage:
+    docker:
+      - image: cimg/python:3.13@sha256:a00bfa949271c5519c63d623c6c5ab61fa0868f88ffa3a66b0983bf7df376f3d
+    resource_class: small
+    steps:
+      - checkout
+      - inline-orb-uv/setup-uv
+      - attach_workspace:
+          at: .
+      - run:
+          name: Combine coverage reports
+          command: |
+            set -euxo pipefail
+            uv run coverage combine
+            uv run coverage xml
+            uv run coverage html
+            uv run coverage json
+            uv run coverage report
+      - store_artifacts:
+          path: coverage.xml
+      - store_artifacts:
+          path: coverage.json
+      - store_artifacts:
+          path: htmlcov
+      - run:
+          name: Generate shields.io badge json and redirect
+          command: |
+            set -euxo pipefail
+            echo "export COVERAGE=$(jq '.totals.percent_covered | round ' coverage.json)" >> $BASH_ENV
+            source $BASH_ENV
+
+            if [[ $COVERAGE -ge 95 ]]; then
+              COLOR="brightgreen"
+            elif [[ $COVERAGE -ge 90 ]]; then
+              COLOR="green"
+            elif [[ $COVERAGE -ge 75 ]]; then
+              COLOR="yellowgreen"
+            elif [[ $COVERAGE -ge 60 ]]; then
+              COLOR="yellow"
+            elif [[ $COVERAGE -ge 40 ]]; then
+              COLOR="orange"
+            else
+              COLOR="red"
+            fi
+
+            # escape the double less than sign for CircleCI
+            cat \<<EOF > cov_badge.json
+            {
+              "schemaVersion": 1,
+              "label": "coverage",
+              "message": "${COVERAGE}%",
+              "color": "${COLOR}"
+            }
+            EOF
+
+            # Create a simple redirect to the CircleCI build page
+            cat \<<EOF > cov_index.html
+            <html>
+              <head>
+                <meta http-equiv="refresh" content="0; url=${CIRCLE_BUILD_URL}" />
+              </head>
+              <body></body>
+            </html>
+            EOF
+      - store_artifacts:
+          path: cov_.html
+      - store_artifacts:
+          path: cov_badge.json
+      - run:
+          name: Publish to GitHub Pages
+          command: |
+            set -euxo pipefail
+
+            # Get commit hash from main branch
+            GIT_HASH=$(git rev-parse --short HEAD)
+            COMMIT_MSG="[skip ci] Update coverage to ${COVERAGE}% for commit ${GIT_HASH}"
+
+            git config --global user.name ${CIRCLE_USERNAME:-"open-source-bot"}
+            git config --global user.email "open-source@dominodatalab.com"
+
+            # Fetch or create gh-pages branch
+            git fetch origin gh-pages || git checkout --orphan gh-pages
+            git checkout gh-pages
+
+            # Ensure docs directory exists
+            COVERAGE_BADGE_DIR=docs/coverage/badge
+            mkdir -p $COVERAGE_BADGE_DIR
+
+            # Move and overwrite coverage badge and redirect
+            mv -f cov_badge.json $COVERAGE_BADGE_DIR/badge.json
+            mv -f cov_index.html $COVERAGE_BADGE_DIR/index.html
+
+            COVERAGE_HTML_DIR=docs/coverage/html
+            # Move and overwrite coverage report
+            rm -rf ${COVERAGE_HTML_DIR}*
+            mv -f htmlcov ${COVERAGE_HTML_DIR}
+            rm ${COVERAGE_HTML_DIR}/.gitignore
+
+            # Commit changes
+            git status
+            git add docs
+            git commit -m "${COMMIT_MSG}" || echo "No changes to commit"
+
+            # Push changes if main or override
+            if [[ "${CIRCLE_BRANCH:-}" == main || "${OVERRIDE_PAGES:-}" == true ]]; then
+              git push origin gh-pages
+            fi
+
+orbs:
+  inline-orb-uv:
+    commands:
+      setup-uv:
+        steps:
+          - restore_cache:
+              keys:
+                - v1-uv-cache-{{ checksum "uv.lock" }}
+          - run:
+              name: Install uv
+              command: |
+                set -euxo pipefail
+                echo 'export UV_INSTALL_DIR=$HOME/.uv' >> $BASH_ENV
+                source $BASH_ENV
+                curl --retry 9 -LsSf https://astral.sh/uv/install.sh | sh
+                echo 'source $UV_INSTALL_DIR/env' >> $BASH_ENV
+                source $BASH_ENV
+          - save_cache:
+              paths:
+                - $UV_INSTALL_DIR/env
+              key: v1-uv-cache-{{ checksum "uv.lock" }}
+          - run:
+              name: Verify uv installation
+              command: uv --version

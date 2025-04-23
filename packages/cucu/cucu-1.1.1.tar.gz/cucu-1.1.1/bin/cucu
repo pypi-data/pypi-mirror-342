@@ -1,0 +1,2 @@
+#!env bash
+uv run cucu $@

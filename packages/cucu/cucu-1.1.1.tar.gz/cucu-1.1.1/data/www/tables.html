@@ -1,0 +1,151 @@
+<html>
+  <script>
+    function update(value) {
+      document.querySelector("#input").value = value;
+    }
+    function addRow() {
+      var table = document.getElementById("dynamic_table");
+      var num_rows = table.getElementsByTagName('tr').length
+      var row = table.insertRow(num_rows);
+      var cell1 = row.insertCell(0);
+      cell1.innerHTML = num_rows+1;
+    }
+    function clickHandler(delay){
+      setTimeout( function() { addRow(); }, delay );
+    }
+  </script>
+  <head>
+    <title>Tables!</title>
+    <style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Name</th><th>City</th><th>Country</th>
+      </tr>
+      <tr>
+        <td>Alfred</td><td>Berlin</td><td>Germany</td>
+      </tr>
+      <tr>
+        <td>Joe</td><td>San Francisco</td><td>United States</td>
+      </tr>
+      <tr>
+        <td>Maria</td><td>Cancun</td><td>Mexico</td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>Name</th><th>Age</th>
+      </tr>
+      <tr>
+        <td>Alfred</td><td>31</td>
+      </tr>
+      <tr>
+        <td>Joe</td><td>35</td>
+      </tr>
+      <tr>
+        <td>Maria</td><td>33</td>
+      </tr>
+    </table>
+
+
+    <!-- table with elements split up across html elements -->
+    <table>
+      <tr>
+        <th>Name <i>(last name optional)</i></th><th>Age <i>(in years)</i></th>
+      </tr>
+      <tr>
+          <td>Alfred</td><td><b>31</b></td>
+      </tr>
+      <tr>
+          <td>Maria <b>Lopez</b></td><td>33</td>
+      </tr>
+    </table>
+
+
+    <!-- table with elements that break lines --->
+    <table>
+      <tr>
+        <th>User<br/>
+        <br/>
+
+        <br/>
+        Title</th>
+        <th>Yearly<br/>
+        Salary</th>
+      </tr>
+      <tr>
+          <td>Alfred<br/> <br/>White</td><td>120,000</td>
+      </tr>
+      <tr>
+          <td>Maria<br/>Lopez</td><td>133,000</td>
+      </tr>
+    </table>
+
+    <!-- table with clickable rows --->
+    <label>Clicked:</label><input id="input" type="text"></input>
+    <table>
+      <tr>
+        <th>Color</th>
+        <th>Font</th>
+        <th>Style</th>
+      </tr>
+      <tr role="button" onclick="update('Row 2 clicked');">
+        <td>Red</td>
+        <td>Arial</td>
+        <td>Bold</td>
+      </tr>
+      <tr role="button" onclick="update('Row 3 clicked');">
+        <td>Blue</td>
+        <td>Helvetica</td>
+        <td>Underline</td>
+      </tr>
+      <tr role="button" onclick="update('Row 4 clicked');">
+        <td>Green</td>
+        <td>Times New Roman</td>
+        <td>Italic</td>
+      </tr>
+    </table>
+
+    <!-- table with clickable cells --->
+    <table>
+      <tr>
+        <th>City</th>
+        <th>Country</th>
+        <th>Continent</th>
+      </tr>
+      <tr>
+        <td role="button" onclick="update('Paris clicked');">Paris</td>
+        <td role="button" onclick="update('France clicked');">France</td>
+        <td role="button" onclick="update('Europe clicked');">Europe</td>
+      </tr>
+      <tr>
+        <td role="button" onclick="update('Cairo clicked');">Cairo</td>
+        <td role="button" onclick="update('Egypt clicked');">Egypt</td>
+        <td role="button" onclick="update('Africa clicked');">Africa</td>
+      </tr>
+      <tr>
+        <td role="button" onclick="update('Tokyo clicked');">Tokyo</td>
+        <td role="button" onclick="update('Japan clicked');">Japan</td>
+        <td role="button" onclick="update('Asia clicked');">Asia</td>
+      </tr>
+    </table>
+
+    <!-- table with dynamically added cells --->
+    <table id="dynamic_table">
+      <button onclick="addRow();">Add row immediately</button>
+      <button onclick="clickHandler(20000);">Add row after 20 seconds</button>
+      <tr>
+        <th>Row Number</th>
+      </tr>
+    </table>
+
+    <!-- utility used to delay page loading -->
+    <script src="js/util.js"></script>
+  </body>
+</html>

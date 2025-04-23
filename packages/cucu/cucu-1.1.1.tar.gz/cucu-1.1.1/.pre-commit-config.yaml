@@ -1,0 +1,21 @@
+exclude: "^features/cli/lint.feature|^data/features/feature_with_mixed_results.feature"
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-yaml
+      - id: check-xml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: detect-private-key
+  - repo: local
+    hooks:
+      - id: makefile
+        name: run make ci-lint
+        entry: make
+        args: ["ci-lint"]
+        language: system
+        pass_filenames: false
+        verbose: true

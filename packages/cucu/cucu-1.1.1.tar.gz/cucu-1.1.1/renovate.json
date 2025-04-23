@@ -1,0 +1,47 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate config",
+  "extends": [
+    "config:best-practices"
+  ],
+  "ignorePaths": [
+    "**/.python-version"
+  ],
+  "packageRules": [
+    {
+      "matchCategories": [
+        "python"
+      ],
+      "enabled": true
+    },
+    {
+      "groupName": "glom all dependencies",
+      "matchFileNames": [
+        "**"
+      ],
+      "automerge": true,
+      "platformAutomerge": true
+    },
+    {
+      "description": "Ignore minor Python version updates",
+      "matchFileNames": [
+        "**Dockerfile",
+        ".circleci/config.yml",
+        ".github/workflows/*.yml"
+      ],
+      "matchDatasources": [
+        "pyenv",
+        "docker",
+        "pypi"
+      ],
+      "matchPackageNames": [
+        "cimg/python",
+        "python"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "enabled": false
+    }
+  ]
+}
