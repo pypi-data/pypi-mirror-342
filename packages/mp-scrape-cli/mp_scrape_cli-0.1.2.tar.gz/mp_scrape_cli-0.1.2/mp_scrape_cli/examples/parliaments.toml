@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: 2025 Sofía Aritz <sofiaritz@fsfe.org>
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+[workflow]
+sources = ["bundestag"]
+processes = []
+consumers = ["csv", "sqlite"]
+
+[sources.bundestag]
+module = "mp_scrape_source_bundestag"
+check_cdu_csu = false
+check_grune = false
+infer_email = false
+display_browser = true
+
+[sources.nrw]
+module = "mp_scrape_source_nrw"
+retrieve_emails = false
+
+[sources.euparl]
+module = "mp_scrape_source_euparl"
+retrieve_emails = false
+retrieve_committees = false
+
+[consumers.csv]
+module = "mp_scrape_export_csv"
+dest = "result.csv"
+index = false
+
+[consumers.sqlite]
+module = "mp_scrape_export_sqlite"
+dest = "result.sqlite3"
+table_name = "pmpc_event"
+track_changes = true
+separate_sources = true
+overwrite = false
