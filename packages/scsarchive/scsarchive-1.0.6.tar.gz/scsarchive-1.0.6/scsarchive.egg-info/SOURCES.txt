@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+scsarchive/__init__.py
+scsarchive/core.py
+scsarchive.egg-info/PKG-INFO
+scsarchive.egg-info/SOURCES.txt
+scsarchive.egg-info/dependency_links.txt
+scsarchive.egg-info/top_level.txt
