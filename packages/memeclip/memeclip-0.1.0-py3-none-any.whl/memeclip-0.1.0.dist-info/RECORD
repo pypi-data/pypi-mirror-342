@@ -1,0 +1,14 @@
+memeclip/__init__.py,sha256=2kOLnz7OIfFF75ACGVDp6FNRH3H4TfhFznQclkLMVj4,604
+memeclip/client.py,sha256=VkJMXkJoEjNHCbLRlD3DxH7vDN-KHCNxTJc_c6Eypic,7283
+memeclip/api/__init__.py,sha256=VolgNAIOGwjFMAosmMOYH6kx_65am13gbEBmrlGKi1M,111
+memeclip/api/constants.py,sha256=MmamMpl95MW6EDnSCLN8EmfDUq_M2v8lRDJ_rJ5xjOQ,618
+memeclip/models/__init__.py,sha256=7G801pCBDHJ7O1d5zb0kCaL40rO7nLanHIy9lWeSZw4,143
+memeclip/models/error.py,sha256=-Mppsbznz9mSfAhi78JMAL4K6Lab1PIO3546knqvbrs,1534
+memeclip/models/meme.py,sha256=6WsVz4KoHPRybyP01vOQcFPh7Bs1vMPUJDSG4pgXtBo,4388
+memeclip-0.1.0.dist-info/licenses/LICENSE,sha256=u263n9ozRdJtd5CxDENOtPCH9WOM1CCHnVYhgQbkMgU,1066
+tests/__init__.py,sha256=zIUbcmcwkt3-oPL50AFStO04RejLPDnSjwhY5Lwu-3I,16
+tests/test_client.py,sha256=nFo2GTHvPnxZ1S8aDnbiBmnE8tsktOG8N21bC1gW0fM,3132
+memeclip-0.1.0.dist-info/METADATA,sha256=CYIhJD_mv7a72EYLcLOjipe0zCveL4_JD7JBdV2Z6f4,5937
+memeclip-0.1.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+memeclip-0.1.0.dist-info/top_level.txt,sha256=gUekr5A6Bi8kB5B_JHDQQpzUiJDCmALcVs06_yB_kYk,15
+memeclip-0.1.0.dist-info/RECORD,,
