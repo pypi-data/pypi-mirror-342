@@ -1,0 +1,8 @@
+fastai>=2.7.0
+sysbench_loader
+matplotlib
+nbdev>2
+ray[tune]
+
+[dev]
+nbdev>2
