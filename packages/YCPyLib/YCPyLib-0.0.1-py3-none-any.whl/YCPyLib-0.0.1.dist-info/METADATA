@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: YCPyLib
+Version: 0.0.1
+Summary: YCPyLib - Simple Timing Decorator Library
+Author-email: YuChul YANG <yangyuchul@gmail.com>
+License: MIT
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# YCPyLib
+
+
+
+## Getting started
+```
+git clone https://gitlab.com/ycyang/YCPyLib.git
+```
+
+
