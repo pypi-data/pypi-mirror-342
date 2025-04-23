@@ -1,0 +1,18 @@
+*.idea
+.DS_Store
+**.pytest_cache
+**/__pycache__/
+drafts
+dist
+
+# draw.io files
+*.dtmp
+*.bkp
+
+#
+.ruff_cache
+
+#
+htmlcov
+.coverage
+
