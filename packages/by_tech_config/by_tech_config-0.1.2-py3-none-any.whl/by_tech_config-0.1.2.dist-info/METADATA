@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: by_tech_config
+Version: 0.1.2
+Summary: YAML/JSON配置加载器
+Author-email: Evanston <kaluoshilong@qq.com>
+License: MIT
+Project-URL: Homepage, https://github.com/Evan-acg/beny-py-config
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml>=6.0.2
+Requires-Dist: watchdog>=6.0.0
+
+# Beny-PY-Config
+
+Python 配置管理工具，提供类型安全的配置加载和验证功能。
+
+## 功能特性
+
+- 📂 支持 YAML/JSON/TOML 等多种配置文件格式
+- 📦 使用 uv 进行依赖管理和打包
+
+## 安装
+
+```bash
+uv pip install beny-py-config
+```
