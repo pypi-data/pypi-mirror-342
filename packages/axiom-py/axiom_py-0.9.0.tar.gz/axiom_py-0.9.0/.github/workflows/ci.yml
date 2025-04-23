@@ -1,0 +1,74 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+      - run: uv run ruff check
+      - run: uv run ruff format --check
+
+  test-integration:
+    name: Test Integration
+    runs-on: ubuntu-latest
+    # run integration tests on PRs originating in the upstream repo (non-forks only)
+    if: github.repository == 'axiomhq/axiom-py' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
+    needs: lint
+    strategy:
+      fail-fast: true
+      matrix:
+        python: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - name: Test against development
+        run: uv run pytest
+        env:
+          AXIOM_URL: ${{ secrets.TESTING_DEV_API_URL }}
+          AXIOM_TOKEN: ${{ secrets.TESTING_DEV_TOKEN }}
+          AXIOM_ORG_ID: ${{ secrets.TESTING_DEV_ORG_ID }}
+      - name: Test against staging
+        run: uv run pytest
+        env:
+          AXIOM_URL: ${{ secrets.TESTING_STAGING_API_URL }}
+          AXIOM_TOKEN: ${{ secrets.TESTING_STAGING_TOKEN }}
+          AXIOM_ORG_ID: ${{ secrets.TESTING_STAGING_ORG_ID }}
+
+  publish:
+    name: Publish on PyPi
+    runs-on: ubuntu-latest
+    if: github.repository == 'axiomhq/axiom-py' && startsWith(github.ref, 'refs/tags')
+    needs:
+      - test-integration
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+      - run: uv build
+      - run: uvx twine upload dist/*
+        env:
+          TWINE_USERNAME: "__token__"
+          TWINE_PASSWORD: "${{ secrets.PYPI_TOKEN }}"
