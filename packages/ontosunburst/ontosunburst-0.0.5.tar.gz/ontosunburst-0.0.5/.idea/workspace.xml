@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3e455782-2bd1-4889-abea-def64d7d5a89" name="Changes" comment="Update README.md" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="b9dd2512-4d64-4ac7-b17f-fa936231b52e" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2XClw5CTPQFIDVlfaDfDNCwBjsq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.gen_onto_files.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "/home/phamongi/Documents/Packages/Ontosunburst",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ontosunburst/Inputs" />
+      <recent name="$PROJECT_DIR$/Figures" />
+      <recent name="$PROJECT_DIR$/tests/global_test/Files" />
+      <recent name="$PROJECT_DIR$/Perso_analysis/Esmecata" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ontosunburst/Inputs" />
+      <recent name="$PROJECT_DIR$/ontosunburst" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Inputs_generation/tests" />
+      <recent name="$PROJECT_DIR$/tests/unit_tests/test_files" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python tests.Python tests for tree2sunburst_tests.TestSunburstFigure.test_generate_sunburst_fig_case1">
+    <configuration name="Python tests for tree2sunburst_tests.TestSunburstFigure.test_generate_sunburst_fig_case1" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Ontology_sunburst" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit_tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tree2sunburst_tests.TestSunburstFigure.test_generate_sunburst_fig_case1&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in dag2tree_tests.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Ontology_sunburst" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit_tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/unit_tests/dag2tree_tests.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in onto2dag_tests.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Ontology_sunburst" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit_tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/unit_tests/onto2dag_tests.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in ontosunburst_tests.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Ontology_sunburst" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit_tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/unit_tests/ontosunburst_tests.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in tree2sunburst_tests.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Ontology_sunburst" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unit_tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/unit_tests/tree2sunburst_tests.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for tree2sunburst_tests.TestSunburstFigure.test_generate_sunburst_fig_case1" />
+        <item itemvalue="Python tests.Python tests in ontosunburst_tests.py" />
+        <item itemvalue="Python tests.Python tests in tree2sunburst_tests.py" />
+        <item itemvalue="Python tests.Python tests in onto2dag_tests.py" />
+        <item itemvalue="Python tests.Python tests in dag2tree_tests.py" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-1b1018131e27-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.22562.180" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e455782-2bd1-4889-abea-def64d7d5a89" name="Changes" comment="" />
+      <created>1698141178459</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698141178459</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Adapt chebi sparql request --&gt; add labels dict">
+      <created>1722504611700</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1722504611701</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Adapt chebi sparql request --&gt; add labels dict">
+      <created>1722506580600</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1722506580600</updated>
+    </task>
+    <task id="LOCAL-00106" summary="adapt test data_table_tree_tests.py">
+      <created>1722518076808</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1722518076808</updated>
+    </task>
+    <task id="LOCAL-00107" summary="adapt fill parameter (simplify code)">
+      <created>1722518530991</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1722518530991</updated>
+    </task>
+    <task id="LOCAL-00108" summary="adapt fill parameter (simplify code)">
+      <created>1722518993941</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1722518993941</updated>
+    </task>
+    <task id="LOCAL-00109" summary="adapt tests">
+      <created>1722586834058</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1722586834059</updated>
+    </task>
+    <task id="LOCAL-00110" summary="adapt tests">
+      <created>1722589038537</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1722589038537</updated>
+    </task>
+    <task id="LOCAL-00111" summary="adapt tests go + correct error">
+      <created>1722590299610</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1722590299610</updated>
+    </task>
+    <task id="LOCAL-00112" summary="adapt pah cut for ref base">
+      <created>1722605920590</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1722605920590</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Add function to check kwargs">
+      <created>1722933653725</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1722933653725</updated>
+    </task>
+    <task id="LOCAL-00114" summary="Complete data_table_tree.py docstrings">
+      <created>1722935885453</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1722935885453</updated>
+    </task>
+    <task id="LOCAL-00115" summary="Complete data_table_tree.py docstrings">
+      <created>1722952775453</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1722952775453</updated>
+    </task>
+    <task id="LOCAL-00116" summary="Start adapt command line">
+      <created>1722955799048</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1722955799048</updated>
+    </task>
+    <task id="LOCAL-00117" summary="Remake README.md">
+      <created>1723024432215</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1723024432216</updated>
+    </task>
+    <task id="LOCAL-00118" summary="Add pyproject.toml">
+      <created>1723034481192</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1723034481192</updated>
+    </task>
+    <task id="LOCAL-00119" summary="Add documentation link">
+      <created>1723035081712</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1723035081712</updated>
+    </task>
+    <task id="LOCAL-00120" summary="Modify requirements">
+      <created>1723046086463</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1723046086463</updated>
+    </task>
+    <task id="LOCAL-00121" summary="Modify requirements + update version">
+      <created>1723106544478</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1723106544478</updated>
+    </task>
+    <task id="LOCAL-00122" summary="Correct command line problem with no ref + edit bound path label rename">
+      <created>1724920969073</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1724920969073</updated>
+    </task>
+    <task id="LOCAL-00123" summary="version 0.0.4 for bug fix">
+      <created>1724921033391</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1724921033392</updated>
+    </task>
+    <task id="LOCAL-00124" summary="version 0.0.4 for bug fix">
+      <created>1724921091251</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1724921091251</updated>
+    </task>
+    <task id="LOCAL-00125" summary="fix path error">
+      <created>1724921645074</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1724921645074</updated>
+    </task>
+    <task id="LOCAL-00126" summary="remake fill parameters algorithm">
+      <created>1733759273127</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1733759273127</updated>
+    </task>
+    <task id="LOCAL-00127" summary="remake fill parameters algorithm">
+      <created>1733762682076</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1733762682076</updated>
+    </task>
+    <task id="LOCAL-00128" summary="remake fill parameters algorithm (adapt tests)">
+      <created>1733822315084</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1733822315084</updated>
+    </task>
+    <task id="LOCAL-00129" summary="remake fill parameters algorithm (adapt tests)">
+      <created>1733824067535</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1733824067535</updated>
+    </task>
+    <task id="LOCAL-00130" summary="readapt root cut">
+      <created>1733826110678</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
+      <option name="project" value="LOCAL" />
+      <updated>1733826110678</updated>
+    </task>
+    <task id="LOCAL-00131" summary="continue to adapt tests (ontosunburst.py)">
+      <created>1733828251520</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1733828251521</updated>
+    </task>
+    <task id="LOCAL-00132" summary="adapt tests (ontosunburst.py)">
+      <created>1733840158497</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1733840158497</updated>
+    </task>
+    <task id="LOCAL-00133" summary="make go id lower">
+      <created>1740647103866</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1740647103867</updated>
+    </task>
+    <task id="LOCAL-00135" summary="start complete and remake input files generation code">
+      <created>1740673374804</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1740673374806</updated>
+    </task>
+    <task id="LOCAL-00136" summary="finish complete and remake input files generation code">
+      <created>1741009571123</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1741009571123</updated>
+    </task>
+    <task id="LOCAL-00137" summary="finish complete and remake input files generation code">
+      <created>1741010986126</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1741010986126</updated>
+    </task>
+    <task id="LOCAL-00138" summary="adjustment go tests">
+      <created>1741271745339</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1741271745340</updated>
+    </task>
+    <task id="LOCAL-00139" summary="add chebi json files generation">
+      <created>1741609105031</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1741609105032</updated>
+    </task>
+    <task id="LOCAL-00140" summary="add go files generation">
+      <created>1741614955358</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1741614955358</updated>
+    </task>
+    <task id="LOCAL-00141" summary="add go files generation">
+      <created>1741621388962</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1741621388962</updated>
+    </task>
+    <task id="LOCAL-00142" summary="start readapt code">
+      <created>1741623452585</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1741623452585</updated>
+    </task>
+    <task id="LOCAL-00143" summary="start readapt code for no sparql request and uniformized input format">
+      <created>1741624181488</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1741624181488</updated>
+    </task>
+    <task id="LOCAL-00144" summary="start readapt code for no sparql request and uniformized input format">
+      <created>1741624528890</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1741624528890</updated>
+    </task>
+    <task id="LOCAL-00145" summary="start readapt code for no sparql request and uniformized input format">
+      <created>1741625277344</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1741625277344</updated>
+    </task>
+    <task id="LOCAL-00146" summary="continue readapt code for no sparql request and uniformized input format">
+      <created>1741626088328</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1741626088328</updated>
+    </task>
+    <task id="LOCAL-00147" summary="continue readapt code for no sparql request and uniformized input format">
+      <created>1741626389583</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1741626389583</updated>
+    </task>
+    <task id="LOCAL-00148" summary="Update ontosunburst_tests.py tests + correct some errors in ontosunburst.py">
+      <created>1742222071824</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1742222071825</updated>
+    </task>
+    <task id="LOCAL-00149" summary="Add tests for chebi and go in ontosunburst_tests.py">
+      <created>1742224740218</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1742224740218</updated>
+    </task>
+    <task id="LOCAL-00150" summary="Delete unused scripts">
+      <created>1742225005459</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1742225005460</updated>
+    </task>
+    <task id="LOCAL-00151" summary="Edit package structures and imports">
+      <created>1742462204982</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1742462204983</updated>
+    </task>
+    <task id="LOCAL-00152" summary="Update README.md">
+      <created>1742464161466</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1742464161466</updated>
+    </task>
+    <task id="LOCAL-00153" summary="Update README.md">
+      <created>1745325725576</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1745325725577</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add documentation link" />
+    <MESSAGE value="Modify requirements" />
+    <MESSAGE value="Modify requirements + update version" />
+    <MESSAGE value="Correct command line problem with no ref + edit bound path label rename" />
+    <MESSAGE value="version 0.0.4 for bug fix" />
+    <MESSAGE value="fix path error" />
+    <MESSAGE value="remake fill parameters algorithm" />
+    <MESSAGE value="remake fill parameters algorithm (adapt tests)" />
+    <MESSAGE value="readapt root cut" />
+    <MESSAGE value="continue to adapt tests (ontosunburst.py)" />
+    <MESSAGE value="adapt tests (ontosunburst.py)" />
+    <MESSAGE value="make go id lower" />
+    <MESSAGE value="start complete and remake input files generation code" />
+    <MESSAGE value="finish complete and remake input files generation code" />
+    <MESSAGE value="adjustment go tests" />
+    <MESSAGE value="add chebi json files generation" />
+    <MESSAGE value="add go files generation" />
+    <MESSAGE value="start readapt code" />
+    <MESSAGE value="start readapt code for no sparql request and uniformized input format" />
+    <MESSAGE value="continue readapt code for no sparql request and uniformized input format" />
+    <MESSAGE value="Update ontosunburst_tests.py tests + correct some errors in ontosunburst.py" />
+    <MESSAGE value="Add tests for chebi and go in ontosunburst_tests.py" />
+    <MESSAGE value="Delete unused scripts" />
+    <MESSAGE value="Edit package structures and imports" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
+  </component>
+</project>
