@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/odysseus/__init__.py
+src/odysseus/models.py
+src/odysseus/odysseus.py
+src/odysseus.egg-info/PKG-INFO
+src/odysseus.egg-info/SOURCES.txt
+src/odysseus.egg-info/dependency_links.txt
+src/odysseus.egg-info/requires.txt
+src/odysseus.egg-info/top_level.txt
