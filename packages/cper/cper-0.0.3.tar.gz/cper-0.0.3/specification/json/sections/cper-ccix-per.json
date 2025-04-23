@@ -1,0 +1,21 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "CCIX PER Section",
+    "required": ["length"],
+    "additionalProperties": false,
+    "properties": {
+        "length": {
+            "type": "integer"
+        },
+        "ccixSourceID": {
+            "type": "integer"
+        },
+        "ccixPortID": {
+            "type": "integer"
+        },
+        "ccixPERLog": {
+            "type": "string"
+        }
+    }
+}

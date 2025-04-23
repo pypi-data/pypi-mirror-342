@@ -1,0 +1,106 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "Compute Express Link (CXL) Protocol Error Section",
+    "required": [],
+    "additionalProperties": false,
+    "properties": {
+        "agentType": {
+            "type": "object",
+            "description": "CXL Agent Type",
+            "$ref": "./common/cper-json-nvp.json"
+        },
+        "cxlAgentAddress": {
+            "type": "object",
+            "description": "CXL Agent depedent address to uniquely identify the component",
+            "oneOf": [
+                {
+                    "$id": "cper-json-cxlagentaddress0",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "functionNumber",
+                        "deviceNumber",
+                        "busNumber",
+                        "segmentNumber"
+                    ],
+                    "properties": {
+                        "functionNumber": {
+                            "type": "integer"
+                        },
+                        "deviceNumber": {
+                            "type": "integer"
+                        },
+                        "busNumber": {
+                            "type": "integer"
+                        },
+                        "segmentNumber": {
+                            "type": "integer"
+                        }
+                    }
+                },
+                {
+                    "$id": "cper-json-cxlagentaddress1",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["value"],
+                    "properties": {
+                        "value": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            ]
+        },
+        "deviceID": {
+            "type": "object",
+            "description": "Provides devices specific identifies.",
+            "additionalProperties": false,
+            "required": [],
+            "properties": {
+                "vendorID": {
+                    "type": "integer"
+                },
+                "deviceID": {
+                    "type": "integer"
+                },
+                "subsystemVendorID": {
+                    "type": "integer"
+                },
+                "subsystemDeviceID": {
+                    "type": "integer"
+                },
+                "classCode": {
+                    "type": "integer"
+                },
+                "slotNumber": {
+                    "type": "integer"
+                }
+            }
+        },
+        "deviceSerial": {
+            "type": "integer",
+            "description": "CXL Agent device serial number"
+        },
+        "capabilityStructure": {
+            "type": "string",
+            "description": "The PCIe Capability Structure of the agent"
+        },
+        "dvsecLength": {
+            "type": "integer",
+            "description": "The length in bytes of the CXL DVSEC field"
+        },
+        "errorLogLength": {
+            "type": "integer",
+            "description": "The length in bytes of the CXL Error Log field"
+        },
+        "cxlDVSEC": {
+            "type": "string",
+            "description": "Contains the DVSEC structure as defined in the CXL specification"
+        },
+        "cxlErrorLog": {
+            "type": "string",
+            "description": "This field contains a copy of the “CXL RAS Capability Structure”, as defined in the CXL Specification."
+        }
+    }
+}

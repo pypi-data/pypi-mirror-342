@@ -1,0 +1,16 @@
+{
+    "$id": "cper-json-namevaluepair",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "CPER Name Value Pair",
+    "required": ["name", "value"],
+    "additionalProperties": false,
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "value": {
+            "type": "integer"
+        }
+    }
+}

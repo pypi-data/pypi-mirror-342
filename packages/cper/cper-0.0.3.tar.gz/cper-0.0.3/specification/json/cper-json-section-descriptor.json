@@ -1,0 +1,127 @@
+{
+    "$id": "cper-json-section-descriptor",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "Common Platform Record Section Descriptor as defined in UEFI Appendix N section 2.2",
+    "required": [
+        "sectionOffset",
+        "sectionLength",
+        "revision",
+        "flags",
+        "sectionType",
+        "severity"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "sectionOffset": {
+            "type": "integer",
+            "description": "Offset in bytes of the section body from the base of the record header."
+        },
+        "sectionLength": {
+            "type": "integer",
+            "description": "The length in bytes of the section body."
+        },
+        "revision": {
+            "type": "object",
+            "description": "This is a 2-byte field representing a major and minor version number for the error record definition in BCD format.",
+            "required": ["major", "minor"],
+            "additionalProperties": false,
+            "properties": {
+                "major": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "minor": {
+                    "type": "integer",
+                    "minimum": 0
+                }
+            }
+        },
+        "flags": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "primary",
+                "containmentWarning",
+                "reset",
+                "errorThresholdExceeded",
+                "resourceNotAccessible",
+                "latentError",
+                "propagated",
+                "overflow"
+            ],
+            "properties": {
+                "primary": {
+                    "type": "boolean",
+                    "description": "If set, identifies the section as the section to be associated with the error condition."
+                },
+                "containmentWarning": {
+                    "type": "boolean",
+                    "description": "If set, the error was not contained within the processor or memory hierarchy and the error may have propagated to persistent storage or network."
+                },
+                "reset": {
+                    "type": "boolean",
+                    "description": "If set, the component has been reset and must be re-initialized or re-enabled by the operating system prior to use."
+                },
+                "errorThresholdExceeded": {
+                    "type": "boolean",
+                    "description": "If set, OS may choose to discontinue use of this resource."
+                },
+                "resourceNotAccessible": {
+                    "type": "boolean",
+                    "description": "If set, the resource could not be queried for error information due to conflicts with other system software or resources."
+                },
+                "latentError": {
+                    "type": "boolean",
+                    "description": "If set this flag indicates that action has been taken to ensure error containment"
+                },
+                "propagated": {
+                    "type": "boolean",
+                    "description": "If set this flag indicates the section is to be associated with an error that has been propagated due to hardware poisoning."
+                },
+                "overflow": {
+                    "type": "boolean",
+                    "description": "If set this flag indicates the firmware has detected an overflow of buffers/queues that are used to accumulate, collect, or report errors"
+                }
+            }
+        },
+        "sectionType": {
+            "type": "object",
+            "description": "This field holds a pre-assigned GUID value indicating that it is a section of a particular error.",
+            "required": ["data", "type"],
+            "additionalProperties": false,
+            "properties": {
+                "data": {
+                    "type": "string",
+                    "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
+        "fruID": {
+            "type": "string",
+            "description": "GUID representing the FRU ID, if it exists, for the section reporting the error. The default value is zero indicating an invalid FRU ID."
+        },
+        "severity": {
+            "type": "object",
+            "description": "This field indicates the severity associated with the error section.",
+            "required": ["code", "name"],
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "fruText": {
+            "type": "string",
+            "description": "ASCII string identifying the FRU hardware."
+        }
+    }
+}
