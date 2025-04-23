@@ -1,0 +1,153 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "superstate"
+version = "1.6.2a3"
+description = "Robust statechart for configurable automation rules."
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["statechart", "state machine", "scxml", "Harel"]
+requires-python = ">=3.6.2"
+authors = [{name = "Jesse P. Johnson", email = "jpj6652@gmail.com"}]
+maintainers = [{name = "Jesse P. Johnson", email = "jpj6652@gmail.com"}]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries"
+]
+dependencies = [
+   "RestrictedPython",
+   "typing_extensions"
+   # "structlog"
+]
+
+[project.optional-dependencies]
+# message passing (grpc, rpc, pydispatcher)
+# io = ["aiohttp[speedups]"]
+# history = ["eventsourcing"]
+ecmascript = ["js2py"]  # "STPyV8", "jyserver"
+scxml = ["xmltodict"]
+build = [
+    "build",
+    "proman-versioning>=0.5.0-alpha.2",
+    "twine"
+]
+dev = [
+    # test
+    "pytest>=7",
+    "pytest-benchmark>=4",
+    "pytest-cov>=2.10.0",
+    "tox>=3.25.0",
+    # sca
+    "mypy>=1",
+    "pylint>=3",
+    # style
+    "black==22.3.0",
+    "isort>=5.10.1",
+    "flake8>=3.8.3",
+    # sast
+    "bandit>=1.6.2",
+    "safety>=1.9.0"
+]
+docs = [
+    "docstr-coverage>=1.2.0",
+    "mkdocs>=1.2",
+    "mkdocs-material>=7.2",
+    "mkdocstrings>=0.15.2",
+    "pydocstyle[toml]>=6.1.1"
+]
+
+[project.urls]
+repository = "https://github.com/kuwv/python-superstate"
+
+[tool.proman.versioning]
+enable_devreleases = false
+
+[[tool.proman.versioning.files]]
+filepath = "pyproject.toml"
+pattern = "version = \"${version}\""
+
+[[tool.proman.versioning.files]]
+filepath = "src/superstate/__init__.py"
+pattern = "__version__ = '${version}'"
+
+[[tool.proman.versioning.files]]
+filepath = "tests/test_version.py"
+pattern = "__version__ == '${version}'"
+
+[tool.pydocstyle]
+ignore = [
+    "D203",
+    "D213"
+]
+
+[tool.pylint]
+fail-under = 9.0
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+    "C0103",
+    "R0903",
+    "W0122",
+    "W0123",
+    "W0715"
+]
+
+[tool.pylint."FORMAT"]
+max-line-length = 79
+
+[tool.pylint."MISCELLANEOUS"]
+notes = []
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.black]
+line-length = 79
+skip-string-normalization = true
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+    | \.git
+    | \.github
+    | \.mypy_cache
+    | \.pytest_cache
+    | build
+    | dist
+    | docs
+    | site
+  )
+)
+'''
+
+[tool.mypy]
+disallow_untyped_defs = true
+exclude = [
+    "examples",
+    "tests"
+]
+ignore_missing_imports = true
+warn_incomplete_stub = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules"
+testpaths = [
+    "docs",
+    "tests"
+]
