@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wimby_sf"
+version = "2.0.0"
+dependencies = [
+  "numpy",
+  "pandas",
+  "geopandas",
+  "rasterio",
+  "shapely",
+  "xarray",
+  "rioxarray",
+  "gdal"
+]
+requires-python = ">=3.8"
+authors = [
+  {name = "Hsing-Hsuan Chen", email = "h.h.chen@uu.nl"},
+  {name = "Luis Ramirez Camargo", email = "l.e.ramirezcamargo@uu.nl"}
+]
+maintainers = [
+  {name = "Hsing-Hsuan Chen", email = "h.h.chen@uu.nl"},
+  {name = "Luis Ramirez Camargo", email = "l.e.ramirezcamargo@uu.nl"}
+]
+description = "A package for the WIMBY shadow flicker functions"
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+[tool.setuptools]
+packages = ["wimby_sf"]
+include-package-data = false

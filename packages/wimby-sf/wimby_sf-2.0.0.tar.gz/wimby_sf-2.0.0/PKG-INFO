@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: wimby_sf
+Version: 2.0.0
+Summary: A package for the WIMBY shadow flicker functions
+Author-email: Hsing-Hsuan Chen <h.h.chen@uu.nl>, Luis Ramirez Camargo <l.e.ramirezcamargo@uu.nl>
+Maintainer-email: Hsing-Hsuan Chen <h.h.chen@uu.nl>, Luis Ramirez Camargo <l.e.ramirezcamargo@uu.nl>
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: geopandas
+Requires-Dist: rasterio
+Requires-Dist: shapely
+Requires-Dist: xarray
+Requires-Dist: rioxarray
+Requires-Dist: gdal
