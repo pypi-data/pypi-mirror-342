@@ -1,0 +1,7 @@
+setup.py
+wave_opensdk.egg-info/PKG-INFO
+wave_opensdk.egg-info/SOURCES.txt
+wave_opensdk.egg-info/dependency_links.txt
+wave_opensdk.egg-info/top_level.txt
+wave_sdk/__init__.py
+wave_sdk/getos.py
