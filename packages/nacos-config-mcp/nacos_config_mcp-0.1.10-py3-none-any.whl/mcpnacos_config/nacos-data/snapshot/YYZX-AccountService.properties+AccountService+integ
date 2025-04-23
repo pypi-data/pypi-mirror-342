@@ -1,0 +1,4 @@
+need_real_forbid=false
+sms.user-messages-period=60
+sms.user-messages-max-num=3
+apple.login.redirectUrl=https://dev-integ-env.iflyrec.com/appleLogin.html

@@ -1,0 +1,15 @@
+[
+    {
+        "headerListVer": 1,
+        "paramKeys": [
+            "X-App-Id",
+            "X-Access-Key",
+            "X-Header-List-Ver",
+            "X-Algorithm-Ver",
+            "X-UTCTime",
+            "X-Random",
+            "method",
+            "path"
+        ]
+    }
+]

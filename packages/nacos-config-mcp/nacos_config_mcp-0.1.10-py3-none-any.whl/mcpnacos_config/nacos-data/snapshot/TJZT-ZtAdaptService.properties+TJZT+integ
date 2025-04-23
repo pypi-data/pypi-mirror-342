@@ -1,0 +1,98 @@
+
+# activity
+# 开场白（双节） 2022/6/21重新上线 2022/6/26~2022/7/15
+universal.activity.config.activity-map.wxapp_2021_double_holiday_activity={"beginTime":"1656000000000","bizId":"tjwxapp","endTime":"1669622400000","paId":"3229","redisExpireTime":"47304000000","regFrom":"wx_activity_DH202109"}
+# bilibili ~2024-06-30
+universal.activity.config.activity-map.wxapp_2022_bilibili_new_born_activity={"beginTime":"1645113600000","bizId":"tjwxapp","endTime":"1719763199000","paId":"4287","redisExpireTime":"31536000000","stage":100,"regFrom":"wx_activity_bilibilinb2022"}
+# 粉丝专属（集团自媒体） ~2022-12-31, 注:福利时长由2小时改为30分钟
+universal.activity.config.activity-map.wxapp_2022_fans_only_new_born_activity={"beginTime":"1645113600000","bizId":"tjwxapp","endTime":"1704038399000","paId":"4289","redisExpireTime":"31536000000","stage":100,"regFrom":"wx_activity_fansonly2022"}
+# 字幕业务新用户 ~2024-12-31
+universal.activity.config.activity-map.wxapp_2022_zm_new_activity={"beginTime":"1646668800000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4237","redisExpireTime":"94608000000","stage":100,"regFrom":"wx_activity_zmnew2022"}
+# 活动时间 2022/4/1~2023/12/31
+universal.activity.config.activity-map.wxapp_2022_tiktok_new_born_activity={"beginTime":"1648742400000","bizId":"tjwxapp","endTime":"1704038399000","paId":"4239","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_tiktoknb2022"}
+# 2022/5/19下线快手新注册用户活动
+universal.activity.config.activity-map.wxapp_2022_kuaishou_new_born_activity={"beginTime":"1648742400000","bizId":"tjwxapp","endTime":"1704038399000","paId":"4241","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_kuaishounb2022"}
+# 注:福利时长由2小时改为30分钟
+universal.activity.config.activity-map.wxapp_2022_wechat_new_born_activity={"beginTime":"1648742400000","bizId":"tjwxapp","endTime":"1704038399000","paId":"4291","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_wechatnb2022"}
+universal.activity.config.activity-map.wxapp_2022_weibo_new_born_activity={"beginTime":"1648742400000","bizId":"tjwxapp","endTime":"1704038399000","paId":"4245","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_weibonb2022"}
+universal.activity.config.activity-map.wxapp_2022_weichathomepage_new_born_activity={"beginTime":"1648742400000","bizId":"tjwxapp","endTime":"1704038399000","paId":"4247","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_weichathomepagenb2022"}
+
+universal.activity.config.activity-map.h5_2022_douyin_new_born_activity={"beginTime":"1648742400000","bizId":"xftjh5","endTime":"1704038399000","paId":"4249","redisExpireTime":"47304000000","stage":100,"regFrom":"Link_h5_douyin"}
+universal.activity.config.activity-map.h5_2022_weibo_new_born_activity={"beginTime":"1648742400000","bizId":"xftjh5","endTime":"1704038399000","paId":"4251","redisExpireTime":"47304000000","stage":100,"regFrom":"Link_h5_weibo"}
+universal.activity.config.activity-map.h5_2022_redbook_new_born_activity={"beginTime":"1648742400000","bizId":"xftjh5","endTime":"1704038399000","paId":"4253","redisExpireTime":"47304000000","stage":100,"regFrom":"Link_h5_redbook"}
+universal.activity.config.activity-map.h5_2022_event1_new_born_activity={"beginTime":"1648742400000","bizId":"xftjh5","endTime":"1704038399000","paId":"4255","redisExpireTime":"47304000000","stage":100,"regFrom":"Link_h5_event1"}
+universal.activity.config.activity-map.h5_2022_event2_new_born_activity={"beginTime":"1648742400000","bizId":"xftjh5","endTime":"1704038399000","paId":"4257","redisExpireTime":"47304000000","stage":100,"regFrom":"Link_h5_event2"}
+universal.activity.config.activity-map.h5_2022_tongyong_new_born_activity={"beginTime":"1648742400000","bizId":"xftjh5","endTime":"1704038399000","paId":"4259","redisExpireTime":"47304000000","stage":100,"regFrom":"Link_h5_tongyong"}
+
+# c1新注册用户活动 2022/7/14~2024/1/1
+universal.activity.config.activity-map.wxapp_2022_c1_new_born_activity={"beginTime":"1657728000000","bizId":"tjwxapp","endTime":"1704124799000","paId":"4267","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_c1nb2022"}
+
+# 线下展会活动 2022/8/10~2023/12/31
+universal.activity.config.activity-map.wxapp_20220810_offline_convention_activity={"beginTime":"1660060800000","bizId":"tjwxapp","endTime":"1704038399000","paId":"4271","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_offlineConvention20220810"}
+# 大学活动 2022/9/6~2022/12/30
+universal.activity.config.activity-map.wxapp_20220906_university_activity={"beginTime":"1662393600000","bizId":"tjwxapp","endTime":"1672415999000","paId":"4273","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_university20220906"}
+# 翻译小程序拉新 2022/11/29~2023/12/31
+universal.activity.config.activity-map.wxapp_20221123_translatewxapp_bilibili_activity={"beginTime":"1662393600000","bizId":"tjwxapp","endTime":"1704038399000","paId":"4275","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_translatewxapp_bilibili20221123"}
+universal.activity.config.activity-map.wxapp_20221123_translatewxapp_weichat_activity={"beginTime":"1662393600000","bizId":"tjwxapp","endTime":"1704038399000","paId":"4277","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_translatewxapp_weichat20221123"}
+universal.activity.config.activity-map.wxapp_20221123_translatewxapp_weibo_activity={"beginTime":"1662393600000","bizId":"tjwxapp","endTime":"1704038399000","paId":"4279","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_translatewxapp_weibo20221123"}
+# cbg门店活动 2023/02/21~2024/12/31
+universal.activity.config.activity-map.wxapp_2023_cbgStoreTranscript_new_born_activity={"beginTime":"1676879884568","bizId":"tjwxapp","endTime":"1704038399000","paId":"4281","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_cbgStoreTranscript20230216"}
+universal.activity.config.activity-map.wxapp_2023_cbgStoreTranslate_new_born_activity={"beginTime":"1676879884568","bizId":"tjwxapp","endTime":"1704038399000","paId":"4283","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_cbgStoreTranslate20230216"}
+universal.activity.config.activity-map.wxapp_2023_cbgStoreHuizhan_new_born_activity={"beginTime":"1676879884568","bizId":"tjwxapp","endTime":"1704038399000","paId":"4285","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_cbgStoreHuizhan20230216"}
+# 成都大运会开幕式活动  2023/07/26~2023/08/10
+universal.activity.config.activity-map.wxapp_2023_cdDyhKms_new_born_activity={"beginTime":"1690300800000","bizId":"tjwxapp","endTime":"1691683199000","paId":"4295","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_cdDyhKms20230712"}
+# 免费领取AI写作包运营活动
+universal.activity.config.activity-map.wxapp_2023_freeAccessHxWriting_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4297","redisExpireTime":"2678400000","stage":100}
+
+# 新增如下22个会写运营活动 活动权益内容同免费领取AI写作包运营活动
+# 官方自媒体-B站动态海报（含集团）活动
+universal.activity.config.activity-map.wxapp_2023_bilibili_dynamic_poster_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4379","redisExpireTime":"2678400000","stage":100}
+# 官方自媒体-微信公众号（含集团）活动
+universal.activity.config.activity-map.wxapp_2023_wechat_public_account_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4381","redisExpireTime":"2678400000","stage":100}
+# 官方自媒体-微博海报（含集团）活动
+universal.activity.config.activity-map.wxapp_2023_weibo_poster_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4383","redisExpireTime":"2678400000","stage":100}
+# 媒体记者编辑-量子位活动
+universal.activity.config.activity-map.wxapp_2023_medium_reporter_lzw_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4385","redisExpireTime":"2678400000","stage":100}
+# 媒体记者编辑-姜茶茶活动
+universal.activity.config.activity-map.wxapp_2023_medium_reporter_jcc_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4387","redisExpireTime":"2678400000","stage":100}
+# 媒体记者编辑-日活十个亿活动
+universal.activity.config.activity-map.wxapp_2023_medium_reporter_rhsgy_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4389","redisExpireTime":"2678400000","stage":100}
+# 媒体记者编辑-西二旗指北活动
+universal.activity.config.activity-map.wxapp_2023_medium_reporter_xeqzb_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4391","redisExpireTime":"2678400000","stage":100}
+# 媒体记者编辑-其他渠道活动
+universal.activity.config.activity-map.wxapp_2023_medium_reporter_other_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4393","redisExpireTime":"2678400000","stage":100}
+# 广告公司MCN-整合营销类公司活动
+universal.activity.config.activity-map.wxapp_2023_advertise_company_marketing_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4395","redisExpireTime":"2678400000","stage":100}
+# 广告公司MCN-创意类公司活动
+universal.activity.config.activity-map.wxapp_2023_advertise_company_creative_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4397","redisExpireTime":"2678400000","stage":100}
+# 广告公司MCN-MCN类公司活动
+universal.activity.config.activity-map.wxapp_2023_advertise_company_mcn_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4399","redisExpireTime":"2678400000","stage":100}
+# 广告公司MCN-发稿类公司活动
+universal.activity.config.activity-map.wxapp_2023_advertise_company_draft_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4401","redisExpireTime":"2678400000","stage":100}
+# 广告公司MCN-其他渠道活动
+universal.activity.config.activity-map.wxapp_2023_advertise_company_other_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4403","redisExpireTime":"2678400000","stage":100}
+# 线下活动-创业邦活动
+universal.activity.config.activity-map.wxapp_2023_offline_cyb_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4405","redisExpireTime":"2678400000","stage":100}
+# 线下活动-集团+听见参与展会活动
+universal.activity.config.activity-map.wxapp_2023_offline_group_exhibition_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4407","redisExpireTime":"2678400000","stage":100}
+# 线下活动-其他活动
+universal.activity.config.activity-map.wxapp_2023_offline_other_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4409","redisExpireTime":"2678400000","stage":100}
+# 会写备份运营活动一
+universal.activity.config.activity-map.wxapp_2023_backup_copy_one_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4411","redisExpireTime":"2678400000","stage":100}
+# 会写备份运营活动二
+universal.activity.config.activity-map.wxapp_2023_backup_copy_two_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4413","redisExpireTime":"2678400000","stage":100}
+# 会写备份运营活动三
+universal.activity.config.activity-map.wxapp_2023_backup_copy_three_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4415","redisExpireTime":"2678400000","stage":100}
+# 会写备份运营活动四
+universal.activity.config.activity-map.wxapp_2023_backup_copy_four_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4417","redisExpireTime":"2678400000","stage":100}
+# 会写备份运营活动五
+universal.activity.config.activity-map.wxapp_2023_backup_copy_five_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4419","redisExpireTime":"2678400000","stage":100}
+# 会写备份运营活动六
+universal.activity.config.activity-map.wxapp_2023_backup_copy_six_activity={"beginTime":"1689782400000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4421","redisExpireTime":"2678400000","stage":100}
+# 大广赛活动
+universal.activity.config.activity-map.wxapp_2024_dgs_newborn_activity={"beginTime":"171276480000","bizId":"tjwxapp","endTime":"1735660799000","paId":"4301","redisExpireTime":"47304000000","stage":100,"regFrom":"wx_activity_dgs20240412"}
+# 新注册用户活动列表
+universal.activity.config.new-born-activity=wxapp_2024_dgs_newborn_activity,wxapp_2023_cbgStoreHuizhan_new_born_activity,wxapp_2023_cbgStoreTranslate_new_born_activity,wxapp_2023_cbgStoreTranscript_new_born_activity,wxapp_20221123_translatewxapp_activity,wxapp_20220906_university_activity,wxapp_20220810_offline_convention_activity,wxapp_2022_c1_new_born_activity,h5_2022_douyin_new_born_activity,h5_2022_weibo_new_born_activity,h5_2022_redbook_new_born_activity,h5_2022_event1_new_born_activity,h5_2022_event2_new_born_activity,h5_2022_tongyong_new_born_activity,wxapp_2022_weichathomepage_new_born_activity,wxapp_2022_bilibili_new_born_activity,wxapp_2022_fans_only_new_born_activity,wxapp_2022_tiktok_new_born_activity,wxapp_2022_kuaishou_new_born_activity,wxapp_2022_wechat_new_born_activity,wxapp_2022_weibo_new_born_activity,wxapp_2023_cdDyhKms_new_born_activity
+universal.activity.config.zm-new-born-activity=wxapp_2022_zm_new_activity
+
+pipe.config.url-mapping.YYZX-InvoiceService=/v1/async/submitInvoice

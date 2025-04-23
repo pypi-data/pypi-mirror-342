@@ -1,0 +1,160 @@
+server:
+  context-path: /CATService
+  tomcat:
+    accesslog:
+      directory: ${logpath}/tjhz_catservice_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+      rename-on-rotate: true
+
+logging:
+  config: classpath:logback-spring.xml
+  path: ${logpath}/tjhz_catservice_logs
+  file: ${logpath}/tjhz_catservice_logs/tjhz_catservice.log
+  level:
+    root: INFO
+  service:
+    name: TJHZ_CATService
+
+spring:
+  application:
+    name: TJHZ-CATService
+  http:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  datasource:
+    url: jdbc:mariadb://172.31.203.9:3307/YYZX_Platform?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: tjkjpt
+    password: VcoNHoKzHV%pfS5H
+  redis:
+    sentinel:
+      master: s2
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    timeout: 2000
+    password: UIX*$MD78p
+    database: 1
+    pool:
+      max-idle: 1000
+      min-idle: 0
+      max-active: 1000
+      max-wait: 1000
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+datasource_show_sql: true
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka:  true
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+
+feign:
+  httpclient:
+    max-connections: 300
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  client:
+    config:
+      default:
+        connectTimeout: 60000
+        readTimeout: 60000
+
+external: external
+internal: internal
+
+day_expire: 25200
+week_expire: 604800
+
+# biz
+web_biz_id: xftjvt
+
+# feign service
+account_service_name: YYZX-AccountService
+role_service_name: TJPT-RoleService
+text_service_name: YYZX-TextStorageService
+
+# cssp
+fanyi_cssp_container: iflyrecfanyi_test.hfdn1.openstorage.cn/iflyrecfanyi01
+iflybox_base_dir: /data/UploadFiles/fanyi
+
+# import file
+import_file_dir: /data/xftjvt_catfiles/import/
+#import_file_dir: D:/data/xftjvt_catfiles/import/
+
+# es
+es:
+  result:
+    clusterName: yyzxcluster
+    #index: tjvtcatplatform
+    index: tjzmcatplatform 
+    urls: 172.31.243.167,172.31.243.175,172.31.243.174
+    #type: Terminology
+    type: translation
+  queryNum: 10
+  retrySaveTimes: 3
+  config:
+    username: elastic
+    password: xBslzHxtuoD-fJdL_zOh
+    urls: 172.31.203.7:9201,172.31.203.8:9201,172.31.203.9:9201
+    ca-path: http_ca_dev.crt
+
+# 术语库文件预解析对列相关
+maxPoolSizePreresolveFile: 5
+queueCapacityOfPoolPreresolveFile: 20
+
+#cbb翻译
+app_id: ZMzXjp
+access_key_id: z7467T5f6i
+access_key_secret: x9x760522P29h909Lzh6H3tt4s9T0Z21
+#cbb_translation_url: https://ai-test-integ-env.iflyrec.com/trans/v2/chapt_trans?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}
+#cbb_translation_text_url: https://ai-test-integ-env.iflyrec.com/trans/v2/translate?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}
+#cbb_translation_result_url: https://ai-test-integ-env.iflyrec.com/trans/v2/chapt_trans/query?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}
+
+#现网环境
+cbb_translation_url: https://api.iflyrec.com/trans/v2/chapt_trans?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}
+#cbb_translation_url: https://api.iflyrec.com/trans/v2/translate?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}
+cbb_translation_text_url: https://api.iflyrec.com/trans/v2/translate?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}
+cbb_translation_result_url: https://api.iflyrec.com/trans/v2/chapt_trans/query?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}
+
+# CBB公共字幕回调地址
+cbb_common_subtitle_translation_callback_url: http://dev-integ-env.k8s.iflyrec.com/CATService/v1/callback/commonSubtitleTranslations/{0}/translateComplete
+
+#中文文本标注
+#cn_punctuate_mark_api_url: http://172.31.98.71:8877/punc
+cn_punctuate_mark_api_url: http://172.31.96.60:8877/punc
+#cn_punctuate_mark_api_url: http://mock.iflytek.com/http/mock/XJ/TJPT_VideoTranslationService/http:/172.31.241.231:8877/punc
+cn_punctuate_mark_request_timeout: 60000
+cn_punctuate_mark_permit_quantity: 5
+cn_punctuate_mark_permit_acquire_timeout: 180000
+
+# 本地缓存相关
+local_cache_ttl: 30000
+local_cache_expire_check_period: 15000
+
+# 公共字幕翻译
+common_app_id: ZMzXjp
+common_access_key_id: z7467T5f6i
+common_access_key_secret: x9x760522P29h909Lzh6H3tt4s9T0Z21
+common_subtitle_translate_biz_primits: xftjhiseels
+common_subtitle_translate_response_biz_interval: 5000,20000,60000,600000
+
+
+#mq
+rabbitmq:
+   username: recinbox
+   password: recinbox
+   host: 172.31.203.8
+   port: 5672
+   exchange: center
+   process_thread_pool_size: 1
+   delTerminologysQueueName: TJHZ_CATSERVICE_DEL_TERMINOLOGYS.MQ
+   delTerminologysRoutingKey: TJHZ_CATSERVICE_DEL_TERMINOLOGYS.MQ
+
+deleteTerminologyContent_pageSize: 2
+deleteTerminologyContent_sleep: 0
+
+opennlp-model-path: /usr/server/tools/opennlp/

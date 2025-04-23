@@ -1,0 +1,451 @@
+[
+	{
+		"custom-sensitive-headers": true,
+		"path": "/VideoTranslationService/**",
+		"service-id": "TJPT-VideoTranslationService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/AudioStreamService/**",
+		"service-id": "YYZX-AudioStreamService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TranscriptOrderService/**",
+		"service-id": "YYZX-TranscriptOrderService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/AccountService/**",
+		"service-id": "YYZX-AccountService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/PromotionService/**",
+		"service-id": "YYZX-PromotionService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/StoreOrderService/**",
+		"service-id": "YYZX-StoreOrderService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/QuotaService/**",
+		"service-id": "YYZX-QuotaService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/NoticeService/**"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/WeiXinService/**",
+		"service-id": "YYZX-WeiXinService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TranslationService/**",
+		"service-id": "YYZX-TranslationService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/NewPromotionService/**",
+		"service-id": "YYZX-NewPromotionService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/ParrotRecorderAdaptService/**",
+		"service-id": "YYZX-ParrotRecorderAdaptService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/RoleService/**",
+		"service-id": "TJPT-RoleService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/CloudStreamService/**",
+		"service-id": "TJPT-CloudStreamService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/CloudSpaceService/**",
+		"service-id": "TJPT-CloudSpaceService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/RealTimeTranscriptOrderService/**",
+		"service-id": "TJPT-RealTimeTranscriptOrderService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/MSeriesRealTimeTranscriptOrderService/**",
+		"service-id": "TJPT-MSeriesRealTimeTranscriptOrderService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/UniversalOrderService/**",
+		"service-id": "TJPT-UniversalOrderService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/CheckstandService/**",
+		"service-id": "TJPT-CheckstandService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/MiscService/**",
+		"service-id": "YYZX-MiscService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/ConfigService/**",
+		"service-id": "YYZX-ConfigService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/ShareAudioService/**",
+		"service-id": "YYZX-ShareAudioService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TranscriptPreviewService/**",
+		"service-id": "YYZX-TranscriptPreviewService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/MSeriesAdaptService/**",
+		"service-id": "TJPT-MSeriesAdaptService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/UpdateService/**",
+		"service-id": "YYZX-UpdateService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TranslationOrderService/**",
+		"service-id": "YYZX-TranslationOrderService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/XFTJAppAdaptService/**",
+		"service-id": "TJPT-XFTJAppAdaptService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/L1_mtp/**",
+		"service-id": "TJCM-MeetingService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/XFTJWebAdaptService/**",
+		"service-id": "TJPT-XFTJWebAdaptService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TJL1UserPortal/**",
+		"service-id": "TJL1-UserPortal"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/HiseelsBasicService/**",
+		"service-id": "TJMT-HiseeLSBasicServer"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/MediaStreamService/**",
+		"service-id": "TJPT-MediaStreamService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TranscriptProcessService/**",
+		"service-id": "TJPT-TranscriptProcessService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/exhibition/**",
+		"service-id": "TJHZ-ExhibitionService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/IflyrecClientService/**",
+		"service-id": "TJZQ-IflyrecClientService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/CrossCooperationService/**",
+		"service-id": "TJPT-CrossCooperationService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/ReporterApplicationService/**",
+		"service-id": "TJPT-ReporterApplicationService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/InvoiceService/**",
+		"service-id": "YYZX-InvoiceService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/SubtitleService/**",
+		"service-id": "TJPT-SubtitleService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/operationCenter/**",
+		"service-id": "TJHZ-ExhibitionOperationCenterService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TJHZRealtimeTranscriptProcessService/**",
+		"service-id": "TJHZ-RealtimeTranscriptProcessService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/QuotaCouponConvertService/**",
+		"service-id": "TJPT-QuotaCouponConvertService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TJHZOnlineManagementService/**",
+		"service-id": "TJHZ-OnlineManagementService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TJL1Mall/**",
+		"service-id": "TJL1-Mall"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/XFTJPCAdaptService/**",
+		"service-id": "TJPT-XFTJPCAdaptService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/ZimuAdaptService/**",
+		"service-id": "TJPT-ZimuAdaptService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/CATService/**",
+		"service-id": "TJHZ-CATService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/tjcmMall/**",
+		"service-id": "TJCM-MallService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/tjcmLog/**",
+		"service-id": "TJCM-LogService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/tjcmSummary/**",
+		"service-id": "TJCM-SummaryService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/tjcmUser/**",
+		"service-id": "TJCM-UserService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/SmartScreenService/**",
+		"service-id": "TJDP-SmartScreenService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/SubtitleOrderService/**",
+		"service-id": "TJHZ-SubtitleOrderService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/SubtitleConfigurationService/**",
+		"service-id": "TJHZ-SubtitleConfigurationService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/userFeedbackService/**",
+		"service-id": "TJHZ-UserFeedbackService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/tjcmEnterprise/**",
+		"service-id": "TJCM-EnterpriseService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TranscriptApiService/**",
+		"service-id": "TJPT-TranscriptApiService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/ShareService/**",
+		"service-id": "TJZT-ShareService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TeamTaskService/**",
+		"service-id": "TJHZ-TeamTaskService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/NewsCenterService/**",
+		"service-id": "TJZT-NewsCenterService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/ZtAdaptService/**",
+		"service-id": "TJZT-ZtAdaptService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/LiveSupervisoryPlatformService/**",
+		"service-id": "TJHZ-LiveSupervisoryPlatformService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/KNAppService/**",
+		"service-id": "TJHZ-KNAppService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/HyjyService/**",
+		"service-id": "TJZT-HyjyService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/ApplePayService/**",
+		"service-id": "TJZT-ApplePayService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/XFTJHMAdaptService/**",
+		"service-id": "TJPT-XFTJHMAdpatService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/LingYangAdaptService/**",
+		"service-id": "TJPT-LingYangAdaptService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/exhibitionRDG/**",
+		"service-id": "TJHZ-ExhibitionService-RDG"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/operationCenterRDG/**",
+		"service-id": "TJHZ-ExhibitionOperationCenterService-RDG"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/MediaStreamService_V2/**",
+		"service-id": "TJPT-MediaStreamService-V2"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/ManualOrderAdaptService/**",
+		"service-id": "TJPT-ManualOrderAdaptService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/ManualOrderPlatform/**",
+		"service-id": "TJZT-ManualOrderPlatform"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/AssistCreationService/**",
+		"service-id": "TJZT-AssistCreationService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/HXAdaptService/**",
+		"service-id": "TJPT-HXAdaptService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/HXV2AdaptService/**",
+		"service-id": "TJPT-HXV2AdaptService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/HXFSSZXService/**",
+		"service-id": "TJPT-HXFSSZXSERVICE"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/IflytekStaffService/**",
+		"service-id": "TJPT-IflytekStaffService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/AIGenerateContent/**",
+		"service-id": "TJCM-AIGenerateContentService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/CMGSubtitleOrderService/**",
+		"service-id": "TJHZ-CMGSubtitleOrderService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/CorpService/**",
+		"service-id": "TJPT-CorpService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/share/**",
+		"service-id": "TJZQ-WhiteboardShare"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TJHZTranslationService/**",
+		"service-id": "TJHZ-TranslationService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/CMGSubtitleBasicService/**",
+		"service-id": "TJHZ-CMGSubtitleBasicService-R"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/SpeechSynthesisService/**",
+		"service-id": "TJMT-SpeechSynthesisService-r"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/ReportService/**",
+		"service-id": "YYZX-ReportService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/XueXiAdapterService/**",
+		"service-id": "TJHZ-XueXiAdapterService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/XueXiQAService/**",
+		"service-id": "TJHZ-XueXiQAService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/SpeechSynthesisService/**",
+		"service-id": "TJHZ-SpeechSynthesisService-Sass"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"url": "http://172.31.114.229:5051",
+		"path": "/iflyrec_assistant/**"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TJHZTCCloudAdapterService/**",
+		"service-id": "TJHZ-TCCloudAdapterService"
+	}
+]

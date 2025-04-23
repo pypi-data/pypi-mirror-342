@@ -1,0 +1,425 @@
+server:
+  port: 8511
+  tomcat:
+    basedir: /data/temp/tjhz_onlinemanagementservice
+    accesslog:
+      directory: /data/logs/${HOSTNAME}/tjhz_onlinemanagementservice
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+      rename-on-rotate: true
+  servlet:
+    context-path: /TJHZOnlineManagementService/
+tts:
+  client:
+    appid: 5f154dc5
+    apiSecret: bef92eaec4ca3af4d989a87d7ee61c11
+    apiKey: 224688865e1bc136ed8e30a6b63a3612
+    hostUrl: https://tts-api.xfyun.cn/v2/tts
+    ##音高
+    pitch: 50
+    ##语速
+    speed: 50
+    ##固定加速策略下合成速度
+    fixSpeed: 80
+    ##是否使用固定语速策略，0:动态调整1:固定加速策略
+    fixedSpeedStrategy: 1
+    ##音量
+    volume: 50
+    ##发音人
+    vcnfemale: x2_xiaozhang
+    vcnmale: x2_lindsay
+  speaker:
+    cn: x2_xiaoxuan
+    en: x2_lindsay
+    fr: mariane
+    ru: allabent
+    ja: qianhui
+    ko: zhimin
+    es: gabriela
+    de: leonie
+    ar: ahmed
+  cbb:
+    apiKey: "470e47"
+    accessKeyId: "MUdtw7H9Kx"
+    access-key-secret: "qjFm96461Gg6685N6pp7f0y2a2Wiz6d8"
+    hostUrl: wss://api.iflyrec.com/tts
+    speaker:
+      cn: lingfeibo
+      en: EnUs_Gavin_assist
+      fr: Lisa
+      ru: Keshu
+      ja: ZhongCun
+      ko: Miya
+      es: Aurora
+      de: Christiane
+      ar: Rania
+      ed: yezi
+      cn_cantonese: xiaoyue
+      cn_uyghur: Dilare
+      cn_tibetan: YangJin
+      vi: ThuHien
+      th: suparut
+      it: Anna
+      id: Kris
+      pt: Pedro
+      tr: Ersoy
+      fa: Saheli
+      ms: x2_MsMy_Aishah
+      originalChannel: yezi
+    sound-subtitle-speaker:
+      cn: lingxiaoqi
+      en: Luna
+      fr: Lisa
+      ru: Keshu
+      ja: ZhongCun
+      ko: Miya
+      es: Aurora
+      de: Christiane
+      ar: Rania
+      ed: yezi
+      cn_cantonese: xiaoyue
+      cn_uyghur: Dilare
+      cn_tibetan: YangJin
+      vi: ThuHien
+      th: suparut
+      it: Anna
+      id: Kris
+      pt: Pedro
+      tr: Ersoy
+      fa: Saheli
+      ms: x2_MsMy_Aishah
+      originalChannel: yezi
+    config:
+      - lang: "cn"
+        voices:
+          - name: "聆小琪"
+            code: "lingxiaoqi"
+          - name: "聆玉菲"
+            code: "lingyufei"
+          - name: "聆飞泓"
+            code: "lingfeihong"
+      - lang: "en"
+        voices:
+          - name: "Luna"
+            code: "Luna"
+          - name: "Lucy"
+            code: "EnUs_Lucy_education"
+          - name: "Gavin"
+            code: "EnUs_Gavin_assist"
+      - lang: "ed"
+        voices:
+          - name: "叶子"
+            code: "yezi"
+  evn: cbb
+  default-speed:
+    cn:
+      min: 55
+      max: 55
+    en:
+      min: 71
+      max: 71
+    fr:
+      min: 70
+      max: 70
+    ru:
+      min: 70
+      max: 70
+    ja:
+      min: 70
+      max: 70
+    ko:
+      min: 60
+      max: 60
+    es:
+      min: 72
+      max: 72
+    de:
+      min: 75
+      max: 75
+    ar:
+      min: 75
+      max: 75
+    cn_cantonese:
+      min: 55
+      max: 55
+    cn_uyghur:
+      min: 75
+      max: 75
+    cn_tibetan:
+      min: 75
+      max: 75
+    vi:
+      min: 75
+      max: 75
+    th:
+      min: 75
+      max: 75
+    it:
+      min: 75
+      max: 75
+eureka:
+  instance:
+    #instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    instance-id: ${REAL_IP}:${spring.application.name}:${server.port}
+    prefer-ip-address: true
+    ip-address: {REAL_IP}
+  client:
+    service-url:
+      defaultZone: http://admin:6!ljMm9yk@172.30.32.110:6001/eureka/,http://admin:6!ljMm9yk@172.30.32.189:6001/eureka/
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 15000
+spring:
+  application:
+    name: TJHZ-OnlineManagementService
+  datasource:
+    url: jdbc:mariadb://172.31.236.75:3307/TJHZ_OnlineManagementService?characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: tjhz_test
+    password: wstsaml125#67*89
+    driverClassName: org.mariadb.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      idle-timeout: 30000
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+  redis:
+    timeout: 2000
+    password: UIX*$MD12p
+    #password: UIX*$MD78p
+    jedis:
+      pool:
+        max-active: 32
+        min-idle: 0
+        max-idle: 8
+        max-wait: -1
+    sentinel:
+      master: TJHZ_TEST
+      nodes: 172.31.243.167:26380,172.31.243.174:26380,172.31.243.175:26380
+    database: 2
+
+#用户注销MQ
+  rabbitmq:
+    username: recinbox
+    password: recinbox
+    # 多点需保证username,password,port均一致，url中用英文逗号分隔多点ip
+    host: 172.31.243.227
+    port: 5672
+    userCancelExchange: ACCOUNTSERVICE_EXCHANGE_LOGOFF
+    userCancelQueueName: TJHZTC_MINI_PROARAM_USER_CANCEL_QUEUE_TEST
+    virtual-host: /
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 2
+          initial-interval: 3000
+        concurrency: 10
+        max-concurrency: 10
+        acknowledge-mode: manual
+
+
+mybatis:
+  type-aliases-package: com.iflyrec.management.mapper.db
+  mapper-locations: classpath:mapper/*.xml
+  ##config-location: classpath:mybatis-config.xml
+
+logging:
+  config: classpath:logback-k8s.xml
+  level:
+    com.iflyrec.center.mapper: debug
+
+
+netty:
+  port: 8308
+rsa:
+  publicKey: 305C300D06092A864886F70D0101010500034B00304802410081C1BE11DDB86276E3DA9428D3A11A8BBCF44A33543E142EF02AE77DCB567F6C50075DE67471FA2F3159F3CF68EE4EB758AB9F817BEF435F33E58FCDC2680A1F0203010001
+  privateKe: 30820154020100300D06092A864886F70D01010105000482013E3082013A02010002410081C1BE11DDB86276E3DA9428D3A11A8BBCF44A33543E142EF02AE77DCB567F6C50075DE67471FA2F3159F3CF68EE4EB758AB9F817BEF435F33E58FCDC2680A1F020301000102405126F6D4FDB280029366F51AC3A112952ACC2E4C03F7FF6F8BCD89926745E5D2CE10B73D0ABC7BC528316A1ED97A5F4AB04E168344C99D334DBBD8A45EF7D3A1022100F4D161DC95BDE75660EBC03F0C2EEEB0A934E707AFC84FDFAD99D664E1F9D67D02210087AEF7FAF7C073122674A1EFD31582EBAE6F4212BF4E2FD9E4FC83785E57D9CB022100C3525630866BA7A91BD49B61F1D773EA1065BBB93F3EA2B343AF0C051AE198850220164A09F6B2686CFED84E64A3CF1B438C8FF53AF77571D4AE88CD6A93857C0D0D02205BB5AE3A6DBD9C999DD070599922B0A771BE0B2937C82193F436454748CB0262
+ffmpeg:
+  audioQuality: 0
+  audioBitrate: 256000
+  sampleRate: 16000
+  audioChannels: 1
+  frameRate: 28
+  ##桥接流每次读取多少长度字节
+  readLength: 1280
+  callBackUrl: http://${spring.cloud.client.ip-address}:${server.port}/TJHZOnlineManagementService/live/shutDownLive?codeId=%s&nodeId=%s
+  # callBackUrl: http://${spring.cloud.client.ip-address}:${server.port}/TJHZOnlineManagementService/live/shutDownLive?coldId=%s
+  audioByte: 32
+  logPath: /data/logs/tjhz_onlinemanagementservice/
+live:
+  appId: abc
+  appAuthKey: test
+  switch: "1"
+  noticeKey: "c98be502f1fb447aaedb961d50942"
+
+tj_cssp_contaniner: iflyrechuizhan_test.hfdn3.openstorage.cn/iflyrecchuizhan01
+
+
+weChat:
+  # url: https://huizhan.iflyrec.com/?liveCodeNo=%s
+  url: https://tongchuan.iflyrec.com/?liveCodeNo=%s
+  appid: wxd826ae94c8a7e52a
+  secret: 27af5f121ef88b54825254db655a0fda
+  getUserIdUrl: https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code
+
+rabbitmq:
+  host: 172.31.243.227
+  username: recinbox
+  password: recinbox
+  port: 5672
+  vhost: "/"
+  exchange:
+    name: TJHZ-Message-distribution-exchange-dev
+
+#simpleRestTemplate超时时间设置
+custom:
+  simple:
+    rest:
+      connection:
+        connection_request_timeout: 3000
+        connect_timeout: 3000
+        read_timeout: 30000
+#zk环境配置
+zookeeper:
+  serverUrl: 172.31.132.38:2181
+  rootPath: /opt/service/TJHZOnlineManagementService
+
+share:
+  groupId: "tjtc"
+  unitId: "tjtc:windows:manual_tongchuan"
+
+H5:
+  URL: https://live-test-integ-env.iflyrec.com/tongchuan/live/main.html?liveCodeNo=%s
+
+app:
+  environment: "dev"
+
+#评论内容内网nginx（查看、封禁、解封）地址
+ugc:
+  nginxip: "172.31.132.38"
+  host: "tongchuan-test-integ-env.iflyrec.com/"
+  comment:
+    url: "http://36.110.221.44/integ/TJHZOnlineManagementService/user/comment/%s"
+    forbidUrl: "http://${ugc.nginxip}/TJHZOnlineManagementService/callBack/comment/forbid/%s/%s"
+    freeUrl: "http://${ugc.nginxip}/TJHZOnlineManagementService/callBack/comment/free/%s"
+    updateThreshold: 1
+  live:
+    forbidUrl: "http://${ugc.nginxip}/TJHZOnlineManagementService/callBack/live/forbid/%s/%s/%s"
+    liveDesc: "http://36.110.221.44/integ/TJHZOnlineManagementService/live/LiveDetailText/%s"
+    freeUrl: "http://${ugc.nginxip}/TJHZOnlineManagementService/callBack/live/free/%s/%s/%s"
+    updateThreshold: 1
+  img:
+    url: "http://36.110.221.44/integ/TJHZOnlineManagementService/getImage/%s"
+
+
+maxSpeed:
+  cn: 65
+  en: 65
+
+minSpeed: 50
+
+soundSubtitleShare:
+  callBackUrl: http://${spring.cloud.client.ip-address}:${server.port}/TJHZOnlineManagementService/soundShare/shutDown?codeId=%s&nodeId=%s
+  speed:
+    cn: 1.1
+    en: 1.1
+    ru: 1.1
+    ja: 1.1
+    ar: 1.1
+    fr: 1.1
+    ko: 1.1
+    de: 1.1
+    es: 1.1
+    ed: 1.1
+    cn_cantonese: 1.1
+    cn_uyghur: 1.2
+    cn_tibetan: 1.1
+    vi: 1.2
+    th: 1.2
+    it: 1.2
+
+  audit:
+    enable: 1
+    shareDesc: "http://36.110.221.44/integ/TJHZOnlineManagementService/soundShare/DetailText/%s"
+    forbidUrl: "http://${ugc.nginxip}/TJHZOnlineManagementService/callBack/share/forbid/%s/%s"
+    freeUrl: "http://${ugc.nginxip}/TJHZOnlineManagementService/callBack/share/free/%s/%s"
+    rate: 60000
+    resultReceiveMail: xkli12@iflytek.com,chaoqian7@iflytek.com
+
+
+language:
+  nameAndCode: '[{"code":"ed","zh":"中英混合","en":"Chinese-English"},{"code":"cn","zh":"中文","en":"Chinese"},{"code":"en","zh":"英文","en":"English"},{"code":"ja","zh":"日语","en":"Japanese"},{"code":"ko","zh":"韩语","en":"Korean"},{"code":"ru","zh":"俄语","en":"Russian"},{"code":"fr","zh":"法语","en":"French"},{"code":"de","zh":"德语","en":"German"},{"code":"ar","zh":"阿拉伯语","en":"Arabic"},{"code":"es","zh":"西班牙语","en":"Spanish"},{"code":"vi","zh":"越南语","en":"Vietnam"},{"code":"th","zh":"泰语","en":"Thailand"},{"code":"it","zh":"意大利语","en":"Italy"},{"code":"cn_cantonese","zh":"粤语","en":"Cantonese"},{"code":"pt","zh":"葡萄牙语","en":"Portuguese"},{"code":"fa","zh":"波斯语","en":"Farsi"},{"code":"tr","zh":"土耳其语","en":"Turkish"},{"code":"cn_uyghur","zh":"维吾尔语","en":"Uyghur"},{"code":"cn_tibetan","zh":"藏语","en":"Tibetan"},{"code":"id","zh":"印尼语","en":"Indonesian"},{"code":"ms","zh":"马来语","en":"Malay"}]'
+
+setting:
+  translateLanguage:
+    - type: 13
+      name: 中英(混合翻译)
+      speed: 1.1
+    - type: 1
+      name: 中文
+      speed: 1.1
+    - type: 2
+      name: 英文
+      speed: 1.1
+    - type: 4
+      name: 日语
+      speed: 1.2
+    - type: 7
+      name: 韩语
+      speed: 1.1
+    - type: 3
+      name: 俄语
+      speed: 1.2
+    - type: 6
+      name: 法语
+      speed: 1.2
+    - type: 8
+      name: 德语
+      speed: 1.2
+    - type: 9
+      name: 西班牙语
+      speed: 1.2
+    - type: 5
+      name: 阿拉伯语
+      speed: 1.2
+    - type: 15
+      name: 粤语
+      speed: 1.1
+    - type: 16
+      name: 维吾尔语
+      speed: 1.2
+    - type: 17
+      name: 藏语
+      speed: 1.1
+    - type: 18
+      name: 越南语
+      speed: 1.2
+    - type: 19
+      name: 泰语
+      speed: 1.2
+    - type: 20
+      name: 意大利语
+      speed: 1.2
+    - type: 21
+      name: 印尼语
+      speed: 1.2
+    - type: 22
+      name: 葡萄牙语
+      speed: 1.2
+    - type: 23
+      name: 土耳其语
+      speed: 1.2
+    - type: 24
+      name: 波斯语
+      speed: 1.2
+    - type: 25
+      name: 马来语
+      speed: 1.2

@@ -1,0 +1,23 @@
+
+#eureka config
+eureka.client.enabled=true
+eureka.client.register-with-eureka=true
+eureka.client.serviceUrl.defaultZone=http://devInteg:123456@172.31.241.185:8600/eureka/
+eureka.instance.prefer-ip-address=true
+
+#redis哨兵模式
+spring.redis.sentinel.master=s1
+spring.redis.sentinel.nodes=172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+spring.redis.database=3
+spring.redis.password=UIX*$MD78p
+spring.redis.pool.max-idle=1000
+spring.redis.pool.min-idle=5
+spring.redis.pool.max-active=1000
+spring.redis.pool.max-wait=-1
+spring.redis.timeout=2000
+
+mongodb.connection-string=mongodb://tjdevinteg:aMbcpbBGCc5Yhm@172.16.154.131:33001,172.16.154.132:33001,172.31.96.236:33001/TJZT_devinteg
+mongodb.database=TJZT_devinteg
+mongodb.collection=TextGenerateHistory
+mongodb.promptTemplates-collection=PromptTemplateDefinitions
+mongodb.regularityResult-collection=ACSRegularityResult

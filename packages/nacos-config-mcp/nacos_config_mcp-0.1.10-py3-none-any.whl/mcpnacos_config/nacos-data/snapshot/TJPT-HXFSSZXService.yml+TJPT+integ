@@ -1,0 +1,263 @@
+server:
+  port: 8757
+  context-path: /HXFSSZXService
+  tomcat:
+    accesslog:
+      directory: /data/logs/tjpt_hxfsszxserivce_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+      rename-on-rotate: true
+
+#logger
+logging:
+  path: /data/logs/tjpt_hxfsszxserivce_logs
+  file: /data/logs/tjpt_hxfsszxserivce_logs/tjpt_hxfsszxserivce.log
+  level:
+    root: INFO
+  service:
+    name: TJPT_HXFSSZXService
+  config: classpath:logback-spring.xml
+
+# Eureka
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    healthcheck:
+      enable: true
+    serviceUrl:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+  instance:
+    prefer-ip-address: true
+
+#Feign
+feign:
+  okhttp:
+    enabled: false
+  httpclient:
+    enabled: true
+    max-connections: 300
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  client:
+    config:
+      default:
+        connectTimeout: 60000
+        readTimeout: 60000
+        loggerLevel: FULL
+
+#Ribbon
+ribbon:
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 3
+  OkToRetryOnAllOperations: false
+  ServerListRefreshInterval: 3000
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
+
+#Request Log
+requestlog:
+  request:
+    maxSize: 1500
+  response:
+    maxSize: 1500
+    open: true
+  open: true
+
+
+spring:
+  ##HYJY DB Config
+  datasource:
+    HXv2DB:
+      url: jdbc:mysql://172.31.203.9:3307/TJPT_HXFSSZX?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: tjptdev
+      password: VcoNHoKzHV%pfS5H
+  #Redis Pool
+  redis:
+    password: UIX*$MD78p
+    database: 0
+    sentinel:
+      master: s2
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    pool:
+      max-active: 3000
+      min-idle: 10
+      max-idle: 1000
+      max-wait: 1000
+
+text_service_name: YYZX-TextStorageService
+transcode_service_name: YYZX-TranscodeService
+media_stream_service_name: TJPT-MediaStreamService
+assist_createion_service_name: TJZT-AssistCreationService
+hxv2service_service_name: TJPT-HXV2Service
+role_service_name: TJPT-RoleService
+virtual_product_service_name: TJPT-VirtualProductService
+misc_service_name: YYZX-MiscService
+
+
+order:
+  prefix:
+    order-from-prefixes:
+      2: PW-
+      10: PP-
+      12: PP-
+      15: PWX-
+      18: PWXPAD-
+      19: PWXPC-
+      20: PWAS-
+      25: PHJ-
+      30: PHX-
+
+point_block_time: 20000
+point_block_count: 1000
+point_sample_rate: 16000
+
+datasource_show_sql: true
+
+## Cssp
+tj_cssp_contaniner: recinbox_test.hfdn3.openstorage.cn/tjwebtest
+tj_hj_cssp_contaniner: recinbox_test.hfdn3.openstorage.cn/tjpt_hj_devinteg
+
+##Local File
+temp:
+  file:
+    path: /data/temp/hxservice/
+
+
+transcript_send_to_apiservice: https://api.iflyrec.com/v2/upload
+transcript_result_apiservice: https://api.iflyrec.com/v2/getResult
+convert_callback_url_outLink: http://huidiao-dev-integ-env.iflyrec.com/HXFSSZXService/v2/audios/{0}/outLinkTranscodingComplete
+real_time_transcript_timeout_callback_url: http://huidiao-dev-integ-env.iflyrec.com/HXFSSZXService/v1/rttIds/{0}/timeout
+chapter_summary_callback_url: http://huidiao-dev-integ-env.iflyrec.com/HXFSSZXService/v2/hj/chapterSummaryCallBack
+
+##ES Config
+es:
+  result:
+    index: tjpt_hxv2_service
+    type: transcriptresult
+
+#index: yyzxplatform
+#type: TranscriptResult
+
+
+convert_audio_process_format: mp3,point
+                                                                                                                  
+hyjy_free_transcript_time: 2678400
+
+out_link_validity: 86400000
+           
+rate-limit:
+  global:
+    enabled: true
+    redisKeyPrefix: "HXFSS:"
+    ipWhiteList:
+    ipBlackList:
+    userIdWhiteList:
+    userIdBlackList:
+    guestIdBlackList:
+    ipPeriodLimit: 1000
+    userIdPeriodLimit: 1000
+    guestIdPeriodLimit: 1000
+    periodSeconds: 1
+
+                                              
+
+hj:
+  prompt:
+    helper:
+      paradigm:
+        req-text-max-length: 11000
+        mapping:
+          ABSTRACT: 根据您《%s》，摘要如下：
+          ASK_QUESTION: 根据您《%s》，答案如下：
+          SEMANTIC_SEARCH: 根据您《%s》，搜索结果如下：
+          TODO: 根据您《%s》，待办如下：
+          WORK_PLAN: 根据您《%s》，工作计划如下：
+          WORK_SUMMARY: 根据您《%s》，总结如下：
+
+upload_audio_format: mp3,wav,m4a,pcm,amr,wma,mp4,3gp,aac,lyb,pdf,doc,docx
+
+accesskeysecret: 8078u72k8Z8qs85216Y7371k27eL178W
+accesskeyid: 6075Lws182
+fast_accesskeysecret: 8078u72k8Z8qs85216Y7371k27eL178W
+fast_accesskeyid: 6075Lws182
+                                                                                                                        
+apiservice_timed_out: 10000
+
+file:
+  link:
+    config:
+      callback-url: http://huidiao-dev-integ-env.iflyrec.com/HXFSSZXService/file/v1/uploadCallback
+      base-dir: /Media/UploadFiles/
+      valid-format-map:
+        Audio: mp3,m4a,pcm,wav,amr,wma,aac
+        Video: mp4,3gp,mov,mpg,m4v
+        Image: jpg,jpeg,png,bmp
+        PPT: ppt,pptx
+        PDF: pdf
+        Word: doc,docx
+        Txt: txt
+      redis-file-validity: 864000
+      container: recinbox_test.hfdn3.openstorage.cn/tjpt_hj_devinteg
+
+
+general:
+  config:
+    geetest-apiurl: http://api.geetest.com
+    captcha-seckey: IFLYREC#Y+Ew58*-R1Svh
+    biz-geetest-param:
+      huixie: id:980793392dfc9cc759bbee0fa691f7de,key:d877281900b156f2c409ccf40864495f
+      huiji: id:980793392dfc9cc759bbee0fa691f7de,key:d877281900b156f2c409ccf40864495f
+    action-types:
+      - cardBind
+      - hardwareRights
+    wordMaxSize: 10737418240
+    audioVideoSize: 2147483648
+    audioVideoDuration: 18000000
+    wordMaxCharLength: 500000
+    pdfMaxSize: 10485760
+    pptMaxSize: 104857600
+    imageMaxSize: 104857600
+
+encrypt:
+  rsa:
+    config:
+      privateKey: MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBALSJuSdRWcQkfoz+2iz3nymj+6am1KPYO3Jpcu79TFwFGEAEvpUetmQ9Gs/LsH0YB6Ky6md3IaVJMvryE2BC02H9/P8hhnZTAMYhug2DFg8wGo6ngH7/D1Kb5Q7sfBsI+/4emtdjQbUEGieNSo+OCinm9A61325iVxT3+uJfkaHrAgMBAAECgYBZTa761fDTZ0H6OK5vg+WFUYpPu0J/8ZwmUib6NO2qrxJ5yF8FoHWUS+2RUC5zEonkXyA4IePQwM6o90nCWgv5HQWgivdlJr2qynd2taGggrxAFfhi3eD95O5kjD309o+fe7mK78Poi/bH4NmF56FsEUtyrJdAoNdhswomvS+2QQJBAPB+eCZYE8784rKuG0vpSCP150D5+hW6J/2Msxg0iNARgLtnVqR3lZQ8cb7rkC8hyYiHYizXjgeMIhqEzOjDePsCQQDALaKpr6vMH2unQSFJssEbLDp4OfnwzeElmZ9TkqEMa6Z42KL1uqiG+kApbSygWKf80sPAb4VRrgKny6PZdwfRAkEAhjzBif2dyOqlC0FdoSisiM4Ib99YdWo8Si2QBhHE0AcFCRXsac8KIfz/LKdGCtjcKiYPaaJD9/iDTLQVwFLjowJBAI8U6xjfXE97zVEXossWNcQfZ+D/eWGaR1kRSZiVgSaYN7edw6aktLjaNU8io6k2mMwZt/jcjyxDHGMFsRZGEyECQQDVFHGWXTmH042k+GmTa3w0aaPWF73CMSqiu0q5TkJytH+6isEKSjd2GqjUYPkilTOz/YV95ocXlN7Ecao6PNFk
+engine_mark_callback_url_fromapi: http://huidiao-dev-integ-env.iflyrec.com/HXFSSZXService/v2/audios/{0}/aiTranscriptCompleteFromApi
+
+iflyrec:
+  rabbitmq:
+    host: 172.31.203.7
+    username: recinbox
+    password: recinbox
+    senders:
+      fssHxSync:
+        exchange: FSS_HX_SYNC.exchange
+    receivers:
+      fssresult_delete:
+        exchange: HUIXIE_DELETE_EXCHANGE
+        queue: HUIXIE_DELETE_QUEUETEST
+      sucai_delete:
+        exchange: SUCAI_DELETE_EXCHANGE
+        queue: FSS_SUCAI_DELETE_QUEUE
+
+spring.sleuth.trace-id128: true
+
+pdf-global:
+  pythonServerHost: http://dev-integ-env.k8s.iflyrec.com
+
+ocr-config:
+  ocrUrl: https://api.iflyrec.com/ocr/v1/recognize?appId=%s&accessKeyId=%s&utc=%s&uuid=%s&signature=%s
+  appId: 657752
+  accessKeyId: 06tKz2r0OE
+  accessKeySecret: U0ku702QqPg98e21lN3sHRkDz6Iu106v
+  ocrTimeout: 60000
+
+ppt-config:
+  pptTimeout: 3600000
+  maxImages: 1000
+
+pdf-local:
+  needOcr: false
+
+old_feign_cluster_host: http://huidiao-dev-integ-env.iflyrec.com

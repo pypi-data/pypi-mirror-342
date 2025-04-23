@@ -1,0 +1,105 @@
+# TJPT_ManualTranscriptProcessService
+###################################### \u57FA\u672C\u914D\u7F6E ######################################
+server.port=8665
+server.context-path=/ManualTranscriptProcessService
+server.tomcat.accesslog.directory=/data/logs/tjpt_manualtranscriptprocessservice_logs
+server.tomcat.accesslog.enabled=true
+server.tomcat.accesslog.pattern=%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b
+server.tomcat.accesslog.rename-on-rotate=true
+
+logging.path=/data/logs/tjpt_manualtranscriptprocessservice_logs
+logging.file=/data/logs/tjpt_manualtranscriptprocessservice_logs/tjpt_manualtranscriptprocessservice.log
+logging.service.name=TJPT_ManualTranscriptProcessService
+logging.level.root=INFO
+logging.config=classpath:logback-spring.xml
+
+management.port=18665
+management.context-path=/ManualTranscriptProcessService
+
+swagger_show=true
+
+###################################### \u7EC4\u4EF6\u914D\u7F6E ######################################
+# mysql
+datasource_url=jdbc:mariadb://172.31.203.9:3307/YYZX_Platform?useUnicode=true&characterEncoding=UTF-8
+datasource_user=tjkjpt
+datasource_password=VcoNHoKzHV%pfS5H
+datasource_show_sql=false
+
+# redis
+spring.redis.sentinel.master=s1
+spring.redis.sentinel.nodes=172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+spring.redis.timeout=2000
+spring.redis.password=UIX*$MD78p
+spring.redis.database=1
+spring.redis.pool.max-idle=1000
+spring.redis.pool.min-idle=0
+spring.redis.pool.max-active=1000
+spring.redis.pool.max-wait=-1
+
+###################################### \u5FAE\u670D\u52A1\u914D\u7F6E ######################################
+spring.application.name=TJPT-ManualTranscriptProcessService
+#eureka.client.enabled=true
+#eureka.client.register-with-eureka=true
+#eureka.client.healthcheck.enable=true
+#eureka.client.serviceUrl.defaultZone=http://devInteg:123456@172.31.241.185:8600/eureka/
+#eureka.instance.prefer-ip-address=true
+#eureka.instance.ip-address=192.168.59.35
+#spring.cloud.nacos.discovery.enabled=true
+#spring.cloud.nacos.discovery.server-addr: test-integ-env.iflyrec.com:80
+#spring.cloud.nacos.discovery.username: writable
+#spring.cloud.nacos.discovery.password: iZov31kHgEOFvQU7
+#spring.cloud.nacos.discovery.namespace: integ
+#spring.cloud.nacos.discovery.service: TJPT-ManualTranscriptProcessService
+
+feign.okhttp.enabled=false
+feign.httpclient.enabled=true
+feign.httpclient.max-connections=300
+feign.httpclient.max-connections-per-route=100
+feign.httpclient.connection-timeout=2000
+feign.client.config.default.connectTimeout=20000
+feign.client.config.default.readTimeout=20000
+feign.client.config.default.loggerLevel=FULL
+
+
+ribbon.MaxAutoRetries=0
+ribbon.MaxAutoRetriesNextServer=0
+ribbon.OkToRetryOnAllOperations=false
+ribbon.ServerListRefreshInterval=3000
+ribbon.ConnectTimeout=20000
+ribbon.ReadTimeout=20000
+
+#feign invoice service
+media_stream_service_name=TJPT-MediaStreamService
+transcode_service_name=YYZX-TranscodeService
+text_service_name=YYZX-TextStorageService
+markplatformadapt_service_name=YYZX-MarkPlatformAdaptService
+
+#callback
+media_trancode_callback_url=http://dev-integ-env.iflyrec.com/ManualTranscriptProcessService/v1/manualTranscriptProcess/{0}/media/{1}/transcodeCallback
+media_transcript_callback_url=http://dev-integ-env.iflyrec.com/ManualTranscriptProcessService/v1/manualTranscriptProcess/{0}/transcriptCallback
+estimate_callback_url=http://dev-integ-env.iflyrec.com/ManualTranscriptProcessService/v1/manualTranscriptProcess/{0}/estimateCallback
+media_transcode_callbackMp4=http://dev-integ-env.iflyrec.com/ManualTranscriptProcessService/v1/media/{0}/transcodeCallbackMp4
+#limit
+# \u5355\u6B21\u4E0A\u4F20\u97F3\u9891\u65F6\u957F\u9650\u5236\uFF0C\u5355\u4F4Dms
+media_Duration_Limit=18000000
+
+# ElasticSearch
+es.result.index=yyzxplatform
+es.result.type=TranscriptResult
+
+#HTTPClient\u8BF7\u6C42\u7684\u8D85\u65F6\u65F6\u95F4\u8BBE\u7F6E
+httpclient_connect_timeout=2000
+httpclient_connection_request_timeout=2000
+httpclient_socket_timeout=30000
+
+# cssp container config
+#zimu_cssp_container=iflyrecmeiti_test.hfdn.openstorage.cn/iflyrecmeiti01
+zimu_cssp_container=iflyrectjpt_test.hfdn4.openstorage.cn/mediastream02
+media_path=/iflyrec/hiseels/
+cssp_ttl_second=2592000
+
+# media config
+media-stream-service-container=iflyrectjpt_test.hfdn4.openstorage.cn/mediastream02
+
+# manual config
+manual-stream-service-container=iflyrectjpt_test.hfdn4.openstorage.cn/mediastream02

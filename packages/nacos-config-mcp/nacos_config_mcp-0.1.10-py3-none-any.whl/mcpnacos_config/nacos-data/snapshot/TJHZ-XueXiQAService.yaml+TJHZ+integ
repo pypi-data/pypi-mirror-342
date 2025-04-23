@@ -1,0 +1,355 @@
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+  instance:
+    prefer-ip-address: false
+    hostname: dev-integ-env.k8s.iflyrec.com
+
+
+spring:
+  application:
+    name: TJHZ-XueXiQAService
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://172.31.203.9:3307/TJHZ_XueXiQAService?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: tjkjpt
+    password: VcoNHoKzHV%pfS5H
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 10000   
+      connection-test-query: SELECT 1
+      # 重要：设置查询时的 fetch size 来控制批量数据量
+      data-source-properties:
+          useCursorFetch: true
+          defaultFetchSize: 10      
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 21MB
+      max-request-size: 21MB
+
+  # redis配置
+  redis:
+    mode: sentinel
+    sentinel:
+      master: s1
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    password: UIX*$MD78p
+    timeout: 5000
+    database: 14
+    lettuce:
+      pool:
+        maxIdle: 2
+        minIdle: 0
+        maxActive: 5
+        maxWait: -1
+  rabbitmq:
+    host: 172.31.203.7
+    port: 5672
+    username: recinbox
+    password: recinbox
+    virtual-host: /
+    # 用户注销
+    userCancelExchange: ACCOUNTSERVICE_EXCHANGE_LOGOFF
+    listener:
+      simple:
+        # 自动应答模式
+        acknowledge-mode: auto
+        # 消费失败的时候不入队,消息丢失影响不大,防止丢失可以配置死信队列
+        default-requeue-rejected: false
+        # 设置重试次数
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 60000
+  data:
+    mongodb:
+      uri: mongodb://u_tjhzxuexi_dev:ZUzPWAwcHkhVLHRW@node-1-bWPFMHVB6YZs.mongodb.hf04.dbaas.private:33000,node-0-bWPFMHVB6YZs.mongodb.hf04.dbaas.private:33000,node-2-bWPFMHVB6YZs.mongodb.hf04.dbaas.private:33000/tjhz_xuexi_devinteg
+
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:     
+    map-underscore-to-camel-case: true
+    default-fetch-size: 10    
+    cache-enabled: false
+    default-statement-timeout: 50
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+  type-enums-package: com.iflyrec.xuexiqaservice.**.enums
+
+
+server:
+  port: 80
+  servlet:
+    context-path: /XueXiQAService
+  tomcat:
+    accesslog:
+      directory: /data/logs/tjhz_xuexiqaservice_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+      rename-on-rotate: true
+    max-http-post-size: -1
+    basedir: /data/tomcat/tmp
+    uri-encoding: UTF-8
+
+logging:
+    file:
+      name: /data/logs/tjhz_xuexiqaservice_logs/tjhz_xuexiqaservice.log
+    level:
+      root: info
+    config: classpath:logback-spring.xml
+    service:
+      name: TJHZ_XueXiQAService
+
+
+
+feign:
+  httpclient:
+    max-connections: 500
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 60000
+
+#用户反馈选项配置
+user:
+  feedback:
+      option:
+        positive:
+          - "回答准确且专业"
+          - "回答清晰容易理解"
+        negative:
+          - "生成内容不准确"
+          - "内容单调缺乏创新"
+          - "语义语法存在错误"
+          - "逻辑不通顺"
+          - "涉及私密和安全"
+
+#对话快捷问题列表
+chat:
+  quick:
+    questions:
+        - "什么是世界地球日?"
+        - "什么是世界环保日?"
+        - "什么是劳动保护法?"     
+
+netty:
+  port: 8309   
+  readIdleTimeSeconds: 30
+  writeIdleTimeSeconds: 15
+
+CSSP_CONTAINER: iflyrecxxqg_test.hfdn4.openstorage.cn/XueXiQGQA
+CSSP_CONTAINER_UPLOAD_PATH: /data/uploadFiles/media/
+
+#星火大模型相关配置
+spark:
+  model:
+    selectType: first
+    chat:
+      - appId: be05e35e
+        domain: 4.0Ultra
+        apikey: 1c1b78e9d9253c14e1b281fbcfba2c14
+        apiSecret: MTA2NTljMWZjZjYwYTA5MjUxN2U0NWQ4
+        hostUrl: https://spark-api.xf-yun.com/v4.0/chat
+        top-k: 4
+        max-tokens: 8192
+        temperature: 0.5
+        hasApproval: true
+        showRefLabel: true
+      - appId: 65de1db0
+        domain: 4.0Ultra
+        apikey: f9b3fc4743dd624644fedb4c42b41f94
+        apiSecret: MjlhOTZiNTA3YzcyNTk3NjNmMDc1NDMy
+        hostUrl: https://spark-api.xf-yun.com/v4.0/chat
+        top-k: 4
+        max-tokens: 8192
+        temperature: 0.1
+        hasApproval: false
+        showRefLabel: false
+    longChat:
+      - appId: 65de1db0
+        domain:
+        apikey: f9b3fc4743dd624644fedb4c42b41f94
+        apiSecret: MjlhOTZiNTA3YzcyNTk3NjNmMDc1NDMy
+        hostUrl: https://spark-api-pre.xf-yun.com/chat/max-32k-preview
+        top-k: 4
+        max-tokens: 8192
+        temperature: 0.5
+    imageCognition:
+      - appId: be05e35e
+        domain: imagev3
+        apikey: 1c1b78e9d9253c14e1b281fbcfba2c14
+        apiSecret: MTA2NTljMWZjZjYwYTA5MjUxN2U0NWQ4
+        hostUrl: https://spark-api.cn-huabei-1.xf-yun.com/v2.1/image
+        top-k: 4
+        max-tokens: 8192
+        temperature: 0.5
+
+#新增限流设置，WS连接最大并发数
+distributed:
+  maxLimitNum: 100
+
+system:
+  error:
+    noOutputAllowed: 抱歉，暂未学习到关于这个话题的内容，无法提供相关信息。您可以选择其他问题，我将努力为您解答。
+    generationContentError: 抱歉，系统繁忙，无法提供相关信息。您可以稍后再试。
+    concurrencyLimit: 抱歉，系统繁忙，无法提供相关信息。您可以稍后再试。  
+    examineConcurrencyLimit: 抱歉，系统繁忙，暂时无法提供相关信息。您可以稍后再试。
+
+knowledge:
+   qa:
+#     prompt: "问题:{0}\n
+#              #结合下述背景知识文章内容，对上述问题作回答，要求:\n
+#              1.严格围绕问题本身,从背景知识中提取针对性回答内容,回答内容必须严格出自背景知识原文并且保持详细完整;\n
+#              2.回答的内容中去除与问题无关的信息,可以分类的带上序号;\n
+#              3.回答内容禁止总结、改编,不要显露出参考背景知识的迹象。\n
+#              ##背景知识如下：\n
+#              {1}"
+     prompt: "人设：你是一个智能知识问答小助手，能够根据背景知识回答相关问题，我会给到你背景知识，需要回答的问题，以及回答问题时的约束条件，请根据约束条件展开回答，回答问题时需要遵循约束条件。\n
+             #背景知识:\n
+             {0}\n
+             #约束条件:\n
+             1.严格围绕问题本身,从背景知识中提取针对性回答内容,回答内容必须严格出自背景知识原文并且保持详细完整;\n
+             2.回答的内容要符合中国引导的正向价值观,遵守相关法律法规和社会公德,确保内容合规性;\n
+             3.回答内容禁止总结、改编,不要显露出参考背景知识的迹象。\n
+             #问题:{1}"
+     expandProblemSwitch: true
+     # 大模型回答友好提示
+     friendlyReminder: 抱歉,暂未识别到相关内容,您可以尝试提供更多的信息或换一种说法。
+     # 用户问题不合规友好提示
+     nonComplianReminder: 抱歉,暂时无法针对您的问题进行回答,您可以尝试提供更多的信息或换一种说法。
+     # 机审不通过友好提示
+     reviewFailedReminder: 抱歉,您这个问题我暂时无法回答,我抓紧学习一下,争取下次给您满意的答复。     
+     # 通用模型回复兜底话术
+     generalBottomUpText: 以上内容由通用问答AI生成，仅供参考。
+     # 强国大模型兜底话术
+     knowledgeBottomUpText: 以上内容由学习强国知识问答生成，仅供参考。     
+     #背景知识字符上限 每千位
+     backgroundLimit: 120
+     #内部接口验签密钥
+     secretKey: OBDZdfCOddZ1xDyEPyDb
+     #请求知识问答txt文档资源主机地址
+     hostAddrTxt: http://172.31.184.141:9889/xuexi/
+     #请求知识问答word文档资源主机地址
+     hostAddrWord: http://172.31.184.141:9889/xuexiWord/
+     aiui:
+       hostAddr: https://knowledge-retrieval.cn-huabei-1.xf-yun.com
+       appId: 65de1db0
+       apikey: f9b3fc4743dd624644fedb4c42b41f94
+       apiSecret: MjlhOTZiNTA3YzcyNTk3NjNmMDc1NDMy
+       #期望召回的分片数量
+       topK: 10
+       #背景知识候选槽位数
+       slot: 5
+       #背景知识评判阈值
+       bgThreshold: 0.95
+       #知识召回阈值
+       suThreshold: 0.8
+       #用户主问题权重
+       weight: 0.6
+       #aiui文档所属的分组ID
+       group: xuexiqa
+       #aiui文档所属用户ID
+       uid: 65de1db0
+       #aiui 知识库得分激励
+       bonus: 0
+       #生成三个扩展问题
+       generateQuestionPrompt: |
+         <任务>
+            请根据用户输入的问题，生成{0}个表达含义一致但询问方式不同的问题,不要生成序号,,生成的问题之间以换行符间隔,参考示例。
+         <输入文本>
+            {1}
+         <示例>
+            question1\n
+            question2\n
+            question3\n
+     build:
+       #习近平文汇仓库名称
+       xjpwhRepoId: xuexiqa_wenhui_20240814
+       #主知识库仓库名称
+       mainRepoId: xuexiqa_main_20240814
+     # 关于知识问答 词条关联缺省文章配置
+     relations:
+       - term: 二十届三中全会公报
+         docId: 80
+       - term: 推进中国式现代化的决定
+         docId: 78  
+       - term: 二十届三中全会
+         docId: 82   
+       - term: 二十届三中全会1
+         docId: 84              
+     safe:
+       auditPrompts:
+               - "用户输入问题：***{0}***\n
+                  根据以下要求返回json格式结果：\n
+                  请判断用户的原始问题是否符合中国引导的正向价值观。用户凡是怀疑国家领导人的举措是否有成效的问题均不符合中国引导的正向价值观。凡是国家领导人姓名与政策关联错误的问题均不符合中国引导的正向价值观。凡是出现国家领导人姓名错误的问题均不符合中国引导的正向价值观。字段为“value”，符合正向价值观返回“true”，不符合正向价值观返回“false”。"
+               - "用户输入问题：***{0}***\n
+                  根据以下要求返回json格式结果：\n
+                  1、请判断用户输入问题内容包含的信息是否正确，如果用户问题内容涉及负面人物或者用户问题包含国家领导人的负向提问均表示用户输入问题内容包含错误信息。字段为“info”，内容正确返回“true”，内容错误返回“false”。\n
+                  2、请判断用户问题中涉及的国家领导人职务是否正确。如果用户问题中不包含国家领导人，则问题是正确的。如果包含国家领导人而且涉及国家领导人职务不是最新职位则是表示存在错误。字段为“title”，内容正确返回“true”，内容错误返回“false”。"
+               - "用户输入问题：***{0}***\n
+                  根据以下要求返回json格式结果：\n
+                  请判断用户输入问题是否将国家领导人姓名拼写错误。字段为“subject”，“subject”字段取值“true”或“false”，拼写正确返回“true”，拼写错误返回“false”。"  
+
+       # 机审相关参数
+       examineUrl: https://audit-api-spark-hu.iflyaisol.com/audit/v2/aichat/input
+       appid: 805b3U
+       accessKeyId: h12G9L95c1
+       accessKeySecret: YjTNN4Y2Q59hm06561q5P4B6M5R9d1Jr
+       bizType: aity_input_accurateword
+       maxRetries: 2
+
+question:
+    judge:
+      auditPrompts:
+        - prompt: "用户输入问题：***{0}***\n
+                 根据以下要求返回json格式结果：\n
+                 请判断用户的原始问题是否符合中国引导的正向价值观。用户凡是怀疑国家领导人的举措是否有成效的问题均不符合中国引导的正向价值观。凡是国家领导人姓名与政策关联错误的问题均不符合中国引导的正向价值观。凡是出现国家领导人姓名错误的问题均不符合中国引导的正向价值观。字段为“value”，符合正向价值观返回“true”，不符合正向价值观返回“false”。"
+          switchd: false
+        - prompt: "用户输入问题：***{0}***\n
+                 根据以下要求返回json格式结果：\n
+                 1、请判断用户输入问题内容包含的信息是否正确，如果用户问题内容涉及负面人物或者用户问题包含国家领导人的负向提问均表示用户输入问题内容包含错误信息。字段为“info”，内容正确返回“true”，内容错误返回“false”。\n
+                 2、请判断用户问题中涉及的国家领导人职务是否正确。如果用户问题中不包含国家领导人，则问题是正确的。如果包含国家领导人而且涉及国家领导人职务不是最新职位则是表示存在错误。字段为“title”，内容正确返回“true”，内容错误返回“false”。"
+          switchd: false
+        - prompt: "用户输入问题：***{0}***\n
+                 根据以下要求返回json格式结果：\n
+                 请判断用户输入问题是否将国家领导人姓名拼写错误。字段为“subject”，“subject”字段取值“true”或“false”，拼写正确或者问题中不包含国家领导人姓名返回“true”，拼写错误返回“false”。"
+          switchd: false
+      positionPrompt:
+       prompt: "#已知以下领导人简历信息：\n
+                {0}
+               #请判断用户输入问题中对领导人姓名的职务描述是否正确,只需要校验姓名后带职务描述的场景；校验后以 JSON 格式 返回结果，字段为“isValid”，正确返回“true”，错误返回“false”。请思考reason但不需要陈述出来。\n
+               #用户输入问题：{1}"
+       switchd: true                            
+
+knowledgebase:
+  automation:
+    update:
+      batchNum: 200
+      standard:
+        - "crawlerStandardTask"
+        - "articleMetaDataTask"
+        - "aiuiImportTask"
+        - "articleRemoveTask"
+      compensation:
+        - "crawlerAutoCompensationTask"
+        - "articleMetaDataTask"
+        - "aiuiImportTask"
+        - "articleRemoveTask"        

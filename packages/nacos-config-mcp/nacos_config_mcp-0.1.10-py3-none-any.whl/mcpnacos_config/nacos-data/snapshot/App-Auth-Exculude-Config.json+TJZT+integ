@@ -1,0 +1,5 @@
+{
+    "excludeUrls":[
+        "/CrossCooperationService/v1/telecom/**"
+    ]
+}

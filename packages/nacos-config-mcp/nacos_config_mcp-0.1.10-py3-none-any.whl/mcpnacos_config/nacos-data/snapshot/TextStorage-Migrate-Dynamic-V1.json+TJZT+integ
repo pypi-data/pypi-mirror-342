@@ -1,0 +1,54 @@
+{
+  "beginTime": "2000-01-01 00:00:00",
+  "endTimeFromNowSeconds": 604800,
+  "migrateIndexList": [
+    {
+      "index": "yyzxplatform",
+      "type": "TranscriptResult",  
+      "beginTime": "1970-01-01 00:00:00",
+      "endTimeFromNowSeconds": 86400
+    },
+    {
+      "index": "yyzxplatform",
+      "type": "OcrResult",
+      "endTimeFromNowSeconds": 86400
+    },
+    {
+      "index": "yyzxplatform",
+      "type": "RealtimeTranscriptResult",
+      "endTimeFromNowSeconds": 86400
+    },
+    {
+      "index": "tjzt_share",
+      "type": "share_context"
+    },
+    {
+      "index": "yyzxmseriesrealtimeorder",
+      "type": "RealTimeTranscriptResult"
+    },
+    {
+      "index": "yyzxmanualordersujimarkweb",
+      "type": "yyzxmanualordersujimarkweb_type"
+    },
+    {
+      "index": "yyzx_shareaudio",
+      "type": "TranscriptResult"
+    },
+    {
+      "index": "meeting_summary",
+      "type": "meeting_summary"
+    },
+    {
+      "index": "yyzxhuizhan",
+      "type": "TJHZRealtimeTranscriptResult"
+    },
+    {
+      "index": "tjhzknapp",
+      "type": "TranscriptResult"
+    },
+    {
+      "index": "tjptvtplatform",
+      "type": "VideoTranslation"
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+  instance:
+    prefer-ip-address: false
+    hostname: dev-integ-env.k8s.iflyrec.com
+server:
+  port: 80
+  servlet:
+    context-path: /AiMediaSummaryService
+  tomcat:
+    accesslog:
+      directory: /data/logs/${HOSTNAME}/tjhz_mediaSummary_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+    max-http-post-size: -1
+    basedir: /data/tomcat/tmp
+    uri-encoding: UTF-8
+
+logging:
+  file:
+    name: /data/logs/${HOSTNAME}/tjhz_mediaSummary_logs/tjhz_mediaSummary.log
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+  service:
+    name: TJHZ-MediaSummaryService
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 2048MB
+      max-request-size: 2048MB
+  application:
+    name: TJHZ-MediaSummaryService
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://172.31.203.9:3307/tjhz_hiseels_summary?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: tjkjpt
+    password: VcoNHoKzHV%pfS5H
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 10000
+      connection-test-query: SELECT 1
+
+  http:
+    multipart:
+      max-file-size: 5200MB
+      max-request-size: 5200MB
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  ##################################mq配置############################################
+  rabbitmq:
+    host: 172.31.203.7
+    port: 5672
+    username: recinbox
+    password: recinbox
+    virtual-host: /
+    listener:
+      simple:
+        #限制同时最大5个
+        concurrency: "5"
+        # 自动应答模式
+        acknowledge-mode: auto
+        # 消费失败的时候不入队,消息丢失影响不大,防止丢失可以配置死信队列
+        default-requeue-rejected: false
+        # 设置重试次数
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 60000
+  # redis配置
+  redis:
+    sentinel:
+      master: s1
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    password: UIX*$MD78p
+    database: 15
+    pool:
+      maxIdle: 10
+      minIdle: 0
+      maxActive: 20
+      maxWait: -1
+    timeout: 2000
+  resources:
+    static-locations: classpath:/static/
+
+feign:
+  httpclient:
+    max-connections: 500
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 60000
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-statement-timeout: 50
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 关闭日志打印
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+
+
+requestlog:
+  request:
+    maxSize: 1500
+  response:
+    open: true
+    maxSize: 1500
+  open: true
+
+swaggerShow: true
+
+
+biz_id: hz_mt_summary
+#导出乱码特殊字符
+editorExportBadCharacter: \u0000,\u0001,\u0002,\u0003,\u0004,\u0005,\u0006,\u0007,\u0008,\u0009,\u000B,\u000C,\u000E,\u000F,\u0010,\u0011,\u0012,\u0013,\u0014,\u0015,\u0016,\u0017,\u0018,\u0019,\u001A,\u001B,\u001C,\u001D,\u001E,\u001F,\u007F
+################################### 转写引擎 #########################################
+cbb:
+  app_id: 71D1Z7
+  access_key: Rv1cW8D06U
+  access_secret: 2J66f6G792E357Wv2099321N8Wd841B2
+  transcriptUrl: https://api.iflyrec.com/v2/upload
+  transcriptResultUrl: https://api.iflyrec.com/v2/getResult
+  translateUrl: https://api.iflyrec.com/trans/v2/translate
+################################### 会议管理能力 #########################################
+summary:
+  app_id: 'j59k3F'
+  access_key: '0517QbzDc5'
+  access_secret: '6V7n169so12etWnA35793e91ucg97uZX'
+  task_url: 'https://office-api-ckm-dx.iflyaisol.com/ckm/v1/aggregate/async'
+  task_result_url: 'https://office-api-ckm-dx.iflyaisol.com/ckm/v1/result/query'
+  task_type: '7,8'
+################################### 文档存储 #########################################
+ES_RESULT_INDEX: tjhzsummary
+ES_RESULT_TYPE: summaryresult
+###################################### 云存储 ######################################
+CSSP_CONTAINER: iflyrechuizhan_test.hfdn3.openstorage.cn/TJMTMediaSummaryService
+CSSP_CONTAINER_UPLOAD_PATH: /data/uploadFiles/media/
+###################################### 回调地址 ######################################
+#转写回调
+transferCallBackUrl: http://dev-integ-env.k8s.iflyrec.com/AiMediaSummaryService/api/v1/transcriptCallback
+#文件拷贝回调
+fileCopyCallBackUrl: http://dev-integ-env.k8s.iflyrec.com/AiMediaSummaryService/api/v1/fileCopyCallback
+#会议知识管理能力回调
+summaryTaskCallBackUrl: http://dev-integ-env.k8s.iflyrec.com/AiMediaSummaryService/api/v1/summaryTaskCallback
+#媒体转码回调
+mediaTranscodeCallBackUrl: http://dev-integ-env.k8s.iflyrec.com/AiMediaSummaryService/api/v1/file/{0}/transcodeCallback
+################################### prompt ###########################################
+llmSummary:
+      mergeTextLength: 10
+      splitQuantity: 3
+      prompt: '1.每个段落摘要总结的字数在50字以内;
+               2.必须返回原文序号并且返回的总结结果个数与提供的段落数量必须一致;
+               3.每个段落摘要总结的内容禁止添加前置语;
+               4.只返回带序号的段落，必须遵守结果个数与提供的段落数量必须一致;'
+      singlePrompt: '1.上述内容总结的字数在50字以内; 2.总结的内容禁止添加前后置语,禁止回答上述内容以及生成原始内容以外的内容;3.响应内容必须是纯文本格式;'
+##################################星火大模型配置###################################
+# 星火配置
+spark:
+  ai:
+    config:
+      apikey: bf4fea1b7defd1f36cc06c9b37f4c136
+      api-secret: Zjc0MWM5NWJiOWZjNzQ0OThiOGM3Yjg0
+      appid: 73d28675
+      domain: generalv3.5
+      imageDomain: imagev3
+      host-url: https://spark-api.xf-yun.com/v3.5/chat
+      image-host-url: https://spark-api.cn-huabei-1.xf-yun.com/v2.1/tti
+      image-cognition-url: https://spark-api.cn-huabei-1.xf-yun.com/v2.1/image
+      temperature: 0.5
+      max-tokens: 8192
+      top-k: 4
+      weight: 512
+      height: 512
+

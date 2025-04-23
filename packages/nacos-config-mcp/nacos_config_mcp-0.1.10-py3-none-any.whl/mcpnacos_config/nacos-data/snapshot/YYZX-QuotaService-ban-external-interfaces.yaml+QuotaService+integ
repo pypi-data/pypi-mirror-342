@@ -1,0 +1,23 @@
+ban-external-interfaces.internal-path-list:
+  - POST_/QuotaService/v1/corpCards
+  - POST_/QuotaService/v1/corpCards/patch
+  - POST_/QuotaService/v1/corpQuotas/rollback
+  - POST_/QuotaService/v1/cards/patch
+  - POST_/QuotaService/v1/cards
+  - PUT_/QuotaService/v1/quotas/rollback
+  - POST_/QuotaService/v1/quotas
+  - POST_/QuotaService/v1/cards/batchVirtualCards
+  - POST_/QuotaService/v2/orders/.*/quotas/rollback
+  - POST_/QuotaService/v2/orders/.*/recordPayment
+  - POST_/QuotaService/v2/quotas/recycle/.*
+  - POST_/QuotaService/v2/quotas/scheduleQuotas/reset/.*
+  - POST_/QuotaService/v2/quotas/scheduleQuotas/status/.*
+  - POST_/QuotaService/v2/quotas/scheduleQuotas/forbid
+  - POST_/QuotaService/v3/orders/.*/quotas/rollback
+  - POST_/QuotaService/v3/orders/.*/quotas/refund
+  - POST_/QuotaService/v3/quotas/batchDeprive
+  - PATCH_/QuotaService/v1/voucherQuotas/.*
+  - PATCH_/QuotaService/v1/quotas/.*
+  - PATCH_/QuotaService/v1/corpCards
+  - PATCH_/QuotaService/v1/corpQuotas/.*
+  - PATCH_/QuotaService/v1/corpVoucherQuotas/.*

@@ -1,0 +1,111 @@
+#tomcat config 默认端口改为架构组分配端口
+server.port=${custom.server.port:8611}
+#根据实际情况修改
+server.context-path=/xuexiManagement
+server.tomcat.accesslog.directory=/data/logs/TJHZ_XueXiManagementdemo_logs
+server.tomcat.accesslog.enabled=true
+server.tomcat.accesslog.pattern=%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b
+server.tomcat.accesslog.rename-on-rotate=true
+#log config
+logging.path=/data/logs/{HOSTNAME}/TJHZ_XueXiManagement_logs
+logging.file=/data/logs/TJHZ_XueXiManagement_logs/{HOSTNAME}/TJHZ_XueXiManagement.log
+logging.level.root=INFO
+logging.service.name=TJHZ_XueXiManagement
+logging.config=classpath:logback-spring.xml
+#application config
+spring.application.name=TJHZ_XueXiManagement
+spring.sleuth.sampler.percentage=1.0
+#eureka config
+eureka.client.enabled=true
+eureka.client.register-with-eureka=true
+eureka.client.serviceUrl.defaultZone=${custom.eureka.serviceUrl}
+eureka.instance.prefer-ip-address=true
+eureka.instance.hostname=dev-integ-env.k8s.iflyrec.com
+#feign config
+feign.httpclient.max-connections=300
+feign.httpclient.max-connections-per-route=100
+feign.httpclient.connection-timeout=2000
+feign.client.config.default.connectTimeout=5000
+feign.client.config.default.readTimeout=60000
+#ribbon config
+ribbon.MaxAutoRetries=0
+ribbon.MaxAutoRetriesNextServer=3
+ribbon.OkToRetryOnAllOperations=false
+ribbon.ServerListRefreshInterval=3000
+ribbon.ConnectTimeout=5000
+ribbon.ReadTimeout=60000
+#reuestLog配置
+requestlog.request.maxSize=1500
+requestlog.response.maxSize=1500
+requestlog.open=true
+requestlog.response.open=true
+#是否打印sql
+datasource_show_sql=false
+#redis默认配置
+spring.redis.pool.max-active=3000
+spring.redis.pool.min-idle=10
+spring.redis.pool.max-idle=1000
+spring.redis.pool.max-wait=1000
+
+authorization_redis_expire=10
+authorization_redis_max_idle=1000
+authorization_redis_min_idle=10
+authorization_redis_max_active=1000
+authorization_redis_max_wait=1000
+
+#simpleRestTemplate超时时间设置
+custom.simple.rest.connection.connection_request_timeout=2000
+custom.simple.rest.connection.connect_timeout=2000
+custom.simple.rest.connection.read_timeout=30000
+
+spring.servlet.multipart.max-file-size=100MB
+spring.servlet.multipart.max-request-size=100MB
+spring.http.multipart.maxFileSize=100MB
+spring.http.multipart.maxRequestSize=100MB
+
+
+
+#tomcat config
+custom.server.port=80
+custom.eureka.serviceUrl=http://devInteg:123456@172.31.241.185:8600/eureka/
+
+
+authorization_redis_sentinel_master=s1
+authorization_redis_sentinel_nodes=172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+authorization_redis_database=15
+authorization_redis_password=UIX*$MD78p
+
+spring.datasource.TJPT_Authorization.url=jdbc:mariadb://172.31.236.75:3307/TJHZ_XueXiManagementPlatform?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false
+spring.datasource.TJPT_Authorization.username=tjhz_test
+spring.datasource.TJPT_Authorization.password=wstsaml125#67*89
+spring.datasource.TJPT_Authorization.driverClassName=org.mariadb.jdbc.Driver
+
+spring.datasource.TJPT_LogRecord.url=jdbc:mariadb://172.31.236.75:3307/TJHZ_XueXiManagementPlatform?useUnicode=true&characterEncoding=UTF8&useSSL=false&autoReconnect=true&failOverReadOnly=false
+spring.datasource.TJPT_LogRecord.username=tjhz_test
+spring.datasource.TJPT_LogRecord.password=wstsaml125#67*89
+spring.datasource.TJPT_LogRecord.driverClassName=org.mariadb.jdbc.Driver
+
+#redis哨兵模式
+spring.redis.sentinel.master=s1
+spring.redis.sentinel.nodes=172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+spring.redis.password=UIX*$MD78p
+spring.redis.database=2
+# Authorization Service Id
+authorization.service-name=xuexiManagement
+# 缓存过期时间
+authorization.cache.expire-seconds=1
+# cas  ···admin初始化口令：IsWp$358UsdZeYiQb#
+cas_server_url_prefix=https://recadmin-test-env.iflyrec.com/tjztcas/
+#current_server_url_prefix=http://localhost:8611/hzManagement/
+current_server_url_prefix=http://dev-integ-env.k8s.iflyrec.com:80/xuexiManagement/
+cas_login_url=https://recadmin-test-env.iflyrec.com/tjztcas/login
+
+
+##本服务数据库
+spring.datasource.business.url=jdbc:mariadb://172.31.236.75:3307/TJHZ_XueXiManagementPlatform?characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+spring.datasource.business.username=tjhz_test
+spring.datasource.business.password=wstsaml125#67*89
+spring.datasource.business.driverClassName=org.mariadb.jdbc.Driver
+
+#云原生调用地址
+cloud_native.address=dev-integ-env.k8s.iflyrec.com

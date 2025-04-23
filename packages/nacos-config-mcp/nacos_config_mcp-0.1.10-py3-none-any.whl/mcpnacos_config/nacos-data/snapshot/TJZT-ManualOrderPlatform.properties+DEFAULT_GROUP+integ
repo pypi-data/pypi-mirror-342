@@ -1,0 +1,5 @@
+# 免短信通知
+mam.notice.sms.template.not-disturb-phone=15505168303;13385698090;17318522830;13816294950;18676218521;15375389293
+
+# 文档翻译订单自动流转开关
+mop.auto-flow.trigger=false

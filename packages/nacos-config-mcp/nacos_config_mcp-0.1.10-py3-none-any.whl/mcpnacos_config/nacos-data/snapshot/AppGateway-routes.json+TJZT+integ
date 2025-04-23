@@ -1,0 +1,57 @@
+[
+	{
+		"custom-sensitive-headers": true,
+		"path": "/AppService/**",
+		"service-id": "TJZT-APPSERVICE"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TranscodeService/**",
+		"service-id": "YYZX-TRANSCODESERVICE"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TranscriptApiService/**",
+		"service-id": "TJPT-TranscriptApiService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/SdkAdapter/**",
+		"service-id": "TJHZ-SDKADAPTERSERVICE"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/UploadService/**",
+		"service-id": "TJZT-UPLOADSERVICE"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/MediaStreamService_Netty/**",
+		"service-id": "TJPT-MediaStreamService-Netty"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/TextGenerateService/**",
+		"service-id": "TJZT-TextGenerateService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/SubtitleEditorSDKService/**",
+		"service-id": "TJHZ-SubtitleEditorSDKService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/CrossCooperationService/**",
+		"service-id": "TJPT-CrossCooperationService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/AssistCreationService/**",
+		"service-id": "TJZT-AssistCreationService"
+	},
+	{
+		"custom-sensitive-headers": true,
+		"path": "/AiMediaSummaryService/**",
+		"service-id": "TJHZ-MediaSummaryService"
+	}
+]

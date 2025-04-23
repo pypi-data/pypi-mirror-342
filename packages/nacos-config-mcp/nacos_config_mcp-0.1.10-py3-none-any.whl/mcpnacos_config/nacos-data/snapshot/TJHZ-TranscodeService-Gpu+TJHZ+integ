@@ -1,0 +1,212 @@
+server.port=9615
+server.context-path=/TranscodeService
+server.tomcat.accesslog.directory=/data/logs/tjhz_transcodeservice_logs
+server.tomcat.accesslog.enabled=true
+server.tomcat.accesslog.pattern= %{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b
+server.tomcat.accesslog.rename-on-rotate=true
+
+logging.path=/data/logs/tjhz_transcodeservice_logs
+logging.file=/data/logs/tjhz_transcodeservice_logs/tjhz_transcodeservice.log
+logging.level.root=INFO
+logging.service.name=TJHZ_TranscodeService
+logging.config=classpath:logback-spring.xml
+
+#db
+dataSource.supportdb.url=jdbc:mysql://172.31.203.9:3307/TJHZ_TranscodeService?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+dataSource.supportdb.user=tjkjpt
+dataSource.supportdb.password=VcoNHoKzHV%pfS5H
+dataSource.supportdb.show_sql=false
+
+# redis
+spring.redis.sentinel.master=s1
+spring.redis.sentinel.nodes=172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+spring.redis.database=3
+spring.redis.password=UIX*$MD78p
+spring.redis.pool.max-idle=1000
+spring.redis.pool.min-idle=2
+spring.redis.pool.max-active=1000
+spring.redis.pool.max-wait=-1
+spring.redis.timeout=2000
+
+#service
+service.download_retry_time=2
+service.download_retry_total_count=4
+service.download_retry_waiting_time=30000
+service.upload_retry_time=2
+service.vailidate_file_size_retry_time=5
+
+#cssp file multipartUpload size(64MB)
+cssp.multipart_upload_size=67108864
+
+#unit:s
+cssp.keep.duration=345600
+
+#mq
+mq.username=guest
+mq.password=guest
+mq.host=172.31.203.7
+mq.exchange=tjhzTranscodeServiceCenter
+
+# old transcode and duration
+service.process_thread_pool_size=10
+mq.audio.process.name=tjhz_transcodeServiceMQ
+mq.audio.process.key=tjhz_transcodeService.MQ
+mq.audio.process.prefetchCount=10
+mq.audio.duration.name=tjhz_returnDurationMQ
+mq.audio.duration.key=tjhz_returnDuration.MQ
+
+# media clip
+service.mediaclip.process_thread_pool_size=5
+mq.media.clip.name=tjhz_mediaClipMQ
+mq.media.clip.key=tjhz_mediaClip.MQ
+
+# media transcode mq
+service.mediatranscode.process_thread_pool_size=5
+mq.media.transcode.name=tjhz_mediaTranscodeMQ
+mq.media.transcode.key=tjhz_mediaTranscode.MQ
+
+#extract_picture
+extract.picture.videoSize=10
+extract_picture_timeout=15
+tmp.dir.extract.picture=/data/tmp/extractPicture/
+service.extractPicture.process_thread_pool_size=5
+mq.extract.picture.name=tjhz_extractPictureMQ
+mq.extract.picture.key=tjhz_extractPicture.MQ
+extract.picture.upload.retry.times=5
+extract.picture.upload.retry.delay=60000
+extract.picture.download.retry.times=5
+extract.picture.download.retry.delay=60000
+extract.picture.callback.retry.times=3
+extract.picture.callback.retry.delay=30000
+
+#video compress mq
+service.compress.process_thread_pool_size=5
+mq.video.compress.name=tjhz_videoCompressMQ
+mq.video.compress.key=tjhz_videoCompress.MQ
+
+#video convert mq
+service.video.process.process_thread_pool_size=5
+mq.video.process.name=tjhz_videoProcessMQ
+mq.video.process.key=tjhz_videoProcess.MQ
+
+#Temporary Directory of Audio and Video 
+tmp.dir.av=/data/tmp/
+
+#ffmpeg
+ffmpeg.distance=10
+ffmpeg.silence=60
+ffmpeg.path=/usr/server/tools/linux/TranscodeService/ffmpeg
+ffmpeg.param.wav=-ar 16000 -ac 1 -fflags +bitexact
+ffmpeg.param.volume=-af volumedetect -c:v copy -f null /null
+ffmpeg.param.channels=-af astats -f null -
+ffmpeg.param.mp3=-acodec libmp3lame -ab 64k -ac 1 -ar 16000 -write_xing 0
+speexdec.path=/usr/server/tools/linux/speexdec
+speexenc.path=/usr/server/tools/linux/speexenc
+
+ffmpeg.param.preview.mp4=\[{"postfix":"mkv","command":"%adaptiveResolution% -vol -256 -c:v libx264 %crf% -c:a aac -strict -2 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"avi","command":"-b 1600k -f mp4 %adaptiveResolution% -vol -256 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"flv","command":"-b 1600k -f mp4 %adaptiveResolution% -vol -256 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"wav","command":"-b 1600k -f mp4 %adaptiveResolution% -vol -256 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"wmv","command":"-b 1600k -f mp4 %adaptiveResolution% -vol -256 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"mp4","command":"-strict -2 %adaptiveResolution% -vol -256 -sn  -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"ts","command":"-b 1600k -f mp4 %adaptiveResolution% -vol -256 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"m4v","command":"-b 1600k -f mp4 %adaptiveResolution% -vol -256 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"amr","command":"-b 1600k -f mp4 %adaptiveResolution% -vol -256 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"s48","command":"-b 1600k -f mp4 %adaptiveResolution% -vol -256 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"wma","command":"-b 1600k -f mp4 %adaptiveResolution% -vol -256 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"mov","command":"%adaptiveResolution% -c:v libx264 %crf% -c:a aac -strict -2 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"mxf","command":"-b 1600k -f mp4 -vcodec libx264 %adaptiveResolution% -strict -2 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"3gp","command":"-b 1600k -f mp4 %adaptiveResolution% -vol -256 -r %fps% -y -max_muxing_queue_size 1024 "},{"postfix":"other","command":"-r %fps% -acodec copy -vcodec copy -y -max_muxing_queue_size 1024 "}]
+
+ffmpeg.param.compress={"mkv_srt":"-r %fps% %resolution% %crf% -vf subtitles=","mkv_ass":"-r %fps% %resolution% %crf% -c:a copy -vf ass=","mp4_srt":"-r %fps% %resolution% %crf% -vf subtitles=","mp4_ass":"-r %fps% %resolution% %crf% -vf subtitles=","avi_srt":"-r %fps% %resolution% %crf%  -c:v libx264 -vf subtitles=","avi_ass":"-r %fps% %resolution% %crf%  -c:v libx264 -vf subtitles=","wmv_srt":"-r %fps% %resolution% %crf% -vf subtitles=","wmv_ass":"-r %fps% %resolution% %crf% -vf subtitles=","_mov":" -f lavfi -i color=c=black:s=%resolution%:d=%outputVideoLength% -c:v libx264 -pix_fmt yuv420p -preset veryfast -vf ass="}
+
+ffmpeg.convert.max.width=426
+ffmpeg.convert.max.height=320
+
+ffmpeg.gpu.convert.command={"default": "%ffmpegPath% -hwaccel cuvid -hwaccel_device %gpu_index% -i %input% -c:v h264_nvenc -r %fps% %crf% -c:a aac -strict -2 %adaptiveResolution% -y -max_muxing_queue_size 1024 -b:v 1500k %output%", "mxf": "%ffmpegPath% -hwaccel cuvid -hwaccel_device %gpu_index% -i %input% -r %fps% %crf% -c:a aac -strict -2 %adaptiveResolution% -y -max_muxing_queue_size 1024 -b:v 1500k %output%", "ts": "%ffmpegPath% -hwaccel cuvid -hwaccel_device %gpu_index% -i %input% -c:v h264_nvenc -r %fps% %crf% -c:a aac -strict -2 %adaptiveResolution% -y -max_muxing_queue_size 1024 -b:v 1500k %output%"}
+
+
+ffmpeg.gpu.compress.command={"default_mp4":"%ffmpegPath% -hwaccel cuvid -hwaccel_device %gpu_index% -i %input% -c:v h264_nvenc -gpu %gpu_index% -r %fps% %resolution% %crf% -max_muxing_queue_size 1024 %bitrate% -vf subtitles=%subtitleFile% %output% -y","default_avi":"%ffmpegPath% -hwaccel cuvid -hwaccel_device %gpu_index% -i %input% -c:v h264_nvenc -gpu %gpu_index% -r %fps% %resolution% %crf% -max_muxing_queue_size 1024 %bitrate% -vf subtitles=%subtitleFile% %output% -y","default_wmv":"%ffmpegPath% -hwaccel cuvid -hwaccel_device %gpu_index% -i %input% -c:v h264_nvenc -gpu %gpu_index% -r %fps% %resolution% %crf% -max_muxing_queue_size 1024 %bitrate% -vf subtitles=%subtitleFile% %output% -y","default_mkv":"%ffmpegPath% -hwaccel cuvid -hwaccel_device %gpu_index% -i %input% -c:v h264_nvenc -gpu %gpu_index% -r %fps% %resolution% %crf% -c:a copy -max_muxing_queue_size 1024 %bitrate% -vf ass=%subtitleFile% %output% -y","_mov":"%ffmpegPath% -f lavfi -i color=c=black:s=%resolution%:d=%outputVideoLength% -vf ass=%subtitleFile% -c:v libx264 -pix_fmt yuv420p -preset veryfast %output% -y"}
+
+ffmpeg.gpu.synthesis.noVoice.command={"default_synthesis": "%ffmpegPath% -hwaccel cuvid -hwaccel_device %gpu_index% -i %input% %decoder% -i %input_audio% -c:v h264_nvenc -gpu %gpu_index% -max_muxing_queue_size 1024 -map 0:v:0 -map 1:a:0 -c:a aac -b:a 128k %output% -y","mxf":"%ffmpegPath% -i %input%  -i %input_audio% -c:v copy -c:a pcm_s24le -ar 48000 -map 0:v:0 -map 1:a:0 -probesize 50M %output% -y"}
+
+ffmpeg.gpu.synthesis.voice.mxf.command=%ffmpegPath% -hwaccel cuvid -hwaccel_device %gpu_index% -i %input% -i %input_audio% -c:v copy -filter_complex "[0:a]aformat=sample_fmts=s16:sample_rates=48000:channel_layouts=stereo,aresample=async=1[audio_input];[1:a]aformat=sample_fmts=s16:sample_rates=48000:channel_layouts=stereo,aresample=async=1[audio_external];[audio_input][audio_external]amix=inputs=2:duration=longest[mixed_audio]" -map 0:v -map "[mixed_audio]" -c:a pcm_s24le -f mxf -probesize 50M %output% -y
+
+ffmpeg.gpu.synthesis.voice.command=%ffmpegPath% -hwaccel cuvid -hwaccel_device %gpu_index% -i %input% -i %input_audio% -c:v h264_nvenc -gpu %gpu_index% -filter_complex "[0:a]aformat=sample_fmts=s16:sample_rates=16000:channel_layouts=stereo,aresample=async=1[audio_input];[1:a]aformat=sample_fmts=s16:sample_rates=16000:channel_layouts=stereo,aresample=async=1[audio_external];[audio_input][audio_external]amix=inputs=2:duration=longest[mixed_audio]" -max_muxing_queue_size 1024 -map 0:v -map "[mixed_audio]" -c:a aac -b:a 128k %output% -y
+
+ffmpeg.cpu.synthesis.noVoice.command={"default_synthesis": "%ffmpegPath% -i %input%  -i %input_audio% -c:v copy -c:a aac -b:a 128k -map 0:v:0 -map 1:a:0 %output% -y","mxf":"%ffmpegPath% -i %input%  -i %input_audio% -c:v copy -c:a pcm_s24le -ar 48000 -map 0:v:0 -map 1:a:0 -probesize 50M %output% -y"}
+
+ffmpeg.cpu.synthesis.voice.command=%ffmpegPath% -i %input% -i %input_audio% -filter_complex "[0:a]aformat=sample_fmts=s16:sample_rates=16000:channel_layouts=stereo,aresample=async=1[audio_input];[1:a]aformat=sample_fmts=s16:sample_rates=16000:channel_layouts=stereo,aresample=async=1[audio_external];[audio_input][audio_external]amix=inputs=2:duration=longest[mixed_audio]" -map 0:v -map [mixed_audio] -c:v copy -c:a aac -b:a 128k %output% -y
+
+ffmpeg.cpu.synthesis.voice.mxf.command=%ffmpegPath% -i %input% -i %input_audio% -c:v copy -filter_complex "[0:a]aformat=sample_fmts=s16:sample_rates=48000:channel_layouts=stereo,aresample=async=1[audio_input];[1:a]aformat=sample_fmts=s16:sample_rates=48000:channel_layouts=stereo,aresample=async=1[audio_external];[audio_input][audio_external]amix=inputs=2:duration=longest[mixed_audio]" -map 0:v -map "[mixed_audio]" -c:a pcm_s24le -f mxf -probesize 50M %output% -y
+
+ffmpeg.decoder={"h264": "h264_cuvid", "hevc": "hevc_cuvid", "mjpeg": "mjpeg_cuvid", "mpeg1video": "mpeg1_cuvid", "mpeg2video": "mpeg2_cuvid", "mpeg4video": "mpeg4_cuvid", "vc1": "vc1_cuvid", "vp8": "vp8_cuvid", "vp9": "vp9_cuvid"}
+
+ffmpeg.gpu.size=1
+ffmpeg.convert.type=cpu
+
+#ffprobe
+ffprobe.path=/usr/server/tools/linux/TranscodeService/ffprobe
+ffprobe.param=-print_format json -show_streams
+
+point_block_time=20000
+point_block_count=1000
+point_sample_rate=16000
+
+common_max_timeout=720
+mp4_max_timeout=720
+compress_max_timeout=720
+
+ffmpeg_cmd_monitor_second = 60
+
+ffmpeg_cmd_expect_dealsecond = 30
+
+ffmpeg_fps_limit = 100
+
+ffmpeg_fps_default = 25
+
+email_port=465
+email_account=cbg
+email_password=e3
+ffmpeg_failed_mail_recipients=cbg
+
+error_send_email=true
+
+# è¯å«çåªä½æ ¼å¼
+media.format.video.list=rm,rmvb,mpeg1,mpeg2,mpeg3,mpeg4,mov,mtv,mkv,dat,wmv,avi,3gp,amv,dmv,mp4,ts,mxf,flv,m4v
+media.format.audio.list=mp3,wav,s48,m4a,amr,lyb,flac,pcm,wma,ape,flac,acc
+
+# max_delete_size
+max_delete_size=50000
+
+overdue_duration=30
+
+delete_caller_list=lyb,m1s,parrot,xftj,xftjapp
+init_scan_id=37741910
+ffmpeg_process_concurrency_limit=50
+
+transcode.global.cssp.pool.core.size=100
+transcode.global.process.pool.core.size=30
+transcode.global.callback.pool.core.size=10
+
+transcode.global.upload.retry.times=3
+transcode.global.upload.retry.delay=30000
+
+transcode.global.download.retry.times=3
+transcode.global.download.retry.delay=30000
+
+transcode.global.callback.retry.times=3
+transcode.global.callback.retry.delay=30000
+
+# media transcode mq
+service.mediatranscode.v2.process_thread_pool_size=5
+mq.media.transcode.v2.name=mediaTranscodeMQ.v2
+mq.media.transcode.v2.key=mediaTranscode.MQ.v2
+mq.media.transcode.v2.prefetchCount=10
+
+# media transcode mq
+service.mediatranscode.v2.video.process_thread_pool_size=5
+mq.media.transcode.v2.video.name=mediaTranscodeMQ.v2.video
+mq.media.transcode.v2.video.key=mediaTranscode.MQ.v2.video
+
+# media compress mq
+service.mediacompress.v2.process_thread_pool_size=1
+mq.media.compress.v2.name=mediaCompressMQ.v2
+mq.media.compress.v2.key=mediaCompress.MQ.v2
+mq.media.compress.v2.prefetchCount=2
+
+# Two-channel optimized transcoding algorithm
+two_channel_valid_biz_list=xftjhiseels,xftj,xftjapp
+
+# media synthesis mq v3  20250107
+service.mediaSynthesis.v3.process_thread_pool_size=1
+mq.media.synthesis.v3.name=mediaSynthesisMQ.v3
+mq.media.synthesis.v3.key=mediaSynthesis.MQ.v3
+mq.media.synthesis.v3.prefetchCount=2

@@ -1,0 +1,16 @@
+[
+    {
+        "headerListVer": 2,
+        "paramKeys": [
+            "X-Product-Key",
+            "X-Device-Key",
+            "X-AuthType",
+            "X-Header-List-Ver",
+            "X-Algorithm-Ver",
+            "X-UTCTime",
+            "X-Random",
+            "method",
+            "path"
+        ]
+    }
+]

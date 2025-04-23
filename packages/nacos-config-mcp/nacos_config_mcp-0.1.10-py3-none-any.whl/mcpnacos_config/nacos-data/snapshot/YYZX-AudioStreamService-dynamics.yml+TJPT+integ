@@ -1,0 +1,26 @@
+request:
+  limit:
+    ##是否开启限流策略 true：开启，false:关闭
+    enabled: false
+    ##是否允许未登录用户上传 true：允许，false：允许
+    guestEnabled: false
+    ## ip限流计数周期毫秒数 10分钟
+    ipLimitPeriodMS: 60000
+    ## ip限流周期内最大上传次数 10次
+    ipLimitMax: 10
+    ## 登录用户限流计数周期毫秒数 10分钟
+    userLimitPeriodMS: 60000
+    ## 登录用户周期内最大上传次数 10次
+    userLimitMax: 10
+    ## 全局上传限流周期毫秒数 10分钟
+    globalPeriodMS: 60000
+    ## 全局上传周期内最大上传次数 30次
+    globalLimitMax: 20
+    ## 黑名单用户ID列表，禁止上传
+    blackUserList:
+      - 111
+      - 222
+      - 333
+    ##白名单用户ID列表，不受限流策略限制  
+    wightUserList:
+      - 1 

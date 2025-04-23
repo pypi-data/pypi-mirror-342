@@ -1,0 +1,167 @@
+server:
+  port: 80
+  context-path: /SpeechSynthesisService
+eureka:
+  instance:
+    prefer-ip-address: false
+    hostname: dev-integ-env.k8s.iflyrec.com
+  client:
+    enabled: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+spring:
+  application:
+    name: TJHZ-SpeechSynthesisService-Sass
+  datasource:
+    url: jdbc:mariadb://172.31.203.9:3307/tjmt_speechsynthesis_sass?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: tjkjpt
+    password: VcoNHoKzHV%pfS5H
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 10000
+      connection-test-query: SELECT 1
+  http:
+    multipart:
+      maxFileSize: 1022976MB
+      maxRequestSize: 1022976MB
+
+  redis:
+    sentinel:
+      master: s1
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    password: UIX*$MD78p
+    database: 15
+    pool:
+      maxIdle: 10
+      minIdle: 2
+      maxActive: 100
+      maxWait: 10
+
+  rabbitmq:
+    host: 172.31.203.7
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    exchangeName: TJHZ_SpeechSynthesisService
+    transcodeRouting: TJMT_LS_TransCode_cc331.MQ
+    transcodeQueue: TJMT_LS_TransCode_cc331
+    transcodeCallbackQueue: TJMT_LS_RESULTPROCESS_cc331
+    transcodeCallbackRouting: TJMT_LS_RESULTPROCESS_cc331.MQ
+    createTaskRouting: TJHZ_CREATE_TASK_QUEUE.MQ
+    createTaskQueue: TJHZ_CREATE_TASK_QUEUE
+    speechExportQueue: TJHZ_PY_EXPORT_QUEUE
+    speechExportRouting: TJHZ_PY_EXPORT_QUEUE.MQ
+    delayQueue: TJHZ_DELAY_QUEUE
+    delayRouting: TJHZ_DELAY_QUEUE.MQ
+    deadLetterQueue: TJHZ_DEAD_LETTER_QUEUE
+    deadLetterRouting: TJHZ_DEAD_LETTER_QUEUE.MQ
+
+feign:
+  hystrix:
+    enabled: false
+  httpclient:
+    enabled: true
+    connection-timeout: 20000
+    max-connections: 300
+    max-connections-per-route: 100
+  client:
+    config:
+      default:
+        connectTimeout: 20000
+        readTimeout: 20000
+        loggerLevel: FULL
+
+logging:
+  path: /data/logs/${HOSTNAME}/tjhz-speechsynthesisservice_logs
+  file: /data/logs/${HOSTNAME}/tjhz-speechsynthesisservice_logs/tjhz-speechsynthesisservice.log
+  level:
+    root: INFO
+  config: classpath:logback-spring.xml
+  service:
+    name: TJHZ-SpeechSynthesisService-Sass
+
+#云存储
+media-stream-service:
+  container: iflyrectjpt_test.hfdn3.openstorage.cn/mediastream02
+  path: /data/UploadFiles/media/
+
+ffmpeg: /usr/server/tools/ffmpeg/ffmpeg
+
+requestUrl: https://zimu-dev-integ-env.iflyrec.com/SpeechSynthesisService/
+
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+exportDirectory: /iflytek/hiseeLS/tempData/
+
+#  #是否启用详细日志
+#log_detail_enable: false
+toobar:
+  file: /case
+tts:
+  # url: wss://office-api-cm-dx.iflyaisol.com/tts
+  url: ws://aisol-integ-hf.iflyaisol.com/tts
+ast:
+  # app-id: B055Px
+  # access-key-id: HLL9x5m2x9
+  # access-key-secret: 8X6c5l333h1n0aLn0x58b223W3n0fi0N
+  app-id: nD9jX8
+  access-key-id: 91j0s8209P
+  access-key-secret: sD3Y57e457wx409R9J00PK93Q08Da41c
+
+openPlat:
+  host-url: https://tts-api.xfyun.cn/v2/tts
+  app-id: '807526e8'
+  api-key: 00f426b3abf6acbfafe6d81860da3af8
+  api-secret: ZGIxNjMyY2Y3YzQ5MWMwZjk4NzU3YjA3
+  oral-host-url: https://cbm01.cn-huabei-1.xf-yun.com/v1/private/medd90fec
+  oral-v3-host-url: https://cbm01.cn-huabei-1.xf-yun.com/v1/private/mcd9m97e6
+
+
+############################ 20240508 ############################
+audioProcess:
+  #bgmurl: http://172.31.53.141/AudioProcess/api/bgm/handle
+  bgmurl: http://172.29.232.27:5233/AudioProcess/api/bgm/handle
+  #bgmCallbackUrl: https://zimu-dev-integ-env.iflyrec.com/SpeechSynthesisService/api/callback/bgm
+  bgmCallbackUrl: http://172.31.241.185:8601/SpeechSynthesisService/api/callback/bgm
+  audioProcessUrl: http://172.31.98.71:0868/AudioProcess/v1/api/suppressAndSynthesis
+  audioCallbackUrl: http://172.31.53.141:3589/SpeechSynthesisService/api/callback/audio
+  app_id: 71D1Z7
+  api_key: Rv1cW8D06U
+  api_secret: 2J66f6G792E357Wv2099321N8Wd841B2
+
+extracted-timeout: 3600000
+
+#声纹复刻相关配置
+voicePrint:
+  file-max-size: 50
+  pcm-max-size: 3
+  app-id: cca58477
+  api-key: f8da9832c1e24f07555de66afbb8ed7d
+  api-secret: NmU3MzVmOWM5OGQ1YTUyMTJjODc1NDA4
+  upload-url: http://evo-dx.xf-yun.com/individuation/sgen/reg
+  delete-url: http://evo-dx.xf-yun.com/individuation/sgen/del
+  host-url: https://cn-huabei-1.xf-yun.com/v1/private/voice_clone
+  host-cn-url: https://cbm01.cn-huabei-1.xf-yun.com/v1/private/s06a6b848
+  host-noCn-url: https://cbm01.cn-huabei-1.xf-yun.com/v1/private/sae21150e
+
+#消息队列配置#
+rabbitmq:
+  username: recinbox
+  password: recinbox
+  url: 172.31.203.7
+  port: 5672
+  virtualHost: /
+  main_exchange_name: center
+  PROCESS_THREAD_POOL_SIZE: 1
+  speech_export_queue_name: TJHZ_PY_EXPORT_QUEUE
+  speech_export_routing_key: TJHZ_PY_EXPORT_QUEUE.MQ

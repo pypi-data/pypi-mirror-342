@@ -1,0 +1,463 @@
+server:
+  port: 38209
+  context-path: /exhibition/
+  tomcat:
+    basedir: /data/temp/tjhz_exhibitionservice
+   #accesslog:
+      #directory: /opt/network1.5/netWork/logs
+      #enabled: true
+      #pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+      #rename-on-rotate: true
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+      #defaultZone: http://admin:123456@172.31.132.67:6001/eureka/
+      #-=devrec=--http://xiangzheng2:123456@172.31.63.26:6001/eureka/
+      #-=testrec=--http://admin:123456@192.168.59.52:6001/eureka/
+      #-=testbox=--http://admin:123456@172.31.6.28:6001/eureka/
+      #-=dev-integ-env.iflyrec.com=-http://devInteg:123456@172.31.241.185:8600/eureka/
+      #
+      #-=dev-env.iflyrec.com=-http://xiangzheng2:123456@172.31.63.26:6001/eureka/
+      #-=test-env.iflyrec.com=-http://admin:123456@172.31.241.176:6001/eureka/
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 15000
+
+#simpleRestTemplate超时时间设置
+custom:
+  simple:
+    rest:
+      connection:
+        connection_request_timeout: 2000
+        connect_timeout: 2000
+        read_timeout: 30000
+
+spring:
+  application:
+    name: TJHZ-ExhibitionService
+  # 在线版DB
+  datasource:
+    url: jdbc:mariadb://172.31.53.141:3306/tjhz_tongchuan?characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    #url: jdbc:mysql://172.31.53.141:3306/TJHZ_Exhibition_OnlineDB?characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: kd93kg8#@ksdf
+    driver-class-name: org.mariadb.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 10
+      pool-name: tjhz
+      maximum-pool-size: 20
+      auto-commit: true
+#  network:
+#    jdbc-url: jdbc:mysql://172.31.53.141:3306/TJZQ_ExhibitionDB?characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+#    username: root
+#    password: iflyrec!
+#    driver-class-name: com.mysql.jdbc.Driver
+#    type: com.zaxxer.hikari.HikariDataSource
+#    minimum-idle: 10
+#    pool-name: networkpool
+#    maximum-pool-size: 100
+#    auto-commit: true
+#  # quartzDB
+#  quartz:
+#    jdbc-url: jdbc:mysql://172.31.53.141:3306/TJZQ_Exhibition_WsGatewayDB?characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+#    username: root
+#    password: iflyrec!
+#    driver-class-name: com.mysql.jdbc.Driver
+#    type: com.zaxxer.hikari.HikariDataSource
+#    minimum-idle: 10
+#    pool-name: quartzpool
+#    maximum-pool-size: 100
+#    auto-commit: true
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+    multipart:
+      max-request-size: 100Mb
+      max-file-size: 100Mb
+  redis:
+    timeout: 2000
+    password: UIX*$MD78p
+    jedis:
+      pool:
+        max-active: 100
+        min-idle: 10
+        max-idle: 30
+        max-wait: 5
+    sentinel:
+      master: s1
+      #nodes: 127.0.0.1:26379,127.0.0.1:26479,127.0.0.1:26579
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+      #nodes: 172.31.53.202:26390,172.31.53.202:36390,172.31.53.202:46390
+  rabbitmq:
+    username: recinbox
+    password: recinbox
+    # 多点需保证username,password,port均一致，url中用英文逗号分隔多点ip
+    host: 172.31.203.7
+    port: 5672
+    userCancelExchange: ACCOUNTSERVICE_EXCHANGE_LOGOFF
+    userCancelQueueName: TJHZTC_USER_CANCEL_QUEUE_TEST
+    userPhoneUpdateExchange: ACCOUNTSERVICE_EXCHANGE_UPDATE_PHONE
+    userPhoneUpdateQueueName: TJHZTC_USER_PHONE_UPDATE_QUEUE
+    virtual-host: /
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 2
+          initial-interval: 3000
+        concurrency: 10
+        max-concurrency: 10
+        acknowledge-mode: manual
+
+logging:
+  config: classpath:logback-spring.xml
+# 转写引擎参数配置
+engine:
+  #空闲超时时间
+  idelTimeout: 300000
+  #（常规会议+增值会议）单次实时转写最大时长 1000 * 60 * 60 * 10  10小时
+  rttTimeLimit: 36000000
+  #（免费试用会议）单次实时转写最大时长 1000 * 60 * 20  20分钟
+  freeTrialRttTimeLimit: 1200000
+
+#多点部署时用于生成不同的主键
+machine:
+  id: 1
+
+upload:
+  #自动上传 累积到指定次数触发一次上传（建议大于7）
+  mergeTimes: 8
+
+mybatis:
+  type-aliases-package: com.iflyrec.center.mapper
+  mapper-locations: classpath:mappers/base/*.xml,classpath:mappers/*.xml
+  config-location: classpath:mybatis-config.xml
+
+mybatis-plus:
+  mapper-locations: classpath:mappers/base/*.xml,classpath:mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-statement-timeout: 20
+   # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+  type-enums-package: com.iflyrec.center.enums
+
+#回调函数
+url:
+  callBackUrl:
+    startMeeting: http://${spring.cloud.client.ipAddress}:${server.port}/exhibition/callback/rtp
+
+#
+#default:
+#  product:
+#    id: 200
+
+#转写、翻译的单价
+unit:
+  transfer: 2
+  translate: 15
+
+#增值服务商品id
+productId: 200
+
+#保障端热词设置数量限制
+tempHotWordsSize: 6
+
+#根据类型保存会议转写翻译结果
+editContent:
+  buyer:
+    transfer: 2
+    translate: 12
+    note: 22
+  operate:
+    transfer: 3
+    translate: 13
+  guarantee:
+    transfer: 4
+    translate: 14
+  interpretation:
+    transfer: 5
+    translate: 15
+
+#商品
+commodity:
+  transfer:
+    id: 201
+    # 元/m
+    price: 2
+  translation:
+    id: 202
+    # 元/m
+    price: 15
+  increment:
+    id: 200
+  quotaInfo:
+    moneyId: 50
+    durationId: 100
+    organizationMoneyId: 101
+    freeTrialDurationId: 102
+    webFreeTrialDurationId: 105
+    freeTrialTotal: 1200
+    organizationDurationId: 110
+    newUserDeductionPaymentQuota: 112
+    #单位 S
+    total: 3600
+
+#OSS上传container
+tj_cssp_container: iflyrechuizhan_test.hfdn3.openstorage.cn/iflyrecchuizhan01
+
+activity:
+  show: true
+
+promotions:
+  janFirstRecharge:
+    beginTime: 2021-01-18 00:00:00
+    endTime: 2021-03-01 23:59:59
+
+
+netty:
+  port: 8301
+  offlineNotice: http://${spring.cloud.client.ipAddress}:${server.port}/exhibition/v1.3/user/offlineNotice
+
+postPatchCBB:
+   url: https://ai-test-integ-env.iflyrec.com/res/patch/upload
+huizhan:
+   appId: P26123
+   accessKeyId: tra6g93b6P
+   accessKeySecret: mNpWm93hinf982dG92tx09Si2F8QMh9Z
+
+##短信通知配置项
+dripSms:
+  #开发联调环境地址
+  url: https://pretest.xfpaas.com/dripsms/sms
+  appId: DAV5TKQI
+  #各短信模板ID
+  templateId:
+    #同传月卡充值成功
+    activityMonthDurationCardRecharge: 13350
+    #已分配同传订单
+    allotTongChuan: 12507
+    #已分配保障订单
+    allotGuarantee: 12501
+    #渠道管理员权限转移
+    transferAuthority: 12500
+    #渠道管理员权限获取
+    getAuthority: 12499
+    #“取消订单”审核不通过
+    returnOrder: 12496
+    #“取消订单”审核通过
+    allowCancelOrder: 12495
+    #已核价
+    checkOrderPrice: 12494
+    #已定价
+    setOrderPrice: 12493
+    #充值成功
+    recharge: 12491
+    #渠道审核未通过
+    organizationRejection: 12490
+    #渠道审核通过
+    organizationPermission: 12486
+
+
+clientSetting:
+  clientSettingAndVersions:
+    - version: 331
+      clientSetting:
+        monthCardTimeOutTipsTime: 600
+        invalidTranscriptTipsSetting:
+          oneMinInvalidWriteThreshold: 5
+          pauseThreshold: 20
+  #客户端语种设置
+language:
+  multilingual:
+    - version: 400
+      multilingual:
+        - lang: ed
+          translateLang: en,ja,ko,fr,de,ru,es,ar
+        - lang: en
+          translateLang: cn
+        - lang: ja
+          translateLang: cn
+        - lang: ko
+          translateLang: cn
+    - version: 402
+      multilingual:
+        - lang: ed
+          translateLang: en,ja,ko,fr,de,ru,es,ar
+        - lang: en
+          translateLang: cn
+        - lang: ja
+          translateLang: cn
+        - lang: ko
+          translateLang: cn
+        - lang: fr
+          translateLang: cn
+        - lang: de
+          translateLang: cn
+        - lang: ru
+          translateLang: cn
+        - lang: es
+          translateLang: cn
+        - lang: ar
+          translateLang: cn
+    - version: 411
+      multilingual:
+        - lang: cn
+          translateLang: en,ja,ko,fr,de,ru,es,ar,it,th,vi,cn_cantonese,cn_uyghur,cn_tibetan
+        - lang: en
+          translateLang: cn
+        - lang: ed
+          translateLang: ed
+        - lang: ja
+          translateLang: cn
+        - lang: ko
+          translateLang: cn
+        - lang: fr
+          translateLang: cn
+        - lang: de
+          translateLang: cn
+        - lang: ru
+          translateLang: cn
+        - lang: es
+          translateLang: cn
+        - lang: ar
+          translateLang: cn
+        - lang: it
+          translateLang: cn
+        - lang: th
+          translateLang: cn
+        - lang: vi
+          translateLang: cn
+        - lang: cn_cantonese
+          translateLang: cn
+        - lang: cn_uyghur
+          translateLang: cn
+        - lang: cn_tibetan
+          translateLang: cn
+  languagesConfigs:
+    - version: 402
+      language:
+        - lang: ed
+          name: 中文
+        - lang: cn
+          name: 中文
+        - lang: en
+          name: 英语
+        - lang: ja
+          name: 日语
+        - lang: ko
+          name: 韩语
+        - lang: fr
+          name: 法语
+        - lang: de
+          name: 德语
+        - lang: ru
+          name: 俄语
+        - lang: es
+          name: 西班牙语
+        - lang: ar
+          name: 阿拉伯语
+    - version: 411
+      language:
+        - lang: ed
+          name: 中英混合
+        - lang: cn
+          name: 中文
+        - lang: en
+          name: 英语
+        - lang: ja
+          name: 日语
+        - lang: ko
+          name: 韩语
+        - lang: fr
+          name: 法语
+        - lang: de
+          name: 德语
+        - lang: ru
+          name: 俄语
+        - lang: es
+          name: 西班牙语
+        - lang: ar
+          name: 阿拉伯语
+        - lang: it
+          name: 意大利语
+        - lang: th
+          name: 泰语
+        - lang: vi
+          name: 越南语
+        - lang: cn_cantonese
+          name: 粤语
+        - lang: cn_uyghur
+          name: 维语
+        - lang: cn_tibetan
+          name: 藏语
+
+# 快速会议-字幕分享&语音播报订单分享H5页面地址
+share:
+  subtitle_share_url: https://huizhan-dev-integ-env.iflyrec.com/share/subtitle.html
+  sound_share_url: https://huizhan-dev-integ-env.iflyrec.com/share/sound.html
+
+#发言人信息配置
+speaker:
+  config:
+    - lang: "cn"
+      voices:
+        - id: 1
+          name: "聆小琪"
+          code: "lingxiaoqi"
+          avatar: "https://huizhan-dev-integ-env.iflyrec.com/voices/lingxiaoqi.svg"
+          audio: "https://huizhan-dev-integ-env.iflyrec.com/voices/lingxiaoqi.mp3"
+        - id: 2
+          name: "聆玉菲"
+          code: "lingyufei"
+          avatar: "https://huizhan-dev-integ-env.iflyrec.com/voices/lingyufei.svg"
+          audio: "https://huizhan-dev-integ-env.iflyrec.com/voices/lingyufei.mp3"
+        - id: 3
+          name: "聆飞泓"
+          code: "lingfeihong"
+          avatar: "https://huizhan-dev-integ-env.iflyrec.com/voices/lingfeihong.svg"
+          audio: "https://huizhan-dev-integ-env.iflyrec.com/voices/lingfeihong.mp3"
+    - lang: "en"
+      voices:
+        - id: 4
+          name: "Luna"
+          code: "Luna"
+          avatar: "https://huizhan-dev-integ-env.iflyrec.com/voices/Luna.svg"
+          audio: "https://huizhan-dev-integ-env.iflyrec.com/voices/Luna.mp3"
+        - id: 5
+          name: "Lucy"
+          code: "EnUs_Lucy_education"
+          avatar: "https://huizhan-dev-integ-env.iflyrec.com/voices/Lucy.svg"
+          audio: "https://huizhan-dev-integ-env.iflyrec.com/voices/Lucy.mp3"
+        - id: 6
+          name: "Gavin"
+          code: "EnUs_Gavin_assist"
+          avatar: "https://huizhan-dev-integ-env.iflyrec.com/voices/Gavin.svg"
+          audio: "https://huizhan-dev-integ-env.iflyrec.com/voices/Gavin.mp3"
+    - lang: "ed"
+      voices:
+        - id: 7
+          name: "叶子"
+          code: "yezi"
+          avatar: "https://huizhan-dev-integ-env.iflyrec.com/voices/yezi.svg"
+          audio: "https://huizhan-dev-integ-env.iflyrec.com/voices/yezi.mp3"
+
+#文本编辑
+# ElasticSearch
+es:
+  result:
+    index: yyzxhuizhan
+    type: TJHZRealtimeTranscriptResult
+
+#云存储容器
+#tj_cssp_container: iflyrechuizhan_test.hfdn3.openstorage.cn/iflyrecchuizhan01

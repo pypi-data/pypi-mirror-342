@@ -1,0 +1,137 @@
+server:
+  port: 38208
+  context-path: /TCRightsAndInterestsService/
+  tomcat:
+    basedir: /data/temp/TCRightsAndInterestsService
+   #accesslog:
+      #directory: /opt/network1.5/netWork/logs
+      #enabled: true
+      #pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+      #rename-on-rotate: true
+
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+    prefer-ip-address: true
+#    hostname: dev-integ-env.k8s.iflyrec.com
+  client:
+    enabled: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 15000
+
+#simpleRestTemplate超时时间设置
+custom:
+  simple:
+    rest:
+      connection:
+        connection_request_timeout: 2000
+        connect_timeout: 2000
+        read_timeout: 30000
+
+spring:
+#  datasource:
+#    name: master  # 数据源名称
+#    url: jdbc:mariadb://172.31.53.141:3306/tjhz_tongchuan?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+#    username: root
+#    password: kd93kg8#@ksdf
+#    driver-class-name: org.mariadb.jdbc.Driver  # 指定驱动类
+
+  shardingsphere:
+    datasource:
+      master:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: org.mariadb.jdbc.Driver
+        jdbc-url: jdbc:mariadb://172.31.53.141:3306/tjhz_tongchuan?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: root
+        password: kd93kg8#@ksdf
+        hikari:
+          minimum-idle: 10
+          maximum-pool-size: 20
+          auto-commit: true
+          idle-timeout: 30000
+          max-lifetime: 1800000
+          connection-timeout: 10000
+          connection-test-query: SELECT 1
+      names: master
+      encryptors:
+        encryptor_aes:
+          type: aes
+          props:
+            aes:
+              key:
+                value: ju7h6tfdmijbvki8
+    props:
+      query:
+        with:
+          cipher:
+            column: false
+      sql:
+        show: true
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+    multipart:
+      max-request-size: 100Mb
+      max-file-size: 100Mb
+  redis:
+    timeout: 2000
+    password: UIX*$MD78p
+    jedis:
+      pool:
+        max-active: 100
+        min-idle: 10
+        max-idle: 30
+        max-wait: 5
+    sentinel:
+      master: s1
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+
+
+
+logging:
+  config: classpath:logback-spring.xml
+
+
+
+mybatis:
+  type-aliases-package: com.iflytek.rights.entity
+  mapper-locations: classpath:mapper/*.xml
+#  config-location: classpath:mybatis-config.xml
+
+
+
+#回调函数
+url:
+  callBackUrl:
+    startMeeting: http://${spring.cloud.client.ipAddress}:${server.port}/rights/callback/rtp
+
+
+
+
+
+#OSS上传container
+tj_cssp_container: iflyrechuizhan_test.hfdn3.openstorage.cn/iflyrecchuizhan01
+
+
+netty:
+  port: 8301
+  offlineNotice: http://${spring.cloud.client.ipAddress}:${server.port}/exhibition/v1.3/user/offlineNotice
+
+
+es:
+  result:
+    index: yyzxhuizhan
+    type: TJHZRealtimeTranscriptResult
+
+
+
+
+
+#云存储容器
+#tj_cssp_container: iflyrechuizhan_test.hfdn3.openstorage.cn/iflyrecchuizhan01

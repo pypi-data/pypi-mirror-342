@@ -1,0 +1,13 @@
+streaming:
+  urls:
+    - /XFTJWebAdaptService/v1/hj/aiPower/historyTextGenerate,
+    - /XFTJWebAdaptService/v1/hj/aiPower/textGenerate,
+    - /HXV2AdaptService/v1/hj/aiPower/historyTextGenerate,
+    - /HXV2AdaptService/v1/hj/queryTextGenerateTask
+    - /HXV2AdaptService/v2/hj/aiPower/historyTextGenerate
+    - /AIGenerateContent/v2/generateText
+    - /tjcmSummary/aigc/generateAigcSummary
+    - /HXV2AdaptService/v1/assistantChat/chat
+    - /XFTJWebAdaptService/v2/knowledgeQA/chat
+    - /XFTJAppAdaptService/v1/ai/audios/realTimeQueryTextGenerateTask
+    - /XFTJWebAdaptService/v2/hj/aiPower/realTimeQueryTextGenerateTask

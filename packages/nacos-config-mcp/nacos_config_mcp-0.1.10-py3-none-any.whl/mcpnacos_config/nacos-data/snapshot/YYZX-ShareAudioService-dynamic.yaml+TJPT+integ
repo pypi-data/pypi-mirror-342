@@ -1,0 +1,48 @@
+bizGroup:
+  #不在配置项内的bizId，bizGroupId会适配为tjpt
+  map:
+    xfxz:
+      - huixie
+      - xuexi_xz_xcx
+      - icbc_xz_xcx
+      - xftjxzsparkxcx
+      - xftjxzios
+      - xftjxzandroid
+      - xftjxzh5
+      - xftjxzxcxpad
+      - xftjxzxcxpc
+      - xftjxzxcx
+    xftjapp:
+      - xftjapp
+    tjqbg:
+      - huiji
+      - xftj
+      - tjwxapp
+      - tjzs
+      - icbc_zwz_xcx
+      - telecom_pc_anhui
+      - telecom_pc_hubei
+      - xftjh5
+
+
+shareOrderCloseWhiteList:
+  #不在配置项内的bizId，bizGroupId会适配为tjpt
+  map:
+    h5:
+      - PWmz22112010486FEF1ED300004
+      - PWmz22111518316FEF1EC700006
+      - PWmz221115182990A25BD400000
+      - PWmz22112010476FEF1EE500000
+      - PWmz2211201046C73E8FB800007
+      - PWmz221115183835F0B7970000A
+      - PWmz221115115690A25BC700006
+      - PWmz221115181590A25AC300008
+      - PWmz2211151343658907FB00004
+      - PWmz22111513436FEF1FFA00008
+      - PWmz2211201047A780377A0000A
+      - PWmz221115121635F0B79500007
+      - PWmz221115121490A25BEB00006
+      - PWmz22111513406FEF1EC20000A
+      - PWmz221115134090A25ACF00003
+      - PWmz22111512046FEF1FE800011
+      - PWmz2211151839A780372F00005
