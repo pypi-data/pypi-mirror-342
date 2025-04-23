@@ -1,0 +1,2 @@
+[console_scripts]
+pby-cli = docker_cli.cli:app
