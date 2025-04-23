@@ -1,0 +1,109 @@
+name: Build and Deploy Documentation
+
+on:
+  release:
+    types: [published]
+  workflow_call:
+    inputs:
+      run_deploy:
+        required: false
+        type: boolean
+        default: true
+        description: "Whether to deploy the docs after building"
+
+
+permissions:
+  contents: write  # Allows the workflow to push changes
+
+jobs:
+  build-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install pandoc
+        uses: pandoc/actions/setup@v1
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests build python-dotenv
+          pip install setuptools  # Add setuptools which provides distutils
+          pip install .[docs]  # Install package with docs dependencies
+
+      - name: Build documentation
+        id: build_docs
+        continue-on-error: true
+        run: |
+          cd sphinx  # Assuming Sphinx docs are in this directory
+          make clean && make html
+          echo "build_successful=true" >> $GITHUB_OUTPUT
+
+      - name: Check build status
+        if: steps.build_docs.outputs.build_successful != 'true'
+        run: |
+          echo "Documentation build failed!"
+          exit 1
+          - name: Delete release if failed
+
+      - name: Delete release if failed
+        if: failure() 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_ID: ${{ github.event.release.id }}
+          REPO_NAME: ${{ github.repository }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          python scripts/github_workflow/workflow_delete_release.py
+
+  deploy-docs:
+    needs: build-docs
+    runs-on: ubuntu-latest
+    if: ${{ always() && needs.build-docs.result == 'success' && (inputs.run_deploy || github.event_name == 'release') }}
+    steps:
+      # 1. Checkout the repo (still at whatever ref triggered the workflow)
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0     # get full history
+          ref: main          # <-- force-checkout main branch
+
+      - name: Pull latest changes
+        run: git pull origin main
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install pandoc
+        uses: pandoc/actions/setup@v1
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests build python-dotenv
+          pip install setuptools  # Add setuptools which provides distutils
+          pip install .[docs]  # Install package with docs dependencies
+
+      # 3. Build and stage your docs
+      - name: Build and deploy documentation
+        run: |
+          cd sphinx
+          make clean && make html
+          make deploy
+          cd ..
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add docs/
+          git commit -m "docs: Update documentation" || echo "No changes to commit"
+          git push origin HEAD:main
