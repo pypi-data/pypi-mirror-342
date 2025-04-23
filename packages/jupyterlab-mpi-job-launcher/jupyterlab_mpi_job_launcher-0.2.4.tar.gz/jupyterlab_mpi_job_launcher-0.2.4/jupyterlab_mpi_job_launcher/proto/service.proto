@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package mpijob;
+
+service MPIJobService {
+  rpc SubmitJob (JobRequest) returns (JobResponse);
+}
+
+message JobRequest {
+  string json_payload = 1;
+}
+
+message JobResponse {
+  string message = 1;
+}
