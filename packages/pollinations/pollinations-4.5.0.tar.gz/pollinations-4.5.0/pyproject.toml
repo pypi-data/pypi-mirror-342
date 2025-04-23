@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pollinations"
+version = "4.5.0"
+description = "pollinations.ai | Free AI Image, Text, and Audio Generation"
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+authors = [{ name = "git.pollinations.ai", email = "git.pollinations.ai@gmail.com" }]
+keywords = ["pollinations", "pollinations.ai", "pollinations-ai", "pollinations_ai", "ai", "api", "sdk", "wrapper", "free"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Typing :: Typed"
+]
+dependencies = [
+    "httpx",
+    "pillow"
+]
+
+[project.urls]
+Website = "https://pollinations.ai/"
+SDK-Repository = "https://github.com/pollinations-ai/pollinations.ai"
+Discord = "https://discord.gg/8HqSRhJVxn"
+Github = "https://github.com/pollinations"
+YouTube = "https://www.youtube.com/channel/UCk4yKnLnYfyUmCCbDzOZOug"
+Instagram = "https://instagram.com/pollinations_ai"
+Twitter = "https://twitter.com/pollinations_ai"
+
+[project.scripts]
+pollinate = "pollinations.cli:main"
+
+[tool.setuptools]
+packages = { find = {} }
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = { attr = "pollinations.__version__" }
