@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+contextual_conv/__init__.py
+contextual_conv/contextual_conv.py
+contextual_conv.egg-info/PKG-INFO
+contextual_conv.egg-info/SOURCES.txt
+contextual_conv.egg-info/dependency_links.txt
+contextual_conv.egg-info/requires.txt
+contextual_conv.egg-info/top_level.txt
+tests/test_contextual_conv.py
