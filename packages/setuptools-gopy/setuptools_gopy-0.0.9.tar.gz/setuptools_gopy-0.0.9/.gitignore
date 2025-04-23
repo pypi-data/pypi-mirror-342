@@ -1,0 +1,7 @@
+.DS_Store
+/.nox
+build
+*.egg-info
+__pycache__
+dist
+install.log

@@ -1,0 +1,8 @@
+[distutils.commands]
+build_gopy = setuptools_gopy:build_gopy
+
+[distutils.setup_keywords]
+gopy_extensions = setuptools_gopy.setuptools_ext:gopy_extensions
+
+[setuptools.finalize_distribution_options]
+setuptools_gopy = setuptools_gopy.setuptools_ext:pyprojecttoml_config
