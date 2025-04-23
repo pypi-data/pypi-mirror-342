@@ -1,0 +1,70 @@
+Metadata-Version: 2.4
+Name: imelt
+Version: 2.1.4
+Summary: A physics-guided neural network model for the prediction of structural, thermodynamic and dynamic properties of aluminosilicate melts and glasses.
+Author-email: Charles Le Losq <lelosq@ipgp.fr>, Barbara Baldoni <lelosq@ipgp.fr>, Andrew Valentine <lelosq@ipgp.fr>
+License: MIT License
+        
+        Copyright (c) 2021-2025 Charles Le Losq, Barbara Baldoni, Andrew Valentine
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.  
+        
+Project-URL: Homepage, https://github.com/charlesll/i-melt
+Project-URL: Documentation, https://i-melt.readthedocs.io/en/latest/
+Project-URL: Repository, https://github.com/charlesll/i-melt.git
+Project-URL: Bug Tracker, https://github.com/charlesll/i-melt/issues
+Project-URL: Changelog, https://github.com/charlesll/i-melt/NEWS.md
+Keywords: properties,raman,liquid,glass,magma,aluminosilicate
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: rampy
+Requires-Dist: h5py
+Requires-Dist: torch
+Requires-Dist: scikit-learn
+Requires-Dist: pandas
+Requires-Dist: openpyxl
+Dynamic: license-file
+
+# i-Melt
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5342177.svg)](https://doi.org/10.5281/zenodo.5342177)![GitHub](https://img.shields.io/github/license/charlesll/i-melt)
+
+i-Melt is a physics-guided neural network model, that combines deep neural networks with physical equations to predict the structural, thermodynamic and dynamic properties of aluminosilicate melts and glasses.
+
+- **Web app** https://i-melt.streamlit.app/
+- **Documentation (in progress)** https://i-melt.readthedocs.io/en/latest/
+- **Source code:** https://github.com/charlesll/i-melt/tree/main/i-melt/src/
+- **License:** https://github.com/charlesll/i-melt/LICENSE
+- **References:** https://i-melt.readthedocs.io/en/latest/references.html
+- **Bug reports:** https://github.com/charlesll/i-melt/issues
+- **Contact** lelosq@ipgp.fr
+
+## Software Contributors
+
+Charles Le Losq, University Paris Cité, Institut de physique du globe de Paris, lelosq@ipgp.fr
+
+Barbara Baldoni, University Paris Cité, Institut de physique du globe de Paris, baldoni@ipgp.fr
+
+Andrew P. Valentine, Durham University, andrew.valentine@durham.ac.uk
