@@ -1,0 +1,6 @@
+concurrent-log-handler>=0.9.25
+dynaconf>=3.2.10
+jsonref>=1.1.0
+mcp[cli]>=1.6.0
+pydantic>=2.11.3
+volcengine-python-sdk>=1.1.5

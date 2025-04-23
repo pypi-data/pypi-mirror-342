@@ -1,0 +1,2 @@
+[console_scripts]
+ecs-mcp-server = mcp_server_ecs.main:main

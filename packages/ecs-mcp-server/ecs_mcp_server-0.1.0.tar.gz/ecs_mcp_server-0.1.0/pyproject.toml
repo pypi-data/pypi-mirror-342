@@ -1,0 +1,16 @@
+[project]
+name = "ecs-mcp-server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "concurrent-log-handler>=0.9.25",
+    "dynaconf>=3.2.10",
+    "jsonref>=1.1.0",
+    "mcp[cli]>=1.6.0",
+    "pydantic>=2.11.3",
+    "volcengine-python-sdk>=1.1.5",
+]
+[project.scripts]
+ecs-mcp-server = "mcp_server_ecs.main:main"
