@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: power-slides
+Version: 0.1.4
+Summary: A tool to generate HTML presentations from Markdown.
+Author-email: rajxsingh <rajbir@live.de>
+License-Expression: MIT
+Project-URL: homepage, https://github.com/rajxsingh/power-slides
+Project-URL: repository, https://github.com/rajxsingh/power-slides
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PyYAML
+Dynamic: license-file
+
+# Power Slides
+
+Power Slides is a Python tool to generate HTML presentations from Markdown files. It supports custom layouts, embedded code, and more.
+
+## Installation
+
+```bash
+pip install power-slides
+```
+
+## Usage
+
+```bash
+power-slides <input_file>.md [<output_dir>]
+```
+
+## Features
+
+- Markdown to HTML conversion
+- Custom layouts
+- Nested slides
+- Code highlighting

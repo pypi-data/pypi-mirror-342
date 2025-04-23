@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "power-slides"
+version = "0.1.4"
+authors = [
+    { name = "rajxsingh", email = "rajbir@live.de" }
+]
+description = "A tool to generate HTML presentations from Markdown."
+readme = {file = "README.md", content-type = "text/markdown"}
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+dependencies = ["PyYAML"]
+
+[project.urls]
+homepage = "https://github.com/rajxsingh/power-slides"
+repository = "https://github.com/rajxsingh/power-slides"
+
+[project.scripts]
+power-slides = "power_slides.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+"power_slides" = ["*.html", "*.md"]  # Add anything else you need
+
+[tool.setuptools.packages.find]
+where = ["src"]
