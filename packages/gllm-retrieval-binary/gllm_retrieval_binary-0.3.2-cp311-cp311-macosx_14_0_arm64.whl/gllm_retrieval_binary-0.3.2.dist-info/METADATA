@@ -1,0 +1,105 @@
+Metadata-Version: 2.1
+Name: gllm-retrieval-binary
+Version: 0.3.2
+Summary: A library containing retrieval related components in Gen AI applications.
+Author: Dimitrij Ray
+Author-email: dimitrij.ray@gdplabs.id
+Requires-Python: >=3.11,<3.13
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: elasticsearch
+Provides-Extra: flag-embedding
+Provides-Extra: kg
+Provides-Extra: sql
+Provides-Extra: torch
+Requires-Dist: FlagEmbedding (>=1.2.5,<2.0.0) ; extra == "flag-embedding"
+Requires-Dist: gllm-core-binary
+Requires-Dist: gllm-datastore-binary[kg] ; extra == "kg"
+Requires-Dist: gllm-inference-binary
+Requires-Dist: jsonschema (>=4.21.1,<5.0.0)
+Requires-Dist: langchain (>=0.3.0,<0.4.0)
+Requires-Dist: langchain-community (==0.3.0)
+Requires-Dist: langchain-core (>=0.3.0,<0.4.0)
+Requires-Dist: langchain-elasticsearch (==0.3.0) ; extra == "elasticsearch"
+Requires-Dist: libmagic (>=1.0,<2.0) ; sys_platform == "win32"
+Requires-Dist: llama-index-core (>=0.12.0,<0.13.0)
+Requires-Dist: llama-index-embeddings-openai (>=0.3.0,<0.4.0) ; extra == "kg"
+Requires-Dist: llama-index-llms-openai (>=0.3.0,<0.4.0) ; extra == "kg"
+Requires-Dist: numpy (>=1.26.4,<2.0.0) ; extra == "flag-embedding"
+Requires-Dist: peft (>=0.12.0,<0.13.0) ; extra == "flag-embedding"
+Requires-Dist: python-magic-bin (>=0.4.14,<0.5.0) ; sys_platform == "win32"
+Requires-Dist: sqlglot (>=26.3.9,<27.0.0) ; extra == "sql"
+Requires-Dist: torch (>=2.2.0,<2.3.0) ; extra == "flag-embedding" or extra == "torch"
+Description-Content-Type: text/markdown
+
+# GLLM Retrieval
+
+## Description
+
+A library containing retrieval related components in Gen AI applications.
+
+## Installation
+
+1. Python v3.11 or above:
+
+You can install Python using [Miniconda](https://docs.anaconda.com/free/miniconda/index.html).
+
+2. Make sure you're in the `base` conda environment:
+```bash
+conda activate
+```
+
+3. [Poetry](https://python-poetry.org/docs/) v1.8.1 or above:
+
+You can install Poetry using cURL (you need Python to install Poetry):
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+4. Install the library using Poetry:
+```bash
+# Latest
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git#subdirectory=libs/gllm-retrieval"
+
+# Specific version
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@gllm_retrieval-v0.0.1-beta.1#subdirectory=libs/gllm-retrieval"
+
+# Specific Branch Name
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git@<BRANCH NAME>#subdirectory=libs/gllm-retrieval"
+
+# With extra dependencies
+poetry add "git+ssh://git@github.com/GDP-ADMIN/gen-ai-internal.git#subdirectory=libs/gllm-retrieval" --extras "extra1 extra2"
+```
+
+Available extras:
+- `flag_embedding`: Install FlagEmbedding Reranker dependencies
+
+5. At this step, you can deactivate Miniconda environment as Poetry will create and manage its own virtual environment for you.
+```bash
+conda deactivate
+```
+
+## Managing Dependencies
+1. Go to root folder of `gllm-retrieval` module, e.g. `cd libs/gllm-retrieval`.
+2. Run `poetry shell` to create a virtual environment.
+3. Run `poetry lock` to create a lock file if you haven't done it yet.
+4. Run `poetry install` to install the `gllm-retrieval` requirements for the first time.
+5. Run `poetry update` if you update any dependency module version at `pyproject.toml`.
+
+
+## Contributing
+Please refer to this [Python Style Guide](https://docs.google.com/document/d/1uRggCrHnVfDPBnG641FyQBwUwLoFw0kTzNqRm92vUwM/edit?usp=sharing)
+to get information about code style, documentation standard, and SCA that you need to use when contributing to this project
+
+1. Activate `pre-commit` hooks using `pre-commit install`
+2. Run `poetry shell` to create a virtual environment.
+3. Run `poetry lock` to create a lock file if you haven't done it yet.
+4. Run `poetry install` to install the `gllm-retrieval` requirements for the first time.
+5. Run `poetry install --all-extras` to install optional library (elasticsearch, etc).
+6. Run `which python` to get the path to be referenced at Visual Studio Code interpreter path (`Ctrl`+`Shift`+`P` or `Cmd`+`Shift`+`P`)
+7. Try running the unit test to see if it's working:
+```bash
+poetry run pytest -s tests/unit_tests/
+```
+
