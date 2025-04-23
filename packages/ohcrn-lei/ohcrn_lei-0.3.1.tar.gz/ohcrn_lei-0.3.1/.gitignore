@@ -1,0 +1,28 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# MacOS
+.DS_Store
+
+# Virtual environments
+.venv
+
+#VSCode files
+.vscode
+
+#eval data
+eval/input/
+eval/output/
+eval/reference/
+eval/metrics/
+eval/vis/
+eval/old_result/
+
+# pytest
+htmlcov
+.coverage
