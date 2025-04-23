@@ -1,0 +1,20 @@
+[project]
+name = "beswarm"
+version = "0.1.8"
+description = "MAS"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aient>=1.0.71",
+    "diskcache>=5.6.3",
+    "grep-ast>=0.8.1",
+    "networkx>=3.4.2",
+    "numpy>=2.2.4",
+    "pygments>=2.19.1",
+    "scipy>=1.15.2",
+    "tqdm>=4.67.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["beswarm*"]
