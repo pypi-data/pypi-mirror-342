@@ -1,0 +1,251 @@
+
+card Row2, then: Row3 do
+  text("""
+  Hi, I'm a chatbot.
+  """)
+  
+  
+end
+    
+card Row3 , then: Row3Fallback do
+  
+  buttons([Row4]) do
+    text("""
+    Please click 'agree' to agree to my privacy policy.
+    """)
+  end
+  fallback = True
+end    
+
+card Row3Fallback when fallback == True, then: Row3 do
+  fallback = False
+  
+  text("""
+  Sorry, please select one of the options.
+  """)
+end
+    
+card Row4, "Agree" , then: Row5 do
+  
+
+  log("Placeholder")
+  
+  
+end
+    
+card Row5, then: Row6 do
+  text("""
+  Great, I'm so glad that you are here.
+  """)
+  
+  
+end
+    
+card Row6, then: Row8 do
+  response =
+    ask("""
+    What should I call you?  Type "SKIP" to skip.
+    """)
+  update_contact(name: "@response")
+end
+   
+card Row8 when response == "skip" or response == "Skip" or response == "SKIP", then: Row9 do
+  log("Placeholder")
+end
+
+card Row8 when response != "skip" and response != "Skip" and response != "SKIP", then: Row9 do
+  log("Placeholder")
+  
+  update_contact(name: "@response")
+end
+    
+card Row9, then: Row11 do
+  response = ask("""
+  One more thing… What's your favorite color?
+  """)
+end
+
+card Row11, then: Row13 do
+  response = ask("""
+  Do you like cats?
+  """)
+end
+
+card Row13, then: Row14 do
+  text("""
+  Thanks, I'm glad that you are here.
+  """)
+  
+  
+end
+    
+card Row14 , then: Row14Fallback do
+  
+  buttons([Row15, Row16]) do
+    text("""
+    What image would you like to look at?  Type 2 to SKIP.
+    """)
+  end
+  fallback = True
+end    
+
+card Row14Fallback when fallback == True, then: Row14 do
+  fallback = False
+  
+  text("""
+  Sorry, please select one of the options.
+  """)
+end
+    
+card Row15, "Image 1" , then: Row18 do
+  
+
+  log("Placeholder")
+  
+  
+end
+    
+card Row16, "Image 2" , then: Row23 do
+  
+
+  log("Placeholder")
+  
+  
+end
+    
+card Row18, then: Row19 do
+  text("""
+  Here is Image 1
+  """)
+  
+  
+end
+       
+card Row19  do
+  buttons([Row21, Row22]) do
+      image("https://tangibleai.com/wp-content/uploads/2022/12/1.jpg")
+      text("""
+      0
+      """)
+  end
+  
+end
+    
+card Row20 , then: Row20Fallback do
+  
+  buttons([Row21, Row22]) do
+    text("""
+    Do you like it?
+    """)
+  end
+  fallback = True
+end    
+
+card Row20Fallback when fallback == True, then: Row20 do
+  fallback = False
+  
+  text("""
+  Sorry, please select one of the options.
+  """)
+end
+    
+card Row21, "Yes" , then: Row29 do
+  
+
+  log("Placeholder")
+  
+  
+end
+    
+card Row22, "No" , then: Row29 do
+  
+
+  log("Placeholder")
+  
+  
+end
+    
+card Row23, then: Row24 do
+  text("""
+  Here is Image 2
+  """)
+  
+  
+end
+    
+card Row24, then: Row27 do
+  image("https://tangibleai.com/wp-content/uploads/2022/12/1.jpg")
+
+  text("""
+  Do you like it?
+  """)
+end
+    
+card Row25, then: Row26 do
+  text("""
+  Okay, you've seen it.
+  """)
+  
+  
+end
+    
+card Row26 , then: Row27 do
+  
+  buttons([Row27, Row28]) do
+    text("""
+    Do you like it?
+    """)
+  end
+  
+end    
+
+card Row27, "Yes" , then: Row29 do
+  
+
+  log("Placeholder")
+  
+  update_contact(name: "@response")
+end
+    
+card Row28, "No" , then: Row29 do
+  
+
+  log("Placeholder")
+  
+  update_contact(name: "@response")
+end
+    
+card Row29 , then: Row30 do
+  
+  buttons([Row30, Row31]) do
+    text("""
+    Where would you like to go now?
+    """)
+  end
+  
+end    
+
+card Row30, "Main Menu"  do
+  
+
+  run_stack("6d96158a-7407-4dd2-af44-113b3725f776")
+  
+  
+end
+    
+card Row31, "Finished" , then: Row32 do
+  
+
+  log("Placeholder")
+  
+  
+end
+    
+card Row32 do
+  text("""
+  Okay, thanks.  Bye!
+  """)
+  
+  
+end    
+    
