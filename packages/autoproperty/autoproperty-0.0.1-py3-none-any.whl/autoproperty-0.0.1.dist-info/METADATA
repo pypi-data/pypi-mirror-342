@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: autoproperty
+Version: 0.0.1
+Summary: Library for making automatic property for methods with type validation and access modificators.
+Project-URL: URL, https://github.com/Provonsal/autoproperty
+Author-email: Provonsal <alecsw86@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10.0
