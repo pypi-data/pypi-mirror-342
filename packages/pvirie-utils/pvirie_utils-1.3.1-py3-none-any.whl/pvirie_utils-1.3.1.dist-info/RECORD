@@ -1,0 +1,13 @@
+pvirie_gcp/__init__.py,sha256=zUWi4rfHNO8cDfbrPRYsfRN2I_ZwUSa9k1YfZD4sppA,44
+pvirie_gcp/artifact_registry.py,sha256=OIu09HwbTu-n5OSs13aoQKgMrY-_Qf1x1CcE1y4_xqk,2950
+pvirie_gcp/drive.py,sha256=LmjDrCFGL6usE6pjFRIg813icW0jV95ec5XZ0Ds65Cg,16948
+pvirie_gcp/gcp.py,sha256=GNq4mmmcxm19eaWR1ZokqrbTGVQ40I3hyCrLz9_CagU,534
+pvirie_gcp/oauth.py,sha256=4YID8IZRmUmLf3jonftD-fXYH9cb1vzIWkX5WrWyYBA,4841
+pvirie_gcp/sheet.py,sha256=VJrh5aThNiW_qC4ESgkp3-MGuzcENnIZEzDu0LBQ25Q,1964
+pvirie_gcp/storage.py,sha256=OfLqg3xV-8bmkDX4iPi9UR9mlz670DZYJRt2li3Uw9M,327
+pvirie_gcp/vertex.py,sha256=PQSD0lIoqQy_5Qo3b5QQjZvMQaEpIf_Ic_Li2yguMR0,313
+pvirie_utils-1.3.1.dist-info/licenses/LICENSE,sha256=mNBvQp_VX7V3nzofxIOok1ItjkyKm33pW-V2m8Ypr5M,1078
+pvirie_utils-1.3.1.dist-info/METADATA,sha256=bgtmeeXNYH2t9XRdAfWrJGpp_4pkfwnCh0LsZrPfNd8,1410
+pvirie_utils-1.3.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+pvirie_utils-1.3.1.dist-info/top_level.txt,sha256=qtXuoMUfDbOE41Ezc0Mt6lPOdayr4kVpjzo5QvMvtEA,11
+pvirie_utils-1.3.1.dist-info/RECORD,,
