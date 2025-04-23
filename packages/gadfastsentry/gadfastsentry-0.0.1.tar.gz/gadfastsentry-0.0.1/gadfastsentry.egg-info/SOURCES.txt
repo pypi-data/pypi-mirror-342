@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+gadfastsentry/__init__.py
+gadfastsentry.egg-info/PKG-INFO
+gadfastsentry.egg-info/SOURCES.txt
+gadfastsentry.egg-info/dependency_links.txt
+gadfastsentry.egg-info/requires.txt
+gadfastsentry.egg-info/top_level.txt
