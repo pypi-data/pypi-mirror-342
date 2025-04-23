@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gui_stream"
+version = "2.0.2" 
+authors = [
+  { name="Bruno Chaves"},
+]
+description = "Interface gráfica para conversão de documentos e extraão de texto com ocr."
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+    "soup_files==1.0.1",
+    "PyPDF2==3.0.1",
+    "PyMuPDF==1.25.5",
+    "reportlab==4.3.1",
+    "openpyxl==3.1.5",
+    "pandas==2.2.3",
+    "Pillow==11.2.1",
+    "opencv-python==4.11.0.86",
+    "convert_stream==1.1.1",
+    "ocr_stream==1.1",
+]
+
+[tool.setuptools]
+packages = [
+            "gui_stream", 
+            "gui_stream.sheets", 
+            "gui_stream.gui",
+            "gui_stream.gui.app_pages",
+            "gui_stream.gui.core",
+            "gui_stream.gui.models",
+            "gui_stream.gui.utils",
+]
