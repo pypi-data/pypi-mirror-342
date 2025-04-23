@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: neuroforge
+Version: 0.2.2
+Summary: NeuroForge is an AI-powered framework designed to automate and simplify the process of building, training, and deploying machine learning models.
+Author-email: VishalShenoy2002 <vishal.bshenoy@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/VishalShenoy2002/Mindframe
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: tensorflow==2.18.0
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: langchain==0.2
+Requires-Dist: langchain-community
+Requires-Dist: unstructured
+Dynamic: license-file
+
+# NeuroForge
+NeuroForge is an AI-powered framework designed to automate and simplify the process of building, training, and deploying machine learning models.
