@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+
+#[tool.setuptools.packages.find]
+#where = ["src"]
+#include = ["retirement_calcs*"]
+#namespaces = true
+
+[project]
+name = "sphinxx"
+version = "0.0.7"
+authors = [{name="Odysseus"}]
+readme = "README.md"
+description = "personal scripts and functions uploaded for ease of access, not intended for public use, though available under CC BY-NC 4.0 license (non-commercial use, attribution required, all rights reserved)"
+classifiers = [ "Programming Language :: Python :: 3",
+                "License :: OSI Approved",
+                "Operating System :: Microsoft :: Windows"]
