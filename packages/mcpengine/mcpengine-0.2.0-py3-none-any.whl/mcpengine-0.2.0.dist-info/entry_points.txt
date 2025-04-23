@@ -1,0 +1,2 @@
+[console_scripts]
+mcpengine = mcpengine.cli:app [cli]
