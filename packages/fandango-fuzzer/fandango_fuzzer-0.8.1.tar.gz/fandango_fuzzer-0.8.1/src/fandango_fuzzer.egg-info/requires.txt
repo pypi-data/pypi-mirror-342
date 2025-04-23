@@ -1,0 +1,33 @@
+pytest>=7.2.2
+antlr4-python3-runtime>=4.13
+deprecation>=2.1.0
+ansi_styles>=0.2.2
+cachedir_tag>=0.0.3
+xdg-base-dirs>=6.0.2
+dill>=0.3.7
+thefuzz>=0.22
+py010parser>=0.1.18
+exrex>=0.12.0
+tdigest>=0.5.2.2
+
+[:platform_system != "Windows" and implementation_name != "pypy"]
+gnureadline>=8.2.13
+
+[:platform_system == "Windows"]
+pyreadline3>=3.5.4
+
+[test]
+pytest-cov>=4.1.0
+pytest-html>=3.2.0
+pytest-rerunfailures>=11.1.2
+parameterized>=0.8.1
+Faker>=30.4.0
+docutils>=0.20.1
+tccbox
+python-dateutil>=2.9.0.post0
+deap>=1.4.1
+scipy>=1.14.1
+numpy>=2.2.1
+matplotlib>=3.9.2
+ordered-set>=4.0.2
+cryptography>=44.0.1
