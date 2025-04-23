@@ -1,0 +1,134 @@
+#PCFG Inside Probability
+
+from nltk import PCFG, InsideChartParser
+grammar = PCFG.fromstring("""
+S -> NP VP [1.0]
+NP -> NP PP [0.4] | 'he' [0.1] | 'dessert' [0.3] | 'lunch' [0.1] | 'saw' [0.1]
+PP -> Pre NP [1.0]
+VP -> Verb NP [0.3] | VP PP [0.7]
+Pre -> 'with' [0.6] | 'in' [0.4]
+Verb -> 'ate' [0.7] | 'saw' [0.3]
+""")
+parser = InsideChartParser(grammar)
+tokens = "he saw lunch with dessert".split()
+for tree in parser.parse(tokens):
+    tree.pretty_print()
+    print("PROBABILITY: ",tree.prob())
+    #tree.draw()
+    
+-----------------------------------
+
+#7(b)
+
+import pickle
+from copy import deepcopy
+class Rule:
+    def __init__(self,left,right,probability):
+        self.right = right
+        self.left = left
+        self.probability = probability
+    
+    def __str__(self):
+        return f"{self.left}->{self.right} {self.probability}"
+    
+    def __repr__(self):
+        return self.__str__()
+
+def find_rule_with_word(terminal):
+    a=[]
+    for i in rules:
+        for j in i.right:
+            if j == terminal:
+                a.append(i)
+    return a
+
+def loop_print(i):
+    for j in i:
+        print(j)
+
+
+Z = int(input("Enter no of rules : "))
+rules=[]
+for i in range(Z):
+    print("-"*10)
+    print(f"Rule {i+1}")
+    key = input("Enter left side of the rule : ").upper()
+    value = input("Enter right side of the rule in single string : ").upper().split()
+    probability = float(input("Enter probability of the rule : "))
+    rule = Rule(key,value,probability)
+    rules.append(rule)
+    
+pickle.dump(rules,open("rules.data","wb"))
+
+# Comment if entering manually if not then load from file
+rules = pickle.load(open("rules.data","rb"))
+z = len(rules)
+print(z)
+for i in rules:
+    print(i)
+
+# Check condition for rules
+
+non_terminals = ["S","NP","N","VP","V","PP","P"]
+total_prob = {i:0 for i in non_terminals}
+for i in rules:
+    if i.left not in non_terminals:
+        print(f"Left side should be non terminal. The rule {i.left}-> {i.right} {i.probability} breaks it")
+    total_prob[i.left]+=i.probability
+
+
+for i in total_prob:
+    if total_prob[i] != 1.0 and total_prob[i] != 0:
+        print(f"Total probability should be one. Its is {total_prob[i]} for {i}")
+
+words = [input(f"Enter word {i+1} : ").upper() for i in range(int(input("Enter no of words : ")))]
+
+
+def find_possible_combinations(x,y,debug=False):
+    comb = []
+    for i in range(x,y):
+        if debug :print(f"{x}{i} {i+1}{y}")
+        comb.append(((x,i),(i+1,y)))
+    return comb
+find_possible_combinations(0,4,debug=True)
+
+matrix=[[[] for j in range(len(words))] for i in range(len(words))]
+for i in range(len(words)):
+    for j in range(len(words)):
+        # Loop for diagonal loopings
+        if i+j < 5:
+            x=j
+            y=i+j
+            if x == y:
+                matrix[x][y] = find_rule_with_word(words[x])
+            else:
+                comb = find_possible_combinations(x,y)
+                data=[]
+                for k in comb:
+                    f = matrix[k[0][0]][k[0][1]]
+                    g = matrix[k[1][0]][k[1][1]]
+                    for p in f:
+                        for q in g:
+                            for r in rules:
+                                if r.right == [p.left,q.left]:  
+                                    z
+                                    a = deepcopy(r)
+                                    a.probability = p.probability*q.probability*r.probability
+                                    data.append(a)
+                                    
+                matrix[x][y] = data
+
+for i in range(5):
+    for j in range(5):
+        print(i,j,matrix[i][j])
+
+matrix[0][len(words)-1]
+
+
+def all_same(items):
+    return all(x.left == items[0].left and x.right == items[0].right for x in items)
+
+if all_same(matrix[0][len(words)-1]):
+    a = deepcopy(matrix[0][len(words)-1][0])
+    a.probability = sum([i.probability for i in matrix[0][len(words)-1]])
+    matrix[0][len(words)-1] = [a]

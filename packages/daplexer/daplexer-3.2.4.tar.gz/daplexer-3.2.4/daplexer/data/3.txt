@@ -1,0 +1,148 @@
+#WORD-SENSE-DISAMBIGUATION
+
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+import pandas as pd
+import math
+
+f=open('/content/Text.txt')
+text=f.read()
+data=text.splitlines()
+print(data)
+
+ds=list()
+for i in data:
+    tokens=word_tokenize(i)
+    ds.append(tokens)
+print(ds)
+
+testsen=input("enter the sentence")
+
+testsen=testsen.split(" ")
+
+senseword=input("enter the word to find its sense in the given input : ")
+
+s1=input('enter the sense 1: ')
+s2=input('enter the sense 2: ')
+
+cf=float(text.count(s1))
+cp=float(text.count(s2))
+print(cf)
+print(cp)
+
+scoref=-math.log2((cf+1)/(cp+cf+12))
+scorep=-math.log2((cp+1)/(cp+cf+12))
+print(scoref)
+print(scorep)
+
+fur=list()
+pos=list()
+for i in ds:
+    if(s1 in i):
+        fur.append(i)
+    else:
+        pos.append(i)
+print(fur)
+print(pos)
+
+worlis=word_tokenize(text)
+print(worlis)
+
+problistf=list()
+problistp=list()
+for word in worlis:
+    p=0
+    f=0
+    wf=list()
+    wp=list()
+    for i in fur:
+        if(word in i):
+            f=f+1
+    wf.append(word)
+    wf.append(-math.log2((p+1)/(cp+12)))
+    if(wp not in problistf):
+        problistf.append(wp)
+    for i in pos:
+        if(word in i):
+            p=p+1
+    wp.append(word)
+    wp.append(-math.log((p+1)/(cp+12)))
+    if(wp not in problistp):
+        problistp.append(wp)
+    #scoref=scoref + math.log2((f+1)/(cf+12))
+    #scorep=scorep+math.log2(((p+1)/(cp+12)))
+
+problistf
+
+for word in testsen:
+    for i in problistf:
+        if(word in i):
+            scoref =scoref+i[1]
+    for i in problistp:
+        if(word in i):
+            scorep=scorep+i[1]
+if(scorep > scoref):
+    print("the given",senseword,"is of sense",s2,"in the given sentence")
+else:
+    print("the given",senseword,"is of sense",s1,"in the given sentence")
+
+-------------------------------------------------------
+
+3(b)- Same WSD
+
+#Word-sense-Disambiguation 
+# OPTIMIZED
+import pandas as pd
+import string
+import nltk
+import math
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from collections import defaultdict
+
+# Load data
+df = pd.read_csv("Bank.csv")
+train_data = df.iloc[0:93, :]
+test_data = df.iloc[94:, :]
+stop_words = set(stopwords.words('english'))
+
+# Initialize counters
+fin_class = riv_class = 0
+fin_word_freq = defaultdict(int)
+riv_word_freq = defaultdict(int)
+
+# Preprocess and count word occurrences per class
+for _, row in train_data.iterrows():
+    tokens = [word for word in word_tokenize(row['Sentence']) if word not in stop_words and word not in string.punctuation]
+    
+    if row['Class'] == 'Financial Institution':
+        fin_class += 1
+        for word in tokens:
+            fin_word_freq[word] += 1
+    elif row['Class'] == 'River Border':
+        riv_class += 1
+        for word in tokens:
+            riv_word_freq[word] += 1
+
+# Calculate prior probabilities
+tot_class = fin_class + riv_class
+prior_fin_class = math.log2(fin_class / tot_class)
+prior_riv_class = math.log2(riv_class / tot_class)
+
+# Vocabulary size
+vocab = set(list(fin_word_freq.keys()) + list(riv_word_freq.keys()))
+V = len(vocab)
+
+# Test phase
+for _, row in test_data.iterrows():
+    tokens = [word for word in word_tokenize(row['Sentence']) if word not in stop_words and word not in string.punctuation]
+
+    score_fin = prior_fin_class
+    score_riv = prior_riv_class
+    
+    for word in tokens:
+        score_fin += math.log2(fin_word_freq[word] + 1) - math.log2(fin_class + V)
+        score_riv += math.log2(riv_word_freq[word] + 1) - math.log2(riv_class + V)
+
+    print("Sense is Financial Institution" if score_fin > score_riv else "Sense is River Border")

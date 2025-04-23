@@ -1,0 +1,67 @@
+#AttachmentAmbiguity
+------------------
+
+f=open('/content/AttachmentAmbiguity.txt')
+txt=f.read()
+print(txt)
+
+words=txt.lower().split()
+print(words)
+
+!pip install nltk
+import nltk
+import math
+
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger') # This downloads the default tagger
+nltk.download('averaged_perceptron_tagger_eng')
+
+tags = nltk.pos_tag(words)
+print(tags)
+
+
+nouns,verbs,prep=[],[],[]
+for i in range(len(tags)):
+    if tags[i][1] == 'NN' or tags[i][1] == 'NNS':
+        nouns.append(tags[i][0])
+    if tags[i][1] == 'VB' or tags[i][1] == 'VBN' or tags[i][1] == 'VBZ' or tags[i][1] == 'VBG':
+        verbs.append(tags[i][0])
+    if tags[i][1] == 'IN':
+        prep.append(tags[i][0])
+print("Nouns : ",nouns)
+print("Verbs : ",verbs)
+print("Prepositions : ",prep)
+
+bigramwords=[]
+for i in range(len(words)-1):
+    bigramwords.append(words[i]+" "+words[i+1])
+print(bigramwords)
+
+def hindle_rooth(v,n,p):
+    verb_count = words.count(v)
+    noun_count = words.count(n)
+    prep_count = words.count(p)
+    verb_prep_count=bigramwords.count(v+" "+p)
+    noun_prep_count=bigramwords.count(n+" "+p)
+    p1=verb_prep_count/verb_count
+    p2=noun_prep_count/noun_count
+    p3=1-p2
+    result=(p1*p3)/p2
+    result=math.log(result,2)
+    framing(verb_count,noun_count,verb_prep_count,noun_prep_count,v,n,prep,result)
+
+import pandas as pd
+def framing(v,n,vp,np,verb,noun,prep,result):
+    data={"W": [verb,noun],"C(W)": [v,n],"C(W+P)":[vp,np]}
+    df=pd.DataFrame(data,index=["->","->"])
+    print(df)
+    print('\n')
+    print("Noun: ",noun)
+    print("Verb: ",verb)
+    print("Preposition: ",prep)
+    print("Result: ",result)
+    if result>0:
+        print("Prepositon attaches with verb")
+    else :
+        print("Preposition attaches with Noun")
+hindle_rooth("handling","language","in")
