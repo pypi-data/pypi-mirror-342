@@ -1,0 +1,7 @@
+Metadata-Version: 2.2
+Name: aare
+Version: 2025.4.22
+Requires-Python: >=3.11
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+
