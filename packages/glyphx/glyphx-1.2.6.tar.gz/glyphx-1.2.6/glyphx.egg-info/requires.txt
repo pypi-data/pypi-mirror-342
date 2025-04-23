@@ -1,0 +1,10 @@
+numpy>=1.21
+pandas>=1.4.2
+scipy>=1.7
+cairosvg>=2.5
+ipython>=7.0
+ipywidgets>=8.1
+
+[docs]
+sphinx-astropy
+matplotlib
