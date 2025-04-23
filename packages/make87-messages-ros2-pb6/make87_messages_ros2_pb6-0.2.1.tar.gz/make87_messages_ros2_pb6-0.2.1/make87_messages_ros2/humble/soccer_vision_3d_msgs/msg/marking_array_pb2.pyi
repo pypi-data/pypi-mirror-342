@@ -1,0 +1,26 @@
+from make87_messages.core import header_pb2 as _header_pb2
+from make87_messages_ros2.humble.soccer_vision_3d_msgs.msg import marking_ellipse_pb2 as _marking_ellipse_pb2
+from make87_messages_ros2.humble.soccer_vision_3d_msgs.msg import marking_intersection_pb2 as _marking_intersection_pb2
+from make87_messages_ros2.humble.soccer_vision_3d_msgs.msg import marking_segment_pb2 as _marking_segment_pb2
+from make87_messages_ros2.humble.std_msgs.msg import header_pb2 as _header_pb2_1
+from google.protobuf.internal import containers as _containers
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class MarkingArray(_message.Message):
+    __slots__ = ("header", "ros2_header", "ellipses", "intersections", "segments")
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    ROS2_HEADER_FIELD_NUMBER: _ClassVar[int]
+    ELLIPSES_FIELD_NUMBER: _ClassVar[int]
+    INTERSECTIONS_FIELD_NUMBER: _ClassVar[int]
+    SEGMENTS_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    ros2_header: _header_pb2_1.Header
+    ellipses: _containers.RepeatedCompositeFieldContainer[_marking_ellipse_pb2.MarkingEllipse]
+    intersections: _containers.RepeatedCompositeFieldContainer[_marking_intersection_pb2.MarkingIntersection]
+    segments: _containers.RepeatedCompositeFieldContainer[_marking_segment_pb2.MarkingSegment]
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., ros2_header: _Optional[_Union[_header_pb2_1.Header, _Mapping]] = ..., ellipses: _Optional[_Iterable[_Union[_marking_ellipse_pb2.MarkingEllipse, _Mapping]]] = ..., intersections: _Optional[_Iterable[_Union[_marking_intersection_pb2.MarkingIntersection, _Mapping]]] = ..., segments: _Optional[_Iterable[_Union[_marking_segment_pb2.MarkingSegment, _Mapping]]] = ...) -> None: ...
