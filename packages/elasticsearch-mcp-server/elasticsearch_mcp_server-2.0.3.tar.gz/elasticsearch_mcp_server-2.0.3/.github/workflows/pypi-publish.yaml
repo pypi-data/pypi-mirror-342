@@ -1,0 +1,51 @@
+# This workflow will upload Python Packages using uv when a release is created
+# It builds and publishes two separate packages: elasticsearch-mcp-server and opensearch-mcp-server
+
+name: PyPI Publish
+
+on:
+  workflow_run:
+    workflows: ["Release"]
+    types:
+      - completed
+
+env:
+  UV_PUBLISH_TOKEN: '${{ secrets.PYPI_API_TOKEN }}'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install uv
+        uv sync
+
+    # First build and publish elasticsearch-mcp-server
+    - name: Build elasticsearch-mcp-server package
+      run: uv build
+        
+    - name: Publish elasticsearch-mcp-server package
+      run: uv publish
+      
+    # Clean up dist directory
+    - name: Clean dist directory
+      run: rm -rf dist/*
+      
+    # Then build and publish opensearch-mcp-server
+    - name: Build opensearch-mcp-server package
+      run: |
+        # Change package name to opensearch-mcp-server
+        sed -i 's/^name = .*$/name = "opensearch-mcp-server"/' pyproject.toml
+        uv build
+        
+    - name: Publish opensearch-mcp-server package
+      run: uv publish
