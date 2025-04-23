@@ -1,0 +1,2 @@
+[console_scripts]
+vefaas-browser-use-mcp-server = mcp_server_vefaas_browser_use.server:main
