@@ -1,0 +1,50 @@
+[build-system]
+
+requires = [
+    "setuptools>=79",
+    "wheel"
+    ]
+build-backend = "setuptools.build_meta"
+
+[project]
+
+name = "numbers_and_brightness"
+version = "0.1.4"
+description = "Numbers and brightness analysis for microscopic image analysis implemented in python."
+readme = "README.md"
+authors = [
+    {name = "KJ van Beem"},
+]
+license = {text = "GPL-3.0"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.8"   # To get importlib.metadata working correctly
+dependencies = [
+    "cellpose>=3.1.1.1",
+    "matplotlib>=3.10.1",
+    "numpy>=2.0.2",
+    "opencv-python>=4.11.0.86",
+    "scipy>=1.15.2",
+    "tifffile>=2025.3.30",
+    "tqdm>=4.67.1",
+    "pyshortcuts>=1.9.5",
+    "PyQt6>=6.9.0",
+    "pandas>=2.2.3"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/JvB22/Numbers_and_brightness"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.setuptools.package-data]
+numbers_and_brightness = ["_gui_components/*.ico", "_gui_components/*.png"]
+
+[project.scripts]
+numbers_and_brightness = "numbers_and_brightness.cli:main"
