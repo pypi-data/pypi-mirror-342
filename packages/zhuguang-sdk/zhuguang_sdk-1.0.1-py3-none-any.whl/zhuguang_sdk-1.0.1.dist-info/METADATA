@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: zhuguang-sdk
+Version: 1.0.1
+Summary: zhuguang主题桌面开发python sdk
+Home-page: https://zg.wzhut.com
+Author: 万烛通
+Author-email: wanzhutong@qq.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: pyqrcode
+Requires-Dist: pypng
+Requires-Dist: pydash
+
+zhuguang_sdk
+烛光主题桌面开发SDK
+
+官网：https://zg.wzhut.com
+
+意见反馈：wanzhutong@qq.com
