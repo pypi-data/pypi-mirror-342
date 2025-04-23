@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: api-public-nordicite
+Version: 0.0.1
+Summary: Un package pour extraire les données via api public nordicité
+Home-page: https://github.com/Nordikeau-Innovation/Library_Python_Api_Public_Nordicite
+Author: ymarega
+Author-email: ymarega@nordikeau.com
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+License-File: LICENCE
+Requires-Dist: requests>=2.32.3
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

@@ -1,0 +1,11 @@
+LICENCE
+README.md
+setup.py
+api_public_nordicite.egg-info/PKG-INFO
+api_public_nordicite.egg-info/README.md
+api_public_nordicite.egg-info/SOURCES.txt
+api_public_nordicite.egg-info/dependency_links.txt
+api_public_nordicite.egg-info/requires.txt
+api_public_nordicite.egg-info/top_level.txt
+nordicite_api/NordiciteAPIClient.py
+nordicite_api/__init__.py
