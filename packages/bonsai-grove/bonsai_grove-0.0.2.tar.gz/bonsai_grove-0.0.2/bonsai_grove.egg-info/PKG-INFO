@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: bonsai-grove
+Version: 0.0.2
+Summary: bonsai
+Home-page: https://github.com/leecheolu
+Author: MAPS
+Author-email: dongguk.maps@gmail.com
+Keywords: DT
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.7
