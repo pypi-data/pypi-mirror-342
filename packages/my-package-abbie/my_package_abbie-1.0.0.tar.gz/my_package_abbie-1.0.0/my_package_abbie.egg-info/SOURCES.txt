@@ -1,0 +1,9 @@
+LICENSE.txt
+README.rst
+setup.py
+my_package_abbie/__init__.py
+my_package_abbie/main.py
+my_package_abbie.egg-info/PKG-INFO
+my_package_abbie.egg-info/SOURCES.txt
+my_package_abbie.egg-info/dependency_links.txt
+my_package_abbie.egg-info/top_level.txt
