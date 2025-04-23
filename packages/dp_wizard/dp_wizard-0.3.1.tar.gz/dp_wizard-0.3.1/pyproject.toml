@@ -1,0 +1,39 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "dp_wizard"
+authors = [{name = "Chuck McCallum", email = "mccallucc@gmail.com"}]
+readme = "README-PYPI.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dynamic = ["version", "description"]
+dependencies = [
+    "shiny",
+    "faicons",
+    "matplotlib",
+    "opendp[polars]==0.13.0",
+    "jupytext",
+    "jupyter-client",
+    "nbconvert[webpdf]",
+    "ipykernel",
+    "black",
+    "pyyaml",
+
+    # Pin minimum versions if we've had problems.
+    "pyarrow>=16.0.0",
+]
+
+[project.scripts]
+# Prefer dash in name where allowed (repo named and executable)
+# but provide alias to minimize frustration.
+dp-wizard = "dp_wizard:main"
+dp_wizard = "dp_wizard:main"
+
+[project.urls]
+Home = "https://github.com/opendp/dp-wizard"
+
+[tool.pyright]
+include = ["dp_wizard"]
+ignore = ["**/no-tests/"]

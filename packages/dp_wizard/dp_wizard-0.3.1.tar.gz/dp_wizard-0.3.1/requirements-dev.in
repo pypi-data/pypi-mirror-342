@@ -1,0 +1,39 @@
+# After making changes here, run:
+#    pip-compile --rebuild requirements-dev.in && pip install -r requirements-dev.txt
+
+# Developer tools:
+pip-tools
+flit
+black
+flake8
+flake8-bugbear
+pre-commit
+
+# Testing:
+pytest
+pytest-playwright
+pyright
+pytest-cov
+pytest-xdist
+
+
+# Everything below should also be listed in pyproject.toml:
+
+# OpenDP:
+opendp[polars]==0.13.0
+
+# Conversion:
+jupytext
+jupyter-client
+pyyaml
+nbconvert
+ipykernel
+# May also require:
+# python -m ipykernel install --name kernel_name --user
+
+# Shiny:
+shiny
+faicons
+
+# Visualization:
+matplotlib
