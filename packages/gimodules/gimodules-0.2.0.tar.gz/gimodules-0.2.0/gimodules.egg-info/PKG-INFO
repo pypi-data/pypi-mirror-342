@@ -1,0 +1,165 @@
+Metadata-Version: 2.4
+Name: gimodules
+Version: 0.2.0
+Summary: Python package to deliver a Gantner cloud interface
+Author: gimodules devs
+Author-email: 
+Keywords: python
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: certifi==2022.6.15
+Requires-Dist: iniconfig==1.1.1
+Requires-Dist: ipython==8.12.3
+Requires-Dist: ipywidgets==7.7.1
+Requires-Dist: matplotlib~=3.5.2
+Requires-Dist: numpy==1.23.1
+Requires-Dist: pandas==1.4.3
+Requires-Dist: pymysql~=1.0.2
+Requires-Dist: python-dotenv==1.0.1
+Requires-Dist: python_dateutil==2.8.2
+Requires-Dist: pytz==2024.1
+Requires-Dist: Requests==2.32.3
+Requires-Dist: seaborn~=0.11.2
+Requires-Dist: sqlalchemy~=2.0.32
+Requires-Dist: websocket_client
+Requires-Dist: pytest
+Requires-Dist: pipenv
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+# gimodules-python
+
+# Usage
+
+### Install from PyPi
+
+```bash 
+pip install gimodules
+```
+
+Import module in python script and call functions.
+
+A detailed description of the package and other APIs can be found in the Gantner Documentation.
+
+```python
+from gimodules.cloudconnect.cloud_request import CloudRequest
+
+cloud = CloudRequest()
+cloud.login(url='https://example.gi-cloud.io', access_token='TOKEN') # Create a token under Tools -> Monitor
+cloud.get_all_stream_metadata()
+```
+
+
+# Development
+
+### Information on how to manually distribute this package can be found here
+
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
+
+## Distribute with CI / CD
+Edit setup.py version number and create a release.
+-> Creating a release will trigger the workflow to push the package to PyPi
+
+## Tests
+
+run tests locally:
+
+```bash
+pipenv run test -v
+```
+
+or 
+
+```bash
+pytest`
+```
+
+## Requirements
+
+When starting to develop you can install the requirements with:
+
+```bash
+pip install -r requirements.txt
+```
+
+When you add new components and the requirements change, 
+you can find out what packages are needed by the project and create new requirements:
+
+```bash
+pipreqs .
+```
+
+To create project all current packages installed in your venv for requirements automatically:
+
+```bash
+pip3 freeze > requirements.txt
+```
+---
+
+**_NOTE:_** Remove the old gimodules version from requirements.txt before pushing (dependency conflict).
+
+---
+
+## Documentation
+
+The documentation is being built as extern script in the GI.Sphinx repository.
+
+The documentation consists of partially generated content. 
+To **generate .rst files** from the code package, run the following command from the root directory of the project:
+
+```bash
+sphinx-apidoc -o docs/source/ gimodules
+```
+
+To **build the documentation**, run the following command:
+
+```bash
+cd docs
+make html
+```
+
+## Linting / Type hints
+
+This project follows the codestyle PEP8 and uses the linter flake8 (with line length = 100).
+
+You can format and check the code using lint.sh:
+    
+```bash
+./lint.sh [directory/]
+```
+
+Type hints are highly recommended.
+Type hints in Python specify the expected data types of variables,
+function arguments, and return values, improving code readability,
+catching errors early, and aiding in IDE autocompletion.
+
+To include type hints in the check:
+
+```bash
+mpypy=true ./lint.sh [directory])
+```
+
+#### TODO
+1. [x] lint.sh diff between black and flake8 etc
+2. [x] Usage with python 3.12
+3. [x] Doc requirements 
