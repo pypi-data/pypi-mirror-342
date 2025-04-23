@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: WT_2
+Version: 0.1
+Summary: WT2 Mass spectrometry data processing library
+Author: liuzhenhuan
+Author-email: 867245824@qq.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matchms
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+Installation
+Quick Start
+Features Overview
+Usage Examples
+Configuration Guide
+API Documentation
+Contribution
+License
