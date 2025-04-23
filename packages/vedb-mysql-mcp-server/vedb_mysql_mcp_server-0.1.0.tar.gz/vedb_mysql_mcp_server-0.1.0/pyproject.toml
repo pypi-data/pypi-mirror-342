@@ -1,0 +1,16 @@
+[project]
+name = "vedb-mysql-mcp-server"
+version = "0.1.0"
+description = "MCP server for VeDB MySQL"
+readme = "README.md"
+requires-python = ">=3.13"
+license = {text = "MIT"}
+dependencies = [
+    "mcp[cli]>=1.5.0",
+    "volcengine-python-sdk>=1.1.2",
+    "aiohttp>=3.11.14",
+    "deprecated>=1.2.18",
+]
+
+[project.scripts]
+vedb-mysql-mcp-server = "mcp_server_vedb_mysql.server:main"

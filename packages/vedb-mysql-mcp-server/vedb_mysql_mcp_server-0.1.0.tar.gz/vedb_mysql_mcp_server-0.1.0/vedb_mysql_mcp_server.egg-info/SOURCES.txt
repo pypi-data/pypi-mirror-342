@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+mcp_server_vedb_mysql/__init__.py
+mcp_server_vedb_mysql/config.py
+mcp_server_vedb_mysql/server.py
+vedb_mysql_mcp_server.egg-info/PKG-INFO
+vedb_mysql_mcp_server.egg-info/SOURCES.txt
+vedb_mysql_mcp_server.egg-info/dependency_links.txt
+vedb_mysql_mcp_server.egg-info/entry_points.txt
+vedb_mysql_mcp_server.egg-info/requires.txt
+vedb_mysql_mcp_server.egg-info/top_level.txt

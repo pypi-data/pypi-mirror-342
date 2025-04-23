@@ -1,0 +1,2 @@
+[console_scripts]
+vedb-mysql-mcp-server = mcp_server_vedb_mysql.server:main
