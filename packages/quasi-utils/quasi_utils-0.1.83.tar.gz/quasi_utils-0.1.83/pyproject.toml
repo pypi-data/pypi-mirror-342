@@ -1,0 +1,22 @@
+[build-system]
+requires = ['setuptools>=78.1.0', 'wheel']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'quasi_utils'
+version = '0.1.83'
+description = 'Utilities for OMS'
+readme = 'README.md'
+authors = [{ name = 'Kaustubh Dixit', email = 'hi.stockemy@gmail.com' }]
+license-files = ['LICENSE']
+keywords = ['trading', 'algorithm', 'nifty']
+dependencies = ['requests>=2.31.0', 'PyJWT>=2.8.0']
+requires-python = '>=3.11'
+
+[bumpver]
+current_version = '0.1.83'
+version_pattern = 'MAJOR.MINOR.PATCH'
+
+[bumpver.file_patterns]
+'pyproject.toml' = ["version = '{version}'"]
+'deploy.py' = ["quasi-utils=={version}"]
