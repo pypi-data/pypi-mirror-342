@@ -1,0 +1,69 @@
+Metadata-Version: 2.4
+Name: cyberwave
+Version: 0.1.2
+Summary: A powerful Python client for controlling various types of robots through simple, AI-driven APIs
+Project-URL: Homepage, https://github.com/cyberwave/cyberwave
+Project-URL: Documentation, https://github.com/cyberwave/cyberwave/docs
+Project-URL: Repository, https://github.com/cyberwave/cyberwave
+Project-URL: Issues, https://github.com/cyberwave/cyberwave/issues
+Project-URL: Changelog, https://github.com/cyberwave/cyberwave/blob/main/CHANGELOG.md
+Author-email: CyberWave Team <team@cyberwave.ai>
+License-Expression: MIT
+Keywords: ai,automation,drones,robotic-arms,robotics
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Requires-Dist: aiohttp>=3.8.0
+Requires-Dist: asyncio>=3.4.3
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: opencv-python>=4.5.0
+Requires-Dist: pydantic>=1.9.0
+Provides-Extra: dev
+Requires-Dist: black>=22.0.0; extra == 'dev'
+Requires-Dist: flake8>=4.0.0; extra == 'dev'
+Requires-Dist: isort>=5.10.0; extra == 'dev'
+Requires-Dist: mypy>=0.950; extra == 'dev'
+Requires-Dist: pytest-asyncio>=0.18.0; extra == 'dev'
+Requires-Dist: pytest-cov>=3.0.0; extra == 'dev'
+Requires-Dist: pytest>=7.0.0; extra == 'dev'
+Provides-Extra: publish
+Requires-Dist: build>=0.10.0; extra == 'publish'
+Requires-Dist: twine>=4.0.0; extra == 'publish'
+Description-Content-Type: text/markdown
+
+# Cyberwave
+
+This repository contains the Cyberwave software platform:
+
+- **cyberwave** - Python SDK to interact with the Cyberwave backend
+- **cyberwave-backend** - Platform backend service that manages workspaces, projects, maps, robots, and other assets
+
+## Overview
+
+Cyberwave is a comprehensive platform for managing robotic systems, providing tools for workspace organization, project management, map creation, and robot control.
+
+## Components
+
+### Backend Service
+
+The backend service provides a robust API for:
+- User and workspace management
+- Project organization
+- Map and level creation
+- Robot registration and monitoring
+- Fixed asset tracking
+
+### Python SDK
+
+The Python SDK allows developers to easily integrate with the Cyberwave platform programmatically.
