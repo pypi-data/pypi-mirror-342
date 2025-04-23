@@ -1,0 +1,49 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tgedr-ds"
+version = "0.0.6"
+description = "data science related code"
+readme = "README.md"
+license = "Unlicense"
+requires-python = ">=3.11"
+authors = [
+    { name = "joao tiago viegas", email = "jtviegas@gmail.com" },
+]
+keywords = [
+    "data science",
+    "mlops",
+    "ml",
+    "ai",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "pandas~=2.2.3",
+    "torchaudio~=2.6.0",
+    "torchvision~=0.21.0",
+    "torch~=2.6.0",
+    "numpy~=2.1.3",
+    "praw==7.8.1",
+    "spacy==3.8.4"
+]
+
+[project.urls]
+Homepage = "https://github.com/jtviegas/datascience"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+  "/.vscode",
+  "/experiments",
+  "/htmlcov",
+]
+include = ["src", "test"]
+
+[tool.hatch.build.targets.wheel]
+include = ["src"]
+sources = ["src"]
