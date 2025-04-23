@@ -1,0 +1,197 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'pupdater/styles.css' %}">
+{% endblock %}
+
+{% block content_title %}
+  <h1 style="width: 100%;">{{ title }}</h1>
+
+  <div>
+    <strong>Info:</strong> 🐾 Pupdater pip manager shows your packages and searches for the update status and info 
+    <span class="text-danger">🚀 Get Package info might take some time)</span>.
+    📸 Snapshot saves the current list. 🗂 Snapshot List lets you browse history. ⚖️ Compare compares two snapshots. 
+    All tables can be exported (JSON, CSV, TXT).
+  </div>
+{% endblock %}
+
+{% block content %}
+<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; align-items: center;width: 100%;">
+  <form method="post" style="margin: 0;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary" name="run_freeze" value="1">🚀 Get Package Info</button>
+  </form>
+
+
+  <form method="post" style="margin: 0;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-secondary" name="view_snapshots" value="1">🗂 Snapshot List</button>
+  </form>
+
+  {% if show_snapshots %}
+  <form method="post" style="margin: 0; display: flex; gap: 0.5rem; align-items: center;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-warning" name="compare_snapshots" value="1">⚖️ Compare</button>
+    <select name="snapshot_id_1" class="styled-select" required>
+      <option value="">Select date 1</option>
+      {% for s in snapshots %}
+      <option value="{{ s.id }}">{{ s.created }}</option>
+      {% endfor %}
+    </select>
+    <select name="snapshot_id_2" class="styled-select" required>
+      <option value="">Select date 2</option>
+      {% for s in snapshots %}
+      <option value="{{ s.id }}">{{ s.created }}</option>
+      {% endfor %}
+    </select>
+  </form>
+  {% endif %}
+
+  {% if snapshot_detail and not show_compare %}
+  <form method="post" style="margin: 0;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-info" name="back_to_list" value="1">⬅ Back to Snapshot List</button>
+  </form>
+  {% endif %}
+
+  {% if show_results %}
+  <form method="post" style="margin: 0; display: flex; gap: 0.5rem; align-items: center;">
+    {% csrf_token %}
+    <input type="hidden" name="save_snapshot" value="1">
+    <input type="text" name="note" maxlength="200" placeholder="Optional note for Snapshot" class="form-control" style="width: 350px;">
+    <button type="submit" class="btn btn-success">📸 Save Snapshot</button>
+  </form>
+  {% endif %}
+</div>
+
+{% if show_results %}
+<table class="table table-striped table-bordered" style="margin-top: 2rem;">
+  <thead>
+    <tr>
+      <th>Name</th><th>Version</th><th>Latest</th><th>Summary</th><th>Homepage</th>
+      <th>Author</th><th>License</th><th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for pkg in packages %}
+    <tr {% if pkg.outdated %} style="color: red;" {% endif %}>
+      <td>{{ pkg.name }}</td>
+      <td>{{ pkg.version }}</td>
+      <td>{{ pkg.outdated|default:"–" }}</td>
+      <td>{{ pkg.summary|default:"–" }}</td>
+      <td><a href="{{ pkg.homepage }}" target="_blank">{{ pkg.homepage|default:"–" }}</a></td>
+      <td>{{ pkg.author|default:"–" }}</td>
+      <td>{{ pkg.license|default:"–" }}</td>
+      <td>
+        {% if pkg.outdated and request.user.is_superuser %}
+        <form method="post" style="display:inline;">
+          {% csrf_token %}
+          <input type="hidden" name="upgrade_package" value="{{ pkg.name }}">
+          <button type="submit" class="btn btn-sm btn-warning">Update now</button>
+        </form>
+        {% else %}
+        <span class="text-muted">✅</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="card p-3 mt-4" style="border: 1px solid #ddd; border-radius: 0.5rem; background-color: #f9f9f9;">
+  <h5>📁 Export pip freeze list:</h5>
+  <div style="display: flex; gap: 0.5rem;">
+    <a href="{% url 'export_freeze_json' %}" class="btn btn-outline-secondary">📤 JSON</a>
+    <a href="{% url 'export_freeze_csv' %}" class="btn btn-outline-secondary">📤 CSV</a>
+    <a href="{% url 'export_freeze_txt' %}" class="btn btn-outline-secondary">📤 TXT</a>
+  </div>
+</div>
+{% endif %}
+
+{% if show_snapshots and not show_compare %}
+<table class="table table-striped table-bordered" style="margin-top: 2rem;">
+  <thead><tr><th>Date snapshot</th><th>Note</th><th>Delete</th></tr></thead>
+  <tbody>
+    {% for snapshot in snapshots %}
+    <tr>
+      <td>
+        <form method="post" style="display:inline;">
+          {% csrf_token %}
+          <input type="hidden" name="view_snapshot_detail" value="{{ snapshot.id }}">
+          <button type="submit" class="btn btn-link p-0">{{ snapshot.created }}</button>
+        </form>   
+      </td>
+      <td>{{ snapshot.note|default:"–" }}</td>
+      <td>
+        <form method="post" style="display:inline;" onsubmit="return confirm('Delete this snapshot?')">
+          {% csrf_token %}
+          <input type="hidden" name="delete_snapshot" value="{{ snapshot.id }}">
+          <button type="submit" class="btn btn-sm">🗑️</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+
+{% if snapshot_detail and not show_compare %}
+<div style="margin-top:2rem;">
+  <h2>📄 Snapshot Detail</h2>
+  <p><strong>Date:</strong> {{ snapshot_detail.created }}</p>
+  {% if snapshot_detail.note %}
+    <p><strong>Note:</strong> {{ snapshot_detail.note }}</p>
+  {% endif %}
+</div>
+
+<table class="table table-striped table-bordered">
+  <thead><tr><th>Name</th><th>Version</th><th>Summary</th><th>Homepage</th><th>Author</th><th>License</th></tr></thead>
+  <tbody>
+    {% for pkg in snapshot_packages %}
+    <tr>
+      <td>{{ pkg.name }}</td>
+      <td>{{ pkg.version }}</td>
+      <td>{{ pkg.summary|default:"–" }}</td>
+      <td><a href="{{ pkg.homepage }}" target="_blank">{{ pkg.homepage|default:"–" }}</a></td>
+      <td>{{ pkg.author|default:"–" }}</td>
+      <td>{{ pkg.license|default:"–" }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="card p-3 mt-4" style="border: 1px solid #ddd; border-radius: 0.5rem; background-color: #f9f9f9;">
+  <h5>📁 Download snapshot:</h5>
+  <div style="display: flex; gap: 0.5rem;">
+    <a href="{% url 'export_snapshot_json' snapshot_detail.id %}" class="btn btn-outline-secondary">📤 JSON</a>
+    <a href="{% url 'export_snapshot_csv' snapshot_detail.id %}" class="btn btn-outline-secondary">📤 CSV</a>
+    <a href="{% url 'export_snapshot_txt' snapshot_detail.id %}" class="btn btn-outline-secondary">📤 TXT</a>
+  </div>
+</div>
+{% endif %}
+
+{% if show_compare %}
+<table class="table table-striped table-bordered" style="margin-top: 2rem;">
+  <thead><tr><th>Package</th><th>{{ compare_ids.0 }} ({{ compare_counts.0 }})</th><th>{{ compare_ids.1 }} ({{ compare_counts.1 }})</th></tr></thead>
+  <tbody>
+    {% for row in compare_data %}
+    <tr>
+      <td>{{ row.name }}</td>
+      <td>{% if row.v1 == "❌" %}<span style="color: red;"><strong>- -</strong></span>{% else %}{{ row.v1 }}{% endif %}</td>
+      <td>{% if row.v2 == "❌" %}<span style="color: red;"><strong>- -</strong></span>{% else %}{{ row.v2 }}{% endif %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="card p-3 mt-4" style="border: 1px solid #ddd; border-radius: 0.5rem; background-color: #f9f9f9;">
+  <h5>📁 Export snapshot comparison:</h5>
+  <div style="display: flex; gap: 0.5rem;">
+    <a href="{% url 'export_compare_json' %}" class="btn btn-outline-secondary">📤 JSON</a>
+    <a href="{% url 'export_compare_csv' %}" class="btn btn-outline-secondary">📤 CSV</a>
+    <a href="{% url 'export_compare_txt' %}" class="btn btn-outline-secondary">📤 TXT</a>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,2 @@
+[console_scripts]
+install_pupdater = pupdater.install.install_pupdater:main
