@@ -1,0 +1,7 @@
+mcp[cli]
+httpx>=0.25.0
+fastmcp>=0.1.0
+
+hatchling
+build
+twine
