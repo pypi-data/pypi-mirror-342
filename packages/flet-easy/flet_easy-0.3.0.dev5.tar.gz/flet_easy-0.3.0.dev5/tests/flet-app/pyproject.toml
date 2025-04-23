@@ -1,0 +1,58 @@
+[project]
+name = "flet-app"
+version = "0.1.0"
+license = "MIT"
+dependencies = [
+    "flet==0.27.5",
+    "flet-easy[jwt]==0.3.0.dev4",
+    "sqlmodel==0.0.24",
+]
+
+[[project.authors]]
+name = "Daxexs"
+email = "Daxexs@test.com"
+
+[tool.flet]
+org = "com.mycompany1"                        # --org
+product = "flet-app"                          # --product
+company = "My Company"                        # --company
+copyright = "Copyright (C) 2024 by MyCompany" # --copyright
+build_number = 2                              # --build-number
+build_version = "0.2.1"
+
+
+[tool.flet.app]
+module = "main"
+path = "src"
+exclude = ["assets/icon.png"]
+
+[tool.flet.compile]
+app = true
+packages = true
+cleanup = true
+
+[tool.flet.splash]
+color = ""      # --splash-color
+dark_color = "" # --splash-dark-color
+web = false     # --no-web-splash
+ios = false     # --no-ios-splash
+android = true  # --no-android-splash
+
+
+[tool.flet.android]
+#"adaptive_icon_background = ""
+#split_per_abi = true
+target_sdk_version = 34
+ADAPTIVE_ICON_BACKGROUND = true
+
+
+[tool.flet.android.permission] # --android-permissions
+"android.permission.CAMERA" = true
+"android.permission.INTERNET" = true
+"android.permission.READ_EXTERNAL_STORAGE" = true
+"android.permission.WRITE_EXTERNAL_STORAGE" = true
+"android.hardware.location.network" = true
+
+
+[tool.flet.android.feature] # --android-features
+"android.hardware.camera" = true
