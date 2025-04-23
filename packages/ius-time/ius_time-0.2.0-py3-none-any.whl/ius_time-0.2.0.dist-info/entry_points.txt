@@ -1,0 +1,3 @@
+[console_scripts]
+ius=ius_time.cli.main:main
+
