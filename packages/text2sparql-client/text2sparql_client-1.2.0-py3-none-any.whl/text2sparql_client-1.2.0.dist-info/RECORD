@@ -1,0 +1,16 @@
+text2sparql_client/__init__.py,sha256=k46yUHBT1tpQqHNJGsQ1m9qAIgOf2RppjwFg7YtC5Ec,25
+text2sparql_client/cli.py,sha256=kYqHM67bK61M-Zgr0bkC3R9R-9UxVGBeqh9EGVmQYrM,1023
+text2sparql_client/commands/__init__.py,sha256=DamDTrOQBRd3uo7sV1TzDMGtQ1DZYDTQ4gPA7epjBwI,23
+text2sparql_client/commands/ask.py,sha256=1eZ6Oetkdh1EeWp-pEXHvgTl-pkcALuGJlX09RPUgLM,3255
+text2sparql_client/commands/serve.py,sha256=Q4sUh5oJxGzHs6RXW4oHHqloE2KLE18aKHj2Vx_jRAs,1841
+text2sparql_client/context.py,sha256=cNeLmDtnnxeoC8KrtG0VpfOf1BhhdniFR8iKbT0beF0,362
+text2sparql_client/database.py,sha256=plHgEWWdI_j9ot-Jas8nut6Q8SuAOLHl9odtKf46c6g,2630
+text2sparql_client/models/__init__.py,sha256=Efd9m7XgGD9FKoQefvsFk4lF7WKaiIm92M90ihrF8wY,21
+text2sparql_client/models/questions_file.py,sha256=yaLMn4ONkXxPEgImUkneAcO_GWPeIg1aul-cmkqra3w,1051
+text2sparql_client/models/response.py,sha256=iT1QH1k49JDeM-BkKAKS39tZw33KKTpGjjkntjwt6Dg,219
+text2sparql_client/request.py,sha256=0ufGh31-dxjkxwLyOxOoAZYkSmq2MZGY7AmJ3FgTHpc,1252
+text2sparql_client-1.2.0.dist-info/LICENSE,sha256=5t6lcWcFU3TBO5wwq9PYNbgzfVfFUuL-80v5BTGuuMQ,11334
+text2sparql_client-1.2.0.dist-info/METADATA,sha256=_H-an8-zF5L6A7TkvsMFVxzLEI7FvAvvujf2k4zR7Wk,2500
+text2sparql_client-1.2.0.dist-info/WHEEL,sha256=IYZQI976HJqqOpQU6PHkJ8fb3tMNBFjg-Cn-pwAbaFM,88
+text2sparql_client-1.2.0.dist-info/entry_points.txt,sha256=EVPD9UNfYgt4P-Gxg47lJ0IPuvDPUg4Rzm04702kTyw,58
+text2sparql_client-1.2.0.dist-info/RECORD,,
