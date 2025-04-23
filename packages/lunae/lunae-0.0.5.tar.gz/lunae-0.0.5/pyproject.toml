@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lunae"
+description = "Lunae is a lightweight programming language designed for simplicity and extensibility."
+license = "MIT"
+authors = [
+    { name = "Etienne_MR", email = "etienne@etiennemr.fr" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.8"
+dynamic = ["version", "readme"]
+
+[project.urls]
+Homepage = "https://github.com/EtienneMR/lunae"
+
+[project.scripts]
+lunae-repl = "lunae.__main__:main"
+
+[tool.setuptools.dynamic]
+version = {file = ["VERSION"]}
+readme = {file = ["README.md"], content-type = "text/markdown"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.setuptools.package-data]
+lunae = ["py.typed"]
