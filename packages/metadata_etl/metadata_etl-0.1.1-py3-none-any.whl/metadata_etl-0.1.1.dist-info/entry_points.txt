@@ -1,0 +1,4 @@
+[console_scripts]
+h5_list=metadata_etl:h5_list
+metadata_etl=metadata_etl.metadata_etl:main
+
