@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+naif_eop_historical/__init__.py
+naif_eop_historical/earth_620120_240827.bpc
+naif_eop_historical/earth_620120_240827.md5
+naif_eop_historical/fetch.py
+naif_eop_historical.egg-info/PKG-INFO
+naif_eop_historical.egg-info/SOURCES.txt
+naif_eop_historical.egg-info/dependency_links.txt
+naif_eop_historical.egg-info/requires.txt
+naif_eop_historical.egg-info/top_level.txt
+naif_eop_historical/../LICENSE
+naif_eop_historical/tests/__init__.py
+naif_eop_historical/tests/test_naif_historical.py
