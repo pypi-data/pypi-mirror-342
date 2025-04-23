@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auto-claude"
+version = "0.1.2"
+description = "auto-claude: A CLI tool that injects an auto-approve feature into the Claude Desktop App."
+authors = [{ name = "shaneholloman" }]
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "pytest",
+    "requests",
+    "websockets",
+    "ruff",
+    "mypy",
+    "types-requests",
+]
+
+[project.urls]
+Homepage = "https://github.com/shaneholloman/auto-claude"
+Repository = "https://github.com/shaneholloman/auto-claude"
+Issues = "https://github.com/shaneholloman/auto-claude/issues"
+
+[project.scripts]
+auto-claude = "auto_claude.auto_claude:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+# pythonpath = ["."] # Keep commented out as per previous troubleshooting
+
+[tool.mypy]
+ignore_missing_imports = true
+packages = ["auto_claude"]
+mypy_path = "src"
+
+[[tool.mypy.overrides]]
+module = "pytest.*"
+ignore_missing_imports = true
+
+# Removed [project.optional-dependencies] as dev tools moved to main dependencies
+
+[tool.ruff]
+# Assume Python 3.11
+target-version = "py311"
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+[tool.ruff.lint]
+# Allow unused imports in `__init__.py` files if necessary, but start clean.
+# ignore = ["F401"] # Example: Uncomment if needed after first run
+# Enable Pyflakes `F`, pycodestyle `E`, `W`, isort `I`. Add more as needed.
+select = ["E", "F", "W", "I"]
+ignore = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.isort]
+# Ensure imports are sorted correctly.
+known-first-party = ["auto_claude"]
