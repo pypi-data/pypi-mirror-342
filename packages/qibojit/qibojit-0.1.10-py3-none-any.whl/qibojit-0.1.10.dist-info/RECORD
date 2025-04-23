@@ -1,0 +1,15 @@
+qibojit/__init__.py,sha256=KbkKK57bGs-fUdvm74fZjYu8jn_tQ_qKDLzKPU36Ha4,113
+qibojit/backends/__init__.py,sha256=UFSnN_7k-5E4TsE0U8l5m2sANqytU8IjF7VRB96CCdQ,1450
+qibojit/backends/clifford_operations_cpu.py,sha256=15S21E5Pr6LqL8Yiw2J0yRH66OPMBDUDfHlMnhnaX1E,11753
+qibojit/backends/clifford_operations_gpu.py,sha256=02Kq1izWFAyhbPuh93K0R2DQpWw_L7kX4lhXVxy91_I,28360
+qibojit/backends/cpu.py,sha256=lNKvgu43-jTfOlBgdTo52iy0Hp6PZAhEiJQZyRtpvfA,12394
+qibojit/backends/gpu.py,sha256=NGkfFWVEBycNP6566wk7sRDHhz03_HuvXk8NEDuGxGU,35475
+qibojit/backends/matrices.py,sha256=vNsuDIsDFT01swW_KM4wWIZeTxSUgL5o1Y8cGqRwA4k,3645
+qibojit/custom_operators/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+qibojit/custom_operators/gates.py,sha256=JcqER9bZAzqUISkJZGzPTC9Qa28JKm03eW6WCWyLR8k,19104
+qibojit/custom_operators/ops.py,sha256=bOvk76u2PlOqezJw9C9QjbKP1hzMq63dKAbgS44g1HA,4958
+qibojit/custom_operators/raw_kernels.py,sha256=sUo1pyiHKBk0Jnct-tlOvBAr8LutAhb3GheGDaD2RAM,15861
+qibojit-0.1.10.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+qibojit-0.1.10.dist-info/METADATA,sha256=TNl_3edc69A_HJGMg8ENCodz9n234Pf8r7zyqiB0djk,2150
+qibojit-0.1.10.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+qibojit-0.1.10.dist-info/RECORD,,
