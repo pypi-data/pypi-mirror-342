@@ -1,0 +1,47 @@
+Metadata-Version: 2.4
+Name: special-attentions-pack
+Version: 0.1.1
+Summary: A collection of sparse attention mechanisms
+Home-page: https://github.com/yourname/special_attentions
+Author: Your Name
+Author-email: you@example.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: provides-extra
+Dynamic: requires-python
+Dynamic: summary
+
+# SparseAttnFunctions  
+**Efficient Implementations of Sparse Attention Mechanisms**  
+
+This repository contains multiple optimized implementations of sparse attention techniques, specifically tailored for **CogVideo2B**. These modifications enhance computational efficiency and memory usage, making them ideal for large-scale video generation tasks.
+
+### Key Features:  
+• **Sparse Attention Variants**: Includes several approaches to sparse attention, such as windowed attention, block-sparse attention, and more.  
+• **CogVideo2B Integration**: Customized to seamlessly integrate with the CogVideo2B framework, ensuring optimal performance.  
+• **Efficiency**: Designed to reduce memory footprint and accelerate computation, especially for high-resolution video generation.  
+
+### Use Cases:  
+• Large-scale video generation tasks.  
+• Applications requiring efficient attention mechanisms for long sequences.  
+
+### Installation
+• pip install .
+
+### Contributing:  
+Contributions are welcome! Please follow the [Contribution Guidelines](#) for more details.  
+
