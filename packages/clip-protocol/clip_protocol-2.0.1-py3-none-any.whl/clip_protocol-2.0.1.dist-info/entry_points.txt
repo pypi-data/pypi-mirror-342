@@ -1,0 +1,5 @@
+[console_scripts]
+agregate = clip_protocol.cli:cli_agregate
+estimate = clip_protocol.cli:cli_estimate
+mask = clip_protocol.cli:cli_mask
+setup = clip_protocol.cli:cli_setup
