@@ -1,0 +1,13 @@
+nonebot_plugin_mhguesser-0.1.5.dist-info/METADATA,sha256=zNTvyckiEA4i7WG5NuvT89rBQ9cOE94b1Lo0ww48K2U,2072
+nonebot_plugin_mhguesser-0.1.5.dist-info/WHEEL,sha256=tSfRZzRHthuv7vxpI4aehrdN9scLjk-dCJkPLzkHxGg,90
+nonebot_plugin_mhguesser-0.1.5.dist-info/entry_points.txt,sha256=6OYgBcLyFCUgeqLgnvMyOJxPCWzgy7se4rLPKtNonMs,34
+nonebot_plugin_mhguesser-0.1.5.dist-info/licenses/LICENSE,sha256=XWdoSmFloXv8TAiPXHRbYXOo8Au6sMGB8_qOigvCVHU,1085
+nonebot_plugin_mhguesser/__init__.py,sha256=UlE6q7rLvfh--WdS_WFai6ckk2udhdlkl7QQdxBtmcE,3514
+nonebot_plugin_mhguesser/config.py,sha256=bWjIsVbAZj857aNqZN5XNCAXtU-29Fmm8vO0WS1OIk8,234
+nonebot_plugin_mhguesser/game.py,sha256=pBhzxVmO8lacPvbP0e0NnKMAGlxYQs6wkv1bfOQqM1g,3023
+nonebot_plugin_mhguesser/render.py,sha256=2oYtxoOKacU2bsnnW--FFsyv5H0amZtUrfQRv3pJiaY,2491
+nonebot_plugin_mhguesser/resources/data/monsters.json,sha256=N-pnWM8hi7PDU4QMP9WniVh1vMZfu4p4QrzFi97UQ5g,46689
+nonebot_plugin_mhguesser/resources/styles/common.css,sha256=fNQMUKzBKm1lYYtLNkxKHijfSaPMbgLTEYVNXmdKqL8,466
+nonebot_plugin_mhguesser/resources/templates/correct.html,sha256=OXIbwnceATiWAfmBLxpFFissTcInt9vucjEJenzLXWU,1403
+nonebot_plugin_mhguesser/resources/templates/guess.html,sha256=jkw_m1hDimw8AjBXvWsV3xhhEXCmDqTgIyUG-P8wj_g,2073
+nonebot_plugin_mhguesser-0.1.5.dist-info/RECORD,,
