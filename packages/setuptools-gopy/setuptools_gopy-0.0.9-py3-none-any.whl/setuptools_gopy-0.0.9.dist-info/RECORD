@@ -1,0 +1,16 @@
+setuptools_gopy/__init__.py,sha256=-SvfLIdKzazd-RHrMOwUdZKJs1RyLoWOLCV5WC_jz6I,114
+setuptools_gopy/_command.py,sha256=-YPQwhxim0hHYPcYGF59QYbr3dWO-7TeqgpgW68-dFA,1805
+setuptools_gopy/cmd_build.py,sha256=JI3N1hM911hMNkDMF70AfLEHCEaWPh_p0baEvtPBjYE,14213
+setuptools_gopy/docker.py,sha256=GnrjcsOLjFeCYiOQVdWwp_dxPeYuBE10EMVfcGYvIrw,5055
+setuptools_gopy/extension.py,sha256=4-GNskG7cvyomhK_9L0-Pt-N48Cn9KwNKi3oyJNY1TQ,1206
+setuptools_gopy/flags.py,sha256=T1511_aNQZvIO0KinzuEAqmkqqEt8mzorBch1_xNQoc,570
+setuptools_gopy/go.py,sha256=GEEqycpReA4_nPbA-IliZWqmBjzlJv3pSuLBkTBip6w,4925
+setuptools_gopy/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+setuptools_gopy/setuptools_ext.py,sha256=tsPGJsiGhZf4eW0B785Jf1jqQ4s23fuJdFO9rBIgq_I,2523
+setuptools_gopy/utils.py,sha256=hm3_YejjNsjEiFqTm65U-QSWhN7JdXQfUgEtqFk3iMg,2591
+setuptools_gopy-0.0.9.dist-info/METADATA,sha256=TUxG8B_S8y_6jvZ9VpAxckY_r3XdHr7G9jcdrt7cTzw,2706
+setuptools_gopy-0.0.9.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+setuptools_gopy-0.0.9.dist-info/entry_points.txt,sha256=qHKXdL42oqMXVxGV6Ibt9S-LOR-OCSfklTrG60rA9Ao,268
+setuptools_gopy-0.0.9.dist-info/top_level.txt,sha256=1Cq8QhN0LG5mgyyYWI74XhsVFx_evCA0wYM0UwMoQLA,16
+setuptools_gopy-0.0.9.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+setuptools_gopy-0.0.9.dist-info/RECORD,,
