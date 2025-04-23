@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+gym_dcmotor/__init__.py
+gym_dcmotor.egg-info/PKG-INFO
+gym_dcmotor.egg-info/SOURCES.txt
+gym_dcmotor.egg-info/dependency_links.txt
+gym_dcmotor.egg-info/not-zip-safe
+gym_dcmotor.egg-info/requires.txt
+gym_dcmotor.egg-info/top_level.txt
+gym_dcmotor/envs/__init__.py
+gym_dcmotor/envs/dcmotor_env.py
+gym_dcmotor/envs/numapp.py
