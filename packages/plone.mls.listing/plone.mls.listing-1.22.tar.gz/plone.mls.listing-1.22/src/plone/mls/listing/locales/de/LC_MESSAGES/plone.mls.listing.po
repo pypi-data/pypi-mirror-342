@@ -1,0 +1,1276 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Translators:
+# Thomas Massmann <thomas.massmann@it-spir.it>, 2020
+# Ameet Oliver Mahajan <ameet@propertyshelf.com>, 2020
+# Zach Cashero <zach@propertyshelf.com>, 2025
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2025-04-18 18:30+0000\n"
+"PO-Revision-Date: 2020-05-25 22:06+0000\n"
+"Last-Translator: Zach Cashero <zach@propertyshelf.com>, 2025\n"
+"Language-Team: German (https://app.transifex.com/propertyshelf/teams/13797/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Domain: plone.mls.listing\n"
+"Language: de\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Preferred-Encodings: utf-8 latin1\n"
+
+#: plone/mls/listing/interfaces.py:105
+msgid "'Geographic Types' priority list"
+msgstr "Prioritätsliste für 'Art des Standorts'"
+
+#: plone/mls/listing/browser/listing_collection.py:378
+msgid "'Listing Collection' Configuration"
+msgstr "Konfiguration der 'Immobilien-Kollektion'"
+
+#: plone/mls/listing/browser/listing_collection.py:443
+msgid "'Listing Collection' viewlet activated."
+msgstr "Die Immobilien-Kollektion wurde aktiviert."
+
+#: plone/mls/listing/browser/listing_collection.py:439
+msgid "'Listing Collection' viewlet deactivated."
+msgstr "Die Immobilien-Kollektion wurde deaktiviert."
+
+#: plone/mls/listing/browser/listing_search.py:673
+msgid "'Listing Search' Configuration"
+msgstr "Konfiguration der 'Immobilien-Suche'"
+
+#: plone/mls/listing/browser/listing_search.py:739
+msgid "'Listing Search' viewlet activated."
+msgstr "Die Immobilien-Suche wurde aktiviert."
+
+#: plone/mls/listing/browser/listing_search.py:735
+msgid "'Listing Search' viewlet deactivated."
+msgstr "Die Immobilien-Suche wurde deaktiviert."
+
+#: plone/mls/listing/interfaces.py:111
+msgid "'Listing Types' priority list"
+msgstr "Prioritätsliste für 'Art der Immobilie'"
+
+#: plone/mls/listing/interfaces.py:117
+msgid "'Location Types' priority list"
+msgstr "Prioritätsliste für 'Lage'"
+
+#: plone/mls/listing/interfaces.py:123
+msgid "'Object Types' priority list"
+msgstr "Prioritätsliste für 'Art des Objektes'"
+
+#: plone/mls/listing/interfaces.py:129
+msgid "'Ownership Types' priority list"
+msgstr "Prioritätsliste für 'Eigentumstyp'"
+
+#: plone/mls/listing/browser/recent_listings.py:209
+msgid "'Recent Listings' Configuration"
+msgstr "Konfiguration der 'Neuesten Immobilien'"
+
+#: plone/mls/listing/browser/recent_listings.py:273
+msgid "'Recent Listings' viewlet activated."
+msgstr "Die neuesten Immobilien wurden aktiviert."
+
+#: plone/mls/listing/browser/recent_listings.py:269
+msgid "'Recent Listings' viewlet deactivated."
+msgstr "Die neuesten Immobilien wurden deaktiviert."
+
+#: plone/mls/listing/interfaces.py:135
+msgid "'View Types' priority list"
+msgstr "Prioritätsliste für 'Art der Aussicht'"
+
+#: plone/mls/listing/profiles/plone4/types/plone.mls.listing.listing.xml
+#: plone/mls/listing/profiles/plone5/types/plone.mls.listing.listing.xml
+msgid "A single MLS Listing"
+msgstr "Eine einzelne MLS Immobilie"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Activate Listing Collection"
+msgstr "Immobilien-Kollektion aktivieren"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Activate Listing Search"
+msgstr "Immobilien-Suche aktivieren"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Activate Recent Listings"
+msgstr "Neueste Immobilien aktivieren"
+
+#: plone/mls/listing/portlets/agent_contact.py:562
+msgid ""
+"Activate for Spam Protection. Any attempt to use a link inside this form "
+"will raise a validation error."
+msgstr ""
+"Für die Spam-Abwehr aktivieren. Jeder Versuch einen Link in das Formular zu "
+"platzieren wird mit einem Fehler unterbunden."
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Activate local agency information"
+msgstr "Lokale Agentur-Informationen aktivieren"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Activate the Listing Collection viewlet."
+msgstr "Die Komponente für die Immobilien-Kollektion aktivieren."
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Activate the Listing Search viewlet."
+msgstr "Die Komponente für die Immobilien-Suche aktivieren."
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Activate the Recent Listings viewlet."
+msgstr "Die Komponente für die neuesten Immobilien aktivieren."
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Activate the local agency information."
+msgstr "Die Komponente für lokale Agentur-Informationen aktivieren."
+
+#: plone/mls/listing/portlets/agent_contact.py:690
+msgid "Add Agent Contact portlet"
+msgstr "Portlet für Makler-Kontakt hinzufügen"
+
+#: plone/mls/listing/portlets/agent_information.py:93
+msgid "Add Agent Information portlet"
+msgstr "Portlet für Makler-Informationen hinzufügen"
+
+#: plone/mls/listing/portlets/quick_search.py:380
+msgid "Add Listing Quick Search portlet"
+msgstr "Immobilien-Schnellsuche hinzufügen"
+
+#: plone/mls/listing/interfaces.py:220
+msgid "Additional Google Maps API Keys"
+msgstr ""
+
+#: plone/mls/listing/portlets/agent_contact.py:489
+msgid "Additional description for the portlet."
+msgstr "Zusätzliche Beschreibung."
+
+#: plone/mls/listing/browser/listing_collection.py:379
+msgid "Adjust the behaviour for this 'Listing Collection' viewlet."
+msgstr ""
+"Passen Sie die Einstellungen für das 'Immobilien-Kollektion' viewlets an."
+
+#: plone/mls/listing/browser/listing_search.py:674
+msgid "Adjust the behaviour for this 'Listing Search' viewlet."
+msgstr "Passen Sie die Einstellungen für das 'Immobilien-Suche' viewlet an."
+
+#: plone/mls/listing/browser/recent_listings.py:210
+msgid "Adjust the behaviour for this 'Recent Listings' viewlet."
+msgstr "Passen Sie die Einstellungen für das 'Neueste Immobilien' viewlet an."
+
+#: plone/mls/listing/portlets/agent_contact.py:176
+msgid "Adults"
+msgstr "Erwachsene"
+
+#: plone/mls/listing/interfaces.py:277
+msgid "Agency"
+msgstr "Agentur"
+
+#: plone/mls/listing/interfaces.py:321
+msgid "Agency Business Address"
+msgstr "Geschäfts-Adresse  der Agentur"
+
+#: plone/mls/listing/interfaces.py:316
+msgid "Agency Description"
+msgstr "Beschreibung der Agentur"
+
+#: plone/mls/listing/interfaces.py:352
+msgid "Agency Email"
+msgstr "E-Mail Adresse der Agentur"
+
+#: plone/mls/listing/interfaces.py:357
+msgid "Agency Email (alternative)"
+msgstr "E-Mail Adresse der Agentur (weitere)"
+
+#: plone/mls/listing/browser/listing_collection.py:166
+#: plone/mls/listing/browser/listing_search.py:557
+#: plone/mls/listing/browser/recent_listings.py:136
+msgid "Agency Listings"
+msgstr "Immobilien der Agentur"
+
+#: plone/mls/listing/interfaces.py:327
+msgid "Agency Logo"
+msgstr "Logo der Agentur"
+
+#: plone/mls/listing/interfaces.py:311
+msgid "Agency Name"
+msgstr "Name der Agentur"
+
+#: plone/mls/listing/interfaces.py:342
+msgid "Agency Office Fax"
+msgstr "Faxnummer der Agentur"
+
+#: plone/mls/listing/interfaces.py:332
+msgid "Agency Office Phone"
+msgstr "Telefon der Agentur"
+
+#: plone/mls/listing/interfaces.py:337
+msgid "Agency Office Phone (alternative)"
+msgstr "Telefon der Agentur (weitere)"
+
+#: plone/mls/listing/browser/listing_collection.py:177
+#: plone/mls/listing/browser/listing_search.py:568
+#: plone/mls/listing/browser/recent_listings.py:147
+msgid "Agency Priority Ordering"
+msgstr "Agenturbezogene Vorzugssortierung"
+
+#: plone/mls/listing/interfaces.py:347
+msgid "Agency Website"
+msgstr "Webseite der Agentur"
+
+#: plone/mls/listing/interfaces.py:283
+msgid "Agent"
+msgstr "Makler"
+
+#: plone/mls/listing/interfaces.py:373
+msgid "Agent Avatar"
+msgstr "Makler Profilbild"
+
+#: plone/mls/listing/interfaces.py:388
+msgid "Agent Cell Phone"
+msgstr "Makler, Mobiltelefon"
+
+#: plone/mls/listing/portlets/agent_contact.py:648
+msgid "Agent Contact"
+msgstr "Makler-Kontakt"
+
+#: plone/mls/listing/interfaces.py:398
+msgid "Agent Email"
+msgstr "Makler, E-Mail"
+
+#: plone/mls/listing/interfaces.py:393
+msgid "Agent Fax"
+msgstr "Makler, Fax"
+
+#: plone/mls/listing/portlets/agent_information.py:70
+msgid "Agent Information"
+msgstr "Makler-Informationen"
+
+#: plone/mls/listing/interfaces.py:367
+msgid "Agent Name"
+msgstr "Makler, Name"
+
+#: plone/mls/listing/interfaces.py:383
+msgid "Agent Office Phone"
+msgstr "Makler, Telefon"
+
+#: plone/mls/listing/interfaces.py:378
+msgid "Agent Title"
+msgstr "Makler, Titel"
+
+#: plone/mls/listing/browser/listing_search.py:253
+msgid "Air Condition"
+msgstr "Klimaanlage"
+
+#: plone/mls/listing/browser/adapter.py:9
+#: plone/mls/listing/browser/valuerange/widget.py:28
+#: plone/mls/listing/vocabularies.py:343
+msgid "All"
+msgstr "Alle"
+
+#: plone/mls/listing/portlets/agent_contact.py:164
+msgid "Arrival Date"
+msgstr "Tag der Ankunft"
+
+#: plone/mls/listing/portlets/agent_contact.py:557
+msgid "BCC Recipients"
+msgstr "BCC Empfänger"
+
+#: plone/mls/listing/browser/templates/listing_details.pt:30
+#: plone/mls/listing/browser/templates/p5_listing_details.pt:91
+#: plone/mls/listing/browser/templates/print_listing_details.pt:26
+msgid "Basic Listing Information"
+msgstr "Basis-Informationen der Immobilie"
+
+#: plone/mls/listing/browser/listing_search.py:242
+msgid "Bathrooms"
+msgstr "Badezimmer"
+
+#: plone/mls/listing/browser/listing_collection.py:310
+msgid "Bathrooms (Max)"
+msgstr "Badezimmer (max)"
+
+#: plone/mls/listing/browser/listing_collection.py:301
+msgid "Bathrooms (Min)"
+msgstr "Badezimmer (min)"
+
+#: plone/mls/listing/browser/listing_search.py:232
+msgid "Bedrooms"
+msgstr "Schlafzimmer"
+
+#: plone/mls/listing/browser/listing_collection.py:296
+msgid "Bedrooms (Max)"
+msgstr "Schlafzimmer (max)"
+
+#: plone/mls/listing/browser/listing_collection.py:287
+msgid "Bedrooms (Min)"
+msgstr "Schlafzimmer (min)"
+
+#: plone/mls/listing/browser/templates/listing_details.pt:216
+#: plone/mls/listing/browser/templates/p5_listing_details.pt:210
+msgid "Calendar"
+msgstr "Kalender"
+
+#: plone/mls/listing/browser/listing_collection.py:403
+#: plone/mls/listing/browser/listing_search.py:698
+#: plone/mls/listing/browser/localconfig.py:49
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: plone/mls/listing/portlets/agent_contact.py:198
+msgid "Captcha"
+msgstr "Captcha"
+
+#: plone/mls/listing/portlets/agent_contact.py:182
+msgid "Children"
+msgstr "Kinder"
+
+#: plone/mls/listing/browser/listing_collection.py:248
+#: plone/mls/listing/browser/listing_search.py:170
+msgid "City/Town"
+msgstr "Ort/Stadt"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Configure Listing Collection"
+msgstr "Immobilien-Kollektion konfigurieren"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Configure Listing Search"
+msgstr "Immobilien-Suche konfigurieren"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Configure Recent Listings"
+msgstr "Neueste Immobilien konfigurieren"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Configure the Listing Collection viewlet."
+msgstr "Konfigurieren Sie die Komponente für Immobilien-Kollektionen."
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Configure the Listing Search viewlet."
+msgstr "Konfigurieren Sie die Komponente für Immobilien-Suchen."
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Configure the Recent Listings viewlet."
+msgstr "Konfigurieren Sie die Komponente für neueste Immobilien."
+
+#: plone/mls/listing/browser/templates/print_listing_details.pt:98
+msgid "Contact Information"
+msgstr "Kontaktinformationen"
+
+#: plone/mls/listing/portlets/agent_contact.py:319
+msgid "Country"
+msgstr "Land"
+
+#: plone/mls/listing/browser/listing_collection.py:232
+#: plone/mls/listing/browser/listing_search.py:158
+msgid "County"
+msgstr "Landkreis"
+
+#: plone/mls/listing/interfaces.py:192
+msgid "Crop After"
+msgstr ""
+
+#: plone/mls/listing/interfaces.py:181
+msgid "Crop Descriptions"
+msgstr ""
+
+#: plone/mls/listing/interfaces.py:186
+msgid ""
+"Crop the item description in search results after a number of characters."
+msgstr ""
+
+#: plone/mls/listing/portlets/quick_search.py:252
+msgid ""
+"Custom title for the portlet (filter mode). If no title is provided, the "
+"default title is used."
+msgstr ""
+"Angepasster Titel für das Portlet (Such-Filter). Wenn kein Titel angegeben "
+"wird, dann wird der Standard-Titel verwendet."
+
+#: plone/mls/listing/portlets/quick_search.py:243
+msgid ""
+"Custom title for the portlet (search mode). If no title is provided, the "
+"default title is used."
+msgstr ""
+"Angepasster Titel für das Portlet (Suche). Wenn kein Titel angegeben wird, "
+"dann wird der Standard-Titel verwendet."
+
+#: plone/mls/listing/portlets/agent_contact.py:480
+#: plone/mls/listing/portlets/agent_information.py:36
+msgid ""
+"Custom title for the portlet. If no title is provided, the default title is "
+"used."
+msgstr ""
+"Angepasster Titel für das Portlet. Wenn kein Titel angegeben wird, dann wird"
+" der Standard-Titel verwendet."
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Deactivate Listing Collection"
+msgstr "Immobilien-Kollektion deaktivieren"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Deactivate Listing Search"
+msgstr "Immobilien-Suche deaktivieren"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Deactivate Recent Listings"
+msgstr "Neueste Immobilien deaktivieren"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Deactivate local agency information"
+msgstr "Lokale Agentur-Informationen deaktivieren"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Deactivate the Listing Collection viewlet."
+msgstr "Die Komponente für die Immobilien-Kollektion deaktivieren."
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Deactivate the Listing Search viewlet."
+msgstr "Die Komponente für die Immobilien-Suche deaktivieren."
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Deactivate the Recent Listings viewlet."
+msgstr "Die Komponente für die neuesten Immobilien deaktivieren."
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Deactivate the local agency information."
+msgstr "Die Komponente für lokale Agentur-Informationen deaktivieren."
+
+#: plone/mls/listing/portlets/agent_contact.py:170
+msgid "Departure Date"
+msgstr "Tag der Abreise"
+
+#: plone/mls/listing/portlets/agent_contact.py:491
+msgid "Description"
+msgstr "Beschreibung"
+
+#: plone/mls/listing/browser/listing_collection.py:240
+#: plone/mls/listing/browser/listing_search.py:164
+msgid "District"
+msgstr "Bezirk"
+
+#: plone/mls/listing/portlets/agent_contact.py:552
+msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
+msgstr ""
+"Liste von E-Mail-Adressen (Komma-separiert), die eine Blindkopie erhalten "
+"sollen."
+
+#: plone/mls/listing/profiles/plone5/types/plone.mls.listing.listing.xml
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: plone/mls/listing/portlets/agent_contact.py:707
+msgid "Edit Agent Contact portlet"
+msgstr "Portlet für Makler-Kontakt bearbeiten"
+
+#: plone/mls/listing/portlets/agent_information.py:109
+msgid "Edit Agent Information portlet"
+msgstr "Portlet für Makler-Informationen bearbeiten"
+
+#: plone/mls/listing/portlets/quick_search.py:398
+msgid "Edit Listing Quick Search portlet"
+msgstr "Immobilien-Schnellsuche bearbeiten"
+
+#: plone/mls/listing/interfaces.py:296
+msgid "Enable"
+msgstr "Aktivieren"
+
+#: plone/mls/listing/interfaces.py:160
+msgid "Enable Availability Calendar"
+msgstr "Verfügbarkeits-Kalender aktivieren"
+
+#: plone/mls/listing/interfaces.py:371
+msgid "Enter the URL of the avatar that should be used."
+msgstr "Geben Sie eine URL für das Bild ein."
+
+#: plone/mls/listing/interfaces.py:325
+msgid "Enter the URL of the logo that should be used."
+msgstr "Geben Sie eine URL für das Logo ein."
+
+#: plone/mls/listing/browser/recent_listings.py:183
+msgid ""
+"Enter the maximum price for listings. If no price is given, all listings to "
+"the highest price are shown."
+msgstr "Geben Sie den maximalen Preis für Immobilien an."
+
+#: plone/mls/listing/browser/recent_listings.py:174
+msgid ""
+"Enter the minimum price for listings. If no price is given, all listings "
+"from the lowest price are shown."
+msgstr "Geben Sie den Mindestpreis für Immobilien an."
+
+#: plone/mls/listing/portlets/quick_search.py:331
+msgid "Filter Results"
+msgstr "Suchergebnisse einschränken"
+
+#: plone/mls/listing/browser/listing_collection.py:198
+msgid ""
+"Filter the results by a free text search for location, keywords, Listing "
+"IDs, and more that can combine results using 'AND', 'OR', 'NOT', etc."
+msgstr ""
+
+#: plone/mls/listing/portlets/quick_search.py:261
+msgid "Find the search page which will be used to show the results."
+msgstr ""
+"Suchseite auswählen, die für die Anzeige der Suchergebnisse verwendet wird."
+
+#: plone/mls/listing/interfaces.py:306
+msgid "Force Overwrite"
+msgstr "Überschreiben erzwingen"
+
+#: plone/mls/listing/interfaces.py:301
+msgid ""
+"Force usage of custom contact information, even when showing items from this"
+" agency?"
+msgstr ""
+"Nutzung von benutzerdefinierten Agentur-Informationen auch für die eigene "
+"Immobilie erzwingen?"
+
+#: plone/mls/listing/browser/listing_collection.py:197
+msgid "Freetext Search"
+msgstr ""
+
+#: plone/mls/listing/browser/listing_search.py:138
+msgid "Freetext search (Location, Keywords, Listing ID, ...)"
+msgstr "Freitext-Suche (Standort, Schlagwörter, Listing ID, ...)"
+
+#: plone/mls/listing/interfaces.py:362
+msgid "Geographic Location (latitude, longitude)"
+msgstr "Geographischer Standort (Breitengrad, Längengrad)"
+
+#: plone/mls/listing/browser/listing_collection.py:323
+#: plone/mls/listing/browser/listing_search.py:195
+msgid "Geographic Type"
+msgstr "Art des Standortes"
+
+#: plone/mls/listing/interfaces.py:212
+msgid "Google Maps API Key"
+msgstr "Google Maps API-Key"
+
+#: plone/mls/listing/browser/listing_collection.py:147
+#: plone/mls/listing/browser/listing_search.py:549
+#: plone/mls/listing/browser/recent_listings.py:128
+msgid "Grid Layout"
+msgstr ""
+
+#: plone/mls/listing/browser/listing_search.py:601
+msgid "Hide the search form when Quick Search Portlet is available?"
+msgstr ""
+"Such-Formular ausblenden, wenn das Portlet für die Immobilien-Schnellsuche "
+"verfügbar ist?"
+
+#: plone/mls/listing/portlets/agent_contact.py:204
+msgid "I accept the Terms & Conditions"
+msgstr "Ich akzeptiere die Geschäftsbedingungen"
+
+#: plone/mls/listing/interfaces.py:176
+msgid "If activated, listing descriptions will be cropped in search results."
+msgstr ""
+
+#: plone/mls/listing/browser/listing_collection.py:162
+#: plone/mls/listing/browser/listing_search.py:553
+#: plone/mls/listing/browser/recent_listings.py:132
+msgid "If activated, only listings of the configured agency are shown."
+msgstr ""
+"Wenn diese Option aktiviert ist werden nur Immobilien der konfigurierten "
+"Agentur angezeigt."
+
+#: plone/mls/listing/interfaces.py:155
+msgid ""
+"If activated, the availability calendar (if configured for a listing) will "
+"be shown for rental listings."
+msgstr ""
+"Wenn diese Option aktiviert ist wird der Verfügbarkeits-Kalender (sofern er "
+"für eine Immobilie eingerichtet ist) für Miet-Objekte angezeigt."
+
+#: plone/mls/listing/interfaces.py:165
+msgid ""
+"If activated, the availability calendar (if configured for a listing) will "
+"only be shown for listings of the configured agency."
+msgstr ""
+"Wenn diese Option aktiviert ist wird der Verfügbarkeits-Kalender (sofern er "
+"für eine Immobilie eingerichtet ist) nur für Immobilien der konfigurierten "
+"Agentur angezeigt."
+
+#: plone/mls/listing/browser/listing_collection.py:141
+#: plone/mls/listing/browser/listing_search.py:543
+#: plone/mls/listing/browser/recent_listings.py:122
+msgid ""
+"If allowed by the theme/design, the listings will be displayed in a grid "
+"layout when enabled."
+msgstr ""
+
+#: plone/mls/listing/browser/listing_collection.py:170
+#: plone/mls/listing/browser/listing_search.py:561
+#: plone/mls/listing/browser/recent_listings.py:140
+msgid ""
+"If selected, the results will first display the listings from this agency "
+"and then display the rest of the applicable listings. This option will "
+"supersede the 'Agency Listings' option if selected."
+msgstr ""
+"Wenn diese Option aktiviert ist werden die Immobilien der konfigurierten "
+"Agentur als erstes angezeigt, gefolgt von den übrigen Ergebnissen. Diese "
+"Option überschreibt die Option 'Immobilien der Agentur', falls diese "
+"aktiviert ist."
+
+#: plone/mls/listing/browser/listing_search.py:286
+msgid "Interior Area"
+msgstr "Gesamtfläche Innenbereich"
+
+#: plone/mls/listing/browser/listing_collection.py:282
+msgid "Interior Area in m² (Max)"
+msgstr "Gesamtfläche Innenbereich in m² (max)"
+
+#: plone/mls/listing/browser/listing_collection.py:273
+msgid "Interior Area in m² (Min)"
+msgstr "Gesamtfläche Innenbereich in m² (min)"
+
+#: plone/mls/listing/portlets/agent_contact.py:100
+msgid "Invalid email address"
+msgstr "Ungültige E-Mail-Adresse"
+
+#: plone/mls/listing/interfaces.py:12
+msgid ""
+"Items in this vocabulary are sorted by priority key (if available) and value"
+" otherwise. Enter one item per line. Possible values are: {0}"
+msgstr ""
+"Einträge in diesem Vokabular sind nach Priorität sortiert (sofern "
+"verfügbar), andernfalls alphabetisch. Geben Sie einen Eintrag pro Zeile ein."
+" Die möglichen Werte sind: {0}"
+
+#: plone/mls/listing/browser/listing_collection.py:356
+#: plone/mls/listing/browser/listing_search.py:589
+#: plone/mls/listing/browser/recent_listings.py:194
+msgid "Items per Page"
+msgstr "Suchergebnisse pro Seite"
+
+#: plone/mls/listing/browser/listing_search.py:269
+msgid "Jacuzzi"
+msgstr "Whirlpool"
+
+#: plone/mls/listing/profiles/plone4/types/plone.mls.listing.listing.xml
+#: plone/mls/listing/profiles/plone5/types/plone.mls.listing.listing.xml
+msgid "Listing"
+msgstr "Immobilie"
+
+#: plone/mls/listing/browser/templates/listing_details.pt:113
+#: plone/mls/listing/browser/templates/p5_listing_details.pt:33
+#: plone/mls/listing/browser/templates/print_listing_details.pt:210
+msgid "Listing Images"
+msgstr "Immobilien-Bilder"
+
+#: plone/mls/listing/portlets/quick_search.py:328
+msgid "Listing Search"
+msgstr "Immobilien-Suche"
+
+#: plone/mls/listing/browser/listing_collection.py:207
+#: plone/mls/listing/browser/listing_search.py:144
+#: plone/mls/listing/browser/recent_listings.py:167
+msgid "Listing Type"
+msgstr "Art der Immobilie"
+
+#: plone/mls/listing/browser/localconfig.py:24
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Local Agency Information"
+msgstr "Lokale Agentur-Informationen"
+
+#: plone/mls/listing/browser/localconfig.py:93
+msgid "Local agency information activated."
+msgstr "Lokale Agentur-Informationen wurden aktiviert."
+
+#: plone/mls/listing/browser/localconfig.py:89
+msgid "Local agency information deactivated."
+msgstr "Lokale Agentur-Informationen wurden deaktiviert."
+
+#: plone/mls/listing/browser/listing_collection.py:315
+#: plone/mls/listing/browser/listing_search.py:186
+msgid "Location Type"
+msgstr "Lage"
+
+#: plone/mls/listing/browser/templates/listing_details.pt:184
+msgid "Long Description"
+msgstr "Ausführliche Beschreibung"
+
+#: plone/mls/listing/browser/listing_search.py:276
+msgid "Lot Size"
+msgstr "Gesamtfläche des Grundstücks"
+
+#: plone/mls/listing/browser/listing_collection.py:268
+msgid "Lot Size in m² (Max)"
+msgstr "Grundstücksgröße in m² (max)"
+
+#: plone/mls/listing/browser/listing_collection.py:263
+msgid "Lot Size in m² (Min)"
+msgstr "Grundstücksgröße in m² (min)"
+
+#: plone/mls/listing/content/listing.py:17
+msgid "MLS Listing ID"
+msgstr "MLS Immobilien-ID"
+
+#: plone/mls/listing/portlets/agent_contact.py:590
+msgid "MLS: Agent Contact"
+msgstr "MLS: Makler-Kontakt"
+
+#: plone/mls/listing/portlets/agent_information.py:49
+msgid "MLS: Agent Information"
+msgstr "MLS: Makler-Informationen"
+
+#: plone/mls/listing/portlets/quick_search.py:278
+msgid "MLS: Listing Quick Search"
+msgstr "MLS: Immobilien-Schnellsuche"
+
+#: plone/mls/listing/portlets/agent_contact.py:538
+msgid "Mail Sent Message"
+msgstr "'E-Mail gesendet' Nachricht"
+
+#: plone/mls/listing/portlets/agent_contact.py:506
+msgid "Make phone field in email form required?"
+msgstr ""
+"Feld zur Eingabe der Telefonnummer in E-Mail Formular erforderlich machen?"
+
+#: plone/mls/listing/profiles/plone4/actions.xml
+#: plone/mls/listing/profiles/plone5/actions.xml
+msgid "Manage the local agency information."
+msgstr "Lokale Agentur-Informationen verwalten."
+
+#: plone/mls/listing/interfaces.py:231
+msgid "MapBox API Key"
+msgstr ""
+
+#: plone/mls/listing/interfaces.py:239
+msgid "MapTiler API Key"
+msgstr ""
+
+#: plone/mls/listing/interfaces.py:198
+msgid "Mapping Provider"
+msgstr ""
+
+#: plone/mls/listing/vocabularies.py:33
+msgid "Max"
+msgstr "Max"
+
+#: plone/mls/listing/vocabularies.py:23
+msgid "Min"
+msgstr "Min"
+
+#: plone/mls/listing/browser/templates/p5_listing_details.pt:179
+#: plone/mls/listing/browser/templates/print_listing_details.pt:205
+msgid "More about this property"
+msgstr "Weitere Informationen über diese Immobilie"
+
+#: plone/mls/listing/vocabularies.py:342
+msgid "No"
+msgstr "Nein"
+
+#: plone/mls/listing/portlets/agent_contact.py:108
+msgid "No Urls allowed"
+msgstr "Es sind keine URLs erlaubt."
+
+#: plone/mls/listing/browser/templates/listing_search_viewlet.pt:23
+#: plone/mls/listing/browser/templates/p5_listing_search_viewlet.pt:22
+msgid "No matching results found - please expand your search."
+msgstr "Keine passenden Ergebnisse gefunden - bitte erweitern Sie Ihre Suche."
+
+#: plone/mls/listing/browser/listing_collection.py:339
+#: plone/mls/listing/browser/listing_search.py:213
+msgid "Object Type"
+msgstr "Art des Objektes"
+
+#: plone/mls/listing/browser/listing_collection.py:192
+#: plone/mls/listing/browser/listing_search.py:583
+#: plone/mls/listing/browser/recent_listings.py:162
+msgid "Only Show Unverified Listings"
+msgstr "Nur Spezial-Immobilien anzeigen"
+
+#: plone/mls/listing/portlets/agent_contact.py:548
+msgid "Override Recipient"
+msgstr "Empfänger überschreiben"
+
+#: plone/mls/listing/portlets/agent_contact.py:543
+msgid ""
+"Override the recipient e-mail address. Leave blank to use the e-mail address"
+" from the agent information."
+msgstr ""
+"Empfänger Emailadresse überschreiben. Freilassen, um die Emailadresse der "
+"Maklerinformation zu nutzen."
+
+#: plone/mls/listing/browser/listing_collection.py:158
+msgid "Overriding Agency IDs"
+msgstr "Angepasste Agentur-IDs"
+
+#: plone/mls/listing/browser/listing_collection.py:347
+#: plone/mls/listing/browser/listing_search.py:222
+msgid "Ownership Type"
+msgstr "Eigentumstyp"
+
+#: plone/mls/listing/portlets/agent_contact.py:333
+msgid "Phone Number"
+msgstr "Telefon"
+
+#: plone/mls/listing/browser/templates/listing_details.pt:230
+#: plone/mls/listing/browser/templates/p5_listing_details.pt:223
+msgid "Please enable JavaScript to show the Map."
+msgstr ""
+"Bitte aktivieren Sie für eine korrekte Darstellung der Karte JavaScript in "
+"Ihrem Browser."
+
+#: plone/mls/listing/interfaces.py:199
+msgid ""
+"Please select the mapping provider for this website. Note: you will need to "
+"enter the API key for the selected provider in order for the maps to load "
+"properly."
+msgstr ""
+
+#: plone/mls/listing/profiles.zcml:16
+msgid "Plone 4 support for MLS Listings."
+msgstr "Integration von MLS-Immobilien in das CMS Plone 4."
+
+#: plone/mls/listing/profiles.zcml:25
+msgid "Plone 5 support for MLS Listings."
+msgstr "Integration von MLS-Immobilien in das CMS Plone 5."
+
+#: plone/mls/listing/browser/listing_search.py:261
+msgid "Pool"
+msgstr "Pool"
+
+#: plone/mls/listing/portlets/agent_contact.py:485
+#: plone/mls/listing/portlets/agent_information.py:40
+msgid "Portlet Title"
+msgstr "Portlet Titel"
+
+#: plone/mls/listing/portlets/quick_search.py:257
+msgid "Portlet Title (Filter)"
+msgstr "Portlet Titel (Filter)"
+
+#: plone/mls/listing/portlets/quick_search.py:248
+msgid "Portlet Title (Search)"
+msgstr "Portlet Titel (Suche)"
+
+#: plone/mls/listing/browser/listing_collection.py:258
+#: plone/mls/listing/browser/listing_search.py:180
+#: plone/mls/listing/browser/recent_listings.py:188
+msgid "Price (Max)"
+msgstr "Preis (Max)"
+
+#: plone/mls/listing/browser/listing_collection.py:253
+#: plone/mls/listing/browser/listing_search.py:175
+#: plone/mls/listing/browser/recent_listings.py:179
+msgid "Price (Min)"
+msgstr "Preis (Min)"
+
+#: plone/mls/listing/browser/templates/listing_details.pt:260
+#: plone/mls/listing/browser/templates/p5_listing_details.pt:277
+msgid "Print Listing"
+msgstr "Immobilie ausdrucken"
+
+#: plone/mls/listing/interfaces.py:216
+msgid "Provide additional Google API keys to use Google Maps."
+msgstr ""
+
+#: plone/mls/listing/interfaces.py:208
+msgid "Provide the Google API key if you want to use Google Maps."
+msgstr "Geben Sie den Google API-Key an, wenn Sie Google Maps nutzen möchten."
+
+#: plone/mls/listing/interfaces.py:227
+msgid "Provide the MapBox API key if you want to use MapBox."
+msgstr ""
+
+#: plone/mls/listing/interfaces.py:235
+msgid "Provide the MapTiler API key if you want to use MapTiler."
+msgstr ""
+
+#: plone/mls/listing/browser/controlpanel.py:29
+msgid "Registry has been updated. Please reload this page."
+msgstr "Die Konfiguration wurde aktualisiert. Bitte laden Sie die Seite neu."
+
+#: plone/mls/listing/portlets/agent_contact.py:567
+msgid "Reject Text with Links?"
+msgstr "Texte mit Links zurückweisen?"
+
+#: plone/mls/listing/browser/listing_collection.py:302
+msgid ""
+"Reminder: All land listings will be excluded once any value is set as well "
+"as any commercial listings with no bathrooms."
+msgstr ""
+"Achtung: Alle Grundstücke sowie Geschäftsräume ohne Badezimmer werden von "
+"der Suche ausgeschlossen sobald ein Wert in dieses Feld eingegeben wurde."
+
+#: plone/mls/listing/browser/listing_collection.py:288
+msgid ""
+"Reminder: All land listings will be excluded once any value is set as well "
+"as any commercial listings with no bedrooms."
+msgstr ""
+"Achtung: Alle Grundstücke sowie Geschäftsräume ohne Schlafzimmer werden von "
+"der Suche ausgeschlossen sobald ein Wert in dieses Feld eingegeben wurde."
+
+#: plone/mls/listing/browser/listing_collection.py:274
+msgid "Reminder: All land listings will be excluded once any value is set."
+msgstr ""
+"Achtung: Alle Grundstücke werden von der Suche ausgeschlossen sobald ein "
+"Wert in dieses Feld eingegeben wurde."
+
+#: plone/mls/listing/browser/listing_collection.py:137
+msgid "Reverse"
+msgstr ""
+
+#: plone/mls/listing/browser/listing_collection.py:393
+#: plone/mls/listing/browser/listing_search.py:686
+#: plone/mls/listing/browser/localconfig.py:38
+msgid "Save"
+msgstr "Speichern"
+
+#: plone/mls/listing/portlets/quick_search.py:266
+msgid "Search Page"
+msgstr "Suchseite"
+
+#: plone/mls/listing/browser/templates/listing_details.pt:179
+msgid "See More Details"
+msgstr "Ausführliche Beschreibung"
+
+#: plone/mls/listing/browser/listing_search.py:128
+msgid "Select a County"
+msgstr ""
+
+#: plone/mls/listing/browser/listing_search.py:133
+msgid "Select a District"
+msgstr ""
+
+#: plone/mls/listing/browser/listing_search.py:123
+msgid "Select a State"
+msgstr ""
+
+#: plone/mls/listing/browser/valuerange/widget.py:29
+msgid "Select a value..."
+msgstr "Bitte wählen Sie..."
+
+#: plone/mls/listing/browser/listing_search.py:617
+msgid ""
+"Select the available listing types for this search. If nothing is selected, "
+"all available listing types will be shown."
+msgstr ""
+"Die verfügbaren Immobilientypen für diese Suche wählen. Wenn keine gewählt "
+"sind, werden alle verfügbaren angezeigt."
+
+#: plone/mls/listing/portlets/agent_contact.py:511
+msgid "Show Accept Terms & Conditions field in email form?"
+msgstr ""
+"Feld zur Bestätigung Geschäftsbedingung in dem E-Mail Formular anzeigen?"
+
+#: plone/mls/listing/interfaces.py:171
+msgid "Show Availability Calendar only for my agency listings"
+msgstr ""
+"Verfügbarkeits-Kalender nur für Immobilien meiner eigenen Agentur anzeigen"
+
+#: plone/mls/listing/portlets/agent_contact.py:530
+msgid "Show Captcha field in email form?"
+msgstr "Feld zur Eingabe eines Captcha in E-Mail Formular anzeigen?"
+
+#: plone/mls/listing/portlets/agent_contact.py:496
+msgid "Show Country field in email form?"
+msgstr "Feld zur Eingabe des Landes in E-Mail Formular anzeigen?"
+
+#: plone/mls/listing/browser/listing_collection.py:183
+#: plone/mls/listing/browser/listing_search.py:574
+#: plone/mls/listing/browser/recent_listings.py:153
+msgid "Show Unverified Listings"
+msgstr "Spezial-Immobilien anzeigen"
+
+#: plone/mls/listing/portlets/agent_contact.py:501
+msgid "Show ZIP field in email form?"
+msgstr "Feld zur Eingabe der Postleitzahl in E-Mail Formular anzeigen?"
+
+#: plone/mls/listing/interfaces.py:149
+msgid "Slideshow"
+msgstr "Slideshow"
+
+#: plone/mls/listing/browser/listing_collection.py:130
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: plone/mls/listing/browser/listing_collection.py:151
+msgid ""
+"Specify an agency ID (or a comma-separated list of multiple agency IDs) that"
+" will override the Base/Local MLS Settings. If left blank, the agency ID "
+"from the Base/Local MLS settings will be used."
+msgstr ""
+"Geben Sie die Agentur-ID (oder eine durch Komma getrennte Liste von Agentur-"
+"IDs) an, die Anstelle der Agentur-ID aus den MLS-Einstellungen genommen "
+"werden soll."
+
+#: plone/mls/listing/browser/listing_search.py:609
+msgid "Start the search immediately, without showing the search form first?"
+msgstr ""
+"Soll die Suche sofort gestartet werden, ohne dass anfangs ein Suchformular "
+"angezeigt wird?"
+
+#: plone/mls/listing/browser/listing_collection.py:224
+#: plone/mls/listing/browser/listing_search.py:152
+msgid "State"
+msgstr "Staat"
+
+#: plone/mls/listing/portlets/agent_contact.py:370
+msgid "Terms & Conditions accepted"
+msgstr "Geschäftsbedingungen wurden akzeptiert"
+
+#: plone/mls/listing/portlets/agent_contact.py:518
+msgid "Terms & Conditions page"
+msgstr "Seite für die Geschäftsbedingungen"
+
+#: plone/mls/listing/portlets/agent_contact.py:534
+msgid "Thank you message that is shown after the mail was sent."
+msgstr ""
+"Dankesnachricht, die angezeigt wird nachdem die E-Mail verschickt wurde."
+
+#: plone/mls/listing/browser/listing_collection.py:445
+msgid ""
+"The 'Listing Collection' viewlet does't work with this content type. Add "
+"'IPossibleListingCollection' to the provided interfaces to enable this "
+"feature."
+msgstr ""
+"Die Immobilien-Kollektion konnte für diesen Inhaltstyp nicht aktiviert "
+"werden. Fügen Sie 'IPossibleListingCollection' zu den unterstützten "
+"Interfaces hinzu um dieses Feature zu aktivieren."
+
+#: plone/mls/listing/browser/listing_search.py:741
+msgid ""
+"The 'Listing Search' viewlet does't work with this content type. Add "
+"'IPossibleListingSearch' to the provided interfaces to enable this feature."
+msgstr ""
+"Die Immobilien-Suche konnte für diesen Inhaltstyp nicht aktiviert werden. "
+"Fügen Sie 'IPossibleListingSearch' zu den unterstützten Interfaces hinzu um "
+"dieses Feature zu aktivieren."
+
+#: plone/mls/listing/browser/recent_listings.py:275
+msgid ""
+"The 'Recent Listings' viewlet does't work with this content type. Add "
+"'IPossibleRecentListings' to the provided interfaces to enable this feature."
+msgstr ""
+"Die neuesten Immobilien konnten für diesen Inhaltstyp nicht aktiviert "
+"werden. Fügen Sie 'IPossibleRecentListings' zu den unterstützten Interfaces "
+"hinzu um dieses Feature zu aktivieren."
+
+#: plone/mls/listing/browser/localconfig.py:95
+msgid ""
+"The local agency information don't work with this content type. Add "
+"'IPossibleLocalAgencyInfo' to the provided interfaces to enable this "
+"feature."
+msgstr ""
+"Die lokalen Agentur-Informationen konnten für diesen Inhaltstyp nicht "
+"aktiviert werden. Fügen Sie 'IPossibleLocalAgencyInfo' zu den unterstützten "
+"Interfaces hinzu um dieses Feature zu aktivieren."
+
+#: plone/mls/listing/browser/localconfig.py:25
+msgid ""
+"This agency information will be used for this content item and all possible "
+"child elements."
+msgstr ""
+"Diese lokalen Agentur-Informationen werden hier und in allen möglichen "
+"Unterelementen verwendet."
+
+#: plone/mls/listing/portlets/agent_contact.py:57
+msgid ""
+"This portlet shows a form to contact the corresponding agent for a given "
+"listing via email."
+msgstr ""
+"Dieses Portlet fügt ein Kontaktformular hinzu, wodurch der zuständige Makler"
+" direkt via E-Mail kontaktiert werden kann."
+
+#: plone/mls/listing/portlets/quick_search.py:35
+msgid "This portlet shows a listing quick search form."
+msgstr "Dieses Portlet fügt eine Immobilien-Schnellsuche hinzu."
+
+#: plone/mls/listing/portlets/agent_information.py:25
+msgid ""
+"This portlet shows the corresponding agent information for a given listing. "
+"Note that this portlet is only available for the detail view of a listing."
+msgstr ""
+"Dieses Portlet zeigt die zugehörigen Makler-Informationen zu einer "
+"Immobilie. Beachten Sie dass dieses Portlet nur bei der Detail-Ansicht von "
+"Immobilien sichtbar ist."
+
+#: plone/mls/listing/content/listing.py:13
+msgid "Title"
+msgstr "Titel"
+
+#: plone/mls/listing/interfaces.py:291
+msgid ""
+"Update contact information when showing third party items from other "
+"agencies?"
+msgstr ""
+"Makler-Informationen überschreiben, wenn Immobilie von Drittanbietern "
+"angezeigt wird?"
+
+#: plone/mls/listing/profiles/plone5/types/plone.mls.listing.listing.xml
+msgid "View"
+msgstr "Ansehen"
+
+#: plone/mls/listing/browser/listing_collection.py:331
+#: plone/mls/listing/browser/listing_search.py:204
+msgid "View Type"
+msgstr "Art der Aussicht"
+
+#: plone/mls/listing/browser/listing_collection.py:216
+#: plone/mls/listing/browser/listing_search.py:632
+msgid "Workflow Status"
+msgstr "Immobilien-Status"
+
+#: plone/mls/listing/vocabularies.py:341
+msgid "Yes"
+msgstr "Ja"
+
+#: plone/mls/listing/portlets/agent_contact.py:326
+msgid "ZIP Code"
+msgstr "Postleitzahl"
+
+#: plone/mls/listing/browser/listing_collection.py:362
+#: plone/mls/listing/browser/listing_search.py:595
+#: plone/mls/listing/browser/recent_listings.py:200
+msgid "Zoomlevel for google-maps "
+msgstr "Zoom-Level für Karten"
+
+#: plone/mls/listing/browser/listing_collection.py:187
+#: plone/mls/listing/browser/listing_search.py:578
+#: plone/mls/listing/browser/recent_listings.py:157
+msgid "\"Show Unverified Listings\" must be activated to take effect."
+msgstr ""
+"\"Spezial-Immobilien anzeigen\" muss aktiviert sein, damit die Option "
+"wirksam wird."
+
+#. Default: "Enquiry from: {name} <{sender_from_address}>\nListing URL:
+#. {url}\n\n{form_data}\n\nMessage:\n{message}\n"
+#: plone/mls/listing/portlets/agent_contact.py:62
+msgid "agent_contact_email"
+msgstr ""
+"Anfrage von: {name} <{sender_from_address}>\n"
+"Listing URL: {url}\n"
+"\n"
+"{form_data}\n"
+"\n"
+"Nachricht:\n"
+"{message}"
+
+#. Default: "The responsible agent for this listing is {agent}
+#. ({profile}).\n\nPlease contact {agent} at {agent_email}"
+#: plone/mls/listing/portlets/agent_contact.py:73
+msgid "agent_contact_email_agent"
+msgstr ""
+"Der zuständige Makler für diese Immobilie ist {agent} "
+"({profile}).\\n\\nBitte kontaktieren Sie {agent} unter {agent_email}"
+
+#. Default: "${number} properties available"
+#: plone/mls/listing/browser/templates/listing_collection_viewlet.pt:23
+#: plone/mls/listing/browser/templates/listing_search_viewlet.pt:36
+#: plone/mls/listing/browser/templates/p5_listing_results.pt:21
+msgid "batch_x_properties_available"
+msgstr "${number} immobilien verfügbar"
+
+#. Default: "Please enter your country of residence."
+#: plone/mls/listing/portlets/agent_contact.py:140
+msgid "help_country"
+msgstr "Bitte geben Sie Ihr Land an."
+
+#. Default: "Have any questions about this property or want to schedule a
+#. visit? Let us know how we can assist you."
+#: plone/mls/listing/portlets/agent_contact.py:187
+msgid "help_message"
+msgstr ""
+"Haben Sie Fragen zu dieser Immobilie oder möchten Sie einen "
+"Besichtigungstermin vereinbaren? Lassen Sie uns wissen, wie wir Ihnen "
+"behilflich sein können."
+
+#. Default: "If you'd like to be contacted by phone, please include your
+#. number and country code."
+#: plone/mls/listing/portlets/agent_contact.py:152
+msgid "help_phone"
+msgstr ""
+"Wenn Sie per Telefon kontaktiert werden möchten, geben Sie bitte Ihre Nummer"
+" und die Landesvorwahl an."
+
+#. Default: "We’ll use this email to connect you with the representative."
+#: plone/mls/listing/portlets/agent_contact.py:131
+msgid "help_sender_from_address"
+msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+
+#. Default: "Please enter your full name so the agent knows who to contact."
+#: plone/mls/listing/portlets/agent_contact.py:121
+msgid "help_sender_fullname"
+msgstr "Bitte geben Sie Ihren vollständigen Namen ein."
+
+#. Default: "Please enter your ZIP code."
+#: plone/mls/listing/portlets/agent_contact.py:146
+msgid "help_zipcode"
+msgstr "Bitte geben Sie Ihre Postleitzahl ein."
+
+#. Default: "Country"
+#: plone/mls/listing/portlets/agent_contact.py:142
+msgid "label_country"
+msgstr "Land"
+
+#. Default: "Message"
+#: plone/mls/listing/portlets/agent_contact.py:193
+msgid "label_message"
+msgstr "Nachricht"
+
+#. Default: "Name"
+#: plone/mls/listing/portlets/agent_contact.py:126
+msgid "label_name"
+msgstr "Name"
+
+#. Default: "Phone Number"
+#: plone/mls/listing/portlets/agent_contact.py:158
+msgid "label_phone"
+msgstr "Telefon"
+
+#. Default: "Email"
+#: plone/mls/listing/portlets/agent_contact.py:136
+msgid "label_sender_from_address"
+msgstr "Email"
+
+#. Default: "Subject"
+#: plone/mls/listing/portlets/agent_contact.py:117
+msgid "label_subject"
+msgstr "Betreff"
+
+#. Default: "ZIP Code"
+#: plone/mls/listing/portlets/agent_contact.py:148
+msgid "label_zipcode"
+msgstr "Postleitzahl"
+
+#: plone/mls/listing/profiles.zcml:16
+msgid "plone.mls.listing"
+msgstr "plone.mls.listing"
+
+#: plone/mls/listing/profiles.zcml:33
+msgid "plone.mls.listing uninstall profile"
+msgstr "plone.mls.listing Deinstalltion"
+
+#: plone/mls/listing/profiles.zcml:33
+msgid "plone.mls.listing uninstall profile."
+msgstr "plone.mls.listing Deinstalltion."
