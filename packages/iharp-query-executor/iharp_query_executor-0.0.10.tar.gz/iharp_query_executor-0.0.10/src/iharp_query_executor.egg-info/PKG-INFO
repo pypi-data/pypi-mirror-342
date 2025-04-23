@@ -1,0 +1,78 @@
+Metadata-Version: 2.4
+Name: iharp_query_executor
+Version: 0.0.10
+Home-page: https://github.com/iharp3/iharp-python-library
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: jupyter
+Requires-Dist: xarray
+Requires-Dist: netcdf4
+Requires-Dist: h5py
+Requires-Dist: dask[complete]
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: plotly
+Requires-Dist: cdsapi
+Requires-Dist: shapely
+Requires-Dist: matplotlib
+Requires-Dist: geopandas
+Requires-Dist: requests
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+
+Currently the GetRasterExecutor and GeoJsonExecutor are the only queries that are working
+
+# Installing the libary:
+
+pip install -i https://pypi.org/simple/ iharp-query-executor==0.0.10
+
+# Importing the executors:
+
+For GetRasterExecutor:
+
+  from iharp_query_executor.get_raster_api import GetRasterExecutor
+
+For GeoJsonExecutor:
+
+  from iharp_query_executor.get_geojson_executor import GeoJsonExecutor
+
+
+# To use the executors:
+
+  For GetRasterExecutor:
+
+    raster = GetRasterExecutor(
+      variable=variable,
+      start_datetime=start_datetime,
+      end_datetime=end_datetime,
+      temporal_resolution=temporal_resolution,
+      min_lat=min_lat,
+      max_lat=max_lat,
+      min_lon=min_lon,
+      max_lon=max_lon,
+      spatial_resolution=spatial_resolution,
+      aggregation=aggregation,
+  )
+
+  For GeoJsonExecutor:
+
+    geojson = GeoJsonExecutor(
+      variable=variable,
+      start_datetime=start_datetime,
+      end_datetime=end_datetime,
+      temporal_resolution=temporal_resolution,
+      min_lat=min_lat,
+      max_lat=max_lat,
+      min_lon=min_lon,
+      max_lon=max_lon,
+      spatial_resolution=spatial_resolution,
+      aggregation=aggregation,
+      geojson_file=geojson_file
+  )
