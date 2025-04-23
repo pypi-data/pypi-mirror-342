@@ -1,0 +1,17 @@
+drf_keycloak_auth/__init__.py,sha256=gHAfVfqpXAjge4PTD9tWvqe1DUwDnSM-Gqc-EX_t8RU,377
+drf_keycloak_auth/apps.py,sha256=Z1r6d76QDaQwqBXKXUS2K1abSOrTcjZ6qrg7iI7U5IQ,110
+drf_keycloak_auth/authentication.py,sha256=tBB-7ZSDIYB3QwylcITyS3JkWqBo3_Rs4-s535JzmxE,15470
+drf_keycloak_auth/keycloak.py,sha256=DmwQfiLEco72_b__lONKYrB_V0y7zSNatd0tX_ZjZ58,5493
+drf_keycloak_auth/models.py,sha256=ffiRCIW5pt5SMTdQxlgjdOEFsIVI_7uJn6uIBX1EoE8,81
+drf_keycloak_auth/permissions.py,sha256=MTtEXeNqLPZ55Vj00r0WdDPzWyVDabRdyUfJLVijn1c,3675
+drf_keycloak_auth/settings.py,sha256=26GKzsAnbPq6RLWnQxyLUCsWsiFEO_E_9cSAnn-khZ0,1980
+drf_keycloak_auth/urls.py,sha256=cd_DLUWwo_g-COicn2OKwNUblUo1zedPW9iuFgY8y8o,607
+drf_keycloak_auth/utils.py,sha256=6jZBnjlfZB43BnfTIpxTiu3DlSChkwKj2Xf5jNrQT2U,1219
+drf_keycloak_auth/views.py,sha256=F1s5EhlRXxu8C0hsqoF0R3R_nsmacVrh4GiIcCQ3ICU,2056
+drf_keycloak_auth/clients/BackendRequestClient.py,sha256=V7Q6VxhIyJ_mIx-KbJ0b4_r3IkONj6FM7Gdq4_Fjc5Q,1971
+drf_keycloak_auth/clients/__init__.py,sha256=IwI_u7ac5h6t4LGnszfEDAhXdFGpa2Oj2gbyrX61zFU,35
+drf_keycloak_auth-0.5.0.dist-info/licenses/LICENSE,sha256=Ovc7vZESMlSLLwagWgnjOJznMJfV7LkhbzQV8Cj2wlw,1077
+drf_keycloak_auth-0.5.0.dist-info/METADATA,sha256=jl2Zh7mVaKfBBLKDPeHdd3V2NnRnR_olL_1uEsmVYdc,6489
+drf_keycloak_auth-0.5.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+drf_keycloak_auth-0.5.0.dist-info/top_level.txt,sha256=khaba9JJZGuSflOMFkx52Iya4saoZFu6VWj4d668X88,18
+drf_keycloak_auth-0.5.0.dist-info/RECORD,,
