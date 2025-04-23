@@ -1,0 +1,67 @@
+Metadata-Version: 2.4
+Name: chrisbase
+Version: 0.6.0.post1
+Summary: Base library for python coding
+Home-page: https://github.com/chrisjihee/chrisbase
+Author: Jihee Ryu
+Author-email: chrisjihee@naver.com
+License: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: tqdm
+Requires-Dist: typer
+Requires-Dist: hydra-core
+Requires-Dist: pydantic
+Requires-Dist: omegaconf
+Requires-Dist: dataclasses
+Requires-Dist: dataclasses-json
+Requires-Dist: httpx
+Requires-Dist: ipaddress
+Requires-Dist: netifaces
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: scikit-learn
+Requires-Dist: tabulate
+Requires-Dist: ipynbname
+Requires-Dist: filelock
+Requires-Dist: openpyxl
+Requires-Dist: pymongo
+Requires-Dist: sqlalchemy
+Requires-Dist: elasticsearch
+Requires-Dist: more-itertools
+Requires-Dist: seqeval
+Provides-Extra: accelerate
+Requires-Dist: accelerate>=1.6.0; extra == "accelerate"
+Dynamic: license-file
+
+# chrisbase
+
+Base library for python coding
+
+## Installation
+
+* Install through pip
+    ```bash
+    pip install chrisbase
+    ```
+
+* Install through git
+    ```bash
+    rm -rf chrisbase*
+    git clone git@github.com:chrisjihee/chrisbase.git
+    pip install -U -e chrisbase*
+    ```
+
+## Reference
+
+- https://pypi.org/project/chrisbase/
+- https://github.com/chrisjihee/chrisbase/
