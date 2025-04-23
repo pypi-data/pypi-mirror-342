@@ -1,0 +1,11 @@
+microAgents/__init__.py,sha256=2ipgqJfg93aFtcf3iauz88r4e5cK4lkKA57xmAHfy8U,333
+microAgents/core/__init__.py,sha256=YIv6BG5N1moiXOLSWvQdY1ykN4ocXfjW7RujvDyCH1k,182
+microAgents/core/core.py,sha256=RvUTJ9SuY7-q8JYTEzHWnb9v2zWoLzbpCrV6XbWxm7w,7538
+microAgents/core/message_store.py,sha256=0SAC7OFCwv0wZYTNCZnQ570-aKlHgC86rZBcpBctgXU,500
+microAgents/llm/__init__.py,sha256=V03ECe1ZeUzFhlWmyd8FQfNtoUe1kAq03KF1hnuMakA,184
+microAgents/llm/llm.py,sha256=l5nLLy6idDfIjOAEmXgdcTYE-bZ-Avl2q7gcWqEM5jQ,5171
+microAgents/llm/prompt.py,sha256=nBeDbudSaYVBiigizAWvFKAe-eaFdAG6MFmXa3H1S78,1830
+microagents-1.3.3.dist-info/METADATA,sha256=TMdj1FhddnTV_5HDs6q4B2i_qfFfNnuVcA1Yyx_FjME,8626
+microagents-1.3.3.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+microagents-1.3.3.dist-info/top_level.txt,sha256=zdi8YNXLRjXD7h3NVY8VR6njt7gs06hiQea1w3c3Xlw,12
+microagents-1.3.3.dist-info/RECORD,,
