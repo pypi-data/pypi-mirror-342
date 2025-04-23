@@ -1,0 +1,14 @@
+[project]
+name = "las-mcp-server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "httpx>=0.28.1",
+    "volcengine>=1.0.175",
+    "mcp[cli]>=1.6.0",
+]
+
+[project.scripts]
+las-mcp-server = "mcp_server_las.server:main"
