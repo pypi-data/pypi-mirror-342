@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hankdong-weather-service"
+version = "0.1.0"
+authors = [
+    { name = "hankdong", email = "hankdong2019@gmail.com" }
+]
+description = "A Python package for accessing weather data from NWS API"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "httpx>=0.24.0",
+    "mcp-server>=0.1.0"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/jianghaobai/weather-service"
+"Bug Tracker" = "https://github.com/jianghaobai/weather-service/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hankdong_weather_service"] 
