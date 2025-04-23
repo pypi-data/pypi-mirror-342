@@ -1,0 +1,46 @@
+# Vectordb Python Client
+
+This is the Python client for [Vectordb](https://vectordb.com).
+
+## Installation
+
+```bash
+pip install vectordb
+```
+
+## Usage
+
+```python
+from vectordb import Vectordb
+
+vectordb = Vectordb()
+
+collection = vectordb.init("my_collection")
+
+collection.records.insert([
+    {
+        "content": "The quick brown fox jumps over the lazy dog.",
+        "payload": {
+            "source": "example.com",
+        },
+    },
+])
+
+results = collection.records.search("fox and dog")
+# [
+#     {
+#         "id": 1,
+#         "content": "The quick brown fox jumps over the lazy dog.",
+#         "payload": { "source": "example.com" },
+#         "metadata": {
+#             "model": "all-MiniLM-L6-v2",
+#             "timestamp": "2024-09-20T14:56:36.949030+00:00",
+#         },
+#         "distance": 0.9344318091942762,
+#     },
+# ]
+```
+
+## License
+
+MIT
