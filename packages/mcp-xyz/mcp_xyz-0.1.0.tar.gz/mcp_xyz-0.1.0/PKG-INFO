@@ -1,0 +1,13 @@
+Metadata-Version: 2.2
+Name: mcp-xyz
+Version: 0.1.0
+Summary: Remind Supply Chain Risks
+Home-page: https://github.com/xyz/xyz
+Author: xyz
+Author-email: xyz@gmail.com
+License: MIT
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license
+Dynamic: summary
