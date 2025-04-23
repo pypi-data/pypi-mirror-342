@@ -1,0 +1,9 @@
+README.md
+setup.py
+os_code_mypack/__init__.py
+os_code_mypack/main.py
+os_code_mypack.egg-info/PKG-INFO
+os_code_mypack.egg-info/SOURCES.txt
+os_code_mypack.egg-info/dependency_links.txt
+os_code_mypack.egg-info/entry_points.txt
+os_code_mypack.egg-info/top_level.txt

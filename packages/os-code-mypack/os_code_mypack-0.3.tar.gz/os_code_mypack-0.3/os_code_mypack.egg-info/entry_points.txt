@@ -1,0 +1,2 @@
+[console_scripts]
+show-codes = os_code_mypack.main:show_codes
