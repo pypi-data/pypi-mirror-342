@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: uk-postcode-checker
+Version: 0.1.0
+Summary: A library to validate and format UK postcodes
+Author-email: Volodymyr Popov <smartappsvp@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/yourusername/uk-postcode-checker
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# uk-postcode-checker
+
+A simple Python library to validate and format UK postcodes according to Royal Mail standards.
+
+## Installation
+
+```bash
+pip install uk-postcode-checker

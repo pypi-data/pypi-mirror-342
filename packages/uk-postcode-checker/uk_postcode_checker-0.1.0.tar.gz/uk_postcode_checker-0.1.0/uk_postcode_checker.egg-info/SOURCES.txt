@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+tests/test_validator.py
+uk_postcode_checker.egg-info/PKG-INFO
+uk_postcode_checker.egg-info/SOURCES.txt
+uk_postcode_checker.egg-info/dependency_links.txt
+uk_postcode_checker.egg-info/top_level.txt
+ukpostcode/__init__.py
+ukpostcode/validator.py

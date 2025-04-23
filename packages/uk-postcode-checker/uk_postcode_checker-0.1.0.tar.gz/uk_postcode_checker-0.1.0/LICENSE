@@ -1,0 +1,21 @@
+
+---
+
+## ⚙️ `pyproject.toml`
+
+```toml
+[project]
+name = "uk-postcode-checker"
+version = "0.1.0"
+description = "Library to validate and format UK postcodes"
+authors = [{name = "Volodymyr Popov", email = "smartappsvp@gmail.com"}]
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+
+[project.urls]
+Homepage = "https://github.com/AppForceLab/uk-postcode-checker"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
