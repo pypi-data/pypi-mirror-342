@@ -1,0 +1,15 @@
+.gitignore
+LICENSE
+README.MD
+example.py
+pyproject.toml
+src/mpl2tex/__init__.py
+src/mpl2tex/figtotex.py
+src/mpl2tex/texfig.py
+src/mpl2tex.egg-info/PKG-INFO
+src/mpl2tex.egg-info/SOURCES.txt
+src/mpl2tex.egg-info/dependency_links.txt
+src/mpl2tex.egg-info/requires.txt
+src/mpl2tex.egg-info/top_level.txt
+src/mpl2tex/template/__init__.py
+src/mpl2tex/template/template.tex
