@@ -1,0 +1,31 @@
+[project]
+name = "poetry-plugin-truststore"
+version = "1.0.0"
+description = "System certificate store support via Truststore"
+authors = [
+    {name = "Tander"}
+]
+readme = "README.md"
+requires-python = ">=3.11,<4.0"
+dependencies = [
+    "poetry (>=1.6.0,<3.0.0)",
+    "truststore (>=0.8.0,<2.0.0)"
+]
+
+[project.urls]
+repository = "https://github.com/Tander/poetry-plugin-truststore"
+
+
+[project.entry-points."poetry.plugin"]
+truststore = "poetry_plugin_truststore.plugin:PoetryPluginTruststore"
+
+[tool.poetry]
+packages = [{include = "poetry_plugin_truststore", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
