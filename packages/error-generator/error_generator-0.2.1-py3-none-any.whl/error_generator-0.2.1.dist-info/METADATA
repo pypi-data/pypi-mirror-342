@@ -1,0 +1,130 @@
+Metadata-Version: 2.4
+Name: error_generator
+Version: 0.2.1
+Summary: A package for generating controlled errors in record linkage datasets
+Home-page: https://github.com/joshuaimmanuel/error_generator
+Author: Joshua Immanuel
+Author-email: Joshua Immanuel <joshua9@tamu.edu>
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=1.0.0
+Requires-Dist: numpy>=1.18.0
+Dynamic: author
+Dynamic: home-page
+Dynamic: requires-python
+
+# Error Generator
+
+A Python package to introduce controlled errors into datasets for benchmarking record linkage frameworks. This package is a port of the R package `rlErrorGeneratoR`.
+
+## Overview
+
+The Error Generator package allows you to introduce different types of data heterogeneity commonly found in record linkage projects:
+- Duplicates and twins
+- Name variations (suffixes, nicknames)
+- Character-level errors (insertions, deletions, replacements, transpositions)
+- Date format variations and errors
+- Missing values
+- Field swaps
+
+The system allows you to control the overall rate of heterogeneity in the data, making it easy to run systematic controlled experiments.
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+```python
+import pandas as pd
+from error_generator import ErrorGenerator, generate_errors
+
+# Load your data
+df = pd.read_csv('your_data.csv')
+
+# Create error specifications
+error_specs = pd.DataFrame({
+    'error': ['indel', 'to_nickname', 'date_month_swap'],
+    'amount': [10, 5, 3],
+    'columns': ['name', 'first_name', 'birth_date'],
+    'additional_args': [None, None, None]
+})
+
+# Method 1: Using the ErrorGenerator class
+generator = ErrorGenerator(df)
+generator.add_errors(error_specs)
+modified_df = generator.get_modified()
+error_record = generator.get_error_record()
+
+# Method 2: Using the convenience function
+modified_df = generate_errors(df, error_specs)
+```
+
+## Available Error Types
+
+The package supports the following types of errors:
+
+1. Character-level errors:
+   - `indel`: Insert or delete characters
+   - `repl`: Replace characters
+   - `tpose`: Transpose adjacent characters
+
+2. Name variations:
+   - `to_nickname`: Convert real names to nicknames
+   - `to_realname`: Convert nicknames to real names
+   - `invert_nick_realnames`: Invert real names and nicknames
+   - `name_suffix`: Add name suffixes (Jr., Sr., etc.)
+   - `first_letter_abbreviate`: Abbreviate to first letter
+
+3. Format variations:
+   - `blanks_to_hyphens`: Replace spaces with hyphens
+   - `hyphens_to_blanks`: Replace hyphens with spaces
+   - `missing`: Set values to missing
+   - `swap`: Swap values between columns
+
+4. Record-level variations:
+   - `married_name_change`: Simulate married name changes
+   - `duplicate`: Add duplicate records
+   - `twins`: Generate twin records
+
+5. Date variations:
+   - `date_month_swap`: Swap day and month in dates
+   - `date_transpose_year`: Transpose year digits in dates
+   - `date_transpose_day`: Transpose day digits in dates
+   - `date_replace_year`: Replace year digits in dates
+   - `date_replace_month`: Replace month in dates
+   - `date_replace_day`: Replace day in dates
+
+## Data Requirements
+
+1. The input DataFrame must have an 'id' column.
+2. For name-related errors, you need to provide name lookup tables in the `data` directory:
+   - `first_names_male.csv`
+   - `first_names_female.csv`
+   - `last_names.csv`
+   - `names_lookup.csv`
+   - `nick_real_lookup.csv`
+
+3. For gender-specific errors (e.g., married name changes), the DataFrame must have a sex/gender column with 'm'/'f' values.
+
+## Error Specifications
+
+The error specifications DataFrame must have the following columns:
+- `error`: Type of error to introduce (see available error types above)
+- `amount`: Number of errors to introduce (can be absolute number or fraction < 1)
+- `columns`: Comma-separated list of columns to apply errors to
+- `additional_args`: Optional additional arguments as string (specific to error type)
+
+## Citation
+
+If you use this package in your research, please cite:
+```
+Ilangovan, Gurudev (2019). Benchmarking the Effectiveness and Efficiency of Machine Learning Algorithms for Record Linkage. Master's thesis, Texas A&M University.
+Available electronically from https://hdl.handle.net/1969.1/186390
+```
+
+## License
+
+This project is licensed under the MIT License.

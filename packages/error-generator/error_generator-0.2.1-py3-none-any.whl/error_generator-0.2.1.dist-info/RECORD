@@ -1,0 +1,15 @@
+error_generator/__init__.py,sha256=Gx6phCe2x_nzaD25mahigUoIvYArO1JhFRvEGSZfgYE,1142
+error_generator/abbreviations.py,sha256=1uRs75AWkVaoOWBx3Mi5x9GTJo38bSowrassa7K5oOw,12096
+error_generator/base.py,sha256=lGmLUDuClE0ecRG0h3nRZf483mRL4I1STVR6whg-7js,10329
+error_generator/dob.py,sha256=ISobvrG6tFePVwlejDnU4ca0ZVlHWaA6KcqIp22JgdU,9360
+error_generator/edit_distance.py,sha256=YGR9c150uKqZXwwz8R2Xh56wE6GyJx2CvdD67zDJURc,8001
+error_generator/error_record.py,sha256=EcUpz1LDwQK1T9VNAKo5BsTVooYi4nQIOP_T2GvGOOY,2411
+error_generator/file_based.py,sha256=WkD4u8AvELtKmx8k6UbhDErDV7B_7eP1yD2hXTHQ9uc,1738
+error_generator/main.py,sha256=rrxD_NPOfeqGEgqAcXtwsq0pCMmD-xitkBE80iL8yJU,3467
+error_generator/nicknames.py,sha256=b1yUmsJPxYCKR44v8s1QRKWHaZx8f2iVNIENg9DZvVc,9380
+error_generator/swaps.py,sha256=57fRvh_0Zq4wG5tIiO1BLYt1NYZbUEnIFLqsL6VI-88,1678
+error_generator-0.2.1.dist-info/METADATA,sha256=6NPdwZNXL7jwr5-ChAl9CZLFtOE6YHxC3qRZDCeyVuQ,4305
+error_generator-0.2.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+error_generator-0.2.1.dist-info/entry_points.txt,sha256=1WG7Hs79FBvL5TeDbqei0WLxWz0PgXDjbFQynptDJ8w,73
+error_generator-0.2.1.dist-info/top_level.txt,sha256=fvihABa9AE2vJBjYT_oLcLsw6I9RtUS4rQ5M0snqZBI,16
+error_generator-0.2.1.dist-info/RECORD,,
