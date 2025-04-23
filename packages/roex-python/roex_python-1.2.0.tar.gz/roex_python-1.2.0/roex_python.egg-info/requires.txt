@@ -1,0 +1,13 @@
+requests>=2.25.0
+soundfile>=0.10.0
+tenacity>=8.2.0
+
+[dev]
+pytest>=6.2.5
+black>=21.6b0
+isort>=5.9.2
+mypy>=0.910
+
+[docs]
+sphinx>=7.0.0
+sphinx-rtd-theme>=2.0.0
