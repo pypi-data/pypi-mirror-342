@@ -1,0 +1,39 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "NoSQL-Schema-Check"
+version = "0.0.6"
+authors = [
+  { name = "Kor Shantanu Nitin", email = "korshantanu@gmail.com" },
+]
+description = "Simple package to check schema of NoSQL database (MongoDB)."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "flask",
+]
+
+[project.urls]
+Homepage = "https://github.com/putterPatcher/NoSQL_Schema_Check"
+Issues = "https://github.com/putterPatcher/NoSQL_Schema_Check/issues"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "README.md",
+    "LICENSE",
+    "nosql_schema_check/**",
+]
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "README.md",
+    "LICENSE",
+    "nosql_schema_check/**",
+]
