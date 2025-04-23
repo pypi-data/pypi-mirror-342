@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+mingaleg_lib/__init__.py
+mingaleg_lib/py.typed
+mingaleg_lib/version.py
+mingaleg_lib.egg-info/PKG-INFO
+mingaleg_lib.egg-info/SOURCES.txt
+mingaleg_lib.egg-info/dependency_links.txt
+mingaleg_lib.egg-info/requires.txt
+mingaleg_lib.egg-info/top_level.txt
