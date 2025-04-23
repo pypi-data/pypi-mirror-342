@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: rocketx-providers-common-sql
+Version: 0.1.0
+Summary: Provider package rocketx-providers-common-sql for RocketX
+Author-email: mingminyu <yu_mingm623@163.com>
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: more-itertools>=10.6.0
+Requires-Dist: sqlparse>=0.5.3
+Requires-Dist: pandas>=2.1.2,<2.2 ; extra == "pandas"
+Requires-Dist: polars>=1.26.0 ; extra == "polars"
+Provides-Extra: pandas
+Provides-Extra: polars
+
+

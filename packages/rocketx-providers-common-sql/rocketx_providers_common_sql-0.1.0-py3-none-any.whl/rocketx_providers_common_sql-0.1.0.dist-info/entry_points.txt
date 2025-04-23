@@ -1,0 +1,3 @@
+[rocketx_provider]
+provider_info=rocketx.providers.common.sql.get_provider_info:get_provider_info
+
