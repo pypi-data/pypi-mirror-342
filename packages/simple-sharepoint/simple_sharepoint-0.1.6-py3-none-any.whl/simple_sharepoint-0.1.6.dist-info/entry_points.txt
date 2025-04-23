@@ -1,0 +1,2 @@
+[console_scripts]
+simple-sharepoint-cli = simple_sharepoint.__main__:main
