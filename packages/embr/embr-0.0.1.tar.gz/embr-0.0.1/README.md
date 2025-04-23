@@ -1,0 +1,147 @@
+# 🔥 Embr DSL: A Shell-Inspired Chat Abstraction for Language Programs
+
+## 🧠 Overview
+
+Embr is a domain-specific language (DSL) designed for interactive, composable natural language pipelines, inspired by the syntax and
+philosophy of Unix shell scripting. 🐚
+
+It treats a conversational state (chat log) as a mutable object that can be transformed, extended, and queried using intuitive operators
+like `<<`, `>>`, `|`, and `|=`.
+
+## ✨ Core Design Principles
+
+- 🧱 **Declarative + Composable**: Like piping commands in a shell.
+- 🧑‍🎤 **Role-aware**: Messages are typed with `@` (e.g., `user @ "text"`).
+- 🛠️ **Reducers as Functions**: Language models and tools act like reducers.
+- 🔁 **Stateful by Default**: All operators mutate a shared conversation state (`Embr`).
+
+---
+
+## 🧮 Operator Table
+
+| 🔣 Operator | 📝 Description                        | 💡 Example Usage                |
+|-------------|---------------------------------------|---------------------------------|
+| `@`         | Assign role to a message              | `user @ "message"`              |
+| `<<`        | Append message to chat (in-place)     | `chat << "text"`                |
+| `>>`        | Also appends in-place.                | `updated_chat = chat >> gpt`    |
+| `>`         | Send chat to model, get response      | `chat > gpt`                    |
+| `\|`        | Apply model and append output         | `chat = chat << "hello" \| gpt` |
+| `\| =`      | Register reducer into chat's pipeline | `chat \|= gpt \| claude`        |
+
+## 🔄 Chat Composition and Transfer Patterns
+
+### Operator Precedence
+
+In Embr, operators follow standard Python precedence rules. For our operators, from highest to lowest:
+
+| Precedence | Operators | Description |
+|------------|-----------|-------------|
+| Highest    | `@`       | Role annotation |
+| High       | `>`       | Process through model |
+| Medium     | `>>`      | Chat transfer |
+| Low        | `\|`      | Pipe and modify |
+| Low        | `<<`      | Append message |
+
+This affects how expressions are evaluated when chained together.
+
+### Chat Transfer Pattern
+
+The chat transfer pattern allows you to process a chat through a model and transfer the results to another chat:
+```python
+# Process task_chat and transfer results to global_chat
+(task_chat > gpt) >> global_chat
+```
+This pattern creates a clean separation between task-specific conversations and your main conversation context.
+```
+
+┌────────────┐    ┌─────┐    ┌─────────────┐    ┌────────────┐
+│ task_chat  │ >  │ gpt │ -> │ response    │ >> │ global_chat│
+└────────────┘    └─────┘    │ (Spark)     │    └────────────┘
+                             └─────────────┘
+```
+### Parenthesis-Free Alternatives
+
+For cleaner code without parentheses, several alternatives exist:
+```
+python
+# Manual two-step approach
+response = task_chat > gpt
+global_chat << response
+
+# Using helper methods (proposed)
+task_chat.process(gpt).append_to(global_chat)
+
+# Using a new syntax pattern (proposed)
+task_chat > gpt > global_chat
+```
+The last approach would require updating the implementation of the `>` operator to handle different right-hand types.
+
+---
+
+## 🚀 Example Use Cases
+
+### 1. 🛠️ Manual append + model roundtrip
+```
+python
+chat = Embr()
+chat << user @ "hello"
+response = chat > gpt
+chat << response
+```
+### 2. 🧪 Pipe-style chaining
+```
+python
+chat = Embr()
+chat = chat << "what is the weather?" | gpt
+```
+### 3. 🔗 Register reducers to the chat
+```
+python
+chat |= gpt | claude | other_ai
+chat.apply_reducers()
+```
+### 4. ❓ Conditional reducers
+```
+python
+def gpt_if_question(chat):
+if "?" in chat.last.content:
+return gpt(chat)
+
+
+chat |= gpt_if_question
+chat << "this is a statement"
+chat << "what is this?"
+chat.apply_reducers()
+```
+### 5. 🤖 Multi-agent routing
+```
+python
+chat |= on_call @ gpt | on_call @ images
+```
+---
+
+## 🧩 Functional Patterns
+
+### Currying and Composition
+
+Embr uses a functional programming pattern similar to currying, where functions like `gpt` are designed to:
+
+1. **Accept an Embr object**: Each reducer (like `gpt`, `claude`) takes a chat as input
+2. **Return a result**: Either a `Spark` (message) or a modified `Embr` object
+3. **Enable operator-based application**: The same function works with `>`, `>>`, and `|` operators
+
+This pattern enables multiple styles of interaction:
+```python
+# Direct application returning a response
+response = chat > gpt
+
+# Application with returned response
+response = chat >> gpt
+
+# Pipeline style with in-place modification
+chat = chat | gpt
+```
+Embr brings the expressiveness of Unix pipelines 🧵 to AI-assisted conversation flows 💬, making it easy to test, iterate, and layer
+intelligence like shell commands.
+```
+
