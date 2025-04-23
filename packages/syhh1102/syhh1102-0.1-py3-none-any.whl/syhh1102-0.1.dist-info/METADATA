@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: syhh1102
+Version: 0.1
+Summary: A simple example package
+Home-page: https://github.com/diavu/my_package
+Author: cxy
+Author-email: 2831922355@qq.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: summary
