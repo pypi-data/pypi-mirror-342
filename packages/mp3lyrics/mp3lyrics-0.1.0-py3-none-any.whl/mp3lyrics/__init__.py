@@ -1,0 +1,1 @@
+from mp3lyrics import mp3lyrics
