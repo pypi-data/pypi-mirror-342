@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aqago-app-sdk"
+dynamic = ["version"]
+authors = [
+  { name="Aqa Engineering", email="engineering@aqago.com" },
+]
+description = "The Aqago App SDK"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "BUSL-1.1"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "pytest>=8.3.5",
+    "pytest-mock>=3.14.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/aqa-technologies/aqago-app-sdk-python"
+Issues = "https://github.com/aqa-technologies/aqago-app-sdk-python/issues"
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+pythonpath = ["src"]
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["COM812", "D104", "D203", "D212", "S603", "S607"]
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/**/*.py" = [
+    # at least this three should be fine in tests:
+    "S101", # asserts allowed in tests...
+    "ARG", # Unused function args -> fixtures nevertheless are functionally relevant...
+    "FBT", # Don't care about booleans as positional arguments in tests, e.g. via @pytest.mark.parametrize()
+    # The below are debateable
+    "PLR2004", # Magic value used in comparison, ...
+    "S311", # Standard pseudo-random generators are not suitable for cryptographic purposes
+]
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
+
+[tool.hatch.build.hooks.version]
+path = "src/_version.py"
+template = '''
+version = "{version}"
+'''
+
+[tool.uv-dynamic-versioning]
+metadata = false
+bump = true

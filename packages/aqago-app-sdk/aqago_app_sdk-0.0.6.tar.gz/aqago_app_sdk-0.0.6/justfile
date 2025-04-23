@@ -1,0 +1,60 @@
+# spell:words uv 
+
+# List the available recipes.
+[private]
+default:
+    @just --list
+
+# Check whether all required tools are installed.
+[private]
+check-tools:
+    #!/usr/bin/env bash
+    if ! uv --help &> /dev/null; then
+        echo "'uv' is not available, use 'just install' to install it"
+        exit 1
+    fi
+
+# Install required development tools.
+install:
+    #!/usr/bin/env bash
+    if ! uv --help &> /dev/null; then
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+    fi
+    uv tool install ruff
+    uv sync
+
+# Check and lint the project.
+check: check-tools
+    uv run ruff check
+
+# Format code and configuration files.
+fmt: check-tools
+    uv run ruff format
+
+# Run tests.
+test:
+    uv run pytest
+
+# Build the project.
+build:
+    #!/usr/bin/env bash
+    uv build
+
+# Publish the project.
+publish INDEX="pypi":
+    #!/usr/bin/env bash
+    if [ "{{INDEX}}" = "pypi" ]; then
+        uv publish
+    else
+        uv publish --index {{INDEX}}
+    fi
+
+# Build documentation.
+doc:
+    @echo "Not implemented"
+    exit 1
+
+# Remove build files.
+clean:
+    uv cache clean
+    rm -rf dist
