@@ -1,0 +1,59 @@
+# coding: UTF-8
+import sys
+bstack1lll_opy_ = sys.version_info [0] == 2
+bstack1lll11_opy_ = 2048
+bstack1lll1l_opy_ = 7
+def bstack1ll1l11_opy_ (bstack111llll_opy_):
+    global bstack11lll1_opy_
+    bstack11l1l1_opy_ = ord (bstack111llll_opy_ [-1])
+    bstack11l1_opy_ = bstack111llll_opy_ [:-1]
+    bstack1l1lll1_opy_ = bstack11l1l1_opy_ % len (bstack11l1_opy_)
+    bstack1111111_opy_ = bstack11l1_opy_ [:bstack1l1lll1_opy_] + bstack11l1_opy_ [bstack1l1lll1_opy_:]
+    if bstack1lll_opy_:
+        bstack1llll11_opy_ = unicode () .join ([unichr (ord (char) - bstack1lll11_opy_ - (bstack1l11l_opy_ + bstack11l1l1_opy_) % bstack1lll1l_opy_) for bstack1l11l_opy_, char in enumerate (bstack1111111_opy_)])
+    else:
+        bstack1llll11_opy_ = str () .join ([chr (ord (char) - bstack1lll11_opy_ - (bstack1l11l_opy_ + bstack11l1l1_opy_) % bstack1lll1l_opy_) for bstack1l11l_opy_, char in enumerate (bstack1111111_opy_)])
+    return eval (bstack1llll11_opy_)
+import re
+from typing import List, Dict, Any
+from bstack_utils.bstack1ll1lllll_opy_ import get_logger
+logger = get_logger(__name__)
+class bstack1ll1111l1ll_opy_:
+    bstack1ll1l11_opy_ (u"ࠨࠢࠣࠌࠣࠤࠥࠦࡃࡶࡵࡷࡳࡲ࡚ࡡࡨࡏࡤࡲࡦ࡭ࡥࡳࠢࡳࡶࡴࡼࡩࡥࡧࡶࠤࡺࡺࡩ࡭࡫ࡷࡽࠥࡳࡥࡵࡪࡲࡨࡸࠦࡴࡰࠢࡶࡩࡹࠦࡡ࡯ࡦࠣࡶࡪࡺࡲࡪࡧࡹࡩࠥࡩࡵࡴࡶࡲࡱࠥࡺࡡࡨࠢࡰࡩࡹࡧࡤࡢࡶࡤ࠲ࠏࠦࠠࠡࠢࡌࡸࠥࡳࡡࡪࡰࡷࡥ࡮ࡴࡳࠡࡶࡺࡳࠥࡹࡥࡱࡣࡵࡥࡹ࡫ࠠ࡮ࡧࡷࡥࡩࡧࡴࡢࠢࡧ࡭ࡨࡺࡩࡰࡰࡤࡶ࡮࡫ࡳࠡࡨࡲࡶࠥࡺࡥࡴࡶࠣࡰࡪࡼࡥ࡭ࠢࡤࡲࡩࠦࡢࡶ࡫࡯ࡨࠥࡲࡥࡷࡧ࡯ࠤࡨࡻࡳࡵࡱࡰࠤࡹࡧࡧࡴ࠰ࠍࠤࠥࠦࠠࡆࡣࡦ࡬ࠥࡳࡥࡵࡣࡧࡥࡹࡧࠠࡦࡰࡷࡶࡾࠦࡩࡴࠢࡨࡼࡵ࡫ࡣࡵࡧࡧࠤࡹࡵࠠࡣࡧࠣࡷࡹࡸࡵࡤࡶࡸࡶࡪࡪࠠࡢࡵ࠽ࠎࠥࠦࠠࠡࠢࠣࠤࡰ࡫ࡹ࠻ࠢࡾࠎࠥࠦࠠࠡࠢࠣࠤࠥࠦࠠࠡࠤࡩ࡭ࡪࡲࡤࡠࡶࡼࡴࡪࠨ࠺ࠡࠤࡰࡹࡱࡺࡩࡠࡦࡵࡳࡵࡪ࡯ࡸࡰࠥ࠰ࠏࠦࠠࠡࠢࠣࠤࠥࠦࠠࠡࠢࠥࡺࡦࡲࡵࡦࡵࠥ࠾ࠥࡡ࡬ࡪࡵࡷࠤࡴ࡬ࠠࡵࡣࡪࠤࡻࡧ࡬ࡶࡧࡶࡡࠏࠦࠠࠡࠢࠣࠤࠥࢃࠊࠡࠢࠣࠤࠧࠨࠢᔛ")
+    _1l1111l111l_opy_: Dict[str, Dict[str, Any]] = {}
+    _1l1111l1l11_opy_: Dict[str, Dict[str, Any]] = {}
+    @staticmethod
+    def set_custom_tag(bstack1l1l1l111l_opy_: str, key_value: str, bstack1l1111l1ll1_opy_: bool = False) -> None:
+        if not bstack1l1l1l111l_opy_ or not key_value or bstack1l1l1l111l_opy_.strip() == bstack1ll1l11_opy_ (u"ࠢࠣᔜ") or key_value.strip() == bstack1ll1l11_opy_ (u"ࠣࠤᔝ"):
+            logger.error(bstack1ll1l11_opy_ (u"ࠤ࡮ࡩࡾࡥ࡮ࡢ࡯ࡨࠤࡦࡴࡤࠡ࡭ࡨࡽࡤࡼࡡ࡭ࡷࡨࠤࡲࡻࡳࡵࠢࡥࡩࠥࡴ࡯࡯࠯ࡱࡹࡱࡲࠠࡢࡰࡧࠤࡳࡵ࡮࠮ࡧࡰࡴࡹࡿࠢᔞ"))
+        values: List[str] = bstack1ll1111l1ll_opy_.bstack1l11111lll1_opy_(key_value)
+        bstack1l1111l1111_opy_ = {bstack1ll1l11_opy_ (u"ࠥࡪ࡮࡫࡬ࡥࡡࡷࡽࡵ࡫ࠢᔟ"): bstack1ll1l11_opy_ (u"ࠦࡲࡻ࡬ࡵ࡫ࡢࡨࡷࡵࡰࡥࡱࡺࡲࠧᔠ"), bstack1ll1l11_opy_ (u"ࠧࡼࡡ࡭ࡷࡨࡷࠧᔡ"): values}
+        bstack1l1111l11l1_opy_ = bstack1ll1111l1ll_opy_._1l1111l1l11_opy_ if bstack1l1111l1ll1_opy_ else bstack1ll1111l1ll_opy_._1l1111l111l_opy_
+        if bstack1l1l1l111l_opy_ in bstack1l1111l11l1_opy_:
+            bstack1l11111llll_opy_ = bstack1l1111l11l1_opy_[bstack1l1l1l111l_opy_]
+            bstack1l11111ll1l_opy_ = bstack1l11111llll_opy_.get(bstack1ll1l11_opy_ (u"ࠨࡶࡢ࡮ࡸࡩࡸࠨᔢ"), [])
+            for val in values:
+                if val not in bstack1l11111ll1l_opy_:
+                    bstack1l11111ll1l_opy_.append(val)
+            bstack1l11111llll_opy_[bstack1ll1l11_opy_ (u"ࠢࡷࡣ࡯ࡹࡪࡹࠢᔣ")] = bstack1l11111ll1l_opy_
+        else:
+            bstack1l1111l11l1_opy_[bstack1l1l1l111l_opy_] = bstack1l1111l1111_opy_
+    @staticmethod
+    def bstack1ll11ll111l_opy_() -> Dict[str, Dict[str, Any]]:
+        return bstack1ll1111l1ll_opy_._1l1111l111l_opy_
+    @staticmethod
+    def bstack1l1111l1l1l_opy_() -> Dict[str, Dict[str, Any]]:
+        return bstack1ll1111l1ll_opy_._1l1111l1l11_opy_
+    @staticmethod
+    def bstack1l11111lll1_opy_(bstack1l1111l11ll_opy_: str) -> List[str]:
+        bstack1ll1l11_opy_ (u"ࠣࠤࠥࠎࠥࠦࠠࠡࠢࠣࠤ࡙ࠥࡰ࡭࡫ࡷࡷࠥࡺࡨࡦࠢ࡬ࡲࡵࡻࡴࠡࡵࡷࡶ࡮ࡴࡧࠡࡤࡼࠤࡨࡵ࡭࡮ࡣࡶࠤࡼ࡮ࡩ࡭ࡧࠣࡶࡪࡹࡰࡦࡥࡷ࡭ࡳ࡭ࠠࡥࡱࡸࡦࡱ࡫࠭ࡲࡷࡲࡸࡪࡪࠠࡴࡷࡥࡷࡹࡸࡩ࡯ࡩࡶ࠲ࠏࠦࠠࠡࠢࠣࠤࠥࠦࡆࡰࡴࠣࡩࡽࡧ࡭ࡱ࡮ࡨ࠾ࠥ࠭ࡡ࠭ࠢࠥࡦ࠱ࡩࠢ࠭ࠢࡧࠫࠥ࠳࠾ࠡ࡝ࠪࡥࠬ࠲ࠠࠨࡤ࠯ࡧࠬ࠲ࠠࠨࡦࠪࡡࠏࠦࠠࠡࠢࠣࠤࠥࠦࠢࠣࠤᔤ")
+        pattern = re.compile(bstack1ll1l11_opy_ (u"ࡴࠪࠦ࠭ࡡ࡞ࠣ࡟࠭࠭ࠧࢂࠨ࡜ࡠ࠯ࡡ࠰࠯ࠧᔥ"))
+        result = []
+        for match in pattern.finditer(bstack1l1111l11ll_opy_):
+            if match.group(1) is not None:
+                result.append(match.group(1).strip())
+            elif match.group(2) is not None:
+                result.append(match.group(2).strip())
+        return result
+    def __new__(cls, *args, **kwargs):
+        raise Exception(bstack1ll1l11_opy_ (u"࡙ࠥࡹ࡯࡬ࡪࡶࡼࠤࡨࡲࡡࡴࡵࠣࡷ࡭ࡵࡵ࡭ࡦࠣࡲࡴࡺࠠࡣࡧࠣ࡭ࡳࡹࡴࡢࡰࡷ࡭ࡦࡺࡥࡥࠤᔦ"))
