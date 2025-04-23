@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+esp_idf_nvs_partition_gen/__init__.py
+esp_idf_nvs_partition_gen/__main__.py
+esp_idf_nvs_partition_gen/nvs_partition_gen.py
+esp_idf_nvs_partition_gen.egg-info/PKG-INFO
+esp_idf_nvs_partition_gen.egg-info/SOURCES.txt
+esp_idf_nvs_partition_gen.egg-info/dependency_links.txt
+esp_idf_nvs_partition_gen.egg-info/requires.txt
+esp_idf_nvs_partition_gen.egg-info/top_level.txt
