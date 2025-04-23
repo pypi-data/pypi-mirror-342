@@ -1,0 +1,2 @@
+[console_scripts]
+msys2_env = msys2_env.main:main
