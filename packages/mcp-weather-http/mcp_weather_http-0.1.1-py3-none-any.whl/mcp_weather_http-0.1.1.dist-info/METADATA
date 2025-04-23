@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: mcp-weather-http
+Version: 0.1.1
+Summary: 输入OpenWeather-API-KEY，获取天气信息。
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.115.12
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: mcp>=1.6.0
