@@ -1,0 +1,16 @@
+alchemark_ai/__init__.py,sha256=JxODp17RxWYoUlPW5019b6yBmNOn4VOgNzAU_kAS1E4,1833
+alchemark_ai/main.py,sha256=mF45xLOCAm6bAY0oMT2mcw-AZ4_ShEWUoTkpzGde13A,454
+alchemark_ai/configs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+alchemark_ai/configs/logger.py,sha256=9ypDHn5JL6TZITPQDzFv6awfpehQTtfRgz6ElI2Qbl0,129
+alchemark_ai/formatter/__init__.py,sha256=Hh9cH9-4jJhoYZ-gFJCv6GKcIllchn7NpIOngm-TdV0,64
+alchemark_ai/formatter/formatter_md.py,sha256=IN5HpcsQyKiX702qtPCwxnltHKLHs15Uyq73GXmCfrg,6301
+alchemark_ai/models/FormattedResult.py,sha256=1-AOshGAVzpV8aZroszKUmo2HBS8I1hlY8BvA3qNC7o,666
+alchemark_ai/models/PDFResult.py,sha256=9uXrTkCWTXbB4DMrFL7rtdtrPz4QueW2oM1z9ZBGXYI,1854
+alchemark_ai/models/__init__.py,sha256=RAjPzy7NB_qmFEiN9h-kXeiQUbB-X6NDMyvRY1qi2EY,247
+alchemark_ai/pdf2md/__init__.py,sha256=UgNt2x0zrOMvWm6xFstmxCy7ICQxcZ32kHbCvPKrhN4,60
+alchemark_ai/pdf2md/pdf2md.py,sha256=bUrDNjCpjoOwJvdOJOD4hcbKEjQsqWyAgNYZEnTCIEw,1643
+alchemark_ai-0.1.6.dist-info/licenses/LICENSE,sha256=c_vuaWK2MbuDNG_tTvtEsj24211FEQ2al2XpKgLY4f0,1082
+alchemark_ai-0.1.6.dist-info/METADATA,sha256=9I7D3h-cdahsOe7VbIRj0_ecwnywKAI2e3Lp4V7WVuE,6822
+alchemark_ai-0.1.6.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+alchemark_ai-0.1.6.dist-info/top_level.txt,sha256=J6t0oSmvERNM9xEvHMK70Hn4rnvR69a0t1ok4rKQ9MY,13
+alchemark_ai-0.1.6.dist-info/RECORD,,
