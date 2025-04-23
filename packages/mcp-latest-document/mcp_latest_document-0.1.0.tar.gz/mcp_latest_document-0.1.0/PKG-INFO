@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: mcp-latest-document
+Version: 0.1.0
+Summary: Get the latest documents
+Author-email: kaz56-t <kaz.j11@gmail.com>
+Keywords: document,llm,mcp
+Requires-Python: >=3.10
+Requires-Dist: beautifulsoup4>=4.13.4
+Requires-Dist: build>=1.2.2.post1
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: lxml>=5.4.0
+Requires-Dist: markdownify>=1.1.0
+Requires-Dist: mcp[cli]>=1.6.0
+Requires-Dist: python-dotenv>=1.1.0
+Requires-Dist: twine>=6.1.0
+Description-Content-Type: text/markdown
+
+
+# For developer
+
+## How to deploy(To be automated)
+1. `uv run -m build`
+2. `uv run -m twine upload dist/*`
