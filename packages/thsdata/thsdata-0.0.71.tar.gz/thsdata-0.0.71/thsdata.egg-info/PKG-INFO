@@ -1,0 +1,63 @@
+Metadata-Version: 2.4
+Name: thsdata
+Version: 0.0.71
+Summary: 金融行情数据查询API
+Author: 
+Author-email: 
+Keywords: python,thsdata
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas>=2.2.2
+Requires-Dist: thsdk>=0.0.7
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+
+# thsdata
+
+# Installation
+
+```bash
+pip install --upgrade thsdata
+```
+
+# Usage
+
+三行代码快速开始
+```python
+import thsdata as td
+
+data = td.download("USHA600519", start=20240101, end=20250101)
+print(data)
+
+```
+
+result:
+
+```
+          time    close   volume    turnover     open     high      low
+0   2024-11-21  1545.13  1826179  2810933500  1543.87  1548.99  1532.00
+1   2024-11-22  1507.82  3343611  5107289000  1541.15  1547.77  1507.82
+2   2024-11-25  1498.57  3318556  5011136200  1511.00  1532.00  1496.67
+3   2024-11-26  1509.00  2574479  3876886000  1498.57  1518.88  1488.88
+4   2024-11-27  1519.05  2593417  3927607800  1509.00  1522.15  1505.00
+..         ...      ...      ...         ...      ...      ...      ...
+96  2025-04-16  1559.17  3115605  4834880600  1552.00  1576.00  1537.00
+97  2025-04-17  1570.00  2384605  3733925000  1554.00  1576.50  1549.99
+98  2025-04-18  1565.94  2029848  3179974300  1566.00  1575.00  1556.00
+99  2025-04-21  1551.00  1805703  2808158200  1565.50  1565.50  1551.00
+100 2025-04-22  1548.80  1843214  2857526000  1550.00  1556.30  1543.21
+
+[101 rows x 7 columns]
+```
