@@ -1,0 +1,16 @@
+mypy_boto3/__init__.py,sha256=gBGTT3pRKnyK5t0rmEyGkxM2B6o_s4aBNeg4BcplbEk,67
+mypy_boto3/__main__.py,sha256=5vb6tQpzYv15ZNaY2uJUGvRmCtHH3KWa2OvkC7emgho,111
+mypy_boto3/boto3_init.py,sha256=fXTAcDmdyT98Cj0xNVyYgQzkMUjirRgwPhYvHYi67zM,139
+mypy_boto3/boto3_init_stub.py,sha256=2DJmd3Wvfm941PXAIOIChno3sPlpF9q-o511JGEsDDE,861
+mypy_boto3/boto3_session.py,sha256=obK_XrRelHVV7G57rDyCWsr24TH_ZjRqXsON-mziHeA,141
+mypy_boto3/boto3_session_stub.py,sha256=fm4g3d9xr7qy6yHbtncUXjAd6P0eOEm66wVaXsbJnes,1196
+mypy_boto3/literals.py,sha256=MdyxW5N23fsqsERmvRPrODfKsFKtzsPhrMdGB9yN604,8401
+mypy_boto3/main.py,sha256=Scwz4bw1gXqGk3eQ66npwggdcAu9GEIrkrZCnFkwWqg,14186
+mypy_boto3/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mypy_boto3/submodules.py,sha256=kD-lfr3Azau-OBd1kA0h-qNyYfs9RKzeqc0x06p0AYw,123271
+mypy_boto3/version.py,sha256=chIm161Dw81Gs3vO6CH1PT2nlb-lCUhY_igz_jcxAO8,92
+mypy_boto3-1.38.0.dist-info/licenses/LICENSE,sha256=4jNgB8jJbXtUVJkeygwhUQi--6lAG8DIisfE-h_RiUU,1070
+mypy_boto3-1.38.0.dist-info/METADATA,sha256=78LI09nrQx50xMbd7bVMmPEo_FQnriM2K1k3z2gSY8Q,5280
+mypy_boto3-1.38.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+mypy_boto3-1.38.0.dist-info/top_level.txt,sha256=eQRvQxZMucUXYPpqT41DRZfyxivj3EARe7hbBZDKFSo,11
+mypy_boto3-1.38.0.dist-info/RECORD,,
