@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: LaneQ
+Version: 0.2.0
+Summary: LaneQ: A Python package for lane line detection and classification
+Author: Ankith Boggaram, Douglas Fenwick, Nihal Karne
+License-Expression: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: huggingface-hub>=0.14
+Requires-Dist: numpy>=2.0
+Requires-Dist: opencv-python>=4.0.0.0
+Requires-Dist: pycocotools>=2
+Requires-Dist: PyYAML>=6.0
+Requires-Dist: scikit-image>=0.25
+Requires-Dist: scikit-learn>=1.0
+Requires-Dist: scipy>=1.0
+Requires-Dist: torch>=2.0
+Requires-Dist: torchmetrics>=1.5
+Requires-Dist: torchvision>=0.15
+Dynamic: license-file
+
+Automated Lane Line Quality Assessment
+
+![Model Architecture with Example](https://raw.githubusercontent.com/dfenny/LaneQ/main/images/architecture_with_example.png)
+
+Install:
+
+`python3 -m pip install laneq`
+
+Get started easily with:
+
+```python
+from laneq import DegradationDetector
+
+dt = DegradationDetector("output")
+dt.predict("path/to/dashcam/image.jpg")
+```
