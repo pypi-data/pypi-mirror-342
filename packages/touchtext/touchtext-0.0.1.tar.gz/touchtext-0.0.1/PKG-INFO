@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: touchtext
+Version: 0.0.1
+Summary: Markup Markdown, Stack up markdown files with `!INCLUDE` directives.
+Home-page: https://github.com/hailiang-wang/transformer-pytorch-get-started/tree/master/src/touchtext
+Author: Torchtext Team, Hai Liang W.
+Author-email: hailiang.hl.wang@gmail.com
+License: MIT License
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Utilities
+Classifier: Development Status :: 5 - Production/Stable
