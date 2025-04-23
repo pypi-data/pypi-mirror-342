@@ -1,0 +1,10 @@
+when:
+  - event: push
+    branch: main
+
+steps:
+  - name: build
+    image: python:3.13
+    commands:
+      - pip install ".[linting]"
+      - ruff check

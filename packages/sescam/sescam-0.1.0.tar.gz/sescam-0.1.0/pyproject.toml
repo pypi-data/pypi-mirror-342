@@ -1,0 +1,27 @@
+[project]
+name = "sescam"
+dynamic = ["version"]
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "José Luis Segura Lucas", email = "joseluis@redhat.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "requests>=2.32.3",
+]
+
+[project.scripts]
+sescam = "sescam:main"
+
+[project.optional-dependencies]
+linting = [
+    "ruff>=0.11.6",
+]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
