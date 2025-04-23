@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "boring-news-mcp"
+version = "0.5.0"
+description = "MCP (Model Context Protocol) Server for Boring News API"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "Boring News Team" }
+]
+dependencies = [
+    "httpx>=0.25.0",
+    "fastmcp>=0.1.0",
+    "hatchling>=1.27.0",
+    "build>=1.2.2.post1",
+]
+
+[project.urls]
+Homepage = "https://github.com/oliviergg/boring-news-mcp"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/boring_news_mcp"]
+
+[project.scripts]
+boring-news-mcp = "boring_news_mcp.__main__:main"
