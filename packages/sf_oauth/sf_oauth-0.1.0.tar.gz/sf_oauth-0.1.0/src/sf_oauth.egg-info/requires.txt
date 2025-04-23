@@ -1,0 +1,9 @@
+dotenv>=0.9.9
+requests-oauthlib>=2.0.0
+simple-salesforce>=1.12.6
+
+[dev]
+pytest
+ruff
+mypy
+black
