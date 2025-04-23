@@ -1,0 +1,10 @@
+stac_fastapi/elasticsearch/__init__.py,sha256=w_MZutYLreNV372sCuO46bPb0TngmPs4u8737ueS0wE,31
+stac_fastapi/elasticsearch/app.py,sha256=0auHZat7nebP9EFpsKVlAqO9ndgByd3Qjsnrp8WAROU,4183
+stac_fastapi/elasticsearch/config.py,sha256=4N7CMLKsUc_MRkXhjbstnpAI-aHWIwMYIoe-cHU8PCk,4197
+stac_fastapi/elasticsearch/database_logic.py,sha256=q2TpEbZEFSMGZPaXjHWILzfTsa0xeIUor6Mp-WnCI0E,34908
+stac_fastapi/elasticsearch/version.py,sha256=GsmpaQvFvJbtYx8dw8vx3_8haCi-G94TpDhDpEjX-8E,47
+stac_fastapi_elasticsearch-4.0.0a2.dist-info/METADATA,sha256=vtE6h7avD9RYz6kmDUl-po_gZFjrm8rFq6d0ARQVfTI,20479
+stac_fastapi_elasticsearch-4.0.0a2.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+stac_fastapi_elasticsearch-4.0.0a2.dist-info/entry_points.txt,sha256=aCKixki0LpUl64UPsPMtiNvfdyq-QsTCxVjJ54VF6Jk,82
+stac_fastapi_elasticsearch-4.0.0a2.dist-info/top_level.txt,sha256=vqn-D9-HsRPTTxy0Vk_KkDmTiMES4owwBQ3ydSZYb2s,13
+stac_fastapi_elasticsearch-4.0.0a2.dist-info/RECORD,,
