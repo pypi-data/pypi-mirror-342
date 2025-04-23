@@ -1,0 +1,140 @@
+name: Python package CI/CD
+
+on:
+  push:
+    branches: [ main, anaconda ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [published]
+
+jobs:
+  tests:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: ['3.9', '3.10', '3.11', '3.12']
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel cython
+          pip install "numpy>=1.16.3" --only-binary=numpy "scipy>=1.11.3" --only-binary=scipy
+          pip install black pytest pytest-cov
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        shell: bash
+      - name: Build Cython extensions
+        run: python setup.py build_ext --inplace
+      - name: Lint with black
+        run: |
+          black . --check
+      - name: Install package in editable mode
+        run: pip install -e .
+        shell: bash
+      - name: Run tests with pytest
+        run: |
+          pytest --cov=fastshermanmorrison --cov-report xml:coverage.xml tests/
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.xml
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+
+  build:
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install build dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel cython cibuildwheel==2.3.1 setuptools_scm
+      - name: Install project dependencies
+        run: |
+          pip install "numpy>=1.16.3" --only-binary=numpy "scipy>=1.2.0" --only-binary=scipy
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Build wheels using cibuildwheel
+        run: cibuildwheel --output-dir dist
+        env:
+          CIBW_BEFORE_BUILD: "pip install numpy>=1.16.3 --only-binary=numpy scipy>=1.2.0 --only-binary=scipy"
+          CIBW_BUILD_VERBOSITY: 1
+          CIBW_SKIP: "pp* cp27-* cp35-* cp36-* cp37-* cp38-* *-win32 *-manylinux_i686 *-musllinux_i686 *-macosx_10_6_intel *-macosx_10_9_intel *-macosx_10_10_intel *-macosx_10_11_intel *-macosx_10_12_intel *-macosx_10_13_intel *-macosx_10_14_intel *-macosx_10_15_intel"
+          CIBW_ARCHS: "x86_64"
+          CIBW_ARCHS_MACOS: "x86_64 arm64"
+          CIBW_MANYLINUX_X86_64_IMAGE: "manylinux2014"
+      - name: Build source distribution
+        run: python setup.py sdist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: |
+            ./dist/*.whl
+            ./dist/*.tar.gz
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Download built distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: ./dist/
+      - name: Publish to PyPI
+        run: |
+          python -m pip install --upgrade twine
+          python -m twine upload ./dist/*
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+          TWINE_REPOSITORY_URL: https://upload.pypi.org/legacy/
+          #TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          #TWINE_REPOSITORY_URL: https://test.pypi.org/legacy/
+
+  conda-package:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/anaconda')
+    runs-on: ubuntu-latest
+    needs: [tests, build]
+    steps:
+      - name: Set CONDA_GIT_BRANCH to the exact commit
+        run: echo "CONDA_GIT_BRANCH=${GITHUB_SHA}" >> $GITHUB_ENV
+      - uses: actions/checkout@v4
+      - name: Set up conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          conda-channels: anaconda, conda-forge
+      - name: Install conda-build and anaconda-client
+        run: |
+          conda install conda-build anaconda-client
+      - name: Build conda package
+        run: |
+          conda config --set anaconda_upload no
+          conda build recipe/
+      - name: Upload conda package to Anaconda Cloud
+        if: github.event_name == 'release'
+        run: |
+          echo "Uploading to Anaconda Cloud..."
+          conda run -n base anaconda -t ${{ secrets.ANACONDA_API_TOKEN }} upload $(conda build recipe/ --output)
+        env:
+          ANACONDA_API_TOKEN: ${{ secrets.ANACONDA_API_TOKEN }}
+
