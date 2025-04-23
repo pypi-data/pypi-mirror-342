@@ -1,0 +1,83 @@
+Metadata-Version: 2.4
+Name: mcp-youtube-search
+Version: 0.1.0
+Summary: A YouTube search MCP server for AI agents
+Author-email: Arjun Prabhulal <code.aicloudlab@gmail.com>
+Project-URL: Homepage, https://github.com/arjunprabhulal/mcp-youtube-search
+Project-URL: Bug Tracker, https://github.com/arjunprabhulal/mcp-youtube-search/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: google-adk
+Requires-Dist: mcp-server
+Requires-Dist: python-dotenv
+Requires-Dist: google-search-results
+Dynamic: license-file
+
+# MCP YouTube Server
+
+A YouTube search server for AI agents using Google's Agent Development Kit (ADK) and Model Control Protocol (MCP).
+
+## Installation
+
+```bash
+pip install mcp-youtube-search
+```
+
+## Usage
+
+### Running the server
+
+```bash
+# Set your SerpAPI key as an environment variable
+export SERP_API_KEY="your-serp-api-key"
+
+# Start the server
+mcp-youtube-search
+```
+
+Or provide the API key directly:
+
+```bash
+mcp-youtube-search --api-key "your-serp-api-key"
+```
+
+### Using with MCP clients
+
+```python
+import asyncio
+import os
+from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StdioServerParameters
+
+async def main():
+    # Connect to the MCP server
+    tools, exit_stack = await MCPToolset.from_server(
+        connection_params=StdioServerParameters(
+            command="mcp-youtube-search",
+            env={"SERP_API_KEY": os.getenv("SERP_API_KEY")}
+        )
+    )
+    
+    try:
+        # Use the first tool (should be search_youtube)
+        youtube_tool = tools[0]
+        results = await youtube_tool.run_async(
+            args={"search_query": "Python tutorials", "max_results": 5},
+            tool_context=None
+        )
+        print(results)
+    finally:
+        await exit_stack.aclose()
+
+asyncio.run(main())
+```
+
+## Requirements
+
+- Python 3.11+
+- SerpAPI key (get one at https://serpapi.com/)
+
+
