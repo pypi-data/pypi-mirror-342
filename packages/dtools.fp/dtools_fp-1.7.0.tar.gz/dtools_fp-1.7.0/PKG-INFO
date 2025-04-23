@@ -1,0 +1,95 @@
+Metadata-Version: 2.4
+Name: dtools.fp
+Version: 1.7.0
+Summary: ### Developer Tools - Pythonic functional programming
+Keywords: functional,functional programming,fp,monad,iterators,maybe,either,lazy,non-strict
+Author-email: "Geoffrey R. Scheller" <geoffrey@scheller.com>
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Typing :: Typed
+License-File: LICENSE
+Requires-Dist: dtools.circular-array >=3.12.1, < 3.13
+Requires-Dist: pytest >=8.3.5 ; extra == "test"
+Requires-Dist: dtools.queues >=1.0.0, < 1.1 ; extra == "test"
+Requires-Dist: dtools.tuples >=0.27.1, < 0.28 ; extra == "test"
+Project-URL: Changelog, https://github.com/grscheller/dtools-fp/blob/main/CHANGELOG.md
+Project-URL: Documentation, https://grscheller.github.io/dtools-docs/fp
+Project-URL: Source, https://github.com/grscheller/dtools-fp
+Provides-Extra: test
+
+# Developer Tools - Pythonic functional programming
+
+Functional programming tools which endeavor to be Pythonic.
+
+- **Repositories**
+  - [dtools.fp][1] project on *PyPI*
+  - [Source code][2] on *GitHub*
+- Detailed documentation for dtools.fp
+  - [Detailed API documentation][3] on *GH-Pages*
+
+This project is part of the [Developer Tools for Python][4] **dtools**
+namespace project.
+
+- Benefits of FP
+  - improved composability
+  - avoid hard to refactor exception driven code paths
+  - data sharing becomes trivial when immutability leveraged
+
+## Overview of submodules
+
+### Error handling: dtools.fp.err_handling
+
+- monadic tools for handling missing values & unexpected events
+  - *class* MB: Maybe (Optional) monad
+  - *class* XOR: Either monad
+
+______________________________________________________________________
+
+### Functions as first class objects: dtools.fp.function
+
+  - utilities to manipulate and partially apply functions
+
+______________________________________________________________________
+
+### Tools for iterables
+
+- dtools.fp.iterables
+  - iteration tools implemented in Python
+
+______________________________________________________________________
+
+### Lazy function evaluation
+
+- dtools.fp.lazy
+  - lazy (non-strict) function evaluation
+
+______________________________________________________________________
+
+### Singletons
+
+- dtools.fp.nothingness
+  - singleton classes representing either a
+    - missing value
+    - sentinel value
+    - failed calculation
+
+______________________________________________________________________
+
+### State monad implementation
+
+- dtools.fp.state
+  - pure FP handling of state (the state monad)
+
+______________________________________________________________________
+
+[1]: https://pypi.org/project/dtools.fp/
+[2]: https://github.com/grscheller/dtools-fp/
+[3]: https://grscheller.github.io/dtools-docs/fp/
+[4]: https://github.com/grscheller/dtools-docs/
+
