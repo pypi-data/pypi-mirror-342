@@ -1,0 +1,31 @@
+from make87_messages.core import header_pb2 as _header_pb2
+from google.protobuf.internal import containers as _containers
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class SetModelConfigurationRequest(_message.Message):
+    __slots__ = ("header", "model_name", "urdf_param_name", "joint_names", "joint_positions")
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
+    URDF_PARAM_NAME_FIELD_NUMBER: _ClassVar[int]
+    JOINT_NAMES_FIELD_NUMBER: _ClassVar[int]
+    JOINT_POSITIONS_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    model_name: str
+    urdf_param_name: str
+    joint_names: _containers.RepeatedScalarFieldContainer[str]
+    joint_positions: _containers.RepeatedScalarFieldContainer[float]
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., model_name: _Optional[str] = ..., urdf_param_name: _Optional[str] = ..., joint_names: _Optional[_Iterable[str]] = ..., joint_positions: _Optional[_Iterable[float]] = ...) -> None: ...
+
+class SetModelConfigurationResponse(_message.Message):
+    __slots__ = ("header", "success", "status_message")
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    SUCCESS_FIELD_NUMBER: _ClassVar[int]
+    STATUS_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    success: bool
+    status_message: str
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., success: bool = ..., status_message: _Optional[str] = ...) -> None: ...
