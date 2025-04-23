@@ -1,0 +1,12 @@
+google/cloud/dataproc_spark_connect/__init__.py,sha256=dIqHNWVWWrSuRf26x11kX5e9yMKSHCtmI_GBj1-FDdE,1101
+google/cloud/dataproc_spark_connect/exceptions.py,sha256=ilGyHD5M_yBQ3IC58-Y5miRGIQVJsLaNKvEGcHuk_BE,969
+google/cloud/dataproc_spark_connect/pypi_artifacts.py,sha256=gd-VMwiVP-EJuPp9Vf9Shx8pqps3oSKp0hBcSSZQS-A,1575
+google/cloud/dataproc_spark_connect/session.py,sha256=gKPtWDzlz5WA5lPGLMOhNdtKskMDjbLG8KcTmv0PrWA,26189
+google/cloud/dataproc_spark_connect/client/__init__.py,sha256=6hCNSsgYlie6GuVpc5gjFsPnyeMTScTpXSPYqp1fplY,615
+google/cloud/dataproc_spark_connect/client/core.py,sha256=m3oXTKBm3sBy6jhDu9GRecrxLb5CdEM53SgMlnJb6ag,4616
+google/cloud/dataproc_spark_connect/client/proxy.py,sha256=GNy561Fo8A2ehqLrDMkVWOUYV62YCO2tuN77it3H098,8954
+dataproc_spark_connect-0.6.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+dataproc_spark_connect-0.6.0.dist-info/METADATA,sha256=m8PZHKk353AcATjML-Fgw_6yrtHmgVQLxEDI_90h2_0,4020
+dataproc_spark_connect-0.6.0.dist-info/WHEEL,sha256=OpXWERl2xLPRHTvd2ZXo_iluPEQd8uSbYkJ53NAER_Y,109
+dataproc_spark_connect-0.6.0.dist-info/top_level.txt,sha256=_1QvSJIhFAGfxb79D6DhB7SUw2X6T4rwnz_LLrbcD3c,7
+dataproc_spark_connect-0.6.0.dist-info/RECORD,,
