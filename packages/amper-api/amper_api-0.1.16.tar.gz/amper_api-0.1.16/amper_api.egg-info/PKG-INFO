@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: amper-api
+Version: 0.1.16
+Summary: Amper API package
+Home-page: UNKNOWN
+Author: Amplifier
+Author-email: support@ampliapps.com
+License: UNKNOWN
+Description: Package for communicating with Amplifier API.
+Keywords: amplifier,b2b,erp
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
