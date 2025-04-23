@@ -1,0 +1,10 @@
+[package]
+name = "tombi-extension"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+repository.workspace = true
+license.workspace = true
+readme = "README.md"
+
+[dependencies]
