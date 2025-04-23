@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+memeclip/__init__.py
+memeclip/client.py
+memeclip.egg-info/PKG-INFO
+memeclip.egg-info/SOURCES.txt
+memeclip.egg-info/dependency_links.txt
+memeclip.egg-info/requires.txt
+memeclip.egg-info/top_level.txt
+memeclip/api/__init__.py
+memeclip/api/constants.py
+memeclip/models/__init__.py
+memeclip/models/error.py
+memeclip/models/meme.py
+tests/__init__.py
+tests/test_client.py
