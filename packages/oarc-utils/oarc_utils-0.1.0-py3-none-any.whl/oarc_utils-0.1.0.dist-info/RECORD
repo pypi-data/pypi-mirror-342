@@ -1,0 +1,13 @@
+oarc_utils/decorators/__init__.py,sha256=IbTgyytslhFkV66JjRdRf7jZ4Zg0FDyEO3ccuYxq39E,544
+oarc_utils/decorators/asyncio_run.py,sha256=qhFjgE82qshkuUmZpi74fw9HMvfhntGSybGqjjt8Pp8,1099
+oarc_utils/decorators/factory.py,sha256=x1XBjfbIiu4mBLQ48wRjRqGwyXcYpc7dFwZxquWlwOo,3194
+oarc_utils/decorators/handle_error.py,sha256=ATXM_rxshemFURePnBMRoUKguHGbBAAWfVc1O7sNLPM,4789
+oarc_utils/decorators/singleton.py,sha256=nSvkl-HsAnYBIYfBfTvLmg2DWWMajJjQ0-s0nW80Xww,6079
+oarc_utils/errors/__init__.py,sha256=QKYzoO15ggGWnYHGhAcgh3NAY7cZ6EmL0sbfnmcYZZc,903
+oarc_utils/errors/oarc_crawlers_errors.py,sha256=clYTDD0fw0L8eWZa-BFrhNSpa1iz0zdqfLNw6CeUAM0,1191
+oarc_utils-0.1.0.dist-info/licenses/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+oarc_utils-0.1.0.dist-info/METADATA,sha256=aEYJ2rKhE-FVHCKkDV3q85uEo9Hy6ftldkzHjcYNxtA,10365
+oarc_utils-0.1.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+oarc_utils-0.1.0.dist-info/top_level.txt,sha256=IMvSSgT4FYwISFng1x8RrmWC1yzTAaTDPZHUi_r6KeE,17
+oarc_utils-0.1.0.dist-info/RECORD,,
