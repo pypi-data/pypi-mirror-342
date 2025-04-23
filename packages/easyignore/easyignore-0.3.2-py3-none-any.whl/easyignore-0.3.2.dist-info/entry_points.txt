@@ -1,0 +1,2 @@
+[console_scripts]
+easyignore = easyignore.main:app
