@@ -1,0 +1,16 @@
+Metadata-Version: 2.3
+Name: keras-convattention
+Version: 0.1.0
+Summary: A Keras layer combining Convolution and Attention mechanisms for Time Series models
+License: MIT
+Author: Laeeq Aslam
+Author-email: laeeq.aslam.100@gmail.com
+Requires-Python: >=3.10,<3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: numpy (>=1.26.4,<2.0.0)
+Requires-Dist: scikit-learn (>=1.6.1,<2.0.0)
+Requires-Dist: tensorflow (>=2.19.0,<3.0.0)
+Project-URL: Homepage, https://github.com/L-A-Sandhu/
+Project-URL: Repository, https://github.com/L-A-Sandhu/keras-convattention
