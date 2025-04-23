@@ -1,0 +1,17 @@
+Metadata-Version: 2.3
+Name: assistant-stream
+Version: 0.0.18
+Summary: 
+Author: Simon Farshid
+Author-email: simon@assistant-ui.com
+Requires-Python: >=3.8
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: starlette (>=0.37.2)
+Project-URL: Homepage, https://github.com/assistant-ui/assistant-ui
+Project-URL: Issues, https://github.com/assistant-ui/assistant-ui/issues
+Description-Content-Type: text/markdown
+
+## assistant-stream
+
