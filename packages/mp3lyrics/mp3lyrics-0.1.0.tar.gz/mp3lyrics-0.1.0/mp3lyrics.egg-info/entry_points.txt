@@ -1,0 +1,2 @@
+[console_scripts]
+mp3lyrics = mp3lyrics.mp3lyrics:main_cli

@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+mp3lyrics/__init__.py
+mp3lyrics/api_config.py
+mp3lyrics/mp3lyrics.py
+mp3lyrics.egg-info/PKG-INFO
+mp3lyrics.egg-info/SOURCES.txt
+mp3lyrics.egg-info/dependency_links.txt
+mp3lyrics.egg-info/entry_points.txt
+mp3lyrics.egg-info/requires.txt
+mp3lyrics.egg-info/top_level.txt

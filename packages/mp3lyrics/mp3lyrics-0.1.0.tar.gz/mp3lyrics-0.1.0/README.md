@@ -1,0 +1,2 @@
+This Python package is intended to be used to write lyrics to mp3 file metadata.
+This code makes use of Genius' API, so you will need to obtain an API key and other information and update api_config.py. Read more here: https://docs.genius.com/
