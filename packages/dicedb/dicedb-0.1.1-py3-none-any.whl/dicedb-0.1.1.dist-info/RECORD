@@ -1,0 +1,15 @@
+dicedb/__init__.py,sha256=xVwhc5wUSf2iNKUfhmbHnI6RRoniCF2ybKBRPDjNm08,474
+dicedb/commands.py,sha256=yzCBl5Q-Qs_Mm5JD18hUyW811t8c-eivYby-jGEnCUQ,5800
+dicedb/const.py,sha256=FpMeRyqcI_Xqo4N9rdrKt6W_-o1EkDqjUzYua77ZrAw,246
+dicedb/dice.py,sha256=n-SKn-woVw9Q8_feClTTSgYiXsshb_OwznxhldiiCj0,4371
+dicedb/exceptions.py,sha256=nFVsMpu5w2L9MI61JSZxrKFru2WqqmSi5V45u5fATjI,1186
+dicedb/proto/__init__.py,sha256=WfAkF4z9jK-ocnyh2BR3L30BUk7Srz51M2bVePbFNrg,30
+dicedb/proto/cmd_pb2.py,sha256=Bsr26kZit-4_-BZyJVGUcJEQh2C_h8iCAuA-_F2kh7s,1030
+dicedb/proto/cmd_pb2.pyi,sha256=yfhxf1QHN3jRf0l5bkRpUqDNHJW2DKoY0oZT0NZAU8k,560
+dicedb/proto/res_pb2.py,sha256=bSCfkLAo7rKaVtUefhR2hvUs3ePSoP5mDsvnD2z61Ps,9002
+dicedb/proto/res_pb2.pyi,sha256=LHry16i29e9vKfafOUsDJ8QSk0SiBAilpiiQUvT3Pjs,13608
+dicedb/utils/__init__.py,sha256=bZeSmeYD9KfmUmbCSPpWvDvswkb9sR-2BkMvnZ3V6Xc,35
+dicedb/utils/response_deserializer.py,sha256=FXyS5rCXxzuWedSOpDDGyG499V_fc5v9_1MqwO5dD34,3278
+dicedb-0.1.1.dist-info/METADATA,sha256=bqztInPk-RNTU9RRrUAMlBfcpo4qzpQPZnKpJoaU4XU,1788
+dicedb-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+dicedb-0.1.1.dist-info/RECORD,,
