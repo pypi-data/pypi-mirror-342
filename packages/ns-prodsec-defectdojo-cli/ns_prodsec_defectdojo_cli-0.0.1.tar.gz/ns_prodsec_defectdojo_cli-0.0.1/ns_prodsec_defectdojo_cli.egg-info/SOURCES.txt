@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+example/__init__.py
+example/__main__.py
+example/demo.py
+ns_prodsec_defectdojo_cli.egg-info/PKG-INFO
+ns_prodsec_defectdojo_cli.egg-info/SOURCES.txt
+ns_prodsec_defectdojo_cli.egg-info/dependency_links.txt
+ns_prodsec_defectdojo_cli.egg-info/entry_points.txt
+ns_prodsec_defectdojo_cli.egg-info/top_level.txt
+tests/test_demo.py

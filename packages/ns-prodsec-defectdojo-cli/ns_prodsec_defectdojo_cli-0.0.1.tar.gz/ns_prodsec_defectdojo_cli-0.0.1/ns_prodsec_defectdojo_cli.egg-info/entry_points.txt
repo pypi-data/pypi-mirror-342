@@ -1,0 +1,2 @@
+[console_scripts]
+example-cli = example.__main__:main
