@@ -1,0 +1,20 @@
+# pyproject.toml
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keisukemiyamotopypi"
+version = "0.1.0"
+description = "A simple NumPy-based statistics utility"
+readme = "README.md"
+authors = [
+    { name="Keisuke0727", email="aichiboyhighschool@gmail.com" }
+]
+license = { text = "MIT" }
+dependencies = ["numpy"]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/mystats"
