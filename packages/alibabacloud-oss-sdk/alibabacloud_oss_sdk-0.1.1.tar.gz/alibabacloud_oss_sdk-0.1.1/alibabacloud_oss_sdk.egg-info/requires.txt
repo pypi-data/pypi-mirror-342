@@ -1,0 +1,5 @@
+alibabacloud_credentials>=0.3.6
+alibabacloud_oss_util<1.0.0,>=0.0.5
+alibabacloud_tea_fileform<1.0.0,>=0.0.3
+alibabacloud_tea_util<1.0.0,>=0.3.13
+alibabacloud_tea_xml<1.0.0,>=0.0.2
