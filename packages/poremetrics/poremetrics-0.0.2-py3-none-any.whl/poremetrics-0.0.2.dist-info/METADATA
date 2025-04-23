@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: poremetrics
+Version: 0.0.2
+Summary: Package for extracting features from segemented defects in defect initated fatigue.
+Author-email: Anthony Lino <aml334@case.edu>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/cwru-sdle/pore-fatigue-metrics
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+Requires-Dist: opencv-python
+Dynamic: license-file
+
+# pore-fatigue-metrics
+This repo contains the source code for the poremetrics package, which provides functions which take binary numpy arratys as an input nd outputs features which can be used to predict fatigue performance in the case of defect initiated fatigue.
+
+Note, all of the functions contained here expect a numpy array of shape (x,y), with no channels, and a format of np.uint8. This will probably require the user to reshape their images, but it removes the ambiguity arround the location of the color channels, and this is built on top of cv2 and numpy, with some cv2 functions only supporting the np.uint8 dtype.
