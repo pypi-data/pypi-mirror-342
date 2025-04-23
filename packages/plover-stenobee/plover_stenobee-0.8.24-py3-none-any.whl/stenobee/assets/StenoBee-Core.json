@@ -1,0 +1,23 @@
+{
+"LTG-*": "{PLOVER:TOGGLE}",
+"KPL-*": "{PLOVER:LOOKUP}",
+"PTD-*": "{PLOVER:UPDATE}",
+"PTR-*": "{*+}",
+"TNR-*": "{^\n^}",
+"^TNR-*": "{#shift(return)}",
+"SLTNRD-*": "{PLOVER:ADD_TRANSLATION}",
+"^SQ-*": "{:pluralize}",
+"^QZ-*": "{^}'s",
+"XPSL-*": "{PLOVER:TOGGLE}",
+"SR-*": "{#backspace}",
+"LC-*": "{#shift(return)}",
+"-*": "=undo",
+"TN-*": "{^ ^}",
+"PSC-*": "{^ ^}",
+"HD-*": "{-|}",
+"PSC-*": "{-|}",
+"^": "{^}"
+}
+
+
+
