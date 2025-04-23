@@ -1,0 +1,4 @@
+[console_scripts]
+coda-make-certs = codafs.cli.make_certs:main
+coda-sync-acls = codafs.cli.sync_acls:main
+coda-volmunge = codafs.cli.volmunge:main
