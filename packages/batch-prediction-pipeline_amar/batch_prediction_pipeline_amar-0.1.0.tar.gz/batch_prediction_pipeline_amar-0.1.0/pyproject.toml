@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "batch-prediction-pipeline_amar"
+version = "0.1.0"
+description = "A batch prediction pipeline for energy consumption forecasting"
+authors = ["Bala Amar <amarbalu5@gmail.com>"]
+readme = "README.md"
+packages = [{include = "batch_prediction_pipeline"}]
+
+[tool.poetry.dependencies]
+python = "~3.9"
+category-encoders = "^2.6.0"
+hopsworks = "3.4.3"
+python-dotenv = "^1.0.0"
+lightgbm = "^3.3.5"
+sktime = "^0.16.1"
+google-cloud-storage = "^2.7.0"
+fire = "^0.5.0"
+training-pipeline = "^0.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+# [[tool.poetry.source]]
+# name = "test"
+# url = "http://localhost"
