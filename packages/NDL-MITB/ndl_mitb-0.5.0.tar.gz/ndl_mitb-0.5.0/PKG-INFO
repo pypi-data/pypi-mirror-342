@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: NDL-MITB
+Version: 0.5.0
+Summary: All codes for NDL labs
+Author: Vedant Raikar
+Author-email: vedantraikar117@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: tensorflow>=2.0.0
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: opencv-python
+Requires-Dist: scikit-learn
+Requires-Dist: seaborn
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: keras
+Requires-Dist: torch
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+This is the code for NDL labs MIT Bangalore
