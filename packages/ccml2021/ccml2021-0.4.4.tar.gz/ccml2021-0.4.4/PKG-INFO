@@ -1,0 +1,16 @@
+Metadata-Version: 2.3
+Name: ccml2021
+Version: 0.4.4
+Summary: Add your description here
+Author-email: Koki Muraoka <muraok_k@chemsys.t.u-tokyo.ac.jp>
+Requires-Python: >=3.9
+Requires-Dist: emoji>=2.14.1
+Requires-Dist: numpy==1.26.4
+Requires-Dist: rdkit-pypi==2022.9.5
+Description-Content-Type: text/markdown
+
+# ccml2021
+
+```
+pip install twine
+```

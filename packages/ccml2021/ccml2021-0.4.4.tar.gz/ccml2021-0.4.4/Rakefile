@@ -1,0 +1,16 @@
+require 'rake/clean'
+
+CLEAN.include "*.egg-info"
+CLEAN.include "dist"
+
+task :build do
+  sh "python setup.py sdist bdist_wheel"
+end
+
+task :testpypi => [:clean,  :build] do
+  sh "twine upload --repository testpypi dist/*"
+end
+
+task :pypi => [:clean,  :build] do
+  sh "twine upload --repository pypi dist/*"
+end
