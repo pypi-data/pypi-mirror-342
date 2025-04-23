@@ -1,0 +1,65 @@
+Metadata-Version: 2.4
+Name: jpl_small_bodies_de441_n16
+Version: 2021.3.31.1
+Summary: JPL Small Bodies DE441 of 16 most massive asteroids.
+Author-email: B612 Asteroid Institute <info@b612foundation.org>
+License: MIT License
+        
+        Copyright (c) 2025 B612 Asteroid Institute
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE. 
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: tests
+Requires-Dist: pytest; extra == "tests"
+Requires-Dist: spiceypy; extra == "tests"
+Dynamic: license-file
+
+# jpl_small_bodies_de441_n16: JPL Small Bodies Ephemeris of 16 most massive asteroids for SPICE
+#### A Python package by the Asteroid Institute, a program of the B612 Foundation
+
+[![Python 3.7+](https://img.shields.io/badge/Python-3.7%2B-blue)](https://img.shields.io/badge/Python-3.7%2B-blue)
+[![PyPI version](https://img.shields.io/pypi/v/jpl-small-bodies-de441-n16)](https://img.shields.io/pypi/v/jpl-small-bodies-de441-n16)
+[![PyPi downloads](https://img.shields.io/pypi/dm/jpl-small-bodies-de441-n16)](https://img.shields.io/pypi/dm/jpl-small-bodies-de441-n16)  
+[![Build and Test](https://github.com/B612-Asteroid-Institute/jpl_small_bodies_de441_n16/actions/workflows/build_test.yml/badge.svg)](https://github.com/B612-Asteroid-Institute/jpl_small_bodies_de441_n16/actions/workflows/build_test.yml)
+[![Build, Test, & Publish](https://github.com/B612-Asteroid-Institute/jpl_small_bodies_de441_n16/actions/workflows/build_test_publish.yml/badge.svg)](https://github.com/B612-Asteroid-Institute/jpl_small_bodies_de441_n16/actions/workflows/build_test_publish.yml)  
+
+This package ships the JPL Small Bodies DE441 kernal for the 16 most massive asteroids. [reference](https://ssd.jpl.nasa.gov/ftp/eph/small_bodies/asteroids_de441/SB441_IOM392R-21-005_perturbers.pdf).
+
+**This is not an official JPL package**. It is an automatically generated mirror of the file so that it is
+installable via `pip`.
+
+## Installation
+
+The latest version of the file can be install via pip:  
+`pip install jpl-small-bodies-de441-n16`
+
+## Usage
+```python
+import spiceypy as sp
+from jpl_small_bodies_de441_n16 import de441_n16
+
+sp.furnsh(de441_n16)
+```
+
+## Acknowledgment
+
+This project makes use of data provided and maintained by the NASA Jet Propulsion Laboratory, California Institute of Technology.
+
