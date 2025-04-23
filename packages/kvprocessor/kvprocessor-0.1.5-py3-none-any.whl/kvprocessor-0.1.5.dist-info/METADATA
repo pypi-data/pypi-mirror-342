@@ -1,0 +1,83 @@
+Metadata-Version: 2.4
+Name: kvprocessor
+Version: 0.1.5
+Summary: A Python package for processing and validating configuration dictionaries against a custom .kv file format
+Project-URL: Homepage, https://github.com/connor33341/kvprocessor
+Project-URL: Repository, https://github.com/connor33341/kvprocessor
+Author-email: "[Your Name]" <connor@connor33341.dev>
+License: MIT License
+        
+        Copyright (c) 2025 Connor
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Requires-Dist: requests>=2.25.0
+Description-Content-Type: text/markdown
+
+# kvProcessor
+
+[**PYPI Package**](https://pypi.org/project/kvprocessor/) \
+A Python package for processing and validating configuration dictionaries against a custom `.kv` file format.
+
+## Installation
+
+Install via pip:
+
+```bash
+pip install kvprocessor
+```
+
+## File format
+
+```custom
+VARIBLENAME<TYPE>:DEFAULTVAULE
+```
+
+## Usage
+
+```python
+from kvprocessor import LoadEnv, KVProcessor
+
+kv_file_path = "test/test.kv" # Directory to .kv file
+kv_processor = KVProcessor(kv_file_path) # Create a KV processor class
+kv_keys = kv_processor.return_names() # Gets the keys (VARIBLENAME) from the .kv file
+env_list = LoadEnv(kv_keys) # Loads all the ENV varibles that match those keys
+validated_config = kv_processor.process_config(env_list) # Verifies that those env varibles exist and are of the correct type
+print(validated_config)
+```
+
+This example mimics the one found in the `/test` directory. With the kv file of:
+```custom
+DATABASE_NAME<string>:none
+DATABASE_USER<string>:none
+DATABASE_PASSWORD<string>:none
+DATABASE_HOST<string>:none
+DATABASE_PORT<string|int>:none
+DATABASE_DRIVER<string>:mysql+mysqlconnector
+DATABASE_DIALECT<string>:none
+```
+You **should** get a result of: 
+`{'DATABASE_NAME': None, 'DATABASE_USER': None, 'DATABASE_PASSWORD': None, 'DATABASE_HOST': None, 'DATABASE_PORT': None, 'DATABASE_DRIVER': None, 'DATABASE_DIALECT': None}` This is because the kvProcessor is taking input from the env, and we dont have these env varibles defined. As a result these values default to the defined default value
