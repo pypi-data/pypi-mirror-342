@@ -1,0 +1,8 @@
+gpstime
+igwn-auth-utils
+lalsuite
+ligo-segments
+lscsoft-glue<4.0.0,>=3.0.1
+pyOpenSSL>=0.14
+pyRXP
+six

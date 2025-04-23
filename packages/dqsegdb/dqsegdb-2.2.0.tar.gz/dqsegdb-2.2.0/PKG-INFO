@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: dqsegdb
+Version: 2.2.0
+Summary: Client library for DQSegDB
+Home-page: https://git.ligo.org/computing/dqsegdb/client
+Author: Ryan Fisher
+Author-email: ryan.fisher@ligo.org
+License: GPLv3
+Provides: dqsegdb
+License-File: LICENSE
+License-File: NOTICE
+Requires-Dist: gpstime
+Requires-Dist: igwn-auth-utils
+Requires-Dist: lalsuite
+Requires-Dist: ligo-segments
+Requires-Dist: lscsoft-glue<4.0.0,>=3.0.1
+Requires-Dist: pyOpenSSL>=0.14
+Requires-Dist: pyRXP
+Requires-Dist: six
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: provides
+Dynamic: requires-dist
+Dynamic: summary
