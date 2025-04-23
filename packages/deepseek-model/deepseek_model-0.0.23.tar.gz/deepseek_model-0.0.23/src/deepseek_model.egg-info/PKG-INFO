@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: deepseek-model
+Version: 0.0.23
+Requires-Dist: build
+Requires-Dist: groq
+Requires-Dist: load_dotenv
+Requires-Dist: pymongo
+Requires-Dist: pyyaml
+Requires-Dist: together
+Requires-Dist: twine
