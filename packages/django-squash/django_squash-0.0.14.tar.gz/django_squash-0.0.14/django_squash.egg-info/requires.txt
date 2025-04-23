@@ -1,0 +1,15 @@
+django>=4.2
+
+[lint]
+pygments
+restructuredtext-lint
+ruff
+
+[test]
+black
+build
+ipdb
+libcst
+psycopg2-binary
+pytest-cov
+pytest-django
