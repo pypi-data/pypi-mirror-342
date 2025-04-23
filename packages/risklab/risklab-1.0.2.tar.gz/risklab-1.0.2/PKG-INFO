@@ -1,0 +1,50 @@
+Metadata-Version: 2.4
+Name: risklab
+Version: 1.0.2
+Summary: Applied Quantiative (Portfolio) Risk Management
+Project-URL: Issues, https://github.com/dream-faster/risklab/issues
+Project-URL: Source, https://github.com/dream-faster/risklab
+Author-email: Mark Aron Szulyovszky <mark@unravel.finance>, Daniel Szemerey <daniel@unravel.finance>
+License-Expression: MIT
+License-File: LICENSE
+Keywords: backtesting,portfolio,quant,quantiative,risk
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.11
+Requires-Dist: numpy>=1.3.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: tqdm>=4.66.4
+Provides-Extra: quality
+Requires-Dist: pre-commit~=2.20.0; extra == 'quality'
+Requires-Dist: ruff==0.1.11; extra == 'quality'
+Provides-Extra: tests
+Requires-Dist: hypothesis~=6.112.4; extra == 'tests'
+Requires-Dist: pytest-cov>=4.0; extra == 'tests'
+Requires-Dist: pytest~=7.1.2; extra == 'tests'
+Description-Content-Type: text/markdown
+
+# RiskLab
+
+Applied Quantiative (Portfolio) Risk Management
+
+### Functions
+
+- `scale_to_target_volatility()`: Create a signal to scale returns to a target (annualized) volatility.
+
+- `backtest_signal()`: Create a vectorized backtest from a signal and the underlying returns.
+
+- `backtest_portfolio()`: Create a vectorized backtest from a portfolio of weights and the underlying returns.
+
+
+### Authors
+
+[Unravel.finance](https://unravel.finance)
+
+### Licence
+
+MIT Licence
