@@ -1,0 +1,18 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=61.0"]
+[project]
+name = "neutrino-api-sdk"
+description = "This is a POC created by APIMatic for Neutrino API"
+version = "1.0.0"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["Neutrino API", "APIMATIC", "SDK"]
+authors = [{name = "developer sdksio", email = "developer+sdksio@apimatic.io"}]
+urls = {Documentation = "https://neutrino-poc.apimatic.dev"}
+dependencies = ["apimatic-core~=0.2.0, >= 0.2.17", "apimatic-core-interfaces~=0.1.0, >= 0.1.5", "apimatic-requests-client-adapter~=0.1.0, >= 0.1.6"]
+classifiers = []
+[project.optional-dependencies]
+testutils = ["pytest>=7.2.2"]
+[tool.setuptools.packages.find]
+exclude = ["tests", "tests.*"]
