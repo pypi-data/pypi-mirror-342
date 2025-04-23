@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: HomOpt
+Version: 0.1.2
+Summary: A collection of homogeneous optimizers for PyTorch
+Home-page: https://github.com/Yu-Zhou-1/HomOpt
+Author: Yu Zhou
+Author-email: yu_zhou@yeah.net
+License: MIT
+Keywords: pytorch optimizer deep-learning
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch>=1.6.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# HomOpt
+
+HomOpt is a collection of homogeneous optimizers for PyTorch, designed to improve the performance of deep learning models. The optimizers are based on homogeneous dynamical systems and aim to provide more stable and efficient training.
+
+## Features
+
+- A set of homogeneous optimizers for PyTorch, including the `HomM` optimizer.
+- Optimizers designed to improve the training stability and convergence rates for deep learning tasks.
+- Easy-to-use and integrate into your PyTorch training workflows.
+
+## Installation
+
+You can install `HomOpt` using pip. First, ensure that you have Python 3.6 or later and PyTorch 1.6.0 or later installed.
+
+To install directly from PyPI:
+
+```bash
+pip install HomOpt
