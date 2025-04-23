@@ -1,0 +1,29 @@
+Metadata-Version: 2.4
+Name: chercher-plugin-txt
+Version: 0.1.1
+Summary: Chercher plugin that add support for plain text files.
+Author-email: dnlzrgz <contact@dnlzrgz.com>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/dnlzrgz/chercher-plugin-txt
+Project-URL: Changelog, https://github.com/dnlzrgz/chercher-plugin-txt/releases
+Project-URL: Issues, https://github.com/dnlzrgz/chercher-plugin-txt/issues
+Project-URL: CI, https://github.com/dnlzrgz/chercher-plugin-txt/actions
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: chercher>=0.1.7
+Dynamic: license-file
+
+# chercher-plugin-txt
+
+[Chercher](https://github.com/dnlzrgz/chercher) plugin that add support for plain text files.
+
+## Installation
+
+> [!NOTE]
+> This plugin is included with Chercher by default, so no additional installation is necessary
+
+## Settings
+
+> [!NOTE]
+> This plugin does not requires any additional settings.
