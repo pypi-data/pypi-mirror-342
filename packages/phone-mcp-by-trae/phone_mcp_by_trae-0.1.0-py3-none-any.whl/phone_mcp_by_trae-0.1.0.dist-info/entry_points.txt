@@ -1,0 +1,3 @@
+[console_scripts]
+phone-cli-by-trae = phone_mcp_by_trae:cli_main
+phone-mcp-by-trae = phone_mcp_by_trae:main
