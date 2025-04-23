@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: proteinynbn
+Version: 0.0.1
+Summary: some functions used frequently in protein deep learn model
+Home-page: https://github.com/KIOYnBn/Proein_L_YnBn
+Author: YnBn
+Author-email: twb72743075@126.com
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.26.4
+Requires-Dist: tensorflow>=2.15.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+
+Until 2025-4-20, just acheived these functions
+Model:bert_mask, print_tfreocrd, token, TFInputDataset
+Data:read fasta, ELECTRA fragment, slice train and eval
