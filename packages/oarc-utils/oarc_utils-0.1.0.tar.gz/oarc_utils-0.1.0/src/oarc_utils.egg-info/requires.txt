@@ -1,0 +1,11 @@
+click>=8.1.8
+
+[dev]
+black
+isort
+mypy
+pytest
+pytest-cov
+pytest-asyncio
+flake8
+pydocstyle
