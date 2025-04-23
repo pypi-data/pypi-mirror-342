@@ -1,0 +1,10 @@
+click<9.0,>=8.0
+translate-toolkit<3.16.0,>=3.5.1
+translation-finder<3.0,>=2.11
+
+[lint]
+pre-commit==4.2.0
+
+[test]
+pytest
+pytest-cov
