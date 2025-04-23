@@ -1,0 +1,2 @@
+[console_scripts]
+cv-chunker = cv_doc_chunker.cli:main
