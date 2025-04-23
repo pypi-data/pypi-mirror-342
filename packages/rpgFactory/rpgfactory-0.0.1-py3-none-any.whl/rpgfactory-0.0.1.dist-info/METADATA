@@ -1,0 +1,74 @@
+Metadata-Version: 2.4
+Name: rpgFactory
+Version: 0.0.1
+Summary: A simple RPG factory to create monsters
+Home-page: https://github.com/Marcelo-Batista/Equidna
+Author: Marcelo Batista
+Author-email: marcelo.silva238@fatec.sp.gov.br
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: autocommand==2.2.2
+Requires-Dist: certifi==2025.1.31
+Requires-Dist: charset-normalizer==3.4.1
+Requires-Dist: docutils==0.21.2
+Requires-Dist: id==1.5.0
+Requires-Dist: idna==3.10
+Requires-Dist: jaraco.classes==3.4.0
+Requires-Dist: jaraco.context==6.0.1
+Requires-Dist: jaraco.functools==4.1.0
+Requires-Dist: jaraco.text==4.0.0
+Requires-Dist: keyring==25.6.0
+Requires-Dist: markdown-it-py==3.0.0
+Requires-Dist: mdurl==0.1.2
+Requires-Dist: more-itertools==10.6.0
+Requires-Dist: nh3==0.2.21
+Requires-Dist: packaging==24.2
+Requires-Dist: platformdirs==4.3.7
+Requires-Dist: Pygments==2.19.1
+Requires-Dist: pywin32-ctypes==0.2.3
+Requires-Dist: readme_renderer==44.0
+Requires-Dist: requests==2.32.3
+Requires-Dist: requests-toolbelt==1.0.0
+Requires-Dist: rfc3986==2.0.0
+Requires-Dist: rich==13.9.4
+Requires-Dist: setuptools==77.0.3
+Requires-Dist: twine==6.1.0
+Requires-Dist: urllib3==2.3.0
+Requires-Dist: wheel==0.45.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# tartaro
+
+Description.
+The package tartaro is used to: - creation of list with monsters for basics adventures of RPG
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install tartaro
+
+```bash
+pip install tartaro
+```
+
+## Usage
+
+```python
+from tartaro import equidna
+equidna = Equidna("Equidna", "Equidna", 0)
+horde1 = equidna.create_horde("Beast", "Beast", 1, 2, 5, 10)
+```
+
+## Author
+
+[Marcelo Batista](https://github.com/Marcelo-Batista)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
