@@ -1,0 +1,70 @@
+loss_data_examples/
+
+### Github suggestion
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+external/
+wheelhouse*/
+# ignore all except the cleaned up folder Betti-Matching-global-build
+topolosses/losses/betti_matching/src/ext/Betti-Matching-3D-local-build
+topolosses/losses/betti_matching/src/ext/Betti-Matching-3D
+topolosses/losses/betti_matching/src/ext/Betti-Matching-3D-standalone-barcode/
+
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
+
+# Sphinx documentation
+docs/_build/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/

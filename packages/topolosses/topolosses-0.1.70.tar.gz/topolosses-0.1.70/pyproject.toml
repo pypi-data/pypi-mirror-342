@@ -1,0 +1,63 @@
+[build-system]
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "topolosses"
+version = "0.1.70"
+description = "A collection of losses and metrics for topology-preserving image segmentation."
+readme = "README.md"
+authors = [
+    { name = "Janek Falkenstein", email = "j.falkenstein@tum.de" }
+]
+classifiers=[
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python",
+        # TODO: add more classifiers
+]
+requires-python = ">=3.10"
+
+# These dependencies will be installed automatically when installing `topolosses`.
+dependencies = [
+    "torch>=1.9", 
+    "scipy",
+    "numpy",
+    "gudhi", 
+    "POT", # import ot somehow this is used in gudhi but not a requirement
+    "torchvision", 
+    "opencv-python", # import cv2
+]
+# Additional Libraries:
+# - `eigen3` and `boost` are header-only and don't require installation by user
+# - `opencv` is bundled into the wheel with `auditwheel repair` for system compatibility.  
+
+[project.urls]
+Repository = "https://github.com/J-falkenstein/topolosses"
+
+[tool.scikit-build]
+wheel.packages = ["topolosses"]
+
+
+# TODO: these settings can overwritten by yml file when building in github actions
+# this is only for a local build on linux machine
+[tool.cibuildwheel]
+archs = ["native"]
+manylinux-x86_64-image = "manylinux_2_28"
+
+[tool.cibuildwheel.linux]
+before-all = [
+# added glibc-devel for threads
+    "yum install -y boost-devel python3-devel glibc-devel",
+    "pip install 'pybind11[global]'",
+    "ARCH=$(uname -m) && curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-${ARCH}.sh",
+    "bash Miniconda3-latest-Linux-*.sh -b -p /opt/miniconda",
+    "export PATH=/opt/miniconda/bin:$PATH",
+    "conda init bash",
+# Old: "/opt/miniconda/bin/conda install -y -c conda-forge opencv", 
+# Newer anaconda::opencv 4.10.0 installation zipp files, use a qt6 version instead of qt5, this seems to result in a segmentation fault (core dumped) runtime error
+    "conda install -y opencv=4.10.0=*2",
+    "/opt/miniconda/bin/conda install -y anaconda::eigen",
+]
+
+# repair wheel to bundle c++ library dependencies into the wheel (e.g., openCV)
+repair-wheel-command = "ARCH=$(uname -m) && LD_LIBRARY_PATH=/opt/miniconda/lib:$LD_LIBRARY_PATH auditwheel repair --plat manylinux_2_34_$ARCH -w {dest_dir} {wheel}"
