@@ -1,0 +1,2 @@
+[console_scripts]
+gh-star-timeline = gh_star_timeline.main:main
