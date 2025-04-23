@@ -1,0 +1,79 @@
+name: Nix Tests
+run-name: ${{ gitea.actor }} running Nix tests
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+jobs:
+  nix-test:
+    # Using matrix to run on different runners if needed
+    strategy:
+      fail-fast: true
+      matrix:
+        # You can adjust to run on different runners or environments
+        # os: [ubuntu-latest, nix-runner]
+        os: [nix-runner]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # SSH keys setup is important for accessing private repositories
+      # Adjust or remove this section if not needed
+      # - name: Install SSH keys
+      #   uses: shimataro/ssh-key-action@d4fffb50872869abe2d9a9098a6d9c5aa7d16be4
+      #   with:
+      #     key: ${{ secrets.SSH_GITEA_SSH_KEY }}
+      #     name: gitea_action
+      #     known_hosts: ${{ secrets.SSH_GITEA_KNOWN_HOSTS }}
+      # - name: Agent SSH keys
+      #   uses: webfactory/ssh-agent@v0.9.0
+      #   with:
+      #     ssh-private-key: ${{ secrets.SSH_GITEA_SSH_KEY }}
+      # Cache nix https://github.com/cachix/install-nix-action/issues/56#issuecomment-1240991760
+      - name: "Cache Nix store"
+        uses: actions/cache@v4
+        id: nix-cache
+        with:
+          path: /tmp/nixcache
+          key: nix-${{ runner.os }}-sarada-${{ hashFiles('**/pyproject.toml', '**/*.nix', '**/uv.lock', '**/scripts/*.sh', '**/flake.lock') }}
+          restore-keys: |
+            nix-${{ runner.os }}-sarada
+            nix-${{ runner.os }}
+            nix
+            nix-d
+      # Installing Nix - not necessary if using nix-runner but included for completeness
+      # - name: Install Nix
+      #   uses: cachix/install-nix-action@v31
+      - name: Setup Attic Cache
+        uses: ryanccn/attic-action@3354ae812cb672e1381be4c7914204c44db53866
+        with:
+          endpoint: ${{ secrets.ATTIC_ENDPOINT }}
+          cache: ${{ secrets.ATTIC_CACHE }}
+          token: ${{ secrets.ATTIC_TOKEN }}
+      - name: "Import Nix store cache"
+        continue-on-error: true
+        # if: "steps.nix-cache.outputs.cache-hit == 'true'"
+        run: bash scripts/restore_cache.sh
+      # Build and check the Nix flake
+      - name: Build and Check Nix Flake
+        run: nix flake check
+      # Artifacts collection
+      - name: List files after test
+        run: ls
+      - name: Archive test results
+        uses: christopherhx/gitea-upload-artifact@v4
+        if: always() # Always upload test results, even if tests fail
+        with:
+          name: test-results-nix
+          path: |
+            pytest.xml
+            coverage.xml
+            htmlcov/
+          retention-days: 7
+      - name: "Export Nix store cache"
+        # if: "steps.nix-cache.outputs.cache-hit != 'true'"
+        run: bash scripts/populate_cache.sh
