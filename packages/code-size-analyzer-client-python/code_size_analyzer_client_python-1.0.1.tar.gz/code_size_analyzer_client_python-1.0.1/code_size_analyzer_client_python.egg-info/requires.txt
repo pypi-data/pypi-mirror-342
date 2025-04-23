@@ -1,0 +1,8 @@
+urllib3>=1.25.3
+python-dateutil
+click
+opentelemetry-distro[otlp]
+opentelemetry-instrumentation-urllib3
+otel_extensions==1.*
+retry
+pyyaml
