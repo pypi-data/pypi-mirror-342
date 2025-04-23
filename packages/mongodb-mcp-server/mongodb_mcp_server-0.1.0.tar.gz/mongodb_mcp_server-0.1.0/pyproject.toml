@@ -1,0 +1,13 @@
+[project]
+name = "mongodb-mcp-server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mcp[cli]",
+    "volcengine-python-sdk",
+]
+
+[project.scripts]
+mongodb-mcp-server = "mcp_server_mongodb.server:main"

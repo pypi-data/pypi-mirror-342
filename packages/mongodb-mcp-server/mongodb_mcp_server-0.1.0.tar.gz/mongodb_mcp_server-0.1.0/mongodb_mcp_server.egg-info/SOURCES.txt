@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+mcp_server_mongodb/__init__.py
+mcp_server_mongodb/server.py
+mcp_server_mongodb/resource/__init__.py
+mcp_server_mongodb/resource/mongo_resource.py
+mongodb_mcp_server.egg-info/PKG-INFO
+mongodb_mcp_server.egg-info/SOURCES.txt
+mongodb_mcp_server.egg-info/dependency_links.txt
+mongodb_mcp_server.egg-info/entry_points.txt
+mongodb_mcp_server.egg-info/requires.txt
+mongodb_mcp_server.egg-info/top_level.txt
