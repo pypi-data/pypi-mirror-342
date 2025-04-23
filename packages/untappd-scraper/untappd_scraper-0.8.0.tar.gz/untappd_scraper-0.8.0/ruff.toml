@@ -1,0 +1,50 @@
+# General settings
+line-length = 95
+target-version = "py313"
+
+# Linting settings
+[lint]
+ignore = ["COM812", "FIX", "ISC001", "Q000", "S101", "TD", "UP007", "W291", "W293"]
+select = ["ALL"]
+
+# isort settings
+[lint.isort]
+split-on-trailing-comma = false
+
+# pylint settings
+[lint.pylint]
+max-args = 6
+
+# pep8-naming settings
+[lint.pep8-naming]
+# Allow Pydantic's `@validator` decorator to trigger class method treatment.
+classmethod-decorators = ["pydantic.validator"]
+
+# pydocstyle settings
+[lint.pydocstyle]
+convention = "google"
+
+# Per-file ignores
+[lint.per-file-ignores]
+"*model*/*.py" = ["D101", "ERA001", "UP006", "UP035"]
+"tests/*.py" = [
+    "ANN401",
+    "B018",
+    "D102",
+    "D103",
+    "FBT001",
+    "PD901",
+    "PLR0913",
+    "PLR2004",
+    "PT006",
+    "S105",
+    "S106",
+    "S311",
+    "SLF001",
+]
+"typings/*.pyi" = ["A002", "A003", "ANN401", "E501", "F401", "PLR0913"]
+
+# Formatting settings
+[format]
+docstring-code-format = true
+skip-magic-trailing-comma = true
