@@ -1,0 +1,20 @@
+[project]
+name = "yookassa_api"
+version = "0.3.4"
+description = "Python Library for YooKassa API"
+authors = [
+    {name = "Lems0n",email = "abdulla.dev@mail.ru"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "aiohttp (>=3.11.11,<4.0.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "pydantic (>=2.10.5,<3.0.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
