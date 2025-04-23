@@ -1,0 +1,56 @@
+Metadata-Version: 2.4
+Name: py_graspi
+Version: 0.2.0.4a0
+Summary: Graph-based descriptor for microstructure featurization
+Home-page: https://github.com/owodolab/py-graspi
+Download-URL: https://github.com/owodolab/py-graspi/archive/refs/tags/v_2.0.4.tar.gz
+Author: Olga Wodo
+Author-email: olgawodo@buffalo.edu
+License: BSD 3-Clause License
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: igraph
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: contourpy
+Requires-Dist: cycler
+Requires-Dist: fonttools
+Requires-Dist: kiwisolver
+Requires-Dist: packaging
+Requires-Dist: pillow
+Requires-Dist: psutil
+Requires-Dist: pyparsing
+Requires-Dist: python-dateutil
+Requires-Dist: six
+Requires-Dist: texttable
+Requires-Dist: fpdf
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: download-url
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+# Py-GraSPI (Graph-based Structure Property Identifier)
+
+**Py-GraSPI** is a Python package designed to compute a comprehensive set of descriptors for segmented microstructures using a graph-based approach.
+
+Py-GraSPI is the Python implementation of the original GraSPI package, which was developed in C/C++.
+
+---
+
+### Resources
+
+- **Source Code**: [GitHub Repository](https://github.com/owodolab/py-graspi)
+- **Documentation**: [Project Docs](https://owodolab.github.io/py-graspi/)
