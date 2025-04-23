@@ -1,0 +1,197 @@
+# ============================================================
+# Clustering workflow Panpipes (pipeline_clustering.py)
+# ============================================================
+# written by Charlotte Rich-Griffin, Fabiola Curion
+
+# ------------------------
+# compute resource options
+# ------------------------
+resources:
+  threads_high: 2
+  threads_medium: 2
+  threads_low: 2
+
+  fewer_jobs: True
+condaenv:
+
+# --------------------------
+# Start
+# --------------------------
+
+sample_prefix: mdata
+scaled_obj: mdata_scaled.h5mu
+full_obj: 
+
+# run clustering on each individual modality:
+modalities:
+  rna: True 
+  prot: True
+  atac: False
+  spatial: False
+
+# if True, will look for WNN, mofa, multivi, totalVI embeddings
+multimodal:
+  run_clustering: True
+  integration_method: 
+
+
+# ---------------------------------------
+# parameters for finding neighbours
+# ---------------------------------------
+# 
+# -----------------------------
+
+neighbors:
+  rna:
+    #use the knn calculated in the integration workflow. If False it will recalculate
+    use_existing: True
+    dim_red: X_pca
+    n_dim_red: 30
+    k: 30
+    metric: euclidean
+    method: scanpy
+  prot:
+    #use the knn calculated in the integration workflow. If False it will recalculate
+    use_existing: True
+    dim_red: X_pca
+    n_dim_red: 30
+    k: 30
+    metric: euclidean
+    method: scanpy
+  atac:
+    #use the knn calculated in the integration workflow. If False it will recalculate
+    use_existing: True
+    dim_red: X_lsi
+    dim_remove: 1
+    n_dim_red: 30
+    k: 30
+    metric: euclidean
+    method: scanpy
+  spatial:
+    #use the knn calculated in the integration workflow. If False it will recalculate
+    use_existing: False
+    dim_red: X_pca
+    n_dim_red: 30
+    k: 30
+    metric: euclidean
+    method: scanpy
+
+# ---------------------------------------
+# parameters for umap calculation
+# ---------------------------------------
+umap:
+  run: True
+  rna:
+    mindist:
+      - 0.25
+      - 0.5
+  prot:
+    mindist: 
+      - 0.1
+  atac: 
+    mindist:
+      - 0.5
+  multimodal:
+    mindist:
+      - 0.5
+  spatial:
+    mindist:
+      - 0.25
+      - 0.5
+
+
+# ---------------------------------------
+# parameters for clustering
+# ---------------------------------------
+clusterspecs:
+  rna:
+    resolutions:
+     - 0.2
+     - 0.6
+     - 1 
+    algorithm: leiden 
+  prot:
+    resolutions:
+     - 0.2
+     - 0.6
+     - 1 
+    algorithm: leiden 
+  atac:
+    resolutions:
+     - 0.2
+     - 0.6
+     - 1 
+    algorithm: leiden 
+  multimodal:
+    resolutions:
+      - 0.5
+      - 0.7
+    algorithm: leiden
+  spatial:
+    resolutions:
+     - 0.2
+     - 0.6
+     - 1 
+    algorithm: leiden
+# ---------------------------------------
+# parameters for finding marker genes
+# ---------------------------------------
+# args https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.rank_genes_groups.html
+markerspecs:
+  rna:
+    run: True
+    layer: logged_counts
+    method: t-test_overestim_var
+    mincells: 10 
+    pseudo_seurat: False
+    minpct: 0.1
+    threshuse: 0.25
+
+  prot:
+    run:
+    layer: clr 
+    mincells: 10 
+    method: wilcoxon
+    pseudo_seurat: False
+    minpct: 0.1
+    threshuse: 0.25
+
+  atac:
+    run:
+    layer: logged_counts #options logged_counts, signac_norm , logTF_norm,logIDF_norm
+    mincells: 10
+    method: wilcoxon
+    pseudo_seurat: False
+    minpct: 0.1
+    threshuse: 0.25
+
+  multimodal:
+    mincells: 10
+    # method options: [‘logreg’, ‘t-test’, ‘wilcoxon’, ‘t-test_overestim_var’]]
+    method: wilcoxon
+    pseudo_seurat: False
+    minpct: 0.1
+    threshuse: 0.25
+
+  spatial:
+    # args for spatial https://scanpy.readthedocs.io/en/stable/generated/scanpy.tl.rank_genes_groups.html
+    run: True
+    layer: norm_pearson_resid
+    method: t-test_overestim_var
+    mincells: 10 
+    pseudo_seurat: False
+    minpct: 0.1
+    threshuse: 0.25
+
+# ---------------------------------------
+# plot specs are used to define which metadata columns are used in the visualizations
+# ---------------------------------------
+plotspecs:
+  layers:
+    rna: logged_counts
+    prot: clr
+    atac: 
+    spatial: 
+  top_n_markers: 10
+
+
