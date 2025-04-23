@@ -1,0 +1,16 @@
+Django>=2.2
+attrs>=17.2.0
+django-push-notifications
+edx-braze-client==1.0.2
+edx-django-utils>=5.14.2
+firebase-admin
+python-dateutil
+sailthru-client==2.2.3
+six
+stevedore>=1.10.0
+
+[push_notifications]
+django-push-notifications[fcm]
+
+[sailthru]
+sailthru-client<2.3,>2.2
