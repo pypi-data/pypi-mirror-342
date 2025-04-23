@@ -1,0 +1,89 @@
+Metadata-Version: 2.4
+Name: ai_agent2agent
+Version: 0.1.1
+Summary: A Python library for Agent-to-Agent communication
+Author: Eligapris
+Author-email: 
+Project-URL: Homepage, https://github.com/your-username/ai_agent2agent
+Project-URL: Bug Tracker, https://github.com/your-username/ai_agent2agent/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: typing-extensions>=4.0.0
+Requires-Dist: starlette>=0.28.0
+Requires-Dist: sse-starlette>=1.0.0
+Requires-Dist: uvicorn>=0.22.0
+Requires-Dist: asyncio>=3.4.3
+Requires-Dist: jwcrypto>=1.5.0
+Dynamic: requires-python
+
+# AI Agent2Agent
+
+A Python library for Agent-to-Agent communication.
+
+## Installation
+
+```bash
+pip install ai_agent2agent
+```
+
+## Usage
+
+### Client
+
+```python
+from agent2agent import A2AClient, A2ACardResolver
+
+# Initialize client
+client = A2AClient(url="https://your-agent-endpoint.com", api_key="your-api-key")
+
+# Example: Send a task to an agent
+response = client.send_task(
+    message={
+        "role": "user",
+        "parts": [{"type": "text", "text": "Hello, Agent!"}]
+    }
+)
+
+# Print the task ID
+print(f"Task ID: {response.id}")
+```
+
+### Server
+
+```python
+from agent2agent import A2AServer, InMemoryTaskManager
+
+# Initialize server with an in-memory task manager
+task_manager = InMemoryTaskManager()
+server = A2AServer(task_manager=task_manager)
+
+# Register handler for tasks
+@server.handle_task
+async def handle_task(task):
+    # Process the task
+    return {
+        "role": "agent",
+        "parts": [{"type": "text", "text": "Task completed!"}]
+    }
+
+# Run the server (depends on your web framework)
+```
+
+## Features
+
+- Client-server architecture for agent communication
+- Support for various message types (text, files, data)
+- Task management with different states
+- In-memory caching
+- Push notification support
+
+## License
+
+MIT 
