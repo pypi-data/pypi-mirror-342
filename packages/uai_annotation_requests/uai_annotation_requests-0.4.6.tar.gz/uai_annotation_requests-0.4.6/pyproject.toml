@@ -1,0 +1,61 @@
+[project]
+name = "uai_annotation_requests"
+version = "0.4.6"
+description = "Understand.ai Python Client SDK for requesting annotations."
+authors = [{ name = "UAI" },]
+readme = "README-PYPI.md"
+requires-python = ">=3.9"
+dependencies = [
+    "eval-type-backport >=0.2.0",
+    "httpx >=0.28.1",
+    "pydantic >=2.10.3",
+    "python-dateutil >=2.8.2",
+    "typing-inspection >=0.4.0",
+]
+
+[tool.poetry]
+packages = [
+    { include = "uai_annotation_requests", from = "src" },
+    { include = "uai_annotation_requests_util", from = "src" }
+]
+include = ["py.typed", "src/uai_annotation_requests/py.typed", "docs/"]
+
+[tool.setuptools.package-data]
+"*" = ["py.typed", "src/uai_annotation_requests/py.typed"]
+
+[virtualenvs]
+in-project = true
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+mypy = "==1.14.1"
+pylint = "==3.2.3"
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
+ruff = "^0.9.4"
+types-python-dateutil = "^2.9.0.20240316"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
+pythonpath = ["src"]
+
+[tool.mypy]
+disable_error_code = "misc"
+
+[[tool.mypy.overrides]]
+module = "typing_inspect"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "jsonpath"
+ignore_missing_imports = true
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+
