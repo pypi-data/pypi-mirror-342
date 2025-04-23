@@ -1,0 +1,115 @@
+
+# linkfixer
+
+**`linkfixer`** is a flexible and powerful Python library for cleaning, normalizing, and validating URLs. It supports everything from simple domain fixes to advanced query stripping, DNS verification, and structured parsing.
+
+---
+
+## 🚀 Features
+
+- Enforces and fixes missing schemes (`http`, `https`)
+- Optionally forces HTTPS
+- Strips tracking parameters like `utm_`, `gclid`, `fbclid`
+- Removes paths, trailing slashes, query strings, and fragments
+- Enforces `www.` prefix if needed
+- Checks domain validity and DNS resolution
+- Preserves or fixes non-http(s) schemes
+- Returns structured output or cleaned URL
+
+---
+
+## 📦 Installation
+
+```bash
+pip install linkfixer
+```
+
+---
+
+## 🧠 Usage
+
+```python
+from linkfixer import normalize_url
+
+result = normalize_url("example.com/path?utm_source=google", remove_tracking=True)
+if result["success"]:
+    print(result["url"])
+else:
+    print("❌", result["error"])
+```
+
+---
+
+## ⚙️ Parameters
+
+| Parameter               | Type     | Description |
+|-------------------------|----------|-------------|
+| `raw_url`               | `str`    | The input URL to normalize |
+| `default_scheme`        | `str`    | Scheme to use if missing (default: `https`) |
+| `force_https`           | `bool`   | Force output scheme to HTTPS |
+| `force_www`             | `bool`   | Add `www.` if missing |
+| `remove_tracking`       | `bool`   | Strip common tracking parameters |
+| `remove_query_string`   | `bool`   | Remove everything after `?` |
+| `clear_paths`           | `bool`   | Remove all URL path segments |
+| `remove_trailing_slash` | `bool`   | Remove trailing slash (if path is not `/`) |
+| `strip_fragment`        | `bool`   | Remove `#fragment` section |
+| `add_query`             | `dict`   | Add or override query parameters |
+| `output`                | `str`    | `"url"` (default) or `"parts"` for structured breakdown |
+| `allow_non_http`        | `bool`   | Allow non-HTTP schemes like `ftp://`, `mailto:` |
+| `blacklist_domains`     | `set`    | Block specific domains like `malicious.com` |
+| `allowlist_tlds`        | `set`    | Only allow specific TLDs like `.com`, `.org` |
+| `shortlink_domains`     | `set`    | Detect shortlink domains (e.g., `bit.ly`) |
+| `tracking_params`       | `set`    | Custom query keys to remove |
+| `idn_format`            | `str`    | `"punycode"` or `"unicode"` domain format |
+| `verify_dns`            | `bool`   | Check if domain resolves using DNS |
+| `verbose`               | `bool`   | Print intermediate steps for debugging |
+
+---
+
+## 🧪 Examples
+
+```python
+normalize_url("example.com")
+# → https://example.com
+
+normalize_url("ftp://example.com", allow_non_http=False)
+# → https://example.com
+
+normalize_url("example.com/path?utm_source=google&fbclid=123", remove_tracking=True)
+# → https://example.com/path
+
+normalize_url("example.com/page/", remove_trailing_slash=True)
+# → https://example.com/page
+
+normalize_url("example.com", add_query={"lang": "en"})
+# → https://example.com?lang=en
+
+normalize_url("bit.ly/xyz", shortlink_domains={"bit.ly"})
+# → { ..., "is_shortlink": True }
+```
+
+---
+
+## 📤 Output Structure (`output="parts"`)
+
+```python
+{
+  "success": True,
+  "url": "https://example.com",
+  "is_shortlink": False,
+  "parts": {
+    "scheme": "https",
+    "netloc": "example.com",
+    "path": "",
+    "query": "",
+    "fragment": "",
+    "original_input": "example.com"
+  }
+}
+```
+
+---
+
+## 📄 License
+
+MIT © 2025 Renukumar R
