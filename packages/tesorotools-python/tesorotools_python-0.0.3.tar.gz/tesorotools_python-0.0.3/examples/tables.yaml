@@ -1,0 +1,457 @@
+# TODO: rethink this, it's kind of messy
+# TODO: add sorting capabilities
+
+# common series
+.deuda: &deuda
+  DE10YT=RR: Alemania
+  ES10YT=RR: España
+  FR10YT=RR: Francia
+  IT10YT=RR: Italia
+  PT10YT=RR: Portugal
+  GR10YT=RR: Grecia
+  EUUNIEURAE10Y=: UE
+
+.deuda_diff: &deuda_diff
+  ES10YT=RR_DIFF: España
+  FR10YT=RR_DIFF: Francia
+  IT10YT=RR_DIFF: Italia
+  PT10YT=RR_DIFF: Portugal
+  GR10YT=RR_DIFF: Grecia
+  EUUNIEURAE10Y=_DIFF: UE
+
+.deuda_extra: &deuda_extra
+  GB10YT=RR: Reino Unido
+  US10YT=RR: EEUU
+  JP10YT=RR: Japón
+
+.bancos_esp: &bancos_esp
+  SAN.MC: Santander
+  BBVA.MC: BBVA
+  CABK.MC: CaixaBank
+  SABE.MC: Sabadell
+  BKT.MC: Bankinter
+  UNI.MC: Unicaja
+
+.bancos_eur: &bancos_eur
+  SOGN.PA: Société Générale
+  DBKGn.DE: Deutsche Bank
+  HSBA.L: HSBC
+  BNPP.PA: BNP Paribas
+  STAN.L: Standard Chartered
+  CAGR.PA: Credit Agricole
+  INGA.AS: ING
+  BARC.L: Barclays
+  CRDI.MI: Unicredit
+  UBSG.S: UBS
+
+.bancos_idx_usa: &bancos_idx_usa
+  .SPXBK: S&P 500 Bancos EEUU
+  .DJUSBK: DJ US Banks
+  .DJSRBKT: DJ US Regional Banks
+
+.bancos_idx_eur: &bancos_idx_eur
+  .FTNMX301010: Índice bancario UK
+  .SX7E: Eurostoxx 50 Bancos
+  .IBCA.MA: Índice bancario español
+
+
+.bolsa_eur: &bolsa_eur
+  .IBEX: Ibex-35
+  .STOXX50E: Eurostoxx50
+  .GDAXI: DAX30
+  .FCHI: CAC40
+  .FTSE: FTSE-100
+  .FTMIB: FTSE MIB
+  .STOXX: STOXX-600
+
+.volatilidad_eur: &volatilidad_eur
+  .V2TX: VSTOXX
+
+.bolsa_usa: &bolsa_usa
+  .INX: S&P-500
+  .DJI: Dow Jones
+  .NDX: Nasdaq-100
+  .RUT: Russell-2000
+
+.volatilidad_usa: &volatilidad_usa
+  .VIX: VIX
+
+.bolsa_asia: &bolsa_asia
+  .N225: Nikkei-225
+  .HSI: Hong Kong
+  .SSEC: Shanghai
+
+.bolsa_otra: &bolsa_otra
+  .MIWO00000PUS: MSCI World Index
+  .MILA00000PUS: MSCI Latam
+
+# unit templates
+.perc_format: &perc_format
+  scale: 1
+  decimals: 2
+  unit: "%"
+
+.pb_format: &pb_format
+  scale: 100
+  decimals: 0
+  unit: " p.b."
+  show_units_in_title: True
+  show_units_in_cell: False
+
+
+# general column templates
+.column: &column
+  show_units_in_title: True
+  show_units_in_cell: True
+
+.last_column: &last_column
+  <<: *column
+  name: Último dato
+  scale: 1
+  decimals: 2
+  unit:
+  colors: False
+  outliers: False
+  positive_good:
+  offset: "no"
+  difference: "no"
+  stat: value
+
+.offset_column: &offset_column
+  <<: *column
+  name: Variación
+  scale: 1
+  decimals: 2
+  unit:
+  colors: True
+  outliers: False
+  positive_good: True
+  stat: value
+
+# concrete column templates
+.day_column: &bday_column
+  <<: *offset_column
+  offset: bday
+  name: Variación diaria
+  outliers: True
+
+.week_column: &ftd_column
+  <<: *offset_column
+  offset: ftd
+  name: Variación semanal
+  outliers: True
+
+.month_column: &mtd_column
+  <<: *offset_column
+  offset: mtd
+  name: Variación desde inicio de mes
+
+.year_column: &ytd_column
+  <<: *offset_column
+  offset: ytd
+  name: Variación desde inicio de año
+
+.fixed_column: &fixed_column
+  <<: *offset_column
+  offset: "2025-04-02"
+  name: Variación desde el 2 de abril
+
+
+# actual tables
+.columns_deuda: &columns_deuda
+  ultimo:
+    <<: *last_column
+    <<: *perc_format
+    positive_good: False
+  day:
+    <<: *bday_column
+    <<: *pb_format
+    difference: absolute
+    positive_good: False
+  fixed:
+    <<: *fixed_column
+    <<: *pb_format
+    difference: absolute
+    positive_good: False
+  year:
+    <<: *ytd_column
+    <<: *pb_format
+    difference: absolute
+    positive_good: False
+
+
+deuda_eur:
+  heading: Variación diaria de la deuda soberana de la zona Euro
+  blocks:
+    tipos:
+      title: Tipos de interés bono a 10 años
+      columns:
+        <<: *columns_deuda
+      series:
+        <<: *deuda
+    diferenciales:
+      title: Diferencial con Alemania
+      columns:
+        <<: *columns_deuda
+        ultimo:
+          <<: *last_column
+          <<: *pb_format
+          positive_good: False
+      series:
+        *deuda_diff
+  block_sep: False
+  axis: horizontal
+
+## semanal
+
+.columns_banks: &columns_banks
+  last:
+    <<: *last_column
+    show_units_in_cell: False
+    show_units_in_title: True
+    unit: "€"
+  week:
+    <<: *ftd_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+  fixed:
+    <<: *fixed_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+  month:
+    <<: *mtd_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+  year:
+    <<: *ytd_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+
+
+bancos_esp:
+  title: Variación diaria de los principales bancos españoles
+  block_sep: False
+  axis: vertical
+  blocks:
+    bancos_esp:
+      title: bancos_esp
+      columns:
+        <<: *columns_banks
+      series:
+        <<: *bancos_esp
+      sort: week
+
+bancos_eur:
+  title: Variación semanal de los principales bancos europeos
+  block_sep: False
+  axis: vertical
+  blocks:
+    bancos_eur:
+      title: bancos_eur
+      columns:
+        <<: *columns_banks
+      series:
+        <<: *bancos_eur
+      sort: week
+
+bancos_idx:
+  title: Variación semanal de los principales índices bancarios
+  block_sep: True
+  axis: vertical
+  blocks:
+    indices_eur:
+      title: indices_eur
+      columns:
+        <<: *columns_banks
+      series:
+        <<: *bancos_idx_eur
+      sort: week
+    indices_usa:
+      title: indices_usa
+      columns:
+        <<: *columns_banks
+      series:
+        <<: *bancos_idx_usa
+      sort: week
+
+.columns_stock: &columns_stock
+  last: &columns_stock_last
+    <<: *last_column
+    show_units_in_cell: False
+    show_units_in_title: False
+    decimals: 1
+  week: &columns_stock_week
+    <<: *ftd_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+  fixed: &columns_stock_fixed
+    <<: *fixed_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+  month: &columns_stock_month
+    <<: *mtd_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+  year: &columns_stock_year
+    <<: *ytd_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+
+.columns_volatility: &columns_volatility
+  last:
+    <<: *columns_stock_last
+  week:
+    <<: *columns_stock_week
+    positive_good: False
+  fixed:
+    <<: *columns_stock_fixed
+    positive_good: False
+  month:
+    <<: *columns_stock_month
+    positive_good: False
+  year:
+    <<: *columns_stock_year
+    positive_good: False
+
+
+bolsas_eur:
+  title: Variación semanal de los principales índices europeos
+  block_sep: True
+  axis: vertical
+  blocks:
+    indices:
+      title: indices
+      columns:
+        <<: *columns_stock
+      series:
+        <<: *bolsa_eur
+      sort: week
+    volatilidad:
+      title: volatilidad
+      columns:
+        <<: *columns_volatility
+      series:
+        <<: *volatilidad_eur
+      sort: week
+
+bolsas_usa:
+  title: Variación semanal de los principales índices de Estados Unidos
+  block_sep: True
+  axis: vertical
+  blocks:
+    indices:
+      title: indices
+      columns:
+        <<: *columns_stock
+      series:
+        <<: *bolsa_usa
+      sort: week
+    volatilidad:
+      title: volatilidad
+      columns:
+        <<: *columns_volatility
+      series:
+        <<: *volatilidad_usa
+      sort: week
+
+bolsas_other:
+  title: Variación semanal de otros índices internacionales
+  block_sep: True
+  axis: vertical
+  blocks:
+    asia:
+      title: asia
+      columns:
+        <<: *columns_stock
+      series:
+        <<: *bolsa_asia
+      sort: week
+    otras:
+      title: otras
+      columns:
+        <<: *columns_stock
+      series:
+        <<: *bolsa_otra
+      sort: week
+
+.columns_mmpp: &columns_mmpp
+  last: &last_column_mmpp
+    <<: *last_column
+    show_units_in_cell: True
+    show_units_in_title: False
+    decimals: 1
+  week:
+    <<: *ftd_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+    positive_good: False
+  fixed:
+    <<: *fixed_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+    positive_good: False
+  month:
+    <<: *mtd_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+    positive_good: False
+  year:
+    <<: *ytd_column
+    <<: *perc_format
+    scale: 100
+    difference: relative
+    positive_good: False
+
+
+mmpp:
+  title: Variación semanal de las materias primas
+  block_sep: False
+  axis: vertical
+  blocks:
+    gas:
+      title: gas
+      columns:
+        <<: *columns_mmpp
+        last:
+          <<: *last_column_mmpp
+          unit: "€"
+      series:
+        TRNLTTFMc1: Gas
+    brent:
+      title: brent
+      columns:
+        <<: *columns_mmpp
+        last:
+          <<: *last_column_mmpp
+          unit: "$"
+      series:
+        LCOc1: Brent
+    oro:
+      title: oro
+      columns:
+        <<: *columns_mmpp
+        last:
+          <<: *last_column_mmpp
+          unit: "$"
+      series:
+        XAU=: Oro
+    trigo:
+      title: trigo
+      columns:
+        <<: *columns_mmpp
+        last:
+          <<: *last_column_mmpp
+          unit: "€"
+      series:
+        BL2c1: Trigo

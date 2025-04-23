@@ -1,0 +1,88 @@
+# testing the type curve plot capabilities
+
+.alemania_series:
+  ES3MT=RR_DIFF: DE3MT=RR
+  ES6MT=RR_DIFF: DE6MT=RR
+  ES1YT=RR_DIFF: DE1YT=RR
+  ES2YT=RR_DIFF: DE2YT=RR
+  ES3YT=RR_DIFF: DE3YT=RR
+  ES4YT=RR_DIFF: DE4YT=RR
+  ES5YT=RR_DIFF: DE5YT=RR
+  ES6YT=RR_DIFF: DE6YT=RR
+  ES7YT=RR_DIFF: DE7YT=RR
+  ES8YT=RR_DIFF: DE8YT=RR
+  ES9YT=RR_DIFF: DE9YT=RR
+  ES10YT=RR_DIFF: DE10YT=RR
+  ES15YT=RR_DIFF: DE15YT=RR
+  ES20YT=RR_DIFF: DE20YT=RR
+  ES25YT=RR_DIFF: DE25YT=RR
+  ES30YT=RR_DIFF: DE30YT=RR
+
+
+
+.pb_yaxis: &pb_yaxis
+  units: p.b.
+  decimals: 0
+
+.perc_yaxis: &perc_yaxis
+  units: "%"
+  decimals: 2
+
+diferenciales:
+  series:
+    ES3MT=RR_DIFF: 3 meses
+    ES6MT=RR_DIFF: 6 meses
+    ES1YT=RR_DIFF: 1 año
+    ES2YT=RR_DIFF: 2 años
+    ES3YT=RR_DIFF: 3 años
+    ES4YT=RR_DIFF: 4 años
+    ES5YT=RR_DIFF: 5 años
+    ES6YT=RR_DIFF: 6 años
+    ES7YT=RR_DIFF: 7 años
+    ES8YT=RR_DIFF: 8 años
+    ES9YT=RR_DIFF: 9 años
+    ES10YT=RR_DIFF: 10 años
+    ES15YT=RR_DIFF: 15 años
+    ES20YT=RR_DIFF: 20 años
+    ES25YT=RR_DIFF: 25 años
+    ES30YT=RR_DIFF: 30 años
+  yaxis:
+    <<: *pb_yaxis
+  line:
+    <<: *pb_yaxis
+    points_to_mark:
+      - 3 meses
+      - 5 años
+      - 10 años
+      - 30 años
+  legend_sep: -0.15
+
+tipos:
+  series:
+    ES3MT=RR: 3 meses
+    ES6MT=RR: 6 meses
+    ES1YT=RR: 1 año
+    ES2YT=RR: 2 años
+    ES3YT=RR: 3 años
+    ES4YT=RR: 4 años
+    ES5YT=RR: 5 años
+    ES6YT=RR: 6 años
+    ES7YT=RR: 7 años
+    ES8YT=RR: 8 años
+    ES9YT=RR: 9 años
+    ES10YT=RR: 10 años
+    ES15YT=RR: 15 años
+    ES20YT=RR: 20 años
+    ES25YT=RR: 25 años
+    ES30YT=RR: 30 años
+  yaxis:
+    <<: *perc_yaxis
+  line:
+    <<: *perc_yaxis
+    points_to_mark:
+      - 3 meses
+      - 5 años
+      - 10 años
+      - 30 años
+  legend_sep: -0.15
+

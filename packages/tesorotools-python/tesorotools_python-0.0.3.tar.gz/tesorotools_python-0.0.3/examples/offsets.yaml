@@ -1,0 +1,17 @@
+# same window for every stat function
+window: 7300
+
+stats:
+  - roll_avg
+  - roll_std
+
+differences:
+  - absolute
+  - relative
+
+offsets:
+  - bday
+  - ftd
+  - mtd
+  - ytd
+  - 2025-04-02
