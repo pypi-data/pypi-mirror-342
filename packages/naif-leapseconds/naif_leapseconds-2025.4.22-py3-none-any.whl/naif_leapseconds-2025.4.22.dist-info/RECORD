@@ -1,0 +1,14 @@
+LICENSE,sha256=waQlrEOE8R_g6b9XVhwcfRtJc9f7l3kq_65Nm9-AATE,1080
+naif_leapseconds/__init__.py,sha256=s8lqNbJ4yG8lxqq4RG62RbpSSWuSeK5rqf4PbsltUb0,216
+naif_leapseconds/compare.py,sha256=xasM_stpZijhqj69cXYE-84oiTAChj2N52OiWHAl-pc,1329
+naif_leapseconds/fetch.py,sha256=LeS3fkqWsv3bljdfsp_K1j5RN5rFhhm4NxmFItpiONE,2140
+naif_leapseconds/latest_leapseconds.md5,sha256=RlY_A8H1SikDrvxwCF_RA-YLw6ptqKgl5gm_cYsZWGU,56
+naif_leapseconds/latest_leapseconds.tls,sha256=Z44yvbWnRBF6RnzZYBzWs3Pw6bybveE3HV7uOWAKA5s,5257
+naif_leapseconds/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+naif_leapseconds/tests/test_compare.py,sha256=OG4ZPCTPGL5slm-Ql-iRiHS8GsH-9O-uOq92gX2ezaQ,1164
+naif_leapseconds/tests/test_naif_leapseconds.py,sha256=RV785n1cgWU0h0TxRFynaggskvOl1ZqXKMaW0-YPtWU,819
+naif_leapseconds-2025.4.22.dist-info/licenses/LICENSE,sha256=waQlrEOE8R_g6b9XVhwcfRtJc9f7l3kq_65Nm9-AATE,1080
+naif_leapseconds-2025.4.22.dist-info/METADATA,sha256=MAAoOkDLDTRf-I-FHSL4saz5HGB4svOmiAykppKItrg,4110
+naif_leapseconds-2025.4.22.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+naif_leapseconds-2025.4.22.dist-info/top_level.txt,sha256=ogSkkxouvkRrryHYH34mQWBREKb0oKfUlmziaYuQPoM,17
+naif_leapseconds-2025.4.22.dist-info/RECORD,,
