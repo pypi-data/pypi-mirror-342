@@ -1,0 +1,14 @@
+[project]
+name = "demo-lijunshi-x"
+version = "0.1.2"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "elasticsearch>=9.0.0",
+    "mcp[cli]>=1.6.0",
+    "python-dotenv>=1.1.0",
+]
+
+[project.scripts]
+demo-lijunshi-x = "demo_lijunshi_x.server:main"
