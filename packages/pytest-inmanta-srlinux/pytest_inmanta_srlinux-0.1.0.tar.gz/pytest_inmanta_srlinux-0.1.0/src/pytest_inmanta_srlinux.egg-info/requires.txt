@@ -1,0 +1,7 @@
+paramiko
+pingparsing
+pytest-inmanta
+inmanta-module-yang
+inmanta-module-nokia-srlinux
+inmanta-module-std>=8.1.0.dev0
+pygnmi

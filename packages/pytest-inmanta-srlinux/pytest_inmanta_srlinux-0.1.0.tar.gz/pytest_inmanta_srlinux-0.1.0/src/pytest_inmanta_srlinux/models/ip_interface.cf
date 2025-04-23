@@ -1,0 +1,82 @@
+"""
+    Copyright 2025 Inmanta
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    Contact: code@inmanta.com
+"""
+
+import std
+import yang
+import nokia_srlinux
+import nokia_srlinux::interface
+import nokia_srlinux::interface::subinterface
+import nokia_srlinux::interface::subinterface::ipv4
+import nokia_srlinux::network_instance
+
+
+# Load the model input from environment variable
+input = std::json_loads(std::get_env("INPUT"))
+std::assert(not std::is_unknown(input), "The INPUT environment variable must be set!")
+
+
+# This environment variable will always be set, and allows to
+# use the same model for configuration and cleanup
+purged = input["purged"]
+
+
+# All the environment variable used below will always be set and
+# their values is coming from the SrlinuxDevice class helper attributes
+device = nokia_srlinux::GnmiDevice(
+    **input["device"]["gnmi"],
+    yang_credentials=yang::Credentials(
+        **input["device"]["credentials"],
+    ),
+)
+
+
+for interface in input["interfaces"]:
+    # Create the interface an assign an ip
+    intf = nokia_srlinux::Interface(
+        device=device,
+        name=interface["name"],
+        mtu="mtu" in interface ? interface["mtu"] : null,
+        admin_state="enable",
+        vlan_tagging=false,
+        subinterface=[
+            Subinterface(
+                x_index=0,
+                ipv4=Ipv4(
+                    admin_state="enable",
+                    address=Address(
+                        ip_prefix=interface["ip"],
+                    ),
+                ),
+                purged=purged,
+            ),
+        ],
+    )
+
+    # Attach the interface to a network-instance of type ip
+    nokia_srlinux::NetworkInstance(
+        device=device,
+        name=input["network_instance"]["name"],
+        type="srl_nokia-network-instance:ip-vrf",
+        interface=[
+            Interface(
+                name=f"{intf.name}.0",
+                purged=purged,
+            )
+        ],
+    )
+end

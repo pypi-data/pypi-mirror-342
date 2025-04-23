@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytest-inmanta-srlinux"
+version = "0.1.0"
+description = "Pytest library to facilitate end to end testing of inmanta projects"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE.txt" }
+keywords = ["pytest", "inmanta", "srlinux", "cpe"]
+authors = [{ name = "Inmanta", email = "code@inmanta.com" }]
+
+# For a list of valid classifiers, see https://pypi.org/classifiers/
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = [
+    "paramiko",
+    "pingparsing",
+    "pytest-inmanta",
+    "inmanta-module-yang",
+    "inmanta-module-nokia-srlinux",
+    "inmanta-module-std>=8.1.0.dev0",
+    "pygnmi",
+]
+
+[project.urls]
+"Homepage" = "https://inmanta.com"
+"Bug Reports" = "https://code.inmanta.com/solutions/tools/pytest-inmanta-srlinux/-/issues"
+"Source" = "https://code.inmanta.com/solutions/tools/pytest-inmanta-srlinux/"
+
+[project.entry-points.pytest11]
+inmanta-srlinux = "pytest_inmanta_srlinux.plugin"
+
+[tool.setuptools]
+packages = { find = { include = ["pytest_inmanta_srlinux"], where = ["src"] } }
+
+[tool.setuptools.package-data]
+pytest_inmanta_srlinux = ["models/*.cf"]
+
+[tool.bumpversion]
+current_version = "0.1.0"
+tag = false
+commit = false
+parse = """
+    ^(?P<major>0|[1-9]\\d*)\\.
+    (?P<minor>0|[1-9]\\d*)\\.
+    (?P<patch>0|[1-9]\\d*)
+    (?:
+        .(?P<tag>dev0)
+    )?$
+"""
+serialize = [
+    "{major}.{minor}.{patch}.{tag}",
+    "{major}.{minor}.{patch}",
+]
+
+[tool.bumpversion.parts.tag]
+values = ["dev0", ""]
+optional_value = ""
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = "^version = \"{current_version}\""
+regex = true
+replace = "version = \"{new_version}\""
+serialize = ["{major}.{minor}.{patch}"]
+
+[[tool.bumpversion.files]]
+filename = "setup.cfg"
+serialize = ["{tag}"]
+search = "tag_build = {current_version}"
+replace = "tag_build = {new_version}"
