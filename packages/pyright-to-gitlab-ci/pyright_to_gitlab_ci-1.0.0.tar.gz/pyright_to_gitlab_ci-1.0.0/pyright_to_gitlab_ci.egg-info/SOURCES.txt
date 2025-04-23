@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+pyright_to_gitlab_ci/__init__.py
+pyright_to_gitlab_ci/main.py
+pyright_to_gitlab_ci.egg-info/PKG-INFO
+pyright_to_gitlab_ci.egg-info/SOURCES.txt
+pyright_to_gitlab_ci.egg-info/dependency_links.txt
+pyright_to_gitlab_ci.egg-info/entry_points.txt
+pyright_to_gitlab_ci.egg-info/requires.txt
+pyright_to_gitlab_ci.egg-info/top_level.txt
+tests/test_reports_conversion.py
+tests/reports/assert1.py

@@ -1,0 +1,48 @@
+[project]
+name = "pyright-to-gitlab-ci"
+version = "1.0.0"
+description = "Port of the NPM package of the same name"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pytest-coverage>=0.0",
+]
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+
+[project.urls]
+Repository = "https://gitlab.com/leogermond/pyright-to-gitlab-ci"
+
+[project.scripts]
+pyright-to-gitlab-ci = "pyright_to_gitlab_ci.main:main"
+
+[tool.pyright]
+include = [
+    "pyright_to_gitlab_ci/",
+]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+
+[tool.setuptools.packages.find]
+exclude = ["obj"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
+
+[tool.black]
+extend-exclude = "tests/reports/"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py310,py311,py312,py313
+
+[testenv]
+deps = pytest
+commands = pytest --junitxml=obj/tests_report-{envname}.xml --junit-prefix={envname} {posargs}
+"""
