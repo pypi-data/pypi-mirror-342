@@ -1,0 +1,37 @@
+Metadata-Version: 2.4
+Name: sfx
+Version: 0.1.0
+Summary: Data-Driven Inference of Colloidal Interactions
+Author-email: Florian Benedetti <contact.unkempt932@passmail.net>
+Maintainer-email: Florian Benedetti <contact.unkempt932@passmail.net>
+License-Expression: GPL-3.0-or-later
+Project-URL: HomePage, https://github.com/Floriy/sfx/
+Project-URL: Repository, https://github.com/Floriy/sfx/
+Project-URL: Issues, https://github.com/Floriy/sfx/issues
+Keywords: brownian,dynamic,overdamped,langevin,inference,information,physics,colloid,colloidal
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: dill==0.3.8; python_full_version >= "3.8"
+Requires-Dist: h5py==3.11.0; python_full_version >= "3.8"
+Requires-Dist: hickle==5.0.3; python_full_version >= "3.7"
+Requires-Dist: jax==0.4.31; python_full_version >= "3.10"
+Requires-Dist: jaxlib==0.4.31; python_full_version >= "3.10"
+Requires-Dist: multimethod==1.12; python_full_version >= "3.9"
+Requires-Dist: openexr==3.2.4; python_full_version >= "3.7"
+Requires-Dist: pygltflib==1.16.2; python_full_version >= "3.6"
+Requires-Dist: tqdm==4.66.5; python_full_version >= "3.7"
+Dynamic: license-file
+
+# Data-Driven Inference of Colloidal Interactions
+
+...
+
