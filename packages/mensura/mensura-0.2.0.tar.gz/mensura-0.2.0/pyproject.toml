@@ -1,0 +1,7 @@
+[project]
+name = "mensura"
+version = "0.2.0"
+description = "Unit converter"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["pytest>=8.3.5", "pytest-cov>=6.1.1"]
