@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/matplotlib_multicolored_line/__init__.py
+src/matplotlib_multicolored_line/_main.py
+src/matplotlib_multicolored_line/py.typed
+src/matplotlib_multicolored_line.egg-info/PKG-INFO
+src/matplotlib_multicolored_line.egg-info/SOURCES.txt
+src/matplotlib_multicolored_line.egg-info/dependency_links.txt
+src/matplotlib_multicolored_line.egg-info/requires.txt
+src/matplotlib_multicolored_line.egg-info/top_level.txt
+tests/test_main.py
