@@ -1,0 +1,524 @@
+Metadata-Version: 2.3
+Name: dpsn-client
+Version: 1.0.1
+Summary: DPSN MQTT client for managing topic subscriptions and publications
+License: Apache License
+                                    Version 2.0, January 2004
+                                 http://www.apache.org/licenses/
+         
+            TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+         
+            1. Definitions.
+         
+               "License" shall mean the terms and conditions for use, reproduction,
+               and distribution as defined by Sections 1 through 9 of this document.
+         
+               "Licensor" shall mean the copyright owner or entity authorized by
+               the copyright owner that is granting the License.
+         
+               "Legal Entity" shall mean the union of the acting entity and all
+               other entities that control, are controlled by, or are under common
+               control with that entity. For the purposes of this definition,
+               "control" means (i) the power, direct or indirect, to cause the
+               direction or management of such entity, whether by contract or
+               otherwise, or (ii) ownership of fifty percent (50%) or more of the
+               outstanding shares, or (iii) beneficial ownership of such entity.
+         
+               "You" (or "Your") shall mean an individual or Legal Entity
+               exercising permissions granted by this License.
+         
+               "Source" form shall mean the preferred form for making modifications,
+               including but not limited to software source code, documentation
+               source, and configuration files.
+         
+               "Object" form shall mean any form resulting from mechanical
+               transformation or translation of a Source form, including but
+               not limited to compiled object code, generated documentation,
+               and conversions to other media types.
+         
+               "Work" shall mean the work of authorship, whether in Source or
+               Object form, made available under the License, as indicated by a
+               copyright notice that is included in or attached to the work
+               (an example is provided in the Appendix below).
+         
+               "Derivative Works" shall mean any work, whether in Source or Object
+               form, that is based on (or derived from) the Work and for which the
+               editorial revisions, annotations, elaborations, or other modifications
+               represent, as a whole, an original work of authorship. For the purposes
+               of this License, Derivative Works shall not include works that remain
+               separable from, or merely link (or bind by name) to the interfaces of,
+               the Work and Derivative Works thereof.
+         
+               "Contribution" shall mean any work of authorship, including
+               the original version of the Work and any modifications or additions
+               to that Work or Derivative Works thereof, that is intentionally
+               submitted to Licensor for inclusion in the Work by the copyright owner
+               or by an individual or Legal Entity authorized to submit on behalf of
+               the copyright owner. For the purposes of this definition, "submitted"
+               means any form of electronic, verbal, or written communication sent
+               to the Licensor or its representatives, including but not limited to
+               communication on electronic mailing lists, source code control systems,
+               and issue tracking systems that are managed by, or on behalf of, the
+               Licensor for the purpose of discussing and improving the Work, but
+               excluding communication that is conspicuously marked or otherwise
+               designated in writing by the copyright owner as "Not a Contribution."
+         
+               "Contributor" shall mean Licensor and any individual or Legal Entity
+               on behalf of whom a Contribution has been received by Licensor and
+               subsequently incorporated within the Work.
+         
+            2. Grant of Copyright License. Subject to the terms and conditions of
+               this License, each Contributor hereby grants to You a perpetual,
+               worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+               copyright license to reproduce, prepare Derivative Works of,
+               publicly display, publicly perform, sublicense, and distribute the
+               Work and such Derivative Works in Source or Object form.
+         
+            3. Grant of Patent License. Subject to the terms and conditions of
+               this License, each Contributor hereby grants to You a perpetual,
+               worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+               (except as stated in this section) patent license to make, have made,
+               use, offer to sell, sell, import, and otherwise transfer the Work,
+               where such license applies only to those patent claims licensable
+               by such Contributor that are necessarily infringed by their
+               Contribution(s) alone or by combination of their Contribution(s)
+               with the Work to which such Contribution(s) was submitted. If You
+               institute patent litigation against any entity (including a
+               cross-claim or counterclaim in a lawsuit) alleging that the Work
+               or a Contribution incorporated within the Work constitutes direct
+               or contributory patent infringement, then any patent licenses
+               granted to You under this License for that Work shall terminate
+               as of the date such litigation is filed.
+         
+            4. Redistribution. You may reproduce and distribute copies of the
+               Work or Derivative Works thereof in any medium, with or without
+               modifications, and in Source or Object form, provided that You
+               meet the following conditions:
+         
+               (a) You must give any other recipients of the Work or
+                   Derivative Works a copy of this License; and
+         
+               (b) You must cause any modified files to carry prominent notices
+                   stating that You changed the files; and
+         
+               (c) You must retain, in the Source form of any Derivative Works
+                   that You distribute, all copyright, patent, trademark, and
+                   attribution notices from the Source form of the Work,
+                   excluding those notices that do not pertain to any part of
+                   the Derivative Works; and
+         
+               (d) If the Work includes a "NOTICE" text file as part of its
+                   distribution, then any Derivative Works that You distribute must
+                   include a readable copy of the attribution notices contained
+                   within such NOTICE file, excluding those notices that do not
+                   pertain to any part of the Derivative Works, in at least one
+                   of the following places: within a NOTICE text file distributed
+                   as part of the Derivative Works; within the Source form or
+                   documentation, if provided along with the Derivative Works; or,
+                   within a display generated by the Derivative Works, if and
+                   wherever such third-party notices normally appear. The contents
+                   of the NOTICE file are for informational purposes only and
+                   do not modify the License. You may add Your own attribution
+                   notices within Derivative Works that You distribute, alongside
+                   or as an addendum to the NOTICE text from the Work, provided
+                   that such additional attribution notices cannot be construed
+                   as modifying the License.
+         
+               You may add Your own copyright statement to Your modifications and
+               may provide additional or different license terms and conditions
+               for use, reproduction, or distribution of Your modifications, or
+               for any such Derivative Works as a whole, provided Your use,
+               reproduction, and distribution of the Work otherwise complies with
+               the conditions stated in this License.
+         
+            5. Submission of Contributions. Unless You explicitly state otherwise,
+               any Contribution intentionally submitted for inclusion in the Work
+               by You to the Licensor shall be under the terms and conditions of
+               this License, without any additional terms or conditions.
+               Notwithstanding the above, nothing herein shall supersede or modify
+               the terms of any separate license agreement you may have executed
+               with Licensor regarding such Contributions.
+         
+            6. Trademarks. This License does not grant permission to use the trade
+               names, trademarks, service marks, or product names of the Licensor,
+               except as required for reasonable and customary use in describing the
+               origin of the Work and reproducing the content of the NOTICE file.
+         
+            7. Disclaimer of Warranty. Unless required by applicable law or
+               agreed to in writing, Licensor provides the Work (and each
+               Contributor provides its Contributions) on an "AS IS" BASIS,
+               WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+               implied, including, without limitation, any warranties or conditions
+               of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+               PARTICULAR PURPOSE. You are solely responsible for determining the
+               appropriateness of using or redistributing the Work and assume any
+               risks associated with Your exercise of permissions under this License.
+         
+            8. Limitation of Liability. In no event and under no legal theory,
+               whether in tort (including negligence), contract, or otherwise,
+               unless required by applicable law (such as deliberate and grossly
+               negligent acts) or agreed to in writing, shall any Contributor be
+               liable to You for damages, including any direct, indirect, special,
+               incidental, or consequential damages of any character arising as a
+               result of this License or out of the use or inability to use the
+               Work (including but not limited to damages for loss of goodwill,
+               work stoppage, computer failure or malfunction, or any and all
+               other commercial damages or losses), even if such Contributor
+               has been advised of the possibility of such damages.
+         
+            9. Accepting Warranty or Additional Liability. While redistributing
+               the Work or Derivative Works thereof, You may choose to offer,
+               and charge a fee for, acceptance of support, warranty, indemnity,
+               or other liability obligations and/or rights consistent with this
+               License. However, in accepting such obligations, You may act only
+               on Your own behalf and on Your sole responsibility, not on behalf
+               of any other Contributor, and only if You agree to indemnify,
+               defend, and hold each Contributor harmless for any liability
+               incurred by, or claims asserted against, such Contributor by reason
+               of your accepting any such warranty or additional liability.
+         
+            END OF TERMS AND CONDITIONS
+         
+            APPENDIX: How to apply the Apache License to your work.
+         
+               To apply the Apache License to your work, attach the following
+               boilerplate notice, with the fields enclosed by brackets "[]"
+               replaced with your own identifying information. (Don't include
+               the brackets!)  The text should be enclosed in the appropriate
+               comment syntax for the file format. We also recommend that a
+               file or class name and description of purpose be included on the
+               same "printed page" as the copyright notice for easier
+               identification within third-party archives.
+         
+            Copyright [yyyy] [name of copyright owner]
+         
+            Licensed under the Apache License, Version 2.0 (the "License");
+            you may not use this file except in compliance with the License.
+            You may obtain a copy of the License at
+         
+                http://www.apache.org/licenses/LICENSE-2.0
+         
+            Unless required by applicable law or agreed to in writing, software
+            distributed under the License is distributed on an "AS IS" BASIS,
+            WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+            See the License for the specific language governing permissions and
+            limitations under the License.
+Author: dpsn-dev
+Author-email: sanil@dpsn.org
+Requires-Python: >=3.7
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: events (>=0.5)
+Requires-Dist: importlib_resources (>=5.12) ; python_version < "3.9"
+Requires-Dist: paho-mqtt (>=1.6.1)
+Requires-Dist: web3 (>=6.0.0)
+Project-URL: Bug Tracker, https://github.com/DPSN-org/dpsn-python-client/issues
+Project-URL: Homepage, https://github.com/DPSN-org/dpsn-python-client
+Description-Content-Type: text/markdown
+
+# Dpsn-client (Python)
+
+## Overview
+
+`dpsn-client` is a Python SDK for interacting with the DPSN infrastructure. It allows you to connect to a DPSN broker using your Ethereum wallet for authentication, publish messages to topics.Explore and subscribe to existing data streams directly from the [DPSN Streams Marketplace](https://streams.dpsn.org).
+
+For more information, visit:
+- [DPSN Official Website](https://dpsn.org)
+
+
+## Installation
+
+```bash
+pip install dpsn-client
+```
+>*Note: If installing from source or locally, navigate to the root directory and run `pip install -e .`*
+
+## Usage
+
+### Prerequisites
+
+- **DPSN URL:** The hostname of the DPSN MQTT broker (e.g., `betanet.dpsn.org`).
+- **Wallet Private Key:** Your Ethereum private key (starting with `0x`). This wallet will be used for authentication. Ensure it's kept secure.
+- **Chain Options:** Specify the network (`mainnet` or `testnet`) and chain type (`ethereum`).
+
+*(Blockchain interaction features like purchasing topics, fetching owned topics, and getting topic prices are planned for future versions and require additional configuration not yet implemented in this Python client.)*
+
+### Import the Library
+
+```python
+from dpsn_client import DpsnClient, DPSNError
+```
+
+### Create Client Instance
+
+Initialize the client with your DPSN broker URL, private key, and chain options.
+
+```python
+dpsn_url = "your-dpsn-broker.com"  # e.g., betanet.dpsn.org
+private_key = "0xYOUR_PRIVATE_KEY" # Replace with your actual private key
+
+client = DpsnClient(
+    dpsn_url=dpsn_url,
+    private_key=private_key,
+    chain_options={
+        "network": "testnet",        # or "mainnet"
+        "wallet_chain_type": "ethereum"
+    },
+    # Optional: connection_options={'ssl': True} # Default is True
+)
+```
+
+### Understanding DPSN Topics
+
+Topics in DPSN are data distribution channels designed for secure, permissioned data streams associated with blockchain wallets.
+
+- **Ownership-based channels**: While topic *purchase* happens on the blockchain (feature planned), the MQTT authentication relies on the owner's wallet.
+- **Data streams**: Authenticated publishers push data to topics, and subscribers receive data.
+- **Authenticated channels**: The client uses signatures derived from the owner's private key to authenticate actions like connecting and publishing.
+
+- When publishing data, the publishing client uses the same private key that purchased the topic to authenticate the request, ensuring only authorized wallets can publish to their owned topics.
+
+
+*(Full topic lifecycle management via smart contracts, including purchasing and ownership verification).*
+
+### Setup Blockchain Configuration
+
+To interact with the DPSN contract for topic management, you need to set the blockchain configuration:
+
+```python
+# Configure blockchain connectivity
+rpc_url = "https://sepolia.infura.io/v3/YOUR_INFURA_KEY"  # Replace with your RPC provider
+contract_address = "0xYOUR_CONTRACT_ADDRESS"              # Replace with deployed contract address
+
+# Set up the blockchain config
+contract = client.set_blockchain_config(
+    rpc_url=rpc_url,
+    contract_address=contract_address
+)
+```
+
+### Purchasing a Topic
+
+To publish data to DPSN, you first need to purchase a topic. This operation registers your topic on the blockchain:
+
+```python
+try:
+    # Purchase a new topic (this is a blockchain transaction that costs ETH)
+    topic_name = "BTC/USDT"  # Human-readable name
+    result = client.purchase_topic(
+        topic_name=topic_name,
+        confirmations=2,      # Number of confirmations to wait for
+        timeout=120           # Timeout in seconds
+    )
+    
+    # Save the generated topic hash for publishing
+    topic_hash = result["topic"]  # Format: 0x...
+    print(f"Successfully purchased topic '{topic_name}' with hash: {topic_hash}")
+    print(f"Transaction hash: {result['tx_hash']}")
+    
+except DPSNError as e:
+    print(f"Failed to purchase topic: {e}")
+```
+
+### Fetching Your Owned Topics
+
+You can retrieve all topics owned by your wallet:
+
+```python
+try:
+    topics = client.fetch_owned_topics()
+    print(f"Your wallet owns {len(topics)} topics:")
+    for topic in topics:
+        print(f"- {topic['name']}: {topic['topic']} (registered at {topic['registered_at']})")
+except DPSNError as e:
+    print(f"Failed to fetch topics: {e}")
+```
+
+### Get Topic Price
+
+Check the current price required to register a topic:
+
+```python
+try:
+    price_wei = client.get_topic_price()
+    price_eth = float(client.web3.from_wei(price_wei, 'ether'))
+    print(f"Current topic price: {price_eth} ETH ({price_wei} wei)")
+except DPSNError as e:
+    print(f"Failed to get topic price: {e}")
+```
+
+### Setup Event Handlers
+
+Use decorators to define handlers for asynchronous events like receiving messages or errors. Set these up *before* calling `init()`.
+
+```python
+def handle_message(message_data):
+    """Handles incoming messages."""
+    topic = message_data.get('topic')
+    payload = message_data.get('payload')
+    logger.info(f"Received message on topic '{topic}': {payload}")
+
+def handle_error(error: DPSNError):
+    """Handles errors reported by the client."""
+    logger.error(f"DPSN Client Error: {error}")
+
+# You can also add handlers later if needed:
+# client.on_msg += another_message_handler
+# client.on_error += another_error_handler
+```
+
+### Initialize DPSN Client
+
+Connect to the DPSN MQTT broker. This authenticates using a signature generated from your private key.
+
+```python
+# Initialize the client connection
+try:
+    client.init()
+    print("Connected to DPSN MQTT broker successfully")
+except DPSNError as e:
+    print(f"Failed to connect: {e}")
+```
+
+### Publish Data
+
+Publish a JSON-serializable message to a specific topic string. The topic must start with your wallet address (`0x...`).
+
+> **Caution:** You must initialize the client with the private key corresponding to the wallet address used in the topic prefix.
+
+```python
+# Example topic
+publish_topic = "0xe14768a6d8798e4390ec4cb8a4c991202c2115a5cd7a6c0a7ababcaf93b4d2d4/BTCUSDT/ticker"
+data_to_publish = {"ticker": "BTC/USDT", "price":83387.13000000, "timestamp": time.time()}
+
+try:
+    #Publishing to topic
+    client.publish(publish_topic, data_to_publish, options={'qos': 1})
+    #Message published successfully
+except DPSNError as e:
+    logger.error(f"Failed to publish: {e}")
+except ValueError as e:
+    logger.error(f"Publish error (invalid topic format?): {e}")
+```
+
+### Subscribing to Topics
+
+Subscribe to a topic pattern to receive messages.
+
+```python
+subscribe_topic = "0xe14768a6d8798e4390ec4cb8a4c991202c2115a5cd7a6c0a7ababcaf93b4d2d4/BTCUSDT/ticker" # Subscribe to topic 
+
+try:
+    #Subscribing to topic
+    client.subscribe(subscribe_topic, options={'qos': 1})
+    #Successfully subscribed to the topic
+
+    # Keep the script running to receive messages
+    logger.info("Waiting for messages... Press Ctrl+C to exit.")
+    while True:
+        time.sleep(1)
+
+except DPSNError as e:
+    logger.error(f"Failed to subscribe: {e}")
+except KeyboardInterrupt:
+    logger.info("Interrupted by user.")
+
+```
+
+### Unsubscribing from Topics
+
+Stop receiving messages from a specific topic.
+
+```python
+# Unsubscribe ongoing topic subscription
+try:
+    client.unsubscribe(subscribe_topic)
+except DPSNError as e:
+    print(f"Failed to unsubscribe: {e}")
+```
+
+### Disconnect
+
+Disconnect cleanly from the MQTT broker.
+
+```python
+# Disconnect client connection
+try:
+    client.disconnect()
+except DPSNError as e:
+    print(f"Error during disconnect: {e}")
+```
+
+## API Reference
+
+### Class `DpsnClient`
+
+Manages the connection, authentication, and messaging with the DPSN  client. Inherits from `events.Events`.
+
+#### Constructor
+
+```python
+DpsnClient(
+    dpsn_url: str,
+    private_key: str,
+    chain_options: Dict[str, Any],
+    connection_options: Dict[str, Any] = None
+)
+```
+- `dpsn_url`: Hostname of the DPSN broker.
+- `private_key`: Ethereum wallet private key (`0x...`).
+- `chain_options`: Dictionary, requires `{"network": "mainnet"|"testnet", "wallet_chain_type": "ethereum"}`.
+- `connection_options`: Optional dictionary, e.g., `{"ssl": True}` (default).
+
+#### Methods
+
+- `init(options: Dict[str, Any] = None) -> mqtt.Client`: Connects and authenticates to the broker. `options` can include `retry_options`. Raises `DPSNError` on failure.
+- `publish(topic: str, message: Any, options: Dict[str, Any] = None) -> None`: Publishes a JSON-serializable `message` to `topic`. `topic` must start with `self.wallet_address`. `options` can include `qos` (default 1) and `retain` (default False). Raises `DPSNError` or `ValueError`.
+- `subscribe(topic: str, options: Dict[str, Any] = None) -> None`: Subscribes to `topic`. `options` can include `qos` (default 1). Raises `DPSNError`.
+- `unsubscribe(topic: str) -> None`: Unsubscribes from `topic`. Raises `DPSNError`.
+- `disconnect() -> None`: Disconnects from the broker. Raises `DPSNError`.
+- `generate_topic_hash(topic_name: str) -> str`: Generates a unique hash for a given `topic_name` using a nonce and keccak256. *(Note: This is currently a utility function and not directly used for publish/subscribe which rely on the wallet address prefix).*
+
+#### Events
+
+Register handlers using decorators (`@client.event_name`) or addition (`client.event_name += handler_func`).
+
+- `on_msg(message_data: Dict)`: Triggered when a message is received on a subscribed topic. `message_data` is `{'topic': str, 'payload': Any}` (payload is decoded JSON if possible, else string).
+- `on_error(error: DPSNError)`: Triggered when an operational error occurs within the client (e.g., message handling failure, connection issue post-init).
+
+#### Properties
+
+- `wallet_address`: The Ethereum address derived from the provided private key.
+- `connected`: Boolean indicating the current connection state.
+
+### Class `DPSNError`
+
+Custom exception class for client-specific errors.
+
+- `code`: A `DPSN_ERROR_CODES` enum member.
+- `message`: Descriptive error message string.
+- `status`: Optional connection status hint ('connected' or 'disconnected').
+
+### Enum `DPSN_ERROR_CODES`
+
+Defines specific error types:
+- `CONNECTION_ERROR` (400)
+- `UNAUTHORIZED` (401)
+- `PUBLISH_ERROR` (402)
+- `INITIALIZATION_FAILED` (403)
+- `CLIENT_NOT_INITIALIZED` (404)
+- `CLIENT_NOT_CONNECTED` (405)
+- `SUBSCRIBE_ERROR` (406)
+- `SUBSCRIBE_NO_GRANT` (407) - *Currently unused*
+- `SUBSCRIBE_SETUP_ERROR` (408) - *Currently unused*
+- `DISCONNECT_ERROR` (409)
+- `BLOCKCHAIN_CONFIG_ERROR` (410) - *Currently unused*
+- `INVALID_PRIVATE_KEY` (411)
+- `ETHERS_ERROR` (412) - *Currently unused*
+- `MESSAGE_HANDLING_ERROR` (414)
+
+## License
+
+MIT License
+
