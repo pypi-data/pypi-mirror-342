@@ -1,0 +1,14 @@
+dask
+graphviz
+plopp[all]
+sciline>=23.9.1
+scipp>=23.8.0
+scippneutron>=24.12.0
+scippnexus>=23.11.1
+essreduce>=25.02.4
+tifffile
+
+[test]
+pytest
+pooch
+tof
