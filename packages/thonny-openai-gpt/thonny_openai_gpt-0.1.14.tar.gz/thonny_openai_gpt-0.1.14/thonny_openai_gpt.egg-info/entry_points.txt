@@ -1,0 +1,2 @@
+[thonny.plugins]
+openai_gpt = thonnycontrib.openai_gpt
