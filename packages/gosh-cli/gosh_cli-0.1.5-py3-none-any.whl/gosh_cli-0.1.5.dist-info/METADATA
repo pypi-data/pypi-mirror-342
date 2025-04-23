@@ -1,0 +1,33 @@
+Metadata-Version: 2.4
+Name: gosh-cli
+Version: 0.1.5
+Summary: gOSh - gOS sHell: A CLI tool for the nf-gOS pipeline
+Author: Shihab Dider
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Click
+Requires-Dist: openai
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# gOSh
+
+A CLI for the nf-gOS pipeline.
+
+## Quickstart
+1. `gosh run pipeline` to run the nf-gos pipeline (make sure to provide a samplesheet)
+2. `gosh run skilift` to convert the pipeline outputs into something ingestible by the gOS frontend
+3. (optional) `gosh run outputs -p [pipeline results directory] -s [samplesheet path]` to generate a csv containing your outputs. This is automatically done when you run `gosh run skilift` with a pipeline directory
+
+
+ 
