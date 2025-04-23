@@ -1,0 +1,2 @@
+from profanity_detector.profanity_checker import ProfanityChecker
+from profanity_detector.better_profanity.better_profanity import Profanity
