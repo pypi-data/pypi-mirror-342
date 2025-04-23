@@ -1,0 +1,34 @@
+[project]
+name = "autosh"
+version = "0.0.3"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "agentia>=0.0.5",
+    "asyncio>=3.4.3",
+    "markdownify>=1.1.0",
+    "pydantic>=2.11.3",
+    "python-dotenv>=1.1.0",
+    "rich>=14.0.0",
+    "tavily-python>=0.5.4",
+    "typer>=0.12.5",
+    "tzlocal>=5.3.1",
+]
+
+[project.scripts]
+autosh = "autosh.main:main"
+ash = "autosh.main:main"
+
+[tool.hatch.build.targets.sdist]
+include = ["autosh"]
+
+[tool.hatch.build.targets.wheel]
+include = ["autosh"]
+
+# [tool.uv.sources]
+# agentia = { path = "../agentia", editable = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
