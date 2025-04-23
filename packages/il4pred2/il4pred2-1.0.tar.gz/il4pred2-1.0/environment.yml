@@ -1,0 +1,10 @@
+name: il4pred2
+channels:
+  - defaults
+  - conda-forge
+dependecies:
+  - python=">=3.6"
+  - pip
+  - pip: 
+      - pandas
+      - scikit-learn == 1.2.1

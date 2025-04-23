@@ -1,0 +1,6 @@
+include requirements.txt
+include environment.yml
+include README.md
+recursive-include src/il4pred2/pfeature_standalone *
+recursive-include src/il4pred2/Feature *
+recursive-include src/il4pred2/model *
