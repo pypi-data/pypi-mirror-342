@@ -1,0 +1,848 @@
+#
+# Translators:
+# Thomas Massmann <thomas.massmann@it-spir.it>, 2020
+# BryanAllen <bryan@propertyshelf.com>, 2020
+# Zach Cashero <zach@propertyshelf.com>, 2020
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2025-04-22 16:25+0000\n"
+"PO-Revision-Date: 2020-05-29 15:17+0000\n"
+"Last-Translator: Zach Cashero <zach@propertyshelf.com>, 2020\n"
+"Language-Team: Japanese (https://app.transifex.com/propertyshelf/teams/13797/ja/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"Language: ja\n"
+
+#: ps/plone/mls/browser/developments/collection.py:390
+msgid "'Development Collection' Configuration"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:452
+msgid "'Development Collection' viewlet activated."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:448
+msgid "'Development Collection' viewlet deactivated."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:154
+msgid "'Featured Listings' Configuration"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:215
+msgid "'Featured Listings' viewlet activated."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:211
+msgid "'Featured Listings' viewlet deactivated."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:759
+msgid "'Listing Search Banner' Configuration"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:820
+msgid "'Listing Search Banner' activated."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:816
+msgid "'Listing Search Banner' deactivated."
+msgstr ""
+
+#: ps/plone/mls/profiles.zcml:40
+msgid "A Plone uninstall profile for ps.plone.mls."
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/types/ps.plone.mls.featured.xml
+#: ps/plone/mls/profiles/plone5/types/ps.plone.mls.featured.xml
+msgid "A static collection of featured MLS Listings"
+msgstr "MLS特集物件のスタティックコレクション"
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:215
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:228
+msgid "About the Area"
+msgstr "ついて地域"
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Activate Development Collection"
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Activate Featured Listings"
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Activate Listing Search Banner"
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Activate the Development Collection viewlet."
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Activate the Featured Listings viewlet."
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Activate the Listing Search Banner."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:128
+#: ps/plone/mls/content/featured.py:23
+msgid "Add one Listing ID per line for each entry to show up."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/settings.py:104
+msgid "Adjust the MLS caching behhavior for this Plone site."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/settings.py:60
+msgid "Adjust the UI settings for this Plone site."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:391
+msgid "Adjust the behaviour for this 'Development Collection' viewlet."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:155
+msgid "Adjust the behaviour for this 'Featured Listings' viewlet."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:760
+msgid "Adjust the behaviour for this 'Listing Search Banner'."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/templates/search_banner.pt:23
+#: ps/plone/mls/browser/listings/templates/search_banner_p5.pt:16
+msgid "Advanced Search"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:316
+msgid "Agency Developments"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:239
+msgid "Alternative Email recipient"
+msgstr ""
+
+#: ps/plone/mls/api.py:133
+msgid "An error occured trying to connect to the configured MLS. Please check your settings or try again later."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:248
+msgid "BCC Recipients"
+msgstr "BCC受信者名"
+
+#: ps/plone/mls/browser/listings/search_banner.py:484
+msgid "Banner Image"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:507
+msgid "Banner Image Height"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:495
+msgid "Banner Image URL"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:175
+msgid "Baths"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:169
+msgid "Bedrooms"
+msgstr "寝室"
+
+#: ps/plone/mls/browser/listings/search_banner.py:302
+msgid "Beds"
+msgstr ""
+
+#: ps/plone/mls/content/featured.py:37
+msgid "Body Text"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:518
+msgid "Buy"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:35
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:35
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_contact_info.pt:35
+msgid "Caching"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:412
+#: ps/plone/mls/browser/listings/featured.py:175
+msgid "Cancel"
+msgstr "取り消し"
+
+#: ps/plone/mls/browser/developments/details.py:242
+msgid "Captcha"
+msgstr "キャプチャ"
+
+#: ps/plone/mls/browser/listings/search_banner.py:102
+msgid "Categories"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:163
+msgid "Category"
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Configure Development Collection"
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Configure Featured Listings"
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Configure Listing Search Banner"
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Configure the Development Collection viewlet."
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Configure the Featured Listings viewlet."
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Configure the Listing Search Banner."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:425
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:397
+msgid "Contact"
+msgstr "お問い合わせ先"
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:32
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:32
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_contact_info.pt:32
+msgid "Contact Information"
+msgstr "连络叙穂"
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:74
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:25
+msgid "Contact us"
+msgstr ""
+
+#: ps/plone/mls/vocabularies/developments.py:38
+msgid "Creation Date"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:61
+msgid "Deactivate"
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Deactivate Development Collection"
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Deactivate Featured Listings"
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Deactivate Listing Search Banner"
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Deactivate the Development Collection viewlet."
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Deactivate the Featured Listings viewlet."
+msgstr ""
+
+#: ps/plone/mls/profiles/plone4/actions.xml
+#: ps/plone/mls/profiles/plone5/actions.xml
+msgid "Deactivate the Listing Search Banner."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:103
+msgid "Default Category"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:165
+msgid "Development Collections"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:296
+msgid "Developments per Page"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:129
+msgid "Don't show this section at all."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:131
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:146
+msgid "Download PDF"
+msgstr "PDFをダウンロード"
+
+#: ps/plone/mls/browser/developments/collection.py:243
+msgid "E-mail addresses which receive a blind carbon copy (comma separated)."
+msgstr "BCC受信者メールアドレス"
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:60
+msgid "Edit"
+msgstr "編集"
+
+#: ps/plone/mls/browser/developments/collection.py:277
+msgid "Enable Live Chat Embedding"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:272
+msgid "Enable live chat embedding for developments with embedding code."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:320
+msgid "Enter a search term to filter the results."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:501
+msgid "Enter the image height in pixels. The default is 450 and the recommended amount is between 350 and 600 pixels."
+msgstr ""
+
+#: ps/plone/mls/interfaces.py:59
+msgid "Enter the maximum time, in full seconds, that items may remain in the cache before being requested again from the MLS. A minimum of 60 seconds is required, a good value is 3,600 seconds (1 hour)."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:117
+#: ps/plone/mls/profiles/plone4/types/ps.plone.mls.featured.xml
+#: ps/plone/mls/profiles/plone5/types/ps.plone.mls.featured.xml
+msgid "Featured Listings"
+msgstr "特集一覧"
+
+#: ps/plone/mls/browser/developments/collection.py:184
+msgid "Filter Options"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:151
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:166
+msgid "Gallery"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:145
+msgid "Grid Layout"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:106
+msgid "Hide bathrooms"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:105
+msgid "Hide bedrooms"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:104
+msgid "Hide category"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:107
+msgid "Hide price"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:108
+msgid "Hide section"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:123
+msgid "Hide the bathrooms field."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:120
+msgid "Hide the bedrooms field."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:117
+msgid "Hide the category field and use default setting."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:126
+msgid "Hide the price min and price max field."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:292
+msgid "How many developments should be shown per page?"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:301
+msgid "How many listings should be shown per devlopment listings page?"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:328
+msgid "How should the results be sorted? If nothing is selected, the results are sorted by relevance."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:134
+#: ps/plone/mls/content/featured.py:29
+msgid "ID"
+msgstr "登録名"
+
+#: ps/plone/mls/browser/listings/featured.py:139
+msgid "If allowed by the theme/design, the listings will be displayed in a grid layout when enabled."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:226
+msgid "If enabled, a form to contact the responsible agent will be shown on the detail page for a development."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:311
+msgid "If enabled, only developments for the configured agency will be shown."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:206
+msgid "If enabled, show the development banner in the collection results."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:216
+msgid "If enabled, the contact information for a development will be shown on the detail page for a development."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:253
+msgid "If the contact form is enabled, an anchor link will show as quick navigation to the form."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:489
+msgid "Instead of uploading an image, you may enter the URL of an image hosted on another server."
+msgstr ""
+
+#: ps/plone/mls/utils.py:22
+msgid "Invalid email address."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:85
+msgid "Listing Collections"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:149
+msgid "Listing Search Banners"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:133
+msgid "Listing Searches"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_listings.pt:20
+#: ps/plone/mls/browser/navigation.py:11
+#: ps/plone/mls/browser/viewlets.py:130
+msgid "Listings"
+msgstr "物件"
+
+#: ps/plone/mls/browser/developments/collection.py:305
+msgid "Listings per Page"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:69
+msgid "Local Contact Informations"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:53
+msgid "Local MLS Settings"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:158
+msgid "Location, Keywords, Listing ID, ..."
+msgstr ""
+
+#: ps/plone/mls/profiles/to_1010/controlpanel.xml
+msgid "MLS Agency Contact Info"
+msgstr "MLS登録機関の連絡先情報"
+
+#: ps/plone/mls/profiles/to_1010/controlpanel.xml
+msgid "MLS Base Settings"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:131
+#: ps/plone/mls/content/featured.py:26
+msgid "MLS Listing IDs"
+msgstr ""
+
+#: ps/plone/mls/profiles/to_1010/controlpanel.xml
+msgid "MLS UI Settings"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:234
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:247
+msgid "Map &amp; Distances"
+msgstr ""
+
+#: ps/plone/mls/interfaces.py:67
+msgid "Maximum age of entries in the cache"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:389
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:363
+msgid "Meet the Developers"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:287
+msgid "Modify URLs"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:282
+msgid "Modify the individual development URLs to show extra information, such as the Title and Location"
+msgstr ""
+
+#: ps/plone/mls/utils.py:30
+msgid "No URLs allowed."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:81
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:65
+msgid "Overview"
+msgstr "概要"
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:359
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:336
+msgid "Phases"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:240
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:252
+msgid "Please enable JavaScript to show the Map."
+msgstr ""
+
+#: ps/plone/mls/profiles.zcml:19
+msgid "Plone 4 support for the Propertyshelf MLS."
+msgstr ""
+
+#: ps/plone/mls/profiles.zcml:30
+msgid "Plone 5 support for the Propertyshelf MLS."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:186
+msgid "Price (Max)"
+msgstr "最高額"
+
+#: ps/plone/mls/browser/listings/search_banner.py:181
+msgid "Price (Min)"
+msgstr "最低額"
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:123
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:138
+msgid "Project Map"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:107
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:97
+msgid "Properties Available"
+msgstr "不動産在る"
+
+#: ps/plone/mls/browser/controlpanel/settings.py:37
+msgid "Propertyshelf MLS Base Settings"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/settings.py:103
+msgid "Propertyshelf MLS Caching Settings"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/settings.py:80
+msgid "Propertyshelf MLS Contact Information Settings"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:18
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:18
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_contact_info.pt:18
+msgid "Propertyshelf MLS Embedding"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/settings.py:59
+msgid "Propertyshelf MLS UI Settings"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:101
+msgid "Recent Listings"
+msgstr "新しい掲載物件"
+
+#: ps/plone/mls/browser/controlpanel/settings.py:29
+msgid "Registry has been updated. Please reload this page."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:580
+msgid "Rent"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:340
+msgid "Reverse sort order?"
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:49
+msgid "Review the MLS Embedding usage for this Plone site."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:402
+#: ps/plone/mls/browser/listings/featured.py:165
+#: ps/plone/mls/browser/listings/search_banner.py:771
+msgid "Save"
+msgstr "保存"
+
+#: ps/plone/mls/browser/listings/search_banner.py:100
+msgid "Search Target Page"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:324
+msgid "Searchable Text"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:471
+msgid "Section 1"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:472
+msgid "Section 2"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:473
+msgid "Section 3"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:474
+msgid "Section 4"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:298
+msgid "Select a Category"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:110
+msgid "Select the activated listing search page which will be used to show the results."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:235
+msgid "Send the contact form to this email instead direct to the agent"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:191
+msgid "Set the resolution for the map. 0 is the lowest zoom level, in which the entire world can be seen. The higher the zoom level, the more details can be seen. The available maximum zoom level value differs from area to area and can change over time, also depending on the used map provider."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:26
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:26
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_contact_info.pt:26
+msgid "Settings"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:211
+msgid "Show Banner Image"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:267
+msgid "Show Captcha"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:231
+msgid "Show Contact Form"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:221
+msgid "Show Contact Information"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:258
+msgid "Show Contact-Us anchor link"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:263
+msgid "Show a captcha field within the contact form to prevent spam."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:333
+msgid "Sort results by"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:454
+msgid "The 'Development Collection' viewlet does't work with this content type. Add 'IPossibleDevelopmentCollection' to the provided interfaces to enable this feature."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/featured.py:217
+msgid "The 'Featured Listings' viewlet does't work with this content type. Add 'IPossibleFeaturedListings' to the provided interfaces to enable this feature."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:822
+msgid "The 'Listing Search Banner' does't work with this content type. Add 'IPossibleListingSearchBanner' to the provided interfaces to enable this feature."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/settings.py:81
+msgid "The contact information provided will be used as the default for this Plone site. You can add more specific MLS contact information by activating the local MLS contact settings on any content item within the site."
+msgstr ""
+
+#: ps/plone/mls/api.py:144
+msgid "The requested development was not found."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:167
+msgid "There are currently no development collections activated in this site."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:119
+msgid "There are currently no featured listings activated in this site."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:87
+msgid "There are currently no listing collections activated in this site."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:151
+msgid "There are currently no listing search banners activated in this site."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:135
+msgid "There are currently no listing searches activated in this site."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:55
+msgid "There are currently no local MLS settings activated in this site."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:71
+msgid "There are currently no local contact informations activated in this site."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_usage.pt:103
+msgid "There are currently no recent listings activated in this site."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/settings.py:38
+msgid "This MLS configuration will be used as the default for this Plone site. You can add more MLS configurations by activating the local MLS settings on any content item within the site."
+msgstr ""
+
+#: ps/plone/mls/profiles.zcml:50
+msgid "This fixture creates generic content to be used in tests."
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:101
+#: ps/plone/mls/vocabularies/developments.py:39
+msgid "Title"
+msgstr "タイトル"
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:29
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:29
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_contact_info.pt:29
+msgid "UI"
+msgstr ""
+
+#: ps/plone/mls/upgrades/configure.zcml:12
+msgid "Upgrade ps.plone.mls to 1010 profile"
+msgstr ""
+
+#: ps/plone/mls/browser/listings/search_banner.py:479
+msgid "Upload an image file which will be used as a background for your listing banner search."
+msgstr ""
+
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_base.pt:38
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_caching.pt:38
+#: ps/plone/mls/browser/controlpanel/controlpanel_layout_contact_info.pt:38
+msgid "Usage Overview"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/templates/development_details_p5.pt:206
+#: ps/plone/mls/browser/developments/templates/development_details_view.pt:220
+msgid "Video"
+msgstr ""
+
+#: ps/plone/mls/browser/templates/macros.pt:17
+#: ps/plone/mls/browser/templates/macros_p5.pt:17
+msgid "We are sorry, but we couldn't find any listings."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/details.py:327
+msgid "Your contact request was sent successfully."
+msgstr ""
+
+#: ps/plone/mls/browser/developments/collection.py:201
+msgid "Zoom level for maps"
+msgstr ""
+
+#. {url}\n\nPhone Number: {phone}\n\nMessage:\n{message}\n"
+#. Default: "Enquiry from: {name} <{sender_from_address}>\nDevelopment URL: {url}\n\nPhone Number: {phone}\n\nMessage:\n{message}\n"
+#: ps/plone/mls/browser/developments/details.py:64
+msgid "development_contact_email"
+msgstr ""
+
+#. {agent_name}.\n\nPlease contact {agent_name} at {agent_email}"
+#. Default: "The responsible agent for this development is {agent_name}.\n\nPlease contact {agent_name} at {agent_email}"
+#: ps/plone/mls/browser/developments/details.py:75
+msgid "development_contact_email_agent"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/details.py:230
+msgid "help_message"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/details.py:220
+msgid "help_phone"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/details.py:202
+msgid "help_sender_from_address"
+msgstr ""
+
+#: ps/plone/mls/browser/developments/details.py:211
+msgid "help_sender_fullname"
+msgstr ""
+
+#. Default: "Message"
+#: ps/plone/mls/browser/developments/details.py:236
+msgid "label_message"
+msgstr ""
+
+#. Default: "Name"
+#: ps/plone/mls/browser/developments/details.py:216
+msgid "label_name"
+msgstr ""
+
+#. Default: "Phone"
+#: ps/plone/mls/browser/developments/details.py:225
+msgid "label_phone"
+msgstr ""
+
+#. Default: "Email"
+#: ps/plone/mls/browser/developments/details.py:207
+msgid "label_sender_from_address"
+msgstr ""
+
+#. Default: "Subject"
+#: ps/plone/mls/browser/developments/details.py:247
+msgid "label_subject"
+msgstr ""
+
+#: ps/plone/mls/profiles.zcml:19
+msgid "ps.plone.mls"
+msgstr ""
+
+#: ps/plone/mls/profiles.zcml:50
+msgid "ps.plone.mls - testfixture"
+msgstr ""
+
+#: ps/plone/mls/profiles.zcml:40
+msgid "ps.plone.mls - uninstall"
+msgstr ""
