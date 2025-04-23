@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+papershift.egg-info/PKG-INFO
+papershift.egg-info/SOURCES.txt
+papershift.egg-info/dependency_links.txt
+papershift.egg-info/requires.txt
+papershift.egg-info/top_level.txt
+src/__init__.py
+src/image_to_markdown.py
+src/page_parser.py
+src/pdf_converter.py
+src/pdf_to_markdown.py
+tests/test_image_to_markdown.py
+tests/test_page_parser.py
+tests/test_pdf_converter.py
+tests/test_pdf_to_markdown.py
