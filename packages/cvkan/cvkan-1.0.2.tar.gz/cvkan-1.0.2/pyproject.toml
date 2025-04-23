@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cvkan"
+version = "1.0.2"
+authors = [
+    {name="Matthias Wolff", email="matthias.wolff@uni-muenster.de"},
+    {name="Florian Eilers", email="florian.eilers@uni-muenster.de"},
+    {name="Xiaoyi Jiang", email="xjiang@uni-muenster.de"}
+]
+description = "CVKAN: Complex-Valued Kolmogorov-Arnold Networks"
+readme = "README.md"
+dependencies = [
+    "matplotlib==3.6.2",
+    "numpy==1.24.4",
+    "pandas==2.2.3",
+    "pykan==0.2.7",
+    "scikit_learn==1.6.1",
+    "torch==2.4.1",
+    "torchmetrics==1.6.1",
+    "scikit-learn~=1.6.1",
+    "plumbum~=1.9.0",
+    "pyyaml==6.0.2",
+    "tqdm==4.67.1",
+]
+
+[project.urls]
+homepage = "https://github.com/M-Wolff/CVKAN"
+github = "https://github.com/M-Wolff/CVKAN"
+issues = "https://github.com/M-Wolff/CVKAN/issues"
+arxiv = "https://arxiv.org/abs/2502.02417"
