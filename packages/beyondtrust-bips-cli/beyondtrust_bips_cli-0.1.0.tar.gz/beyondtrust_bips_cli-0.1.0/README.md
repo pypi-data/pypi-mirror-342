@@ -1,0 +1,75 @@
+[![Scanned by Frogbot](https://raw.github.com/jfrog/frogbot/master/images/frogbot-badge.svg)](https://docs.jfrog-applications.jfrog.io/jfrog-applications/frogbot)
+
+# ps-cli
+Password Safe CLI
+
+
+# Available environment variables
+- PSCLI_SETTINGS_PATH
+- PSCLI_API_URL
+- PSCLI_AUTH_RETRIES
+- PSCLI_TIMEOUT_CONNECTION
+- PSCLI_TIMEOUT_REQUEST
+- PSCLI_CLIENT_ID
+- PSCLI_CLIENT_SECRET
+
+
+# Getting started
+
+- Create the settings file using:
+Target settings file path could be changed using PSCLI_SETTINGS_PATH environment variable.
+
+```sh
+ps-cli settings initialize-settings
+```
+
+
+# Development
+
+Once you have the project source code, you can initialize it.
+
+## Initialize project
+
+Before start to coding, install poetry.
+
+```sh
+pip install poetry
+```
+
+
+Install project dependencies including dev ones.
+```sh
+poetry install --with dev
+```
+
+
+## Build and Publish
+
+If need to publish the project
+```sh
+poetry build
+```
+
+To publish CLI, you will need to properly configure your PyPI credentials (PyPI is used by default).
+```sh
+poetry publish
+```
+
+
+## Coverage
+
+Run coverage with Pytest
+
+```sh
+poetry run coverage run -m pytest .
+```
+
+Generate a human-readable report in the terminal 
+```sh
+poetry run coverage report
+```
+
+Export coverage report (XML or HTML)
+```sh
+poetry run coverage xml
+```
