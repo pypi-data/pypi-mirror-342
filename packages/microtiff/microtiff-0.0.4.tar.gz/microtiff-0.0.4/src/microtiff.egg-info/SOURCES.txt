@@ -1,0 +1,17 @@
+.gitignore
+LICENSE
+README.md
+TESTING.md
+pyproject.toml
+scripts/holopy-setup.py
+scripts/install-holopy.sh
+scripts/test.sh
+src/microtiff/__init__.py
+src/microtiff/ifcb.py
+src/microtiff/lisst_holo.py
+src/microtiff/utils.py
+src/microtiff.egg-info/PKG-INFO
+src/microtiff.egg-info/SOURCES.txt
+src/microtiff.egg-info/dependency_links.txt
+src/microtiff.egg-info/requires.txt
+src/microtiff.egg-info/top_level.txt
