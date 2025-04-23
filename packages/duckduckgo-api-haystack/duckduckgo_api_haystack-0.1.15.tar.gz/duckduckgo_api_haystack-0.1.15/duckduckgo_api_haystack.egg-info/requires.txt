@@ -1,0 +1,7 @@
+haystack-ai
+
+[:python_version <= "3.8"]
+duckduckgo-search<8
+
+[:python_version > "3.8"]
+duckduckgo-search~=8.0.1
