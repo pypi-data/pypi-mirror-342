@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: metaevobox
+Version: 2.0.0.1
+Summary: An all-in-one platform for using and developing the algorithms in Meta-Black-Box Optimization
+Author-email: Zeyuan Ma <scut.crazynicolas@gmail.com>, Honhshu Guo <guohongshu369@gmail.com>, Wenjie Qiu <wukongqwj@gmail.com>, Sijie Ma <masijie9@gmail.com>, Jiajun Zhan <cszhanjiajun@mail.scut.edu.cn>, Zhiyang Huang <scut.hzy@gmail.com>, Hongqiao Lian <hongqiaolian9@gmail.com>, Guojun Peng <pgj20010419@gmail.com>, Zechuan Huang <hohqhzc825@gmail.com>, Kaixu Chen <202421043943@mail.scut.edu.cn>, Chen Wang <wangchen0339@gmail.com>
+License: BSD-3-Clause
+Project-URL: Homepage, https://github.com/MetaEvo/MetaBox
+Project-URL: Documentation, https://github.com/MetaEvo/MetaBox/blob/v2.0.0/README.md
+Project-URL: Bug Tracker, https://github.com/MetaEvo/MetaBox/issues
+Requires-Python: >=3.11.5
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch>=2.6.0
+Requires-Dist: deap>=1.4.2
+Requires-Dist: evox>=1.1.2
+Requires-Dist: pypop7>=0.0.82
+Requires-Dist: matplotlib==3.10.1
+Requires-Dist: tensorboardX==2.6.2.2
+Requires-Dist: tensorboard==2.19.0
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: gym>=0.26
+Requires-Dist: GPUtil==1.4.0
+Requires-Dist: psutil==7.0.0
+Requires-Dist: ray==2.44.1
+Requires-Dist: tqdm
+Requires-Dist: cmaes==0.11.1
+Requires-Dist: dill==0.4.0
+Requires-Dist: Cython>=3.0.12
+Requires-Dist: xgboost==3.0.0
+Requires-Dist: tianshou==1.1.0
+Requires-Dist: openpyxl==3.1.5
+Dynamic: license-file
