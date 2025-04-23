@@ -1,0 +1,118 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "PCI Express Error Section",
+    "required": [],
+    "additionalProperties": false,
+    "properties": {
+        "portType": {
+            "type": "object",
+            "description": "PCIe Device/Port Type as defined in the PCI Express capabilities register.",
+            "$ref": "./common/cper-json-nvp.json"
+        },
+        "version": {
+            "type": "object",
+            "description": "PCIe Spec. version supported by the platform",
+            "required": ["major", "minor"],
+            "properties": {
+                "major": {
+                    "type": "integer"
+                },
+                "minor": {
+                    "type": "integer"
+                }
+            }
+        },
+        "commandStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["commandRegister", "statusRegister"],
+            "properties": {
+                "commandRegister": {
+                    "type": "integer",
+                    "description": "PCI Command Register"
+                },
+                "statusRegister": {
+                    "type": "integer",
+                    "description": "PCI Status Register"
+                }
+            }
+        },
+        "deviceID": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "PCIe Root Port PCI/bridge PCI compatible device number and bus number information to uniquely identify the root port or bridge.",
+            "required": [
+                "vendorID",
+                "deviceID",
+                "deviceIDHex",
+                "classCode",
+                "functionNumber",
+                "deviceNumber",
+                "segmentNumber",
+                "primaryOrDeviceBusNumber",
+                "secondaryBusNumber",
+                "slotNumber"
+            ],
+            "properties": {
+                "vendorID": {
+                    "type": "integer"
+                },
+                "deviceID": {
+                    "type": "integer"
+                },
+                "deviceIDHex": {
+                    "type": "string"
+                },
+                "classCode": {
+                    "type": "integer"
+                },
+                "functionNumber": {
+                    "type": "integer"
+                },
+                "deviceNumber": {
+                    "type": "integer"
+                },
+                "segmentNumber": {
+                    "type": "integer"
+                },
+                "primaryOrDeviceBusNumber": {
+                    "type": "integer"
+                },
+                "secondaryBusNumber": {
+                    "type": "integer"
+                },
+                "slotNumber": {
+                    "type": "integer"
+                }
+            }
+        },
+        "deviceSerialNumber": {
+            "type": "integer",
+            "description": "PCIe Device Serial Number"
+        },
+        "bridgeControlStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["secondaryStatusRegister", "controlRegister"],
+            "properties": {
+                "secondaryStatusRegister": {
+                    "type": "integer",
+                    "description": "Bridge Secondary Status Register"
+                },
+                "controlRegister": {
+                    "type": "integer",
+                    "description": "Bridge Control Register"
+                }
+            }
+        },
+        "capabilityStructure": {
+            "type": "object",
+            "description": "PCIe Capabilities structure"
+        },
+        "aerInfo": {
+            "type": "object",
+            "description": "PCIe Advanced Error Reporting Information"
+        }
+    }
+}
