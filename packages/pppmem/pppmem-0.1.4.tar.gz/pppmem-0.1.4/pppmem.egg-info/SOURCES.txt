@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+pmem/__init__.py
+pmem/async_pmem.py
+pmem/sync_pmem.py
+pppmem.egg-info/PKG-INFO
+pppmem.egg-info/SOURCES.txt
+pppmem.egg-info/dependency_links.txt
+pppmem.egg-info/requires.txt
+pppmem.egg-info/top_level.txt

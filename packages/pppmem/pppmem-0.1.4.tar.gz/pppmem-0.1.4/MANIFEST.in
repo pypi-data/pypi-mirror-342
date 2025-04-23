@@ -1,0 +1,19 @@
+# 必要なファイルを含める
+include README.md
+include pyproject.toml
+include requirements.txt
+
+# Pythonパッケージ本体を含める
+recursive-include pmem *.py
+
+# 不要なファイル・ディレクトリを除外
+exclude pmem/__pycache__/*
+exclude pmem/pickle_memory.py
+exclude pmem/sqlite_memory2.py
+exclude *.db
+exclude .env
+exclude venv/
+exclude .mypy_cache/
+exclude .pytest_cache/
+exclude *.pyc
+exclude .DS_Store

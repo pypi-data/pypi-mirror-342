@@ -1,0 +1,6 @@
+aiosqlite
+setuptools
+
+[dev]
+pytest>=7.0
+tox>=4.0
