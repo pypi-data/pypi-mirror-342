@@ -1,0 +1,15 @@
+LICENCE
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+django_email_sender/__init__.py
+django_email_sender/email_sender.py
+django_email_sender/exceptions.py
+django_email_sender/utils.py
+django_email_sender.egg-info/PKG-INFO
+django_email_sender.egg-info/SOURCES.txt
+django_email_sender.egg-info/dependency_links.txt
+django_email_sender.egg-info/requires.txt
+django_email_sender.egg-info/top_level.txt
+tests/test_email_sender.py
