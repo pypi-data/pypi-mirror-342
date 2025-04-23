@@ -1,0 +1,16 @@
+lite/__init__.py,sha256=WCbPuDwrZSYNza_-BJS08kL4zxHOrAAEJ4oKD68UGEg,331
+lite/cnn.py,sha256=xVS44RmqnQeCWySkPUWTIouS0S3n4cfJEB_Ril5APdE,2625
+lite/functional.py,sha256=pIzFjqusV9pv-d9-oOct9-k_7Do-XhGmROVaanEg2T8,796
+lite/losses.py,sha256=mps9eDjdak4o6r88TG2x4AGSC_SnVaWjFi6mL8g0568,1686
+lite/nn.py,sha256=pxuqcUAqZ4liyyog3f3LVZmZqSOnqJgUalaOHCjjyk8,1798
+lite/optim.py,sha256=WL9VJOlUt9hkH4D4VbuqJlotTuriLNAtqhmLNOfT_1U,1429
+lite/qnet.py,sha256=dnfXj8nV5k944ZVc08WNihqmC4S6yPXJa1Id8LYVdt0,537
+lite/rnn.py,sha256=U3SS-QnCoRFJDg_dZYjwkufSjtAsYpNLT2loJpLxX7I,1558
+lite/scipy_optim.py,sha256=_GFJ9O39qlbI3IGsGntdL9L8mde2B2cfvfgSTAAWSl4,1064
+lite/tensor.py,sha256=L0Li1k-228VFi9CnK3522BUe_rPpwxT6wlZkc5QFcyc,3834
+lite/utils.py,sha256=ww_uLm6QmCiCYToS3MbVSY4jVT0n9H0RnU2Gf01tuho,1252
+lite/vision.py,sha256=kwb6-mz9y12KJ8mtggBR8EU1MI6iGTSmTXx2GCenSlg,1443
+PyLitedl-0.0.3.2b1.dist-info/METADATA,sha256=7o-02wyZr39ATM9jnTqqF8-ng3hod-cn47StQyXKnjA,201
+PyLitedl-0.0.3.2b1.dist-info/WHEEL,sha256=PZUExdf71Ui_so67QXpySuHtCi3-J3wvF4ORK6k_S8U,91
+PyLitedl-0.0.3.2b1.dist-info/top_level.txt,sha256=S_Z8VNkFWq8YkDQRP9UNbH8chFoFJW9Sbmb_t4HDVSk,5
+PyLitedl-0.0.3.2b1.dist-info/RECORD,,
