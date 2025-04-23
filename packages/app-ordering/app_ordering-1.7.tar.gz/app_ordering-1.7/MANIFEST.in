@@ -1,0 +1,5 @@
+include README.md
+include setup.py
+recursive-include app_ordering *.py
+recursive-include app_ordering/templates *
+
