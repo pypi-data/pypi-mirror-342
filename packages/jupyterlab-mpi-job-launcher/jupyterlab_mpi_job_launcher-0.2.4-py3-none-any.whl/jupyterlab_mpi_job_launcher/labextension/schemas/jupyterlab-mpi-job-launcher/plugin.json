@@ -1,0 +1,8 @@
+{
+  "jupyter.lab.shortcuts": [],
+  "title": "jupyterlab-mpi-job-launcher",
+  "description": "jupyterlab-mpi-job-launcher settings.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
