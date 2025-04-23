@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: kubeconform_binary
+Version: 0.6.7.post1
+Summary: Python wrapper around invoking kubeconform (https://github.com/yannh/kubeconform)
+Home-page: https://github.com/c0m1c5an5/kubeconform-binary-py
+Author: Maksym Kondratenko
+Author-email: m.kondratenko.ua@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: LICENSE.kubeconform
+Dynamic: license-file
+
+# kubeconform-py
+
+A python wrapper to provide a pip-installable [kubeconform](https://github.com/yannh/kubeconform) binary.
+
+Internally this package provides a convenient way to download the pre-built
+kubeconform binary for your particular platform.
+
+### installation
+
+```bash
+pip install kubeconform-binary
+```
+
+### usage
+
+After installation, the `kubeconform` binary should be available in your
+environment (or `kubeconform.exe` on windows).
