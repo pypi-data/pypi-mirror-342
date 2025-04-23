@@ -1,0 +1,91 @@
+Metadata-Version: 2.4
+Name: algos
+Version: 0.1.0
+Summary: Algorithm OS: An extensible operating system for algorithmic development
+Home-page: https://github.com/LlewynS/algos
+Author: LlewynS
+Author-email: algos251@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib==3.8.2
+Requires-Dist: networkx==3.1
+Requires-Dist: numpy==1.23.5
+Requires-Dist: optuna==4.2.1
+Requires-Dist: pandas==1.5.3
+Requires-Dist: pexpect==4.8.0
+Requires-Dist: psycopg2-binary==2.9.9
+Requires-Dist: pysftp==0.2.9
+Requires-Dist: pytest==7.2.2
+Requires-Dist: PyYAML==6.0.2
+Requires-Dist: scikit-learn==1.3.2
+Requires-Dist: scipy==1.15.2
+Requires-Dist: seaborn==0.13.2
+Requires-Dist: setuptools==65.5.0
+Requires-Dist: shap==0.46.0
+Requires-Dist: SQLAlchemy==2.0.21
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# AlgOS: Algorithm Operating System
+
+Algorithm Operating System (AlgOS) is an unopinionated, extensible, modular framework for algorithmic implementations. AlgOS offers numerous features: integration with Optuna for automated hyperparameter tuning; automated argument parsing for generic command-line interfaces; automated registration of new classes; and a centralised database for logging experiments and studies. These features are designed to reduce the overhead of implementing new algorithms and to standardise the comparison of algorithms. The standardisation of algorithmic implementations is crucial for reproducibility and reliability in research. AlgOS combines Abstract Syntax Trees with a novel implementation of the Observer pattern to control the logical flow of algorithmic segments. 
+
+## Installation
+Install via pip:
+```sh
+pip install algos_core
+```
+
+Install from cloned repository:
+
+```sh
+pip install -e .
+```
+
+Use in python via 
+```python
+import algos
+```
+
+## Modules
+AlgOS is designed to be extensible for any algorithm that can be constructed as a cyclic or acyclic graph. 
+
+Currently the available modules are:
+
+* Reinforcement Learning: [AlgOSRL](https://github.com/llewynS/algosrl)
+
+The intention is to expand this in the future. If you use this library and would like to include a module please let us know. 
+
+## Examples
+The tests contain some examples of how to construct basic algorithms using AlgOS. [AlgOSRL](https://github.com/llewynS/algosrl) contains concrete examples of how to construct reinforcement learning algorithms using AlgOS.
+
+## Documentation
+TBA
+
+## Citing the Project
+
+To cite this repository in publications:
+
+```bibtex
+@misc{algos,
+      title={AlgOS: Algorithm Operating System}, 
+      author={Llewyn Salt and Marcus Gallagher},
+      year={2025},
+      eprint={2504.04909},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2504.04909}, 
+}
+```
