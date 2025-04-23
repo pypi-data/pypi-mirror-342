@@ -1,0 +1,12 @@
+LICENSE,sha256=waQlrEOE8R_g6b9XVhwcfRtJc9f7l3kq_65Nm9-AATE,1080
+naif_eop_historical/__init__.py,sha256=4jtII6Jv3nQ31MfElV1T9oJ_A-5NSM9JegYYlUjXL1M,230
+naif_eop_historical/earth_620120_240827.bpc,sha256=kBE9G9lid6048MfDUvIWqPLd8reBURW7yfSgZlSyjhU,11905024
+naif_eop_historical/earth_620120_240827.md5,sha256=5iaDH8aqxS7YuekQhiCXVRBvrj9Hlc-PmI7SYG3YSkY,57
+naif_eop_historical/fetch.py,sha256=go6AKSM0oSPPCqAQPOCNy66ifUHLSSCdY7h9yUA4ktY,2134
+naif_eop_historical/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+naif_eop_historical/tests/test_naif_historical.py,sha256=ovdnlrIVTlgOgn1ySudy1kUsmiXgOPry8MPmKTvZ3rk,446
+naif_eop_historical-2024.8.28.1.dist-info/licenses/LICENSE,sha256=waQlrEOE8R_g6b9XVhwcfRtJc9f7l3kq_65Nm9-AATE,1080
+naif_eop_historical-2024.8.28.1.dist-info/METADATA,sha256=CqSv0Nd35mpPde6j1elb696xRc5bdzjn1U8plHiKh7c,3966
+naif_eop_historical-2024.8.28.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+naif_eop_historical-2024.8.28.1.dist-info/top_level.txt,sha256=JGeldFdt4CgGH-bBgQuXOqW1RA3N8WTR1pm4np1jTZo,20
+naif_eop_historical-2024.8.28.1.dist-info/RECORD,,
