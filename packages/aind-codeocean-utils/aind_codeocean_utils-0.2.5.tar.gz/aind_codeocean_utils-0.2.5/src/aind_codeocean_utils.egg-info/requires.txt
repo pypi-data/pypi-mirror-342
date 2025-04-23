@@ -1,0 +1,11 @@
+codeocean>=0.3.0
+boto3
+
+[dev]
+black
+coverage
+flake8
+interrogate
+isort
+Sphinx
+furo
