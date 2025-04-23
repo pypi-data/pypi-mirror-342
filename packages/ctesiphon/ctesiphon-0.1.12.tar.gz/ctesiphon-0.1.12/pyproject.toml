@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "ctesiphon"
+version = "0.1.12"
+description = "Фреймворк"
+authors = ["Anton Berdnikov <cto@icecloud.tech>"]
+readme = "README.md"
+license = "Apache-2.0"
+packages = [{include = "ctesiphon"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11, <3.13"
+pydantic = {extras = ["email"], version = "2.10.6"}
+pydantic-settings = "==2.7.1"
+fastapi = "==0.115.7"
+Hypercorn = "==0.17.3"
+uvloop = "==0.21.0"
+toml = "==0.10.2"
+httpx = "==0.28.1"
+rethinkdb = "==2.4.10.post1"
+python-ulid = "==3.0.0"
+faststream = {extras = ["kafka"], version = "0.5.33"}
+orjson = "==3.10.15"
+shortuuid = "==1.0.13"
+aioclock = "==0.3.0"
+clickhouse-connect = "==0.8.15"
+Jinja2 = "==3.1.6"
+aiosmtplib = "==4.0.0"
+pydantic-extra-types = "==2.10.3"
+phonenumbers = "==9.0.0"
+python-multipart = "==0.0.20"
+aioboto3 = "==14.1.0"
+redis = {extras = ["hiredis"], version = "5.2.1"}
+aiokafka = "==0.12.0"
+pydantic-yaml = "==1.4.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "==8.3.4"
+pytest-asyncio = "==0.24.0"
+pytest-cov = "==6.0.0"
+pytest-docker = "==3.1.1"
+black = "==24.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
