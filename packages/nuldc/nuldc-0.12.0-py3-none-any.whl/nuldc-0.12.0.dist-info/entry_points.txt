@@ -1,0 +1,4 @@
+[console_scripts]
+nuldc=nuldc.commandline:main
+nuldump=nuldc.dump:main
+
