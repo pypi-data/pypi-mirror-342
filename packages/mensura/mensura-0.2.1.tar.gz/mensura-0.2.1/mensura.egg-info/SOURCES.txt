@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+mensura/__init__.py
+mensura/base.py
+mensura/conversions.py
+mensura/exceptions.py
+mensura.egg-info/PKG-INFO
+mensura.egg-info/SOURCES.txt
+mensura.egg-info/dependency_links.txt
+mensura.egg-info/top_level.txt
+tests/test_converter.py
