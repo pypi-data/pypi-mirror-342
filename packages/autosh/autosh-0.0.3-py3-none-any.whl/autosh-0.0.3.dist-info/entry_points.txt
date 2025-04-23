@@ -1,0 +1,3 @@
+[console_scripts]
+ash = autosh.main:main
+autosh = autosh.main:main
