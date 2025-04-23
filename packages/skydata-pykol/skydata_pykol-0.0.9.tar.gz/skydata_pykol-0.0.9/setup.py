@@ -1,0 +1,24 @@
+import setuptools
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
+    name="skydata_pykol",
+    version="0.0.9",
+    author="Kyle Kloberdanz",
+    author_email="kyle.g.kloberdanz@gmail.com",
+    description="A Python driver for Kol.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://gitlab.com/skydata.app/pykol",
+    packages=setuptools.find_packages(),
+    zip_safe=True,
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+    ],
+    python_requires=">=3.6",
+    include_package_data=True,
+)
