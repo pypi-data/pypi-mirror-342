@@ -1,0 +1,74 @@
+# bing-search-mcp-wx
+
+A Model Context Protocol (MCP) server implementation for Bing web search with UTF-8 support. This package provides a simple interface to perform Bing web searches through MCP tools.
+
+## Installation
+
+Install using pip:
+
+```bash
+pip install bing-search-mcp-wx
+```
+
+Requires Python 3.10 or higher.
+
+## Configuration
+
+The package requires a Bing API key to function. You can configure it in two ways:
+
+1. Environment variable:
+   Create a `.env` file with:
+   ```
+   BING_API_KEY=your-api-key-here
+   ```
+
+2. Programmatically:
+   ```python
+   from bing_search_mcp_wx.server import initialize_mcp
+
+   initialize_mcp("your-api-key-here")
+   ```
+
+## Usage
+
+Basic usage example:
+
+```python
+from bing_search_mcp_wx.server import initialize_mcp, bing_search
+
+# Initialize with your API key
+initialize_mcp("your-api-key-here")
+
+# Perform a basic search
+results = bing_search("query")
+
+# Search with custom result count
+results = bing_search("query", result_count=5)
+```
+
+## API Reference
+
+### `initialize_mcp(apiKey: str)`
+Initialize the MCP server with the Bing API key.
+
+- **Parameters:**
+  - `apiKey` (str): The Bing API key
+
+### `bing_search(query: str, result_count: int = 10) -> str`
+Perform a web search using Bing.
+
+- **Parameters:**
+  - `query` (str): The search query string
+  - `result_count` (int, optional): Number of results to return. Defaults to 10
+- **Returns:**
+  - JSON string containing the search results or error information
+
+## Dependencies
+
+- mcp[cli] >= 1.2.0
+- python-dotenv >= 1.0.0
+- requests >= 2.31.0
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

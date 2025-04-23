@@ -1,0 +1,20 @@
+[project]
+name = "bing-search-mcp-wx"
+version = "0.1.0"
+description = "Mcp for Bing search with a given apiId"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.2.0",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[build-system]
+requires = ["hatchling>=1.0.0"] 
+build-backend = "hatchling.build"
+
+[project.scripts]
+bing-search-mcp-wx = "bing_search_mcp_wx:main"
