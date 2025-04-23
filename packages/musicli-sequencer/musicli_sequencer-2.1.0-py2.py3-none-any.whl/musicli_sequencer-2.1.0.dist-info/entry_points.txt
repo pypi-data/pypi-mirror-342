@@ -1,0 +1,3 @@
+[console_scripts]
+musicli=musicli_sequencer.main:main
+
