@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: minidisc-python
+Version: 0.1.0
+Summary: Minidisc Python library
+Author-email: Matthias Scheidegger <mscheidegger@gmail.com>
+Project-URL: Homepage, https://github.com/mscheidegger/minidisc
+Project-URL: Repository, https://github.com/mscheidegger/minidisc.git
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic<3,>=2.0
+
+# Minidisc Python
+
+This is the Python implementation of Minidisc, a miniature service discovery
+library for Tailscale.
+
+You can find the main repository with the full README and LICENSE
+[here](https://github.com/mscheidegger/minidisc).
