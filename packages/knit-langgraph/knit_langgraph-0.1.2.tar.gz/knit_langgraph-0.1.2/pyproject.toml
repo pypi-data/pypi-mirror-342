@@ -1,0 +1,13 @@
+[project]
+name = "knit-langgraph"
+version = "0.1.2"
+description = "The Knit LangGraph SDK enables seamless integration between LangGraph-powered agents and SaaS applications. This toolkit allows developers to easily connect AI agents with hundreds of SaaS platforms using Knit's integration platform. With minimal code, expand your AI assistant's capabilities by incorporating external data and functionalities from popular business applications."
+authors = [{ name = "Akshat - Knit", email = "akshat@getknit.dev" }]
+readme = "README.md"
+requires-python = ">=3.9,<4.0"
+dependencies = ["langchain-core (>=0.2)", "langgraph (>=0.2)", "httpx (>=0.28.1)"]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
