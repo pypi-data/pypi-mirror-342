@@ -1,0 +1,3 @@
+[console_scripts]
+code_size_analyzer_cli = code_size_analyzer_cli:main
+code_size_results_cli = code_size_results_cli:cli
