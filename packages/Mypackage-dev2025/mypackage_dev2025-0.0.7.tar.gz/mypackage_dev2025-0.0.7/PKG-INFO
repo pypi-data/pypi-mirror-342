@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: Mypackage_dev2025
+Version: 0.0.7
+Summary: A simple math package
+Author: Jayadev
+Author-email: swarnamathi@gmail.com
+License-File: License.txt.txt
+Dynamic: author
+Dynamic: author-email
+Dynamic: license-file
+Dynamic: summary
