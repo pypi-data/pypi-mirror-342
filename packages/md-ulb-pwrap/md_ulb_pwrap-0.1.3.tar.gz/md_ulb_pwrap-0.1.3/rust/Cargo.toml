@@ -1,0 +1,17 @@
+[package]
+name = "md-ulb-pwrap"
+version = "0.1.3"
+edition = "2021"
+description = "Markdown paragraph wrapper using Unicode Line Breaking Algorithm."
+license = "BSD-3-Clause"
+readme = "README.md"
+
+[lib]
+name = "md_ulb_pwrap"
+path = "src/lib.rs"
+
+[dependencies]
+unicode-linebreak = "0.1"
+
+[dev-dependencies]
+rstest = "0.19"
