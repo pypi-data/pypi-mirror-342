@@ -1,0 +1,7 @@
+include build_requires.py
+
+recursive-include src/amulet *.hpp *.cpp *Config.cmake
+
+include CMakeLists.txt
+
+prune tests
