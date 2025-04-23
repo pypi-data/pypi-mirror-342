@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: eccLib
+Version: 1.0.0
+Summary: Library for parsing FASTA and GTF files
+Home-page: https://gitlab.platinum.edu.pl/eccdna/eccLib
+Author: Tomasz Chady
+Author-email: tomek.chady@gmail.com
+License: GPLv3
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: C
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.10
+License-File: LICENSE.txt
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
