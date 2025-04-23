@@ -1,0 +1,266 @@
+# IziProxy
+
+> Gestion intelligente et discrète des proxys pour développeurs Python
+
+[![PyPI version](https://img.shields.io/pypi/v/iziproxy.svg)](https://pypi.org/project/iziproxy/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/iziproxy.svg)](https://pypi.org/project/iziproxy/)
+[![License](https://img.shields.io/pypi/l/iziproxy.svg)](https://github.com/votre-username/iziproxy/blob/main/LICENSE)
+[![Environnements](https://img.shields.io/badge/environnements-local%20%7C%20dev%20%7C%20prod-blue)](https://iziproxy.readthedocs.io/)
+[![Maintenance](https://img.shields.io/badge/maintenu-actif-green.svg)](https://github.com/votre-username/iziproxy/commits/main)
+[![Proxy Time Saved](https://img.shields.io/badge/temps%20économisé-∞%20minutes-success)](https://github.com/votre-username/iziproxy)
+
+## Pourquoi IziProxy ?
+
+Le développement local avec des proxys d'entreprise authentifiés est souvent un véritable casse-tête : configurations manuelles, identifiants à saisir régulièrement, et code à modifier lors du passage en production. 
+
+Alors que des outils comme CNTLM offrent une solution au niveau système, **IziProxy** propose une approche différente, directement intégrée à vos applications Python :
+
+- **Contrairement à CNTLM** : Pas besoin d'installer et configurer un service système
+- **Plus flexible** : Change automatiquement de configuration selon l'environnement détecté
+- **Spécifique à Python** : S'intègre directement dans votre code sans affecter les autres applications
+- **Sans droits admin** : Fonctionne sans privilèges administrateur sur la machine
+- **Zéro configuration** : Détecte automatiquement les proxys du système et les fichiers PAC
+
+IziProxy résout les défis quotidiens de la gestion de proxy en environnement d'entreprise :
+
+- **Détection automatique d'environnement** : Bascule automatiquement entre les configurations local/dev/prod
+- **Détection des proxys système** : Utilise intelligemment les configurations existantes et fichiers PAC
+- **Sécurité améliorée** : Masque les mots de passe en mode débogage pour éviter les divulgations accidentelles
+- **Stockage sécurisé** : Intégration avec les gestionnaires d'identifiants du système
+- **Configuration flexible** : Via fichier YAML ou variables d'environnement
+
+## Comparaison avec d'autres approches
+
+| Avantage | IziProxy | CNTLM (solution système) | Variables d'environnement | 
+|----------|------------|--------------------------|---------------------------|
+| Intégration directe dans le code Python | ✅ | ❌ | ✅ |
+| Détection automatique d'environnement | ✅ | ❌ | ❌ |
+| Protection visuelle des mots de passe en débogage | ✅ | ❌ | ❌ |
+| Fonctionnement sans droits administrateur | ✅ | ❌ | ✅ |
+| Configuration adaptative selon le contexte | ✅ | ❌ | ❌ |
+| Stockage sécurisé des identifiants | ✅ | ✅ | ❌ |
+| Pas de modification du système global | ✅ | ❌ | ✅ |
+| Solution spécifique pour Python | ✅ | ❌ | ❌ |
+| Authentification NTLM native | ✅ | ✅ | ❌ |
+| Fonctionne avec toutes les applications | ❌ | ✅ | ❌ |
+| Accélération par mise en cache des requêtes | ❌ | ✅ | ❌ |
+| Facilité de déploiement dans des projets Python | ✅ | ❌ | ✅ |
+
+## Installation
+
+```bash
+pip install iziproxy
+
+# Avec support complet des fichiers PAC
+pip install iziproxy[pac]
+```
+
+## Utilisation simple
+
+```python
+from iziproxy import IziProxy
+
+# Initialisation avec détection automatique d'environnement et proxy
+proxy = IziProxy()  # Aucune configuration requise!
+
+# Utilisation avec requests
+import requests
+session = requests.Session()
+proxy.configure_session(session)
+
+# Ou récupérer directement la configuration
+proxy_config = proxy.get_proxy_config()
+response = requests.get("https://api.exemple.com", proxies=proxy_config)
+```
+
+## Comment IziProxy résout les problèmes courants
+
+### Avant vs. Après IziProxy
+
+**Sans IziProxy**:
+```python
+import requests
+import os
+import getpass
+
+# Configuration manuelle selon l'environnement
+if os.environ.get('ENVIRONMENT') == 'prod':
+    proxy_url = "http://proxy.prod.example.com:8080"
+    proxies = {"http": proxy_url, "https": proxy_url}
+else:
+    # En local, besoin d'authentification
+    username = input("Username: ")
+    password = getpass.getpass("Password: ")
+    proxy_url = f"http://{username}:{password}@proxy.local.example.com:8080"
+    proxies = {"http": proxy_url, "https": proxy_url}
+
+# Le mot de passe apparaît en clair lors du débogage
+print(f"Utilisation du proxy: {proxies}")  # 😱 Danger!
+
+response = requests.get("https://api.exemple.com", proxies=proxies)
+```
+
+**Avec IziProxy**:
+```python
+import requests
+from iziproxy import IziProxy
+
+# Configuration automatique
+proxy = IziProxy()
+proxies = proxy.get_proxy_config()
+
+# Le mot de passe est masqué lors du débogage
+print(f"Utilisation du proxy: {proxies}")  # ✅ Sécurisé!
+
+response = requests.get("https://api.exemple.com", proxies=proxies)
+```
+
+### Problèmes résolus par IziProxy
+
+1. **Configuration répétitive** : Plus besoin de réécrire la même logique de proxy dans chaque projet
+   
+2. **Exposition des mots de passe** : La configuration classique expose les mots de passe durant le débogage :
+   ```
+   # Sans IziProxy - DANGEREUX durant le débogage
+   {"http": "http://jdupont:MonM0tDePa$$e@proxy.local.exemple.com:8080", ...}
+   
+   # Avec IziProxy - SÉCURISÉ
+   SecureProxyConfig({"http": "http://jdupont:********@proxy.local.exemple.com:8080", ...})
+   ```
+
+3. **Code conditionnel complexe** : Simplification du code qui doit s'adapter à différents environnements
+   ```python
+   # Sans IziProxy: 15+ lignes de code conditionnel complexe
+   # Avec IziProxy: 2 lignes de code, quel que soit l'environnement
+   ```
+
+4. **Authentification répétitive** : Fini la saisie répétée des identifiants à chaque exécution
+
+5. **Détection des configurations système** : Utilise automatiquement les proxys configurés sur votre machine
+
+## Configuration
+
+IziProxy peut fonctionner sans configuration pour les cas simples, mais s'adapte à vos besoins spécifiques via un fichier YAML :
+
+```yaml
+environments:
+  local:
+    proxy_url: "http://proxy.local.example.com:8080"
+    requires_auth: true
+  
+  prod:
+    proxy_url: "http://proxy.prod.example.com:8080"
+    requires_auth: false
+
+environment_detection:
+  method: auto  # auto, env_var, hostname, ip, ask
+  hostname_patterns:
+    local: ["local", "laptop", "dev-pc"]
+    prod: ["prod"]
+  hostname_regex:
+    local: ["^dev-\\w+$", "^laptop-\\d+$"]
+```
+
+## Fonctionnalités
+
+### Détection d'environnement
+
+IziProxy utilise plusieurs méthodes pour identifier automatiquement l'environnement d'exécution :
+
+- Variable d'environnement (ex: `ENVIRONMENT=prod`)
+- Nom d'hôte de la machine (avec support des expressions régulières)
+- Plage d'adresses IP
+- Demande interactive (en dernier recours)
+
+### Détection automatique de proxy
+
+IziProxy trouve et utilise intelligemment les configurations proxy existantes :
+
+- Détection des variables d'environnement proxy standard
+- Support des fichiers PAC (Proxy Auto-Configuration)
+- Lecture des configurations système (Windows, macOS, Linux)
+- Mise en cache des résultats pour des performances optimales
+
+### Gestion sécurisée des identifiants
+
+IziProxy utilise `keyring` pour le stockage sécurisé des identifiants :
+- Intégration avec le gestionnaire de mots de passe natif du système
+- Fonctionne sur Windows, macOS et Linux
+- Stockage hors du code et des fichiers de configuration
+
+### Protection visuelle en débogage
+
+IziProxy masque intelligemment les mots de passe dans toutes les représentations d'objets pendant les sessions de débogage, tout en les utilisant correctement pour les requêtes.
+
+### Fin des galères de développement local
+
+Finis les problèmes de:
+- Configuration manuelle des proxys à chaque changement d'environnement
+- Exposition accidentelle des mots de passe lors des sessions de débogage partagées
+- Saisie répétitive des identifiants de proxy
+- Code différent entre environnement local et production
+
+## Détection automatique de proxy
+
+IziProxy inclut un système intelligent de détection qui trouve et utilise automatiquement les configurations proxy existantes sur votre système.
+
+### Sources de configuration détectées
+
+IziProxy recherche les configurations proxy dans plusieurs sources (par ordre de priorité) :
+
+1. **Fichier de configuration YAML** (si fourni)
+2. **Variables d'environnement** (`HTTP_PROXY`, `HTTPS_PROXY`, etc.)
+3. **Fichiers PAC** (Proxy Auto-Configuration)
+4. **Configuration système**
+   - Windows : Paramètres du Registre
+   - macOS : Préférences Système réseau
+   - Linux : Paramètres GNOME/KDE
+
+### Support des fichiers PAC
+
+IziProxy peut analyser et utiliser les scripts PAC (Proxy Auto-Configuration) déployés dans votre organisation :
+
+```python
+# Utilisation avancée avec fichiers PAC
+from iziproxy import IziProxy
+
+# Configurer avec un fichier PAC spécifique
+proxy = IziProxy(pac_url="http://intranet.example.com/proxy.pac")
+
+# OU laisser IziProxy détecter le PAC du système
+proxy = IziProxy()  # Détection automatique des PAC configurés
+```
+
+#### Dépendances optionnelles pour le support PAC
+
+Pour une analyse optimale des fichiers PAC, installez les dépendances optionnelles :
+
+```bash
+pip install iziproxy[pac]
+```
+
+Cela installera `pypac` qui offre la meilleure compatibilité avec les fichiers PAC complexes.
+
+### Performances optimisées
+
+- Les résultats de l'analyse PAC sont mis en cache pour éviter des analyses répétées
+- Le système de cache réduit le temps de démarrage et améliore les performances
+- Expiration automatique du cache pour s'adapter aux changements de configuration
+
+## Compatibilité
+
+- Python 3.7+
+- Windows, macOS, et Linux
+- Intégration transparente avec le module requests
+
+## Documentation
+
+Pour une documentation complète, visitez [https://iziproxy.readthedocs.io/](https://iziproxy.readthedocs.io/)
+
+## Contribuer
+
+Les contributions sont les bienvenues ! Consultez [CONTRIBUTING.md](CONTRIBUTING.md) pour les directives.
+
+## Licence
+
+Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
