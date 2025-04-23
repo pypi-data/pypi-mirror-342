@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: bpod-core
+Version: 0.1.0a1
+Summary: Python package for interfacing with the Bpod finite state machine
+Author-Email: Florian Rau <bimac@users.noreply.github.com>
+License: MIT
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Classifier: Typing :: Typed
+Project-URL: Changelog, https://github.com/int-brain-lab/bpod-core/blob/main/CHANGELOG.md
+Project-URL: Documentation, https://int-brain-lab.github.io/bpod-core/
+Project-URL: Homepage, https://github.com/int-brain-lab/bpod-core
+Project-URL: Issues, https://github.com/int-brain-lab/bpod-core/issues
+Project-URL: Repository, https://github.com/int-brain-lab/bpod-core.git
+Requires-Python: >=3.10
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pydantic>=2.11
+Requires-Dist: pyserial>=3.5
+Description-Content-Type: text/markdown
+
+bpod-core
+=========
+
+**bpod-core** is a Python package for communicating with the *Bpod* device from [*Sanworks*](https://sanworks.io/).
+
+This project is maintained by the software development team at the
+[*International Brain Lab*](https://internationalbrainlab.org/).
+
+Links
+-----
+
+* [Documentation and Installation Steps](https://int-brain-lab.github.io/bpod-core)
+* [Bpod Wiki](https://sanworks.github.io/Bpod_Wiki)
+* [PyBpod](https://pybpod.readthedocs.io)
+
+
+[![CI](https://github.com/int-brain-lab/bpod-core/actions/workflows/main.yaml/badge.svg)](https://github.com/int-brain-lab/bpod-core/actions/workflows/main.yaml)
+[![Checked with mypy](https://www.mypy-lang.org/static/mypy_badge.svg)](https://mypy-lang.org/)
+[![Coverage Status](https://coveralls.io/repos/github/int-brain-lab/bpod-core/badge.svg?branch=main)](https://coveralls.io/github/int-brain-lab/bpod-core?branch=main)
+[![License](https://img.shields.io/github/license/int-brain-lab/bpod-core)](https://github.com/int-brain-lab/bpod-core/blob/main/LICENSE)
+[![GitHub tag](https://img.shields.io/github/v/tag/int-brain-lab/bpod-core)](https://github.com/int-brain-lab/bpod-core/tags)
+[![PyPI](https://img.shields.io/pypi/v/bpod-core)](https://pypi.org/project/bpod-core/)
