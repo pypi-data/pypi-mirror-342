@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: devtorch
+Version: 0.0.7
+Summary: Lightweight PyTorch library to speedup model development.
+Home-page: https://github.com/webstorms/DevTorch
+Author: Luke Taylor
+Author-email: webstorms@gmail.com
+Project-URL: Bug Tracker, https://github.com/webstorms/BrainBox/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+License-File: LICENSE.md
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: scikit-learn
+Requires-Dist: pandas
