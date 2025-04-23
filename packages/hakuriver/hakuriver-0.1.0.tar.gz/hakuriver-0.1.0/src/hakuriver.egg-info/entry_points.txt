@@ -1,0 +1,8 @@
+[console_scripts]
+hakuriver.client = hakuriver.cli.client:main
+hakuriver.docker = hakuriver.cli.docker:main
+hakuriver.docker-shell = hakuriver.cli.docker_shell:main
+hakuriver.host = hakuriver.cli.host:main
+hakuriver.init = hakuriver.cli.init:main
+hakuriver.runner = hakuriver.cli.runner:main
+hakurun = hakurun.run:runner

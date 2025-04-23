@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hakuriver"
+version = "0.1.0"
+description = "A lightweight clustering tool with Docker container as virtual env."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+authors = [
+    {name = "Shih-Ying Yeh(KohakuBlueLeaf)", email = "apolloyeh0123@gmail.com"},
+]
+dependencies = [
+    "peewee",
+    "fastapi",
+    "httpx",
+    "psutil",
+    "toml",
+    "uvicorn[standard]",
+    "snowflake-id",
+    "docker",
+    "websockets",
+]
+
+[project.urls]
+Homepage = "https://github.com/KohakuBlueleaf/HakuRiver"
+Repository = "https://github.com/KohakuBlueleaf/HakuRiver"
+
+[project.scripts]
+"hakuriver.host" = "hakuriver.cli.host:main"
+"hakuriver.client" = "hakuriver.cli.client:main"
+"hakuriver.runner" = "hakuriver.cli.runner:main"
+"hakuriver.init" = "hakuriver.cli.init:main"
+"hakuriver.docker" = "hakuriver.cli.docker:main"
+"hakuriver.docker-shell" = "hakuriver.cli.docker_shell:main"
+"hakurun" = "hakurun.run:runner"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+hakuriver = ["*.toml"]
