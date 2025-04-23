@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+SpatialQuery/__init__.py
+SpatialQuery/spatial_query.py
+SpatialQuery/spatial_query_multiple_fov.py
+SpatialQuery/utils.py
+SpatialQuery.egg-info/PKG-INFO
+SpatialQuery.egg-info/SOURCES.txt
+SpatialQuery.egg-info/dependency_links.txt
+SpatialQuery.egg-info/requires.txt
+SpatialQuery.egg-info/top_level.txt
