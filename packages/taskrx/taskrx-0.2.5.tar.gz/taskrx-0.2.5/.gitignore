@@ -1,0 +1,9 @@
+.gitignore
+.venv/
+venv.command
+__pycache__/
+.DS_Store
+.pytest_cache/
+TODO/
+sandbox/
+temp/
