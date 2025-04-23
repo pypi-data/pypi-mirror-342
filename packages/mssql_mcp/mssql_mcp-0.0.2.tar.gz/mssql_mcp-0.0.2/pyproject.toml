@@ -1,0 +1,17 @@
+[project]
+name = "mssql_mcp"
+version = "0.0.2"
+description = "A Model Context Protocol (MCP) server that enables secure interaction with Microsoft SQL Server databases."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "python-tds>=1.16.1",
+    "bitarray>=2.7.3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+mssql_mcp = "mssql_mcp:main"

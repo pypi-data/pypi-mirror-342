@@ -1,0 +1,277 @@
+File verbosity level: 9
+date       time         ( uptime  ) [ thread name/id ]                   file:line     v| 
+2025-04-22 09:23:18.226 (   0.006s) [           375B ]             loguru.cpp:755    INF| Logging to 'totvsls.log', mode: 'w', verbosity: 9
+(   0.006s) [main thread     ]             loguru.cpp:591   | arguments: /Users/rodrigo/.vscode/extensions/totvs.tds-vscode-2.0.11/node_modules/@totvs/tds-ls/bin/mac/advpls language-server --notification-level=\"none\" --log-file=totvsls.log --record=totvsls --debug-ls
+(   0.006s) [main thread     ]             loguru.cpp:594   | Current dir: /Users/rodrigo/Documents/Cline/MCP/mssql_mcp
+(   0.006s) [main thread     ]             loguru.cpp:596   | stderr verbosity: -2
+(   0.006s) [main thread     ]             loguru.cpp:597   | -----------------------------------
+(   0.008s) [main thread     ]            totvsls.cpp:45    | LanguageServerMain: start
+(   0.008s) [main thread     ]       queue_manager.cc:226   | LaunchStdinLoop: start
+(   0.008s) [main thread     ]       queue_manager.cc:283   | LaunchStdoutThread: start
+(   0.008s) [main thread     ]       queue_manager.cc:164   | LaunchMainLoopThread: start
+(   0.017s) [stdin           ]                 lsp.cc:174   | Calling allocator for method initialize
+(   0.017s) [stdin           ]                 lsp.cc:176   | ==== methodType: initialize
+(   0.018s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method 'initialize'
+(   0.018s) [languageServer  ]      message_handler.h:70    | > [initialize] (start) 
+(   0.018s) [languageServer  ] msg_lsp_initialize_req:1480  | Init parameters: {"launchArgs":["--log-file=totvsls.log","--record=totvsls","--debug-ls"],"settings":[{"scope":"advpls","key":"fsencoding","value":"cp1252"},{"scope":"advpls","key":"notificationlevel","value":"none"},{"scope":"server","key":"usageInfo","value":"disabled"},{"scope":"linter","key":"behavior","value":"enable"},{"scope":"linter","key":"includes","value":"/"},{"scope":"editor","key":"hoverMode","value":"markDown"},{"scope":"editor","key":"indexCache","value":"off"},{"scope":"editor","key":"codeLens","value":"true"},{"scope":"editor","key":"signatureHelp","value":"true"},{"scope":"editor","key":"autocomplete","value":"LS"},{"scope":"extension","key":"tdsversion","value":"2.0.11"}]}
+(   0.018s) [languageServer  ]               config.h:276   | ChangeSetting: with scope: [advpls], key: [fsencoding], value: [cp1252]
+(   0.018s) [languageServer  ]               config.h:276   | ChangeSetting: with scope: [advpls], key: [notificationlevel], value: [none]
+(   0.018s) [languageServer  ]               config.h:276   | ChangeSetting: with scope: [server], key: [usageInfo], value: [disabled]
+(   0.018s) [languageServer  ]               config.h:276   | ChangeSetting: with scope: [linter], key: [behavior], value: [enable]
+(   0.018s) [languageServer  ]               config.h:276   | ChangeSetting: with scope: [linter], key: [includes], value: [/]
+(   0.018s) [languageServer  ]               config.h:276   | ChangeSetting: with scope: [editor], key: [hoverMode], value: [markDown]
+(   0.018s) [languageServer  ]               config.h:276   | ChangeSetting: with scope: [editor], key: [indexCache], value: [off]
+(   0.018s) [languageServer  ]               config.h:276   | ChangeSetting: with scope: [editor], key: [codeLens], value: [true]
+(   0.018s) [languageServer  ]               config.h:276   | ChangeSetting: with scope: [editor], key: [signatureHelp], value: [true]
+(   0.018s) [languageServer  ]               config.h:276   | ChangeSetting: with scope: [editor], key: [autocomplete], value: [LS]
+(   0.018s) [languageServer  ] msg_lsp_initialize_req:1494  | Client: Visual Studio Code version 1.99.3 - TDS Extension version 2.0.11
+(   0.018s) [languageServer  ]               config.h:276   | ChangeSetting: with scope: [extension], key: [tdsversion], value: [2.0.11]
+(   0.018s) [languageServer  ] msg_lsp_initialize_req:1813  | Loading workspace folders.
+(   0.023s) [languageServer  ]      message_handler.h:75    | < [initialize] (finish)  (0 ms)
+(   0.024s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method 'initialize'
+(   0.025s) [stdin           ]                 lsp.cc:174   | Calling allocator for method initialized
+(   0.025s) [stdin           ]                 lsp.cc:176   | ==== methodType: initialized
+(   0.025s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method 'initialized'
+(   0.025s) [languageServer  ]     dbcode_manager.cpp:40    | > [DBCodeManager::initializeCache] (start) Load cache from disk. Folder: ALL
+(   0.025s) [languageServer  ]     dbcode_manager.cpp:74    | < [DBCodeManager::initializeCache] (finish) Load cache from disk. Folder: ALL (0 ms)
+(   0.025s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method 'initialized'
+(3800.721s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(3800.722s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(3800.722s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(3800.722s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(3800.722s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4750.213s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4750.214s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4750.214s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4750.214s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4750.214s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4781.321s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4781.321s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4781.321s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4781.321s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4781.321s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4783.558s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4783.558s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4783.559s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4783.559s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4783.559s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4786.109s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4786.109s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4786.109s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4786.109s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4786.110s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4790.884s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4790.884s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4790.884s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4790.884s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4790.884s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4816.612s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4816.612s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4816.612s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4816.612s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4816.612s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4820.128s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4820.128s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4820.128s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4820.128s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4820.128s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4824.530s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4824.530s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4824.530s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4824.530s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4824.530s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4829.383s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4829.383s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4829.392s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4829.392s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4829.392s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4858.627s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4858.628s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4858.628s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4858.628s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4858.628s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4975.050s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4975.051s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4975.051s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4975.051s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4975.051s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4980.914s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4980.914s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4980.915s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4980.915s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4980.915s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4984.536s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4984.536s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4984.536s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4984.536s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4984.536s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4997.190s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4997.193s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4997.193s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4997.193s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4997.193s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(4999.161s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(4999.161s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(4999.161s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(4999.161s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(4999.161s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5074.630s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5074.631s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5074.631s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5074.631s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5074.631s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5085.580s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5085.580s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5085.580s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5085.580s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5085.580s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5086.738s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5086.740s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5086.744s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5086.745s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5086.745s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5108.819s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5108.820s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5108.820s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5108.820s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5108.820s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5116.349s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5116.349s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5116.349s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5116.349s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5116.349s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5121.640s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5121.640s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5121.640s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5121.640s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5121.640s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5123.150s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5123.151s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5123.151s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5123.151s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5123.151s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5126.631s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5126.631s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5126.632s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5126.632s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5126.632s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5131.159s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5131.159s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5131.159s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5131.159s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5131.159s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5223.021s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5223.022s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5223.022s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5223.022s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5223.022s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5226.853s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5226.853s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5226.855s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5226.855s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5226.855s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5228.165s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5228.165s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5228.166s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5228.166s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5228.166s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5236.842s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5236.842s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5236.848s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5236.848s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5236.848s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5243.064s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5243.064s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5243.064s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5243.064s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5243.065s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5244.077s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5244.077s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5244.078s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5244.078s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5244.078s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5245.434s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5245.434s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5245.435s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5245.435s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5245.435s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5248.228s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5248.229s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5248.229s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5248.229s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5248.229s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5251.288s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5251.288s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5251.288s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5251.288s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5251.288s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5257.028s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5257.028s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5257.028s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5257.028s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5257.028s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5262.421s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5262.421s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5262.422s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5262.422s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5262.422s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5267.665s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5267.666s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5267.666s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5267.666s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5267.666s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5271.378s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5271.378s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5271.379s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5271.379s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5271.379s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5277.942s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5277.942s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5277.943s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5277.944s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5277.944s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5280.705s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5280.705s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5280.705s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5280.705s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5280.705s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5334.002s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5334.003s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5334.003s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5334.003s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5334.004s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5362.301s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5362.301s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5362.304s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5362.304s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5362.304s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(5583.085s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(5583.085s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(5583.086s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(5583.086s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(5583.086s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(6075.842s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(6075.842s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(6075.842s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(6075.842s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(6075.842s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(6083.845s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(6083.845s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(6083.845s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(6083.845s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(6083.845s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(6098.820s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(6098.821s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(6098.821s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(6098.821s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(6098.821s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(6111.289s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(6111.290s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(6111.297s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(6111.297s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(6111.297s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'
+(6175.228s) [stdin           ]                 lsp.cc:174   | Calling allocator for method $/setTrace
+(6175.228s) [stdin           ]                 lsp.cc:176   | ==== methodType: $/setTrace
+(6175.229s) [languageServer  ]       queue_manager.cc:187   | Handler found for message method '$/setTrace'
+(6175.229s) [languageServer  ]   msg_lsp_set_trace.cc:25    | SetTrace notification received for verbose
+(6175.229s) [languageServer  ]       queue_manager.cc:195   | Run finishied message method '$/setTrace'

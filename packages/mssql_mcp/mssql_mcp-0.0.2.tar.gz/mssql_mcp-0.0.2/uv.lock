@@ -1,0 +1,23 @@
+version = 1
+revision = 1
+requires-python = ">=3.11"
+
+[[package]]
+name = "mssql-mcp"
+version = "0.0.1"
+source = { editable = "." }
+dependencies = [
+    { name = "python-tds" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "python-tds", specifier = ">=1.16.1" }]
+
+[[package]]
+name = "python-tds"
+version = "1.16.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/39/73/508c42421f7cd924d40024f6e011d8503b869364a5f1a89af4b86777d342/python_tds-1.16.1.tar.gz", hash = "sha256:4f27ded405fe288cf40c8a7f0241ed60562ba88c263b684204bab33d32f31be2", size = 80350 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3d/00/1defda3531974dd9957cbd372e76d091d83af9baf229615c7d55ebee6281/python_tds-1.16.1-py3-none-any.whl", hash = "sha256:3368cb7990be2e6cc5eb0f93fea6266218ab94122139e969956be1108527bb8d", size = 85049 },
+]
