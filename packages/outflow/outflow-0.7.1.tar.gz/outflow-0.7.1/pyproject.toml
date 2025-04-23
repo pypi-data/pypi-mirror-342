@@ -1,0 +1,77 @@
+[tool.poetry]
+name = "outflow"
+version = "0.7.1"
+description = "Outflow is a framework that helps you create and execute sequential, parallel as well as distributed task workflows."
+authors = ["Gregoire Duvauchelle <gregoire.duvauchelle@lam.fr>", "Sonny LION <sonny.lion@obspm.fr>", "ROC Team <roc.support@sympa.obspm.fr>"]
+readme = "README.md"
+license = "CECILL-C"
+homepage = "https://outflow.dev"
+repository = "https://gitlab.com/outflow-project/outflow"
+keywords = ["outflow", "pipeline", "distributed", "parallel", "workflow", "data science", "slurm"]
+classifiers = [
+    "Environment :: Console",
+    "Development Status :: 4 - Beta",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3 :: Only"
+]
+
+[tool.poetry.urls]
+"Documentation" = "https://docs.outflow.dev"
+"Tracker" = "https://gitlab.com/outflow-project/outflow/-/issues"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4"
+importlib-metadata = {version = "~4.8.1", python = "<3.8"}
+networkx = ">2.6"
+typeguard = "~2.12.1"
+cloudpickle = "^2.0.0"
+declic = ">=1.0.2"
+toml = "^0.10.1"
+sqlalchemy = "~1.4"
+alembic = "~1.6"
+psycopg2-binary = "~2.9.1"
+jinja2 = "^3.1.2"
+simple-slurm = "~0.2.2"
+typing-extensions = ">3.10.0.2"
+black = "~22.6.0"
+pytest = {version = "^6", optional = true}
+pytest-timeout = {version = "^1.4.2", optional = true}
+pytest-cov = {version = "^2.12.1", optional = true}
+pytest-postgresql = {version = "^2.6.1", optional = true}
+pyyaml = "^6"
+pyyaml-include = "^2.0"
+rich = ">10.13.0"
+ipython = {version = "^7.21.0", optional = true}
+
+[tool.poetry.dev-dependencies]
+pytest = "^6"
+pytest-cov = "^2.12.1"
+pytest-timeout = "^1.4.2"
+pre-commit = "^2.15"
+pytest-postgresql = "^2.6.1"
+
+[tool.poetry.extras]
+tests = ["pytest", "pytest-cov", "pytest-timeout", "pytest-postgresql", "ipython"]
+ipython = ["ipython"]
+
+
+[tool.black]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[build-system]
+requires = ["poetry>=1.1.8", "setuptools"]
+build-backend = "poetry.core.masonry.api"
