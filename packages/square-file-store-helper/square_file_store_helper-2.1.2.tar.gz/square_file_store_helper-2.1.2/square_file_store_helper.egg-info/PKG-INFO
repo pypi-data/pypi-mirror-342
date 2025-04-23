@@ -1,0 +1,73 @@
+Metadata-Version: 2.4
+Name: square_file_store_helper
+Version: 2.1.2
+Summary: helper to access the file store layer for my personal server.
+Home-page: https://github.com/thepmsquare/square_file_store_helper
+Author: thePmSquare
+Author-email: thepmsquare@gmail.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+Requires-Dist: requests>=2.31.0
+Requires-Dist: kiss_headers>=2.4.3
+Requires-Dist: square_commons>=2.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
+
+# square_file_store_helper
+
+## about
+
+helper to access the file store layer for my personal server.
+
+## installation
+
+```shell
+pip install square_file_store_helper
+```
+
+## usage
+
+[reference python file](./example/example.py)
+
+## env
+
+- python>=3.12.0
+
+## changelog
+
+### v2.1.2
+
+- bugfix in upload_file_using_file_path_v0 for filename and content type.
+
+### v2.1.1
+
+- bump square_commons to >=2.0.0.
+
+### v2.1.0
+
+- use make_request_json_output from square_commons to make requests.
+
+### v2.0.0
+
+- add versions to api endpoints.
+- standard output format.
+
+### v1.0.1
+
+- replace file_purpose with app_id.
+
+### v1.0.0
+
+- initial implementation.
+
+## Feedback is appreciated. Thank you!
