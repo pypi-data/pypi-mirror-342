@@ -1,0 +1,3 @@
+[console_scripts]
+ep = ErisPulse.__main__:main
+epsdk = ErisPulse.__main__:main
