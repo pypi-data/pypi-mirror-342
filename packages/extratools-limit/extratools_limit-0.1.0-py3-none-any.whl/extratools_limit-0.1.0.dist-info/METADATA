@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: extratools-limit
+Version: 0.1.0
+Project-URL: Repository, https://github.com/chuanconggao/extratools-limit
+Author-email: Chuancong Gao <chuanconggao@users.noreply.github.com>
+License-Expression: MIT
+License-File: LICENSE
+Requires-Python: >=3.12
+Requires-Dist: extratools-core>=0.1.9
