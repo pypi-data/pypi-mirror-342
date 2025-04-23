@@ -1,0 +1,5 @@
+from .velocity_magnitude_inlet_ import VelocityMagnitudeInlet
+from .total_pressure_inlet_ import TotalPressureInlet
+from .mass_flow_inlet_ import MassFlowInlet
+from .fan_curve_inlet_ import FanCurveInlet
+from .velocity_components_inlet_ import VelocityComponentsInlet
