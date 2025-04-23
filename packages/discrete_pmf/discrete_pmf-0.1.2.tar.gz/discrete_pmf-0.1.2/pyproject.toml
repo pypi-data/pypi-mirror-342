@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "discrete_pmf"
+version = "0.1.2"
+description = "Compute and plot PMFs for Binomial, Geometric, Negative Binomial and Poisson distributions."
+authors = ["Nana-Ansah-Adomako <nanaadomakoansah@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+matplotlib = "^3.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
