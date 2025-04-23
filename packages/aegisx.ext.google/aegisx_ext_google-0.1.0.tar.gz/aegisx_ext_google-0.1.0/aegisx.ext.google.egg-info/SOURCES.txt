@@ -1,0 +1,16 @@
+MANIFEST.in
+VERSION
+setup.py
+aegisx.ext.google.egg-info/PKG-INFO
+aegisx.ext.google.egg-info/SOURCES.txt
+aegisx.ext.google.egg-info/dependency_links.txt
+aegisx.ext.google.egg-info/requires.txt
+aegisx.ext.google.egg-info/top_level.txt
+aegisx/ext/google/__init__.py
+aegisx/ext/google/credentials.py
+aegisx/ext/google/package.json
+aegisx/ext/google/auth/__init__.py
+aegisx/ext/google/auth/_serviceaccount.py
+aegisx/ext/google/models/__init__.py
+aegisx/ext/google/models/_serviceaccounttoken.py
+aegisx/ext/google/security/_googleserviceaccountbearer.py

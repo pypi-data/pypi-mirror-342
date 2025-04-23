@@ -1,0 +1,14 @@
+aegisx.ext.jose>=0.1.0
+aegisx.ext.oauth>=0.0.4
+fastapi
+httpx
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-cloud-iam
+
+[develop]
+aegisx.ext.iam
+pytest
+pytest_asyncio
+coverage
