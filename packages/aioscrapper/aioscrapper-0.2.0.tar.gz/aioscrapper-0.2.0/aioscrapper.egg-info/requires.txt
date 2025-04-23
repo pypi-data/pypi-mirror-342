@@ -1,0 +1,14 @@
+aiohttp[speedups]~=3.11.16
+aiojobs~=1.4.0
+
+[dev]
+flake8~=7.1.2
+black~=25.1.0
+pyright~=1.1.399
+aiohttp[speedups]~=3.11.16
+aiojobs~=1.4.0
+
+[test]
+pytest~=8.3.5
+pytest-asyncio~=0.26.0
+aresponses~=3.0.0
