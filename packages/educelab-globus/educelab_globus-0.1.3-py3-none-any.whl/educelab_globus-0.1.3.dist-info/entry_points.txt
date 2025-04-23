@@ -1,0 +1,4 @@
+[console_scripts]
+el-globus-config = educelab.globus.config:main
+el-globus-cp = educelab.globus.cp.main:main
+el-globus-login = educelab.globus.login:main

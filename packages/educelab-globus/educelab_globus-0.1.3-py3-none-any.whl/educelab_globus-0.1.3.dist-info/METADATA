@@ -1,0 +1,68 @@
+Metadata-Version: 2.4
+Name: educelab-globus
+Version: 0.1.3
+Summary: EduceLab Globus module
+Home-page: https://gitlab.com/educelab/educelab-globus
+Download-URL: https://gitlab.com/educelab/educelab-globus
+Author: Seth Parker
+Author-email: c.seth.parker@uky.edu
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: NOTICE
+Requires-Dist: globus-sdk>=3.46
+Requires-Dist: prompt-toolkit
+Requires-Dist: tomli; python_version < "3.11"
+Dynamic: download-url
+Dynamic: license-file
+
+# EduceLab Globus
+
+`educelab-globus` is a Python module for logging into and interacting with 
+Globus endpoints.
+
+## Requirements
+- Python 3.10+
+- globus-sdk 3.46+ 
+- prompt-toolkit
+
+## Installation
+This project is available on PyPI:
+
+```shell
+python3 -m pip install educelab-globus
+```
+
+## Usage
+
+### Configuration files
+Named Globus endpoints are specified in `~/.globuscp/config.toml`. The config 
+file has a simple format which is similar to that of `rclone`:
+```toml
+[endpoint-name]
+uuid = "16fd2706-8baf-433b-82eb-8c7fada847da"
+basedir = "/absolute/path/to/default/directory/"
+```
+
+**Note:** At the moment, `el-globus-cp` only supports transfers between the 
+`basedir` of two endpoints. This is expected to change in future releases.
+
+### Utilities
+
+```bash
+# List the endpoints stored in configuration file
+el-globus-config
+
+# Login to Globus and get access tokens for endpoints
+# Tokens are stored in ~/.globuscp/tokenstore.json
+el-globus-login
+
+# Initiate a transfer between the base directories of two Globus endpoints
+el-globus-cp
+```
