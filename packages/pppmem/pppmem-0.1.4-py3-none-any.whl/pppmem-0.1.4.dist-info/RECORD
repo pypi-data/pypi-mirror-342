@@ -1,0 +1,9 @@
+pmem/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pmem/async_pmem.py,sha256=yZ2yqIdUWMQ1rk3guiTEFG9_S4Ph83bDPOA4Nh3rPrA,5020
+pmem/pickle_memory.py,sha256=qdgDDKt-l233NoWEW0-i_zrFxMUxytNbpW85W2cbEKQ,6818
+pmem/sqlite_memory2.py,sha256=55YFgXW1BVzJmiP4is_uIpN5O4m9j-zPfZuSOUQ1c1o,4233
+pmem/sync_pmem.py,sha256=MMa3iEIdExJZqlSVMRmzQ16DTV4r8Ayb9dql4GrDdDE,3668
+pppmem-0.1.4.dist-info/METADATA,sha256=4xSZst7ul9UVtsFag5j-xxxdHa7eFfkY-3mbIQ-84eU,777
+pppmem-0.1.4.dist-info/WHEEL,sha256=P9jw-gEje8ByB7_hXoICnHtVCrEwMQh-630tKvQWehc,91
+pppmem-0.1.4.dist-info/top_level.txt,sha256=cvc4dOeOkfwzu2xtrtBHwYh8gUZdZi77XEYx1aQR4Zk,5
+pppmem-0.1.4.dist-info/RECORD,,
