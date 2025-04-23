@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: keisukemiyamotopypi
+Version: 0.2.0
+Summary: A simple NumPy-based statistics utility
+Author-email: Keisuke0727 <aichiboyhighschool@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/yourusername/mystats
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+
+This is a test.
