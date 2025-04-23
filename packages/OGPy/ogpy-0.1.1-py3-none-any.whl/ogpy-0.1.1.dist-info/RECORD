@@ -1,0 +1,13 @@
+ogpy/__init__.py,sha256=nxAfI9OFfEXevxe8Z3UnKB9SbVLNdtNjf1qyS-fHx1E,46
+ogpy/client.py,sha256=oXCLpi7DXU6W9y4bb6CkY85jbkhHAh-Fyinx09VX3WQ,1401
+ogpy/console.py,sha256=m-UaB_HrO_mIWGhDzmAB_0SUzP2Ska0_LJmf0J5sJwg,2122
+ogpy/parser.py,sha256=Auab0b7yHK28pjLn71YOuGMb6ZLksMQ8y1jnwaPY6RI,1854
+ogpy/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ogpy/types.py,sha256=77RvS1WjjpAP4JoJOuQ1czLw_nOEAF85fT4zTjI62I0,1529
+ogpy/adapters/__init__.py,sha256=vTs-L3Xhu2K0ptBolc6HiJqm4fa-ESj90RHLWY_zCzw,24
+ogpy/adapters/sphinx.py,sha256=6jDWanj_3PbqmbbRjve2BGKOjTtkI1Fi5d8X1PudTNw,3042
+ogpy-0.1.1.dist-info/METADATA,sha256=ln5IE8XU6CSyjduEkRpA8YW0KMkQm1m_P9tAmjxrEjQ,1893
+ogpy-0.1.1.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+ogpy-0.1.1.dist-info/entry_points.txt,sha256=LCunmstb99SqSov__x4ptqpaH_tto8YPKUM6hCWjl7Q,43
+ogpy-0.1.1.dist-info/licenses/LICENSE,sha256=z8d0m5b2O9McPEK1xHG_dWgUBT6EfBDz6wA0F7xSPTA,11358
+ogpy-0.1.1.dist-info/RECORD,,
