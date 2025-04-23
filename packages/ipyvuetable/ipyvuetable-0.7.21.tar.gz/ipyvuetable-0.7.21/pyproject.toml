@@ -1,0 +1,57 @@
+
+[project]
+name = "ipyvuetable"
+version = "0.7.21"
+description = "Table widget for Jupyter Notebook and JupyterLab"
+authors = [
+  { name = "Gabriel Robin" }
+]
+urls = {"Homepage" = "https://github.com/gab23r/ipyvuetable"}
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = [
+  "ipyvuetify",
+  "polars",
+
+]
+requires-python = ">=3.10"
+
+[dependency-groups]
+dev = [
+    "jupyterlab>=4.3.6",
+    "ruff>=0.8.4",
+    "pre-commit>=4.2.0",
+    "pre-commit-hooks>=5.0.0",
+]
+
+
+[project.optional-dependencies]
+ipyevents = ["ipyevents"]
+
+
+[tool.hatch.build]
+include = ["**/*.py", "custom.css"]
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle errors
+    "F", # Pyflakes
+    "W", # pycodestyle warnings
+    "A", # flake8-builtins
+    "PLC", "PLE", "PLW", # Pylint
+    "PTH", # flake8-use-pathlib
+    "FURB", # refurb
+    "RUF", # RUF
+    "I", # isort
+]
+ignore = [
+    "E501" # Line too long
+]
