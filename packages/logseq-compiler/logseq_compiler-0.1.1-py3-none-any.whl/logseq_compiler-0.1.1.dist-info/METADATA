@@ -1,0 +1,15 @@
+Metadata-Version: 2.3
+Name: logseq-compiler
+Version: 0.1.1
+Summary: Convert Logseq JSON exports into Hugo-compatible Markdown.
+Author: Deniz Aydemir
+Author-email: deniz@aydemir.us
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: pyyaml (>=6.0,<7.0)
