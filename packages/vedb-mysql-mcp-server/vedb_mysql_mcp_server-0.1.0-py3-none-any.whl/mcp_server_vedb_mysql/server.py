@@ -1,0 +1,202 @@
+#!/usr/bin/env python3
+import argparse
+import logging
+import os
+from typing import Dict, Optional, Final, Any
+
+import volcenginesdkcore
+import volcenginesdkvedbm
+
+from mcp_server_vedb_mysql.config import load_config
+from mcp.server.fastmcp import FastMCP
+
+
+openapi_cli = None
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    filename="/tmp/mcp.vedbmysql.log"
+)
+logger = logging.getLogger(__name__)
+
+# Create MCP server
+mcp = FastMCP("VeDB MySQL MCP Server", port=int(os.getenv("PORT", "8000")))
+
+
+@mcp.tool(
+    description="Retrieve a list of all VeDB MySQL instances for the user, including a batch of instance IDs and basic information",
+)
+def list_vedb_mysql_instances(
+    # query: Optional[str] = None
+) -> dict[str, Any]:
+    logger.info(f"list_vedb_mysql_instances")
+    batch_size: Final = 100
+
+    req = volcenginesdkvedbm.models.DescribeDBInstancesRequest(
+        page_size=batch_size,
+        page_number=1,
+    )
+    rsp = volcenginesdkvedbm.models.DescribeDBInstancesResponse(instances=[])
+
+    try:
+        while True:
+            rsp_page = openapi_cli.describe_db_instances(req)
+            rsp.instances.extend(rsp_page.instances)
+            if len(rsp_page.instances) < batch_size:
+                break
+            req.page_number += 1
+
+        rsp.total = len(rsp.instances)
+        return rsp.to_dict()
+
+    except Exception as e:
+        logger.error(f"Error in describe: {str(e)}")
+        return {"error": str(e)}
+
+
+@mcp.tool(
+    description="Retrieve detailed information about a specific VeDB MySQL instance",
+)
+def describe_vedb_mysql_detail(
+    instance_id: str
+) -> dict[str, Any]:
+    logger.info("describe_vedb_mysql_detail")
+
+    req = volcenginesdkvedbm.models.DescribeDBInstanceDetailRequest(instance_id=instance_id)
+    try:
+        rsp = openapi_cli.describe_db_instance_detail(req)
+        return rsp.to_dict()
+
+    except Exception as e:
+        logger.error(f"Error in describe: {str(e)}")
+        return {"error": str(e)}
+
+
+@mcp.tool(
+    description="Retrieve a list of databases created in a specific VeDB MySQL instance, including privileges info",
+)
+def list_vedb_mysql_instance_databases(
+        instance_id: str
+) -> dict[str, Any]:
+    logger.info("list_vedb_mysql_instance_databases")
+    batch_size: Final = 100
+
+    req = volcenginesdkvedbm.models.DescribeDatabasesRequest(
+        instance_id=instance_id,
+        page_size=batch_size,
+        page_number=1,
+    )
+    rsp = volcenginesdkvedbm.models.DescribeDatabasesResponse(databases=[])
+
+    try:
+        while True:
+            rsp_page = openapi_cli.describe_databases(req)
+            rsp.databases.extend(rsp_page.databases)
+            if len(rsp_page.databases) < batch_size:
+                break
+            req.page_number += 1
+
+        rsp.total = len(rsp.databases)
+        return rsp.to_dict()
+
+    except Exception as e:
+        logger.error(f"Error in describe: {str(e)}")
+        return {"error": str(e)}
+
+
+@mcp.tool(
+    description="Obtain a list of accounts in a single VeDB MySQL instance, with their privilege details",
+)
+def list_vedb_mysql_instance_accounts(
+    instance_id: str
+) -> dict[str, Any]:
+    logger.info("list_vedb_mysql_instance_accounts")
+    batch_size: Final = 100
+
+    req = volcenginesdkvedbm.models.DescribeDBAccountsRequest(
+        instance_id=instance_id,
+        page_size=batch_size,
+        page_number=1,
+    )
+    rsp = volcenginesdkvedbm.models.DescribeDBAccountsResponse(accounts=[])
+
+    try:
+        while True:
+            rsp_page = openapi_cli.describe_db_accounts(req)
+            rsp.accounts.extend(rsp_page.accounts)
+            if len(rsp_page.accounts) < batch_size:
+                break
+            req.page_number += 1
+
+        rsp.total = len(rsp.accounts)
+        return rsp.to_dict()
+
+    except Exception as e:
+        logger.error(f"Error in describe: {str(e)}")
+        return {"error": str(e)}
+
+
+@mcp.tool(
+    description="Modify a specific VeDB MySQL instance's alias",
+)
+def modify_vedb_mysql_instance_alias(
+        instance_id: str, new_alias: str
+) -> dict[str, Any]:
+    logger.info("modify_vedb_mysql_instance_alias")
+
+    req = volcenginesdkvedbm.models.ModifyDBInstanceNameRequest(
+        instance_id=instance_id,
+        instance_new_name=new_alias,
+    )
+
+    try:
+        openapi_cli.modify_db_instance_name(req)
+        return {"success": "true"}
+
+    except Exception as e:
+        logger.error(f"Error in describe: {str(e)}")
+        return {"error": str(e)}
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Run the VeDB MySQL MCP Server")
+    parser.add_argument("--config", "-c", help="Path to config file")  # 新增config参数
+    parser.add_argument("--transport", "-t", choices=["sse", "stdio"], default="stdio")
+    
+    args = parser.parse_args()
+    try:
+        # 修改配置加载方式
+        if args.config:
+            config = load_config(args.config)
+        else:
+            config = load_config()
+        # Initialize VeDB MySQL service
+        logger.info(
+            f"Initialized VeDB MySQL Base service"
+        )
+
+        # Initialize SDK
+        configuration = volcenginesdkcore.Configuration()
+        configuration.host = config.endpoint
+        configuration.region = config.region
+        configuration.ak = config.access_key_id
+        configuration.sk = config.access_key_secret
+        configuration.zone = config.zone
+
+        global openapi_cli
+        volcenginesdkcore.Configuration.set_default(configuration)
+        openapi_cli = volcenginesdkvedbm.VEDBMApi()
+
+        # Run the MCP server
+        logger.info(
+            f"Starting VeDB MySQL MCP Server with {args.transport} transport"
+        )
+        mcp.run(transport=args.transport)
+    except Exception as e:
+        logger.error(f"Error starting VeDB MySQL MCP Server: {str(e)}")
+        raise
+
+
+if __name__ == "__main__":
+    main()
