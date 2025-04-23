@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: vsa_explainer
+Version: 0.1.0
+Summary: Visualize and explain RDKit VSA descriptor contributions
+Author: Srijit Seal
+Author-email: seal@understanding.bio
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Requires-Dist: numpy>=1.18
+Requires-Dist: matplotlib>=3.0
+Requires-Dist: rdkit
+Requires-Dist: ipython
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: license
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
