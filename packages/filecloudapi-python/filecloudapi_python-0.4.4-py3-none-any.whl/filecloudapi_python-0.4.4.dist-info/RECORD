@@ -1,0 +1,13 @@
+filecloudapi/__init__.py,sha256=pVXCBWQipLBGuPZ_8zgIdEVmmS5mCOlS_SaKiWBCZzA,287
+filecloudapi/__main__.py,sha256=TPQIWuApvB7-tTkJLeHuZmuk48TFQSz7BxQ7hhcB-N0,238
+filecloudapi/cli.py,sha256=u9-6aOJpqrrHGcOdQ2BswTklktVYDe-Ft9erdcW5fos,2422
+filecloudapi/datastructures.py,sha256=rspuOm9e3QpOct_PUyd8ZtIqHpasoSGdCfBQf7rgbFI,5996
+filecloudapi/exceptions.py,sha256=vYwrYYaCQ761hk65FiQUny16ixHKqibibtyQLFOqvLw,342
+filecloudapi/fcserver.py,sha256=yC-iq_V-iH-Lp902arC-9k7lLccwFqp9_2QNywWelog,76742
+filecloudapi/tests/__init__.py,sha256=ZyEOLTQW-qbq_kNm70xQdWDkLlLT30EsJKyO5C83HiQ,87
+filecloudapi/tests/conftest.py,sha256=BELmGTDzm_OOxxwM4z0mdhLzKJBD8xKpufpsXTsYZRc,320
+filecloudapi/tests/test_fcserver.py,sha256=uvANNKOKT0fOm3ZtIuap-fucHFJeRiF8cAtrprXDaSI,81
+filecloudapi_python-0.4.4.dist-info/LICENSE.md,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+filecloudapi_python-0.4.4.dist-info/METADATA,sha256=SQ9NrlAWxZ18sb2HC-WbqWFLJM18YBd9OeHPX4VGRHA,2692
+filecloudapi_python-0.4.4.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+filecloudapi_python-0.4.4.dist-info/RECORD,,
