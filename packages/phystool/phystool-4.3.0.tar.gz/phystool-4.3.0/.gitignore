@@ -1,0 +1,10 @@
+__pycache__
+dist/
+docs/build/
+docs/source/apidocs
+*.aux
+*.log
+*.log.?
+*.pdf
+*.pkl
+1_tags.json
