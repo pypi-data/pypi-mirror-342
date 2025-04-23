@@ -1,0 +1,16 @@
+{
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "cSpell.words": [
+        "Cyclopedidae",
+        "didactylus",
+        "dotenv",
+        "Palaeomyrmidon",
+        "pickledb",
+        "quickdb",
+        "uptype"
+    ]
+}
