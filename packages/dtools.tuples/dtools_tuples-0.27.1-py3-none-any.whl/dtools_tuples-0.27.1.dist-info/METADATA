@@ -1,0 +1,60 @@
+Metadata-Version: 2.4
+Name: dtools.tuples
+Version: 0.27.1
+Summary: ### Developer Tools - Tuple-like data structures
+Keywords: tuple,functional,ftuple,FTuple
+Author-email: "Geoffrey R. Scheller" <geoffrey@scheller.com>
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Typing :: Typed
+License-File: LICENSE
+Requires-Dist: dtools.fp >= 1.7.0, < 1.8
+Requires-Dist: pytest >=8.3.5 ; extra == "test"
+Requires-Dist: dtools.queues >=1.0.0, < 1.1 ; extra == "test"
+Requires-Dist: dtools.splitends >=0.28.0, < 0.29 ; extra == "test"
+Project-URL: Changelog, https://github.com/grscheller/dtools-tuples/blob/main/CHANGELOG.md
+Project-URL: Documentation, https://grscheller.github.io/dtools-docs/tuples
+Project-URL: Source, https://github.com/grscheller/dtools-tuples
+Provides-Extra: test
+
+# Developer Tools - tuple based data structures
+
+Python package containing modules implementing queue-like data
+structures.
+
+- **Repositories**
+  - [dtools.tuples][1] project on *PyPI*
+  - [Source code][2] on *GitHub*
+- **Detailed documentation**
+  - [Detailed API documentation][3] on *GH-Pages*
+
+This project is part of the
+[Developer Tools for Python][4] **dtools.** namespace project.
+
+## Overview
+
+Tuple-based data structures.
+
+### Functional Tuples
+
+Data structures wrapping a Python tuple giving it a functional
+interface.
+
+- *module* `dtools.tuples.ftuples`
+  - *class* FTuple: Functional Tuple
+    - immutable tuple-like data structure
+    - with a functional interface
+
+______________________________________________________________________
+
+[1]: https://pypi.org/project/dtools.tuples/
+[2]: https://github.com/grscheller/dtools-tuples/
+[3]: https://grscheller.github.io/dtools-docs/tuples/
+[4]: https://github.com/grscheller/dtools-docs
+
