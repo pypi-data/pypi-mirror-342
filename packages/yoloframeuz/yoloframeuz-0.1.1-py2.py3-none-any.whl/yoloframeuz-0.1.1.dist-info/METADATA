@@ -1,0 +1,65 @@
+Metadata-Version: 2.4
+Name: yoloframeuz
+Version: 0.1.1
+Summary: Test yoloframeuz.
+Home-page: https://github.com/murodalidev/yolo-app
+Author: Murodali Narzullayev
+Author-email: murodalinarzullaevofficial@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.12.0
+Description-Content-Type: text/markdown
+Requires-Dist: gunicorn==23.0.0
+Requires-Dist: parse==1.20.2
+Requires-Dist: pytest==8.3.5
+Requires-Dist: WebOb==1.8.9
+Requires-Dist: requests-wsgi-adapter==0.4.1
+Requires-Dist: pytest-cov==6.1.1
+Requires-Dist: jinja2==3.1.6
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+# Run code via `gunicorn`
+```shell
+gunicorn main.app
+```
+
+## Windows uchun `gunicorn` orniga `waitress` install qilinadi
+```shell
+waitress-serve --host 127.0.0.1 --port 8000 main:app
+```
+
+## Testlarni ishlatish uchun
+```shell
+pytest test_app.py
+```
+
+## Kodning qancha qismi testlanganini bilish uchun quyidagi buyruqni yuriting
+```shell
+pytest --cov=. test_app.py 
+```
+
+
+## PyPi'ga upload qilish uchun `twine` dan foydalanamiz
+
+```shell
+python setup.py sdist bdist_wheel --universal
+
+twine check dist/*
+
+twine upload dist/*
+```
