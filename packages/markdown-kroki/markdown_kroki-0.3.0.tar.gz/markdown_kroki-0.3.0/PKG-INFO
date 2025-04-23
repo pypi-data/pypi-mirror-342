@@ -1,0 +1,153 @@
+Metadata-Version: 2.4
+Name: markdown-kroki
+Version: 0.3.0
+Summary: Diagram extension for Python-Markdown using Kroki server.
+Project-URL: Homepage, https://github.com/hkato/markdown-kroki
+Project-URL: Documentation, https://hkato.github.io/markdown-kroki/
+Project-URL: Repository, https://github.com/hkato/markdown-kroki
+Project-URL: Issues, https://github.com/hkato/markdown-kroki/issues
+Project-URL: Changelog, https://github.com/hkato/markdown-kroki/blob/main/CHANGELOG.md
+Author-email: Hideyuki KATO <hideyuki@kato.jp>
+License-Expression: MIT
+License-File: LICENSE
+Keywords: diagram,markdown,mermaid,mkdocs,plantuml
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Documentation
+Requires-Python: >=3.9
+Requires-Dist: markdown>=3.8
+Requires-Dist: requests>=2.32.3
+Description-Content-Type: text/markdown
+
+# [markdown-kroki](https://hkato.github.io/markdown-kroki/)
+
+[![PyPI version](https://img.shields.io/pypi/v/markdown-kroki)](https://pypi.org/project/markdown-kroki/)
+![License](https://img.shields.io/pypi/l/markdown-kroki)
+![Python versions](https://img.shields.io/pypi/pyversions/markdown-kroki)
+
+Diagram extension for [Python-Markdown][python-markdown] using [Kroki server][kuroki].
+
+This extension converts various diagram code blocks into Base64 encoded [data: URI][data-uri] or direct image link.
+This enables PDF generation with tools like [MkDocs to PDF][mkdocs-to-pdf]/[WeasyPrint][wasyprint]
+without requiring JavaScript(e.g. [Mermaid][mermaid])
+
+## Install
+
+```sh
+pip install markdown-kroki
+```
+
+## Requirements
+
+### Internet access to the public Kroki server
+
+Default setting with no options.
+
+### Self-Managed Kroki server (recommended)
+
+Here is a sample Docker Compose file.
+
+ref. Kroki.io > [Install](https://kroki.io/#install) > [Using Docker or Podman](https://docs.kroki.io/kroki/setup/use-docker-or-podman/)
+
+```sh
+docker compose up -d
+```
+
+> The default port used by MkDocs (`mkdocs serve`) may conflict with the default
+> port of a Dockerized Kroki instance.
+> Consequently, you will need to change the port configuration for one of them.
+
+## Usage
+
+````md
+```{diagram language} formant=[svg|png] {img tag attribute}="value" {diagram option}="value"
+```
+````
+
+- format (optional): Output image format default to svg
+- img tag attribute (optional): alt, width, height, class, id, style, title
+- diagram option (optional): refer to [Diagram options](https://docs.kroki.io/kroki/setup/diagram-options/)
+
+### [MkDocs][mkdocs] Integration
+
+```yaml
+# mkdocs.yml
+markdown_extensions:
+  - markdown_kroki:
+      kroki_url: http://localhost:18000  # default: https://kroki.io
+      img_src: link                      # default: data/data URI, link/direct link
+```
+
+### [Pelican][pelican] Integration
+
+```py
+# pelicanconf.py
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown_kroki': {                         # Add these
+            'kroki_url': 'http://localhost:18000',
+            'img_src': 'link'
+        },
+    },
+    'output_format': 'html5',
+}
+```
+
+### Python code
+
+````python
+import markdown
+from markdown_kroki import KrokiDiagramExtension
+
+markdown_text = """```plantuml format="svg" theme="sketchy-outline" width="300"
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+@enduml
+```"""
+
+html_output = markdown.markdown(markdown_text, extensions=[
+                                KrokiDiagramExtension(kroki_url='https://kroki.io')])
+
+print(html_output)
+````
+
+```html
+<p><img src="data:image/svg+xml;base64,PHN2ZyBhcmlhLXJvbGVkZXNjcmlwdGlvbj0ic2VxdWVuY2UiIHJvbGU
+9ImdyYXBoaWNzLWRvY3VtZW50IGRvY3VtZW50IiB2aWV3Qm94PSItNTAgLTEwIDc1MCA1NzQiIHN0eWxlPSJtYXgtd2lkd
+Gg6IDc1MHB4OyBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTsiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk
+...
+...
+...
+IHgxPSIyNzYiLz48L3N2Zz4=" width="300" ></p>
+```
+
+## Process flow
+
+### data URI
+
+![Process flow data](process_flow_diagram_data.svg)
+
+### Direct link (GET API)
+
+![Process flow link](process_flow_diagram_link.svg)
+
+<!-- Links -->
+
+[python-markdown]: https://python-markdown.github.io/
+[kuroki]: https://kroki.io/
+[data-uri]: https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/data
+[mkdocs-to-pdf]: https://mkdocs-to-pdf.readthedocs.io/
+[wasyprint]: https://weasyprint.org/
+[mermaid]: https://mermaid.js.org/
+[mkdocs]: https://www.mkdocs.org/
+[pelican]: https://getpelican.com/

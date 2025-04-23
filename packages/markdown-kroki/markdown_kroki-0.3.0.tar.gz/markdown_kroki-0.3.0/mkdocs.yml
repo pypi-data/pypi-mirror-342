@@ -1,0 +1,35 @@
+site_name: Diagram extension for Python-Markdown using Kroki
+site_author: Hideyuki KATO
+repo_url: https://github.com/hkato/markdown-kroki
+repo_name: hkato/markdown-kroki
+copyright: Copyright © 2025 Hideyuki KATO
+
+theme:
+  name: material
+  palette:
+    primary: black
+  icon:
+    logo: fontawesome/solid/chart-diagram
+  features:
+    - navigation.tabs
+    - navigation.footer
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+markdown_extensions: 
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - markdown_kroki:
+      # kroki_url: https://kroki.io
+      # img_src: link
+      kroki_url: http://localhost:18000
+      img_src: data
+
+plugins:
+  - search
+  - to-pdf:
+      cover_title: Diagram extension for Python-Markdown
+      cover_subtitle: using Kroki
+      download_link: header

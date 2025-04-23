@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "markdown-kroki"
+version = "0.3.0"
+dependencies = [
+    "markdown>=3.8",
+    "requests>=2.32.3"
+]
+requires-python = ">=3.9"
+authors = [
+    { name = "Hideyuki KATO", email = "hideyuki@kato.jp" }
+]
+description = "Diagram extension for Python-Markdown using Kroki server."
+readme = "README.md"
+license = "MIT"
+keywords = ["markdown", "mkdocs", "diagram", "plantuml", "mermaid"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Documentation",
+    "Topic :: Software Development :: Documentation",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Homepage = "https://github.com/hkato/markdown-kroki"
+Documentation = "https://hkato.github.io/markdown-kroki/"
+Repository = "https://github.com/hkato/markdown-kroki"
+Issues = "https://github.com/hkato/markdown-kroki/issues"
+Changelog = "https://github.com/hkato/markdown-kroki/blob/main/CHANGELOG.md"
+
+[dependency-groups]
+dev = [
+    "mkdocs-material>=9.6.11",
+    "mkdocs-to-pdf>=0.10.0",
+    "pymdown-extensions>=10.14.3",
+    "types-markdown>=3.8.0.20250415",
+    "types-requests>=2.32.0.20250328",
+]
+
+[tool.ruff]
+line-length = 119
+[tool.ruff.format]
+quote-style = "single"
