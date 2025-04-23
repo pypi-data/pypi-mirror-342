@@ -1,0 +1,3 @@
+[console_scripts]
+energymeter2mqtt_app = energymeter2mqtt.__main__:main
+energymeter2mqtt_dev = energymeter2mqtt.cli_dev:main
