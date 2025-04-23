@@ -1,0 +1,6 @@
+requests>=2.25
+
+[dev]
+build
+twine
+pytest
