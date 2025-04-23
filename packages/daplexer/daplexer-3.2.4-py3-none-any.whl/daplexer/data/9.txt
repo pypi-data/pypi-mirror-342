@@ -1,0 +1,30 @@
+#EX-9-Word2Vec-Distribution
+!pip install numpy --upgrade  # Upgrade NumPy
+!pip install gensim==4.3.1 --force-reinstall  # Force reinstall Gensim
+
+import nltk
+nltk.download('punkt_tab')
+
+from gensim.models import Word2Vec
+import nltk
+from nltk.tokenize import word_tokenize
+
+sentences = [ 'Kumar loves working with data',
+    'Machine learning fascinates Kumar',
+    'Kumar enjoys deep learning and neural networks',
+    'In his free time, Kumar reads about AI research',
+    'Kumar is building models using PyTorch']
+
+tokenized_sentences = [word_tokenize(sentence.lower()) for sentence in sentences]
+tokenized_sentences
+model = Word2Vec(
+    sentences=tokenized_sentences,
+    vector_size=100,
+    window=5,
+    min_count=1,
+)
+
+model.wv['kumar'][:6]
+
+similar_words = model.wv.most_similar("kumar", topn=5)
+similar_words

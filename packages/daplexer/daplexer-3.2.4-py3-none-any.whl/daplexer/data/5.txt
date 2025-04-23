@@ -1,0 +1,82 @@
+#HMM - Forward and backward algo
+-------------------------------
+import numpy as np
+
+def forward(transition,initial,emmision,target):
+    M = len(target)
+    N = initial.shape[0]
+    alpha = np.zeros((M, N))
+    alpha[0, :] = initial * emmision[:,target[0]]
+    for t in range(1, M):
+        for j in range(N):
+            for i in range(N):
+                alpha[t, j] += alpha[t-1, i] * transition[i, j] * emmision[j, target[t]]
+    return np.sum(alpha[M-1,:])  
+
+
+def backward(transition, initial, emission, target):
+    M = len(target)
+    N = initial.shape[0]
+    beta = np.zeros((M, N))
+    beta[M-1, :] = 1
+    for t in range(M-2, -1, -1):
+        for i in range(N):
+            for j in range(N):
+                beta[t, i] += transition[i, j] * emission[j, target[t+1]] * beta[t+1, j]
+    prob = np.sum(initial * emission[:, target[0]] * beta[0, :])
+    return prob
+
+def main():
+    states = 0, 1 
+    observations = [2, 0, 2]
+    # Transition Probabilities
+    A = np.array([[0.5, 0.5], [0.4, 0.6]])
+    # Initial Probabilities
+    pi = np.array([0.2,0.8])
+    # Emmision Probabilities
+    B = np.array([[0.5, 0.4, 0.1], [0.2, 0.4, 0.4]])
+    forwardprob = forward(A, pi, B, observations)
+    print("Probability of the observed sequence in forward markov model is: ", forwardprob)
+    backward_prob = backward(A, pi, B, observations)
+    print("Probability of the observed sequence in backward Markov model is: ", backward_prob)
+if __name__ == "__main__":
+    main()
+
+import math
+def forwardmath(transition, initial, emission, target):
+    M = len(target)
+    N = len(initial)
+    alpha = [[0] * N for _ in range(M)]
+    for j in range(N):
+        alpha[0][j] = initial[j] * emission[j][target[0]]
+    for t in range(1, M):
+        for j in range(N):
+            for i in range(N):
+                alpha[t][j] += alpha[t-1][i] * transition[i][j] * emission[j][target[t]]
+    return sum(alpha[M-1])
+
+def backwardmath(transition, initial, emission, target):
+    M = len(target)
+    N = len(initial)
+    beta = [[0] * N for _ in range(M)]
+    for i in range(N):
+        beta[M-1][i] = 1
+    for t in range(M-2, -1, -1):
+        for i in range(N):
+            for j in range(N):
+                beta[t][i] += transition[i][j] * emission[j][target[t+1]] * beta[t+1][j]
+    prob = sum(initial[i] * emission[i][target[0]] * beta[0][i] for i in range(N))
+    return prob
+
+def main():
+    states = [0, 1]
+    observations = [3, 0, 2, 1]
+    A = [[0.8, 0.2], [0.4, 0.6]]
+    pi = [0.6, 0.4]
+    B = [[0.1, 0.3, 0.2, 0.4], [0.45, 0.05, 0.2, 0.3]]
+    forward_prob = forwardmath(A, pi, B, observations)
+    print("Probability of the observed sequence in forward Markov model is: ", forward_prob)
+    backward_prob = backwardmath(A, pi, B, observations)
+    print("Probability of the observed sequence in backward Markov model is: ", backward_prob)
+if __name__ == "__main__":
+    main()

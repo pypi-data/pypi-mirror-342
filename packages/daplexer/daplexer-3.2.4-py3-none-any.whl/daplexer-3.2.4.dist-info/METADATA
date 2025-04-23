@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: daplexer
+Version: 3.2.4
+Summary: A Python package tools for Scientific Computing, Machine Learning and manipulating graphs and networks
+Author: 73
+Author-email: 73@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: requires-python
+Dynamic: summary

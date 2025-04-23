@@ -1,0 +1,77 @@
+# ex - 11 RNN 
+-------------------------
+import tensorflow as tf 
+from tensorflow.keras.preprocessing.text import Tokenizer 
+from tensorflow.keras.preprocessing.sequence import pad_sequences 
+from tensorflow.keras.models import Sequential 
+from tensorflow.keras.layers import Embedding, SimpleRNN, Dense
+import numpy as np 
+
+source_texts = ['hello','how are you','goodbye']
+target_texts = ['bonjour' , 'comment ca va', 'au revoir']
+
+# Tokenize and pad sequences
+source_tokenizer = Tokenizer()
+target_tokenizer = Tokenizer()
+source_tokenizer.fit_on_texts(source_texts)
+target_tokenizer.fit_on_texts(target_texts)
+
+
+# Text to sequences
+source_sequences = source_tokenizer.texts_to_sequences(source_texts)
+
+source_texts,source_sequences
+
+# pad sequences
+source_sequences = pad_sequences(source_sequences, padding='post')
+
+source_sequences
+
+target_sequences = target_tokenizer.texts_to_sequences(target_texts)
+target_sequences = pad_sequences(target_sequences, padding='post')
+
+target_sequences
+
+# Reshape target sequences for sparse_categorical_crossentropy
+target_sequences = np.expand_dims(target_sequences, -1)
+
+target_sequences
+
+X= source_sequences
+X.reshape(X.shape[0], X.shape[1], 1)
+rnn_shape = (X.shape[1],1)
+
+# Model
+model = Sequential([
+    SimpleRNN(16, return_sequences=True, input_shape=rnn_shape),
+    Dense(len(target_tokenizer.word_index) + 1, activation='softmax')
+])
+
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')
+
+
+# Training
+model.fit(X, target_sequences, epochs=100)
+
+# Inference function
+def translate(text):
+    sequence = source_tokenizer.texts_to_sequences([text])
+    padded_sequence = pad_sequences(sequence, maxlen=source_sequences.shape[1], padding='post')
+    prediction = model.predict(padded_sequence)
+
+    translated_sentence = []
+    for word_probs in prediction[0]:
+        predicted_word_index = np.argmax(word_probs)
+        word = target_tokenizer.index_word.get(predicted_word_index, "")
+        if word:
+            translated_sentence.append(word)
+    return ' '.join(translated_sentence)
+
+
+# Test translation
+print(translate("hello"))
+print(translate("how are you"))
+print(translate("goodbye"))
+
+target_tokenizer.index_word.setdefault
+

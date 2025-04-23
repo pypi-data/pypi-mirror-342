@@ -1,0 +1,97 @@
+#EX-8-TF-IDF and BoW-Distribution
+
+import numpy as np
+import pandas as pd
+
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.preprocessing import LabelEncoder
+
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+
+data = {
+    'text': [
+        "I love programming",
+        "Python is great",
+        "I enjoy machine learning",
+        "TensorFlow is a powerful tool",
+        "I hate bugs",
+        "Debugging is tedious"
+    ],
+    'label': [
+        'positive',
+        'positive',
+        'positive',
+        'positive',
+        'negative',
+        'negative'
+    ]
+}
+df_to_save = pd.DataFrame(data)
+csv_filename = 'texts.csv'
+df_to_save.to_csv(csv_filename, index=False, encoding='utf-8')
+print(f"\n'{csv_filename}' created successfully in Colab environment.")
+print("--------------------------------------------------\n")
+df = pd.read_csv('texts.csv')
+df.head()
+
+label_encoder = LabelEncoder()
+df['label'] = label_encoder.fit_transform(df['label'])
+
+df.head()
+
+X_train, X_test, y_train, y_test = train_test_split(
+    df['text'], df['label'], test_size=0.2, random_state=42
+)
+X_train, X_test
+
+# Vectorize text data using Bag of Words
+vectorizer_bow = CountVectorizer()
+X_train_bow = vectorizer_bow.fit_transform(X_train).toarray()
+X_test_bow = vectorizer_bow.transform(X_test).toarray()
+
+# Vectorize text data using TF-IDF
+vectorizer_tfidf = TfidfVectorizer()
+X_train_tfidf = vectorizer_tfidf.fit_transform(X_train).toarray()
+X_test_tfidf = vectorizer_tfidf.transform(X_test).toarray()
+
+def build_model(input_dim):
+    model = Sequential([
+        Dense(16, activation='relu', input_dim=input_dim),
+        Dense(8, activation='relu'),
+        Dense(1, activation='sigmoid')  # Binary classification
+    ])
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+    return model
+
+X_train_bow, X_train_bow.shape
+
+# Training and evaluating with Bag of Words
+model_bow = build_model(X_train_bow.shape[1])
+model_bow.fit(X_train_bow, y_train, epochs=10, batch_size=2, verbose=1)
+
+loss, accuracy = model_bow.evaluate(X_test_bow, y_test)
+print(f'BoW Model Accuracy: {accuracy:.2f}')
+
+# Training and evaluating with TF-IDF
+model_tfidf = build_model(X_train_tfidf.shape[1])
+model_tfidf.fit(X_train_tfidf, y_train, epochs=10, batch_size=2, verbose=1)
+
+loss, accuracy = model_tfidf.evaluate(X_test_tfidf, y_test)
+print(f'TF-IDF Model Accuracy: {accuracy:.2f}')
+
+text = "Python is programming"
+text = vectorizer_tfidf.transform([text]).toarray()
+results = model_tfidf.predict(text)
+
+a = np.argmax(results)
+"Positive" if a == 1 else "Neutral"
+
+text = "Python is programming"
+text = vectorizer_bow.transform([text]).toarray()
+results = model_bow.predict(text)
+
+a = np.argmax(results)
+"Positive" if a == 1 else "Neutral"
