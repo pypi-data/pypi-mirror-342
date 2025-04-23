@@ -1,0 +1,2 @@
+[console_scripts]
+pyright-to-gitlab-ci = pyright_to_gitlab_ci.main:main
