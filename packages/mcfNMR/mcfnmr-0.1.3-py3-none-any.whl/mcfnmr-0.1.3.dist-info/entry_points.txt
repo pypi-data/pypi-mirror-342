@@ -1,0 +1,4 @@
+[console_scripts]
+downloadDemoData = mcfnmr.demodata.download:main
+mcfNMR = mcfnmr.__main__:main
+spec2csv = mcfnmr.utils.spec2csv:main
