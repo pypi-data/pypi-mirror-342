@@ -1,0 +1,44 @@
+[build-system]
+requires = ["uv>=0.1.0", "setuptools>=68.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "by_tech_config"
+version = "0.1.0"
+description = "YAML/JSON配置加载器"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Evanston", email = "kaluoshilong@qq.com"},
+]
+dependencies = [
+    "pyyaml>=6.0.2",
+    "watchdog>=6.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Evan-acg/beny-py-config"
+
+[tool.setuptools]
+packages = ["by_config"]
+package-dir = {"" = "src"}
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-mock>=3.14.0",
+    "mypy>=1.8.0",
+    "types-PyYAML>=6.0.12",
+    "build>=1.2.2.post1",
+]
+
+[tool.pytest.ini_options]
+addopts = "-vvs --lf"
+testpaths= [
+"tests"
+]
+markers = [
+    "fix: mark a test to run only if it is fixed",
+    "only: mark a test to run only",
+]
