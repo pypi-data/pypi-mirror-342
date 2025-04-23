@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: mleasypro
+Version: 0.1.0
+Summary: A simple machine learning library for researchers
+Author: Abu Junior Vandi
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+Requires-Dist: numpy
+
+# MLEasy
+
+A simple machine learning library that helps researchers preprocess data, train models, and evaluate performance — all with easy function calls.
+
+## Installation
+
+```bash
+pip install .
