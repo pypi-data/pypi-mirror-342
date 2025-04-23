@@ -1,0 +1,3 @@
+[console_scripts]
+quantalogic_codeact=quantalogic_codeact.main:main
+
