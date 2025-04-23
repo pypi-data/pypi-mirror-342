@@ -1,0 +1,11 @@
+diagonalpy-0.1.1.dist-info/METADATA,sha256=kfptyHKaBl8A2XCGQmpcQn4fF-KepvBq56OLSU_qaBI,259
+diagonalpy-0.1.1.dist-info/WHEEL,sha256=tSfRZzRHthuv7vxpI4aehrdN9scLjk-dCJkPLzkHxGg,90
+diagonalpy-0.1.1.dist-info/entry_points.txt,sha256=6OYgBcLyFCUgeqLgnvMyOJxPCWzgy7se4rLPKtNonMs,34
+diagonalpy-0.1.1.dist-info/licenses/LICENSE,sha256=hj8fNJfoTwb3t8DoLB-zykSDUe4YaLnOWR9NzS3kQqU,18433
+diagonalpy/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+diagonalpy/convert.py,sha256=pWUSIAmxMMFXeX_3jM1LLw7zcp6oVR8hSb9ALxXwlz8,788
+diagonalpy/delete.py,sha256=a1snW6l6UTLapI1AAOWJ_licQpXTp5CkTLIA8ykupyI,711
+diagonalpy/export.py,sha256=VJXvASOq4H6PDxL_zz9-TPYMyW278vUE7tIaSFipTmA,1962
+diagonalpy/models/linear_model.py,sha256=AJw-WFY8Tu-vDhtKmx15yJXsGujFPdk1Y5gbbg6-Anw,1703
+diagonalpy/sklearn/linear_model.py,sha256=oJneDImNx4H-BlLFr4hOkUbWUPXouyu5dnL6nn2W67I,11438
+diagonalpy-0.1.1.dist-info/RECORD,,
