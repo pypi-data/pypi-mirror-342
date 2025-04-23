@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: pyTibber
+Version: 0.31.1
+Summary: A python3 library to communicate with Tibber
+Home-page: https://github.com/Danielhiversen/pyTibber
+Author: Daniel Hjelseth Hoyer
+Author-email: mail@dahoiv.net
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Home Automation
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3.11.0
+License-File: LICENSE
+Requires-Dist: aiohttp>=3.0.6
+Requires-Dist: gql>=3.0.0
+Requires-Dist: websockets>=10.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
