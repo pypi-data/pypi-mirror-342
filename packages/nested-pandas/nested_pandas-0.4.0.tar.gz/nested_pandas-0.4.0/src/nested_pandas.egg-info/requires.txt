@@ -1,0 +1,15 @@
+numpy>=2
+pandas<2.3,>=2.2
+pyarrow>=18
+universal_pathlib
+
+[dev]
+asv==0.6.4
+jupyter
+mypy
+pre-commit
+pytest
+pytest-cov
+ruff
+aiohttp
+requests
