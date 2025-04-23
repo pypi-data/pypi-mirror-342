@@ -1,0 +1,104 @@
+Metadata-Version: 2.3
+Name: pai-llm
+Version: 0.1.6
+Summary: 
+Author: hzr
+Author-email: hzr@pai.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: aiosqlite (>=0.21.0)
+Requires-Dist: commons-lang (>=0.2.1)
+Requires-Dist: langchain (>=0.3.23)
+Requires-Dist: langchain-openai (>=0.3.14)
+Requires-Dist: loguru (>=0.7.3)
+Requires-Dist: openai (>=1.75.0)
+Requires-Dist: pydantic (>=2.11.3)
+Requires-Dist: pytest (>=8.3.5)
+Description-Content-Type: text/markdown
+
+# PAI-LLM
+
+## Conversation
+
+### 1. Conversation
+
+* History Conversation
+    - save
+    - query
+    - rename
+    - delete
+    - search
+
+### 2. Chat
+
+* Single-round Chat
+* Multi-round Chat
+
+## Chat
+
+### OpenAI Chat format
+
+* 简单文本（字符串）
+
+```json
+{
+  "role": "user",
+  "content": "Hello"
+}
+```
+
+* 多模态内容（数组）
+
+```json
+{
+  "role": "user",
+  "content": [
+    {
+      "type": "text",
+      "text": "这张图片是什么？"
+    },
+    {
+      "type": "image_url",
+      "image_url": {
+        "url": "https://example.com/image.jpg"
+      }
+    }
+  ]
+}
+```
+
+* 特殊字段
+
+assistant角色
+
+```json
+{
+  "role": "assistant",
+  "content": "我需要查询天气预报",
+  "tool_calls": [
+    {
+      "id": "call_id",
+      "type": "function",
+      "function": {
+        "name": "get_weather",
+        "arguments": "{\"location\":\"北京\",\"unit\":\"celsius\"}"
+      }
+    }
+  ]
+}
+```
+
+tool角色
+
+```json
+{
+  "role": "tool",
+  "tool_call_id": "call_id",
+  "content": "{\"location\":\"北京\",\"unit\":\"celsius\",\"temperature\":25}"
+}
+```
+
