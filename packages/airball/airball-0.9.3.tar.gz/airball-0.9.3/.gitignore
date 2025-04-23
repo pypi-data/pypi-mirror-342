@@ -1,0 +1,28 @@
+.DS_Store
+.ipynb_checkpoints/
+__pycache__/
+pyrightconfig.json
+.vscode/
+.coverage
+
+# Example Data
+example-data/
+docs/examples/multiple_flyby_heartbeat.*
+docs/examples/rebound.h
+docs/examples/librebound.so
+
+# Distribution / packaging
+bin/
+site/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
