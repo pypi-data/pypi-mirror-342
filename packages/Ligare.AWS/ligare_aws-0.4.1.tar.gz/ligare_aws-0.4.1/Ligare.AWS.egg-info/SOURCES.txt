@@ -1,0 +1,13 @@
+LICENSE.md
+MANIFEST.in
+README.md
+pyproject.toml
+Ligare.AWS.egg-info/PKG-INFO
+Ligare.AWS.egg-info/SOURCES.txt
+Ligare.AWS.egg-info/dependency_links.txt
+Ligare.AWS.egg-info/requires.txt
+Ligare.AWS.egg-info/top_level.txt
+Ligare/AWS/__init__.py
+Ligare/AWS/aws-ssm.ini
+Ligare/AWS/py.typed
+Ligare/AWS/ssm.py
