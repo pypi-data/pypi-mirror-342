@@ -1,0 +1,26 @@
+[project]
+name = "test-workday-mcpserver-py"
+version = "0.1.1"
+description = "WORKDAY is an HRMS"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+    "requests>=2.32.3",
+    "twine>=6.1.0",
+    "python-dotenv>=1.0.0",
+]
+authors = [
+    {name = "Workday MCP", email = "nandisha.d@think41.com"}
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+test-workday-mcp = "workday_mcp.server:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["workday_mcp"]

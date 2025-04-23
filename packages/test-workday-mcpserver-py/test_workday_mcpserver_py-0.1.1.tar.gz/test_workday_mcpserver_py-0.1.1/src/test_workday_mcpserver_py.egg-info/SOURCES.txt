@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/test_workday_mcpserver_py.egg-info/PKG-INFO
+src/test_workday_mcpserver_py.egg-info/SOURCES.txt
+src/test_workday_mcpserver_py.egg-info/dependency_links.txt
+src/test_workday_mcpserver_py.egg-info/entry_points.txt
+src/test_workday_mcpserver_py.egg-info/requires.txt
+src/test_workday_mcpserver_py.egg-info/top_level.txt
+src/workday_mcp/__init__.py
+src/workday_mcp/__main__.py
+src/workday_mcp/server.py
+tests/test_server.py
+tests/test_tools.py

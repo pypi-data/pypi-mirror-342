@@ -1,0 +1,2 @@
+[console_scripts]
+test-workday-mcp = workday_mcp.server:main
