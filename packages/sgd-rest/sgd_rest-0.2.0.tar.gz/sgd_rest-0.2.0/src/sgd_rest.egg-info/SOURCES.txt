@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/sgd/__init__.py
+src/sgd/api.py
+src/sgd/constants.py
+src/sgd/exceptions.py
+src/sgd_rest.egg-info/PKG-INFO
+src/sgd_rest.egg-info/SOURCES.txt
+src/sgd_rest.egg-info/dependency_links.txt
+src/sgd_rest.egg-info/requires.txt
+src/sgd_rest.egg-info/top_level.txt
+tests/test_api.py
+tests/test_constants.py
+tests/test_exceptions.py
