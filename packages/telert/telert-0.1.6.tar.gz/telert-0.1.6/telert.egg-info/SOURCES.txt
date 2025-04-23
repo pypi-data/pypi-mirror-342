@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+SLACK.md
+TEAMS.md
+TELEGRAM.md
+pyproject.toml
+telert/__init__.py
+telert/api.py
+telert/cli.py
+telert/messaging.py
+telert.egg-info/PKG-INFO
+telert.egg-info/SOURCES.txt
+telert.egg-info/dependency_links.txt
+telert.egg-info/entry_points.txt
+telert.egg-info/requires.txt
+telert.egg-info/top_level.txt
