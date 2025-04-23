@@ -1,0 +1,5 @@
+make87_messages_pb5
+protobuf<6.0,>=5.26
+
+[dev]
+pre-commit

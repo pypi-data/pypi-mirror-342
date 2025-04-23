@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+make87_ntfy/__init__.py
+make87_ntfy/publish_pb2.py
+make87_ntfy/publish_pb2.pyi
+make87_ntfy_pb5.egg-info/PKG-INFO
+make87_ntfy_pb5.egg-info/SOURCES.txt
+make87_ntfy_pb5.egg-info/dependency_links.txt
+make87_ntfy_pb5.egg-info/requires.txt
+make87_ntfy_pb5.egg-info/top_level.txt
