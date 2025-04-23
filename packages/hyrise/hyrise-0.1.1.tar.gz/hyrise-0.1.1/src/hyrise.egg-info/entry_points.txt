@@ -1,0 +1,4 @@
+[console_scripts]
+hyrise = hyrise.cli:main
+hyrise-container-build = hyrise.commands.container:main
+hyrise-sierra = hyrise.commands.sierra:main
