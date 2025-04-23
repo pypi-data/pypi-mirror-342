@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+vesselviz/__init__.py
+vesselviz/animator.py
+vesselviz/utils.py
+vesselviz.egg-info/PKG-INFO
+vesselviz.egg-info/SOURCES.txt
+vesselviz.egg-info/dependency_links.txt
+vesselviz.egg-info/requires.txt
+vesselviz.egg-info/top_level.txt

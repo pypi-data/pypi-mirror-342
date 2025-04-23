@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: vesselviz
+Version: 0.1.0
+Summary: Animated vessel traffic visualization with MMSI trails and labels
+Author-email: Your Name <you@example.com>
+Project-URL: Homepage, https://github.com/p-doshi/vesselviz
+Project-URL: Bug Tracker, https://github.com/p-doshi/vesselviz/issues
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: cartopy
+Requires-Dist: duckdb
+Requires-Dist: numpy
+Dynamic: license-file
