@@ -1,0 +1,73 @@
+# Weather MCP Tool
+
+一个基于MCP (Model Control Protocol) 的天气查询工具，可以获取美国各州的天气预警和指定位置的天气预报。
+
+## 功能特点
+
+- 获取美国各州的实时天气预警信息
+- 根据经纬度获取详细的天气预报
+- 支持与Cline或Cursor-desktop等MCP客户端集成
+
+## 安装
+
+```bash
+pip install weather-mcp
+```
+
+## 使用方法
+
+### 在Cline或Cursor-desktop中使用
+
+1. 安装完成后，工具会自动注册到MCP客户端
+2. 可以通过以下方式调用工具：
+
+```python
+# 获取加州的天气预警
+await get_alerts("CA")
+
+# 获取指定位置的天气预报（例如：旧金山）
+await get_forecast(37.7749, -122.4194)
+```
+
+### 作为独立程序运行
+
+```python
+from weather import get_alerts, get_forecast
+
+# 获取天气预警
+alerts = await get_alerts("NY")
+print(alerts)
+
+# 获取天气预报
+forecast = await get_forecast(40.7128, -74.0060)
+print(forecast)
+```
+
+## API说明
+
+### get_alerts(state: str) -> str
+
+获取指定州的天气预警信息。
+
+- 参数：
+  - state: 两字母的美国州代码（例如：CA、NY）
+- 返回：格式化的天气预警信息字符串
+
+### get_forecast(latitude: float, longitude: float) -> str
+
+获取指定位置的天气预报。
+
+- 参数：
+  - latitude: 纬度
+  - longitude: 经度
+- 返回：格式化的天气预报信息字符串
+
+## 依赖
+
+- Python >= 3.11
+- httpx >= 0.28.1
+- mcp[cli] >= 1.6.0
+
+## 许可证
+
+MIT
