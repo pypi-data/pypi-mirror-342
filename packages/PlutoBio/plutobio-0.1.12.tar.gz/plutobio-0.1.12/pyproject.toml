@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PlutoBio"
+version = "0.1.12"
+authors = [{ name = "Pluto Team" }]
+description = "A Python SDK for Pluto.bio"
+keywords = ["PlutoBio", "SDK", "API", "Biosciences", "Pluto"]
+readme = "README.md"
+dependencies = ["requests", "pandas"]
+requires-python = ">=3.10, <4"
+
+
+[tool.pytest.ini_options]
+env_files = ".env.test"  # This is a copy of .env
+DJANGO_SETTINGS_MODULE = "api.pluto.pluto.settings"
+python_files = "tests/*.py"
+addopts = "--reuse-db -n 4 --no-migrations"
+testpaths = [
+    "plutobio/tests"  # Explicitly specify the test directory
+]
+[coverage]
+omit = [
+    "tests/*",
+    "*/migrations/*",
+    "*/__pycache__/*",
+]
