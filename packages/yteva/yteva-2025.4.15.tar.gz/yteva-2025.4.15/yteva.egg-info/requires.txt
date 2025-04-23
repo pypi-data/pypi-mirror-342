@@ -1,0 +1,4 @@
+aiohttp
+requests
+httpx==0.25.0
+beautifulsoup4
