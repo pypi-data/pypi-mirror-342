@@ -1,0 +1,5 @@
+httpx>=0.28.1
+mcp[cli]>=1.4.1
+tos>=2.8.1
+python-dotenv>=1.0.1
+uvicorn>=0.34.0

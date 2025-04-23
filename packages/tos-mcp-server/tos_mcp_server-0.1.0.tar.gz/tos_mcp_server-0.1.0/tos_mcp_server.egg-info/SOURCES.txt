@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+mcp_server_tos/__init__.py
+mcp_server_tos/config.py
+mcp_server_tos/main.py
+mcp_server_tos/server.py
+mcp_server_tos/resources/__init__.py
+mcp_server_tos/resources/bucket.py
+mcp_server_tos/resources/object.py
+mcp_server_tos/resources/service.py
+tos_mcp_server.egg-info/PKG-INFO
+tos_mcp_server.egg-info/SOURCES.txt
+tos_mcp_server.egg-info/dependency_links.txt
+tos_mcp_server.egg-info/entry_points.txt
+tos_mcp_server.egg-info/requires.txt
+tos_mcp_server.egg-info/top_level.txt
