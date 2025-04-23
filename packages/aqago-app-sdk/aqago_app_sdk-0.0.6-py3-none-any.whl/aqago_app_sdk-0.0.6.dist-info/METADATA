@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: aqago-app-sdk
+Version: 0.0.6
+Summary: The Aqago App SDK
+Project-URL: Homepage, https://github.com/aqa-technologies/aqago-app-sdk-python
+Project-URL: Issues, https://github.com/aqa-technologies/aqago-app-sdk-python/issues
+Author-email: Aqa Engineering <engineering@aqago.com>
+License-Expression: BUSL-1.1
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: pytest-mock>=3.14.0
+Requires-Dist: pytest>=8.3.5
+Description-Content-Type: text/markdown
+
+# Aqago App SDK for Python
+
+Python SDK to instrument applications with Aqago.
+
+## Overview
+
+The Aqago App SDK for Python makes it easy to instrument your applications with
+Aqago. It abstracts interacting with the Aqago Device Agent running on your
+applications' system.
+
+## Installation
+
+```bash
+pip install aqago-app-sdk
+```
+
+## Getting Started
+
+### Access Artifacts from an Application
+
+```python
+import aqago_app_sdk as aqago
+
+def main():
+    artifact = aqago.app("my-application").artifacts["my-file"]
+```
+
+Bump.
