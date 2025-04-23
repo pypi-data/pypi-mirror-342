@@ -1,0 +1,53 @@
+Metadata-Version: 2.4
+Name: ksim
+Version: 0.0.32
+Summary: The ksim project
+Home-page: https://github.com/kscalelabs/ksim
+Author: K-Scale Labs
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: tqdm
+Requires-Dist: kscale
+Requires-Dist: distrax
+Requires-Dist: jax
+Requires-Dist: mediapy
+Requires-Dist: optax
+Requires-Dist: scipy
+Requires-Dist: xax
+Requires-Dist: mujoco
+Requires-Dist: mujoco-mjx
+Requires-Dist: bvhio
+Requires-Dist: pyglm
+Requires-Dist: pykos
+Provides-Extra: dev
+Requires-Dist: black; extra == "dev"
+Requires-Dist: darglint; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# ksim
+
+This is K-Scale's library for running simulation experiments.
+
+## Installation
+
+Install from PyPI:
+
+```bash
+pip install ksim
+```
+
+For more details, see the [documentation](https://docs.kscale.dev/docs/ksim).
