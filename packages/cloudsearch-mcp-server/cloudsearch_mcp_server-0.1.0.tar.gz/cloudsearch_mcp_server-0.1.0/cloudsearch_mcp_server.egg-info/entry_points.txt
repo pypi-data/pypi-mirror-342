@@ -1,0 +1,2 @@
+[console_scripts]
+cloudsearch-mcp-server = mcp_server_cloudsearch:main
