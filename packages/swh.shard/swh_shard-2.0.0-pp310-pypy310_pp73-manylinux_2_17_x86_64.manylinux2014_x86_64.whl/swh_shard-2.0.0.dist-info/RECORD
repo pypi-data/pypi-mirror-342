@@ -1,0 +1,13 @@
+swh/shard/__init__.py,sha256=tlSr_BULXzrHfzRcA9PN_yGEhuUHeod0aFBqr-Y-otk,801
+swh/shard/_shard.pypy310-pp73-x86_64-linux-gnu.so,sha256=oXU9yGJ2XASOcdHqtbIPdHYF0_cc_OVUDdWLhssG8c4,383568
+swh/shard/cli.py,sha256=JnLb25hBRR4cU2mtevOnV_eH628IV1ruoN9iaenAueU,7052
+swh/shard/py.typed,sha256=bWew9mHgMy8LqMu7RuqQXFXLBxh2CRx0dUbSx-3wE48,27
+swh/shard/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+swh/shard/tests/test_cli.py,sha256=Id3l3XPCtGH2gX6FNvoyJzA9_42U1b7gPcEOqNYU7P4,7081
+swh/shard/tests/test_shard.py,sha256=UKLpM_eudJ4vyT1yJB5NRmTH9lTqK2Nj2kCXP-vIPkI,11372
+swh_shard-2.0.0.dist-info/METADATA,sha256=H2Z6SNbxfwPm67WzF3E2SW_RGeKnyOBwDakN5YhT5tM,4310
+swh_shard-2.0.0.dist-info/WHEEL,sha256=CKwKCmZkdedoRiR0XlB9YKESLhx3zQaZwGpguXo6y-g,170
+swh_shard-2.0.0.dist-info/entry_points.txt,sha256=8I-y8FBsLl4hMb2eNOfrV57PbXRrhCrdzZHHSM-LWMY,99
+swh_shard-2.0.0.dist-info/RECORD,,
+swh_shard-2.0.0.dist-info/licenses/AUTHORS,sha256=mlEi3UA90jMX6bVUsCsHJ6dvp5LV0bjYT-cRTps5yfg,112
+swh_shard-2.0.0.dist-info/licenses/LICENSE,sha256=jOtLnuWt7d5Hsx6XXB2QxzrSe2sWWh3NgMfFRetluQM,35147
