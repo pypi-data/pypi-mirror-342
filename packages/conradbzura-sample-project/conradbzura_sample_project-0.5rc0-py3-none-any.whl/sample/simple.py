@@ -1,0 +1,3 @@
+# This is NOT a new comment...
+def add_one(number):
+    return number + 1
