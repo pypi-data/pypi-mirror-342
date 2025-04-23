@@ -1,0 +1,17 @@
+[project]
+name = "superfile"
+version = "0.0.7"
+description = "File-like interface for cloud block storage"
+authors = [ { name = "Fresho Dev" } ]
+license = { file = "LICENSE.md" }
+readme = "README.md"
+dependencies = [
+    "boto3",
+    "boto3-stubs[essential]",
+    "google-cloud-storage",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
