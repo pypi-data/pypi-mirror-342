@@ -1,0 +1,2 @@
+[console_scripts]
+dbt-osmosis = dbt_osmosis.cli.main:cli
