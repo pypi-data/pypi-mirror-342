@@ -1,0 +1,8 @@
+lips
+mpmath
+numpy
+whichcraft
+
+[with-cpp]
+meson
+ninja

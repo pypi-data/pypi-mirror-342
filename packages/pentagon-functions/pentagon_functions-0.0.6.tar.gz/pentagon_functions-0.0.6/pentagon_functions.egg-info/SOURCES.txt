@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+pentagon_functions/__init__.py
+pentagon_functions/pentagon_functions.py
+pentagon_functions/pentagon_monomial.py
+pentagon_functions/version.py
+pentagon_functions.egg-info/PKG-INFO
+pentagon_functions.egg-info/SOURCES.txt
+pentagon_functions.egg-info/dependency_links.txt
+pentagon_functions.egg-info/requires.txt
+pentagon_functions.egg-info/top_level.txt
