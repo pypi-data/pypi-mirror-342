@@ -1,0 +1,104 @@
+from make87_messages_ros2.jazzy.std_msgs.msg import header_pb2 as _header_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class SrrDebug3(_message.Message):
+    __slots__ = ("header", "timer_create_error", "thread_create_error", "arm_calibration_error", "spi_fee_error", "spi_comm_error", "socket_write_error", "dsp_cal_obsolete_62_error", "socket_read_error", "socket_init_error", "signal_wait_error", "signal_send_error", "signal_create_error", "shared_mem_write_error", "shared_mem_read_error", "shared_mem_config_error", "share_mem_init_error", "ram_test_error", "num_errors", "mmap_memory_error", "isr_attach_error", "ipc_drv_write_error", "ipc_drv_trigger_error", "ipc_drv_sync_error", "ipc_drv_read_error", "ipc_drv_init_error", "interrupt_enable_error", "hil_format_error", "flash_filesystem_error", "error_none", "dsp_load_read_error", "dsp_load_open_error", "dsp_load_address_error", "dsp_isp_write_error", "dsp_ipc_read_error", "dsp_ipc_init", "dsp_init_error", "dsp_drv_start_error", "dsp_drv_load_error", "dsp_drv_init_error", "dsp_drv_init2_error", "dsp_drv_init1_error", "dsp_calibration_error", "can_xmt_error", "can_rcv_error", "can_hardware_error", "always_true")
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    TIMER_CREATE_ERROR_FIELD_NUMBER: _ClassVar[int]
+    THREAD_CREATE_ERROR_FIELD_NUMBER: _ClassVar[int]
+    ARM_CALIBRATION_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SPI_FEE_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SPI_COMM_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SOCKET_WRITE_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_CAL_OBSOLETE_62_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SOCKET_READ_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SOCKET_INIT_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SIGNAL_WAIT_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SIGNAL_SEND_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SIGNAL_CREATE_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SHARED_MEM_WRITE_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SHARED_MEM_READ_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SHARED_MEM_CONFIG_ERROR_FIELD_NUMBER: _ClassVar[int]
+    SHARE_MEM_INIT_ERROR_FIELD_NUMBER: _ClassVar[int]
+    RAM_TEST_ERROR_FIELD_NUMBER: _ClassVar[int]
+    NUM_ERRORS_FIELD_NUMBER: _ClassVar[int]
+    MMAP_MEMORY_ERROR_FIELD_NUMBER: _ClassVar[int]
+    ISR_ATTACH_ERROR_FIELD_NUMBER: _ClassVar[int]
+    IPC_DRV_WRITE_ERROR_FIELD_NUMBER: _ClassVar[int]
+    IPC_DRV_TRIGGER_ERROR_FIELD_NUMBER: _ClassVar[int]
+    IPC_DRV_SYNC_ERROR_FIELD_NUMBER: _ClassVar[int]
+    IPC_DRV_READ_ERROR_FIELD_NUMBER: _ClassVar[int]
+    IPC_DRV_INIT_ERROR_FIELD_NUMBER: _ClassVar[int]
+    INTERRUPT_ENABLE_ERROR_FIELD_NUMBER: _ClassVar[int]
+    HIL_FORMAT_ERROR_FIELD_NUMBER: _ClassVar[int]
+    FLASH_FILESYSTEM_ERROR_FIELD_NUMBER: _ClassVar[int]
+    ERROR_NONE_FIELD_NUMBER: _ClassVar[int]
+    DSP_LOAD_READ_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_LOAD_OPEN_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_LOAD_ADDRESS_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_ISP_WRITE_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_IPC_READ_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_IPC_INIT_FIELD_NUMBER: _ClassVar[int]
+    DSP_INIT_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_DRV_START_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_DRV_LOAD_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_DRV_INIT_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_DRV_INIT2_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_DRV_INIT1_ERROR_FIELD_NUMBER: _ClassVar[int]
+    DSP_CALIBRATION_ERROR_FIELD_NUMBER: _ClassVar[int]
+    CAN_XMT_ERROR_FIELD_NUMBER: _ClassVar[int]
+    CAN_RCV_ERROR_FIELD_NUMBER: _ClassVar[int]
+    CAN_HARDWARE_ERROR_FIELD_NUMBER: _ClassVar[int]
+    ALWAYS_TRUE_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    timer_create_error: bool
+    thread_create_error: bool
+    arm_calibration_error: bool
+    spi_fee_error: bool
+    spi_comm_error: bool
+    socket_write_error: bool
+    dsp_cal_obsolete_62_error: bool
+    socket_read_error: bool
+    socket_init_error: bool
+    signal_wait_error: bool
+    signal_send_error: bool
+    signal_create_error: bool
+    shared_mem_write_error: bool
+    shared_mem_read_error: bool
+    shared_mem_config_error: bool
+    share_mem_init_error: bool
+    ram_test_error: bool
+    num_errors: bool
+    mmap_memory_error: bool
+    isr_attach_error: bool
+    ipc_drv_write_error: bool
+    ipc_drv_trigger_error: bool
+    ipc_drv_sync_error: bool
+    ipc_drv_read_error: bool
+    ipc_drv_init_error: bool
+    interrupt_enable_error: bool
+    hil_format_error: bool
+    flash_filesystem_error: bool
+    error_none: bool
+    dsp_load_read_error: bool
+    dsp_load_open_error: bool
+    dsp_load_address_error: bool
+    dsp_isp_write_error: bool
+    dsp_ipc_read_error: bool
+    dsp_ipc_init: bool
+    dsp_init_error: bool
+    dsp_drv_start_error: bool
+    dsp_drv_load_error: bool
+    dsp_drv_init_error: bool
+    dsp_drv_init2_error: bool
+    dsp_drv_init1_error: bool
+    dsp_calibration_error: bool
+    can_xmt_error: bool
+    can_rcv_error: bool
+    can_hardware_error: bool
+    always_true: bool
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., timer_create_error: bool = ..., thread_create_error: bool = ..., arm_calibration_error: bool = ..., spi_fee_error: bool = ..., spi_comm_error: bool = ..., socket_write_error: bool = ..., dsp_cal_obsolete_62_error: bool = ..., socket_read_error: bool = ..., socket_init_error: bool = ..., signal_wait_error: bool = ..., signal_send_error: bool = ..., signal_create_error: bool = ..., shared_mem_write_error: bool = ..., shared_mem_read_error: bool = ..., shared_mem_config_error: bool = ..., share_mem_init_error: bool = ..., ram_test_error: bool = ..., num_errors: bool = ..., mmap_memory_error: bool = ..., isr_attach_error: bool = ..., ipc_drv_write_error: bool = ..., ipc_drv_trigger_error: bool = ..., ipc_drv_sync_error: bool = ..., ipc_drv_read_error: bool = ..., ipc_drv_init_error: bool = ..., interrupt_enable_error: bool = ..., hil_format_error: bool = ..., flash_filesystem_error: bool = ..., error_none: bool = ..., dsp_load_read_error: bool = ..., dsp_load_open_error: bool = ..., dsp_load_address_error: bool = ..., dsp_isp_write_error: bool = ..., dsp_ipc_read_error: bool = ..., dsp_ipc_init: bool = ..., dsp_init_error: bool = ..., dsp_drv_start_error: bool = ..., dsp_drv_load_error: bool = ..., dsp_drv_init_error: bool = ..., dsp_drv_init2_error: bool = ..., dsp_drv_init1_error: bool = ..., dsp_calibration_error: bool = ..., can_xmt_error: bool = ..., can_rcv_error: bool = ..., can_hardware_error: bool = ..., always_true: bool = ...) -> None: ...
