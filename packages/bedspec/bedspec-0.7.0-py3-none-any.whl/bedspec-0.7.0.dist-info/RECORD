@@ -1,0 +1,11 @@
+bedspec/__init__.py,sha256=MWneXWftcndpg-cSUkbLwuPMty0klBf_SpaaRm0jgKM,907
+bedspec/_bedspec.py,sha256=5JypI3D9q1Jp326CHhU8v3hy9XONJv5Q79qc-2RRhzE,11721
+bedspec/_reader.py,sha256=t8udwyF9auYIedratilDL2lC6m9YE_nV3qEYYgtFtB8,3253
+bedspec/_writer.py,sha256=1xWKkXPHBBCJqUteDzt_4VTXW049rcKvdwCLumNg0g0,1070
+bedspec/overlap/__init__.py,sha256=aArIVkYIMBBC7YZkPP7KPcy6FjPZdKVl0Yi2as4pWNQ,76
+bedspec/overlap/_overlap.py,sha256=s3yROqIs3AcJeCMdLWXBy4eoBz1aytGIwuQG33e-fcY,4153
+bedspec/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bedspec-0.7.0.dist-info/LICENSE,sha256=nN9Rgc41QgFz1uJfX7AsXRQJxlcJotVEPTNPwUAqfys,1070
+bedspec-0.7.0.dist-info/METADATA,sha256=JvM6NWvxzxncrkFSBSYFGnuCdO7MF9fD0uSlPGSajb4,4974
+bedspec-0.7.0.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+bedspec-0.7.0.dist-info/RECORD,,
