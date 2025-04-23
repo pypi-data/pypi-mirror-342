@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: smear-data-api
+Version: 1.0.0
+Summary: A Python package for interacting with the SMEAR API and processing data for continuous period.
+Home-page: https://github.com/airdipu/SMEAR-data-api
+Author: Abdur Rahman
+Author-email: abdur.rahman@helsinki.fi
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: pandas>=1.0.0
+Requires-Dist: numpy>=1.18.0
