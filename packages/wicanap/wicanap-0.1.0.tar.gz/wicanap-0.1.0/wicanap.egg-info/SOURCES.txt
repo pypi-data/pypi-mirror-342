@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+WinCap/__init__.py
+WinCap/constants.py
+WinCap/core.py
+WinCap/input.py
+WinCap/sound.py
+WinCap/winapi.py
+wicanap.egg-info/PKG-INFO
+wicanap.egg-info/SOURCES.txt
+wicanap.egg-info/dependency_links.txt
+wicanap.egg-info/top_level.txt

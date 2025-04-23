@@ -1,0 +1,27 @@
+[project]
+name = "wicanap"
+version = "0.1.0"
+description = "Minimal 2D graphics library for Python using WinAPI and ctypes"
+readme = "README.md"
+authors = [
+  { name = "Amir", email = "vozamir1208@gmail.com" }
+]
+license = {file = "LICENSE"}
+requires-python = ">=3.8"
+keywords = ["graphics", "2d", "windows", "canvas", "ctypes", "gdi", "rendering"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: Microsoft :: Windows",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Games/Entertainment :: Arcade",
+    "License :: Other/Proprietary License"
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/wicanap"
+Repository = "https://github.com/yourusername/wicanap"
+Documentation = "https://github.com/yourusername/wicanap#readme"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
