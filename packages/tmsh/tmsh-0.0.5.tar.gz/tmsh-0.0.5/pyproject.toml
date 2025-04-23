@@ -1,0 +1,136 @@
+[project]
+name = "tmsh"
+version = "0.0.5"
+description = "Type-annotated and linted Python interface for Gmsh"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["gmsh ==4.13.1", "numpy >=2.0.0"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python",
+]
+license-files = ["LICENSE"]
+
+[project.urls]
+Repository = "https://github.com/rupt/tmsh"
+
+[dependency-groups]
+dev = [
+    "build >=1.2.2.post1",
+    "mypy >=1.15.0",
+    "pyright >=1.1.399",
+    "ruff >=0.11.6",
+    "setuptools >=79.0.0",
+    "twine >=6.1.0",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+exclude = []
+include = ["src/*.py", "tests/*.py"]
+line-length = 79
+output-format = "concise"
+
+[tool.ruff.lint]
+select = [
+    "A",
+    "ANN",
+    "ARG",
+    "B",
+    "BLE",
+    "C4",
+    "C90",
+    "COM",
+    "D",
+    "E",
+    "EM",
+    "ERA",
+    "F",
+    "FA",
+    "FBT",
+    "FLY",
+    "FURB",
+    "I",
+    "ICN",
+    "ISC",
+    "N",
+    "NPY",
+    "PERF",
+    "PGH",
+    "PIE",
+    "PL",
+    "PLE",
+    "PLR",
+    "PLW",
+    "PTH",
+    "PYI",
+    "Q",
+    "RET",
+    "RSE",
+    "RUF",
+    "S",
+    "SIM",
+    "SLF",
+    "SLOT",
+    "T20",
+    "TC",
+    "TD",
+    "TID",
+    "TRY",
+    "UP",
+    "W",
+    "YTT",
+]
+ignore = [
+    # To enable
+    "D415",
+    "E501",
+    # Not to enable
+    "COM812",
+    "PLR0913",
+    "PLR2004",
+    "S101",
+    "TD002",
+]
+dummy-variable-rgx = "^_$"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]
+"src/tmsh.py" = ["N"]
+
+[tool.ruff.lint.flake8-import-conventions.aliases]
+numpy = "numpy"
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
+required-imports = ["from __future__ import annotations"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true
+line-ending = "lf"
+
+[tool.pyright]
+include = ["src", "tests"]
+typeCheckingMode = "standard"
+useLibraryCodeForTypes = false
+reportUnnecessaryTypeIgnoreComment = true
+
+[tool.mypy]
+files = ["src/*.py", "tests/*.py"]
+disable_error_code = "import-untyped"
+color_output = false
