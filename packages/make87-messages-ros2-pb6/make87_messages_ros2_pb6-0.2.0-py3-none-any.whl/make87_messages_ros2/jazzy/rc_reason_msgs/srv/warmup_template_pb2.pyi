@@ -1,0 +1,19 @@
+from make87_messages_ros2.jazzy.rc_common_msgs.msg import return_code_pb2 as _return_code_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class WarmupTemplateRequest(_message.Message):
+    __slots__ = ("template_id",)
+    TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    template_id: str
+    def __init__(self, template_id: _Optional[str] = ...) -> None: ...
+
+class WarmupTemplateResponse(_message.Message):
+    __slots__ = ("return_code",)
+    RETURN_CODE_FIELD_NUMBER: _ClassVar[int]
+    return_code: _return_code_pb2.ReturnCode
+    def __init__(self, return_code: _Optional[_Union[_return_code_pb2.ReturnCode, _Mapping]] = ...) -> None: ...

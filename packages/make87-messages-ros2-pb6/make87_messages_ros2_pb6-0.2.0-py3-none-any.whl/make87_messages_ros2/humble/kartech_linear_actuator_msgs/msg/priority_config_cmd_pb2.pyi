@@ -1,0 +1,26 @@
+from make87_messages.core import header_pb2 as _header_pb2
+from make87_messages_ros2.humble.std_msgs.msg import header_pb2 as _header_pb2_1
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class PriorityConfigCmd(_message.Message):
+    __slots__ = ("header", "ros2_header", "confirm", "handshake_priority", "auto_reply_priority", "scheduled_priority", "polled_priority")
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    ROS2_HEADER_FIELD_NUMBER: _ClassVar[int]
+    CONFIRM_FIELD_NUMBER: _ClassVar[int]
+    HANDSHAKE_PRIORITY_FIELD_NUMBER: _ClassVar[int]
+    AUTO_REPLY_PRIORITY_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULED_PRIORITY_FIELD_NUMBER: _ClassVar[int]
+    POLLED_PRIORITY_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    ros2_header: _header_pb2_1.Header
+    confirm: bool
+    handshake_priority: int
+    auto_reply_priority: int
+    scheduled_priority: int
+    polled_priority: int
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., ros2_header: _Optional[_Union[_header_pb2_1.Header, _Mapping]] = ..., confirm: bool = ..., handshake_priority: _Optional[int] = ..., auto_reply_priority: _Optional[int] = ..., scheduled_priority: _Optional[int] = ..., polled_priority: _Optional[int] = ...) -> None: ...

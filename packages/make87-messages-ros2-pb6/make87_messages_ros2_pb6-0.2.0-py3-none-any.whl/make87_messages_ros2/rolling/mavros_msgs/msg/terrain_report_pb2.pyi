@@ -1,0 +1,27 @@
+from make87_messages_ros2.rolling.std_msgs.msg import header_pb2 as _header_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class TerrainReport(_message.Message):
+    __slots__ = ("header", "latitude", "longitude", "spacing", "terrain_height", "current_height", "pending", "loaded")
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    LATITUDE_FIELD_NUMBER: _ClassVar[int]
+    LONGITUDE_FIELD_NUMBER: _ClassVar[int]
+    SPACING_FIELD_NUMBER: _ClassVar[int]
+    TERRAIN_HEIGHT_FIELD_NUMBER: _ClassVar[int]
+    CURRENT_HEIGHT_FIELD_NUMBER: _ClassVar[int]
+    PENDING_FIELD_NUMBER: _ClassVar[int]
+    LOADED_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    latitude: float
+    longitude: float
+    spacing: int
+    terrain_height: float
+    current_height: float
+    pending: int
+    loaded: int
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., latitude: _Optional[float] = ..., longitude: _Optional[float] = ..., spacing: _Optional[int] = ..., terrain_height: _Optional[float] = ..., current_height: _Optional[float] = ..., pending: _Optional[int] = ..., loaded: _Optional[int] = ...) -> None: ...
