@@ -1,0 +1,16 @@
+LICENSE
+NOTICE
+README.md
+pyproject.toml
+requirements.txt
+setup.cfg
+src/educelab/globus/__init__.py
+src/educelab/globus/config.py
+src/educelab/globus/login.py
+src/educelab/globus/cp/main.py
+src/educelab_globus.egg-info/PKG-INFO
+src/educelab_globus.egg-info/SOURCES.txt
+src/educelab_globus.egg-info/dependency_links.txt
+src/educelab_globus.egg-info/entry_points.txt
+src/educelab_globus.egg-info/requires.txt
+src/educelab_globus.egg-info/top_level.txt
