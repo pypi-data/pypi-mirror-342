@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Your Name
+# This file is distributed under the same license as the gtk-llm-chat package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: gtk-llm-chat 0.1\n"
+"Report-Msgid-Bugs-To: your@email.com\n"
+"POT-Creation-Date: 2025-04-18 19:58-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: gtk_llm_chat/chat_window.py:66
+msgid "LLM Chat"
+msgstr "LLM 聊天"
+
+#: gtk_llm_chat/chat_window.py:75
+msgid "Rename"
+msgstr "重命名"
+
+#: gtk_llm_chat/chat_window.py:76
+msgid "Delete"
+msgstr "删除"
+
+#: gtk_llm_chat/chat_window.py:77
+msgid "About"
+msgstr "关于"
+
+#: gtk_llm_chat/chat_window.py:142
+msgid "Send"
+msgstr "发送"
+
+#: gtk_llm_chat/gtk_llm_applet.py:23 gtk_llm_chat/chat_application.py:36
+msgid ""
+"\n"
+"Closing application..."
+msgstr ""
+"\n"
+"正在关闭应用程序..."
+
+#: gtk_llm_chat/gtk_llm_applet.py:52 gtk_llm_chat/llm_client.py:22
+msgid "New Conversation"
+msgstr "新的对话"
+
+#: gtk_llm_chat/gtk_llm_applet.py:64
+msgid "Quit"
+msgstr "退出"
+
+#: gtk_llm_chat/db_operations.py:118
+msgid "Error: conversation_id is required to add to history."
+msgstr "错误：需要 conversation_id 才能添加到历史记录。"
+
+#: gtk_llm_chat/db_operations.py:158
+msgid "Error: conversation_id is required to create the conversation."
+msgstr "错误：需要 conversation_id 才能创建对话。"
+
+#: gtk_llm_chat/chat_application.py:80
+msgid "Error: _version.py not found"
+msgstr "错误：找不到 _version.py"
+
+#: gtk_llm_chat/chat_application.py:158
+msgid "Are you sure you want to delete the conversation?"
+msgstr "你确定要删除对话吗？"
+
+#: gtk_llm_chat/chat_application.py:177
+msgid "Gtk LLM Chat"
+msgstr "Gtk LLM 聊天"
+
+#: gtk_llm_chat/chat_application.py:180
+msgid "A frontend for LLM"
+msgstr "LLM 的前端"
+
+#: gtk_llm_chat/llm_client.py:94
+msgid "LLMClient: Ignoring invalid temperature:"
+msgstr "LLMClient：忽略无效温度："
+
+#: gtk_llm_chat/llm_client.py:98
+msgid "LLMClient: Starting stream processing..."
+msgstr "LLMClient：开始流处理..."
+
+#: gtk_llm_chat/llm_client.py:101
+msgid "LLMClient: Stream processing cancelled externally."
+msgstr "LLMClient：流处理已在外部取消。"
+
+#: gtk_llm_chat/llm_client.py:107
+msgid "LLMClient: Stream finished normally."
+msgstr "LLMClient：流已正常完成。"
+
+#: gtk_llm_chat/llm_client.py:139
+msgid "LLMClient: Cancel request received."
+msgstr "LLMClient：收到取消请求。"
+
+#: gtk_llm_chat/llm_client.py:142
+msgid "LLMClient: Terminating active stream thread."
+msgstr "LLMClient：正在终止活动流线程。"
+
+#: gtk_llm_chat/llm_client.py:145
+msgid "LLMClient: No active stream thread to cancel."
+msgstr "LLMClient：没有要取消的活动流线程。"
+
+#: gtk_llm_chat/llm_client.py:155
+msgid ""
+"LLMClient: Error - Attempting to load history with model initialization "
+"error."
+msgstr "LLMClient：错误 - 尝试使用模型初始化错误加载历史记录。"
+
+#: gtk_llm_chat/llm_client.py:158
+msgid ""
+"LLMClient: Error - Attempting to load history without initialized "
+"conversation."
+msgstr "LLMClient：错误 - 尝试在没有初始化对话的情况下加载历史记录。"
+
+#: gtk_llm_chat/llm_client.py:196
+msgid ""
+"LLMClient: Warning - Assistant response without previous user prompt in "
+"history."
+msgstr "LLMClient：警告 - 历史记录中没有先前用户提示的助理回复。"
+
+#: gtk_llm_chat/llm_client.py:199
+msgid "LLMClient: History loaded. Total responses in conversation: "
+msgstr "LLMClient：历史记录已加载。对话中的总回复数："
