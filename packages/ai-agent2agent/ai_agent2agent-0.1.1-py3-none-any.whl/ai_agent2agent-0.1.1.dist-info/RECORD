@@ -1,0 +1,16 @@
+agent2agent/__init__.py,sha256=JylYdPPGl_lVZmBjQ5gJGEBJT4D4D7ytfb-TTs0cCDc,1216
+agent2agent/types.py,sha256=7-_lKe3TpqwLZyROpiRr3aadW-Na0oV3xBieMpDE9b0,8792
+agent2agent/client/__init__.py,sha256=V8lbSEpOWNM2XjG5ky7NIUM0Q2HZTexzL3I8WqZfo-w,117
+agent2agent/client/card_resolver.py,sha256=FE4tdNeOFQLKy2CvtuOngI7q8vGpSjO0efCyksEgons,800
+agent2agent/client/client.py,sha256=AKVQTCh8KhQpLsz1hN0tBYUJAgAeNFe5sqtv0hF6Xew,3366
+agent2agent/server/__init__.py,sha256=Bl7Qa3Pk4QWY4yDPRNyHeTzNJpAe9HgUJd8-oTnMPv8,152
+agent2agent/server/server.py,sha256=L7ka1e0bXpUP_f2zWShl35LdO54M0PBgZ9hgYMgypko,4863
+agent2agent/server/task_manager.py,sha256=mgvMK64-ELM5WuXzW6mB5GLMinQ0pONA1deYQJ1p8a8,10404
+agent2agent/server/utils.py,sha256=RFodF3sHRfUTzefiAcX74yQFc6m5BAKnfkhcepwQ8nc,856
+agent2agent/utils/__init__.py,sha256=j-7g8DTS-wtCL5LG_SUTlrdA2Z1Yu4JNiwb-BTI6MB8,100
+agent2agent/utils/in_memory_cache.py,sha256=NUAdEWLhoM091a6rXzX8jbUQbXzQigYhWgHGWnE5uv8,3381
+agent2agent/utils/push_notification_auth.py,sha256=mdUFZLPE2NuDIkNjaPoiYuPGltdVoRT_IQ87GQTaUeE,4915
+ai_agent2agent-0.1.1.dist-info/METADATA,sha256=om_6w7gkqLZFfX6NTdJUMkKblVBO8DumPMewDRzRido,2158
+ai_agent2agent-0.1.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+ai_agent2agent-0.1.1.dist-info/top_level.txt,sha256=NZzzydVxBc8K6HG5LoC3sWuzu5QcPcR3430fojitoEQ,12
+ai_agent2agent-0.1.1.dist-info/RECORD,,
