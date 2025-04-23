@@ -1,0 +1,48 @@
+[project]
+name = "convomeld"
+version = "0.1.7"
+description = "Parse text scripts or chatbot message logs and merge conversation graphs (Convographs)"
+authors = [
+    { name = "Ruslan Borysov", email = "borysov.ruslan98@gmail.com" },
+    { name = "Hobson Lane", email = "hobson@tangibleai.com" },
+    { name = "Vlad Snisar", email = "vlad@tangibleai.com" },
+    { name = "Cetin Czeckr", email = "cetin@tangibleai.com" },
+    { name = "Greg Thompson", email = "greg@tangibleai.com" },
+]
+dependencies = [
+    "PyYAML",
+    "openpyxl",
+    "pandas",
+    "ipython",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+packages = [
+    { include = "convomeld", from = "src" },
+]
+
+[project.license]
+text = "MIT"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "build",
+    "wheel",
+    "twine",
+]
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.scripts.convocat]
+call = "convomeld.convocat:main()"
+
+[tool.pdm.scripts.convoparse]
+call = "convomeld.convoparse:main()"
