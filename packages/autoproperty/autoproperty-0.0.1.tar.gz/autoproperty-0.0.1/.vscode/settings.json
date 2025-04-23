@@ -1,0 +1,8 @@
+{
+    "python.testing.pytestArgs": [
+        "autoproperty"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "CodeGPT.apiKey": "Ollama"
+}
