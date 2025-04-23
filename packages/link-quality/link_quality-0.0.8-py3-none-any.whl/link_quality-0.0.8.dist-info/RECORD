@@ -1,0 +1,8 @@
+spiders/realtime/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+spiders/realtime/link_filter.py,sha256=QpwjK6w1nSe-43r-4kgQx1ciCXPgAW_IK9MASfH4mD8,16772
+spiders/realtime/normalize.py,sha256=Y96iGFRymBC98_S1dJGPYnpWhZ7ztF41N2cTr-QLmGg,16932
+spiders/realtime/rt_logger.py,sha256=M2aOd8Fzoa3y6Jr-2ueed7Bt0kJYvbSHUwEKj1pY-sg,3294
+link_quality-0.0.8.dist-info/METADATA,sha256=xlmw7_Q5nyB5Z-LxFNN7nGqHZuuYDvKx8Iz8ieSlsLE,445
+link_quality-0.0.8.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+link_quality-0.0.8.dist-info/top_level.txt,sha256=yyfpAjScsGNw7551aE7NHymhU3M3spGasf6gkcNr9uI,8
+link_quality-0.0.8.dist-info/RECORD,,
