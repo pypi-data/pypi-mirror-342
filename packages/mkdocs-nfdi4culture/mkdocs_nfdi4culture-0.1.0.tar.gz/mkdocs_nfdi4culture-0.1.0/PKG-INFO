@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: mkdocs-nfdi4culture
+Version: 0.1.0
+Summary: MkDocs port of the NFDI4Culture Learn2 theme
+Author: Torsten Schrade
+Project-URL: Source, https://gitlab.rlp.net/adwmainz/nfdi4culture/knowledge-graph/mkdocs-nfdi4culture
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: jinja2~=3.1
+Requires-Dist: markdown~=3.2
+Requires-Dist: mkdocs~=1.6
+Requires-Dist: mkdocs-awesome-nav~=3.1
+Requires-Dist: pygments~=2.19
+Requires-Dist: pymdown-extensions~=10.14
+
+# mkdocs-nfdi4culture
+
+* npm install --save-dev concurrently
+* pip install -r requirements.txt
+* pip install -e .
+* npm run dev
+* https://jspaezp.github.io/mkquartodocs/

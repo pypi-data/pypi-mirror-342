@@ -1,0 +1,56 @@
+{% macro render_nav_item(item) %}
+  {% set index_page = None %}
+  {% if item.children %}
+    <li class="dd-item{{ ' active' if item.active }}">
+      <a href="{{ (item.url or item.children[0].url) | url }}">
+        <span>{{ item.title }}</span>
+      </a>
+      <ul>
+        {% for child in item.children %}
+          {% if child.url != item.children[0].url %}
+            {{ render_nav_item(child) }}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </li>
+  {% else %}
+    <li class="dd-item{{ ' active' if item.active }}">
+      <a href="{{ item.url | url }}">
+        <span>{{ item.title }}</span>
+      </a>
+    </li>
+  {% endif %}
+{% endmacro %}
+
+<div class="scrollbar-inner">
+    <div class="highlightable">
+
+        <!-- Main navigation -->
+        <ul class="topics">
+            {% for item in nav %}
+              {{ render_nav_item(item) }}
+            {% endfor %}
+        </ul>
+
+        <!-- Funding information -->
+        <div class="sidebar-footer">
+            <hr>
+            <div class="dfg">
+                <a href="https://gepris.dfg.de/gepris/projekt/441958017">
+                    <span>Gefördert durch die Deutsche Forschungsgemeinschaft (DFG) <br/> Projektnummer 441958017</span>
+                </a>
+            </div>
+        <div>
+            <a href="https://nfdi4culture.de">
+                <span>Portal</span>
+            </a>
+            <a href="https://nfdi4culture.de/imprint.html">
+                <span>Imprint</span>
+            </a>
+            <a href="https://nfdi4culture.de/privacy-policy.html">
+                <span>Privacy</span>
+            </a>
+        </div>
+        </div>
+    </div>
+</div>

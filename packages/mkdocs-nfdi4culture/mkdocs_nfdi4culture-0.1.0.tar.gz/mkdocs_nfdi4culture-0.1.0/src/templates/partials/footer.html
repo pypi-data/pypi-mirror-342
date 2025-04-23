@@ -1,0 +1,23 @@
+<div id="footer">
+    <hr>
+    <div id="navigation">
+
+        {% if page.previous_page %}
+            <span>
+                <a class="nav nav-prev" href="{{ page.previous_page.url | url }}"></a>
+            </span>
+        {% endif %}
+
+        {% if page.next_page %}
+            <a href="{{ page.next_page.url | url }}">
+                <span class="chapter">
+                    {{ page.next_page.title }}
+                </span>
+            </a>
+            <span>
+                <a class="nav nav-next" href="{{ page.next_page.url | url }}"></a>
+            </span>
+        {% endif %}
+
+    </div>
+</div>

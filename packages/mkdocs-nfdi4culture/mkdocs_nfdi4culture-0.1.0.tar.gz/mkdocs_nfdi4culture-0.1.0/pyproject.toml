@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=65.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mkdocs-nfdi4culture"
+version = "0.1.0"
+description = "MkDocs port of the NFDI4Culture Learn2 theme"
+authors = [
+  { name = "Torsten Schrade" }
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+dependencies = [
+  "jinja2~=3.1",
+  "markdown~=3.2",
+  "mkdocs~=1.6",
+  "mkdocs-awesome-nav~=3.1",
+  "pygments~=2.19",
+  "pymdown-extensions~=10.14"
+]
+
+[project.urls]
+"Source" = "https://gitlab.rlp.net/adwmainz/nfdi4culture/knowledge-graph/mkdocs-nfdi4culture"
+
+[project.entry-points."mkdocs.themes"]
+nfdi4culture = "templates"
+
+# [project.entry-points."mkdocs.plugins"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
