@@ -1,0 +1,3 @@
+[console_scripts]
+grogupy_analyze = grogupy.cli.analyze:main
+grogupy_run = grogupy.cli.run:main
