@@ -1,0 +1,13 @@
+bluer_ai
+bluer_flow
+
+opencv-python
+
+# https://github.com/shapely/shapely/issues/2208
+shapely!=2.0.7
+
+folium
+geojson
+geopandas
+rasterio
+pystac-client
