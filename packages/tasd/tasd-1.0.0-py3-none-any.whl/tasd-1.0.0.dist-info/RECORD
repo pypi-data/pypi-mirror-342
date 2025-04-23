@@ -1,0 +1,17 @@
+tasd/__init__.py,sha256=1yGBy9LKlZOfg7qB2BXhSRECm4ag1eOELMnMKUT5Yns,86
+tasd/constants.py,sha256=A60Y_e_PqF6oCX2VlINZqbRm0ooqGF4azpMuohaHbW0,2149
+tasd/file.py,sha256=CiRx1Vi-vqIzofRcGrWXXIKhz80AqBRgXlsepSw_vcw,2315
+tasd/packet.py,sha256=SFdHIHCb4gKL4eOzNBZwsfJi5O-QLPbgYCDCW3E0iPQ,12204
+tasd/utils.py,sha256=m3dFok1VswQ1Ba5t_nYPLG90Y90KegkLFIvNN4LMJyk,5842
+tasd/packets/__init__.py,sha256=aznvDufzsVEIfHAV__FA3W1bnE4wrQWzsMc5wbMQbqs,157
+tasd/packets/extra.py,sha256=upxQ7_V69nAbNhdCMuO1QFR_QR8ZRywj8YEglkwu0p4,676
+tasd/packets/general.py,sha256=Ib2UZbYAa7aP27X_iyAmBTMJwf7MzUdWYWs0GCE327k,8858
+tasd/packets/genesis.py,sha256=CHqKBRmZjma6Q-VD8S635jBbRZwk2vsNCLV8NVjurRo,424
+tasd/packets/input.py,sha256=OkPQvSC3hbNSVHYYMt1Ss5FI3SLz67j1Z1hHhI5IdsE,2620
+tasd/packets/nes.py,sha256=X4JuKT9TkDvd6PL3PDHCujPKh7V_JAb51NkMVQCg2_s,729
+tasd/packets/snes.py,sha256=GpJmbp-wlSEWC5E__9a0r_9lJ6hrJctzPysZlPNkbNQ,932
+tasd-1.0.0.dist-info/licenses/LICENSE,sha256=g3ow4YGepg8H1fLp2CiNhGHkMFiBvfX1P-JH3oKmA3g,1067
+tasd-1.0.0.dist-info/METADATA,sha256=PEaPbWhxNgP0XlMRhqornw7fjp2-v2iwuwPwUpyoTJI,1841
+tasd-1.0.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+tasd-1.0.0.dist-info/top_level.txt,sha256=Ys1rtVCDs2s_wERGa-Z-umkR87S0XWHo9UzpemZxDsg,5
+tasd-1.0.0.dist-info/RECORD,,
