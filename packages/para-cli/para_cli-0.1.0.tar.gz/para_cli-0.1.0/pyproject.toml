@@ -1,0 +1,48 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "para-cli"
+version = "0.1.0"
+description = "A command line tool for managing your PARA system"
+authors = [
+    {name = "Azat", email = "azataiot@gmail.com"}  
+]
+readme = "README.md"
+requires-python = ">=3.13"
+license = {file = "LICENSE"}  
+keywords = ["para", "productivity", "organization", "cli"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business",
+    "Topic :: Utilities"
+]
+dependencies = [
+    "typer",
+    "rich",
+    "textual",
+]
+
+[project.optional-dependencies]
+interactive = [
+    "textual",
+]
+
+[project.scripts]
+para = "para_cli.cli:main"
+
+[project.urls]
+Home = "https://github.com/azataiot/para-cli"
+Documentation = "https://github.com/azataiot/para-cli#readme"
+Issues = "https://github.com/azataiot/para-cli/issues"
+
+[dependency-groups]
+dev = [
+    "flit>=3.12.0",
+]

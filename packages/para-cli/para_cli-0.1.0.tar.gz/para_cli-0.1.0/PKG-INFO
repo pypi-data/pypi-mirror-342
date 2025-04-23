@@ -1,0 +1,95 @@
+Metadata-Version: 2.4
+Name: para-cli
+Version: 0.1.0
+Summary: A command line tool for managing your PARA system
+Keywords: para,productivity,organization,cli
+Author-email: Azat <azataiot@gmail.com>
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Utilities
+License-File: LICENSE
+Requires-Dist: typer
+Requires-Dist: rich
+Requires-Dist: textual
+Requires-Dist: textual ; extra == "interactive"
+Project-URL: Documentation, https://github.com/azataiot/para-cli#readme
+Project-URL: Home, https://github.com/azataiot/para-cli
+Project-URL: Issues, https://github.com/azataiot/para-cli/issues
+Provides-Extra: interactive
+
+# PARA CLI
+
+A command-line tool for managing your personal knowledge using the PARA method (Projects, Areas, Resources, Archive).
+
+## Installation
+
+```bash
+pip install para-cli
+```
+
+## Usage
+
+### Initialize PARA Structure
+
+Create the basic PARA directory structure:
+
+```bash
+para init
+```
+
+You can also specify a custom location:
+
+```bash
+para init --path ~/Documents/PARA
+```
+
+### Check Status
+
+View the current status of your PARA system:
+
+```bash
+para status
+```
+
+### Add New Items
+
+Add a new item to any PARA category:
+
+```bash
+para add "New Project" projects
+para add "Health" areas
+para add "Programming Books" resources
+para add "Old Project 2023" archive
+```
+
+## PARA Method Overview
+
+The PARA method is a simple but powerful organizational system:
+
+- **Projects**: Short-term efforts that you're currently working on
+- **Areas**: Long-term responsibilities you want to manage
+- **Resources**: Topics or themes of ongoing interest
+- **Archive**: Inactive items from the other categories
+
+## Development
+
+Requirements:
+- Python 3.13+
+- Dependencies: typer, rich
+
+To contribute:
+1. Clone the repository
+2. Install dependencies: `pip install -e .`
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+MIT License
