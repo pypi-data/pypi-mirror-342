@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcfNMR"
+
+version = "0.1.3"
+
+license = "MIT"
+
+dependencies = [
+  "numpy",
+  "scipy",
+  "pandas",
+  "matplotlib",
+  "seaborn",
+  "networkx",
+  "shapely",
+  "toml",
+  "svglib",
+  "reportlab",
+  "nmrpystar",
+  "waybackpack",
+  "wget",
+  "bs4"
+]
+
+requires-python = ">= 3.11"
+
+authors = [
+  {name = "Leonhard Lücken"}
+]
+
+description = "A Minimum Cost Flow NMR recombinator."
+
+readme = "README.md"
+
+#license-files = ["LICENSE.txt"]
+
+keywords = ["NMR", "compound identification", "mixture reconstruction"]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Topic :: Scientific/Engineering :: Image Processing",
+  "Topic :: Scientific/Engineering :: Chemistry",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13"
+]
+
+[project.optional-dependencies]
+tests = [
+   "texttest",
+   "pycairo",
+   "PyGObject",
+   ]
+formatter = [
+   "black"
+   ]
+
+[project.scripts]
+mcfNMR = "mcfnmr.__main__:main"
+spec2csv = "mcfnmr.utils.spec2csv:main"
+downloadDemoData = "mcfnmr.demodata.download:main"
+
+[project.urls]
+Repository = "https://github.com/GeoMetabolomics-ICBM/mcfNMR"
+Issues = "https://github.com/GeoMetabolomics-ICBM/mcfNMR/issues"
+
+[tool.setuptools]
+packages = ["mcfnmr", "mcfnmr.core", "mcfnmr.demodata", "mcfnmr.routines", "mcfnmr.utils"]
