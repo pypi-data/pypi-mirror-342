@@ -1,0 +1,2 @@
+[console_scripts]
+npcli = npcli.npcli:main

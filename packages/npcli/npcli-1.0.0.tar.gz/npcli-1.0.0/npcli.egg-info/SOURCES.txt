@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+npcli.egg-info/PKG-INFO
+npcli.egg-info/SOURCES.txt
+npcli.egg-info/dependency_links.txt
+npcli.egg-info/entry_points.txt
+npcli.egg-info/requires.txt
+npcli.egg-info/top_level.txt
+tests/test_npcli.py
