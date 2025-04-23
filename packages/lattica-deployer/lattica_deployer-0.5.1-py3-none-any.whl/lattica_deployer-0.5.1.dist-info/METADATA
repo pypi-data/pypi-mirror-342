@@ -1,0 +1,16 @@
+Metadata-Version: 2.3
+Name: lattica-deployer
+Version: 0.5.1
+Summary: Lattica client
+Author: LatticaAI Inc.
+Author-email: hello@lattica.ai
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: lattica-common (>=0.5,<0.6)
+Requires-Dist: lattica-deploy (>=0.2,<0.3)
+Requires-Dist: pyyaml
+Project-URL: Homepage, https://www.lattica.ai/
