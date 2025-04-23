@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/permuto/__init__.py
+src/permuto/cli.py
+src/permuto/exceptions.py
+src/permuto/permuto.py
+src/permuto.egg-info/PKG-INFO
+src/permuto.egg-info/SOURCES.txt
+src/permuto.egg-info/dependency_links.txt
+src/permuto.egg-info/entry_points.txt
+src/permuto.egg-info/requires.txt
+src/permuto.egg-info/top_level.txt
+tests/test_permuto.py

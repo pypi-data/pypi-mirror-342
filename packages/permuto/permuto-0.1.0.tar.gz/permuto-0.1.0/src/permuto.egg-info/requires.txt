@@ -1,0 +1,4 @@
+jsonpointer>=2.0
+
+[test]
+pytest>=6.0
