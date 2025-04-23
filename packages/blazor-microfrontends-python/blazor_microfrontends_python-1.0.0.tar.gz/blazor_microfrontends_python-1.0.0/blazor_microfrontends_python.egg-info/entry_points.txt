@@ -1,0 +1,2 @@
+[console_scripts]
+blazor-mf = blazor_microfrontends.cli:main

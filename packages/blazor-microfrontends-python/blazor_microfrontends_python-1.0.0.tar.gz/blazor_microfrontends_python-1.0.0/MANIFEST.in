@@ -1,0 +1,12 @@
+include LICENSE
+include README.md
+include pyproject.toml
+include requirements.txt
+recursive-include blazor_microfrontends *.py
+recursive-include blazor_microfrontends *.json
+recursive-include blazor_microfrontends *.yaml
+recursive-include blazor_microfrontends *.md
+recursive-include tests *.py
+recursive-include tests *.json
+recursive-include tests *.yaml
+recursive-include tests *.md 

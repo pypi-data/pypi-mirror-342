@@ -1,0 +1,184 @@
+Metadata-Version: 2.4
+Name: blazor-microfrontends-python
+Version: 1.0.0
+Summary: Python SDK for Blazor Microfrontends
+Home-page: https://github.com/WonderBoyHub/BlazorMicrofrontends
+Author: Blazor Microfrontends Team
+Author-email: support@blazor-microfrontends.com
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click>=8.1.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: flask>=2.3.3
+Requires-Dist: flask-cors>=4.0.0
+Requires-Dist: django>=4.2.5
+Requires-Dist: djangorestframework>=3.14.0
+Requires-Dist: django-cors-headers>=4.2.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: black>=23.7.0; extra == "dev"
+Requires-Dist: flake8>=6.1.0; extra == "dev"
+Requires-Dist: mypy>=1.5.1; extra == "dev"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Blazor Microfrontends Python SDK
+
+A Python SDK for integrating Python microfrontends with Blazor applications.
+
+## Installation
+
+1. Create a virtual environment:
+```bash
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+2. Install the SDK:
+```bash
+pip install -e .
+```
+
+## Usage
+
+### App Shell Configuration
+
+1. Initialize an app shell:
+```bash
+blazor-mf appshell init --name "MyAppShell" --version "1.0.0"
+```
+
+2. Add a microfrontend to the app shell:
+```bash
+blazor-mf appshell add "my-microfrontend" "http://localhost:5000" "/my-path"
+```
+
+3. List all microfrontends:
+```bash
+blazor-mf appshell list
+```
+
+### Microfrontend Development
+
+1. Initialize a new microfrontend:
+```bash
+blazor-mf microfrontend init --name "MyMicrofrontend" --version "1.0.0"
+```
+
+2. Add routes to your microfrontend:
+```bash
+blazor-mf microfrontend add-route "/dashboard" "DashboardComponent"
+```
+
+3. List all routes:
+```bash
+blazor-mf microfrontend list-routes
+```
+
+### Flask Integration
+
+```python
+from flask import Flask, render_template
+from blazor_microfrontends import MicrofrontendApi, microfrontend_route
+
+app = Flask(__name__)
+api = MicrofrontendApi(__name__)
+
+@microfrontend_route(api, "/dashboard", "DashboardComponent")
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+### Django Integration
+
+```python
+from django.shortcuts import render
+from blazor_microfrontends import MicrofrontendApi, microfrontend_route
+
+api = MicrofrontendApi(__name__)
+
+@microfrontend_route(api, "/dashboard", "DashboardComponent")
+def dashboard(request):
+    return render(request, 'dashboard.html')
+```
+
+## Configuration
+
+### App Shell Configuration (appshell.yaml)
+
+```yaml
+name: MyAppShell
+version: 1.0.0
+microfrontends:
+  - name: dashboard
+    url: http://localhost:5000
+    path: /dashboard
+  - name: profile
+    url: http://localhost:5001
+    path: /profile
+```
+
+### Microfrontend Configuration (microfrontend.json)
+
+```json
+{
+  "name": "MyMicrofrontend",
+  "version": "1.0.0",
+  "routes": [
+    {
+      "path": "/dashboard",
+      "component": "DashboardComponent"
+    }
+  ]
+}
+```
+
+## Development
+
+1. Install development dependencies:
+```bash
+pip install -e ".[dev]"
+```
+
+2. Run tests:
+```bash
+pytest
+```
+
+3. Format code:
+```bash
+black .
+```
+
+4. Run type checking:
+```bash
+mypy .
+```
+
+## License
+
+MIT License 
