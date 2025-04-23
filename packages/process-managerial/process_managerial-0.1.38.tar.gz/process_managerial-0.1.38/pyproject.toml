@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "process_managerial"
+version = "0.1.38"
+authors = [
+  { name="Connor White", email="connor.sw.personal@gmail.com" },
+]
+description = "Connor's Process Managerial (PM) is a utility that processes and enques functions."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+dependencies = [
+]
+
+[project.urls]
+Homepage = "https://github.com/CorniiDog/process_managerial"
+Issues = "https://github.com/CorniiDog/process_managerial/issues"
