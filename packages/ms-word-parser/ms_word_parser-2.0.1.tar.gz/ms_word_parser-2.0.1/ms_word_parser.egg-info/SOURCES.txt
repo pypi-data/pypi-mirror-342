@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+ms_word_parser/__init__.py
+ms_word_parser/parse_docx.py
+ms_word_parser/tips.py
+ms_word_parser.egg-info/PKG-INFO
+ms_word_parser.egg-info/SOURCES.txt
+ms_word_parser.egg-info/dependency_links.txt
+ms_word_parser.egg-info/entry_points.txt
+ms_word_parser.egg-info/requires.txt
+ms_word_parser.egg-info/top_level.txt

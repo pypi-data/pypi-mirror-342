@@ -1,0 +1,2 @@
+[console_scripts]
+parse-docx = ms_word_parser.parse_docx:main
