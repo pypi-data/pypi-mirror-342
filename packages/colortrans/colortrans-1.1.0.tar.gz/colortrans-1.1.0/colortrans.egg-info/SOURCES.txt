@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+colortrans/__init__.py
+colortrans/__main__.py
+colortrans/colortrans.py
+colortrans/version.txt
+colortrans.egg-info/PKG-INFO
+colortrans.egg-info/SOURCES.txt
+colortrans.egg-info/dependency_links.txt
+colortrans.egg-info/entry_points.txt
+colortrans.egg-info/requires.txt
+colortrans.egg-info/top_level.txt
+tests/test_colortrans.py

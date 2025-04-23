@@ -1,0 +1,2 @@
+[console_scripts]
+colortrans = colortrans.colortrans:_main
