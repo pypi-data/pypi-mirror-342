@@ -1,0 +1,6 @@
+pydantic>=2.5.2
+requests>=2.31.0
+openai>=1.57.2
+
+[langchain]
+langchain-openai==0.2.12
