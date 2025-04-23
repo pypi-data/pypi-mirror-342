@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: PyKalmanFilter
+Version: 1.1.0
+Summary: Python package for discrete-time filtering using influence diagrams. Converts Gaussian distributions between covariance form and influence diagram (ID) form, where matrix B holds arc coefficients and vector V holds variances. Supports measurement updates, time updates, and evidence assimilation via Bayesian methods.
+Author-email: Shay Manor <manors@purdue.edu>, Robert Kenley <kenley@purdue.edu>, Priyank Behera <beherap@purdue.edu>, Zirui Zhang <zhan4192@purdue.edu>, Yixin Hu <hi969@purdue.edu>
+License-Expression: MIT
+Keywords: kalman,kalman-filter,filter,filtering,influence diagram
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: numpy
+Dynamic: license-file

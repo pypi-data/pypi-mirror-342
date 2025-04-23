@@ -1,0 +1,10 @@
+Kalman
+__init__
+cov_to_inf
+evidence
+id_predict
+inf_to_cov
+mupdate
+removal
+reversal
+tupdate
