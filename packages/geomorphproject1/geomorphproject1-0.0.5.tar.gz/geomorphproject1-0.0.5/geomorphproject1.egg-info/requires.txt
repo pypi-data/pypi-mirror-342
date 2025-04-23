@@ -1,0 +1,15 @@
+folium>=0.14
+geopandas>=0.14
+ipyleaflet>=0.17
+mistune==2.0.5
+mkdocs>=1.5
+mkdocs-jupyter>=0.24.0
+nbconvert==7.16.2
+numpy>=1.21
+pandas>=1.5
+
+[all]
+geomorphproject1[extra]
+
+[extra]
+pandas
