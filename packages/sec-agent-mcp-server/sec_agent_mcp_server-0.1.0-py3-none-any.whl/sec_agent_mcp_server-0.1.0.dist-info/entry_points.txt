@@ -1,0 +1,2 @@
+[console_scripts]
+sec-agent-mcp-server = mcp_server_sec_agent.server:main
