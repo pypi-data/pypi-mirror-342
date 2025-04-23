@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: MongoAgent
+Version: 0.1.0
+Summary: An Applicaiton help to communicate with mongo using chatgpt and AI
+Author: Drjslab
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Requires-Dist: pymongo
+Dynamic: author
+Dynamic: classifier
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
