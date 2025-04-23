@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+service MPIJobService {
+  rpc SubmitJob (JobRequest) returns (JobResponse);
+  rpc ListJobsByUser (UserRequest) returns (JobResponse);
+}
+
+message JobRequest {
+  string json_payload = 1;
+}
+
+message UserRequest {
+  string username = 1;
+}
+
+message JobResponse {
+  string message = 1;
+}
