@@ -1,0 +1,61 @@
+# SMAI - Small AI Command Line Tool
+
+**This is a work in progress, use at your own risk.**
+
+A command-line interface for interacting with various AI models for text generation, image creation, audio transcription, and speech synthesis.
+
+## Installation
+
+```bash
+pip install smallish-ai
+```
+
+## Features
+
+- Text generation with multiple models (OpenAI, Anthropic, etc.)
+- Image generation
+- Audio transcription
+- Text-to-speech conversion
+- Tool integration (calculator, weather, etc.)
+- Interactive tool execution
+- Streaming responses
+- Conversation management
+
+## Usage
+
+```bash
+# Basic text generation
+smai "Tell me a joke"
+
+# Use a specific model
+smai -m gpt-4 "Explain quantum computing"
+
+# Pass model-specific parameters
+smai -m gpt-4 --temperature 0.5 "Write a creative story"
+
+# Generate an image
+smai -m dall-e-3 -o image.png "A sunset over mountains"
+
+# Use tools
+smai -t calculator,weather "How much colder is Paris than SF right now?"
+
+# Transcribe audio
+smai -m whisper input.mp3
+
+# Generate speech
+smai -m tts -o output.mp3 "Text to convert to speech"
+```
+
+## API Keys
+
+```bash
+# Set an API key
+smai --set-key OPENAI_API_KEY
+
+# Remove an API key
+smai --remove-key OPENAI_API_KEY
+```
+
+## License
+
+MIT

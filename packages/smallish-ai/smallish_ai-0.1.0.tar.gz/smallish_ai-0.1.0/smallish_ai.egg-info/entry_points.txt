@@ -1,0 +1,2 @@
+[console_scripts]
+smai = smai.cli:main
