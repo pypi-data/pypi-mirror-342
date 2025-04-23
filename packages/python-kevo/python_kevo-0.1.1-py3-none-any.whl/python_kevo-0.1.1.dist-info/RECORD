@@ -1,0 +1,16 @@
+kevo/__init__.py,sha256=PV6FfXDQiacbZmY3M0I0KiTx-MyUoVkywtPTGcPYbyM,1008
+kevo/client.py,sha256=C4q7-DLkaip9Pv02l9_VJ59pnEpu8dnessim5Mp2wzo,8948
+kevo/connection.py,sha256=FnxKs1Fy1l1Nm5AzIr8-0DFDbBlIPY5hkKEUONv67SU,5598
+kevo/errors.py,sha256=E59YkuNIbKgAjmAxZHuxRuTar2P1vY6op2_Ez9niuFQ,1693
+kevo/models.py,sha256=2Gh3Grg6vJlvof-qRgdYdWP7RXIeInfCwK0NRSLiTQk,1801
+kevo/options.py,sha256=Rp9djkLW_WoiWJyWkNZ21Tj3cbRGyg8LXASthJ5vdMU,2169
+kevo/proto/__init__.py,sha256=INA2fwaoOvIkt7R6j_lR13IFtALjiTZqOdXagxQrnFk,31
+kevo/proto/kevo/__init__.py,sha256=AeOX836k4X0yxYm-liMo09_shz240O23ONBHR0qRzuA,40
+kevo/proto/kevo/service_pb2.py,sha256=krhmooNYnYvHDsRd1sH9v6TfxlyZBmne2Ri4opI1ZhM,8582
+kevo/proto/kevo/service_pb2_grpc.py,sha256=QGUuwn1HOwqfcMF_a5mUCiiPVSaS5TI4bIGLdC4rXHA,23306
+kevo/scanner.py,sha256=r581pi04OZt1pa4dtdKEfrfy0pQcxEoTCoKlAcqC7oU,5801
+kevo/transaction.py,sha256=Yt1IZxcz6EbebQRU9rDI0SkFTkUA2KFplnWY6NG-r1k,6883
+python_kevo-0.1.1.dist-info/LICENSE,sha256=KSRkAj_jkRnD4hKz3j63E51HrWWXBsmalJaXAia-9PI,1063
+python_kevo-0.1.1.dist-info/METADATA,sha256=M_gBWBvwu18A5UvJiIaBYLTiXphkeqAilkaR49ZRwOs,3818
+python_kevo-0.1.1.dist-info/WHEEL,sha256=fGIA9gx4Qxk2KDKeNJCbOEwSrmLtjWCwzBz351GyrPQ,88
+python_kevo-0.1.1.dist-info/RECORD,,
