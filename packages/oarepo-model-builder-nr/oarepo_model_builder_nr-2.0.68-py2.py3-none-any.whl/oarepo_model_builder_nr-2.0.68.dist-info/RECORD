@@ -1,0 +1,16 @@
+oarepo_model_builder_nr/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+oarepo_model_builder_nr/version.py,sha256=224XrkmXjeBL4MXfRGosMnroKslGnqyZLLEunA1jRlc,23
+oarepo_model_builder_nr/models/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+oarepo_model_builder_nr/models/datacite_4.5.yaml,sha256=awi9bhs8QzC5JQNPiL0uhoODqwmD1iFb10RRsq0Y2BM,3103
+oarepo_model_builder_nr/models/datacite_datatypes_4.5.yaml,sha256=cQmZkrlsv4lCEIf8RQ3UNTb1Aagrt8xGeuDMgrlkvaU,20757
+oarepo_model_builder_nr/models/nr_common_metadata_2.0.yaml,sha256=_eOzg_jzg8aRK7nvMFa60hff8SbUz2E0VdsIUa_hldI,10402
+oarepo_model_builder_nr/models/nr_data_2.0.yaml,sha256=pT8Zz1QaTIRmtxn5-0ILVJ5uGVLCpycVE2Vm3WiTDNY,2199
+oarepo_model_builder_nr/models/nr_datatypes_2.0.yaml,sha256=AKybZGkP_RKlsDoLJayfA_SwpzEeCGm6EbUh2LF6Blg,24170
+oarepo_model_builder_nr/models/nr_documents_2.0.yaml,sha256=mdVli1BdoTbxMOvo-UJraVrdfAW6DoUxo2uS5dD4m5E,7711
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_import.py,sha256=soctK4eve3uSoL5o5UPYRG9uYFl-5NNarGI7X0MQ3RU,913
+oarepo_model_builder_nr-2.0.68.dist-info/METADATA,sha256=1rW_tKZZ6A213HN1vrREu9ICJZQCog29usYmLMBBVHY,3211
+oarepo_model_builder_nr-2.0.68.dist-info/WHEEL,sha256=Td9E1opt19FSuwsk_gcDwtsGPmyXw7uz9xQf-y2gvl8,109
+oarepo_model_builder_nr-2.0.68.dist-info/entry_points.txt,sha256=_cBWn9aNWbbxnYIhxzum8nhWgLgBpr1Q_DYSDu1KXkI,430
+oarepo_model_builder_nr-2.0.68.dist-info/top_level.txt,sha256=NdbTgVEgvgXs64so1sJ4FxYM6XmkDCXYUY_kqw9QGDo,30
+oarepo_model_builder_nr-2.0.68.dist-info/RECORD,,
