@@ -1,0 +1,34 @@
+Metadata-Version: 2.4
+Name: livecc-utils
+Version: 0.0.1
+Summary: LiveCC Vision Language Model Utils - PyTorch
+Project-URL: Homepage, https://github.com/showlab/LiveCC/tree/main/livecc-utils
+Project-URL: Repository, https://github.com/showlab/LiveCC.git
+Project-URL: Issues, https://github.com/showlab/LiveCC/issues
+Author-email: Joya Chen <joyachen@u.nus.edu>
+License: Apache-2.0
+Keywords: large language model,livecc,pytorch,qwen-vl,vision language model
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Requires-Dist: decord
+Requires-Dist: qwen-vl-utils
+Description-Content-Type: text/markdown
+
+# livecc-utils
+
+LiveCC Utils is a supplement to qwen-vl-utils, which contains a set of helper functions for processing and integrating visual language information with LiveCC Model.
+
+## Install
+
+```bash
+pip install livecc-utils
+```
+
+## Usage
+
+### Real-Time Video Commentary
+
+### General Video Caption/QA
