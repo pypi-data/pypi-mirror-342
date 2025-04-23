@@ -1,0 +1,94 @@
+Metadata-Version: 2.3
+Name: metadata_etl
+Version: 0.2.2
+Summary: Implement the metadata ETL process to extract metadata from offline research data (HDF5 files) and inject it to the metadata catalog 
+License: XFEL
+Keywords: ETL,metadata,research data,hdf5,REST
+Author: Djelloul Boukhelef
+Author-email: djelloul.boukhelef@xfel.eu
+Requires-Python: >=3.10,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: anywidget (>=0.9.13,<0.10.0)
+Requires-Dist: argparse (>=1.4.0,<2.0.0)
+Requires-Dist: coverage (>=7.4.1,<8.0.0)
+Requires-Dist: datadir (>=1.1.0,<2.0.0)
+Requires-Dist: h5py (>=3.10.0,<4.0.0)
+Requires-Dist: ipyfilechooser (>=0.6.0,<0.7.0)
+Requires-Dist: ipympl (>=0.9.6,<0.10.0)
+Requires-Dist: ipython (>=8.31.0,<9.0.0)
+Requires-Dist: ipywidgets (>=8.1.5,<9.0.0)
+Requires-Dist: itables[widget] (>=2.2.4,<3.0.0)
+Requires-Dist: jupyterlab-h5web (>=12.3.0,<13.0.0)
+Requires-Dist: loguru (>=0.7.2,<0.8.0)
+Requires-Dist: metadata-api (>=4.1.0,<5.0.0)
+Requires-Dist: numpy (>=1.26.4,<2.0.0)
+Requires-Dist: numpyencoder (>=0.3.0,<0.4.0)
+Requires-Dist: oauthlib (>=3.2.2,<4.0.0)
+Requires-Dist: pathlib (>=1.0.1,<2.0.0)
+Requires-Dist: pycodestyle (>=2.11.1,<3.0.0)
+Requires-Dist: pytest-datadir (>=1.5.0,<2.0.0)
+Requires-Dist: requests-oauthlib (>=2.0.0,<3.0.0)
+Project-URL: Homepage, https://git.xfel.eu/ITDM/metadata_etl/documentation
+Project-URL: Repository, https://git.xfel.eu/ITDM/metadata_etl
+Description-Content-Type: text/markdown
+
+# Metadata ETL (Extract-Transform-Load)
+
+The ETL is a service for ingesting metadata the into the central metadata data catalogue (aka **myMDC**).
+
+Basically, the ETL application **extracts** metadata about scientific data, **transforms** the input data into a structure and format that is expected by the Metadata service API and **loads** the final result to myMDC using the provided API/Library.
+
+The ETL design aims to provide a uniform API to integrate with different sources of metadata, such as DAMNIT (https://github.com/European-XFEL/DAMNIT), File system DB, etc.
+
+As a proof-of-concept, the current version implements the extraction component that reads the raw data and extracts metadata from.
+In addition, the transform and load components design is flexible enough to ingesting metadata from different sources.
+
+_Repository:_
+
+- https://git.xfel.eu/ITDM/metadata_etl
+
+_Dependencies:_
+
+- metadata_api (https://git.xfel.eu/ITDM/metadata_api)
+
+## Installation
+
+1. Install Python and all required dependencies (eg. Python, poetry, metadata_api, etc.)
+
+   **TBD**
+
+## Usage
+
+1. Run the main application from the command-line with the help argument:
+
+`   poetry run metadata_etl --help`
+
+2. You should get the this output:
+
+```
+   usage: MetadataETL [-h] [-b BASE_FOLDER] [-p PROPOSAL] [-r RUN] [-s {proposal,file,run}] [-d DATA] 
+          [-g {config,extract,transform,load}] [-v] [files ...]
+
+   Extract metadata from research data and load it into the metadata catalog.
+
+   positional arguments:
+   files List of data file(s)
+
+   options:
+   -h, --help show this help message and exit
+   -b BASE_FOLDER, --base_folder BASE_FOLDER
+   Base folder (default: $PWD)
+   -p PROPOSAL, --proposal PROPOSAL
+   Full proposal number
+   -r RUN, --run RUN Run numbers
+   -s {proposal,file,run}, --scope {proposal,file,run}
+   -d DATA, --data DATA Input file for data and metadata specifications
+   -g {config,extract,transform,load}, --stage {config,extract,transform,load}
+   -v, --verbose Verbose mode
+```
+

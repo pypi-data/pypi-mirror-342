@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "metadata_etl"
+version = "0.2.2"
+description ="""Implement the metadata ETL process to extract metadata \
+from offline research data (HDF5 files) and inject it to the metadata catalog """
+authors = ["Djelloul Boukhelef <djelloul.boukhelef@xfel.eu>"]
+license = "XFEL"
+readme = "README.md"
+homepage = "https://git.xfel.eu/ITDM/metadata_etl/documentation"
+repository = "https://git.xfel.eu/ITDM/metadata_etl"
+keywords = ["ETL", "metadata", "research data", "hdf5", "REST"]
+packages = [
+    {include = "metadata_etl"},
+    {include = "utils", from = "metadata_etl"},
+{include = "tests"}
+    ]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pathlib = "^1.0.1"
+argparse = "^1.4.0"
+pycodestyle = "^2.11.1"
+coverage = "^7.4.1"
+loguru = "^0.7.2"
+h5py = "^3.10.0"
+numpy = "^1.26.4"
+numpyencoder = "^0.3.0"
+datadir = "^1.1.0"
+pytest-datadir = "^1.5.0"
+oauthlib = "^3.2.2"
+requests-oauthlib = "^2.0.0"
+ipywidgets = "^8.1.5"
+ipyfilechooser = "^0.6.0"
+ipympl = "^0.9.6"
+ipython = "^8.31.0"
+jupyterlab-h5web = "^12.3.0"
+itables = {extras = ["widget"], version = "^2.2.4"}
+anywidget = "^0.9.13"
+metadata-api = "^4.1.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+jupyter = "^1.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+metadata_etl = "metadata_etl.metadata_etl:main"
+h5_list = "metadata_etl:h5_list"
