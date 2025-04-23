@@ -1,0 +1,2 @@
+[console_scripts]
+sanctiontlo = sanctiontlo.cli:app
