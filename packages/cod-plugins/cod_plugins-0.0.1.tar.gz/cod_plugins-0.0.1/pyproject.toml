@@ -1,0 +1,40 @@
+[build-system]
+  requires = [
+      "setuptools >= 65",
+      "wheel >= 0.38",
+      ]
+  build-backend = "setuptools.build_meta" 
+
+[project]
+  name = "cod_plugins"
+  version = "0.0.1"
+  authors = [
+    { name="FSE", email="henrique.ferreira@fujitsu.com" },
+  ]
+  description = "COD Drive package"
+  readme = "README.md"
+  requires-python = ">=3.11"
+
+  dependencies = [
+  ]
+
+  classifiers = [
+      "Programming Language :: Python :: 3",
+      "Operating System :: OS Independent",
+  ]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+pythonpath = [
+  "src"
+]
+
+[project.urls]
+  "Homepage" = "https://github.com/Fujitsu-Systems-Europe-FSE/cod-plugins"
+  "Bug Tracker" = "https://github.com/Fujitsu-Systems-Europe-FSE/cod-plugins/issues"

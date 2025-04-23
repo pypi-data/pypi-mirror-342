@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/__init__.py
+src/cod_plugin.py
+src/pdf_generator.py
+src/promium_plugin.py
+src/cod_plugins.egg-info/PKG-INFO
+src/cod_plugins.egg-info/SOURCES.txt
+src/cod_plugins.egg-info/dependency_links.txt
+src/cod_plugins.egg-info/top_level.txt
+test/test_agriparadigma.py
+test/test_atl.py
+test/test_promium_plugin.py
