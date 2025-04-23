@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: chembioml
+Version: 0.1.0
+Summary: ChemBioML Platform for machine learning in chemistry and biology
+Home-page: https://github.com/chembiodev/ChemBioML-Platform-OS
+Author: Viacheslav Muratov
+Author-email: support@chembioml.com
+License: GNU General Public License v3.0 (see https://www.gnu.org/licenses/gpl-3.0.en.html)
+Requires-Python: >=3.8
+Requires-Dist: pandas
+Requires-Dist: scikit-learn==1.3.2
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: sklearn-genetic
+Requires-Dist: openpyxl
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
