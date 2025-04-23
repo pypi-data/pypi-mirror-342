@@ -1,0 +1,13 @@
+kube_transform/__init__.py,sha256=5xBRshc35fQdLjFUiAQbFBhbMOq_Bd1RgUM5s8KV_XA,44
+kube_transform/fsutil.py,sha256=zIG24WvE4rkfujx3PLBKHKZztaZlhHNoUVIhxDUupus,5350
+kube_transform/spec.py,sha256=TQwwAmUudowZPZ5qQJNz0hh8sjR20M5zg2ultnZetdY,4505
+kube_transform/controller/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kube_transform/controller/controller.py,sha256=uyCg_Wza833KB3uropwQ1dm51VYwzHwq6KAUXFCc4Cc,5884
+kube_transform/controller/k8s.py,sha256=W3xPyhYYERMdxCc8vajR6EFE8pmrEUA3X0Lhl9ThaOE,10491
+kube_transform/controller/pipeline_manager.py,sha256=dUcQqZBsuFQ5bpe_txCvMecGT2JQpA9A2a10jrv-Qgc,9083
+kube_transform/controller/submit.py,sha256=zXRCZRSmmSUQJ5fm0lprMuEPJJp5h07Xr4k-2WQ_nBc,952
+kube_transform-0.2.1.dist-info/licenses/LICENSE,sha256=Zy6u1330Og8qe5GQej4blB7m91zPXOd_rxYCnHUiN0I,1067
+kube_transform-0.2.1.dist-info/METADATA,sha256=a_Etn12yeK8VGznexiMgcmiOR0o2nEa6eEd1hVSwbro,5066
+kube_transform-0.2.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+kube_transform-0.2.1.dist-info/top_level.txt,sha256=3VcDYWa_DSth0AbR_dxgdBAU2xD51-5ZLJGo_UP3Kac,15
+kube_transform-0.2.1.dist-info/RECORD,,
