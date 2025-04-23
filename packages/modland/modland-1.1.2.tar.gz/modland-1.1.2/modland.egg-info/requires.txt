@@ -1,0 +1,13 @@
+affine
+geopandas
+numpy
+pyproj
+rasterio
+rasters
+scipy
+shapely
+
+[dev]
+pytest
+build
+twine
