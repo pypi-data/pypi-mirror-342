@@ -1,0 +1,9 @@
+*.pyc
+.idea/
+.vscode/
+__pycache__/
+tmp/
+build/
+dist/
+*.egg-info/
+.DS_Store/
