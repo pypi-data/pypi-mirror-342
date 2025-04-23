@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: easy-ai18n
+Version: 0.0.5
+Summary: Simple and Elegant Python3 Internationalization (i18n) Tool
+Project-URL: Repository, https://github.com/z-mio/easy-ai18n
+Project-URL: Issues, https://github.com/z-mio/easy-ai18n/issues
+Requires-Python: >=3.12
+License-File: LICENSE
+Requires-Dist: aioresult==1.2
+Requires-Dist: anyio>=4.9.0
+Requires-Dist: googletrans==4.0.2
+Requires-Dist: instructor>=1.7.9
+Requires-Dist: loguru>=0.7.3
+Requires-Dist: openai==1.75.0
+Requires-Dist: pytest==8.3.5
+Requires-Dist: python-dotenv==1.1.0
+Requires-Dist: pyyaml==6.0.2
+Requires-Dist: tenacity==9.1.2
+Requires-Dist: tqdm>=4.67.1
+Dynamic: license-file
