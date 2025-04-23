@@ -1,0 +1,11 @@
+[project]
+name = "champa"
+version = "0.1.0"
+description = "Your cool Python package"
+authors = [{name = "Champa", email = "you@example.com"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.7"
+
+[tool.setuptools.packages.find]
+where = ["champa"]
