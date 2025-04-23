@@ -1,0 +1,13 @@
+channels:
+- pytorch
+- nvidia
+- conda-forge
+dependencies:
+- python=3.9
+- tifffile>=2023.7.18
+- cudatoolkit
+- cudnn
+- pip
+- pip:
+  - deepcell==0.12.7
+name: cache_catalog_polarityjam_DeepCell-predict_0.1.0
