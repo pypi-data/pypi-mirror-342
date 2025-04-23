@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: aind-slurm-rest
+Version: 1.0.3
+Summary: Slurm REST API
+Home-page: 
+Author: SchedMD LLC
+Author-email: sales@schedmd.com
+License: Apache 2.0
+Keywords: OpenAPI,OpenAPI-Generator,Slurm REST API
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: urllib3<3.0.0,>=2.1.0
+Requires-Dist: python-dateutil>=2.8.2
+Requires-Dist: pydantic>=2
+Requires-Dist: typing-extensions>=4.7.1
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+    API to access and control Slurm
+    
