@@ -1,0 +1,76 @@
+{
+    "upgrades": [
+        {
+            "version": "0.1.9",
+            "python_version": "3.13.0",
+            "timestamp": "2025-03-22T17:39:21.547663Z",
+            "notes": "Upgrade"
+        },
+        {
+            "version": "0.1.9",
+            "python_version": "3.13.0",
+            "timestamp": "2025-03-23T12:20:14.166765Z",
+            "notes": "Upgrade"
+        },
+        {
+            "version": "0.2.0",
+            "python_version": "3.13.0",
+            "timestamp": "2025-03-24T04:18:18.975194Z",
+            "notes": "Upgrade"
+        },
+        {
+            "version": "0.2.1",
+            "python_version": "3.13.0",
+            "timestamp": "2025-03-26T23:34:45.862411Z",
+            "notes": "Upgrade"
+        },
+        {
+            "version": "0.2.4",
+            "python_version": "3.13.0",
+            "timestamp": "2025-03-27T02:35:43.084053Z",
+            "notes": "Upgrade"
+        },
+        {
+            "version": "0.2.7",
+            "python_version": "3.13.0",
+            "timestamp": "2025-04-02T23:23:42.153542Z",
+            "notes": "Upgrade"
+        },
+        {
+            "version": "0.2.8",
+            "python_version": "3.13.0",
+            "timestamp": "2025-04-03T03:30:31.001722Z",
+            "notes": "Upgrade"
+        },
+        {
+            "version": "0.3.0",
+            "python_version": "3.13.0",
+            "timestamp": "2025-04-10T09:55:06.726227Z",
+            "notes": "Upgrade"
+        },
+        {
+            "version": "0.3.1",
+            "python_version": "3.13.0",
+            "timestamp": "2025-04-10T10:07:35.721314Z",
+            "notes": "Upgrade"
+        },
+        {
+            "version": "0.3.2",
+            "python_version": "3.11.7",
+            "timestamp": "2025-04-11T12:46:29.714950Z",
+            "notes": "Upgrade"
+        },
+        {
+            "version": "0.3.3",
+            "python_version": "3.11.7",
+            "timestamp": "2025-04-13T12:25:12.592181Z",
+            "notes": "Upgrade"
+        },
+        {
+            "version": "0.3.4",
+            "python_version": "3.11.7",
+            "timestamp": "2025-04-17T05:05:39.029292Z",
+            "notes": "Upgrade"
+        }
+    ]
+}
