@@ -1,0 +1,34 @@
+before_script:
+  - export GIT_SSL_NO_VERIFY=1
+  - export PATH="$HOME/miniconda2/bin:$PATH"
+
+stages:
+  - prepare
+  - test
+  - report
+  - clean
+
+cache:
+  paths:
+    - test/report
+
+prepare:
+  stage: prepare
+  script:
+    - conda update conda
+
+test_python3:
+  stage: test
+  script:
+    - git submodule sync --recursive
+    - git submodule update --init --recursive
+    - conda env update -f environment.yml -n nes python=3.7
+    - source activate nes
+    - python run_test.py
+
+clean:
+  stage: clean
+  script:
+    - conda clean --all --yes
+
+

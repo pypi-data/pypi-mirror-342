@@ -1,0 +1,2 @@
+[console_scripts]
+nes_reorder_longitudes = nes.utilities.reorder_longitudes_cli:reorder_longitudes_cli
