@@ -1,0 +1,12 @@
+LICENSE,sha256=waQlrEOE8R_g6b9XVhwcfRtJc9f7l3kq_65Nm9-AATE,1080
+naif_de440/__init__.py,sha256=D8Pq6rcxKdMWxZPU7PSx0SiKyChShP9NPfuXdy11bWM,166
+naif_de440/de440.bsp,sha256=pM6b-bMoK-zJ9LKsPOvgOirnWZmBqr1yZf2Egv_3xLU,119799808
+naif_de440/de440.md5,sha256=k_BP9n-oceb9FzQaeVdeiw_3IwK3zIusq0gaAEVeTFU,43
+naif_de440/fetch.py,sha256=sf71uX94tORmVMmp0ftCYTaFchc4fCulm-yl4rvsQpg,2082
+naif_de440/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+naif_de440/tests/test_naif_de440.py,sha256=lRGLzIpgDzCAuLHaaOgP9kGL4zQzvg6evjGeuhH_vbY,329
+naif_de440-2020.12.21.1.dist-info/licenses/LICENSE,sha256=waQlrEOE8R_g6b9XVhwcfRtJc9f7l3kq_65Nm9-AATE,1080
+naif_de440-2020.12.21.1.dist-info/METADATA,sha256=2cy0l8K3dqBQJ4uCBkfUQ536YlG3fmSahaa7EkxBjxU,3588
+naif_de440-2020.12.21.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+naif_de440-2020.12.21.1.dist-info/top_level.txt,sha256=-8SRQUqC6lkcMB5WpkLNfCPMQ5KakGMuqjPWvnLv9t0,11
+naif_de440-2020.12.21.1.dist-info/RECORD,,
