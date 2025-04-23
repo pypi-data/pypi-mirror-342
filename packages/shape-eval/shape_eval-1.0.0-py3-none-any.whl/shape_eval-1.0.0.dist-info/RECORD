@@ -1,0 +1,11 @@
+shape_eval/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+shape_eval/__main__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+shape_eval/service.py,sha256=U-nF7sPk0aZFPHDHSAMj1eI5JBrzRAzYUv64PNGiUv0,9106
+shape_eval/testing/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+shape_eval/testing/base_test.py,sha256=EpZuwt8Utc96yilkyj7IjXmmd1rz1w5ZYN68N5qT1Y8,253
+shape_eval/testing/civitai_sample.py,sha256=9ry8LByCj3cMVA_zFwUMaYCDDlNZz_ShSObIow-Fhso,329194
+shape_eval/testing/test_service.py,sha256=G4QK5OZ9o3PSiYWHbMdy21NejFafHIR7FdS5jhRC9Kg,4236
+shape_eval-1.0.0.dist-info/METADATA,sha256=cU98nl5ieW-FlmFv4FkKXX-L6b_UWoyk65oWcxU-R-Y,1186
+shape_eval-1.0.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+shape_eval-1.0.0.dist-info/licenses/LICENSE.txt,sha256=zIEM6VNcgDb39i6KfJqP3L_QH0wg7DHT5Mm3yHThqqk,34524
+shape_eval-1.0.0.dist-info/RECORD,,
