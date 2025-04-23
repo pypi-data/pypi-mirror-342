@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "pyTSPA_toolbox"
+version = "0.0.2"
+authors = [
+{ name="Kardos Benedek"},
+{ name="Szögi Marcell"},
+{ name="Varga Henrietta"},
+]
+maintainers = [
+{ name="Varga Henrietta", email = "varga.henrietta.julianna@hallgato.ppke.hu"},
+]
+description = "A toolbox for analyzing and visualizing team sports performance"
+readme = {file = "README.md", content-type = "text/markdown"}
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+classifiers = [
+"Development Status :: 1 - Planning",
+"Programming Language :: Python :: 3.12",
+"License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+"Operating System :: OS Independent",
+"Topic :: Scientific/Engineering"
+]
+dependencies = [
+"pandas>=2.2.2",
+"numpy>=1.26.4",
+"statsmodels>=0.14.2",
+"matplotlib>=3.9.2",
+"seaborn>=0.13.2",
+"scipy>=1.14.1",
+"openpyxl>=3.1.2",
+"scikit-learn>=1.5.2"
+]
+[project.urls]
+Homepage = "https://github.com/vargaheni05/pyTSPA-toolbox"
+Documentation = "https://pyTSPA-toolbox.readthedocs.io/en/latest/"
+Repository = "https://github.com/vargaheni05/pyTSPA-toolbox.git"
+Issues = "https://github.com/vargaheni05/pyTSPA-toolbox/issues"
+[tool.setuptools]
+packages = ["pyTSPA"]
+[tool.setuptools.package-data]
+data = ["*.csv"]

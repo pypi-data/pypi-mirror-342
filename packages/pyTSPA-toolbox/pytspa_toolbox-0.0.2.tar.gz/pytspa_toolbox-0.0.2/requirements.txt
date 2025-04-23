@@ -1,0 +1,11 @@
+pandas>=2.2.2
+numpy>=1.26.4
+statsmodels>=0.14.2
+matplotlib>=3.9.2
+seaborn>=0.13.2
+scipy>=1.14.1
+scikit-learn>=1.5.2
+Sphinx>=7.2.6
+sphinx-toolbox>=3.5.0
+enum-tools>=0.11.0
+sphinx-rtd-theme>=2.0.0
