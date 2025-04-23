@@ -1,0 +1,71 @@
+Metadata-Version: 2.4
+Name: Ligare.web
+Version: 0.7.0
+Summary: Libraries for building web applications.
+Author-email: Aaron Holmes <aholmes@mednet.ucla.edu>
+Project-URL: Homepage, https://github.com/uclahs-cds/Ligare
+Project-URL: Bug Tracker, https://github.com/uclahs-cds/Ligare/issues
+Project-URL: Repository, https://github.com/uclahs-cds/Ligare.git
+Project-URL: Changelog, https://github.com/uclahs-cds/Ligare/blob/main/CHANGELOG.md
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 4 - Beta
+Classifier: Natural Language :: English
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+Requires-Dist: Ligare.AWS
+Requires-Dist: Ligare.programming
+Requires-Dist: Ligare.platform
+Requires-Dist: Ligare.identity
+Requires-Dist: Ligare.database
+Requires-Dist: Flask==3.1.0
+Requires-Dist: flask-injector
+Requires-Dist: flask-login
+Requires-Dist: connexion==3.2.0
+Requires-Dist: connexion[uvicorn]
+Requires-Dist: uvicorn-worker
+Requires-Dist: swagger_ui_bundle
+Requires-Dist: injector
+Requires-Dist: python-dotenv
+Requires-Dist: json-logging
+Requires-Dist: lib_programname
+Requires-Dist: toml
+Requires-Dist: pydantic
+Requires-Dist: a2wsgi
+Provides-Extra: dev-dependencies
+Requires-Dist: pytest; extra == "dev-dependencies"
+Requires-Dist: pytest-mock; extra == "dev-dependencies"
+Requires-Dist: mock; extra == "dev-dependencies"
+Requires-Dist: pytest-cov; extra == "dev-dependencies"
+Dynamic: license-file
+
+# `Ligare.web`
+
+Libraries for building web applications.
+
+# Quick Start
+
+`Ligare.web` includes a scaffolding tool to help you get started quickly.
+
+"Scaffolding" is a common practice using tools and automation to create and modify applications without requiring any initial programming.
+
+Review [Creating a New Ligare.web Application](https://github.com/uclahs-cds/Ligare/wiki/Creating-a-New-Ligare.web-Application) for detailed information.
+
+# About the Library
+
+`Ligare.web` is intended to handle a lot of the boilerplate needed to create and run Flask applications. A primary component of that boilerplate is tying disparate pieces of functionality and other libraries together in a seamless way. For example, [SQLAlchemy](https://www.sqlalchemy.org/) is an ORM supported through `Ligare.database` that this library integrates with to make database functionality simpler to make use of.
+
+## Flask
+
+`Ligare.web` is based on [Flask 3.0.x](https://flask.palletsprojects.com/en/3.0.x/) and [Connexion 3.0.x](https://connexion.readthedocs.io/en/3.0.5/).
+
+## Development
+
+Development dependencies can be installed with `[dev-dependencies]`. If developing from the core repository, use the command `pip install -e src/web[dev-dependencies]`.

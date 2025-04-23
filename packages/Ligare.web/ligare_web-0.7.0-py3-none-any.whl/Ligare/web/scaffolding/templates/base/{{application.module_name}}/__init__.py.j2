@@ -1,0 +1,54 @@
+# isort: off
+from {{application.module_name}}._version import __version__
+from {{application.module_name}}._app_type import AppType
+# isort: on
+
+{% if module.database %}
+from typing import Any, cast
+from sqlalchemy import MetaData
+
+from sqlalchemy.orm import Session
+from {{application.module_name}}.modules.database import Base
+{% endif %}
+
+from Ligare.web.application import ApplicationBuilder
+{% if 'database' in module %}
+from Ligare.database.dependency_injection import ScopedSessionModule
+{% endif %}
+
+
+def create_app():
+    # fmt: off
+    application_builder = ApplicationBuilder(AppType) \
+        .use_configuration(
+            lambda config_builder: config_builder
+            .with_config_filename("{{application.module_name}}/config.toml")
+        )
+    # fmt: on
+
+    {% if 'database' in module %}
+    application_builder.with_module(ScopedSessionModule())
+    {% endif %}
+
+    application = application_builder.build()
+
+    {% if module.database %}
+    # TODO For now, create the database and tables
+    # when the application starts. This behavior
+    # will be removed when Alembic is integrated.
+    session = application.injector.get(Session)
+    cast(MetaData, Base.metadata).create_all(session.bind)
+
+    {#
+        # TODO ideally this would use @inject w/ session: Session,
+        but something is preventing it from running or
+        sending in the dependencies to remove_db.
+        For now, just resolve it directly.
+    #}
+    @application.flask_app.teardown_request
+    def remove_db(exception: Any):
+        session = application.injector.get(Session)
+        session.rollback()
+    {% endif %}
+
+    return application
