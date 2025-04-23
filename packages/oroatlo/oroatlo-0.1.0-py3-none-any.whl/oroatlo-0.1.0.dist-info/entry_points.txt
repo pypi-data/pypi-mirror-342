@@ -1,0 +1,2 @@
+[console_scripts]
+oroatlo = oroatlo.cli:app
