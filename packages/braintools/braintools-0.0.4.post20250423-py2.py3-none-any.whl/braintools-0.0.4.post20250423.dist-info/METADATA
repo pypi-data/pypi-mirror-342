@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: braintools
+Version: 0.0.4.post20250423
+Summary: The Toolbox for Brain Dynamics Programming.
+Home-page: https://github.com/chaobrain/braintools
+Author: BDP
+Author-email: BrainTools Developers <chao.brain@qq.com>
+License: Apache-2.0 license
+Project-URL: homepage, http://github.com/chaobrain/braintools
+Project-URL: repository, http://github.com/chaobrain/braintools
+Keywords: brain dynamics programming,brain simulation,brain-inspired computing
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: jax
+Requires-Dist: jaxlib
+Requires-Dist: numpy
+Requires-Dist: brainstate (>=0.1.0)
+Requires-Dist: brainunit (>=0.0.8)
+Requires-Dist: typing-extensions
+Provides-Extra: cpu
+Requires-Dist: jaxlib ; extra == 'cpu'
+Provides-Extra: cpu_all
+Requires-Dist: jaxlib ; extra == 'cpu_all'
+Requires-Dist: scienceplots ; extra == 'cpu_all'
+Requires-Dist: matplotlib ; extra == 'cpu_all'
+Requires-Dist: nevergrad ; extra == 'cpu_all'
+Requires-Dist: scipy ; extra == 'cpu_all'
+Requires-Dist: msgpack ; extra == 'cpu_all'
+Provides-Extra: cuda12
+Requires-Dist: jaxlib[cuda12] ; extra == 'cuda12'
+Provides-Extra: cuda_all
+Requires-Dist: jaxlib[cuda12] ; extra == 'cuda_all'
+Requires-Dist: scienceplots ; extra == 'cuda_all'
+Requires-Dist: matplotlib ; extra == 'cuda_all'
+Requires-Dist: nevergrad ; extra == 'cuda_all'
+Requires-Dist: scipy ; extra == 'cuda_all'
+Requires-Dist: msgpack ; extra == 'cuda_all'
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+Provides-Extra: tpu
+Requires-Dist: jaxlib[tpu] ; extra == 'tpu'
+Provides-Extra: tpu_all
+Requires-Dist: jaxlib[tpu] ; extra == 'tpu_all'
+Requires-Dist: scienceplots ; extra == 'tpu_all'
+Requires-Dist: matplotlib ; extra == 'tpu_all'
+Requires-Dist: nevergrad ; extra == 'tpu_all'
+Requires-Dist: scipy ; extra == 'tpu_all'
+Requires-Dist: msgpack ; extra == 'tpu_all'
+
+# Tools/utilities for brain dynamics programming
+
+<p align="center">
+  	<img alt="Header image of braintools." src="https://github.com/brainpy/braintools/blob/main/docs/_static/braintools.jpg" width=50%>
+</p> 
+
+
+
+<p align="center">
+	<a href="https://pypi.org/project/braintools/"><img alt="Supported Python Version" src="https://img.shields.io/pypi/pyversions/braintools"></a>
+	<a href="https://github.com/brainpy/braintools/blob/main/LICENSE"><img alt="LICENSE" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"></a>
+    <a href='https://braintools.readthedocs.io/en/latest/?badge=latest'>
+        <img src='https://readthedocs.org/projects/braintools/badge/?version=latest' alt='Documentation Status' />
+    </a>  	
+    <a href="https://badge.fury.io/py/braintools"><img alt="PyPI version" src="https://badge.fury.io/py/braintools.svg"></a>
+    <a href="https://github.com/brainpy/braintools/actions/workflows/CI.yml"><img alt="Continuous Integration" src="https://github.com/brainpy/braintools/actions/workflows/CI.yml/badge.svg"></a>
+</p>
+
+
+[``braintools``](https://github.com/brainpy/braintools) provides common toolboxes for brain dynamics programming (BDP). 
+
+
+## Installation
+
+You can install ``braintools`` via pip:
+
+```bash
+pip install braintools --upgrade
+```
+
+## Documentation
+
+The official documentation is hosted on Read the Docs: [https://braintools.readthedocs.io](https://braintools.readthedocs.io)
+
+
+
+
+## See also the BDP ecosystem
+
+We are building the BDP ecosystem: https://ecosystem-for-brain-dynamics.readthedocs.io/
