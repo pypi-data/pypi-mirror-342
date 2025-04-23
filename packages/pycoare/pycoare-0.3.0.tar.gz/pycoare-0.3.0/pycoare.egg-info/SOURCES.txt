@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+pycoare/__init__.py
+pycoare/coare_35.py
+pycoare/coare_36.py
+pycoare/util.py
+pycoare.egg-info/PKG-INFO
+pycoare.egg-info/SOURCES.txt
+pycoare.egg-info/dependency_links.txt
+pycoare.egg-info/requires.txt
+pycoare.egg-info/top_level.txt
+tests/test_coare_35.py
+tests/test_coare_36.py
+tests/test_utils.py
