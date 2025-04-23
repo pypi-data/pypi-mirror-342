@@ -1,0 +1,12 @@
+# Python package with utils in C++ for textual analysis
+
+
+
+install the package from local:
+pip install .
+
+build:
+python -m build
+twine upload dist/textcpp-0.0.3.tar.gz
+
+
