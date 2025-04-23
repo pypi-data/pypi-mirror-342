@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: simple-sdcm
+Version: 0.0.3
+Summary: Simple way to use Microsoft SDCM(Surface Dev Center Manager)
+Author: Wellbia.com Co.,Ltd.
+Author-email: opensource@wellbia.com
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: summary
+
+# simple_sdcm
