@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "fetch-meditation"
+version = "0.3.0"
+description = "Fetch Daily meditations"
+authors = ["BMLT Authors <help@bmlt.app>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "fetch_meditation"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+beautifulsoup4 = "^4.12.2"
+urllib3 = "^2.0.7"
+pytz ="^2023.3"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.2.0"
+pycodestyle = "^2.11.1"
+pytest = "^7.4.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ['py39']
+include = '\.pyi?$'
