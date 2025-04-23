@@ -1,0 +1,17 @@
+mibiremo/__init__.py,sha256=6I3KiEO5fOBJvlzeVNlA8UZcbCM64pVka74m6_G99UU,102
+mibiremo/irmresult.py,sha256=gVeRdFXR_hzn_hHda-HezFW1TMPDH-Ym-IUd7ou5EyQ,736
+mibiremo/phreeqc.py,sha256=NuxKEblbsWcskHjfy3OTLRCdmdyL0RMw0cLklCDwOgM,15143
+mibiremo/semilagsolver.py,sha256=MlGf2o2AIGW68daw8wXgmnFMAoBwypwJX5DOsFsoNxU,3272
+mibiremo/database/README.md,sha256=ImXLnqluwLD5WAo_JgeblawSUAN2ZOFwE2oOqu_kNVs,468
+mibiremo/database/mibirem.dat,sha256=gSjmhryiXrSq2GRSmI_vBfxI2paxrr0jKTj9Cn8LAsM,54825
+mibiremo/database/minteq.v4.dat,sha256=HU3T8UkyzMQjb4YvVmib5rHRu6oUBnsjJ3v8-nyb6js,386091
+mibiremo/database/phreeqc.dat,sha256=PoGfNqeKE0ueU1V-n9nmQNNha4QoLPcJXGAzfEnGNXs,48364
+mibiremo/database/wateq4f.dat,sha256=sSxKmBjJRqiCxnXEWEmddqcfoOwL7MjlueF1OR_66zk,102772
+mibiremo/lib/PhreeqcRM.dll,sha256=6oV6PtUo9caS6Nw2XgVx68nNpmuZWnhDWwRhMYPmCjM,2178048
+mibiremo/lib/PhreeqcRM.so,sha256=tUJGtPrMqyIG5vyy53SAd4dRVNHtjDg542G8mnXQXQw,73394008
+mibiremo/lib/README.md,sha256=4zBgt_boVXWwymnzP4n7LxyojjLl00MCXzmQxGc37Ew,606
+mibiremo-0.1.0.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+mibiremo-0.1.0.dist-info/METADATA,sha256=D4mP3Mlu10vycbMtHcwtzetZ4F_2UjBzTsNAwhS2GP8,18368
+mibiremo-0.1.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+mibiremo-0.1.0.dist-info/top_level.txt,sha256=Hx9qtWB3tDir4VCMAYfYlUJuDzEeaT85zaV3YCtpUH8,9
+mibiremo-0.1.0.dist-info/RECORD,,
