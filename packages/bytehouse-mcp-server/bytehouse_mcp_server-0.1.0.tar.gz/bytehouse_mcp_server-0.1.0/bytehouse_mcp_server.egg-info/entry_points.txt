@@ -1,0 +1,2 @@
+[console_scripts]
+bytehouse-mcp-server = mcp_bytehouse.main:main
