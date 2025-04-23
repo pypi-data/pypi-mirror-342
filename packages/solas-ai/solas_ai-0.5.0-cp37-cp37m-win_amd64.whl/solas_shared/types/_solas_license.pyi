@@ -1,0 +1,29 @@
+import rsa
+from ._types_shared import get_new_id as get_new_id
+from datetime import date
+from pydantic import BaseModel
+from solas_shared import resources as resources
+from solas_shared.exceptions import LicenseInvalidError as LicenseInvalidError
+from typing import List, Optional
+
+class SolasLicense(BaseModel):
+    id: str
+    full_name: str
+    email: str
+    company: str
+    expires_on: Optional[date]
+    maximum_version: str
+    contract_id: str
+    features: Optional[List[str]]
+    issue_date: date
+    signature: Optional[str]
+    def details(self) -> str: ...
+    def to_customer_key(self) -> str: ...
+    @classmethod
+    def from_customer_key(cls, customer_key: str, public_key: Optional[rsa.PublicKey] = ...) -> SolasLicense: ...
+    def validate(self, public_key: Optional[rsa.PublicKey] = ...) -> None: ...
+    def is_expired(self) -> bool: ...
+    def is_current_version(self) -> bool: ...
+    def has_valid_signature(self, public_key: Optional[rsa.PublicKey] = ...) -> bool: ...
+    def sign(self, private_key: rsa.PrivateKey, public_key: Optional[rsa.PublicKey] = ...) -> None: ...
+    def show(self, show_provide_key: bool = ...) -> None: ...
