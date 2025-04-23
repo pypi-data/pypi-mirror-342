@@ -1,0 +1,3 @@
+[console_scripts]
+PlottingTwoCampaigns = tilepy.scripts.PlottingTwoCampaigns:main
+Tiling_Observations = tilepy.scripts.Tiling_Observations:main
