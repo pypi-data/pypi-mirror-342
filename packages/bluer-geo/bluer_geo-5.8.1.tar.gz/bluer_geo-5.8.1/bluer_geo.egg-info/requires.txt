@@ -1,0 +1,9 @@
+bluer_ai
+bluer_flow
+opencv-python
+shapely!=2.0.7
+folium
+geojson
+geopandas
+rasterio
+pystac-client
