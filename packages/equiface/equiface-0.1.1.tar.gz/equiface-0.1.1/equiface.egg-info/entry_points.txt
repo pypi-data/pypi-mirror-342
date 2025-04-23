@@ -1,0 +1,2 @@
+[console_scripts]
+equiface = equiface.__main__:main

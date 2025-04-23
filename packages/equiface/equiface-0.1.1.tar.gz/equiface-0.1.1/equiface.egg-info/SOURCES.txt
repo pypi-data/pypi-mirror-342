@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+equiface/__init__.py
+equiface/constants.py
+equiface/image_utils.py
+equiface/logging_utils.py
+equiface/verification.py
+equiface.egg-info/PKG-INFO
+equiface.egg-info/SOURCES.txt
+equiface.egg-info/dependency_links.txt
+equiface.egg-info/entry_points.txt
+equiface.egg-info/requires.txt
+equiface.egg-info/top_level.txt
