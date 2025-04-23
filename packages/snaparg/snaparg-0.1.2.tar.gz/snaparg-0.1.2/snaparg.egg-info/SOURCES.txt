@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+snaparg/__init__.py
+snaparg/snaparg.py
+snaparg.egg-info/PKG-INFO
+snaparg.egg-info/SOURCES.txt
+snaparg.egg-info/dependency_links.txt
+snaparg.egg-info/top_level.txt
+tests/test_basic.py
