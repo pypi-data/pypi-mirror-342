@@ -1,0 +1,199 @@
+server.context-path=/TeamTaskService
+server.tomcat.accesslog.directory=${logpath}/tjhz_teamtaskservice_logs
+server.tomcat.accesslog.enabled=true
+server.tomcat.accesslog.pattern=%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b
+server.tomcat.accesslog.rename-on-rotate=true
+#log config
+logging.path=${logpath}/tjhz_teamtaskservice_logs
+logging.file=${logpath}/tjhz_teamtaskservice_logs/tjhz_teamtaskservice.log
+logging.level.root=INFO
+logging.service.name=TJHZ_TeamTaskService
+logging.config=classpath:logback-spring.xml
+#eureka config
+eureka.client.enabled=true
+eureka.client.register-with-eureka=true
+eureka.client.serviceUrl.defaultZone=http://devInteg:123456@172.31.241.185:8600/eureka/
+#feign config
+feign.httpclient.max-connections=300
+feign.httpclient.max-connections-per-route=100
+feign.httpclient.connection-timeout=2000
+feign.client.config.default.connectTimeout=5000
+feign.client.config.default.readTimeout=60000
+#ribbon config
+ribbon.MaxAutoRetries=0
+ribbon.MaxAutoRetriesNextServer=3
+ribbon.OkToRetryOnAllOperations=false
+ribbon.ServerListRefreshInterval=3000
+ribbon.ConnectTimeout=5000
+ribbon.ReadTimeout=60000
+#reuestLogÅäÖÃ
+requestlog.request.maxSize=1500
+requestlog.response.maxSize=1500
+requestlog.open=true
+requestlog.response.open=true
+#ÊÇ·ñ´òÓ¡sql
+datasource_show_sql=true
+swagger_show=false
+
+#datasource config
+spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+#druid pool config
+spring.datasource.druid.initial-size=5
+spring.datasource.druid.max-active=20
+spring.datasource.druid.min-idle=5
+spring.datasource.druid.max-wait=60000
+spring.datasource.druid.min-evictable-idle-time-millis=300000
+spring.datasource.druid.max-evictable-idle-time-millis=300000
+spring.datasource.druid.time-between-eviction-runs-millis=60000
+spring.datasource.druid.validation-query=select 1
+spring.datasource.druid.validation-query-timeout=-1
+spring.datasource.druid.test-on-borrow=false
+spring.datasource.druid.test-on-return=false
+spring.datasource.druid.test-while-idle=true
+spring.datasource.druid.pool-prepared-statements=true
+spring.datasource.druid.share-prepared-statements=true
+#druid filters config
+spring.datasource.druid.filters=config,stat,wall,log4j
+spring.datasource.druid.maxPoolPreparedStatementPerConnectionSize=20
+spring.datasource.druid.useGlobalDataSourceStat=true
+spring.datasource.druid.connectionProperties=druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+#druid sql firewall monitor
+spring.datasource.druid.filter.wall.enabled=true
+#druid sql monitor
+spring.datasource.druid.filter.stat.enabled=true
+spring.datasource.druid.filter.stat.log-slow-sql=true
+spring.datasource.druid.filter.stat.slow-sql-millis=100000
+spring.datasource.druid.filter.stat.merge-sql=true
+#druid uri monitor
+spring.datasource.druid.web-stat-filter.enabled=true
+spring.datasource.druid.web-stat-filter.url-pattern=/*
+spring.datasource.druid.web-stat-filter.exclusions=*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*
+#druid session monitor
+spring.datasource.druid.web-stat-filter.session-stat-enable=true
+spring.datasource.druid.web-stat-filter.profile-enable=true
+#druid spring monitor
+spring.datasource.druid.aop-patterns=com.druid.*
+#monintor,druid login user config
+spring.datasource.druid.stat-view-servlet.enabled=true
+spring.datasource.druid.stat-view-servlet.login-username=root
+spring.datasource.druid.stat-view-servlet.login-password=root
+# IP whitelist
+#spring.datasource.druid.stat-view-servlet.allow = 127.0.0.1,192.168.163.1
+# IP blacklist
+#spring.datasource.druid.stat-view-servlet.deny = 192.168.10.1
+#spring.sleuth.sampler.percentage=1.0
+# mybatis-plus config
+mybatis-plus.mapper-locations=classpath:/mappers/*.xml
+mybatis-plus.configuration.map-underscore-to-camel-case=true
+mybatis-plus.configuration.cache-enabled=false
+mybatis-plus.configuration.default-statement-timeout=50
+mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+mybatis-plus.check-config-location=false
+
+#å¤æ°æ®æº db config
+spring.datasource.dynamic.primary=maindb
+# main-tob db config
+spring.datasource.dynamic.datasource.maindb.url=jdbc:mariadb://172.31.203.9:3307/MTYW_hiseeLS_Online?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+spring.datasource.dynamic.datasource.maindb.username=tjkjpt
+spring.datasource.dynamic.datasource.maindb.password=VcoNHoKzHV%pfS5H
+# toc db config
+spring.datasource.dynamic.datasource.toc.url=jdbc:mariadb://172.31.203.9:3307/YYZX_Platform?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+spring.datasource.dynamic.datasource.toc.username=tjkjpt
+spring.datasource.dynamic.datasource.toc.password=VcoNHoKzHV%pfS5H
+
+
+#rediså¨åµæ¨¡å¼
+spring.redis.sentinel.master=s1
+spring.redis.sentinel.nodes=172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+spring.redis.password=UIX*$MD78p
+spring.redis.database=15
+spring.redis.timeout=2000
+spring.redis.pool.max-idle=1000
+spring.redis.pool.min-idle=0
+spring.redis.pool.max-active=1000
+spring.redis.pool.max-wait=-1000
+
+# æºå¨å­å¹ãæ¶ç å¹éãæºå¨æç¨¿ãäººå·¥å­å¹å¯¹åºäº¤æä¸­å¿ååå·
+tradingcenter.productId.machineSubtitle=2
+tradingcenter.productId.machineTimecompare=3
+tradingcenter.productId.machineText=4
+tradingcenter.productId.manualSubtitle=5
+
+# äºå­å¨åå»ºè§é¢å¤é¾æææ¶é´
+tokenExpireTime=86400000
+
+# åé¨æ¥å£å¤é¨æ¥å£éç½®
+external=external
+internal=internal
+
+#æéªéç½®
+getGeetest_apiUrl=http://api.geetest.com
+getGeetest_id=68fddd749a03d6454754538a8c3b14bb
+getGeetest_key=e6eec009e97ccde947a993f292a256c4
+
+
+# æ¯æ¬¡æä½å»¶é¿è¿ææ¶é´ï¼åä½sï¼é»è®¤7h
+day_expire=25200
+# ç»éæ¶éæ©è®°ä½ï¼æ¯æ¬¡æä½å»¶é¿è¿ææ¶é´ï¼åä½sï¼é»è®¤7d
+week_expire=604800
+
+biz_id=xftjhiseels
+biz_group_id=tjzm
+
+# feign service
+account_service_name=YYZX-AccountService
+text_service_name=YYZX-TextStorageService
+markplatformadapt_service_name=YYZX-MarkPlatformAdaptService
+
+#CSSPéç½®
+cssp_container=iflyrecmeiti_test.hfdn3.openstorage.cn/iflyrecmeiti01
+cssp_container_iflyrecmeiti01=iflyrecmeiti_test.hfdn3.openstorage.cn/iflyrecmeiti01
+cssp_file_path=/iflyrec/hiseels/
+
+# ElasticSearch
+es.result.index=yyzxplatform
+es.result.type=TranscriptResult
+
+
+
+# å¾®ä¿¡å¬ä¼å·æ¨ééç½®
+commonTemplateId=kyiA1_Tru9zGbeIGDbuaIX-CZ0rBJ9HV90UwMLrsUCc
+
+# å¢éç¸å³
+team_member_max_count=10
+invite_team_member_timelimit=30
+invite_team_member_maximumlimit=6
+
+spring.shardingsphere.datasource.master.type=com.alibaba.druid.pool.DruidDataSource
+spring.shardingsphere.datasource.master.driver-class-name=org.mariadb.jdbc.Driver
+spring.shardingsphere.datasource.master.url=jdbc:mariadb://172.31.203.9:3307/MTYW_hiseeLS_Online?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+spring.shardingsphere.datasource.master.username=tjkjpt
+spring.shardingsphere.datasource.master.password=VcoNHoKzHV%pfS5H
+spring.shardingsphere.datasource.master.initial-size=5
+spring.shardingsphere.datasource.master.max-active=20
+spring.shardingsphere.datasource.master.min-idle=5
+spring.shardingsphere.datasource.master.max-wait=60000
+spring.shardingsphere.datasource.names=master
+
+#明文存储字段
+#spring.shardingsphere.encrypt.tables.ZMTeamMember.columns.Phone.plainColumn=Phone
+#密文存储字段
+spring.shardingsphere.encrypt.tables.ZMTeamMember.columns.Phone.cipherColumn=PhoneEncryptor
+#加密设置
+spring.shardingsphere.encrypt.tables.ZMTeamMember.columns.Phone.encryptor=encryptor_aes
+#加密算法（支持MD5、DES、AES，以及自定义）
+spring.shardingsphere.encrypt.encryptors.encryptor_aes.type=aes
+#aes加密key
+spring.shardingsphere.encrypt.encryptors.encryptor_aes.props.aes.key.value=tjzmrer4bo8ms8jq
+#false:明文密文字段双写模式,更新、新增明文字段会同步修改密文字段，查询直接查询明文字段
+#true:关闭双写模式，所有新增、更新、查询均通过密文字段完成
+spring.shardingsphere.props.query.with.cipher.column=true
+spring.shardingsphere.props.sql.show=false
+
+#项目经理roleId
+team_admin_role_id=718
+#转录员roleId
+team_transcriber_role_id=720
+#译员roleId
+team_translator_role_id=722

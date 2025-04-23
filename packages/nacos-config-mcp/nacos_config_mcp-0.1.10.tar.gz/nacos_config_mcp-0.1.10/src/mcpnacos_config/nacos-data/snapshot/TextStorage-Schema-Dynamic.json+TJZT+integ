@@ -1,0 +1,64 @@
+{
+	
+		"yyzxplatform_transcriptresult": {
+			"audioId": {
+				"type": "long"
+			},
+			"beginTime": {
+				"type": "long"
+			},
+			"content": {
+				"type": "text"
+			},
+			"contentType": {
+				"type": "text"
+			},
+			"createTime": {
+				"type": "date"
+			},
+			"digestInfos": {
+				"properties": {}
+			},
+			"endTime": {
+				"type": "long"
+			},
+			"hjId": {
+				"type": "text"
+			},
+			"languageType": {
+				"type": "long"
+			},
+			"orderId": {
+				"type": "text"
+			},
+			"originAudioId": {
+				"type": "long"
+			},
+			"originalSnippets": {
+				"properties": {}
+			},
+			"test": {
+				"type": "text"
+			},
+			"transcriptResult": {
+				"type": "text"
+			},
+			"translate": {
+				"type": "text"
+			},
+			"translationLattices": {
+				"properties": {}
+			},
+			"type": {
+				"type": "integer"
+			},
+			"updateTime": {
+				"type": "date"
+			},
+			"xjtjmedia": {
+				"type": "text"
+			}
+		}
+	
+	
+}

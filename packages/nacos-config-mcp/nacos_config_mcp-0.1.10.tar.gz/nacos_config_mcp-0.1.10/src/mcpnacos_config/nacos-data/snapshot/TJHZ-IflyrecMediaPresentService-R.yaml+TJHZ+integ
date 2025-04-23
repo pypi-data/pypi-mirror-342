@@ -1,0 +1,315 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  cas:
+    cas-server-url-prefix: http://172.29.242.106:9029/cas
+    cas-validate-url-prefix: http://172.29.242.106:9029/cas
+    server-name: http://172.29.242.106:9049/IflyrecMediaPresentService/
+    ignorePattern: /druid|/kickTest|/lang|/login|/logout|/relogin|/updatePwd|.*?\.(js|css|png|ico|jpg|gif|svg|html)|/sockjs-node|/captcha|/checkCode|/get_public_key|/api/*|/usermsg|/wav/*|/transcode/wav/*|/uploadAudio/*|/export/*|/temp/*
+    casEnabled: true
+    kickuser: false
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://172.31.203.9:3307/hiseels_zimu_r?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: tjkjpt
+    password: VcoNHoKzHV%pfS5H
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 10000
+      connection-test-query: SELECT 1
+
+  http:
+    multipart:
+      max-file-size: 5200MB
+      max-request-size: 5200MB
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+  # redis配置
+  redis:
+#    sentinel:
+#      master: s1
+#      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    password: UIX*$MD78p
+    database: 15
+    host: 172.31.203.8
+    port: 6390
+    pool:
+      maxIdle: 10
+      minIdle: 0
+      maxActive: 20
+      maxWait: -1
+    timeout: 2000
+  resources:
+    static-locations: classpath:/static/,file:/opt/data/R/subtitle/,file:/opt/data/R/SpeechSynthesis/
+  servlet:
+    multipart:
+      max-file-size: 6144MB
+      max-request-size: 6144MB
+authority:
+  type: cas  #cas,iflyrec,ducp,dayang
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: 172.29.242.106
+server:
+  port: 4042
+  connection-timeout: 600000
+  servlet:
+    context-path: /IflyrecMediaPresentService
+    session:
+      timeout: 600000
+  tomcat:
+    accesslog:
+      directory: /opt/data/R/logs/tjhz_cmgsubtitlebasicservice_r_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+    max-http-post-size: -1
+    basedir: /opt/data/R/tomcat/tmp
+    uri-encoding: UTF-8
+
+logging:
+  path: /opt/data/R/logs/tjhz_cmgsubtitlebasicservice_r_logs
+  file: /opt/data/R/logs/tjhz_cmgsubtitlebasicservice_r_logs/tjhz_cmgsubtitlebasicservice.log
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+  service:
+    name: TJMT_CMGSubtitleBasicService
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-statement-timeout: 50
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 关闭日志打印
+    #log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+
+
+requestlog:
+  request:
+    maxSize: 1500
+  response:
+    open: true
+    maxSize: 1500
+  open: true
+
+swaggerShow: true
+
+
+# 断句相关配置
+segment:
+  cn-subtitle-seg-api-url: http://172.29.232.27:2300/seg
+  cn-subtitle-seg-permit-acquire-timeout: 60000
+  cn-subtitle-seg-request-timeout: 60000
+  cn-subtitle-seg-permit-quantity: 5
+  opennlp-model-path: /iflytek/hiseeLS/tjmt_cmgsubtitlebasicservice_r/tools/opennlp/
+  cn:
+    rule:
+      filter-modal-words: 0
+      max-char-number-per-frame: 18
+      max-duration-per-frame: 10000
+      min-duration-per-frame: 1000
+  en:
+    rule:
+      filter-modal-words: 0
+      max-char-number-per-frame: 45
+      max-duration-per-frame: 10000
+      min-duration-per-frame: 1000
+
+  no-punct-language: ja,ko,fr,es,ru,de,it,cn_uyghur,cn_tibetan,ko_cx
+
+biz_id: cmgsubtitleweb
+
+process_id_prefix: ZM
+process_transcript_diffTime: 120000
+
+export_subtitle_directory: /opt/data/R/subtitle/
+
+seg_model_url: http://172.29.232.27:2300/seg
+#导出乱码特殊字符
+editorExportBadCharacter: \u0000,\u0001,\u0002,\u0003,\u0004,\u0005,\u0006,\u0007,\u0008,\u0009,\u000B,\u000C,\u000E,\u000F,\u0010,\u0011,\u0012,\u0013,\u0014,\u0015,\u0016,\u0017,\u0018,\u0019,\u001A,\u001B,\u001C,\u001D,\u001E,\u001F,\u007F
+
+#最大支持上传数量
+upload_max_medias_count: 10
+
+###################################### 存储方案 ######################################
+storage:
+  # 上传音视频文件位置
+  uploadAudioPath: /opt/data/R/subtitle/uploadAudio/
+  # wav转码文件位置
+  transcodeWavPath: /opt/data/R/subtitle/transcode/wav/
+  # MP3转码文件位置
+  transcodeMp3Path: /opt/data/R/subtitle/transcode/mp3/
+  # MP4转码文件位置
+  transcodeMp4Path: /opt/data/R/subtitle/transcode/mp4/
+  # 波形图文件位置
+  waveFormPath: /opt/data/R/subtitle/waveForm/
+  # 转写原始结果文件位置
+  originalResultPath: /opt/data/R/subtitle/result/original/
+  # 修改结果文件位置
+  modifiedResultPath: /opt/data/R/subtitle/result/modified/
+  # 翻译结果位置
+  translateResultPath: /opt/data/R/subtitle/result/translate/
+  # 群组任务结果位置
+  teamTaskResultPath: /opt/data/R/subtitle/result/teamTask/
+  # 转码路径
+  transcodePath: /opt/data/R/subtitle/
+  #译制任务转码路径  走转码服务 
+  yzTranscodePath: /opt/data/R/subtitle/ 
+  # 转码文件下载地址
+  #transcodeDownloadUrl: http://172.29.242.106:4042/IflyrecMediaPresentService/
+  transcodeDownloadUrl: http://172.31.53.141:9047/IflyrecMediaPresentService106/
+
+  #导出文件地址
+  exportPath: /opt/data/R/subtitle/export/
+###################################### 转码方案 ######################################
+#ffmpeg路徑
+transcode:
+  ffmpegPath: /iflytek/hiseeLS/tjmt_cmgsubtitlebasicservice_r/tools/ffmpeg/ffmpeg
+
+###################################### 转写方案 ######################################
+transfer:
+  #callBackUrl: http://172.29.242.106:4042/IflyrecMediaPresentService/api/v1/medias/{0}/${transcriber.use}/transcriptCallback
+  callBackUrl: http://172.31.53.141:9047/IflyrecMediaPresentService106/api/v1/medias/{0}/${transcriber.use}/transcriptCallback
+  yzCallBackUrl: http://172.31.53.141:9047/IflyrecMediaPresentService106/api/v1/medias/{0}/yzTranscriptCallback
+
+###################################### 翻译方案 ######################################
+translate:
+  stringSplitReg: (?<=：|】|【|，|？|。|！|；)
+  removeTransChar: ：|_|】|_|【|_|;
+  batchIdPrefix: FY
+  #callBackUrl: http://172.29.242.106:4142/IflyrecMediaPresentService/api/v1/translations/{0}/translateCallback
+  callBackUrl: http://172.31.53.141:9049/IflyrecMediaPresentService106/api/v1/translations/{0}/translateCallback
+
+###################################### 群组任务方案 ######################################
+teamTask:
+  # 最大拆分份数
+  splitMaxCount: 20
+  # 最大拆分次数
+  splitMaxTimes: 10
+  # 群组任务taskId前缀
+  taskIdPrefix: QZ
+
+###################################### 大洋服务 ######################################
+dayang_appid: 128d2612718c4bababa8940809d8fbff
+dayang_appsecret: 1a21d1ff-49dc-8311-abd8-02fe68ff6811
+dayang_task_tokenurl: https://play.cloud.dayang.com.cn/gateway/uc/login/token?vt=2
+dayang_task_callbakurl: https://play.cloud.dayang.com.cn/gateway/vod/resourceSrtTranslateTask/resultCallback
+
+daYang:
+  cas-enabled: false
+  ssoUrl: https://play.cloud.dayang.com.cn/sso/login?redirect=https://play.cloud.dayang.com.cn/dyconsole
+  Api:
+    userInfo: https://play.cloud.dayang.com.cn/gateway/uc/login/parse
+    searchUser: https://play.cloud.dayang.com.cn/gateway/uc/console/user/page
+    login: https://play.cloud.dayang.com.cn/gateway/uc/api/v1/user/login
+
+
+################################### 转写引擎 #########################################
+transcriber:
+  #CBB,YG
+    use: CBB
+cbb:
+      app_id: 71D1Z7
+      access_key: Rv1cW8D06U
+      access_secret: 2J66f6G792E357Wv2099321N8Wd841B2
+     # transcriptUrl: https://api.iflyrec.com/v2/upload
+      transcriptUrl: http://172.31.98.71:8199/v2/upload
+     # transcriptResultUrl: https://api.iflyrec.com/v2/getResult
+      transcriptResultUrl: http://172.31.98.71:8199/v2/getResult  
+      translateUrl: https://api.iflyrec.com/trans/v2/translate
+
+###################################### ducp服务 ######################################
+ducp:
+  cas-enabled: false
+  ssoUrl: https://huizhan-dev-integ-env.iflyrec.com/IflyrecMediaPresentService/oauth/authorize
+  key: 1
+  secret: 111111
+  Api:
+    validation: http://ducptest.dayang.com.cn:60005/oauth/tokenValidation
+    authorize: http://ducptest.dayang.com.cn:60005/oauth/authorize?response_type=code&scope=openid%20profile%20email&client_id={0}&state={1}&redirect_uri={2}
+    userInfo: http://ducptest.dayang.com.cn:60005/oauth/userinfo
+    searchUser: http://ducptest.dayang.com.cn:60005/usermanager/api/v1/users
+    oauthToken: http://ducptest.dayang.com.cn:60005/oauth/token?grant_type=authorization_code&code={0}&redirect_uri={1}
+
+################################ YG引擎鉴权 ###########################################
+useCctvHeader: true
+cctvHeader: '{"Upload":{"Action":"/v1/upload","Version":"2020-10-01","Service":"modelservice-ce32","Project":"1019285530"},"GetResult":{"Action":"/v1/getResult","Version":"2020-10-01","Service":"modelservice-ce32","Project":"1019285530"}}'
+    
+resource:
+  auth:
+    check: true
+    maxAccessCount: 10
+    accessUrl: http://172.29.242.106:9049/IflyrecMediaPresentService/api/v1/resource/res/{0}?signature={1}
+    outDateTimeSwitch: true
+    outDateTime: 86400000
+
+################################### 会议知识管理 #########################################
+
+meet:
+  app_id: G68AmQ
+  access_key: 08Q8rv0jR3
+  access_secret: t02Lj2i47v2pa37941dKL96IL2108077
+  host: https://aisol-integ.iflyaisol.com
+#    生产环境
+#    app_id: j59k3F
+#    access_key: 0517QbzDc5
+#    access_secret: 6V7n169so12etWnA35793e91ucg97uZX
+#    host: https://office-api-ckm-dx.iflyaisol.com
+  api:
+    regularity: ${meet.host}/ckm/v1/aggregate/async
+    result: ${meet.host}/ckm/v1/result/query
+#星火大模型配置
+spark:
+  ai:
+    config:
+      logOutput: true
+netty:
+  port: 9083
+
+#outChainRequestUrl: http://172.29.242.106:4042/IflyrecMediaPresentService/
+outChainRequestUrl: http://172.29.242.106:9049/IflyrecMediaPresentService/
+
+#timeCompareUrl: http://172.29.242.106:4042/IflyrecMediaPresentService/api/v1/timeCode
+timeCompareUrl: http://172.29.242.106:9049/IflyrecMediaPresentService106/api/v1/timeCode
+
+permissions: '{"perId":"01ce65db5e724e148fb198a1eafed5cb","label":"媒体制作平台","toast":"该工具仅作为临时工具使用，请及时导出数据并清除!","parentId":"-1","perName":"PRODUCTION_PLATFORM","perType":"1","children":[{"perId":"d09b018ce9d1412fbc884e276a605829","label":"智能字幕","parentId":"01ce65db5e724e148fb198a1eafed5cb","perName":"SUBTITLES","perType":"1","children":[{"perId":"a769a56269ec4b07a27bd8e3ba9d444a","label":"音视频转字幕","parentId":"d09b018ce9d1412fbc884e276a605829","perName":"MACHINE_SUBTITLE","perType":"1","children":[]},{"perId":"9bfe46083d7c409fb1cab7314020b9c5","label":"字幕时码匹配","parentId":"d09b018ce9d1412fbc884e276a605829","perName":"SUBTITLE_TIME_CODE_MATCH","perType":"1","children":[]}]},{"perId":"2590ce3141ce446d8015b2ac37477b34","label":"智能配音","parentId":"01ce65db5e724e148fb198a1eafed5cb","perName":"SYNTHESIS","perType":"1","children":[{"perId":"59d8d84291c84ef0b528c9c66c1568cb","label":"文本配音","parentId":"2590ce3141ce446d8015b2ac37477b34","perName":"TEXT_SYNTHESIS","perType":"1","children":[]},{"perId":"143782a289b94a4e9f8b649f9cd084ac","label":"字幕配音","parentId":"2590ce3141ce446d8015b2ac37477b34","perName":"SUBTITLE_SYNTHESIS","perType":"1","children":[]},{"perId":"9b30fcfb16be451f88462d206b88e75b","label":"个性声纹","parentId":"2590ce3141ce446d8015b2ac37477b34","perName":"VOICE_PRINT","perType":"1","children":[]}]},{"perId":"ec4d6a541a42438faed14fa333fc49a9","label":"文本翻译","parentId":"01ce65db5e724e148fb198a1eafed5cb","perName":"TEXT_TRANSLATE","perType":"1","children":[]},{"perId":"6efd078627544e379693e9af7a334aff","label":"智能采编","parentId":"01ce65db5e724e148fb198a1eafed5cb","perName":"GATHER","perType":"1","children":[]},{"perId":"b42c1f559e1c47848445e90ff98c9832","label":"音视频转文稿","parentId":"01ce65db5e724e148fb198a1eafed5cb","perName":"TEXT_SUBTITLE","perType":"1","children":[]},{"perId":"bcbbf5e0edf844b0b6153088aced2838","label":"协作任务","parentId":"01ce65db5e724e148fb198a1eafed5cb","perName":"COOPERATION_TASK","perType":"1","children":[]}]}'
+
+###################################### 云存储 ######################################
+CSSP_CONTAINER: iflyrechuizhan_test.hfdn3.openstorage.cn/TJMTMediaSummaryService
+CSSP_CONTAINER_UPLOAD_PATH: /data/uploadFiles/media/
+
+storageType: cloud
+
+speechSynthesisService: http://172.29.242.106:9049/SpeechSynthesisService/
+
+#转码回调
+media_trancode_callback_url: http://172.29.242.106:9049/IflyrecMediaPresentService/api/v1/medias/{0}/transcodeCallback
+#配音回调
+api_service_speech_callback_url: http://172.29.242.106:9049/IflyrecMediaPresentService/api/v1/medias/{0}/speechSynthesisCallback 
+# 存储配置
+media-stream-service:
+  container: /
+#压制合成回调
+compress_callback_url: http://172.29.242.106:9049/IflyrecMediaPresentService/api/tasks/v1/{0}/suppressAndSynthesis
+#截图回调
+media_get_pic_callback_url: http://172.29.242.106:9049/IflyrecMediaPresentService/api/v1/medias/{0}/getPicCallback
+#截图上传地址
+media_put_pic_url: http://172.29.242.106:9049/IflyrecMediaPresentService/api/v1/files/{0}/putPic

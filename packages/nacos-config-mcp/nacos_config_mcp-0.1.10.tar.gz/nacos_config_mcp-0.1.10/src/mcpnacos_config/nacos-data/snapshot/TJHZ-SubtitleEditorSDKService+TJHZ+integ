@@ -1,0 +1,164 @@
+server:
+  port: 80
+  context-path: /SubtitleEditorSDKService
+  tomcat:
+    accesslog:
+      directory: /data/logs/tjhz_ssubtitleeditorsdkservice_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+    max-http-post-size: -1
+    basedir: /data/tomcat/tmp
+    uri-encoding: UTF-8
+
+logging:
+  path: /data/logs/tjhz_ssubtitleeditorsdkservice_logs
+  file: /data/logs/tjhz_ssubtitleeditorsdkservice_logs/tjhz_ssubtitleeditorsdkservice.log
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+  service:
+    name: TJHZ_SubtitleEditorSDKService
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+  instance:
+    prefer-ip-address: false
+    hostname: dev-integ-env.k8s.iflyrec.com
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://172.31.203.9:3307/TJHZ_SubtitleEditorSDK?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: tjkjpt
+    password: VcoNHoKzHV%pfS5H
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 10000
+      connection-test-query: SELECT 1
+
+  http:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+  # redis配置
+  redis:
+    sentinel:
+      master: s1
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    password: UIX*$MD78p
+    database: 15
+    pool:
+      maxIdle: 10
+      minIdle: 0
+      maxActive: 20
+      maxWait: -1
+    timeout: 2000
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-statement-timeout: 50
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 关闭日志打印
+    #log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+
+
+requestlog:
+  request:
+    maxSize: 1500
+  response:
+    open: true
+    maxSize: 1500
+  open: true
+
+
+feign:
+  httpclient:
+    max-connections: 500
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 60000
+
+
+swaggerShow: true
+
+
+# 断句相关配置
+segment: 
+  cn-subtitle-seg-api-url: http://172.31.98.71:2300/seg
+  cn-subtitle-seg-permit-acquire-timeout: 60000
+  cn-subtitle-seg-request-timeout: 60000
+  cn-subtitle-seg-permit-quantity: 5
+  opennlp-model-path: /usr/server/tools/opennlp/
+  cn: 
+    rule: 
+      filter-modal-words: 0
+      max-char-number-per-frame: 18
+      max-duration-per-frame: 10000
+      min-duration-per-frame: 1000
+  en: 
+    rule: 
+      filter-modal-words: 0
+      max-char-number-per-frame: 45
+      max-duration-per-frame: 10000
+      min-duration-per-frame: 1000
+
+  no-punct-language: ja,ko,fr,es,ru,de,it
+
+# ElasticSearch
+es:
+  index: yyzxplatform
+  type: TranscriptResult
+
+
+#云存储容器
+tj_cssp_container: iflyrectjpt_test.hfdn4.openstorage.cn/SubtitleEditorSDK
+tj_cssp_upload_path: /data/uploadFiles/media/
+biz_id: tjhz_subtitleeditorsdk
+
+cbb:
+  app_id: 3035W2
+  access_key: 7Q2cXEl3R0
+  access_secret: Gj9Z0SEyM45193fS98CTjdo850J970AL
+
+#文件复制回调接口
+file_copy_call_back: http://dev-integ-env.k8s.iflyrec.com/SubtitleEditorSDKService/api/v1/processes/fileCopyCallback
+process_id_prefix: ZMbjq1
+process_transcript_diffTime: 120000
+media_trancode_callback_url: http://dev-integ-env.k8s.iflyrec.com/SubtitleEditorSDKService/api/v1/medias/{0}/transcodeCallback
+transcript_api_callback_url: http://dev-integ-env.k8s.iflyrec.com/SubtitleEditorSDKService/api/v1/medias/{0}/transcriptCallback
+translate:
+  callbackUrl: http://dev-integ-env.k8s.iflyrec.com/SubtitleEditorSDKService/api/v1/translations/medias/{0}/callback
+  reTranslateCallback: http://dev-integ-env.k8s.iflyrec.com/SubtitleEditorSDKService/api/v1/translations/medias/{0}/reTranslateCallback
+
+api_service_transcript_url: https://ai-test-integ-env.iflyrec.com/v2/upload
+api_service_transcript_result_url: https://ai-test-integ-env.iflyrec.com/v2/getResult
+api_service_delete_order_url: https://ai-test-integ-env.iflyrec.com/v2/deleteOrder
+
+export_subtitle_directory: /data/tjzmweb_subtitles/
+
+#导出乱码特殊字符
+editorExportBadCharacter: \u0000,\u0001,\u0002,\u0003,\u0004,\u0005,\u0006,\u0007,\u0008,\u0009,\u000B,\u000C,\u000E,\u000F,\u0010,\u0011,\u0012,\u0013,\u0014,\u0015,\u0016,\u0017,\u0018,\u0019,\u001A,\u001B,\u001C,\u001D,\u001E,\u001F,\u007F
+
+tokenCreateHost: iflyrecapi-dev-integ-env.iflyrec.com

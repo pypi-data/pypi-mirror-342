@@ -1,0 +1,921 @@
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+  instance:
+    prefer-ip-address: false
+    hostname: dev-integ-env.k8s.iflyrec.com
+
+spring:
+  shardingsphere:
+    datasource:
+      master:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: org.mariadb.jdbc.Driver
+        jdbc-url: jdbc:mariadb://172.31.203.9:3307/tjhz_k1?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: tjkjpt
+        password: VcoNHoKzHV%pfS5H
+        hikari:
+          minimum-idle: 10
+          maximum-pool-size: 20
+          auto-commit: true
+          idle-timeout: 30000
+          max-lifetime: 1800000
+          connection-timeout: 10000
+          connection-test-query: SELECT 1
+      names: master
+    encrypt:
+      tables:
+        k1_device_equity_group_user:
+          columns:
+            user_phone:
+              cipherColumn: user_phone_encryptor
+              encryptor: encryptor_aes
+            user_name:
+              cipherColumn: user_name_encryptor
+              encryptor: encryptor_aes
+      encryptors:
+        encryptor_aes:
+          type: aes
+          props:
+            aes:
+              key:
+                value: ju7h6tfdmijbvki8
+    props:
+      query:
+        with:
+          cipher:
+            column: true
+      sql:
+        show: true
+
+  http:
+    multipart:
+      max-file-size: 21MB
+      max-request-size: 21MB
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+  # redis配置
+  redis:
+    sentinel:
+      master: s1
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    password: UIX*$MD78p
+    database: 15
+    pool:
+      maxIdle: 10
+      minIdle: 0
+      maxActive: 20
+      maxWait: -1
+    timeout: 2000
+  rabbitmq:
+    host: 172.31.203.7
+    port: 5672
+    username: recinbox
+    password: recinbox
+    virtual-host: /
+    # 用户注销
+    userCancelExchange: ACCOUNTSERVICE_EXCHANGE_LOGOFF
+    #userCancelQueueName: TJHZKN_USER_CANCEL_QUEUE
+    # 用户手机号变更
+    userPhoneChangedExchange: ACCOUNTSERVICE_EXCHANGE_UPDATE_PHONE
+    #userPhoneChangedQueueName: TJHZKN_USER_PHONE_CHANGED_QUEUE
+    # 用户注册
+    userRegisterExchange: ACCOUNTSERVICE_EXCHANGE_REGISTER
+    # 用户登录
+    userLoginExchange: ACCOUNTSERVICE_EXCHANGE_LOGIN
+    listener:
+      simple:
+        # 自动应答模式
+        acknowledge-mode: auto
+        # 消费失败的时候不入队,消息丢失影响不大,防止丢失可以配置死信队列
+        default-requeue-rejected: false
+        # 设置重试次数
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 60000
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-statement-timeout: 50
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 关闭日志打印
+    #log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+  type-enums-package: com.iflyrec.knappservice.**.enums
+
+
+server:
+  port: 80
+  context-path: /KNAppService
+  tomcat:
+    accesslog:
+      directory: /data/logs/${HOSTNAME}/tjhz_knappservice_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+    max-http-post-size: -1
+    basedir: /data/tomcat/tmp
+    uri-encoding: UTF-8
+
+logging:
+  path: /data/logs/${HOSTNAME}/tjhz_knappservice_logs
+  file: /data/logs/${HOSTNAME}/tjhz_knappservice_logs/tjhz_knappservice.log
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+  service:
+    name: TJHZ_KNAppService
+
+requestlog:
+  request:
+    maxSize: 1500
+  response:
+    open: true
+    maxSize: 1500
+  open: true
+
+
+feign:
+  httpclient:
+    max-connections: 500
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 60000
+
+
+swaggerShow: true
+
+# tj_cssp_contaniner: iflyrechuizhan_test.hfdn1.openstorage.cn/iflyrecchuizhan01
+# cssp_file_path: /tjhz_k1/
+# #分块上传块大小 20M
+# block_size: 20971520
+# # 云存储创建视频外链有效时间
+# tokenExpireTime: 86400000
+
+
+# isp:
+#   # 非实时转写地址
+#   non-realtime-transcript:
+#     app-id: P26123
+#     access-key-id: tra6g93b6P
+#     access-key-secret: mNpWm93hinf982dG92tx09Si2F8QMh9Z
+#     send-url: https://ai-test-integ-env.iflyrec.com/v2/upload
+#     get-result-url: https://ai-test-integ-env.iflyrec.com/v2/getResult
+#   # 实时转写服务地址
+#   realtime-transcript-service: http://172.31.241.185:8913/RealTimeTranscriptService
+
+
+# 断句相关配置
+segment:
+  cn-subtitle-seg-api-url: http://172.31.98.71:2300/seg
+  #cn-subtitle-seg-api-url: http://172.31.98.73:2300/seg
+  cn-subtitle-seg-permit-acquire-timeout: 60000
+  cn-subtitle-seg-request-timeout: 60000
+  cn-subtitle-seg-permit-quantity: 5
+  opennlp-model-path: /usr/server/tools/opennlp/
+  cn:
+    rule:
+      filter-modal-words: 0
+      max-char-number-per-frame: 18
+      max-duration-per-frame: 10000
+      min-duration-per-frame: 1000
+  en:
+    rule:
+      filter-modal-words: 0
+      max-char-number-per-frame: 45
+      max-duration-per-frame: 10000
+      min-duration-per-frame: 1000
+
+app-access-key: FdyVB22vNw2
+app-name: sdk
+app-id: WNV5e4RE1fm
+app-access-secret: 6eabfbab42625178e07654002ff1a199
+
+biz-id: koneapp
+# 合并结果失败重试次数
+merge:
+  result:
+    retry:
+      count: 20
+
+# 定时任务扫描的范围
+job:
+  range:
+    start-hour: -8
+    end-hour: -32
+# ElasticSearch
+es:
+  result:
+    index: tjhzknapp
+    type: TranscriptResult
+
+app:
+  subscribe:
+    subscriptionProductPayCallBackUrl: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v1/callback/subscriptionProductPay
+  transcript:
+    non-real-time-transcript:
+      call-bak-url: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v1/callback/medias/nonRealTimeTranscript
+      call-bak-urlV2: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v2/callback/medias/nonRealTimeTranscript
+  result:
+    real-time-transcript:
+      call-bak-url: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v1/callback/medias/{0}/mergeResult
+  translate:
+    non-real-time-transcript:
+      call-bak-url: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v1/callback/medias/{0}/translation
+      cbb-chapter-translate:
+        call-bak-url: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v1/callback/medias/{0}/nonRealTime/cbbChapterTranslation
+        call-bak-urlV2: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v2/callback/medias/{0}/nonRealTime/cbbChapterTranslation
+
+      re-translate:
+        call-bak-url: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v1/callback/medias/{0}/nonRealTime/reTranslate
+    rtt-real-time-transcript:
+      call-bak-url: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v1/callback/rttIds/{0}/translation
+      cbb-chapter-translate:
+        call-bak-url: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v1/callback/medias/{0}/realTime/cbbChapterTranslation
+  virtualProduct:
+    dispatch:
+      call-back-url: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v1/callback/virtualProduct/dispatch
+
+
+engine:
+  idelTimeout: 300000
+  rttTimeLimit: 28800000
+  #同声传译最大引擎时长3小时： 3 * 60 * 60 * 1000
+  huiZhanRttTimeLimit: 10800000
+  # huiZhanRttTimeLimit: 60000
+
+##短信通知配置项
+dripSms:
+  #开发联调环境地址
+  url: https://pretest.xfpaas.com/dripsms/sms
+  appId: DAV5TKQI
+  #各短信模板ID
+  templateId:
+    #转让者
+    assigner: 13035
+    #被转让者
+    beAssigned: 13036
+    #验证码
+    verificationCode: 13023
+    #分享者
+    share: 13037
+    #被分享者
+    beShared: 13038
+
+#配额信息
+quota:
+  id: 300
+  unlimitedDuration:
+    #配额id
+    id: 201
+    #配额发放时长，50小时，单位：秒
+    duration: 180000
+  limitedDuration:
+    #配额id
+    monthId: 200
+    #配额发放时长，10小时，单位：秒
+    monthDuration: 36000
+  newUserDuration:
+    #配额id
+    id: 203
+    #配额发放时长，2小时，单位：秒
+    duration: 7200
+    #配额自发放时刻开始后多少天失效
+    addDays: 31
+  1hourForApp:
+    id: 206
+  machineSubtitle:
+    id: 40
+  monthFreeDuration:
+    id: 207
+    duration: 7200
+    showName: 2小时·畅享包
+    tips: 赠送
+  hearingImpair:
+    id: 109
+    name: 20小时·公益时长卡
+
+roleId:
+  #字幕App畅享卡角色id
+  zmApp:
+    5hour: 309
+    30hour: 310
+    monthCycle: 406
+  zm:
+    #字幕畅享卡，带闲时
+    cx: 304
+    #字幕日租角色（包月权益卡）
+    cx_month_1st: 305
+    #字幕畅享卡，带闲时
+    cx_sub: 306
+    #字幕包月权益卡
+    cx_month_2nd: 307
+    #字幕畅享卡
+    cx_20221212: 308
+    #字幕月卡
+    cx_month_3rd: 311
+    #字幕年卡
+    cx_year_1st: 312
+
+#商品信息
+product:
+  durationId: 10000
+  realTimeDurationId: 10002
+
+# 设备权益信息
+equity:
+  # 权益最大转让次数
+  assignNum: 3
+  # 权益最多共享人数
+  shareNum: 5
+
+#云存储容器
+tj_cssp_container: iflyrechuizhan_test.hfdn3.openstorage.cn/iflyrecchuizhan01
+
+# 用户个性化配置列表:BanMarketingSms(促销短信推送)
+user-settings: BanMarketingSms
+
+# 活动时间配置
+promotions:
+  non-real-time:
+    begin-time: 2022/03/01 00:00:00
+    end-time: 2022/09/01 23:59:59
+  real-time:
+    begin-time: 2022/03/01 00:00:00
+    end-time: 2099/05/12 23:59:59
+
+orderRecord:
+  begin-time: 2022/06/01 00:00:00
+
+order:
+  unit-price: 0.008
+
+#动态说明文案
+description:
+  mall:
+    content: 畅享包，低至18元包月
+    emphasize: 18
+
+#虚拟商城商品信息
+virtualProduct:
+  Android:
+    # 1小时专享加油包商品id
+    1hour-id: 301
+    # 5小时AI字幕畅享卡商品id
+    5hour-id: 303
+    # 30小时AI字幕畅享卡商品id
+    30hour-id: 305
+    # 1个月
+    1month-id: 325
+    #3个月
+    2month-id: 326
+    #1年
+    1year-id: 330
+    #一个月加油包
+    1month-refueling-id: 327
+  iOS:
+    # 1小时专享加油包商品id
+    1hour-id: 302
+    # 5小时AI字幕畅享卡商品id
+    5hour-id: 304
+    # 30小时AI字幕畅享卡商品id
+    30hour-id: 306
+    1month-id: 331
+    #3个月
+    2month-id: 332
+    #1年
+    1year-id: 333
+    #一个月加油包
+    1month-refueling-id: 334
+
+  #微信小程序商品id
+  tjWxApp: 6983,6985
+
+languageConfig:
+  langList:
+    - lang: cn
+      name: 中文
+      shortName: 中
+      originalName: (普通话)
+      chineseName: 中文
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: lingfeibo
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 1
+      langType: 1
+    - lang: en
+      name: 英语
+      shortName: 英
+      originalName: English
+      chineseName: 英语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Luna
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 1
+      langType: 1
+    - lang: ed
+      name: 中英混合
+      shortName: 中英
+      originalName: (混合)
+      chineseName: 中英
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: yezi
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 1
+      langType: 0
+    - lang: ja
+      name: 日语
+      shortName: 日
+      originalName: 日本語
+      chineseName: 日语
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: ZhongCun
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: ko
+      name: 韩语
+      shortName: 韩
+      originalName: 한국어
+      chineseName: 韩语
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: Miya
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: fr
+      name: 法语
+      shortName: 法
+      originalName: Français
+      chineseName: 法语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Lisa
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: de
+      name: 德语
+      shortName: 德
+      originalName: Deutsch
+      chineseName: 德语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Christiane
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: ru
+      name: 俄语
+      shortName: 俄
+      originalName: усский язык
+      chineseName: 俄语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Keshu
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: es
+      name: 西班牙语
+      shortName: 西
+      originalName: Español
+      chineseName: 西班牙语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Aurora
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: ar
+      name: 阿拉伯语
+      shortName: 阿
+      originalName: اللغة العربية
+      chineseName: 阿拉伯语
+      lineSpace: 1.5
+      direction: rtl
+      defaultSpeaker: Rania
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: it
+      name: 意大利语
+      shortName: 意
+      originalName: Italiano
+      chineseName: 意大利语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: lrina
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: th
+      name: 泰语
+      shortName: 泰
+      originalName: ภาษาไทย
+      chineseName: 泰语
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: suparut
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: vi
+      name: 越南语
+      shortName: 越
+      originalName: Tiếng Việt
+      chineseName: 越南语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: ThuHien
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: cn_cantonese
+      name: 粤语
+      shortName: 粤
+      originalName: 廣東話
+      chineseName: 粤语
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: ZiYun
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: pt
+      name: 葡萄牙语
+      shortName: 葡
+      originalName: Português
+      chineseName: 葡萄牙语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Pedro
+      defaultSpeed: 50
+      autoStopRecordingTime: 3000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: cn_uyghur
+      name: 维吾尔语
+      shortName: 维
+      originalName: ئۇيغۇر تىلى
+      chineseName: 维吾尔语
+      lineSpace: 1.5
+      direction: rtl
+      defaultSpeaker: Dilare
+      defaultSpeed: 50
+      autoStopRecordingTime: 6000
+      isSpeakerConfig: 0
+      langType: 0
+    - lang: cn_tibetan
+      name: 藏语
+      shortName: 藏
+      originalName: བོད་སྐད།
+      chineseName: 藏语
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: YangJin
+      defaultSpeed: 50
+      autoStopRecordingTime: 6000
+      isSpeakerConfig: 0
+      langType: 0
+  relevancy:
+    - lang: cn
+      translatable: en,ja,ko,fr,de,ru,es,ar,it,th,vi,cn_cantonese,pt,cn_uyghur,cn_tibetan
+    - lang: en
+      translatable: cn
+    - lang: ed
+      translatable: ed
+    - lang: ja
+      translatable: cn
+    - lang: ko
+      translatable: cn
+    - lang: fr
+      translatable: cn
+    - lang: de
+      translatable: cn
+    - lang: ru
+      translatable: cn
+    - lang: es
+      translatable: cn
+    - lang: ar
+      translatable: cn
+    - lang: it
+      translatable: cn
+    - lang: th
+      translatable: cn
+    - lang: vi
+      translatable: cn
+    - lang: cn_cantonese
+      translatable: cn
+    - lang: pt
+      translatable: cn
+    - lang: cn_uyghur
+      translatable: cn
+    - lang: cn_tibetan
+      translatable: cn
+  dialogueRelevancy:
+    - lang: cn
+      translatable: en,ja,ko,fr,de,ru,es,ar,it,th,vi,cn_cantonese,pt,cn_uyghur,cn_tibetan
+    - lang: en
+      translatable: cn
+    - lang: ed
+      translatable: ed
+    - lang: ja
+      translatable: cn
+    - lang: ko
+      translatable: cn
+    - lang: fr
+      translatable: cn
+    - lang: de
+      translatable: cn
+    - lang: ru
+      translatable: cn
+    - lang: es
+      translatable: cn
+    - lang: ar
+      translatable: cn
+    - lang: it
+      translatable: cn
+    - lang: th
+      translatable: cn
+    - lang: vi
+      translatable: cn
+    - lang: cn_cantonese
+      translatable: cn
+    - lang: pt
+      translatable: cn
+    - lang: cn_uyghur
+      translatable: cn
+    - lang: cn_tibetan
+      translatable: cn
+
+share:
+  subtitle_share_url: https://huizhan-dev-integ-env.iflyrec.com/share/subtitle.html
+  sound_share_url: https://huizhan-dev-integ-env.iflyrec.com/share/sound.html
+  top_online_num: 100
+  dialogue_share_url: https://huizhan-dev-integ-env.iflyrec.com/share/chatRecord.html?share_token=
+  share_access_count: 1000
+  enableShare: true
+  accurate_share_url: https://huizhan-dev-integ-env.iflyrec.com/share/meetingRecordPage.html?share_token=
+  shareExpireDays: 90
+
+
+#会展业务创建平台订单的商品ID
+default:
+  #6571-4080企业套餐，6572-11520企业套餐，6573-18000企业套餐，6574-33600企业套餐
+  enterprisePackageIds: 6571,6572,6573,6574
+  
+callBackUrl:
+  realTime:
+    huiZhanTranscript: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v1/callback/medias/{0}/realTimeProcess
+
+syntheticAudio:
+  expireTime: 31
+
+# 2.0.1 实时转写服务地址
+real_time_transcript_service_url2: http://172.31.241.185:8913/RealTimeTranscriptService/
+
+# 会展实时转写服务
+real_time_transcript_service_url: http://172.31.53.141:9809/TJHZRealTimeTranscriptHttpGatewayService/TJHZRealTimeTranscriptService/
+#real_time_transcript_service_url: http://dev-integ-env.k8s.iflyrec.com/TJHZRealTimeTranscriptHttpGatewayService/TJHZRealTimeTranscriptService/
+
+# 2.0.1 云存储地址
+tj_cssp_contaniner: iflyrechuizhan_test.hfdn3.openstorage.cn/iflyrecchuizhan01
+
+# 2.0.1 服务调用配置
+custom:
+  simple:
+    rest:
+      connection:
+        connection_request_timeout: 20000
+        connect_timeout: 20000
+        read_timeout: 30000
+  overlong:
+    rest:
+      connection:
+        connection_request_timeout: 20000
+        connect_timeout: 20000
+        read_timeout: 50000
+# 合并后的文件上传路径,uploadFiles/{userId}/{orderId}/{fileName}
+upload_path: uploadFiles/{0}/{1}/{2}
+
+dialogueDemo:
+  dialogueId: "1"
+  dialogueType: 0
+  status: 2
+  originalText: "点击麦克风说话即可获取翻译"
+  translateText: "Click on the microphone to speak to get the translation"
+  transcriptLanguage: "cn"
+  translateLanguage: "en"
+  originalAudioId: 1
+  ttsAudioId: 2
+  originalAudioFilePlayPath: https://huizhan-dev-integ-env.iflyrec.com/koneapp/tts_original.mp3
+  ttsAudioFilePlayPath: https://huizhan-dev-integ-env.iflyrec.com/koneapp/tts_translate.mp3
+
+dialogue_transcode_callback: http://dev-integ-env.k8s.iflyrec.com/KNAppService/v1/callback/dialogues/{0}/audios/{1}/transcodingComplete
+
+# 对接ugc内容审核平台数据
+ugc:
+  bizGroupId: tjtc
+  bizUnitId: tjtc:koneapp:share
+  freeUrl: http://dev-integ-env.k8s.iflyrec.com/KNAppService/v1/callback/dialogueShares/{0}/free
+  forbidUrl: http://dev-integ-env.k8s.iflyrec.com/KNAppService/v1/callback/dialogueShares/{0}/forbid
+  accurateFreeUrl: http://dev-integ-env.k8s.iflyrec.com/KNAppService/v2/callback/accurateShare/{0}/forbid
+  accurateForbidUrl: http://dev-integ-env.k8s.iflyrec.com/KNAppService/v2/callback/accurateShare/{0}/forbid
+
+
+unableSiTranslateAppend: true
+
+# 鸿蒙卡片过滤语种
+hmkp:
+  filterLang: pt,ko,th,cn_tibetan
+
+speakerConfig:
+  oneSpeaker: "#575757"
+  speakerColorList:
+    - speakerNum: 1
+      colour: "#2E55FB"
+    - speakerNum: 2
+      colour: "#943FE6"
+    - speakerNum: 3
+      colour: "#5470C0"
+    - speakerNum: 4
+      colour: "#218471"
+    - speakerNum: 5
+      colour: "#CB4D11"
+    - speakerNum: 6
+      colour: "#736241"
+    - speakerNum: 7
+      colour: "#BC4848"
+    - speakerNum: 8
+      colour: "#8B703D"
+    - speakerNum: 9
+      colour: "#80676B"
+    - speakerNum: 10
+      colour: "#447E78"
+    - speakerNum: 11
+      colour: "#0B7DA7"
+    - speakerNum: 12
+      colour: "#105A52"
+    - speakerNum: 13
+      colour: "#527A89"
+    - speakerNum: 14
+      colour: "#8C60B6"
+    - speakerNum: 15
+      colour: "#4B715A"
+    - speakerNum: 16
+      colour: "#454A99"
+    - speakerNum: 17
+      colour: "#008402"
+    - speakerNum: 18
+      colour: "#D0383A"
+    - speakerNum: 19
+      colour: "#B63E8F"
+    - speakerNum: 20
+      colour: "#80436C"
+
+
+
+videoLanguageConfig:
+  transcriptLang:
+    - name: 中文
+      lan: cn
+      targetLan: en,ja,ko,fr,de,ru,es,it,cn_cantonese
+    - name: 英语
+      lan: en
+      targetLan: cn
+    - name: 日语
+      lan: ja
+      targetLan: cn
+    - name: 韩语
+      lan: ko
+      targetLan: cn
+    - name: 法语
+      lan: fr
+      targetLan: cn
+    - name: 西班牙语
+      lan: es
+      targetLan: cn
+    - name: 俄语
+      lan: ru
+      targetLan: cn
+    - name: 德语
+      lan: de
+      targetLan: cn
+    - name: 意大利语
+      lan: it
+      targetLan: cn
+    - name: 粤语
+      lan: cn_cantonese
+      targetLan: cn
+
+
+captureLanguageConfig:
+  transcriptLang:
+    - name: 中文
+      lan: cn
+      targetLan: en,ja,ko
+    - name: 英语
+      lan: en
+      targetLan: cn
+    - name: 日语
+      lan: ja
+      targetLan: cn
+    - name: 韩语
+      lan: ko
+      targetLan: cn
+
+
+realtimeFreeTimeDescription: "全部功能每月免费使用 2 小时"
+giftTimeDescription: ""
+# 3小时，3 * 60 * 60 * 1000L
+siRecordingMaxTimeMS: 10800000
+
+tts:
+  hostUrl: wss://ai-test-integ-env.iflyrec.com/tts
+  ttsAppId: P26123
+  apiSecret: mNpWm93hinf982dG92tx09Si2F8QMh9Z
+  apiKey: tra6g93b6P
+  uploadTtsPath: uploadTtsFiles/{0}/{1}
+  transcode_callback: http://dev-integ-env.k8s.iflyrec.com:80/KNAppService/v2/callback/accurate/{0}/audios/transcodingComplete
+  ttsExpireTime: 3
+
+
+
+benefitDescription1: 每月免费 2 小时(全部功能均可使用)
+benefitDescription2: 支持中文和 15 种语言互译
+benefitDescription3: 支持同传记录高精翻译、区分说话人
+
+
+activityConfig:
+  activities:
+    - activityName: "双 11 特惠"
+      slogan: "声动双十一，优惠享不停"
+      type: "202411"
+      beginTime: "2024-10-17 00:00:00"
+      endTime: "2024-10-17 23:59:59"
+  spark:
+    activityName: "Spark20250115"
+    beginTime: "2025-01-02 00:00:00"
+    endTime: "2025-01-31 00:00:00"
+
+
+jobConfig:
+  errorMediaStartTime: "2024-11-01 00:00:00"
+  errorOrderStartTime: "2024-11-01 00:00:00"
+  jobMinBefore: 60
+  jobDaysBefore: 20
+
+email:
+  send:
+    user: xftjzmsw@iflytek.com
+    password: ktDFiVjyZqvgXgze
+  acceptEmailUsers: jianhu16,pingzhang18,chaoqian7
+
+  #新增channel节点
+channel:
+  xiaomi:
+    secret: JDhQOZIXesdzHmgB
+    appId: 1505031
+  vivo:
+    srcId: ds-202503101008
+    clientId: 20250307053
+    secret: 1569273317F05CECF7EDEF94EBADBE025ABFD2A61094D677E8C93215BD64150E
+  huawei:
+    appId: 106686003
+
+#新增isInReview节点
+appleInReview: 0

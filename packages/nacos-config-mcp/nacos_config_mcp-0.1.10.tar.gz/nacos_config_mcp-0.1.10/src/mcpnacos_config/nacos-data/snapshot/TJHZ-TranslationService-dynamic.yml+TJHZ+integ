@@ -1,0 +1,55 @@
+v2text:
+    translation:
+        autoTranslateIpLimit: 60
+        autoTranslateIpBlackAliveTime: 1800000
+        ipBlackList: 172.30.9.212
+        ipWhiteList: 122.232.232.231
+v1text:
+    translation:
+        autoTranslateIpLimit: 30
+        autoTranslateIpBlackAliveTime: 1800000
+        ipBlackList: 172.30.9.212
+        ipWhiteList: 122.232.232.231
+
+
+#小程序语种信息
+smallLanguageConfig: >
+  {
+    "options": [
+      { "lang": "cn", "translates": ["en", "ja", "ko", "fr", "de", "ru", "es", "ar"] },
+      { "lang": "en", "translates": ["cn"] },
+      { "lang": "ed", "translates": ["ed"] },
+      { "lang": "ja", "translates": ["cn"] },
+      { "lang": "ko", "translates": ["cn"] },
+      { "lang": "fr", "translates": ["cn"] },
+      { "lang": "de", "translates": ["cn"] },
+      { "lang": "ru", "translates": ["cn"] },
+      { "lang": "es", "translates": ["cn"] },
+      { "lang": "ar", "translates": ["cn"] }
+    ],
+    "infos": [
+      { "lang": "ed", "name": "中英混合", "direction": "ltr" },
+      { "lang": "cn", "name": "中文", "direction": "ltr" },
+      { "lang": "en", "name": "英语", "direction": "ltr" },
+      { "lang": "ja", "name": "日语", "direction": "ltr" },
+      { "lang": "ko", "name": "韩语", "direction": "ltr" },
+      { "lang": "fr", "name": "法语", "direction": "ltr" },
+      { "lang": "de", "name": "德语", "direction": "ltr" },
+      { "lang": "ru", "name": "俄语", "direction": "ltr" },
+      { "lang": "es", "name": "西班牙语", "direction": "ltr" },
+      { "lang": "ar", "name": "阿拉伯语", "direction": "rtl" }
+    ]
+  }
+
+#普通用户免费权益
+normalUserFreeRights:
+  freePagePerMonth: 20
+  overFreeAmountPerPage: 0.2
+
+#翻译平台畅享卡信息
+translationNewProducts:
+  enjoyCards:
+    - id: 6565
+      name: "畅享包"
+    - id: 6567
+      name: "畅享包PLUS"

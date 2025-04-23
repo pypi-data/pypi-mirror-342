@@ -1,0 +1,77 @@
+server:
+  port: 1234
+  tomcat:
+    accesslog:
+      directory: /data/logs/tjhz_tccloudstoragetools_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+
+# log config
+logging:
+  path: /data/logs/tjhz_tccloudstoragetools_logs
+  file: /data/logs/tjhz_tccloudstoragetools_logs/tjhz_tccloudstoragetools_logs.log
+  level:
+    root: INFO
+  service:
+    name: tjhz_tccloudstoragetools_logs
+  config: classpath:logback-spring.xml
+
+# db
+spring:
+  datasource:
+    url: jdbc:mariadb://172.31.243.175:3306/TJHZ_RealTimeTranscriptService?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: tjhz_test
+    password: wstsaml125#67*89
+    driver-class-name: org.mariadb.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+
+# mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-statement-timeout: 50
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 关闭日志打印
+    #log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+
+# 查询数据的配置
+queryResult:
+  # 查询的输出结果是否进行覆盖
+  userUsed: true
+  # 是否启用根据用户查询
+  overwrite: true
+  # 输出查询结果的文件路径
+  path: D://data//实时转写服务-2025年1月数据.txt
+  # 查询的开始时间
+  startTime: '2025-01-15'
+  # 查询的结束时间
+  endTime: '2025-01-28'
+  # 每次查询的条数
+  pageSize: 100
+  # 执行查询的service实现类
+  loadService: RealtimeServiceDataCollertionService
+  # 用户id
+  userId: 2302140934512838
+
+
+
+
+# 执行清理的配置
+clean:
+  # 执行清理任务的输入文件路径
+  inputPath: D://data//实时转写服务-2025年1月数据.txt
+  # 执行清理的结果是否进行覆盖
+  outputPathOverwrite: true
+  # 执行清理的结果写入文件
+  outputPath: D://data//实时转写服务-2025年1月数据-clean.txt
+  # 每条记录删除后是否等待
+  waitSwitch: true
+  # 当等待开关开启时，等待时间ms
+  waitMillis: 100
+  # 云存储容器地址
+  csspContainer: iflyrechuizhan_test.hfdn3.openstorage.cn/iflyrecchuizhan01
+

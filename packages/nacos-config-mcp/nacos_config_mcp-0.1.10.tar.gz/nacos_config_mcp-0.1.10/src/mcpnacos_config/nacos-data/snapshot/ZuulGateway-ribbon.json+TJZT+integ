@@ -1,0 +1,37 @@
+[
+	{
+		"readTimeout": 5000,
+		"connectTimeout": 2000,
+		"service-id": "TJPT-CloudStreamService"
+	},
+	{
+		"readTimeout": 7200000,
+		"connectTimeout": 5000,
+		"service-id": "TJPT-MediaStreamService"
+	},
+	{
+		"readTimeout": 7200000,
+		"connectTimeout": 5000,
+		"service-id": "TJPT-MeetingPlatform"
+	},
+	{
+		"readTimeout": 1800000,
+		"connectTimeout": 5000,
+		"service-id": "YYZX-AudioStreamService"
+	},
+	{
+		"readTimeout": 1800000,
+		"connectTimeout": 5000,
+		"service-id": "TJPT-TranscriptApiService"
+	},
+    {
+		"readTimeout": 7200000,
+		"connectTimeout": 5000,
+		"service-id": "TJPT-MediaStreamService-V2"
+    },
+	{
+         "readTimeout": 7200000,
+         "connectTimeout": 5000,
+         "service-id": "TJPT-HXAdaptService"
+    }
+]

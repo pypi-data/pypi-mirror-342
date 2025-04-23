@@ -1,0 +1,57 @@
+compliance:
+  login:
+    # 控制需要强制使用的登录方式
+    # mandatory: 强制
+    mandatory-login-method:
+      - SMS
+    # 控制哪些bizId受到影响
+    login-biz-ids:
+      - xftj
+      - xftjfy
+      - huixie
+    # 控制多少天内必须进行短信验证码登录
+    limit-days: 5000
+    # 为了历史数据兼容, 没有历史登录数据的用户默认视为最后一次短信验证码登录时间为
+    history-min-sms-login-time: '2023-04-01'
+    
+cooperation:
+  icbc:
+    range-second: 473040000
+    # (工行)
+    key-component1: 484302AE7F8753692A51AB2B821D7CF7
+    key-component2: 5B449FC8CC11F4CE87C3F347CD0A1D54
+    key-component3: A9786D0D759F160EB05B00C13E48D387
+  #(学习强国)
+  xueXi:
+    domain: https://open-mini.xuexi.cn/openapi
+    key: 1020002861026741
+    secret: DmEOaPXtKOJe
+    qaKey: 1020005809968470
+    qaSecret: XyPJC5hqb1g
+  xingHuoLightApp:
+    #domain: http://dev.xinghuo.xfyun.cn
+    #app-id: T9QHQ81P
+    #app-secret: 48fERT!.puVc
+    domain: https://fe14937d53.xfyun.cn/
+    app-id: T9QHQ81P
+    app-secret: lis!fj9650.q
+    huixie-domain: https://huixie-dev-integ-env.iflyrec.com
+    path: /list
+    fail-path: /list
+  telecomCloudDeskConfig:
+    hubeiApiKey: ae11d3028773330b4063c3a1f2cd7dc8
+    hubeiApiSecret: c5166f87cd8fdd4441ede9beb4693bd7
+    anhuiApiKey: 7d8c16326ac48537ea05ec7c4f443fef
+    anhuiApiSecret: c7ae401fb3523a7a86a184aaac05e711
+
+spring:
+  redis:
+    database: 8
+    # sentinel:
+    #   master: s2
+    #   nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    # password: UIX*$MD78p
+    sentinel:
+      master: mymaster
+      nodes: 172.30.9.198:26379,172.30.9.210:26379,172.30.9.215:26379
+    password: ZChpc(5g   

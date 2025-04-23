@@ -1,0 +1,31 @@
+{
+	"useOldES": false,
+	"newEsIndexes": [
+		"yyzxmseriesrealtimeorder_realtimetranscriptresult",
+		"yyzxhuizhan_tjhzrealtimetranscriptresult",
+		"tjzmcatplatform_translation",
+		"yyzxplatform_suji_yyzxplatform_suji_type",
+		"tjcm_account_statistics_tjcm_account_statistics",
+		"yyzxparrotrealtimeorder_realtimetranscriptresult",
+		"yyzxplatform_transcriptresult",
+		"yyzxplatform_realtimetranscriptresult",
+		"yyzxplatform_ocrresult",
+		"tjptvtplatform_videotranslation",
+		"tjzt_share_share_context",
+		"yyzx_shareaudio_transcriptresult",
+		"yyzxmanualordersujimarkweb_yyzxmanualordersujimarkweb_type",
+		"meeting_summary_meeting_summary",
+		"tjhzknapp_transcriptresult",
+		"meeting_rtc_txt_temp_meeting_rtc_txt_temp",
+		"yyzxplatform_integ_transcriptresult",
+		"tjpt_hx_service_airesult",
+		"tjpt_hx_service_huixie",
+		"tjpt_hx_service_ai_result",
+		"tjpt_hxv2_service_transcriptresult",
+		"meeting_aigc_summary_meeting_aigc_summary",
+		"yyzxplatform_keyword",
+		"tjhz_translation_service_transcript_result_transcriptresult",
+		"tjhzsummary_summaryresult",
+		"tjhztongchuan_doccontentresult"
+	]
+}

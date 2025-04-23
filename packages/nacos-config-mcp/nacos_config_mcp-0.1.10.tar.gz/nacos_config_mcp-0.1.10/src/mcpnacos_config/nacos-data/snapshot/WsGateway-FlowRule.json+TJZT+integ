@@ -1,0 +1,12 @@
+[
+	{
+		"controlBehavior": 0,
+		"count": 100,
+		"grade": 1,
+		"limitApp": "default",
+		"maxQueueingTimeMs": 500,
+		"resource": "sid:default",
+		"strategy": 0,
+		"warmUpPeriodSec": 10
+	}
+]

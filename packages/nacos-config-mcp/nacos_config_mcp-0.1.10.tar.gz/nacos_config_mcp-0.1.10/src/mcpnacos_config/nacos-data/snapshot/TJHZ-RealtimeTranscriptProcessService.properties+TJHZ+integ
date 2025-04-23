@@ -1,0 +1,218 @@
+# TJHZ_TranscriptProcessService
+####################################### åºæ¬éç½® ######################################
+server.port=8205
+server.context-path=/TJHZRealtimeTranscriptProcessService
+server.tomcat.accesslog.directory=/data/logs/tjhz_realtimetranscriptprocessservice_logs
+server.tomcat.accesslog.enabled=true
+server.tomcat.accesslog.pattern=%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b
+server.tomcat.accesslog.rename-on-rotate=true
+####################################### æ¥å¿éç½® #####################################
+logging.path=/data/logs/tjhz_realtimetranscriptprocessservice_logs
+logging.file=/data/logs/tjhz_realtimetranscriptprocessservice_logs/tjhz_realtimetranscriptprocessservice_logs.log
+logging.service.name=TJHZ_RealtimeTranscriptProcessService
+logging.level.root=INFO
+logging.config=classpath:logback-spring.xml
+## å±ç¤ºSwaggerè°è¯ææ¡£
+swagger_show=fasle
+
+####################################### æ°æ®æºéç½® ######################################
+spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+spring.datasource.url=jdbc:mariadb://172.31.203.9:3307/tjhz_realtime_transcript_process?useUnicode=true&characterEncoding=UTF-8
+spring.datasource.username=tjkjpt
+spring.datasource.password=VcoNHoKzHV%pfS5H
+
+#?????
+spring.datasource.druid.initial-size=10
+#?????
+spring.datasource.druid.min-idle=10
+#?????
+spring.datasource.druid.max-active=50
+#?????? 60?
+spring.datasource.druid.max-wait=60000
+#??????????
+spring.datasource.druid.remove-abandoned=true
+#?????????????????????
+spring.datasource.druid.remove-abandoned-timeout=180
+# ???????SQL??
+spring.datasource.druid.log-abandoned=true
+
+spring.datasource.dbcp2.min-idle=5
+spring.datasource.dbcp2.max-idle=5
+spring.datasource.dbcp2.max-total=5
+spring.datasource.dbcp2.max-wait-millis=60000
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+spring.jpa.show-sql=true
+
+# nacos config
+spring.cloud.nacos.config.server-addr=dev-integ-env.iflyrec.com:80
+spring.cloud.nacos.config.namespace=integ
+spring.cloud.nacos.config.group=TJHZ
+spring.cloud.nacos.config.file-extension=properties
+spring.cloud.nacos.config.config-long-poll-timeout=46000
+spring.cloud.nacos.config.username=readonly
+spring.cloud.nacos.config.password=0Jpuhg4n6sTxdYy6
+spring.cloud.nacos.discovery.enabled=false
+
+nacos.sensitive.dynamic.dataId=SensitiveWordChangeNotice.json
+nacos.sensitive.dynamic.group=TJZT_SensitiveWordService
+
+
+###################################### Redisç¼å­éç½® ####################################
+spring.redis.sentinel.master=s1
+spring.redis.sentinel.nodes=172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+spring.redis.password=UIX*$MD78p
+spring.redis.database=9
+spring.redis.pool.max-idle=1
+spring.redis.pool.min-idle=0
+spring.redis.pool.max-active=5
+spring.redis.pool.max-wait=-1
+
+
+##################################### äºå­å¨ ##############################################
+tj_cssp_contaniner=iflyrechuizhan_test.hfdn3.openstorage.cn/iflyrecchuizhan01
+
+
+##################################### Eurekaå¾®æå¡éç½® ######################################
+spring.application.name=TJHZ-RealtimeTranscriptProcessService
+eureka.client.enabled=true
+eureka.client.register-with-eureka=true
+eureka.client.healthcheck.enable=true
+eureka.client.serviceUrl.defaultZone=http://devInteg:123456@172.31.241.185:8600/eureka/
+eureka.instance.prefer-ip-address=true
+feign.okhttp.enabled=false
+feign.httpclient.enabled=true
+feign.httpclient.max-connections=300
+feign.httpclient.max-connections-per-route=100
+feign.httpclient.connection-timeout=2000
+feign.client.config.default.connectTimeout=20000
+feign.client.config.default.readTimeout=20000
+feign.client.config.default.loggerLevel=FULL
+
+ribbon.MaxAutoRetries=0
+ribbon.MaxAutoRetriesNextServer=0
+ribbon.OkToRetryOnAllOperations=false
+ribbon.ServerListRefreshInterval=3000
+ribbon.ConnectTimeout=20000
+ribbon.ReadTimeout=20000
+
+##################################  feign è°ç¨æå¡éç½® ##################################
+## è½¬ç æå¡
+transcode_service_name=YYZX-TranscodeService
+## äº¤æä¸­å¿
+tradingCenter_service_name=TJPT-TradingCenterService
+## ææ¬å­å¨
+text-service-name=YYZX-TextStorageService
+
+# åå¹¶åçæä»¶ä¸ä¼ è·¯å¾,uploadFiles/{userId}/{orderId}/{fileName}
+upload_path=uploadFiles/{0}/{1}/{2}
+
+################################## åè°ç¸å³éç½®  #########################################
+##RTTID ç©ºé²è¶æ¶è®¾ç½® é»è®¤ 1å°æ¶
+real_time_transcript_task_expire_time=3600000
+##RTTID æå¤§ä¼è¯æ¶é¿è®¾ç½® é»è®¤ 4å°æ¶
+real_time_transcript_task_max_time=14400000
+
+##æ¬æºè¯·æ±å°å
+local_url=http://${spring.cloud.client.ipAddress}:${server.port}/
+#################### åçæ¬ ###############
+## å®æ¶è½¬åæå¡æ¥å£å°åââV1.6ä¿®æ¹
+## real_time_transcript_service_url=http://10.7.105.247:8914/TJHZRealTimeTranscriptService/
+#real_time_transcript_service_url=http://172.31.53.141:9809/TJHZRealTimeTranscriptHttpGatewayService/TJHZRealTimeTranscriptService/
+real_time_transcript_service_url=http://172.31.53.141:9809/TJHZRealTimeTranscriptHttpGatewayService/TJHZRealTimeTranscriptService/
+
+#real_time_transcript_service_url=http://10.7.107.153:9809/TJHZRealTimeTranscriptHttpGatewayService/TJHZRealTimeTranscriptService/
+
+#http://172.31.53.141:9809/TJHZRealTimeTranscriptHttpGatewayService/TJHZRealTimeTranscriptService/
+#################### v2 ##############
+## å®æ¶è½¬åæå¡æ¥å£å°å  http://172.31.241.185:8913/RealTimeTranscriptService/
+#real_time_transcript_service_url2=http://172.31.241.185:8913/RealTimeTranscriptService/F
+
+real_time_transcript_service_url2=http://172.31.53.141:9809/TJHZRealTimeTranscriptHttpGatewayService/TJHZRealTimeTranscriptService/
+
+
+# ElasticSearch
+es.result.clusterName=yyzxescluster
+es.result.index=yyzxhuizhan
+es.result.type=TJHZRealtimeTranscriptResult
+es.result.urls=172.31.243.167,172.31.243.175,172.31.243.174
+
+# æ³¢å½¢æ°æ®éç½®
+point_block_time=20000
+point_block_count=1000
+point_sample_rate=16000
+
+# Permissionæ¥å£æéå¼å¯
+custom.permission.enable=true
+
+# è½¬åå¼ææ¥å£å°å,ç¨äºæ·»å ç­è¯,ä¸å¡IDå¤ä¸ªç¨ ; éå¼ï¼å¦huizhan;xftjhiseels
+createHotWords.url=https://ai-test-integ-env.iflyrec.com/ast/createHotWord
+createTranslationOptimization.url=https://ai-test-integ-env.iflyrec.com/res/translate/quick_replace/upload
+updateTranslationOptimization.url=https://ai-test-integ-env.iflyrec.com/res/translate/quick_replace/update
+bizIdList=huizhan;huizhan_vip
+huizhan.appId=P26123
+huizhan.accessKeyId=tra6g93b6P
+huizhan.accessKeySecret=mNpWm93hinf982dG92tx09Si2F8QMh9Z
+huizhan_vip.appId=2F3414
+huizhan_vip.accessKeyId=gTsDyw53z4
+huizhan_vip.accessKeySecret=XS5n7Krh5oL25j40qv15HuwvS854d41K
+
+#simpleRestTemplateè¶æ¶æ¶é´è®¾ç½®
+custom.simple.rest.connection.connection_request_timeout=2000
+custom.simple.rest.connection.connect_timeout=2000
+custom.simple.rest.connection.read_timeout=30000
+#overlongRestTemplateè¶æ¶æ¶é´è®¾ç½®
+custom.overlong.rest.connection.connection_request_timeout=2000
+custom.overlong.rest.connection.connect_timeout=2000
+custom.overlong.rest.connection.read_timeout=50000
+
+#äº§åé»è®¤bizId,ç¨äºsdkééæå¡æªç¥bizIdæ¶åéè½¬ç 
+bizId=huizhan
+swaggerShow=true
+
+
+##ä»ç¨äºå¼åæµè¯ç¯å¢ææ¥ä½¿ç¨
+mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+mybatis-plus.mapper-locations=classpath:mapper/*.xml
+
+##éå®æ¶æµç¨éç½®é¡¹
+# äºå­å¨åå»ºè§é¢å¤é¾æææ¶é´
+tokenExpireTime=86400000
+
+tj_cssp_contaniner_account=iflyrecchuizhan01
+
+app_id=P26123
+api_transcript_access_key_id=tra6g93b6P
+api_transcript_access_key_secret=mNpWm93hinf982dG92tx09Si2F8QMh9Z
+api_transcript_request_timeout=5000
+api_transcript_send_url=https://ai-test-integ-env.iflyrec.com/v2/upload
+api_transcript_result_url=https://ai-test-integ-env.iflyrec.com/v2/getResult
+cbb_translation_url=https://ai-test-integ-env.iflyrec.com/trans/v2/chapt_trans?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}
+cbb_translation_result_url=https://ai-test-integ-env.iflyrec.com/trans/v2/chapt_trans/query?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}
+api_hot_words_create_url=https://ai-test-integ-env.iflyrec.com/v2/createHotWord
+
+
+#app_id=13m35T
+#api_transcript_access_key_id=7y50Q78uS2
+#api_transcript_access_key_secret=04032JCbIAe8CLLO2787p25e31fhw1zX
+#api_transcript_request_timeout=5000
+#api_transcript_send_url=https://api.iflyrec.com/v2/upload
+#api_transcript_result_url=https://api.iflyrec.com/v2/getResult
+#cbb_translation_url=https://api.iflyrec.com/trans/v2/chapt_trans?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}
+#cbb_translation_result_url=https://api.iflyrec.com/trans/v2/chapt_trans/query?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}
+##éå®æ¶æµç¨éç½®é¡¹
+
+# æ­å¥ç¸å³éç½®
+segment.cn-subtitle-seg-api-url=http://172.31.98.71:2300/seg
+segment.cn-subtitle-seg-permit-acquire-timeout=60000
+segment.cn-subtitle-seg-request-timeout=60000
+segment.cn-subtitle-seg-permit-quantity=5
+segment.opennlp-model-path=/opt/service/TJHZ_RealtimeTranscriptProcessService/opennlp/
+#æ¬å°ç»å¯¹è·¯å¾
+#segment.opennlp-model-path=E:/GitCode/tjhz_realtimetranscriptprocessservice/src/main/resources/opennlp/
+
+# åè°æ¯åappç»æåå¹¶å®æ
+kone.merge-result.callbak.url= http://dev-integ-env.k8s.iflyrec.com/KNAppService/v1/callback/medias/{0}/mergeResult
+
+#å¯¼åºä¹±ç ç¹æ®å­ç¬¦
+editorExportBadCharacter=\\u0000,\\u0001,\\u0002,\\u0003,\\u0004,\\u0005,\\u0006,\\u0007,\\u0008,\\u0009,\\u000B,\\u000C,\\u000E,\\u000F,\\u0010,\\u0011,\\u0012,\\u0013,\\u0014,\\u0015,\\u0016,\\u0017,\\u0018,\\u0019,\\u001A,\\u001B,\\u001C,\\u001D,\\u001E,\\u001F,\\u007F

@@ -1,0 +1,440 @@
+server:
+  port: 80
+  context-path: /SubtitleOrderService
+  tomcat:
+    accesslog:
+      directory: /data/logs/tjhz_subtitleorderservice_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+      rename-on-rotate: true
+    max-http-post-size: -1
+    basedir: /data/tomcat/tmp
+    uri-encoding: UTF-8
+
+logging:
+  path: /data/logs/tjhz_subtitleorderservice_logs
+  file: /data/logs/tjhz_subtitleorderservice_logs/tjhz_subtitleorderservice.log
+  level:
+    root: INFO
+  config: classpath:logback-spring.xml
+  service:
+    name: TJHZ_SubtitleOrderService
+
+feign:
+  httpclient:
+    max-connections: 500
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 500000
+  cat_service_name: TJHZ-CATService
+  text_service_name: YYZX-TextStorageService
+
+spring:
+  sleuth:
+    sampler:
+      percentage: 1.0
+    trace-id128: true
+  datasource:
+    dynamic:
+      primary: base-db
+      datasource:
+        base-db:
+          driver-class-name: org.mariadb.jdbc.Driver
+          url: jdbc:mariadb://172.31.203.9:3307/MTYW_hiseeLS_Online?useSSL=false&allowMultiQueries=true
+          username: tjkjpt
+          password: VcoNHoKzHV%pfS5H
+        platform-db:
+          driver-class-name: org.mariadb.jdbc.Driver
+          url: jdbc:mariadb://172.31.203.9:3307/YYZX_Platform?useSSL=false&allowMultiQueries=true
+          username: tjkjpt
+          password: VcoNHoKzHV%pfS5H
+  cloud:
+    nacos:
+      discovery:
+        server-addr: test-integ-env.iflyrec.com:80
+        username: writable
+        password: iZov31kHgEOFvQU7
+        service: TJHZ-SubtitleOrderService
+        namespace: integ
+
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 10000
+      connection-test-query: SELECT 1
+
+  http:
+    multipart:
+      max-file-size: 21MB
+      max-request-size: 21MB
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+  # redis配置
+  redis:
+    sentinel:
+      master: s1
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    password: UIX*$MD78p
+    database: 15
+    pool:
+      maxIdle: 10
+      minIdle: 0
+      maxActive: 20
+      maxWait: -1
+    timeout: 2000
+
+  #rabbitmp配置
+  rabbitmq:
+    username: recinbox
+    password: recinbox
+    # 多点需保证username,password,port均一致，url中用英文逗号分隔多点ip
+    host: 172.31.203.7
+    port: 5672
+    #expirestime 队列过期时间 队列超多该时间没有被使用会被删除   单位毫秒  24小时= 86400000 毫秒
+    expirestime: 86400000
+    userCancelExchange: ACCOUNTSERVICE_EXCHANGE_LOGOFF
+    userCancelQueueName: USER_CANCEL_QUEUE
+    virtual-host2: /
+    virtual-host: /
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 2
+          initial-interval: 3000
+        concurrency: 10
+        max-concurrency: 10
+        # acknowledge-mode: manual
+  shardingsphere:
+    datasource:
+      master:
+        type: com.zaxxer.hikari.HikariDataSource
+        hikari:
+          minimum-idle: 10
+          maximum-pool-size: 20
+          auto-commit: true
+          idle-timeout: 30000
+          max-lifetime: 1800000
+          connection-timeout: 10000
+          connection-test-query: SELECT 1
+        driver-class-name: org.mariadb.jdbc.Driver
+        jdbc-url: jdbc:mariadb://172.31.203.9:3307/MTYW_hiseeLS_Online?useSSL=false&allowMultiQueries=true
+        username: tjkjpt
+        password: VcoNHoKzHV%pfS5H
+      names: master
+    #加解密配置
+    encrypt:
+      tables:
+        #数据表
+        IrecOrderEvaluation:
+          columns:
+            #待加密字段
+            contact:
+              #明文存储字段
+              plainColumn: contact
+              #密文存储字段
+              cipherColumn: contactEncryptor
+              #加密设置
+              encryptor: encryptor_aes
+        IrecTask:
+          columns:
+            #待加密字段
+            smsPhone:
+              #明文存储字段
+              plainColumn: smsPhone
+              #密文存储字段
+              cipherColumn: smsPhoneEncryptor
+              #加密设置
+              encryptor: encryptor_aes
+        IrecTranscriptProcess:
+          columns:
+            #待加密字段
+            smsPhone:
+              #明文存储字段
+              plainColumn: smsPhone
+              #密文存储字段
+              cipherColumn: smsPhoneEncryptor
+              #加密设置
+              encryptor: encryptor_aes
+      #加密设置配置
+      encryptors:
+        #加密配置名
+        encryptor_aes:
+          #加密算法（支持MD5、DES、AES，以及自定义）
+          type: aes
+          props:
+            aes:
+              key:
+                #aes加密key
+                value: tjzmrer4bo8ms8jq
+    props:
+      query:
+        with:
+          cipher:
+            #false:明文密文字段双写模式,更新、新增明文字段会同步修改密文字段，查询直接查询明文字段
+            #true:关闭双写模式，所有新增、更新、查询均通过密文字段完成
+            column: false
+      sql:
+        show: false
+
+mybatis-plus:
+  type-aliases-package: com.iflytek.order.entity.basedb,com.iflytek.order.entity.platfromdb
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-statement-timeout: 50
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 关闭日志打印
+    #log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+
+requestlog:
+  request:
+    maxSize: 1500
+  response:
+    open: true
+    maxSize: 1500
+  open: true
+
+swagger-show: true
+
+app-id: xftjhiseels
+biz-id: xftjhiseels
+web-biz-id: tjzmweb
+
+es-result-index: yyzxplatform
+es-result-type: TranscriptResult
+
+translate:
+  callbackUrl: http://dev-integ-env.k8s.iflyrec.com/SubtitleOrderService/api/v1/translation/medias/{0}/callback
+  reTranslateCallback: http://dev-integ-env.k8s.iflyrec.com/SubtitleOrderService/api/v1/translation/medias/{0}/reTranslateCallback
+# 媒体流服务云存储配置
+media-stream-service:
+  container: iflyrectjpt_test.hfdn3.openstorage.cn/mediastream02
+  #container: iflyrectjpt_test.hfdn4.openstorage.cn/SubtitleEditorSDK
+  path: /data/UploadFiles/media/
+# 人工订单媒体云存储配置
+manual-stream-service:
+  container: iflyrectjpt_test.hfdn4.openstorage.cn/SubtitleEditorSDK
+  path: /iflyrec/hiseels/
+new-editor-client-version:
+  zimu: 1.4.9.2059
+  timecode: 1.5.7.2080
+tj_cssp_contaniner: iflyrectjpt_test.hfdn4.openstorage.cn/SubtitleEditorSDK
+delete-wav-client-version: 1.5.7.2080
+#本地字幕版本
+new-local-zimu-client-version: 2.1.0.2103
+api_service_transcript_result_url: https://ai-test-integ-env.iflyrec.com/v2/getResult
+pay_callback_url: http://dev-integ-env.k8s.iflyrec.com/SubtitleOrderService/api/v1/tradeCenterOrders/paymentCallback
+#订单支付回调
+#pay_callback_url: http://10.7.108.169:80/SubtitleOrderService/api/v1/tradeCenterOrders/paymentCallback
+
+order_payStatus_callback_url: http://dev-integ-env.k8s.iflyrec.com/SubtitleOrderService/api/v1/tradeCenterOrders/payStatusCallback
+transcript_api_callback_url: http://dev-integ-env.k8s.iflyrec.com/SubtitleOrderService/api/v1/transcriptCallback
+api_service_transcript_url: https://ai-test-integ-env.iflyrec.com/v2/upload
+api_service_delete_order_url: https://ai-test-integ-env.iflyrec.com/v2/deleteOrder
+media_trancode_callback_url: http://dev-integ-env.k8s.iflyrec.com/SubtitleOrderService/api/v2/medias/{0}/transcodeCallback
+block_upload_callback_url: http://dev-integ-env.k8s.iflyrec.com/SubtitleOrderService/api/v1/block/{0}/blockUploadResult
+api_service_speech_callback_url: http://dev-integ-env.k8s.iflyrec.com/SubtitleOrderService/api/v1/{0}/speechSynthesisCallback
+
+#todo
+#order_payStatus_callback_url: http://10.7.108.169:80/SubtitleOrderService/api/v1/tradeCenterOrders/payStatusCallback
+#transcript_api_callback_url: http://10.7.108.169:80/SubtitleOrderService/api/v1/transcriptCallback
+#api_service_transcript_url: https://ai-test-integ-env.iflyrec.com/v2/upload
+#api_service_delete_order_url: https://ai-test-integ-env.iflyrec.com/v2/deleteOrder
+#media_trancode_callback_url: http://10.7.108.169:80/SubtitleOrderService/api/v2/medias/{0}/transcodeCallback
+#block_upload_callback_url: http://10.7.108.169:80/SubtitleOrderService/api/v1/block/{0}/blockUploadResult
+
+
+
+## 人工支付回调接口
+manual_pay_callBack_url: http://dev-integ-env.k8s.iflyrec.com/HiseelsBasicService/hiseeLS/api/order/callback
+
+oldAndNewUsersTime: 2021/08/03 20:00:00
+
+# 推荐卡支付回调
+paymentRecommendationCardCallBack: http://dev-integ-env.k8s.iflyrec.com/SubtitleOrderService/api/v1/cards/recommendbuy/callback?processOrderId={0}&processId={1}&couponId={2}&processType={3}&userId={4}
+#paymentRecommendationCardCallBack: http://10.7.108.169:80/SubtitleOrderService/api/v1/cards/recommendbuy/callback?processOrderId={0}&processId={1}&couponId={2}&processType={3}&userId={4}
+
+
+## 获取机器商城充值卡ID
+machineRechargeIDs: 40
+
+cardsMachines: 50,51,52,53,112,113,114,115,7200,7201,7202,7203,7204,408,409,410,411
+cardsManuals: 54,55,56,57,100,401,402,403,404,405,406,407,7205,7026,7207,7208
+cardsRecommendations: 7200,7201,7202,7203,7204,7205,7026,7207,7208
+seg_model_url: http://172.31.98.71:2300/seg
+
+###人工流程回调地址 回调接口迁移后按照实际情况修改地址
+manualProcessCallback:
+  transcodeUrl: http://dev-integ-env.k8s.iflyrec.com/HiseelsBasicService/hiseeLS/api/callback/manualTranscriptProcess/transcode
+  transcriptUrl: http://dev-integ-env.k8s.iflyrec.com/HiseelsBasicService/hiseeLS/api/callback/manualTranscriptProcess/transcript
+
+
+
+
+###文件名字符数量上限
+uploadFileNameMax: 50
+
+###翻译前置rediskey有效时间 30天
+frontTranslationExpire: 30
+
+#敏感词开关配置
+sensitive-enable: false
+
+## 双十一活动优惠券
+activity20221111:
+  machine:
+    couponIds: 4011,4013,4015,4017
+    vipCouponIds: 4031,4033,4035,4037
+  manual:
+    couponIds: 4021,4023,4025,4027
+    vipCouponIds: 4041,4043,4045,4047
+
+## 双十二活动优惠券
+activity20221212:
+  startTime: 2022/12/01 00:00:00
+  endTime: 2022/12/25 23:59:59
+  coupon:
+    tip: 双十二海量优惠券大放送！&机器字幕满100减20、200减60、1000减260、2000减520&人工字幕满500减30、2000减180、4000减300、9000减600
+    clientIcon: https://static.iflyrec.com/v1/iflyrectjpt/publicread01/2x-activity20221212-coupon-clientIcon/2x-activity20221212-coupon-clientIcon.png
+    webIcon: https://static.iflyrec.com/v1/iflyrectjpt/publicread01/2x-activity20221212-coupon-webIcon/2x-activity20221212-coupon-webIcon.png
+    activityClientIcon: https://static.iflyrec.com/v1/iflyrectjpt/publicread01/2x-activity20221212-coupon-activityClientIcon/2x-activity20221212-coupon-activityClientIcon.png
+    activityWebIcon: https://static.iflyrec.com/v1/iflyrectjpt/publicread01/2x-activity20221212-coupon-activityWebIcon/2x-activity20221212-coupon-activityWebIcon.png
+#人工字幕专业领域
+domains-manual: 生物医学,教育,影视译制,IT科技,新闻时事,游戏娱乐,金融财经,能源化工,文学历史,人文社科,其他领域
+
+#人工订单上传资料配置
+files:
+  manual:
+    upload:
+      maxMb: 10
+      support: doc,docx,txt,pdf,rtf,xls,xlsx,ppt,pptx,rar,zip,jpg,gif,png,mp3,wav,m4a,pcm,amr,wma,mp4,3gp,aac
+
+#人工订单预估价格
+manual-price:
+  #英日韩
+  language:
+    video: 32
+    srt-text: 22
+  #翻译订单
+  translate:
+    video: 70
+    srt-text: 60
+
+#人工订单状态变更通知
+manual-changeCallback: http://dev-integ-env.k8s.iflyrec.com/SubtitleOrderService/api/v1//manuals/orders/changeCallback
+
+#todo
+#manual-changeCallback: http://10.7.108.169:80/SubtitleOrderService/api/v1//manuals/orders/changeCallback
+
+
+
+lianxiang:
+  pay:
+    mchid: 983841565142912
+    appid: 983842429169280
+    payurl: https://cloud-rest.lenovomm.com/cloud-intermodal-core/api/v1/pay/trade/direct/link
+    paymentcallback: http://36.110.221.44/dev/SubtitleOrderService/api/v1/callback/orders/lianxiangNotify
+    validitysecond: 7200
+    privatekey: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDG9+CD9dTcN9BpnwuXb0uHlAeEpD1EtgfgC+nfiFpwcWtXnegiu+dRCz/L+0CpfEbf4yTObsXxnvdJVbttqWwBMni1qkLu/k8dUqeZB6LkpdS3Jmlq6Ob8gv5dI9W2KMT5+F0NLuqdrNn3w2Tj2Uox7aG1gK1PVVObSgVr4o5C9LUvHKlD8e44gL5MKsRXOHZWe0hXU7UJSNEEvlYYNccttglLPj/ppKR6ktxT1mN7pXYi/JkqUgm/f5YkrqX9hNlrO7XKPNEutuWqDZur/3DD7dff5mtJijxBwRq3MwvMZYlEkFGyNX6q8jmoffIZMvZTmpeE9FDsfbBZSIXbhbhXAgMBAAECggEAYnygLbGpw7f8+cs4OaVlhZ7IeeeyTCiujUBYa8Vavv3lXGFVXpwUTBF9asLbpwlVK82LkoNSh99gGHTPaeDLDWymQ4Yby6EmGCWpwB3/i55qRJ5G4ByY+bT9o6zxRFG57uH5bWUjzRiabAHUFtSf3Ub7HJStNO/PiraBKH3kXU9TCMKZBKm62TfY5DpxWrHF50xzxU3nUTHGWXqL7dI7PmS5cN6AyM95F5alvXuseKWlV+kURkaDGgGYV//bA5RLyv8cCK96S05ZglkWY9v9OBoZMYf44H2m+qyn6jPNMieQ/ViZS+eB7zH4sy2rFSGX03WuWBWRwOVWZasa8iNwwQKBgQD7O336gNPhJ+k7S7dxqKgNQax5MSSPhMrSx5Yf2DyMfrSnpkZXjCwqeoWXm8IBweROdycbrzQgLT9oex1Ous23bszBac5g5FI3wUCQyUFiPqb6aErVz8a9hPiV/ztwEuf91xpni8ZDH35fItvxleZFkNXPDN+VGfsfzYCMGIvHhQKBgQDKvntAadO/pEye37jJhM8oraG1cMr7muU3qczRPGO5cpagaqKKTc/WDdEPyCrHNSkmLONYnfGVORJDTdXg3HJzPhFWbBVF2A5nMjPxFr6NotP0aylb9XNig89AzDQHwmrlWhEKYAElxkK831sug5QNtts+asra1QrfP3FakIvxKwKBgQDZKSaPBxaetAoFqEBMLbX9p3v3UgRBTk6nfcAFjLth0hBELhT1jgOLQFcDoq5DKJ85OAOFCZ/sBFCf9nNx30T8vvicYuHynMl4ykIOJPiwfGmHX+j4Al7O6QabWYC+Mol3wJxhTs+0q59nitFFdQYTscsu6vjEgC2y4sav0nPYpQKBgQCz8cJE1mipBDM5I0nIGkcfTJRlDJosHDtrXxq5bsb4FnsYH+zpocxgqNywDDHjowxFpLuXsH91uTS7Zb75l89A94q90KpE1lFaSFWPmmdAII/MtLv9sWlau7BcS6G2bVkg/QJ42eLK2x/qsLcmHoRuc6g9yt0GwuWmZZG/FuIOBwKBgCzLvU2bYX1zPyKs00bZ5vQuhY21mucd7Nn6ZoltKHJE/lJd49WlNILUnNBycKe2kovWalvIcAvP8ATXvGywbNRScpL7FTzfXGOU6XQpPpXZsQRER2GlakFoQ/nTcS6GmqnkLZ6R6oVT0uGb/Kw8L7R9bJ6XBzP4hpFOG3kUWqOE
+    publickey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsTyh1ZEuW9Yjvlk1o2a9zoB5xGE9+YyCSOciXnVwdXAU9ZKsYk70qH2cm+qB7DfB/v741v2wHR3f+uYNNndTkWYGNEvIi3noGBjsgnb+DvczGdzv7KoisbRrfzG/0+/VSf3F/f8YhOsozM0PKj06aIf1h7hBveE66aLSGZyWCNqb6uqFqcxi+zZBM5iOemfkPVDacZDh1bm9BR8iAUXfr8VSJN5Hda3D9X1xD0XDrIIoMyE+YLnG23YWEZvaceCY/fh37YGiUGiGcWEbziYvd6FKous35SSkZDDghAmA3hyq0s9X7rEjFUk8dLvuxOy46UUBl6hyMtMZAxyyO+UgGQIDAQAB
+    queryUrl: https://cloud-rest.lenovomm.com/cloud-intermodal-core/api/v1/pay/query/trade
+
+virtual_product:
+  #人工充值卡折扣配置
+  1000yuan:
+    #真实价格
+    real_discount: 0.01
+    real_origin_discount: 0.01
+    discount: 0.01
+    origin_discount: 0.01
+  3000yuan:
+    real_discount: 0.920
+    real_origin_discount: 0.99
+    discount: 0.92
+    origin_discount: 0.99
+  5000yuan:
+    real_discount: 0.900
+    real_origin_discount: 0.976
+    discount: 0.90
+    origin_discount: 0.98
+  10000yuan:
+    real_discount: 0.880
+    real_origin_discount: 0.948
+    discount: 0.88
+    origin_discount: 0.95
+  manual:
+    start_time: 2022/06/15 00:00:00
+    end_time: 2022/06/30 23:59:59
+
+#订单有效支付时间 单位：分钟
+order-expire-payTime:
+  machine: 1440
+  manual: 1440
+
+lawHolidays: 2023-01-02,2023-01-21,2023-01-22,2023-04-05,2023-05-01,2023-05-02,2023-05-03,2023-05-04,2023-05-05,2023-06-22,2023-06-23,2023-09-29,2023-10-02,2023-10-03,2023-10-04,2023-10-05,2023-10-06
+extraWorkdays: 2023-01-28,2023-01-29,2023-05-06,2023-05-07,2023-06-25,2023-10-07,2023-10-08
+
+## 获取人工商城充值卡ID
+manualRechargeIDs: 43
+
+#免费转写语言和转写时长
+freeTanscript:
+  type: 4,5,6,7,8,9,10
+  millisecond: 3600000
+opennlp-model-path: /usr/server/tools/opennlp/
+
+activityNew:
+  startTime: 2023/06/01 00:00:00
+  endTime: 2023/06/30 23:59:59
+  machine:
+    couponIds: 4111,4113,4115,4117
+    vipCouponIds: 4131,4133,4135,4137
+  manual:
+    couponIds: 4121,4123,4125,4127
+    vipCouponIds: 4141,4143,4145,4147
+  coupon:
+    tip: 618海量机器字幕优惠券登录自动送！&机器字幕满100减20、200减60、1000减260、2000减520
+    clientIcon: https://static-dev-integ-env.iflyrec.com/v1/iflyrectjpt_test/publicread01/zimu618/618-Icon.png
+    webIcon: https://static-dev-integ-env.iflyrec.com/v1/iflyrectjpt_test/publicread01/zimu618/618-Icon.png
+    activityClientIcon: https://static-dev-integ-env.iflyrec.com/v1/iflyrectjpt_test/publicread01/zimu618/618-activityIcon.png
+    activityWebIcon: https://static-dev-integ-env.iflyrec.com/v1/iflyrectjpt_test/publicread01/zimu618/618-activityIcon.png
+
+#导出乱码特殊字符
+editorExportBadCharacter: \\u000B
+
+#IrecTranscriptProcess表主键，大于此值英文断句最大字符生效
+tableIdForEnMaxCharNumber: 14055952
+
+#dayang媒体云任务创建到指定账号下，正式项目不需要这个配置
+dayang_task_userid: 2112152009243524
+
+dayang_appid: 128d2612718c4bababa8940809d8fbff
+dayang_appsecret: 1a21d1ff-49dc-8311-abd8-02fe68ff6811
+dayang_task_tokenurl: https://play.cloud.dayang.com.cn/gateway/uc/login/token?vt=2
+dayang_task_callbakurl: https://play.cloud.dayang.com.cn/gateway/vod/resourceSrtTranslateTask/resultCallback
+
+enjoy_carid: 6995
+new_user_coupon: 5003
+enjoy_car_name: 30小时字幕畅享卡
+
+
+cbbChapter:
+  translation_callback_url_single: http://dev-integ-env.k8s.iflyrec.com/SubtitleOrderService/api/v1/callback/file/{0}/{1}/{2}/cbbTranslationComplete
+  app_id: "P26123"
+  api_transcript_access_key_id: "tra6g93b6P"
+  api_transcript_access_key_secret: "mNpWm93hinf982dG92tx09Si2F8QMh9Z"
+  cbb_chapter_url: https://ai-test-integ-env.iflyrec.com/trans/v2/chapt_trans?appId={0}&accessKeyId={1}&utc={2}&uuid={3}&signature={4}

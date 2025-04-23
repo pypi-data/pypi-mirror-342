@@ -1,0 +1,590 @@
+server:
+  port: 8759
+  context-path: /HXV2Service
+  tomcat:
+    accesslog:
+      directory: /data/logs/tjpt_hxv2service_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+      rename-on-rotate: true
+
+#logger
+logging:
+  path: /data/logs/tjpt_hxv2service_logs
+  file: /data/logs/tjpt_hxv2service_logs/tjpt_hxv2service.log
+  level:
+    root: INFO
+  service:
+    name: TJPT_HXV2Service
+  config: classpath:logback-spring.xml
+
+# Eureka
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    healthcheck:
+      enable: true
+    serviceUrl:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+  instance:
+    prefer-ip-address: true
+
+#Feign
+feign:
+  okhttp:
+    enabled: false
+  httpclient:
+    enabled: true
+    max-connections: 300
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  client:
+    config:
+      default:
+        connectTimeout: 60000
+        readTimeout: 60000
+        loggerLevel: FULL
+
+#Ribbon
+ribbon:
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 3
+  OkToRetryOnAllOperations: false
+  ServerListRefreshInterval: 3000
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
+
+#Request Log
+requestlog:
+  request:
+    maxSize: 1500
+  response:
+    maxSize: 1500
+    open: true
+  open: true
+
+
+spring:
+  ##HYJY DB Config
+  datasource:
+    HyjyDB:
+      url: jdbc:mysql://172.31.203.9:3307/TJPT_HXV2Service?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+      username: tjptdev
+      password: VcoNHoKzHV%pfS5H
+  #Redis Pool
+  redis:
+    password: UIX*$MD78p
+    database: 0
+    sentinel:
+      master: s2
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    pool:
+      max-active: 3000
+      min-idle: 10
+      max-idle: 1000
+      max-wait: 1000
+
+text_service_name: YYZX-TextStorageService
+transcode_service_name: YYZX-TranscodeService
+media_stream_service_name: TJPT-MediaStreamService
+assist_createion_service_name: TJZT-AssistCreationService
+
+
+order:
+  prefix:
+    order-from-prefixes:
+      2: PW-
+      10: PP-
+      12: PP-
+      15: PWX-
+      18: PWXPAD-
+      19: PWXPC-
+      20: PWAS-
+      25: PHJ-
+      30: PHX-
+      100: PCM-
+      101: PCM-
+      200: PTAH-
+      201: PTHB-
+    biz-order-Id-prefixes:
+      xftj: PW-
+      tjzs: PP-
+      tjwxapp: PWX-
+      tjwxapppad: PWXPAD-
+      tjwxapppc: PWXPC-
+      wordaddins: PWAS-
+      huiji: PHJ-
+      huixie: PHX-
+      tjcm: PCM-
+      xftjxzh5: PXZH5-
+      xftjxzxcx: PXZH5-
+      xftjxzxcxpc: PXZH5-
+      xftjxzxcxpad: PXZH5-
+      zhp: PZHP-
+      xftjxzandroid: PXZAD-
+      xftjxzios: PXZIOS-
+      xftjxzsparkxcx: SPARKH5-
+      xuexi_xz_xcx: XUEXI-
+      icbc_xz_xcx: ICBC-
+      telecom_pc_anhui: PTAH-
+      telecom_pc_hubei: PTHB-
+
+point_block_time: 20000
+point_block_count: 1000
+point_sample_rate: 16000
+
+mq:
+  username: recinbox
+  password: recinbox
+  host: 172.31.203.7
+  exchange: center
+  process:
+    queue:
+      name: hyjyRTTCompleteQueueMQ
+    routing:
+      key: hxv2RTTCompleteRouting.MQ
+  recover:
+    queue:
+      name: hyjyRecoverCompleteQueueMQ
+    routing:
+      key: hyjyRecoverCompleteRouting.MQ
+  logoff:
+    exchange:
+      name: ACCOUNTSERVICE_EXCHANGE_LOGOFF
+    queue:
+      name:REALTIME_ORDER_QUEUE_LOGOFF
+  process_thread_pool_size: 30
+  hx:
+    sync:
+      exchange: FSS_HX_SYNC.exchange
+      queue: FSS_HX_SYNC.queue
+    edit-record:
+      exchange: tjpt.document.edit.exchange
+      routing-key: tjpt.document.edit.routingKey
+      queue: tjpt.document.edit.queue  
+  hj:
+    delete:
+      exchange: hx.delete.MQ
+      routingKey: hx.routingKey.delete
+    change:
+      exchange: hx.change.MQ
+      routingKey: hx.routingKey.change
+    recycle:
+      exchange: hx.recycle.MQ
+      routingKey: hx.routingKey.recycle
+  user:
+    logout:
+      queue: amq_account_logout_queue
+      exchange: ACCOUNTSERVICE_EXCHANGE_LOGOFF
+    login:
+      queue: hx.account.login.queue
+      exchange: ACCOUNTSERVICE_EXCHANGE_LOGIN
+  transcript:
+    import:
+      queue: TRANSCRIPT_AUDIO_IMPORT_QUEUE
+      exchange: TRANSCRIPT_AUDIO_IMPORT_EXCHANGE
+      routingKey: TRANSCRIPT_AUDIO_IMPORT_ROUTING_KEY
+    delete:
+      queue: transcriptOrder.queue.orderDelete.deleteFile
+      exchange: transcriptOrder.orderDelete.MQ
+      routingKey: transcriptOrder.routingKey.orderDelete
+datasource_show_sql: true
+
+## Cssp
+tj_cssp_contaniner: recinbox_test.hfdn3.openstorage.cn/tjpt_hj_devinteg
+tj_hj_cssp_contaniner: recinbox_test.hfdn3.openstorage.cn/tjpt_hj_devinteg
+
+##Local File
+temp:
+  file:
+    path: /data/temp/hjservice/
+
+## RealTimTranscript Service URL
+real_time_transcript_service_url: http://172.31.241.185:8914/RealTimeTranscriptService/v1/
+real_time_transcript_service_url_v2: http://172.31.241.185:8914/RealTimeTranscriptService/v2/
+real_time_transcript_timeout_callback_url: http://huidiao-dev-integ-env.iflyrec.com/HXV2Service/v1/rttIds/{0}/timeout
+
+
+##ES Config
+es:
+  result:
+    index: yyzxplatform
+    type: TranscriptResult
+  ai-record:
+    index: tjpt_hj_service
+    type: airesult
+
+convert_audio_process_format: mp3,point
+convert_callback_url: http://huidiao-dev-integ-env.iflyrec.com/HXV2Service/v1/hjProcess/{0}/transcodingComplete
+hyjy_free_transcript_time: 2678400
+
+out_link_validity: 86400000
+
+#分享Redis 有效期 一年的毫秒值
+share_timeout: 31536000000
+
+#合并后的文件上传路径,uploadFiles/{userId}/{orderId}/{fileName}
+upload_path: uploadFiles/{0}/{1}/{2}
+real_time_transcript_task_expire_time: 3600000
+real_time_transcript_task_max_time: 14400000
+
+# 最大idle超时时间, 单位毫秒
+real_time_transcript_max_rtt_idle_millis: 3600000
+# 最大rtt时长, 单位毫秒
+real_time_transcript_max_rtt_time_limit_millis: 18000000
+
+role_service_name: TJPT-RoleService
+hj_charge_config:
+  biz_list:
+    - huiji
+  # When hjfrom is xftj, it can be created for free for the first 5 hours of each month. If it exceeds the limit, it will be a restricted hj
+  transcript_free_time:
+    18000
+  ai_free_times:
+    10
+  space_free_size:
+    1048576
+rate-limit:
+  global:
+    enabled: true
+    redisKeyPrefix: "HX:"
+    ipWhiteList:
+    ipBlackList:
+    userIdWhiteList:
+    userIdBlackList:
+    guestIdBlackList:
+    ipPeriodLimit: 100
+    userIdPeriodLimit: 100
+    guestIdPeriodLimit: 100
+    periodSeconds: 1
+
+mediastream.upload.callback: http://huidiao-dev-integ-env.iflyrec.com/HXV2Service/v1/uploadCallback/%s
+chapter_summary_callback_url: http://huidiao-dev-integ-env.iflyrec.com/HXV2Service/v1/hj/chapterSummaryCallBack
+#prompt paradigm
+hj:
+  prompt:
+    helper:
+      paradigm:
+        req-text-max-length: 11000
+        mapping:
+          ABSTRACT: 根据您《%s》，摘要如下：
+          ASK_QUESTION: 根据您《%s》，答案如下：
+          SEMANTIC_SEARCH: 根据您《%s》，搜索结果如下：
+          TODO: 根据您《%s》，待办如下：
+          WORK_PLAN: 根据您《%s》，工作计划如下：
+          WORK_SUMMARY: 根据您《%s》，总结如下：
+          SELECTED_MATCH: 根据您《%s》，匹配结果如下：
+          SELECTED_ABSTRACT: 根据您《%s》，摘要如下：
+          SELECTED_MEETING_INVITATION: 根据您《%s》，会议邀请如下：
+          SELECTED_NOTICE: 根据您《%s》，通知如下：
+          MEETING_INVITATION: 根据您《%s》，会议邀请如下：
+          NOTICE: 根据您《%s》，通知如下：
+        chaining:
+          NEWS_CONTENT:
+            - BEFORE_NEWS_CONTENT
+            - AFTER_NEWS_CONTENT
+          SELECTED_NEWS_CONTENT:
+            - BEFORE_SELECTED_NEWS_CONTENT
+            - AFTER_SELECTED_NEWS_CONTENT
+          WORK_SUMMARY:
+            - BOYIN_WORK_SUMMARY
+          SELECTED_WORK_SUMMARY:
+            - BOYIN_SELECTED_WORK_SUMMARY
+  alarm:
+    email:
+      config:
+        address: cbg_tjpt_alarm@iflymail.com.cn
+        host: mail.iflymail.com.cn
+        password: '!@iFlyREC@ZT@2022#O3O9#$!'
+        personal: 讯飞听见告警/会记服务
+        port: 465
+        receiver: yftao2@iflytek.com
+  feedback:
+    fifa-keyword: '涉嫌黄赌毒,违反广告法,迷信用语,歧视倾向'
+  out-import:
+    not-available-order-from: '1,6'
+  mq:
+    out-import:
+      exchange: OUT_IMPORT_EXCHANGE_INTEG
+      queue: OUT_IMPORT_QUEUE_INTEG
+      routing-key: OUT_IMPORT_ROUTING_KEY_INTEG
+      queue-pool-size: 10
+    transcript-delete:
+      exchange: transcriptOrder.orderDelete.MQ
+      queue: HX_TRANSCRIPT_ORDER_DELETE_QUEUE
+      routing-key: transcriptOrder.routingKey.orderDelete
+      queue-pool-size: 10
+    hj-delete:
+      exchange: hj.delete.MQ
+      queue: HX_HJ_DELETE_QUEUE
+      routing-key: hj.routingKey.delete
+      queue-pool-size: 10
+    third-party-out-import:
+      exchange: THIRD_PARTY_OUT_IMPORT_EXCHANGE
+      queue: THIRD_PARTY_OUT_IMPORT_QUEUE
+      routing-key: THIRD_PARTY_OUT_IMPORT_ROUTING_KEY
+      queue-pool-size: 10
+    third-party-delete:
+      exchange: THIRD_PARTY_DELETE_EXCHANGE
+      queue: THIRD_PARTY_DELETE_QUEUE
+      routing-key: THIRD_PARTY_DELETE_ROUTING_KEY
+      queue-pool-size: 10
+transcript_order_create_time_begin: 1650875833
+upload_audio_format: mp3,wav,m4a,pcm,amr,wma,mp4,3gp,aac,lyb
+
+custom:
+  rate_limit:
+    role-based:
+      config:
+        enable: true
+        time_range: 600
+        cache_time_range: 1000
+        user-white-list:
+        user-black-list:
+        guest-white-list:
+        guest-black-list:
+        role-config-mapping:
+          GUEST:
+            enable: true
+            limit: 100
+          NORMAL_USER:
+            enable: true
+            limit: 100
+          HJ_ROLE:
+            enable: true
+            limit: 100
+          HJHX_ROLE:
+            enable: true
+            limit: 100
+    ai-power:
+      config:
+        enable: true
+hx_charge_config:
+  biz_list:
+    - huixie
+  transcript_free_time:
+    0
+  ai_free_times:
+    0
+  chat_free_count:
+    10
+  prompts_charge_mapping:
+    tool:
+      prompts_type: tool
+      prompts_free_count: 10000
+      default_group: false
+      prompts_list:
+        - SUPER_IMITATION
+        - TABLE_TOOL
+        - SELECTED_ABSTRACT_PURE
+        - REWRITE_WITH_STYLE
+        - SELECTED_TEXT_EXPAND_PURE
+        - SELECTED_TEXT_ABBREVIATION_PURE
+        - SELECTED_TEXT_CONTINUATION_PURE
+        - REGULARITY
+    dialogue:
+      prompts_type: dialogue
+      prompts_free_count: 10000
+      default_group: false
+      prompts_list:
+        - DUMMY
+        - INPUT_SELECTED_ASK_QUESTION
+    default:
+      prompts_type: default
+      prompts_free_count: 10000
+      default_group: true
+
+old_feign_cluster_host: http://huidiao-dev-integ-env.iflyrec.com
+
+
+member_config:
+  priority-mapping:
+    TRANSCRIPT_DURATION:
+      - HX
+      - HX_INVITE
+      - HX_WRITING
+      - HX_INVITE_20230522
+    AI_POWER_QUOTA:
+      - HX
+      - HX_WRITING
+      - HX_INVITE
+      - HX_INVITE_20230522
+
+spring.sleuth.trace-id128: true
+
+third_party_config:
+  redirect-url: https://huixie-dev-integ-env.iflyrec.com/aboutPage
+
+async_task_callback_url: http://huidiao-dev-integ-env.iflyrec.com
+
+huixie:
+  mq:
+    delete:
+      queue: HUIXIE_DELETE_QUEUE
+      exchange: HUIXIE_DELETE_EXCHANGE
+      queuePoolSize: 10
+  config:
+    blankSplitLimit: 100
+    maxHJsForHuixie: 10
+
+tenMinutesExpectedTime: 20000
+
+
+sucai:
+  mq:
+    delete:
+      exchange: SUCAI_DELETE_EXCHANGE
+      queue: SUCAI_DELETE_QUEUE
+
+example_audio_process_thread_pool_size: 10
+
+mediastream.downloadlink.host: https://huixie-dev-integ-env.iflyrec.com/MediaStreamService
+shareAudio_service_name: YYZX-ShareAudioService
+privacy:
+  policy:
+    version: 1.0
+
+mongodb.connection-string: mongodb://tjdevinteg:aMbcpbBGCc5Yhm@node-1-bWPFMHVB6YZs.mongodb.hf04.dbaas.private:33000,node-0-bWPFMHVB6YZs.mongodb.hf04.dbaas.private:33000,node-2-bWPFMHVB6YZs.mongodb.hf04.dbaas.private:33000/TJZT_devinteg 
+mongodb.database: TJPT_HXV2Service_devinteg
+mongodb.assistantChatHistoryDetail-collection: AssistantChatHistoryDetail
+
+longtext.chat.info.searchChatStatusInAssistCreationService: true
+hx.assistant-chat.max-doc-per-chat: 10
+hx.assistant-chat.setFileFailedMillis: 1800000
+hx.assistant-chat.setChatFailedMillis: 1800000
+hx.assistant-chat.score: 1.0
+
+example.config:
+  noteResultUrl: https://static.iflyrec.com/v1/iflyrectjpt/publicread01/hxExample/hxExampleV2Json2.txt
+  exampleImageUrlList:
+    - UploadFiles/HXExampleImg/exampleImg1.png
+    - UploadFiles/HXExampleImg/exampleImg2.png
+    - UploadFiles/HXExampleImg/exampleImg3.png
+    - UploadFiles/HXExampleImg/exampleImg4.png
+    - UploadFiles/HXExampleImg/exampleImg5.png
+  exampleImageUrlFormat: PNG
+
+profession:
+  professionValue:
+    GOVERNMENT:
+      - MEETING_SUMMARY
+      - EXPERIENCE_UNDERSTANDING
+      - RESEARCH_REPORT
+      - SPEAKING_SCRIPT
+      - REGULARITY
+      - EXPANSION
+      - REWRITING
+    EDUCATION:
+      - MEETING_SUMMARY
+      - PAPER_OUTLINE
+      - EXPERIENCE_UNDERSTANDING
+      - DUHOUGAN
+      - TRAINING_EXPERIENCE
+      - REGULARITY
+      - REWRITING
+    TECHNOLOGY:
+      - MEETING_SUMMARY
+      - PPT_DAGANG
+      - ZHIHU_QA
+      - TOP_NEWS
+      - PUBLIC_ARTICLE
+      - EXPANSION
+      - REWRITING
+    NEWS:
+      - PUBLIC_ARTICLE
+      - TOP_NEWS
+      - MEETING_SUMMARY
+      - WEI_BO_ARTICLE
+      - ZHIHU_QA
+      - REWRITING
+      - EXPANSION
+    TRAIN:
+      - PPT_DAGANG
+      - TRAINING_HOST_DRAFT
+      - TRAINING_PROGRAM
+      - TRAINING_EXPERIENCE
+      - PROMOTION_PROGRAMMES
+      - EXPANSION
+      - REWRITING
+    FINANCE:
+      - MEETING_SUMMARY
+      - EXPERIENCE_UNDERSTANDING
+      - PPT_DAGANG
+      - EXPANSION
+      - REWRITING
+      - REGULARITY
+      - ABSTRACT
+    LAW:
+      - MEETING_SUMMARY
+      - TRAINING_EXPERIENCE
+      - OFFICIAL_NOTICE
+      - INVITATION_SIMPLE
+      - EXPANSION
+      - REWRITING
+      - REGULARITY
+    MEDICALTREATMENT:
+      - MEETING_SUMMARY
+      - XIAOHONGSHU_ZHONGCAO
+      - EXPERIENCE_UNDERSTANDING
+      - EXPANSION
+      - REWRITING
+      - REGULARITY
+      - ABSTRACT
+    COMMERCIAL:
+      - ARTICLE_TITLE
+      - PROMOTION_PROGRAMMES
+      - HOT_COMMENTS
+      - MEETING_SUMMARY
+      - SOCIAL_CIRCLE
+      - EXPANSION
+      - REWRITING
+    ARTCREATE:
+      - SHORT_DRAMA
+      - FANTASY_NOVEL
+      - MOVIE_REVIEW
+      - WEI_BO_ARTICLE
+      - SOCIAL_CIRCLE
+      - EXPANSION
+      - REWRITING
+    DESIGN:
+      - XIAOHONGSHU_ZHONGCAO
+      - EXPERIENCE_UNDERSTANDING
+      - MEETING_SUMMARY
+      - VIDEO_COPY
+      - ARTICLE_TITLE
+      - EXPANSION
+      - REWRITING
+    MANUFACTURINGINDUSTRY:
+      - MEETING_SUMMARY
+      - PPT_DAGANG
+      - RESEARCH_REPORT
+      - REGULARITY
+      - ABSTRACT
+      - EXPANSION
+      - REWRITING
+    PROJECTMANAGEMENT:
+      - MEETING_SUMMARY
+      - EXPERIENCE_UNDERSTANDING
+      - PPT_DAGANG
+      - WORK_REPORT
+      - REGULARITY
+      - ABSTRACT
+      - REWRITING
+    GENERALPURPOSE:
+      - MEETING_SUMMARY
+      - EXPERIENCE_UNDERSTANDING
+      - BRAINSTORMING
+      - EXPANSION
+      - REWRITING
+      - REGULARITY
+      - ABSTRACT
+
+znpp:
+  url: http://172.31.98.71:2301/search?key=
+
+
+text.generate.config:
+  baseModelCode: V3_5
+
+callback_url_prefix: http://huidiao-dev-integ-env.iflyrec.com

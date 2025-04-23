@@ -1,0 +1,617 @@
+server:
+  port: 18419
+  context-path: /operationCenter/
+  tomcat:
+    basedir: /data/temp/tjhz_exhibitionoperationcenterservice
+    accesslog:
+      directory: /data/logs/tjhz_exhibitionoperationcenterservice_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+      rename-on-rotate: true
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+      #-=devrec=--http://xiangzheng2:123456@172.31.63.26:6001/eureka/
+      #-=testrec=--http://admin:123456@192.168.59.52:6001/eureka/
+      #-=testbox=--http://admin:123456@172.31.6.28:6001/eureka/
+      #-=dev-integ-env.iflyrec.com=-http://devInteg:123456@172.31.241.185:8600/eureka/
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 5000
+spring:
+  application:
+    name: TJHZ-ExhibitionOperationCenterService
+  datasource:
+    # 动态数据源配置
+    dynamic:
+      datasource:
+        master:
+          type: com.zaxxer.hikari.HikariDataSource
+          hikari:
+            minimum-idle: 10
+            pool-name: tjhz
+            maximum-pool-size: 20
+            auto-commit: true
+          driver-class-name: org.mariadb.jdbc.Driver
+          url: jdbc:mariadb://172.31.53.141:3306/tjhz_tongchuan?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+          username: root
+          password: kd93kg8#@ksdf
+      # 指定默认数据源名称
+      primary: master
+  shardingsphere:
+    datasource:
+      names: sharding
+      sharding:
+        type: com.zaxxer.hikari.HikariDataSource
+        hikari:
+          minimum-idle: 10
+          pool-name: tjhz
+          maximum-pool-size: 20
+          auto-commit: true
+        driver-class-name: org.mariadb.jdbc.Driver
+        jdbc-url: jdbc:mariadb://172.31.53.141:3306/tjhz_tongchuan?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+        username: root
+        password: kd93kg8#@ksdf
+    encrypt:
+      tables:
+        t_user:
+          columns:
+            phone:
+              plainColumn: phone
+              cipherColumn: phone_encryptor
+              encryptor: encryptor_aes
+      encryptors:
+        encryptor_aes:
+          type: aes
+          props:
+            aes:
+              key:
+                value: ju7h6tfdmijbvki8
+    props:
+      query:
+        with:
+          cipher:
+            column: false
+      sql:
+        show: true
+  #  gateway:
+  #    datasource:
+  #      jdbc-url: jdbc:mysql://172.31.53.141:3306/TJZQ_Exhibition_WsGatewayDB?characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+  #      driver-class-name: com.mysql.jdbc.Driver
+  #      username: root
+  #      password: iflyrec!
+  #      type: com.zaxxer.hikari.HikariDataSource
+  #      minimum-idle: 10
+  #      pool-name: gateway
+  #      maximum-pool-size: 20
+  #      auto-commit: true
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+    multipart:
+      max-request-size: 100Mb
+      max-file-size: 100Mb
+  #  servlet:
+  #    multipart:
+  #      max-file-size: 1024MB
+  #      max-request-size: 1024MB
+  redis:
+    timeout: 2000
+    password: UIX*$MD78p
+    jedis:
+      pool:
+      max-active: 100
+      min-idle: 10
+      max-idle: 30
+      max-wait: 5
+    sentinel:
+      master: s1
+      #nodes: 127.0.0.1:26379,127.0.0.1:26479,127.0.0.1:26579
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+      #nodes: 172.31.53.202:26390,172.31.53.202:36390,172.31.53.202:46390
+  #RabbitMQ 服务配置，不写默认走本地ip
+  rabbitmq:
+    host: 172.31.203.7
+    username: recinbox
+    password: recinbox
+    virtual-host: /
+    listener:
+      simple:
+        ##自动应答模式
+        acknowledge-mode: auto
+        ## 消费失败的时候不入队,消息丢失影响不大,防止丢失可以配置死信队列
+        default-requeue-rejected: false
+        ##设置重试次数
+        retry:
+          enabled: true
+          max-attempts: 5
+          initial-interval: 2000
+
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    com.iflyrec.center.mapper: debug
+
+
+#多点部署时用于生成不同的主键
+machine:
+  id: 1
+
+
+mybatis:
+  type-aliases-package: com.iflyrec.center.mapper
+  mapper-locations: classpath:mappers/base/*.xml,classpath:mappers/*.xml
+  config-location: classpath:mybatis-config.xml
+
+mybatis-plus:
+  mapper-locations: classpath:mappers/base/*.xml,classpath:mappers/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-statement-timeout: 20
+    #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+  type-enums-package: com.iflyrec.center.enums
+
+#回调函数
+url:
+  callBackUrl:
+    # 订单支付回调
+    tradingPay: http://${spring.cloud.client.ipAddress}:${server.port}/${server.context-path}/callback/tradingPay
+    # 企业服务推荐充值卡购买预支付回调
+    prePay: http://${spring.cloud.client.ipAddress}:${server.port}/${server.context-path}/callback/prePay
+    # 充值卡购买成功后的发货回调
+    virtualProductDispatch: http://${spring.cloud.client.ipAddress}:${server.port}/${server.context-path}/callback/virtualProductDispatch
+    # 企业服务订单 单笔支付回调
+    remoteOrderPay: http://${spring.cloud.client.ipAddress}:${server.port}/${server.context-path}/callback/remoteOrderPay
+    # 连续包月商品 支付回调
+    subscriptionProductPay: http://${spring.cloud.client.ipAddress}:${server.port}/${server.context-path}/callback/subscriptionProductPay
+
+#会展业务创建平台订单的商品ID
+default:
+  product:
+    id: 200
+    transfer_id: 201
+    translate_id: 202
+    share_id: 203
+  virtualProductIds: 120,121,124,125,126,50001,7981,6563,6564
+  #6563-同传畅享卡，6564-同传畅享年卡
+  virtualProductDurationCardIds: 6563,6564
+  excludeTimeCardIds: 7981,6563,6564
+  #120-同传业务1000元充值卡，121-同传业务10000元充值卡，124-同传业务3000元充值卡，125-同传业务5000元充值卡，126同传业务500元充值卡，50001-同传业务100元充值卡
+  topUpCardIds: 120,121,124,125,126,50001
+  #6571-4080企业套餐，6572-11520企业套餐，6573-18000企业套餐，6574-33600企业套餐
+  enterprisePackageIds: 6571,6572,6573,6574
+  #听见小程序平台售卖商品
+  wechatVirtualProductIds: 7983,7985
+  # 122-同传渠道1000元充值卡，123-同传渠道10000元充值卡
+  organizationProductIds: 122,123
+  #翻译商品id：202
+  #转写：201
+  #增值：200
+  #连续包月 同传月卡商品id
+  subscriptionProductId: 4000
+
+##配额id
+commodity:
+  quotaInfo:
+    moneyId: 50
+    organizationMoneyId: 101
+    durationId: 100
+    freeTrialDurationId: 102
+    freeTrialTotal: 1200
+    organizationDurationId: 110
+    newUserDeductionPaymentQuota: 112
+
+rabbitmq:
+  exchange:
+    name: TJHZ-Message-orderNums-exchange-dev
+
+netty:
+  port: 8339
+
+#system:
+#  version: 163
+
+##生成发票订单类型默认2 ，101为渠道订单。
+invoice:
+  orderType: 101
+
+##活动时间
+promotions:
+  janFirstRecharge:
+    beginTime: 2021-01-18 00:00:00
+    endTime: 2021-03-01 23:59:59
+
+##短信通知配置项
+dripSms:
+  #开发联调环境地址
+  url: https://pretest.xfpaas.com/dripsms/sms
+  appId: DAV5TKQI
+  #各短信模板ID
+  templateId:
+    #同传月卡充值成功
+    activityMonthDurationCardRecharge: 13350
+    #同传畅享卡充值成功
+    monthEnjoyDurationCardRecharge: 13559
+    #同传畅享年卡充值成功
+    yearEnjoyDurationCardRecharge: 17880
+    #企业套餐4080充值成功
+    enterprisePackageRecharge4080: 17881
+    #企业套餐11520充值成功
+    enterprisePackageRecharge11520: 17882
+    #企业套餐18000充值成功
+    enterprisePackageRecharge18000: 17883
+    #企业套餐33600充值成功
+    enterprisePackageRecharge33600: 17884
+    #已分配同传订单
+    allotTongChuan: 12507
+    #已分配保障订单
+    allotGuarantee: 12501
+    #渠道管理员权限转移
+    transferAuthority: 12500
+    #渠道管理员权限获取
+    getAuthority: 12499
+    #“取消订单”审核不通过
+    returnOrder: 12496
+    #“取消订单”审核通过
+    allowCancelOrder: 12495
+    #已核价
+    checkOrderPrice: 12494
+    #已定价
+    setOrderPrice: 12493
+    #充值成功
+    recharge: 12491
+    #渠道审核未通过
+    organizationRejection: 12490
+    #渠道审核通过
+    organizationPermission: 12486
+    #企业主账号时长余额不足10小时
+    balanceShort: 14248
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        host: 10.7.105.131:8319
+
+
+swagger:
+  enable: false
+
+#权益发放配置
+equity:
+  #针对内部
+  innerActivity:
+    #权益发放对应配额模板id
+    quotaTemplateId: 100
+    #发放时长 5小时
+    issueDuration: 18000
+    #有效期 1年
+    expirationTime: 365
+  #针对校园
+  campusActivity:
+    #权益发放对应配额模板id
+    quotaTemplateId: 100
+    #发放时长 5小时
+    issueDuration: 18000
+    #有效期 1年
+    expirationTime: 365
+
+email:
+  send:
+    user: xftjzmsw@iflytek.com
+    password: ktDFiVjyZqvgXgze
+  accept:
+    users: pingzhang18@iflytek.com
+
+#精准翻译
+#云存储容器
+tj_cssp_container: iflyrechuizhan_test.hfdn3.openstorage.cn/iflyrecchuizhan01
+#tj_cssp_container: iflyrechuizhan_test.hfdn3.openstorage.cn/iflyrecchuizhan01
+# 断句相关配置
+segment:
+  cn-subtitle-seg-api-url: http://172.31.98.71:2300/seg
+  cn-subtitle-seg-permit-acquSubtitleAnalysisWordConfiStuffImplV3ire-timeout: 60000
+  cn-subtitle-seg-request-timeout: 60000
+  cn-subtitle-seg-permit-quantity: 5
+  opennlp-model-path: E:\GitCode\knappservice\src\main\resources\opennlp\
+  cn:
+    rule:
+      filter-modal-words: 0
+      max-char-number-per-frame: 18
+      max-duration-per-frame: 10000
+      min-duration-per-frame: 1000
+  en:
+    rule:
+      filter-modal-words: 0
+      max-char-number-per-frame: 45
+      max-duration-per-frame: 10000
+      min-duration-per-frame: 1000
+
+#app-access-key: FdyVB22vNw2
+#app-name: sdk
+#app-id: WNV5e4RE1fm
+#app-access-secret: 6eabfbab42625178e07654002ff1a199
+
+#biz-id: koneapp
+## 合并结果失败重试次数
+#merge:
+#  result:
+#    retry:
+#      count: 5
+
+## 定时任务扫描的范围
+#job:
+#  range:
+#    start-hour: -8
+#    end-hour: -32
+
+# ElasticSearch
+es:
+  result:
+    index: yyzxhuizhan
+    type: TJHZRealtimeTranscriptResult
+
+app:
+  transcript:
+    non-real-time-transcript:
+      #非实时转写回调接口
+      call-bak-urlV2: https://huizhan-dev-integ-env.iflyrec.com/operationCenter/accurate/callback/nonRealTimeTranscript
+
+  result:
+    real-time-transcript:
+#      call-bak-url: http://huizhan-dev-integ-env.iflyrec.com/KNAppService/v1/callback/medias/{0}/mergeResult
+  translate:
+    non-real-time-transcript:
+      cbb-chapter-translate:
+        call-bak-urlV2: https://huizhan-dev-integ-env.iflyrec.com/operationCenter/accurate/callback/translate/{0}/cbbChapterTranslation
+
+#语音合成配置
+tts:
+  hostUrl: wss://ai-test-integ-env.iflyrec.com/tts
+  ttsAppId: P26123
+  apiSecret: mNpWm93hinf982dG92tx09Si2F8QMh9Z
+  apiKey: tra6g93b6P
+  uploadTtsPath: uploadTtsFiles/{0}/{1}
+  transcode_callback: http://172.31.53.141:18419/operationCenter/accurate/callback/{0}/audios/transcodingComplete
+  ttsExpireTime: 3
+
+#engine:
+#  idelTimeout: 300000
+#  rttTimeLimit: 28800000
+#  # 同声传译最大引擎时长3小时： 3 * 60 * 60 * 1000
+#  huiZhanRttTimeLimit: 10800000
+
+languageConfig:
+  langList:
+    - lang: cn
+      name: 中文
+      shortName: 中
+      originalName: 中文
+      chineseName: (普通话)
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: lingfeihong
+      defaultSpeed: 50
+    - lang: en
+      name: 英语
+      shortName: 英
+      originalName: English
+      chineseName: 英语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Luna
+      defaultSpeed: 50
+    - lang: ed
+      name: 中英混合
+      shortName: 中英
+      originalName: (混合)
+      chineseName: 中英
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: yezi
+      defaultSpeed: 50
+    - lang: ja
+      name: 日语
+      shortName: 日
+      originalName: 日本語
+      chineseName: 日语
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: ZhongCun
+      defaultSpeed: 50
+    - lang: ko
+      name: 韩语
+      shortName: 韩
+      originalName: 한국어
+      chineseName: 韩语
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: Miya
+      defaultSpeed: 50
+    - lang: fr
+      name: 法语
+      shortName: 法
+      originalName: Français
+      chineseName: 法语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Lisa
+      defaultSpeed: 50
+    - lang: de
+      name: 德语
+      shortName: 德
+      originalName: Deutsch
+      chineseName: 德语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Christiane
+      defaultSpeed: 50
+    - lang: ru
+      name: 俄语
+      shortName: 俄
+      originalName: усский язык
+      chineseName: 俄语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Keshu
+      defaultSpeed: 50
+    - lang: es
+      name: 西班牙语
+      shortName: 西
+      originalName: Español
+      chineseName: 西班牙语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Aurora
+      defaultSpeed: 50
+    - lang: ar
+      name: 阿拉伯语
+      shortName: 阿
+      originalName: اللغة العربية
+      chineseName: 阿拉伯语
+      lineSpace: 1.5
+      direction: rtl
+      defaultSpeaker: Rania
+      defaultSpeed: 50
+    - lang: it
+      name: 意大利语
+      shortName: 意
+      originalName: Italiano
+      chineseName: 意大利语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: lrina
+      defaultSpeed: 50
+    - lang: th
+      name: 泰语
+      shortName: 泰
+      originalName: ภาษาไทย
+      chineseName: 泰语
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: suparut
+      defaultSpeed: 50
+    - lang: vi
+      name: 越南语
+      shortName: 越
+      originalName: Tiếng Việt
+      chineseName: 越南语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: ThuHien
+      defaultSpeed: 50
+    - lang: cn_cantonese
+      name: 粤语
+      shortName: 粤
+      originalName: 廣東話
+      chineseName: 粤语
+      lineSpace: 1.5
+      direction: ltr
+      defaultSpeaker: ZiYun
+      defaultSpeed: 50
+    - lang: pt
+      name: 葡萄牙语
+      shortName: 葡
+      originalName: Português
+      chineseName: 葡萄牙语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: Pedro
+      defaultSpeed: 50
+    - lang: cn_uyghur
+      name: 维吾尔语
+      shortName: 维
+      originalName: ئۇيغۇر تىلى
+      chineseName: 维吾尔语
+      lineSpace: 1.5
+      direction: rtl
+      defaultSpeaker: Dilare
+      defaultSpeed: 50
+    - lang: cn_tibetan
+      name: 藏语
+      shortName: 藏
+      originalName: བོད་སྐད།
+      chineseName: 藏语
+      lineSpace: 1.3
+      direction: ltr
+      defaultSpeaker: YangJin
+      defaultSpeed: 50
+  relevancy:
+    - lang: cn
+      translatable: en,ja,ko,fr,de,ru,es,ar,it,th,vi,cn_cantonese,pt,cn_uyghur,cn_tibetan
+    - lang: en
+      translatable: cn
+    - lang: ed
+      translatable: ed
+    - lang: ja
+      translatable: cn
+    - lang: ko
+      translatable: cn
+    - lang: fr
+      translatable: cn
+    - lang: de
+      translatable: cn
+    - lang: ru
+      translatable: cn
+    - lang: es
+      translatable: cn
+    - lang: ar
+      translatable: cn
+    - lang: it
+      translatable: cn
+    - lang: th
+      translatable: cn
+    - lang: vi
+      translatable: cn
+    - lang: cn_cantonese
+      translatable: cn
+    - lang: pt
+      translatable: cn
+    - lang: cn_uyghur
+      translatable: cn
+    - lang: cn_tibetan
+      translatable: cn
+  dialogueRelevancy:
+    - lang: cn
+      translatable: en,ja,ko,fr,de,ru,es,ar,it,th,vi,cn_cantonese,pt,cn_uyghur,cn_tibetan
+    - lang: en
+      translatable: cn
+    - lang: ed
+      translatable: ed
+    - lang: ja
+      translatable: cn
+    - lang: ko
+      translatable: cn
+    - lang: fr
+      translatable: cn
+    - lang: de
+      translatable: cn
+    - lang: ru
+      translatable: cn
+    - lang: es
+      translatable: cn
+    - lang: ar
+      translatable: cn
+    - lang: it
+      translatable: cn
+    - lang: th
+      translatable: cn
+    - lang: vi
+      translatable: cn
+    - lang: cn_cantonese
+      translatable: cn
+    - lang: pt
+      translatable: cn
+    - lang: cn_uyghur
+      translatable: cn
+    - lang: cn_tibetan
+      translatable: cn

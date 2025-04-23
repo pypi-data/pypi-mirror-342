@@ -1,0 +1,12 @@
+v2text:
+    translation:
+        autoTranslateIpLimit: 60
+        autoTranslateIpBlackAliveTime: 1800000
+        ipBlackList: 172.30.9.212
+        ipWhiteList: 122.232.232.231
+v1text:
+    translation:
+        autoTranslateIpLimit: 30
+        autoTranslateIpBlackAliveTime: 1800000
+        ipBlackList: 172.30.9.212
+        ipWhiteList: 122.232.232.231

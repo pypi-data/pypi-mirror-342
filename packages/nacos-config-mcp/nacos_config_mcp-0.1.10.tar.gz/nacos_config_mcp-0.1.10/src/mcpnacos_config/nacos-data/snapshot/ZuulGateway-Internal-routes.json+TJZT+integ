@@ -1,0 +1,187 @@
+[
+    {
+        "custom-sensitive-headers": true,
+        "path": "/HJService/**",
+        "service-id": "TJPT-HJService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/HXV2Service/**",
+        "service-id": "TJPT-HXV2Service"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/HXFSSZXService/**",
+        "service-id": "TJPT-HXFSSZXSERVICE"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/AssistCreationService/**",
+        "service-id": "TJZT-AssistCreationService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/VirtualProductService/**",
+        "service-id": "TJPT-VirtualProductService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/StoreOrderService/**",
+        "service-id": "YYZX-StoreOrderService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/TranscriptOrderService/**",
+        "service-id": "YYZX-TranscriptOrderService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/XFTJPCAdaptService/**",
+        "service-id": "TJPT-XFTJPCAdaptService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/QuotaService/**",
+        "service-id": "YYZX-QuotaService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/PromotionService/**",
+        "service-id": "YYZX-PromotionService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/TradingCenterService/**",
+        "service-id": "TJPT-TradingCenterService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/CloudSpaceService/**",
+        "service-id": "TJPT-CloudSpaceService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/MSeriesRealTimeTranscriptOrderService/**",
+        "service-id": "TJPT-MSeriesRealTimeTranscriptOrderService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/ConfigService/**",
+        "service-id": "YYZX-ConfigService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/ShareAudioService/**",
+        "service-id": "YYZX-ShareAudioService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/CorpService/**",
+        "service-id": "TJPT-CorpService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/MiscService/**",
+        "service-id": "YYZX-MiscService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/AccountService/**",
+        "service-id": "YYZX-AccountService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/RoleService/**",
+        "service-id": "TJPT-RoleService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/CommonBusinessService/**",
+        "service-id": "TJPT-CommonBusinessService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/TextStorageService/**",
+        "service-id": "YYZX-TextStorageService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/TranslationService/**",
+        "service-id": "YYZX-TranslationService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/TranscodeService/**",
+        "service-id": "YYZX-TranscodeService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/AssistCreationService/**",
+        "service-id": "TJZT-AssistCreationService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/MediaStreamService/**",
+        "service-id": "TJPT-MediaStreamService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/ManualOrderPlatform/**",
+        "service-id": "TJZT-ManualOrderPlatform"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/InvoiceService/**",
+        "service-id": "YYZX-InvoiceService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/GMRPService/**",
+        "service-id": "TJZT-GMRPService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/KNAppService/**",
+        "service-id": "TJHZ-KNAppService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/ManualOrderService/**",
+        "service-id": "TJPT-ManualOrderService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/NewsCenterService/**",
+        "service-id": "TJZT-NewsCenterService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/WeiXinService/**",
+        "service-id": "YYZX-WeiXinService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/MarkPlatformAdaptService/**",
+        "service-id": "YYZX-MarkPlatformAdaptService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/TranscriptEngineProxyService/**",
+        "service-id": "YYZX-TranscriptEngineProxyService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/TJHZRealtimeTranscriptProcessService/**",
+        "service-id": "TJHZ-RealtimeTranscriptProcessService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/ManualOrderService/**",
+        "service-id": "TJPT-ManualOrderService"
+    },
+    {
+        "custom-sensitive-headers": true,
+        "path": "/CATService/**",
+        "service-id": "TJHZ-CATService"
+    }
+]

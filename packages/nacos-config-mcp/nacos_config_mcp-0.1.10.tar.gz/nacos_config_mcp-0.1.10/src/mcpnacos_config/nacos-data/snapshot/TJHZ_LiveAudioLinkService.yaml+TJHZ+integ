@@ -1,0 +1,106 @@
+server:
+  port: 8522
+  context-path: /LiveAudioLinkService
+  tomcat:
+    accesslog:
+      directory: /data/logs/tjhz_liveaudiolink_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+    max-http-post-size: -1
+    basedir: /data/tomcat/tmp
+    uri-encoding: UTF-8
+
+logging:
+  path: /data/logs/tjhz_liveaudiolink_logs
+  file: /data/logs/tjhz_liveaudiolink_logs/tjhz_liveaudiolink_logs.log
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+  service:
+    name: TJHZ_LiveAudioLinkService
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: TJHZ_LiveAudioLinkService
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://172.31.203.9:3307/TJHZ_OnlineManagementServicev32?characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true
+    username: tjkjpt
+    password: VcoNHoKzHV%pfS5H
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 10000
+      connection-test-query: SELECT 1
+
+  http:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+  # redis配置
+  redis:
+    timeout: 2000
+    password: UIX*$MD12p
+    jedis:
+      pool:
+        max-active: 32
+        min-idle: 0
+        max-idle: 8
+        max-wait: -1
+    sentinel:
+      master: mymaster
+      nodes: 172.31.132.38:26379,172.31.132.38:26380,172.31.132.38:26381
+    database: 10
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-statement-timeout: 50
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 关闭日志打印
+    #log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+
+
+requestlog:
+  request:
+    maxSize: 1500
+  response:
+    open: true
+    maxSize: 1500
+  open: true
+
+feign:
+  httpclient:
+    max-connections: 500
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 60000
+
+rsa:
+  publicKey: 305C300D06092A864886F70D0101010500034B00304802410081C1BE11DDB86276E3DA9428D3A11A8BBCF44A33543E142EF02AE77DCB567F6C50075DE67471FA2F3159F3CF68EE4EB758AB9F817BEF435F33E58FCDC2680A1F0203010001
+  privateKe: 30820154020100300D06092A864886F70D01010105000482013E3082013A02010002410081C1BE11DDB86276E3DA9428D3A11A8BBCF44A33543E142EF02AE77DCB567F6C50075DE67471FA2F3159F3CF68EE4EB758AB9F817BEF435F33E58FCDC2680A1F020301000102405126F6D4FDB280029366F51AC3A112952ACC2E4C03F7FF6F8BCD89926745E5D2CE10B73D0ABC7BC528316A1ED97A5F4AB04E168344C99D334DBBD8A45EF7D3A1022100F4D161DC95BDE75660EBC03F0C2EEEB0A934E707AFC84FDFAD99D664E1F9D67D02210087AEF7FAF7C073122674A1EFD31582EBAE6F4212BF4E2FD9E4FC83785E57D9CB022100C3525630866BA7A91BD49B61F1D773EA1065BBB93F3EA2B343AF0C051AE198850220164A09F6B2686CFED84E64A3CF1B438C8FF53AF77571D4AE88CD6A93857C0D0D02205BB5AE3A6DBD9C999DD070599922B0A771BE0B2937C82193F436454748CB0262

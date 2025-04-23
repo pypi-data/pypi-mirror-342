@@ -1,0 +1,105 @@
+server:
+  port: 80
+  context-path: /SensitiveWordService
+  tomcat:
+    accesslog:
+      directory: /data/logs/${HOSTNAME}/tjzt_sensitivewordservice_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+    max-http-post-size: -1
+    basedir: /data/tomcat/tmp
+    uri-encoding: UTF-8
+
+spring:
+  application:
+    name: TJZT-SensitiveWordService
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.31.203.9:3307/YYZX_SensitiveWord?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: tjptdev
+    password: VcoNHoKzHV%pfS5H
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      auto-commit: true
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 10000
+      connection-test-query: SELECT 1
+
+  # redis配置
+  redis:
+    sentinel:
+      master: s1
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    password: UIX*$MD78p
+    database: 15
+    pool:
+      maxIdle: 1000
+      minIdle: 2
+      maxActive: 1000
+      maxWait: 1000
+    timeout: 2000
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+  instance:
+    prefer-ip-address: false
+    hostname: dev-integ-env.k8s.iflyrec.com
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-statement-timeout: 50
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 关闭日志打印
+    # log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+  type-enums-package: com.iflytek.*.enums
+
+logging:
+  path: /data/logs/${HOSTNAME}/tjzt_sensitivewordservice_logs
+  file: /data/logs/${HOSTNAME}/tjzt_sensitivewordservice_logs/tjzt_sensitivewordservice.log
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+  service:
+    name: TJZT_SensitiveWordService
+
+requestlog:
+  request:
+    maxSize: 1500
+  response:
+    open: true
+    maxSize: 1500
+  open: true
+
+
+feign:
+  httpclient:
+    max-connections: 500
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 60000
+
+
+
+custom:
+  # 发送到nacos消息延时时间
+  nacosNoticeDelayTime: 60000
+  swaggerShow: true
+  nacos:
+    sensitiveWordChangeNotice:
+      dataId: SensitiveWordChangeNotice.json
+
+swagger-show: true

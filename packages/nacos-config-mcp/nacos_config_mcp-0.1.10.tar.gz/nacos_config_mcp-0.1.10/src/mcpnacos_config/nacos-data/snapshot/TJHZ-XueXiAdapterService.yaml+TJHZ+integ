@@ -1,0 +1,153 @@
+server:
+  port: 80
+  context-path: /XueXiAdapterService
+  tomcat:
+    accesslog:
+      directory: /data/logs/${HOSTNAME}/tjhz_xuexiadapterservice_logs
+      enabled: true
+      pattern: '%{yyyy-MM-dd HH:mm:ss.SSS}t %a "%r" %s (%D ms) %b'
+    max-http-post-size: -1
+    basedir: /data/tomcat/tmp
+    uri-encoding: UTF-8
+
+eureka:
+  client:
+    enabled: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://devInteg:123456@172.31.241.185:8600/eureka/
+  instance:
+    prefer-ip-address: false
+    hostname: dev-integ-env.k8s.iflyrec.com
+
+spring:
+  application:
+    name: TJHZ-XueXiAdapterService
+  datasource:
+    url: jdbc:mariadb://172.31.203.9:3307/TJHZ_XueXiAdapterService?useSSL=false&allowMultiQueries=true
+    username: tjkjpt
+    password: VcoNHoKzHV%pfS5H
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      auto-commit: true
+  http:
+    multipart:
+      max-file-size: 21MB
+      max-request-size: 21MB
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  # redis配置
+  redis:
+    sentinel:
+      master: s1
+      nodes: 172.31.203.7:26390,172.31.203.8:26390,172.31.203.9:26390
+    password: UIX*$MD78p
+    pool:
+      maxIdle: 2
+      minIdle: 0
+      maxActive: 5
+      maxWait: -1
+    timeout: 5000
+  rabbitmq:
+    host: 172.31.203.7
+    port: 5672
+    username: recinbox
+    password: recinbox
+    virtual-host: /
+    # 用户注销
+    userCancelExchange: ACCOUNTSERVICE_EXCHANGE_LOGOFF
+    invoiceExchange: tcs_invoice.MQ
+    listener:
+      simple:
+        # 自动应答模式
+        acknowledge-mode: auto
+        # 消费失败的时候不入队,消息丢失影响不大,防止丢失可以配置死信队列
+        default-requeue-rejected: false
+        # 设置重试次数
+        retry:
+          enabled: true
+          max-attempts: 3
+          initial-interval: 60000
+
+new_feign_cluster_host: http://huidiao-dev-integ-env.iflyrec.com
+
+logging:
+  path: /data/logs/${HOSTNAME}/tjhz_xuexiadapterservice_logs
+  file: /data/logs/${HOSTNAME}/tjhz_xuexiadapterservice_logs/tjhz_xuexiadapterservice.log
+  level:
+    root: info
+  config: classpath:logback-spring.xml
+  service:
+    name: TJHZ_XueXiAdapterService
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    default-statement-timeout: 50
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+  check-config-location: false
+  type-enums-package: com.iflyrec.xuexiadapterservice.**.enums
+
+requestlog:
+  request:
+    maxSize: 1500
+  response:
+    open: true
+    maxSize: 1500
+  open: true
+
+feign:
+  httpclient:
+    max-connections: 500
+    max-connections-per-route: 100
+    connection-timeout: 2000
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 60000
+
+#业务id
+biz-id: xuexi_xz_xcx
+
+app-id: qtJxHBUqj10
+app-name: XueXiQiangGuo_XieZuo
+app-access-key: Sbp5KAGKT_H
+app-access-secret: 27533e07ee5f071b7df493ed9c62ca37
+
+#虚拟商城商品信息
+virtual-product:
+  #讯飞写作
+  xfxz:
+    - bizId: xuexi_xz_xcx
+      shelfName: XXQG_XFXZ_XCX_WRITING
+
+pay-id: 110169893817
+owner-id: 120168672727
+pay-secret: uGUAwdbF4F6GZRuMe4lHF
+
+product-description:
+  title: AI写作基础版
+  sub-item: 每月100万AI写作字符,支持提取Word、PPT、图片、PDF内的文字内容,支持更高的大模型能力,支持更多高级功能
+
+call-back-Url:
+  pay-notify: http://dev-integ-env.k8s.iflyrec.com/XueXiAdapterService/v1/callback/productOrderNotify
+
+#聚合支付相关配置
+drip-pay:
+  #url: http://apisix.pre.xfpaas.com
+  we-chat-redirect-url: https://huixie.iflyrec.com/xxqg/pay/result
+  #project-id: P-202305253775
+  #app-id: 26ON5FE0
+  #private-key: 05b13ebe7a49421de3f9d1578aac56be
+  url: https://itsc.xfpaas.com
+  project-id: P-202306203440
+  app-id: 26ON5FE0
+  private-key: 05b13ebe7a49421de3f9d1578aac56be

@@ -1,0 +1,8 @@
+#邮箱告警配置
+drm.email.host=mail.iflymail.com.cn
+drm.email.port=465
+drm.email.address=cbg_tjpt_alarm@iflymail.com.cn
+drm.email.personal=讯飞听见
+drm.email.password=!@iFlyREC@ZT@2022#O3O9#$!
+
+drm.dispatch-rights.alarm.tomail=yftao2@iflytek.com

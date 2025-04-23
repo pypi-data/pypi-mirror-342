@@ -1,0 +1,15 @@
+{
+	"allowedHeaders": [
+		"*"
+	],
+	"allowedMethods": [
+		"*"
+	],
+	"maxAge": 0,
+	"paths": [
+		"/**"
+	],
+	"allowedOrigins": [
+		"*"
+	]
+}
