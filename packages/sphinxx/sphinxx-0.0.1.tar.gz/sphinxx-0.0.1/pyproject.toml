@@ -1,0 +1,13 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sphinxx"
+version = "0.0.1"
+authors = [{name="Odysseus"}]
+readme = "README.md"
+description = "personal scripts and functions uploaded for ease of access, not intended for public use"
+classifiers = [ "Programming Language :: Python :: 3",
+                "License :: OSI Approved",
+                "Operating System :: Microsoft :: Windows"]
