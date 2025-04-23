@@ -1,0 +1,10 @@
+
+[dev]
+black
+isort
+mypy
+pytest
+pytest-cov
+pytest-asyncio
+flake8
+pydocstyle
