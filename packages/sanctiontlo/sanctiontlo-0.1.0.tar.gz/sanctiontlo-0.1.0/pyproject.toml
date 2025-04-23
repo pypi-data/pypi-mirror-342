@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sanctiontlo"
+version = "0.1.0"
+authors = [
+    { name = "SanctionTLO" }
+]
+description = "A CLI tool for TLO searches"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.31.0",
+    "rich>=13.7.0",
+    "typer>=0.9.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/sanctiontlo"
+
+[project.scripts]
+sanctiontlo = "sanctiontlo.cli:app" 
