@@ -1,0 +1,1 @@
+from jsonschema_explorer.core import schema
