@@ -1,0 +1,120 @@
+Metadata-Version: 2.4
+Name: vtx-yyjson
+Version: 4.1.1
+Summary: JSON parser & serializer built on yyjson
+Author-email: Tyler Kennedy <tk@tkte.ch>, The Vertex Project LLC <root@vertex.link>
+License: Copyright (c) 2020 Tyler Kennedy
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+        ========
+        
+        yyjson.c and yyjson.h are used under the following license:
+        
+        MIT License
+        
+        Copyright (c) 2020 YaoYuan <ibireme@gmail.com>
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+        
+Project-URL: Homepage, https://vertex.link
+Project-URL: Repository, https://github.com/vertexproject/vertex_py_yyjson
+Keywords: json,parser,serializer,patcher
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Provides-Extra: release
+Requires-Dist: sphinx; extra == "release"
+Requires-Dist: sphinx-copybutton; extra == "release"
+Requires-Dist: ghp-import; extra == "release"
+Requires-Dist: bumpversion; extra == "release"
+Requires-Dist: black; extra == "release"
+Requires-Dist: furo; extra == "release"
+Dynamic: license-file
+
+![PyPI - License](https://img.shields.io/pypi/l/yyjson.svg?style=flat-square)
+![Tests](https://github.com/TkTech/py_yyjson/workflows/Run%20tests/badge.svg)
+
+# py_yyjson
+
+![py_yyjson Logo](misc/logo_small.png)
+
+Fast and flexible Python JSON parsing built on the excellent [yyjson][]
+project.
+
+![GitHub Sponsors](https://img.shields.io/github/sponsors/tktech)
+![PyPI - License](https://img.shields.io/pypi/l/yyjson)
+![PyPI - Version](https://img.shields.io/pypi/v/yyjson)
+
+- **Fast**: `yyjson` is several times faster than the builtin JSON module, and
+  is [faster than most other JSON libraries][fast].
+- **Flexible**: Parse JSON with strict specification compliance, or with
+  extensions such as comments, trailing commas, Inf/NaN, numbers of any size,
+  and more.
+- **Lightweight**: `yyjson` is a lightweight project dependency with low
+  maintenance overhead. It's written in C, and has no dependencies other than
+  a C89 compiler. Built wheels are between 50kb and 800kb depending on the
+  platform.
+- **Portable**: Binary wheels are available for many versions of Python
+  on many architectures, such as x86, x86_64, ARM, and ARM64, PowerPC, IBM Z,
+  and more. PyPy is also supported. Supports Python 3.9 and newer.
+- **Manipulate documents**: The fastest JSON Merge-Patch (RFC 7386), JSON Patch
+  (RFC 6902), and JSON Pointer (RFC 6901) implementations available for Python
+  allow you to manipulate JSON documents without deserializing them into Python
+  objects.
+- **Traceable**: `yyjson` uses Python's memory allocator by default, so you can
+  trace memory leaks and other memory issues using Python's built-in tools.
+
+## Documentation
+
+Find the latest documentation at https://tkte.ch/py_yyjson.
+
+[yyjson]: https://github.com/ibireme/yyjson
+[fast]: https://github.com/tktech/json_benchmark
