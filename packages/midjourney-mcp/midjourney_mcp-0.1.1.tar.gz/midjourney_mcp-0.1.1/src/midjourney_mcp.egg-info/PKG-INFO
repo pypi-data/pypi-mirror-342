@@ -1,0 +1,50 @@
+Metadata-Version: 2.4
+Name: midjourney-mcp
+Version: 0.1.1
+Summary: A MCP server for generating images with Midjourney
+License-Expression: GPL-3.0
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: curl-cffi>=0.10.0
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: mcp[cli]>=1.6.0
+Dynamic: license-file
+
+# Midjourney MCP
+
+A MCP server implementation for generating images with Midjourney.
+
+
+
+```json
+{
+    "mcpServers": {
+        "midjourney": {
+            "command": "uvx",
+            "args": [
+                "midjourney-mcp"
+            ]
+        }
+    }
+
+}
+```
+
+
+- `TOKEN_R`: Midjourney auth token R
+- `TOKEN_I`: Midjourney auth token I
+- `API_BASE`: Midjourney API base URL (optional, defaults to "midjourney.com")
+
+
+## API
+
+The server provides the following tool:
+
+- `generating_image(prompt: str, aspect_ratio: str) -> str`
+  - `prompt`: Description of the image you want to generate
+  - `aspect_ratio`: Aspect ratio of the image (e.g. "16:9")
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0). This means:
