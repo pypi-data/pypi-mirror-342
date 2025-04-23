@@ -1,0 +1,15 @@
+Metadata-Version: 2.2
+Name: zeropip
+Version: 1.0.0
+Summary: Zero-loading, zero-server, Colab-optimized UI for text-based AI tools.
+Home-page: https://github.com/yourname/zeropip
+Author: Zeropip Contributors
+License: MIT
+License-File: LICENSE
+Requires-Dist: ipywidgets
+Requires-Dist: langdetect
+Dynamic: author
+Dynamic: home-page
+Dynamic: license
+Dynamic: requires-dist
+Dynamic: summary
