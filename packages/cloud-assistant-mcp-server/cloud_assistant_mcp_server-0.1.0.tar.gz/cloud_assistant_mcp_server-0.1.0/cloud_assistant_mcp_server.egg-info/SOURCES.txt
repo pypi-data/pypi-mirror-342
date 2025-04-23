@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+cloud_assistant_mcp_server.egg-info/PKG-INFO
+cloud_assistant_mcp_server.egg-info/SOURCES.txt
+cloud_assistant_mcp_server.egg-info/dependency_links.txt
+cloud_assistant_mcp_server.egg-info/entry_points.txt
+cloud_assistant_mcp_server.egg-info/requires.txt
+cloud_assistant_mcp_server.egg-info/top_level.txt
+mcp_server_cloud_assistant/__init__.py
+mcp_server_cloud_assistant/config.py
+mcp_server_cloud_assistant/server.py

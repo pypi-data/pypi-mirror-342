@@ -1,0 +1,2 @@
+[console_scripts]
+cloud-assistant-mcp-server = mcp_server_cloud_assistant.server:main
