@@ -1,0 +1,8 @@
+setup.py
+extras/__init__.py
+extras/divide.py
+extras/multiply.py
+verysimplemod.egg-info/PKG-INFO
+verysimplemod.egg-info/SOURCES.txt
+verysimplemod.egg-info/dependency_links.txt
+verysimplemod.egg-info/top_level.txt
