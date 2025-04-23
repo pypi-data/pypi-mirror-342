@@ -1,0 +1,137 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "VT for Directed I/O specific DMAr Error Section",
+    "required": [
+        "version",
+        "revision",
+        "oemID",
+        "capabilityRegister",
+        "extendedCapabilityRegister",
+        "globalCommandRegister",
+        "globalStatusRegister",
+        "faultStatusRegister",
+        "faultRecord",
+        "rootEntry",
+        "contextEntry",
+        "pageTableEntry_Level6",
+        "pageTableEntry_Level5",
+        "pageTableEntry_Level4",
+        "pageTableEntry_Level3",
+        "pageTableEntry_Level2",
+        "pageTableEntry_Level1"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "version": {
+            "type": "integer",
+            "description": "Value of version register as defined in VT-d architecture"
+        },
+        "revision": {
+            "type": "integer",
+            "description": "Value of revision field in VT-d specific DMA remapping reporting structure"
+        },
+        "oemID": {
+            "type": "integer",
+            "description": "Value of OEM ID field in VT-d specific DMA remapping reporting structure"
+        },
+        "capabilityRegister": {
+            "type": "integer",
+            "description": "Value of capability register in VT-d architecture"
+        },
+        "extendedCapabilityRegister": {
+            "type": "integer",
+            "description": "Value of extended capability register in VT-d architecture"
+        },
+        "globalCommandRegister": {
+            "type": "integer",
+            "description": "Value of Global Command register in VT-d architecture programmed by the operating system"
+        },
+        "globalStatusRegister": {
+            "type": "integer",
+            "description": "Value of Global Status register in VT-d architecture"
+        },
+        "faultStatusRegister": {
+            "type": "integer",
+            "description": "Value of Fault Status register in VT-d architecture"
+        },
+        "faultRecord": {
+            "type": "object",
+            "description": "Fault record as defined in the VT-d specification",
+            "required": [
+                "faultInformation",
+                "sourceIdentifier",
+                "privelegeModeRequested",
+                "executePermissionRequested",
+                "pasidPresent",
+                "faultReason",
+                "pasidValue",
+                "addressType",
+                "type"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "faultInformation": {
+                    "type": "integer"
+                },
+                "sourceIdentifier": {
+                    "type": "integer"
+                },
+                "privelegeModeRequested": {
+                    "type": "boolean"
+                },
+                "executePermissionRequested": {
+                    "type": "boolean"
+                },
+                "pasidPresent": {
+                    "type": "boolean"
+                },
+                "faultReason": {
+                    "type": "integer"
+                },
+                "pasidValue": {
+                    "type": "integer"
+                },
+                "addressType": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "object",
+                    "$ref": "./common/cper-json-nvp.json"
+                }
+            }
+        },
+        "rootEntry": {
+            "type": "string",
+            "description": "Value from the root entry table for the given requester-ID."
+        },
+        "contextEntry": {
+            "type": "string",
+            "description": "Value from the context entry table for the given requester-ID."
+        },
+        "pageTableEntry_Level6": {
+            "type": "integer",
+            "description": "PTE entry for device virtual address in page level 6."
+        },
+        "pageTableEntry_Level5": {
+            "type": "integer",
+            "description": "PTE entry for device virtual address in page level 5."
+        },
+        "pageTableEntry_Level4": {
+            "type": "integer",
+            "description": "PTE entry for device virtual address in page level 4."
+        },
+        "pageTableEntry_Level3": {
+            "type": "integer",
+            "description": "PTE entry for device virtual address in page level 3."
+        },
+        "pageTableEntry_Level2": {
+            "type": "integer",
+            "description": "PTE entry for device virtual address in page level 2."
+        },
+        "pageTableEntry_Level1": {
+            "type": "integer",
+            "description": "PTE entry for device virtual address in page level 1."
+        }
+    }
+}

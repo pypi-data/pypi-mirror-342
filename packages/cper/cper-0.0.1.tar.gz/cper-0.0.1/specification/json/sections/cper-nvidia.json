@@ -1,0 +1,72 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "NVIDIA Processor Error Section",
+    "required": [
+        "errorType",
+        "errorInstance",
+        "severity",
+        "socket",
+        "registerCount",
+        "instanceBase"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "signature": {
+            "type": "string",
+            "description": "IP Signature Name."
+        },
+        "errorType": {
+            "type": "integer",
+            "description": "Error type within the IP block."
+        },
+        "errorInstance": {
+            "type": "integer",
+            "description": ""
+        },
+        "severity": {
+            "type": "object",
+            "description": "Internal severity for firmware tracking. Use CPER section severity.",
+            "required": ["code", "name"],
+            "additionalProperties": false,
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "socket": {
+            "type": "integer",
+            "description": "Socket the error report originated from."
+        },
+        "registerCount": {
+            "type": "integer",
+            "description": "Number of registers present in registers array."
+        },
+        "instanceBase": {
+            "type": "integer",
+            "description": "The location the error data was read from."
+        },
+        "registers": {
+            "type": "array",
+            "description": "Address, value pairs for registers dumped during the error detection.",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["address", "value"],
+                "properties": {
+                    "address": {
+                        "type": "integer"
+                    },
+                    "value": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

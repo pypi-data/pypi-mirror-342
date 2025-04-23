@@ -1,0 +1,63 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "PCI Bus Error Section",
+    "required": [],
+    "additionalProperties": false,
+    "properties": {
+        "errorStatus": {
+            "type": "object",
+            "description": "PCI Bus Error Status.",
+            "$ref": "./common/cper-json-error-status.json"
+        },
+        "errorType": {
+            "type": "object",
+            "description": "PCI Bus error Type",
+            "$ref": "./common/cper-json-nvp.json"
+        },
+        "busID": {
+            "type": "object",
+            "required": ["busNumber", "segmentNumber"],
+            "properties": {
+                "busNumber": {
+                    "type": "integer",
+                    "description": "Bus Number"
+                },
+                "segmentNumber": {
+                    "type": "integer",
+                    "description": "Segment Number"
+                }
+            }
+        },
+        "busAddress": {
+            "type": "integer",
+            "description": "Memory or I/O address on the bus at the time of the error."
+        },
+        "busData": {
+            "type": "integer",
+            "description": "Data on the PCI bus at the time of the error."
+        },
+        "busCommandType": {
+            "type": "string",
+            "description": "Bus command or operation at the time of the error."
+        },
+        "busRequestorID": {
+            "type": "integer",
+            "description": "PCI Bus Requestor Id."
+        },
+        "busRequestorIDHex": {
+            "type": "string"
+        },
+        "busCompleterID": {
+            "type": "integer",
+            "description": "PCI Bus Responder Id."
+        },
+        "busCompleterIDHex": {
+            "type": "string"
+        },
+        "targetID": {
+            "type": "integer",
+            "description": "PCI Bus intended target identifier."
+        }
+    }
+}

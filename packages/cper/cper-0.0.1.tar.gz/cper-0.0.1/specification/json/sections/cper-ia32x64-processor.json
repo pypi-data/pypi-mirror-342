@@ -1,0 +1,431 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "description": "IA32x64 Processor Error Section",
+    "required": ["processorErrorInfoNum", "processorContextInfoNum"],
+    "additionalProperties": false,
+    "properties": {
+        "processorErrorInfoNum": {
+            "type": "integer",
+            "description": "This is the number of Error Information structures."
+        },
+        "processorContextInfoNum": {
+            "type": "integer",
+            "description": "This is the number of Context Information structures."
+        },
+        "localAPICID": {
+            "type": "integer",
+            "description": "This is the processor APIC ID programmed into the APIC ID registers."
+        },
+        "cpuidInfo": {
+            "type": "object",
+            "description": "This field represents the CPU ID structure of 48 bytes and returns Model, Family, and stepping information as provided by the CPUID instruction with EAX=1 input and output values from EAX, EBX, ECX, and EDX null extended to 64-bits.",
+            "required": ["eax", "ebx", "ecx", "edx"],
+            "properties": {
+                "eax": {
+                    "type": "integer"
+                },
+                "ebx": {
+                    "type": "integer"
+                },
+                "ecx": {
+                    "type": "integer"
+                },
+                "edx": {
+                    "type": "integer"
+                }
+            }
+        },
+        "processorErrorInfo": {
+            "type": "array",
+            "description": "Array of processor error information structure.",
+            "items": {
+                "type": "object",
+                "required": ["type"],
+                "additionalProperties": false,
+                "properties": {
+                    "type": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": ["guid", "name"],
+                        "properties": {
+                            "guid": {
+                                "type": "string"
+                            },
+                            "name": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "checkInfo": {
+                        "type": "object",
+                        "required": [],
+                        "additionalProperties": false,
+                        "properties": {
+                            "transactionType": {
+                                "type": "object",
+                                "$ref": "./common/cper-json-nvp.json"
+                            },
+                            "operation": {
+                                "type": "object",
+                                "$ref": "./common/cper-json-nvp.json"
+                            },
+                            "level": {
+                                "type": "integer",
+                                "minimum": 0
+                            },
+                            "processorContextCorrupt": {
+                                "type": "boolean"
+                            },
+                            "uncorrected": {
+                                "type": "boolean"
+                            },
+                            "preciseIP": {
+                                "type": "boolean"
+                            },
+                            "restartableIP": {
+                                "type": "boolean"
+                            },
+                            "overflow": {
+                                "type": "boolean"
+                            },
+                            "participationType": {
+                                "type": "object",
+                                "$ref": "./common/cper-json-nvp.json"
+                            },
+                            "addressSpace": {
+                                "type": "object",
+                                "$ref": "./common/cper-json-nvp.json"
+                            },
+                            "timedOut": {
+                                "type": "boolean"
+                            },
+                            "errorType": {
+                                "type": "object",
+                                "$ref": "./common/cper-json-nvp.json"
+                            }
+                        }
+                    },
+                    "targetAddressID": {
+                        "type": "integer"
+                    },
+                    "requestorID": {
+                        "type": "integer"
+                    },
+                    "responderID": {
+                        "type": "integer"
+                    },
+                    "instructionPointer": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "processorContextInfo": {
+            "type": "array",
+            "description": "This is a variable size field providing the information for the processor context state such as MC Bank MSRs and general registers.",
+            "items": {
+                "type": ["object", "null"],
+                "required": [
+                    "registerContextType",
+                    "registerArraySize",
+                    "msrAddress",
+                    "mmRegisterAddress"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "registerContextType": {
+                        "type": "object",
+                        "$ref": "./common/cper-json-nvp.json"
+                    },
+                    "registerArraySize": {
+                        "type": "integer"
+                    },
+                    "msrAddress": {
+                        "type": "integer"
+                    },
+                    "mmRegisterAddress": {
+                        "type": "integer"
+                    },
+                    "registerArray": {
+                        "type": "object",
+                        "oneOf": [
+                            {
+                                "$id": "cper-json-registerarray0",
+                                "type": "object",
+                                "required": [
+                                    "eax",
+                                    "ebx",
+                                    "ecx",
+                                    "edx",
+                                    "esi",
+                                    "edi",
+                                    "ebp",
+                                    "esp",
+                                    "cs",
+                                    "ds",
+                                    "ss",
+                                    "es",
+                                    "fs",
+                                    "gs",
+                                    "eflags",
+                                    "eip",
+                                    "cr0",
+                                    "cr1",
+                                    "cr2",
+                                    "cr3",
+                                    "cr4",
+                                    "gdtr",
+                                    "idtr",
+                                    "ldtr",
+                                    "tr"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "eax": {
+                                        "type": "integer"
+                                    },
+                                    "ebx": {
+                                        "type": "integer"
+                                    },
+                                    "ecx": {
+                                        "type": "integer"
+                                    },
+                                    "edx": {
+                                        "type": "integer"
+                                    },
+                                    "esi": {
+                                        "type": "integer"
+                                    },
+                                    "edi": {
+                                        "type": "integer"
+                                    },
+                                    "ebp": {
+                                        "type": "integer"
+                                    },
+                                    "esp": {
+                                        "type": "integer"
+                                    },
+                                    "cs": {
+                                        "type": "integer"
+                                    },
+                                    "ds": {
+                                        "type": "integer"
+                                    },
+                                    "ss": {
+                                        "type": "integer"
+                                    },
+                                    "es": {
+                                        "type": "integer"
+                                    },
+                                    "fs": {
+                                        "type": "integer"
+                                    },
+                                    "gs": {
+                                        "type": "integer"
+                                    },
+                                    "eflags": {
+                                        "type": "integer"
+                                    },
+                                    "eip": {
+                                        "type": "integer"
+                                    },
+                                    "cr0": {
+                                        "type": "integer"
+                                    },
+                                    "cr1": {
+                                        "type": "integer"
+                                    },
+                                    "cr2": {
+                                        "type": "integer"
+                                    },
+                                    "cr3": {
+                                        "type": "integer"
+                                    },
+                                    "cr4": {
+                                        "type": "integer"
+                                    },
+                                    "gdtr": {
+                                        "type": "integer"
+                                    },
+                                    "idtr": {
+                                        "type": "integer"
+                                    },
+                                    "ldtr": {
+                                        "type": "integer"
+                                    },
+                                    "tr": {
+                                        "type": "integer"
+                                    }
+                                }
+                            },
+                            {
+                                "$id": "cper-json-registerarray1",
+                                "type": "object",
+                                "required": [
+                                    "rax",
+                                    "rbx",
+                                    "rcx",
+                                    "rdx",
+                                    "rsi",
+                                    "rdi",
+                                    "rbp",
+                                    "rsp",
+                                    "r8",
+                                    "r9",
+                                    "r10",
+                                    "r11",
+                                    "r12",
+                                    "r13",
+                                    "r14",
+                                    "r15",
+                                    "cs",
+                                    "ds",
+                                    "es",
+                                    "fs",
+                                    "gs",
+                                    "rflags",
+                                    "eip",
+                                    "cr0",
+                                    "cr1",
+                                    "cr2",
+                                    "cr3",
+                                    "cr4",
+                                    "cr8",
+                                    "gdtr_0",
+                                    "gdtr_1",
+                                    "idtr_0",
+                                    "idtr_1",
+                                    "ldtr",
+                                    "tr"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "rax": {
+                                        "type": "integer"
+                                    },
+                                    "rbx": {
+                                        "type": "integer"
+                                    },
+                                    "rcx": {
+                                        "type": "integer"
+                                    },
+                                    "rdx": {
+                                        "type": "integer"
+                                    },
+                                    "rsi": {
+                                        "type": "integer"
+                                    },
+                                    "rdi": {
+                                        "type": "integer"
+                                    },
+                                    "rbp": {
+                                        "type": "integer"
+                                    },
+                                    "rsp": {
+                                        "type": "integer"
+                                    },
+                                    "r8": {
+                                        "type": "integer"
+                                    },
+                                    "r9": {
+                                        "type": "integer"
+                                    },
+                                    "r10": {
+                                        "type": "integer"
+                                    },
+                                    "r11": {
+                                        "type": "integer"
+                                    },
+                                    "r12": {
+                                        "type": "integer"
+                                    },
+                                    "r13": {
+                                        "type": "integer"
+                                    },
+                                    "r14": {
+                                        "type": "integer"
+                                    },
+                                    "r15": {
+                                        "type": "integer"
+                                    },
+                                    "cs": {
+                                        "type": "integer"
+                                    },
+                                    "ds": {
+                                        "type": "integer"
+                                    },
+                                    "ss": {
+                                        "type": "integer"
+                                    },
+                                    "es": {
+                                        "type": "integer"
+                                    },
+                                    "fs": {
+                                        "type": "integer"
+                                    },
+                                    "gs": {
+                                        "type": "integer"
+                                    },
+                                    "rflags": {
+                                        "type": "integer"
+                                    },
+                                    "eip": {
+                                        "type": "integer"
+                                    },
+                                    "cr0": {
+                                        "type": "integer"
+                                    },
+                                    "cr1": {
+                                        "type": "integer"
+                                    },
+                                    "cr2": {
+                                        "type": "integer"
+                                    },
+                                    "cr3": {
+                                        "type": "integer"
+                                    },
+                                    "cr4": {
+                                        "type": "integer"
+                                    },
+                                    "cr8": {
+                                        "type": "integer"
+                                    },
+                                    "gdtr_0": {
+                                        "type": "integer"
+                                    },
+                                    "gdtr_1": {
+                                        "type": "integer"
+                                    },
+                                    "idtr_0": {
+                                        "type": "integer"
+                                    },
+                                    "idtr_1": {
+                                        "type": "integer"
+                                    },
+                                    "ldtr": {
+                                        "type": "integer"
+                                    },
+                                    "tr": {
+                                        "type": "integer"
+                                    }
+                                }
+                            },
+                            {
+                                "$id": "cper-json-registerarray2",
+                                "type": "object",
+                                "required": ["data"],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "data": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
