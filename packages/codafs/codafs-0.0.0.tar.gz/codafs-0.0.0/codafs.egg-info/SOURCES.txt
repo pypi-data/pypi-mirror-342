@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+codafs/__init__.py
+codafs/cfs.py
+codafs/optional.py
+codafs/structs.py
+codafs/util.py
+codafs/walk.py
+codafs.egg-info/PKG-INFO
+codafs.egg-info/SOURCES.txt
+codafs.egg-info/dependency_links.txt
+codafs.egg-info/entry_points.txt
+codafs.egg-info/requires.txt
+codafs.egg-info/top_level.txt

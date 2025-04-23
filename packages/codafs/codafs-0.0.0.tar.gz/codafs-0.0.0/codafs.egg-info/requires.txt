@@ -1,0 +1,12 @@
+attrs
+pyyaml
+
+[all]
+jsonschema
+tqdm
+
+[jsonschema]
+jsonschema
+
+[tqdm]
+tqdm
