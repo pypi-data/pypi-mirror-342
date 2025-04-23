@@ -1,0 +1,17 @@
+mcp_server_ecs/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mcp_server_ecs/main.py,sha256=11X3rL7SSTB7qy7mIY_aKgvJSgLC5ABuixO1VIcxUVw,3277
+mcp_server_ecs/common/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mcp_server_ecs/common/client.py,sha256=fZS7PY3y_IG1bJvOhdzdkuX1flPCJgUf2SF44W3eUyU,941
+mcp_server_ecs/common/errors.py,sha256=kFrhc5GeUcfa6ONoHXoQa19s50ICcJxrF4iiI3MoDPU,1038
+mcp_server_ecs/common/logs.py,sha256=qfN6xC9Sy6NGP0gQG1I3HpYIBqWPBVE2CPPtS5sJ5lk,2043
+mcp_server_ecs/conf/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mcp_server_ecs/conf/config.py,sha256=UWtp77160SbQJqrRqrTItZzGgTo6oZHtnYpyLetbAOc,336
+mcp_server_ecs/tools/__init__.py,sha256=-PRZTOGdpoxK_3XMi7LsBVmXA5Z7eWnI_j5GbWer7m8,1529
+mcp_server_ecs/tools/event.py,sha256=qXRrY8TQFKqKLeYHguDRsRB0l4H-d_60qpinqza2Tz0,7392
+mcp_server_ecs/tools/instance.py,sha256=hkeWxK_Khh0LxyQntOJhl32ATKfbTgwnO_7vdO8RttQ,18244
+mcp_server_ecs/tools/region.py,sha256=gCuKNwwoFTUJWIGPORfJKyHvVaP9mQLYBfeRSkhAeec,3247
+ecs_mcp_server-0.1.0.dist-info/METADATA,sha256=HM5-mGEyI-S6fk0SpQRQmyR8MpI3816Ze8yvA7EmzLo,4166
+ecs_mcp_server-0.1.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+ecs_mcp_server-0.1.0.dist-info/entry_points.txt,sha256=d_l7-9fq5wDeni4APL1y0DGIBWECuaYcG-hCVG5X4Gk,60
+ecs_mcp_server-0.1.0.dist-info/top_level.txt,sha256=dfeyvF3MrnijRa3NSLrCd5-nkyzgCOKQ1RpY9j89Z9o,15
+ecs_mcp_server-0.1.0.dist-info/RECORD,,
