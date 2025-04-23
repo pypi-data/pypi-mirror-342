@@ -1,0 +1,146 @@
+Metadata-Version: 2.3
+Name: educhateval
+Version: 0.1.4
+Summary: A pipeline and package to implement and evaluate LLM chat bot tutors in education.
+License: MIT
+Keywords: education,llm,chatbot,tutoring,ai in education
+Author: Laura Wulff Paaby
+Author-email: 202806616@post.au.dk
+Requires-Python: >=3.12,<3.13
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: dev
+Requires-Dist: accelerate (>=1.4.0,<2.0.0)
+Requires-Dist: aiohttp (<3.11.13) ; extra == "dev"
+Requires-Dist: black (>=25.1.0,<26.0.0) ; extra == "dev"
+Requires-Dist: datasets (>=3.3.2,<4.0.0)
+Requires-Dist: ipykernel (>=6.29.5,<7.0.0)
+Requires-Dist: ipykernel (>=6.29.5,<7.0.0) ; extra == "dev"
+Requires-Dist: ipywidgets (>=8.1.6,<9.0.0)
+Requires-Dist: lmstudio (>=1.0.1,<2.0.0)
+Requires-Dist: matplotlib (>=3.10.1,<4.0.0)
+Requires-Dist: mkdocs (>=1.6.1,<2.0.0) ; extra == "dev"
+Requires-Dist: mkdocs-glightbox (>=0.4.0,<0.5.0)
+Requires-Dist: mkdocs-material (>=9.6.11,<10.0.0) ; extra == "dev"
+Requires-Dist: mkdocs-mermaid2-plugin (>=1.2.1,<2.0.0)
+Requires-Dist: mkdocstrings (>=0.29.1,<1.0.0) ; extra == "dev"
+Requires-Dist: mlx-lm (>=0.22.2,<0.23.0)
+Requires-Dist: notebook (>=7.4.0,<8.0.0)
+Requires-Dist: numpy (>=2.2.3,<3.0.0)
+Requires-Dist: optuna (>=4.2.1,<5.0.0)
+Requires-Dist: optuna-integration (>=4.2.1,<5.0.0)
+Requires-Dist: outlines (>=0.2.1,<0.3.0)
+Requires-Dist: pandas (>=2.2.3,<3.0.0)
+Requires-Dist: requests (>=2.32.3,<3.0.0)
+Requires-Dist: scikit-learn (>=1.6.1,<2.0.0)
+Requires-Dist: seaborn (>=0.13.2,<0.14.0)
+Requires-Dist: sentencepiece (>=0.2.0,<0.3.0)
+Requires-Dist: textual (>=3.0.1,<4.0.0)
+Requires-Dist: toml (>=0.10.2,<0.11.0)
+Requires-Dist: torch (>=2.6.0,<3.0.0)
+Requires-Dist: transformers (>=4.49.0,<5.0.0)
+Project-URL: Homepage, https://laurawpaaby.github.io/EduChatEval/
+Project-URL: Issues, https://github.com/laurawpaaby/EduChatEval/issues
+Project-URL: Repository, https://github.com/laurawpaaby/EduChatEval
+Description-Content-Type: text/markdown
+
+# 🧠 EduChatEval
+
+_A structured pipeline and Python package for evaluating interactive LLM tutor systems in educational settings._
+
+---
+
+## 🚀 Overview
+
+This repository supports my master’s thesis, exploring how large language models can simulate and support human-like educational dialogues.
+
+The package is designed to:
+
+- Simulate student–tutor dialogues with role-based prompts if no real data is available 
+- Integrate local + open-source models (e.g., LM Studio, Hugging Face)
+- Log interactions (JSON/CSV) for analysis
+- Provide a framework for classification, evaluation, and fine-tuning
+
+Here’s a rough overview of the system architecture:
+
+![flowchart](new_flowchart.png)
+
+---
+
+## ⚙️ Installation
+
+```bash
+pip install educhateval
+```
+
+
+## 🤗 Integration 
+- 🦙 LM Studio (local LLM inference)
+- 🖍️ Outlines
+- 🤗 Transformers
+- 🧪 Optuna for experimental tuning
+
+
+
+## 📖 Documentation
+
+| **Documentation** | **Description** |
+|-------------------|-----------------|
+| 📚 [User Guide](https://laurawpaaby.github.io/EduChatEval/user-guide/) | Instructions on how to run simulations and analyze dialogue logs |
+| 💡 [Prompt Templates](https://your-docs-site.com/api) | Overview of system prompts, role behaviors, and instructional strategies |
+| 🧠 [API References](https://your-docs-site.com/api) | Full reference for the `educhateval` API: classes, methods, and usage |
+| 🤔 [About](https://laurawpaaby.github.io/EduChatEval/about/) | Learn more about the thesis project, context, and contributors |
+
+
+## 🫶🏼 Acknowdledgement 
+TBA
+
+
+## 📬 Contact
+
+Made by **Laura Wulff Paaby**  
+Feel free to reach out via:
+
+- 🌐 [LinkedIn](https://www.linkedin.com/in/laura-wulff-paaby-9131a0238/)
+- 📧 [laurapaaby18@gmail.com](mailto:202806616@post.au.dk)
+- 🐙 [GitHub](https://github.com/laurawpaaby) 
+
+---
+
+
+
+## Complete overview:
+``` 
+├── data/                                  
+│   ├── generated_dialogue_data/           # Generated dialogue samples
+│   ├── generated_tuning_data/             # Generated framework data for fine-tuning 
+│   ├── logged_dialogue_data/              # Logged real dialogue data
+│   ├── Final_output/                      # Final classified data 
+│
+├── Models/                                # Folder for trained models and checkpoints (ignored)
+│
+├── src/educhateval/                       # Main source code for all components
+│   ├── chat_ui.py                         # CLI interface for wrapping interactions
+│   ├── descriptive_results/               # Scripts and tools for result analysis
+│   ├── dialogue_classification/           # Tools and models for dialogue classification
+│   ├── dialogue_generation/               
+│   │   ├── agents/                        # Agent definitions and role behaviors
+│   │   ├── models/                        # Model classes and loading mechanisms
+│   │   ├── txt_llm_inputs/               # System prompts and structured inputs for LLMs
+│   │   ├── chat_instructions.py          # System prompt templates and role definitions
+│   │   ├── chat_model_interface.py       # Interface layer for model communication
+│   │   ├── chat.py                       # Main script for orchestrating chat logic
+│   │   └── simulate_dialogue.py          # Script to simulate full dialogues between agents
+│   ├── framework_generation/            
+│   │   ├── outline_prompts/              # Prompt templates for outlines
+│   │   ├── outline_synth_LMSRIPT.py      # Synthetic outline generation pipeline
+│   │   └── train_tinylabel_classifier.py # Training classifier on manually made true data
+│
+├── .python-version                       # Python version file for (Poetry)
+├── poetry.lock                           # Locked dependency versions (Poetry)
+├── pyproject.toml                        # Main project config and dependencies
+``` 
