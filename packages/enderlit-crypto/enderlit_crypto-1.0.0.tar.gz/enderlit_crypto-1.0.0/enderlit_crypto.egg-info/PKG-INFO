@@ -1,0 +1,68 @@
+Metadata-Version: 2.4
+Name: enderlit_crypto
+Version: 1.0.0
+Summary: Мудрёный шифратор-дешифратор от братюни Enderlit
+Home-page: https://pypi.org/project/enderlit_crypto/
+Author: Enderlit
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+#  Enderlit Crypto
+
+Шифратор-дешифратор от Enderlit  
+
+---
+
+##  Установка и использование
+
+```bash
+pip install enderlit_crypto
+```
+
+```python
+from enderlit_crypto import enderlit_crypt, enderlit_decrypt
+
+# Шифруем
+cipher = enderlit_crypt("Hello, world!", 1)
+
+# Дешифруем
+plain = enderlit_decrypt(cipher, 1)
+
+print("Зашифровано:", cipher)
+print("Расшифровано:", plain)
+```
+
+---
+
+## Аргументы
+
+- `text` – текст для шифровки/дешифровки
+- `weekday` – день недели от `0` до `6`
+
+---
+
+## Как работает шифр
+
+- Разные схемы подстановки
+- Буквы `q-z` → цифры
+- Пробелы → цифры
+- Случайный мусор (25%)
+- Подпись: `_by_Enderlit_2025`
+
+---
+
+## Лицензия
+
+MIT License (см. LICENSE)
