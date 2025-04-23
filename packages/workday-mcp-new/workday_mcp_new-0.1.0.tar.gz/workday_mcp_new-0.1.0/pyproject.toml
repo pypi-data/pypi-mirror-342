@@ -1,0 +1,20 @@
+[project]
+name = "workday-mcp-new"
+version = "0.1.0"
+description = "WORKDAY is an HRMS tool"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+ "mcp>=1.6.0",
+ "requests>=2.32.3",
+]
+[[project.authors]]
+name = "nandishad"
+email = "nandisha.d@think41.com"
+
+[build-system]
+requires = [ "hatchling",]
+build-backend = "hatchling.build"
+
+[project.scripts]
+workday-mcp-new = "workday_mcp_new:main"

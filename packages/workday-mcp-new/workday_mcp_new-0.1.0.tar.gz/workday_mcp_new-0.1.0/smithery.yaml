@@ -1,0 +1,20 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - workdayAccessToken
+    properties:
+      workdayAccessToken:
+        type: string
+        description: The access token for the Workday API.
+  commandFunction: |
+    (config) => ({
+      command: 'uv',
+      args: ['run', 'workday-mcp-new'],
+      env: { WORKDAY_ACCESS_TOKEN: config.workdayAccessToken }
+    })
+  exampleConfig:
+    workdayAccessToken: "your_workday_access_token_here"
