@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+zeropip/__init__.py
+zeropip/core.py
+zeropip.egg-info/PKG-INFO
+zeropip.egg-info/SOURCES.txt
+zeropip.egg-info/dependency_links.txt
+zeropip.egg-info/not-zip-safe
+zeropip.egg-info/requires.txt
+zeropip.egg-info/top_level.txt
+zeropip/ui/__init__.py
+zeropip/ui/core.py
