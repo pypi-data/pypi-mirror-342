@@ -1,0 +1,6 @@
+gitingest>=0.1.4
+typer>=0.15.2
+
+[dev]
+pytest>=7.0.0
+ruff>=0.9.10
