@@ -1,0 +1,1185 @@
+{
+  "schema": "lcschema:luminary.proto.client.SimulationParam",
+  "units": {
+    "unitSystem": "UNIT_SYSTEM_SI",
+    "temperatureUnit": "UNIT_KELVIN",
+    "massUnit": "UNIT_KILOGRAM",
+    "lengthUnit": "UNIT_METER",
+    "angleUnit": "UNIT_DEGREE",
+    "timeUnit": "UNIT_SECOND",
+    "velocityUnit": "UNIT_METER_PER_SECOND",
+    "angularVelocityUnit": "UNIT_RADIAN_PER_SECOND",
+    "forceUnit": "UNIT_NEWTON",
+    "momentUnit": "UNIT_NEWTON_METER",
+    "pressureUnit": "UNIT_PASCAL",
+    "energyUnit": "UNIT_JOULE",
+    "powerUnit": "UNIT_WATT",
+    "volumeUnit": "UNIT_CUBIC_METER",
+    "volumetricFlowUnit": "UNIT_CUBIC_METER_PER_SECOND",
+    "viscosityUnit": "UNIT_PASCAL_SECOND",
+    "conductivityUnit": "UNIT_WATT_PER_METER_KELVIN",
+    "molecularWeightUnit": "UNIT_GRAM_PER_MOLE"
+  },
+  "input": {
+    "meshIdentifier": {}
+  },
+  "materialEntity": [
+    {
+      "materialIdentifier": {
+        "id": "uneqbwv8r93u5t0ue9r8fgr87giny4xx",
+        "name": "Fluid 1"
+      },
+      "materialFluid": {
+        "referencePressure": {
+          "value": 0
+        },
+        "densityRelationship": "IDEAL_GAS",
+        "molecularWeight": {
+          "value": 28.966
+        },
+        "constantDensityValue": {
+          "value": 1.225
+        },
+        "specificHeatCp": {
+          "value": 1006.43
+        },
+        "laminarThermalConductivity": "LAMINAR_CONSTANT_THERMAL_PRANDTL",
+        "laminarConstantThermalPrandtlConstant": {
+          "value": 0.72
+        },
+        "laminarConstantThermalConductivityConstant": {
+          "value": 0.0257
+        },
+        "boussinesqApproximation": "BOUSSINESQ_ON",
+        "boussinesqTempRef": {
+          "value": 288.15
+        },
+        "thermalExpansionCoefficient": {
+          "value": 0.0035
+        },
+        "materialFluidPreset": "STANDARD_AIR",
+        "laminarViscosityModelNewtonian": "SUTHERLAND",
+        "sutherlandViscosityRef": {
+          "value": 1.716e-05
+        },
+        "sutherlandViscosityTempRef": {
+          "value": 273.11
+        },
+        "sutherlandConstant": {
+          "value": 110.56
+        },
+        "laminarConstantViscosityConstant": {
+          "value": 1.7894e-05
+        }
+      }
+    }
+  ],
+  "general": {
+    "floatType": "DOUBLE",
+    "gravity": "GRAVITY_OFF",
+    "acceleration": {
+      "x": {
+        "value": 0
+      },
+      "y": {
+        "value": 0
+      },
+      "z": {
+        "value": -9.81
+      }
+    },
+    "flowBehavior": "TRANSIENT"
+  },
+  "adjoint": {},
+  "time": {
+    "timeMarching": "TIME_IMPLICIT",
+    "timeImplicitOrder": "TIME_SECOND",
+    "physicalTimeStepMethod": "FIXED_TIME_STEP",
+    "timeStepVal": {
+      "value": 0.0001
+    },
+    "timeStepRamp": "TIME_STEP_RAMP_OFF",
+    "timeStepRampInitialVal": {
+      "value": 0.001
+    },
+    "timeStepRampIterationBegin": {
+      "value": "500"
+    },
+    "timeStepRampIterationEnd": {
+      "value": "1000"
+    },
+    "computeStatistics": "COMPUTE_STATISTICS_OFF",
+    "statisticsStartIteration": {
+      "value": "1"
+    },
+    "statisticsUpdateInterval": {
+      "value": "1"
+    }
+  },
+  "bodyFrame": {},
+  "surfaceName": {
+    "0/bound/farfield": {
+      "surfaceName": "farfield"
+    },
+    "0/bound/inlet": {
+      "surfaceName": "inlet"
+    },
+    "0/bound/outlet": {
+      "surfaceName": "outlet"
+    },
+    "0/bound/symmetry": {
+      "surfaceName": "symmetry"
+    },
+    "0/bound/wall": {
+      "surfaceName": "wall"
+    },
+    "0/bound/z_minus": {
+      "surfaceName": "z_minus"
+    },
+    "0/bound/z_plus": {
+      "surfaceName": "z_plus"
+    }
+  },
+  "output": {
+    "itersPerOutput": {
+      "value": "1000"
+    },
+    "debugOutput": "SOLN_DEBUG_OUTPUT_OFF",
+    "debugOutputInteriorSurfaceData": "SOLN_DEBUG_OUTPUT_INT_SURF_DATA_OFF"
+  },
+  "convergenceCriteria": {},
+  "entityRelationships": {
+    "volumeMaterialRelationship": [
+      {
+        "volumeIdentifier": {
+          "id": "0"
+        },
+        "materialIdentifier": {
+          "id": "uneqbwv8r93u5t0ue9r8fgr87giny4xx"
+        }
+      }
+    ],
+    "volumePhysicsRelationship": [
+      {
+        "volumeIdentifier": {
+          "id": "0"
+        },
+        "physicsIdentifier": {
+          "id": "za6i1qzrzt0hu5xs9kpbwkjpeft0nfr1"
+        }
+      }
+    ]
+  },
+  "referenceValues": {
+    "areaRef": {
+      "value": 1
+    },
+    "lengthRef": {
+      "value": 1
+    },
+    "lengthRefPitch": {
+      "value": 1
+    },
+    "lengthRefRoll": {
+      "value": 1
+    },
+    "lengthRefYaw": {
+      "value": 1
+    },
+    "pRef": {
+      "value": 101325
+    },
+    "tRef": {
+      "value": 288.15
+    },
+    "vRef": {
+      "value": 1
+    }
+  },
+  "adaptiveMeshRefinement": {
+    "refinementIterations": {},
+    "refinementDispatchInterval": {},
+    "maxRefinementInterval": {},
+    "initialTargetComplexity": {
+      "value": 0
+    },
+    "finalTargetComplexity": {
+      "value": 0
+    },
+    "meshingMethod": "MESH_METHOD_MANUAL",
+    "targetCvMillions": {
+      "value": "10"
+    },
+    "allTet": "ALL_TET_UNSET",
+    "userScaling": {
+      "value": 1
+    }
+  },
+  "physics": [
+    {
+      "physicsIdentifier": {
+        "id": "za6i1qzrzt0hu5xs9kpbwkjpeft0nfr1",
+        "name": "Fluid Flow 1"
+      },
+      "fluid": {
+        "basicFluid": {
+          "fluidType": "SINGLE_PHASE",
+          "viscousModel": "RANS"
+        },
+        "turbulence": {
+          "desFormulation": "DDES_VTM",
+          "ransRegion": "INSIDE",
+          "zdesRmin": {
+            "x": {
+              "value": 0
+            },
+            "y": {
+              "value": 0
+            },
+            "z": {
+              "value": 0
+            }
+          },
+          "zdesRmax": {
+            "x": {
+              "value": 0
+            },
+            "y": {
+              "value": 0
+            },
+            "z": {
+              "value": 0
+            }
+          },
+          "subGridScaleModel": "VREMAN",
+          "cS": {
+            "value": 0.1
+          },
+          "cVreman": {
+            "value": 0.07225
+          },
+          "cWale": {
+            "value": 0.325
+          },
+          "cSigma": {
+            "value": 1.5
+          },
+          "cAmd": {
+            "value": 0.19
+          },
+          "turbulentThermalConductivityPrandtlConstant": {
+            "value": 0.85
+          },
+          "transitionModel": "NO_TRANSITION",
+          "transitionModelCrossFlow": "TRANSITION_MODEL_CROSS_FLOW_OFF",
+          "transitionFreeStreamTurbulenceIntensity": {
+            "value": 0.002
+          },
+          "turbulenceModel": "SPALART_ALLMARAS",
+          "qcrSa": "QCR_OFF",
+          "rotationCorrectionSa": "ROTATION_CORRECTION_OFF",
+          "cRot": {
+            "value": 2
+          },
+          "CSaDes": {
+            "value": 0.65
+          },
+          "cB1": {
+            "value": 0.1355
+          },
+          "sigma": {
+            "value": 0.6666666666666666
+          },
+          "cB2": {
+            "value": 0.622
+          },
+          "kappa": {
+            "value": 0.41
+          },
+          "cW2": {
+            "value": 0.3
+          },
+          "cW3": {
+            "value": 2
+          },
+          "cV1": {
+            "value": 7.1
+          },
+          "cT3": {
+            "value": 1.2
+          },
+          "cT4": {
+            "value": 0.5
+          },
+          "cR1": {
+            "value": 0.5
+          },
+          "qcrSst": "SST_QCR_OFF",
+          "turbulenceModelConstants": "DEFAULT_TURB_CONSTANTS",
+          "CSstDes1": {
+            "value": 0.78
+          },
+          "CSstDes2": {
+            "value": 0.61
+          },
+          "sigmaK1": {
+            "value": 0.85
+          },
+          "sigmaK2": {
+            "value": 1
+          },
+          "sigmaW1": {
+            "value": 0.5
+          },
+          "sigmaW2": {
+            "value": 0.856
+          },
+          "beta1": {
+            "value": 0.075
+          },
+          "beta2": {
+            "value": 0.0828
+          },
+          "betaStar": {
+            "value": 0.09
+          },
+          "kappaSst": {
+            "value": 0.41
+          },
+          "a1": {
+            "value": 0.31
+          },
+          "gamma1": {
+            "value": 0.5555555555555556
+          },
+          "gamma2": {
+            "value": 0.44
+          }
+        },
+        "solutionControlsFluid": {
+          "pseudoTimeStepMethod": "CFL_BASED",
+          "cfl": {
+            "value": 50
+          },
+          "localTimeStepping": "LOCAL_TIME_STEPPING_ON",
+          "pseudoTimeStepVal": {
+            "value": 1e-06
+          },
+          "relaxationMethod": "IMPLICIT",
+          "implicitMethod": "BACKWARD_EULER",
+          "linsolIterations": {
+            "value": "15"
+          },
+          "linsolTolerance": {
+            "value": 0.05
+          },
+          "linearSolverType": "GS",
+          "linsolAmgPreSweeps": {
+            "value": "1"
+          },
+          "linsolAmgPostSweeps": {
+            "value": "1"
+          },
+          "linsolAmgCoarseningSize": {
+            "value": "8"
+          },
+          "linsolAmgLevels": {
+            "value": "20"
+          },
+          "linsolAmgRelaxation": {
+            "value": 0.75
+          },
+          "linsolAmgCycleType": "LINSOL_AMG_CYCLE_TYPE_V",
+          "linsolAmgFreezeLevelsThreshold": {
+            "value": "300"
+          },
+          "linsolAmgSmoother": "LINSOL_AMG_SMOOTHER_JACOBI",
+          "jacobianUpdateMethod": "EXPLICIT_INTERVAL_AND_WARMUP",
+          "jacobianUpdateInterval": {
+            "value": 1
+          },
+          "jacobianWarmupThreshold": {
+            "value": "300"
+          },
+          "robustStartup": "ROBUST_STARTUP_ON",
+          "robustStartupInitialCfl": {
+            "value": 1
+          },
+          "robustStartupIterations": {
+            "value": "300"
+          },
+          "relaxFlow": {
+            "value": 1
+          },
+          "relaxTurb": {
+            "value": 0.5
+          },
+          "updateLimitFlow": {
+            "value": 0.2
+          },
+          "updateLimitTurb": {
+            "value": 0.99
+          },
+          "explicitMethod": "RK_4",
+          "controlsPresetVersion": {
+            "value": "71824"
+          },
+          "solutionControlsFluidPreset": "DEFAULT_SOLUTION_CONTROLS_FLUID"
+        },
+        "adjointControlsFluid": {
+          "adjointSolutionMethod": "ADJOINT_METHOD_GMRES",
+          "adjointGmresRestartIters": {
+            "value": "50"
+          },
+          "adjointSecondOrderDamping": {
+            "value": 0
+          }
+        },
+        "spatialDiscretizationFluid": {
+          "gradientMethod": "NODAL_GRADIENT",
+          "hlsqBlend": {
+            "value": 2
+          },
+          "convectiveSchemesDensityBased": "ROE",
+          "entropyEpsilon": {
+            "value": 2
+          },
+          "preconditioning": "PRECONDITIONING_ON",
+          "fdsMinLowDissipation": {
+            "value": 0.05
+          },
+          "skewSymmetricFormulation": "CHANDRASEKHAR_EC2",
+          "artificialViscosityModel": "NO_MODEL",
+          "alphaHybrid": {
+            "value": 1
+          },
+          "upwindSchemeOrder": "SECOND",
+          "robustDissipation": "ROBUST_DISS_OFF",
+          "limiter": "INVARIANT_VENKATAKRISHNAN_CV",
+          "limiterKappa": {
+            "value": 0.1
+          },
+          "umusclChi": {
+            "value": 0
+          },
+          "alphaLd2": {
+            "value": 0
+          },
+          "geometryFixes": "GEOMETRY_FIXES_ON",
+          "geometryFixesMitigations": {
+            "value": 0.25
+          },
+          "orderBlend": {
+            "value": 1
+          },
+          "discretizationPresetVersion": {
+            "value": "71824"
+          },
+          "spatialDiscretizationFluidPreset": "DEFAULT_SPATIAL_DISCRETIZATION_FLUID"
+        },
+        "boundaryConditionsFluid": [
+          {
+            "surfaces": [
+              "0/bound/wall"
+            ],
+            "boundaryConditionName": "e8npel38e7oolyi55ofw83oi6xl2zkoj",
+            "physicalBoundary": "WALL",
+            "wallMomentum": "NO_SLIP",
+            "equivalentSandGrainRoughness": {
+              "value": 0
+            },
+            "fixedIntegratedHeatFlux": {
+              "value": 0
+            },
+            "heatTransferCoefficient": {
+              "value": 0
+            },
+            "wallEnergy": "FIXED_HEAT_FLUX",
+            "fixedHeatFlux": {
+              "value": 0
+            },
+            "fixedTemperature": {
+              "value": 288.15
+            },
+            "wallMovementTranslation": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "wallMovementRotationCenter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "wallMovementAngularVelocity": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "inletMomentum": "TOTAL_PRESSURE_INLET",
+            "inletVelocityMagnitude": {
+              "value": 1
+            },
+            "inletVelocityMagnitudeCol": {},
+            "inletVelocityComponents": {
+              "x": {
+                "value": 1
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "totalPressureCol": {},
+            "massFlowRate": {
+              "value": 1
+            },
+            "totalPressure": {
+              "value": 101325
+            },
+            "directionSpecification": "NORMAL_TO_BOUNDARY",
+            "flowDirection": {
+              "x": {
+                "value": 1
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "profileType": "CARTESIAN_X",
+            "inletEnergy": "TOTAL_TEMPERATURE_INLET",
+            "totalTemperature": {
+              "value": 300
+            },
+            "totalTemperatureCol": {},
+            "outletStrategy": "OUTLET_PRESSURE",
+            "outletTargetMassFlowRate": {
+              "value": 1
+            },
+            "outletReferencePressure": {
+              "value": 101325
+            },
+            "outletReferenceTemperature": {
+              "value": 288.15
+            },
+            "outletPressure": {
+              "value": 101325
+            },
+            "headLossCoefficient": {
+              "value": 0
+            },
+            "outletPressureConstraint": "OUTLET_LOCAL_CONSTRAINT",
+            "farfieldMomentum": "FARFIELD_MACH_NUMBER",
+            "farfieldMachNumber": {
+              "value": 0.5
+            },
+            "farfieldVelocityMagnitude": {
+              "value": 1
+            },
+            "farfieldPressure": {
+              "value": 101325
+            },
+            "farfieldTemperature": {
+              "value": 288.15
+            },
+            "farFieldFlowDirectionSpecification": "FARFIELD_DIRECTION",
+            "farfieldFlowDirection": {
+              "x": {
+                "value": 1
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "farfieldAngleAlpha": {
+              "value": 0
+            },
+            "farfieldAngleBeta": {
+              "value": 0
+            },
+            "turbulenceSpecificationSpalartAllmaras": "TURBULENT_VISCOSITY_RATIO_SA",
+            "bcUniformNuTilde": {
+              "value": 4.166705541552236e-05
+            },
+            "bcNuTildeCol": {},
+            "turbulenceSpecificationKomega": "BC_TURBULENT_VISCOSITY_RATIO_AND_INTENSITY_KOMEGA",
+            "turbulentViscosityRatio": {
+              "value": 0.21043825715555026
+            },
+            "turbulentViscosity": {
+              "value": 3.765582173541416e-06
+            },
+            "turbulenceIntensity": {
+              "value": 0.05
+            },
+            "bcUniformTke": {
+              "value": 4.166705541552236e-05
+            },
+            "bcUniformOmega": {
+              "value": 4.166705541552236e-05
+            },
+            "bcTkeCol": {},
+            "bcOmegaCol": {}
+          },
+          {
+            "surfaces": [
+              "0/bound/symmetry",
+              "0/bound/z_minus",
+              "0/bound/z_plus"
+            ],
+            "boundaryConditionName": "1ypv0i3vgsb63khn9na8zea2rcuqugfh",
+            "physicalBoundary": "SYMMETRY",
+            "wallMomentum": "NO_SLIP",
+            "equivalentSandGrainRoughness": {
+              "value": 0
+            },
+            "fixedIntegratedHeatFlux": {
+              "value": 0
+            },
+            "heatTransferCoefficient": {
+              "value": 0
+            },
+            "wallEnergy": "FIXED_HEAT_FLUX",
+            "fixedHeatFlux": {
+              "value": 0
+            },
+            "fixedTemperature": {
+              "value": 288.15
+            },
+            "wallMovementTranslation": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "wallMovementRotationCenter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "wallMovementAngularVelocity": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "inletMomentum": "TOTAL_PRESSURE_INLET",
+            "inletVelocityMagnitude": {
+              "value": 1
+            },
+            "inletVelocityMagnitudeCol": {},
+            "inletVelocityComponents": {
+              "x": {
+                "value": 1
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "totalPressureCol": {},
+            "massFlowRate": {
+              "value": 1
+            },
+            "totalPressure": {
+              "value": 101325
+            },
+            "directionSpecification": "NORMAL_TO_BOUNDARY",
+            "flowDirection": {
+              "x": {
+                "value": 1
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "profileType": "CARTESIAN_X",
+            "inletEnergy": "TOTAL_TEMPERATURE_INLET",
+            "totalTemperature": {
+              "value": 300
+            },
+            "totalTemperatureCol": {},
+            "outletStrategy": "OUTLET_PRESSURE",
+            "outletTargetMassFlowRate": {
+              "value": 1
+            },
+            "outletReferencePressure": {
+              "value": 101325
+            },
+            "outletReferenceTemperature": {
+              "value": 288.15
+            },
+            "outletPressure": {
+              "value": 101325
+            },
+            "headLossCoefficient": {
+              "value": 0
+            },
+            "outletPressureConstraint": "OUTLET_LOCAL_CONSTRAINT",
+            "farfieldMomentum": "FARFIELD_MACH_NUMBER",
+            "farfieldMachNumber": {
+              "value": 0.5
+            },
+            "farfieldVelocityMagnitude": {
+              "value": 1
+            },
+            "farfieldPressure": {
+              "value": 101325
+            },
+            "farfieldTemperature": {
+              "value": 288.15
+            },
+            "farFieldFlowDirectionSpecification": "FARFIELD_DIRECTION",
+            "farfieldFlowDirection": {
+              "x": {
+                "value": 1
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "farfieldAngleAlpha": {
+              "value": 0
+            },
+            "farfieldAngleBeta": {
+              "value": 0
+            },
+            "turbulenceSpecificationSpalartAllmaras": "TURBULENT_VISCOSITY_RATIO_SA",
+            "bcUniformNuTilde": {
+              "value": 4.166705541552236e-05
+            },
+            "bcNuTildeCol": {},
+            "turbulenceSpecificationKomega": "BC_TURBULENT_VISCOSITY_RATIO_AND_INTENSITY_KOMEGA",
+            "turbulentViscosityRatio": {
+              "value": 0.21043825715555026
+            },
+            "turbulentViscosity": {
+              "value": 3.765582173541416e-06
+            },
+            "turbulenceIntensity": {
+              "value": 0.05
+            },
+            "bcUniformTke": {
+              "value": 4.166705541552236e-05
+            },
+            "bcUniformOmega": {
+              "value": 4.166705541552236e-05
+            },
+            "bcTkeCol": {},
+            "bcOmegaCol": {}
+          },
+          {
+            "surfaces": [
+              "0/bound/farfield",
+              "0/bound/inlet",
+              "0/bound/outlet"
+            ],
+            "boundaryConditionName": "cr86vfiabjv3w7lc6t5nmgs5rsquif7h",
+            "physicalBoundary": "FARFIELD",
+            "wallMomentum": "NO_SLIP",
+            "equivalentSandGrainRoughness": {
+              "value": 0
+            },
+            "fixedIntegratedHeatFlux": {
+              "value": 0
+            },
+            "heatTransferCoefficient": {
+              "value": 0
+            },
+            "wallEnergy": "FIXED_HEAT_FLUX",
+            "fixedHeatFlux": {
+              "value": 0
+            },
+            "fixedTemperature": {
+              "value": 288.15
+            },
+            "wallMovementTranslation": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "wallMovementRotationCenter": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "wallMovementAngularVelocity": {
+              "x": {
+                "value": 0
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "inletMomentum": "TOTAL_PRESSURE_INLET",
+            "inletVelocityMagnitude": {
+              "value": 1
+            },
+            "inletVelocityMagnitudeCol": {},
+            "inletVelocityComponents": {
+              "x": {
+                "value": 1
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "totalPressureCol": {},
+            "massFlowRate": {
+              "value": 1
+            },
+            "totalPressure": {
+              "value": 101325
+            },
+            "directionSpecification": "NORMAL_TO_BOUNDARY",
+            "flowDirection": {
+              "x": {
+                "value": 1
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "profileType": "CARTESIAN_X",
+            "inletEnergy": "TOTAL_TEMPERATURE_INLET",
+            "totalTemperature": {
+              "value": 300
+            },
+            "totalTemperatureCol": {},
+            "outletStrategy": "OUTLET_PRESSURE",
+            "outletTargetMassFlowRate": {
+              "value": 1
+            },
+            "outletReferencePressure": {
+              "value": 101325
+            },
+            "outletReferenceTemperature": {
+              "value": 288.15
+            },
+            "outletPressure": {
+              "value": 101325
+            },
+            "headLossCoefficient": {
+              "value": 0
+            },
+            "outletPressureConstraint": "OUTLET_LOCAL_CONSTRAINT",
+            "farfieldMomentum": "FARFIELD_MACH_NUMBER",
+            "farfieldMachNumber": {
+              "value": 0.5
+            },
+            "farfieldVelocityMagnitude": {
+              "value": 1
+            },
+            "farfieldPressure": {
+              "value": 101325
+            },
+            "farfieldTemperature": {
+              "value": 288.15
+            },
+            "farFieldFlowDirectionSpecification": "FARFIELD_DIRECTION",
+            "farfieldFlowDirection": {
+              "x": {
+                "value": 1
+              },
+              "y": {
+                "value": 0
+              },
+              "z": {
+                "value": 0
+              }
+            },
+            "farfieldAngleAlpha": {
+              "value": 0
+            },
+            "farfieldAngleBeta": {
+              "value": 0
+            },
+            "turbulenceSpecificationSpalartAllmaras": "TURBULENT_VISCOSITY_RATIO_SA",
+            "bcUniformNuTilde": {
+              "value": 4.166705541552236e-05
+            },
+            "bcNuTildeCol": {},
+            "turbulenceSpecificationKomega": "BC_TURBULENT_VISCOSITY_RATIO_AND_INTENSITY_KOMEGA",
+            "turbulentViscosityRatio": {
+              "value": 0.21043825715555026
+            },
+            "turbulentViscosity": {
+              "value": 3.765582173541416e-06
+            },
+            "turbulenceIntensity": {
+              "value": 0.05
+            },
+            "bcUniformTke": {
+              "value": 4.166705541552236e-05
+            },
+            "bcUniformOmega": {
+              "value": 4.166705541552236e-05
+            },
+            "bcTkeCol": {},
+            "bcOmegaCol": {}
+          }
+        ],
+        "initializationFluid": {
+          "initializationType": "UNIFORM_VALUES",
+          "uniformV": {
+            "x": {
+              "value": 1
+            },
+            "y": {
+              "value": 0
+            },
+            "z": {
+              "value": 0
+            }
+          },
+          "uniformT": {
+            "value": 288.15
+          },
+          "potentialFlowPressureInitialization": "INITIALIZATION_POTENTIAL_FLOW_PRESSURE_OFF",
+          "uniformP": {
+            "value": 101325
+          },
+          "turbulentVariableInitializationTypeSa": "INIT_TURBULENT_VISCOSITY_RATIO_SA",
+          "uniformNuTilde": {
+            "value": 4.166705541552236e-05
+          },
+          "turbulentVariableInitializationTypeKomega": "INIT_TURBULENT_VISCOSITY_RATIO_AND_INTENSITY_KOMEGA",
+          "initTurbulentViscosityRatio": {
+            "value": 0.21043825715555026
+          },
+          "initTurbulentViscosity": {
+            "value": 3.765582173541416e-06
+          },
+          "initTurbulenceIntensity": {
+            "value": 0.05
+          },
+          "uniformTke": {
+            "value": 4.166705541552236e-05
+          },
+          "uniformOmega": {
+            "value": 4.166705541552236e-05
+          },
+          "verificationSolutions": "TAYLOR_GREEN_VORTEX",
+          "tgvRho": {
+            "value": 1
+          },
+          "tgvP": {
+            "value": 100
+          },
+          "tgvV": {
+            "value": 1
+          },
+          "shocktubeP1": {
+            "value": 0.1
+          },
+          "shocktubeP4": {
+            "value": 1
+          },
+          "shocktubeT1": {
+            "value": 0.00278
+          },
+          "shocktubeT4": {
+            "value": 0.00348
+          },
+          "shuosherP1": {
+            "value": 10.3333
+          },
+          "shuosherRho1": {
+            "value": 3.857143
+          },
+          "shuosherM1": {
+            "value": 3
+          },
+          "shuosherP2": {
+            "value": 1
+          },
+          "shuosherRho2": {
+            "value": 1
+          },
+          "shuosherM2": {
+            "value": 0
+          },
+          "shuosherAmp": {
+            "value": 0.2
+          },
+          "shuosherKx": {
+            "value": 5
+          },
+          "disturbancewaveP": {
+            "value": 0.7143
+          },
+          "disturbancewaveT": {
+            "value": 0.0025
+          },
+          "disturbancewaveM": {
+            "value": 0.2
+          },
+          "acousticwaveAmp": {
+            "value": 0.01
+          },
+          "vorticitywaveAmp": {
+            "value": 0.01
+          },
+          "entropywaveAmp": {
+            "value": 0.01
+          },
+          "disturbancewaveKx": {
+            "value": 5
+          },
+          "normalshockP1": {
+            "value": 0.7143
+          },
+          "normalshockT1": {
+            "value": 0.0025
+          },
+          "normalshockM1": {
+            "value": 2
+          },
+          "shockvortexP1": {
+            "value": 1
+          },
+          "shockvortexT1": {
+            "value": 0.0035
+          },
+          "shockvortexM1": {
+            "value": 1.5
+          },
+          "shockvortexMv": {
+            "value": 0.2
+          },
+          "shockvortexXv": {
+            "value": 0.25
+          },
+          "shockvortexZv": {
+            "value": 0.5
+          },
+          "shockvortexAv": {
+            "value": 0.075
+          },
+          "shockvortexBv": {
+            "value": 0.175
+          },
+          "mmsK": {
+            "value": 3.141592653589793
+          },
+          "mmsA": {
+            "value": 10
+          },
+          "inviscidVortexMinfty": {
+            "value": 0.05
+          },
+          "inviscidVortexPinfty": {
+            "value": 100000
+          },
+          "inviscidVortexTinfty": {
+            "value": 300
+          },
+          "inviscidVortexXv": {
+            "value": 0.5
+          },
+          "inviscidVortexYv": {
+            "value": 0.5
+          },
+          "inviscidVortexXflowdir": {
+            "value": 1
+          },
+          "inviscidVortexYflowdir": {
+            "value": 0
+          },
+          "inviscidVortexRvortex": {
+            "value": 0.005
+          },
+          "inviscidVortexBetavortex": {
+            "value": 0.02
+          }
+        },
+        "cavitation": {
+          "cavitationModel": "SAUER_SCHNERR",
+          "densityVaporPhaseCavitation": {
+            "value": 0.7267
+          },
+          "saturationPressureCavitation": {
+            "value": 3170
+          },
+          "n0SauerSchnerr": {
+            "value": 100000000
+          },
+          "nReboud": {
+            "value": 10
+          }
+        }
+      }
+    }
+  ]
+}

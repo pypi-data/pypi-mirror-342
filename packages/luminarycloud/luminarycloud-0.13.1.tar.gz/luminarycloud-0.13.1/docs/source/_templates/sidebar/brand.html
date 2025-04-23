@@ -1,0 +1,89 @@
+<head>
+  <style>
+    .sidebar-logo {
+      margin: 0 0 0 0;
+    }
+
+  </style>
+
+  <!-- Fonts - src and fonts mapping based on docs.luminarycloud.com -->
+  <style>
+    /* Gestura Headline for h1 only */
+    @font-face {
+      font-family: 'Gestura Headline';
+      src: url('https://assets.website-files.com/64cd71de68cb8c8447ce658b/656e0ba85b3d8b5a8f5cfd52_GesturaHeadline-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    h1 {
+      font-family: "Gestura Headline", serif;
+      font-weight: 400;
+    }
+
+    /* Inconsolata for monospace, set in python/sdk/docs/source/conf.py */
+    @font-face {
+      font-family: 'Inconsolata';
+      font-style: normal;
+      font-weight: 400;
+      font-stretch: 100%;
+      src: url(https://fonts.gstatic.com/s/inconsolata/v32/QlddNThLqRwH-OJ1UHjlKENVzkWGVkL3GZQmAwLyya15IDhunA.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Inconsolata';
+      font-style: normal;
+      font-weight: 700;
+      font-stretch: 100%;
+      src: url(https://fonts.gstatic.com/s/inconsolata/v32/QlddNThLqRwH-OJ1UHjlKENVzkWGVkL3GZQmAwLyya15IDhunA.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* Inconsolata for all other text, set in python/sdk/docs/source/conf.py */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      src: url(https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      src: url(https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+  </style>
+</head>
+<!--
+  NOTE: The relative path to the static files and pages like index.html will
+  differ based on which page this side bar is being rendered on, so we have to
+  use pathto() rather than hardcoding the src/href
+  https://www.sphinx-doc.org/en/master/development/templating.html#pathto
+-->
+<a class="sidebar-brand" href="{{ pathto('index') }}">
+  <div class="sidebar-logo-container">
+    <br>
+    <img class="only-light" src="{{ pathto('_static/luminary_logo_horizontal_light.svg', 1) }}" width=75%>
+    <img class="only-dark" src="{{ pathto('_static/luminary_logo_horizontal_dark.svg', 1) }}" width=75%>
+    <br><br>
+    <img class="only-light" src="{{ pathto('_static/api_doc_early_access_logo_light.svg', 1) }}">
+    <img class="only-dark" src="{{ pathto('_static/api_doc_early_access_logo_dark.svg', 1) }}">
+  </div>
+</a>

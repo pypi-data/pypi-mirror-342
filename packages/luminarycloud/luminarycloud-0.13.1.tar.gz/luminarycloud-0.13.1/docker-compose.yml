@@ -1,0 +1,61 @@
+version: "3"
+services:
+  sdk:
+    build:
+      context: .
+      target: sdk
+    volumes:
+      - ~/.config:/root/.config
+      - ./examples:/sdk/examples
+      - ./testdata:/sdk/testdata
+      - ./tests:/sdk/tests
+    network_mode: "host" # This does not work on Docker for Mac
+    environment:
+      LC_DOMAIN: apis.main.int.luminarycloud.com
+      LC_AUTH_DOMAIN: luminarycloud-dev.us.auth0.com
+      LC_AUTH_CLIENT_ID: mbM8OSEk5ShoU5iKfzUxSinKluPlxGQ9
+      LC_AUTH_SERVICE_ID: https://api-dev.luminarycloud.com
+      PYTHONPATH: /sdk
+  notebook:
+    build:
+      context: .
+      target: notebook
+    volumes:
+      - ~/.config:/root/.config
+      - ./notebooks:/sdk/notebooks
+      - ./testdata:/sdk/testdata
+      - ../../testdata:/sdk/testdata2:ro
+      - ../../devops/docker/sdk-tests/certs:/certs
+    environment:
+      LC_DOMAIN: apis.main.int.luminarycloud.com
+      LC_AUTH_DOMAIN: luminarycloud-dev.us.auth0.com
+      LC_AUTH_CLIENT_ID: mbM8OSEk5ShoU5iKfzUxSinKluPlxGQ9
+      LC_AUTH_SERVICE_ID: https://api-dev.luminarycloud.com
+      PYTHONPATH: /sdk
+    working_dir: /sdk/notebooks
+    # https://github.com/docker/for-mac/issues/1031#issuecomment-268262808
+    # network_mode: "host"
+    ports:
+      - 8888:8888 # jupyter notebook (configurable below)
+      - 10001:10001 # auth callback
+    command: jupyter lab --ip=0.0.0.0 --allow-root --no-browser --port=8888
+  docs:
+    build: ./docs
+    volumes:
+      - ./luminarycloud:/luminarycloud
+      - ./docs:/docs
+      - ./:/sdk
+  quickstart:
+    build:
+      context: ./docs/luminarycloud-quickstart
+    volumes:
+      - ~/.config:/root/.config
+      - ./docs/luminarycloud-quickstart/notebooks:/notebooks
+      - ../../devops/docker/sdk-tests/certs:/certs
+    working_dir: /notebooks
+    # https://github.com/docker/for-mac/issues/1031#issuecomment-268262808
+    # network_mode: "host"
+    ports:
+      - 8888:8888 # jupyter notebook (configurable below)
+      - 10001:10001 # auth callback
+    command: --ip=0.0.0.0 --allow-root --no-browser --port=8888

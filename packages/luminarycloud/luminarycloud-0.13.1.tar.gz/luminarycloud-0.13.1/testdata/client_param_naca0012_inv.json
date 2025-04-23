@@ -1,0 +1,403 @@
+{
+  "bodyFrame": {
+    "bodyFrameId": "body_frame_id"
+  },
+  "motionData": [
+    {
+      "frameId": "global_frame_id",
+      "frameName": "Global",
+      "frameParent": "",
+      "motionType": "NO_MOTION"
+    },
+    {
+      "frameId": "body_frame_id",
+      "frameName": "Body Frame",
+      "frameParent": "global_frame_id",
+      "motionType": "NO_MOTION",
+      "frameTransforms": [
+        {
+          "transformName": "Body Frame-orientation",
+          "transformType": "ROTATIONAL_TRANSFORM",
+          "transformRotationAngles": {
+            "x": {
+              "value": -90
+            },
+            "z": {
+              "value": 180
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "general": {
+    "floatType": "DOUBLE",
+    "flowBehavior": "STEADY"
+  },
+  "volumeEntity": [
+    {
+      "volumeIdentifier": {
+        "id": "0"
+      }
+    }
+  ],
+  "entityRelationships": {
+    "volumePhysicsRelationship": [
+      {
+        "volumeIdentifier": {
+          "id": "0"
+        },
+        "physicsIdentifier": {
+          "id": "0"
+        }
+      }
+    ],
+    "volumeMaterialRelationship": [
+      {
+        "volumeIdentifier": {
+          "id": "0"
+        },
+        "materialIdentifier": {
+          "id": "0"
+        }
+      }
+    ]
+  },
+  "time": {
+    "timeMarching": "TIME_EXPLICIT",
+    "physicalTimeStepMethod": "FIXED_TIME_STEP",
+    "timeStepVal": {
+      "value": 0.0001
+    }
+  },
+  "referenceValues": {
+    "areaRef": {
+      "value": 1
+    },
+    "lengthRef": {
+      "value": 1
+    },
+    "pRef": {
+      "value": 101325
+    },
+    "tRef": {
+      "value": 273.15
+    },
+    "vRef": {
+      "value": 265.05709547039106
+    }
+  },
+  "adaptiveMeshRefinement": {
+    "refinementDispatchInterval": {},
+    "refinementIterations": {},
+    "maxRefinementInterval": {},
+    "meshingMethod": "MESH_METHOD_MANUAL",
+    "finalTargetComplexity": {
+      "value": 0
+    },
+    "targetCvMillions": {},
+    "initialTargetComplexity": {
+      "value": 0
+    }
+  },
+  "physics": [
+    {
+      "physicsIdentifier": {
+        "id": "0"
+      },
+      "fluid": {
+        "basicFluid": {
+          "viscousModel": "INVISCID",
+          "fluidType": "SINGLE_PHASE"
+        },
+        "turbulence": {
+          "turbulenceModel": "SPALART_ALLMARAS",
+          "subGridScaleModel": "NONE"
+        },
+        "solutionControlsFluid": {
+          "relaxationMethod": "IMPLICIT",
+          "implicitMethod": "BACKWARD_EULER",
+          "explicitMethod": "RK_4",
+          "linearSolverType": "GS",
+          "linsolIterations": {
+            "value": 12
+          },
+          "linsolTolerance": {
+            "value": 0.2
+          },
+          "pseudoTimeStepMethod": "CFL_BASED",
+          "cfl": {
+            "value": 150
+          },
+          "jacobianUpdateInterval": {
+            "value": 5
+          },
+          "jacobianWarmupThreshold": {
+            "value": 300
+          },
+          "jacobianUpdateMethod": "EXPLICIT_INTERVAL_AND_WARMUP",
+          "localTimeStepping": "LOCAL_TIME_STEPPING_ON",
+          "robustStartup": "ROBUST_STARTUP_ON",
+          "robustStartupIterations": {
+            "value": 300
+          },
+          "robustStartupInitialCfl": {
+            "value": 1
+          },
+          "relaxFlow": {
+            "value": 1
+          },
+          "relaxTurb": {
+            "value": 0.5
+          },
+          "updateLimitFlow": {
+            "value": 0.2
+          },
+          "updateLimitTurb": {
+            "value": 0.99
+          },
+          "linsolAmgPreSweeps": {
+            "value": 1
+          },
+          "linsolAmgPostSweeps": {
+            "value": 1
+          },
+          "linsolAmgCoarseningSize": {
+            "value": 8
+          },
+          "linsolAmgLevels": {
+            "value": 20
+          },
+          "linsolAmgRelaxation": {
+            "value": 0.75
+          },
+          "linsolAmgCycleType": "LINSOL_AMG_CYCLE_TYPE_V",
+          "linsolAmgFreezeLevelsThreshold": {
+            "value": 300
+          },
+          "linsolAmgSmoother": "LINSOL_AMG_SMOOTHER_JACOBI"
+        },
+        "boundaryConditionsFluid": [
+          {
+            "boundaryConditionName": "symmetry1",
+            "surfaces": [
+              "0/bound/z_plus",
+              "0/bound/z_minus"
+            ],
+            "physicalBoundary": "SYMMETRY"
+          },
+          {
+            "boundaryConditionName": "wall1",
+            "surfaces": [
+              "0/bound/airfoil"
+            ],
+            "physicalBoundary": "WALL",
+            "wallEnergy": "FIXED_HEAT_FLUX",
+            "fixedHeatFlux": {
+              "value": 0
+            },
+            "wallMomentum": "SLIP"
+          },
+          {
+            "boundaryConditionName": "farfield1",
+            "surfaces": [
+              "0/bound/farfield"
+            ],
+            "physicalBoundary": "FARFIELD",
+            "farfieldMomentum": "FARFIELD_MACH_NUMBER",
+            "farfieldTemperature": {
+              "value": 273.15
+            },
+            "farfieldPressure": {
+              "value": 101325
+            },
+            "farfieldMachNumber": {
+              "value": 0.8
+            },
+            "farFieldFlowDirectionSpecification": "FARFIELD_DIRECTION",
+            "farfieldFlowDirection": {
+              "x": {
+                "value": 264.994
+              },
+              "y": {
+                "value": 5.78219
+              },
+              "z": {
+                "value": 0
+              }
+            }
+          }
+        ],
+        "initializationFluid": {
+          "initializationType": "UNIFORM_VALUES",
+          "uniformP": {
+            "value": 101325
+          },
+          "uniformV": {
+            "x": {
+              "value": 264.994
+            },
+            "y": {
+              "value": 5.78219
+            },
+            "z": {
+              "value": 0
+            }
+          },
+          "uniformT": {
+            "value": 273.15
+          },
+          "turbulentVariableInitializationTypeSa": "INIT_SA_VARIABLE"
+        },
+        "spatialDiscretizationFluid": {
+          "gradientMethod": "LC_HLSQ",
+          "convectiveSchemesDensityBased": "ROE",
+          "upwindSchemeOrder": "SECOND",
+          "umusclChi": {
+            "value": 0
+          },
+          "entropyEpsilon": {
+            "value": 2
+          },
+          "robustDissipation": "ROBUST_DISS_OFF",
+          "geometryFixes": "GEOMETRY_FIXES_OFF",
+          "geometryFixesMitigations": {
+            "value": 0.25
+          },
+          "limiter": "INVARIANT_VENKATAKRISHNAN_CV",
+          "limiterKappa": {
+            "value": 0.1
+          },
+          "hlsqBlend": {
+            "value": 2
+          },
+          "orderBlend": {
+            "value": 1
+          },
+          "preconditioning": "PRECONDITIONING_ON"
+        }
+      }
+    }
+  ],
+  "materialEntity": [
+    {
+      "materialFluid": {
+        "laminarViscosityModelNewtonian": "SUTHERLAND",
+        "laminarConstantViscosityConstant": {
+          "value": 0.001
+        },
+        "sutherlandViscosityRef": {
+          "value": 1.716e-05
+        },
+        "sutherlandViscosityTempRef": {
+          "value": 273.15
+        },
+        "sutherlandConstant": {
+          "value": 110.4
+        },
+        "laminarThermalConductivity": "LAMINAR_CONSTANT_THERMAL_PRANDTL",
+        "laminarConstantThermalPrandtlConstant": {
+          "value": 0.72
+        },
+        "densityRelationship": "IDEAL_GAS",
+        "referencePressure": {
+          "value": 0
+        },
+        "molecularWeight": {
+          "value": 28.96
+        },
+        "specificHeatCp": {
+          "value": 1004.703
+        }
+      },
+      "materialIdentifier": {
+        "id": "0"
+      }
+    }
+  ],
+  "input": {
+    "meshIdentifier": {},
+    "url": "./naca0012_inv.lcmesh"
+  },
+  "output": {
+    "itersPerOutput": {
+      "value": "1000"
+    },
+    "debugOutput": "SOLN_DEBUG_OUTPUT_OFF",
+    "debugOutputInteriorSurfaceData": "SOLN_DEBUG_OUTPUT_INT_SURF_DATA_OFF"
+  },
+  "convergenceCriteria": {
+    "stoppingCondition": [
+      {
+        "output": {
+          "quantity": "RESIDUAL_DENSITY",
+          "residualProperties": {
+            "type": "RESIDUAL_RELATIVE"
+          }
+        },
+        "threshold": {
+          "value": 1e-05
+        },
+        "op": "STOP_COND_OP_ALL"
+      },
+      {
+        "output": {
+          "quantity": "RESIDUAL_X_MOMENTUM",
+          "residualProperties": {
+            "type": "RESIDUAL_RELATIVE"
+          }
+        },
+        "threshold": {
+          "value": 1e-05
+        },
+        "op": "STOP_COND_OP_ALL"
+      },
+      {
+        "output": {
+          "quantity": "RESIDUAL_Y_MOMENTUM",
+          "residualProperties": {
+            "type": "RESIDUAL_RELATIVE"
+          }
+        },
+        "threshold": {
+          "value": 1e-05
+        },
+        "op": "STOP_COND_OP_ALL"
+      },
+      {
+        "output": {
+          "quantity": "RESIDUAL_Z_MOMENTUM",
+          "residualProperties": {
+            "type": "RESIDUAL_RELATIVE"
+          }
+        },
+        "threshold": {
+          "value": 1e-05
+        },
+        "op": "STOP_COND_OP_ALL"
+      },
+      {
+        "output": {
+          "quantity": "RESIDUAL_ENERGY",
+          "residualProperties": {
+            "type": "RESIDUAL_RELATIVE"
+          }
+        },
+        "threshold": {
+          "value": 1e-05
+        },
+        "op": "STOP_COND_OP_ALL"
+      },
+      {
+        "output": {
+          "quantity": "ITERATION_INDEX",
+          "basicProperties": {}
+        },
+        "threshold": {
+          "value": 2000
+        },
+        "op": "STOP_COND_OP_FORCE"
+      }
+    ]
+  }
+}

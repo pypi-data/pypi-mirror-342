@@ -1,0 +1,65 @@
+*.code-workspace
+*~
+*.swp
+*#*
+.mypy_cache
+*.bak
+*.backup
+bazel-*
+compile_commands.json
+.cquery_cached_index
+*.tfstate
+.terraform
+.terraform.lock.hcl
+.ccls-cache
+node_modules
+__pycache__
+.vagrant
+*.qdrep
+.csearchindex
+debug.test
+__debug_bin
+.clangd/**
+.cache
+.githooks
+.nfs*
+.git-branches.toml
+# go tools are downloaded to go/core/bin
+go/core/bin/
+# Mac files
+*.DS_Store
+./bazel-*
+.cache/
+/external
+doc/static/doxygen
+spocktest/lib/*
+# Paraview files
+*.vtk
+*.vtu
+*.pvtu
+*.pvsm
+# Luminary specific solver output
+*.lcsummary
+*.lcsoln
+*.lcsolnbundle
+docs/html/**
+python/lib/build
+python/lib/dist
+python/lib/**/*.egg-info
+# Don't push generated Python lib protos
+python/lib/src/proto
+python/predictor/dist
+python/lib/src/lcproto
+python/predictor/**/*.egg-info
+python/sdk/build
+python/sdk/dist
+python/sdk/docs/build
+python/sdk/**/*.egg-info
+.ipynb_checkpoints/
+go/core/cmd/fakemaster/outputs
+.pnpm-store
+.idea/
+# For Python coverage
+.coverage
+k8s-operators/dataplane/kubeconfig
+dev/gcloud-dev.conf
