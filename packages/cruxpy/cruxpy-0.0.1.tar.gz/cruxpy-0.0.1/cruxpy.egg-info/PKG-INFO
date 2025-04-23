@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: cruxpy
+Version: 0.0.1
+Summary: Help build page for Crux ports repository
+Author-email: Wawrzyniec Niewodniczański <main@wawrzek.name>
+License-Expression: GPL-3.0-only
+Requires-Python: >=3.10
+License-File: LICENSE
+Requires-Dist: Pygit
+Dynamic: license-file

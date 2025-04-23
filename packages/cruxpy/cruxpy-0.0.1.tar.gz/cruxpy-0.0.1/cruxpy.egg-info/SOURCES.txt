@@ -1,0 +1,10 @@
+LICENSE
+pyproject.toml
+cruxpy.egg-info/PKG-INFO
+cruxpy.egg-info/SOURCES.txt
+cruxpy.egg-info/dependency_links.txt
+cruxpy.egg-info/requires.txt
+cruxpy.egg-info/top_level.txt
+portspage/__init__.py
+portspage/__main__.py
+portspage/repo.py
