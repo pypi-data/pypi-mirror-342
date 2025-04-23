@@ -1,0 +1,36 @@
+Metadata-Version: 2.3
+Name: pythonseer
+Version: 0.3.5
+Summary: A python library for interacting with the Fediseer API
+License: GPL-3.0-or-later
+Author: db0
+Author-email: mail@dbzer0.com
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Project-URL: Homepage, https://github.com/db0/pythonseer
+Description-Content-Type: text/markdown
+
+# Pythonseer
+
+A Python package to interact with [Fediseer](https://fediseer.com)
+
+# Examples
+
+See working examples in [examples/](https://github.com/db0/pythonseer/tree/main/examples)
+
+# Testing
+
+```shell
+make setup
+make
+```
+

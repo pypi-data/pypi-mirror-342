@@ -1,0 +1,119 @@
+[tool.poetry]
+name = "pythonseer"
+version = "v0.3.5"
+description = "A python library for interacting with the Fediseer API"
+authors = ["db0 <mail@dbzer0.com>"]
+readme = "README.md"
+homepage="https://github.com/db0/pythonseer"
+license = "GPL-3.0-or-later"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Operating System :: OS Independent",
+    "Development Status :: 2 - Pre-Alpha",
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+
+
+[tool.poetry.group.test.dependencies]
+setuptools = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-pycharm = "*"
+python-dotenv = "*"
+vulture = "*"
+typing_extensions ="*"
+pylint = "*"
+whispers = "*"
+Flake8-pyproject="*"
+tartufo="*"
+ruff = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+pythonpath = ["."]
+log_cli = true
+log_cli_level = "DEBUG"
+log_cli_format = "[%(asctime)s] [%(levelname)8s] --- %(message)s (%(filename)s:%(funcName)s():%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+addopts = [
+    "--import-mode=prepend",
+    "--ignore=nodes"
+]
+filterwarnings = [
+    "ignore:::.*",
+    "default:::pythonseer.*"
+]
+testpaths = [
+    "tests"
+]
+
+
+[tool.ruff] # XXX this isn't part of CI yet
+line-length=119
+exclude=["build"]
+ignore=[
+    "F401", # imported but unused
+    "E402", # Module level import not at top of file
+    "A002", # Argument `x` is shadowing a python builtin
+    "A001", # Variable `x` is shadowing a python builtin
+    "INP001", # ... is part of an implicit namespace package. Add an `__init__.py`.
+]
+select = [
+    "A",    # flake8-builtins
+    "I",    # isort
+    "S",    # Bandit
+    "F",    # pyflakes
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+
+
+    "YTT",  # flake8-2020
+    # "BLE",    # flake8-blind-except
+    # "B",    # flake8-bugbear
+    "COM",  # flake8-commas
+    "C4",   # flake8-comprehensions
+    # "G",    # flake8-logging-format
+    "INP",  # flake8-no-pep420
+    "PIE",  # flake8-pie
+    # "T20",  # flake8-print
+    # "UP",   # pyupgrade
+    "RSE",  # flake8-raise
+    # "RET",  # flake8-return
+    # "SLF",  # flake8-self
+    # "SIM",  # flake8-simplify
+    # "ARG",  # flake8-unused-arguments
+    # "TRY",  # tryceratops
+    "RUF100"
+]
+
+
+[tool.tartufo]
+repo-path = "."
+regex = true
+entropy = true
+exclude-path-patterns = [
+ {path-pattern = 'poetry\.lock'},
+ {path-pattern = 'pyproject\.toml'},
+ # To not have to escape `\` in regexes, use single quoted
+ # TOML 'literal strings'
+ {path-pattern = 'docs/source/(.*)\.rst'},
+ {path-pattern = 'fedi_gatus/config_gen/base.template.yaml'},
+]
+exclude-entropy-patterns = [
+    {path-pattern = '\.github/workflows/.*\.yml', pattern = 'uses: .*@[a-zA-Z0-9]{40}', reason = 'GitHub Actions'},
+    {path-pattern = 'poetry\.lock', pattern = '.'},
+    {path-pattern = 'Pipfile\.lock', pattern = '.'},
+    {path-pattern = 'README\.md', pattern = '.'},
+    {path-pattern = 'CHANGELOG\.md', pattern = '.'},
+    {path-pattern = 'mapping\.cfg', pattern = '.'}, # Git secret
+]
