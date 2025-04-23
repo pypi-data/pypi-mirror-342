@@ -1,0 +1,15 @@
+devtorch/__init__.py,sha256=zOOKkdnGRykl_OT76VaT-p3MGPCP-9BwPTTGVc_mpww,268
+devtorch/crossval.py,sha256=SJWpkMj_8-ruBKJuBtSDZl98qWgAXG1O1aCu4VKsKz4,7162
+devtorch/evaluation.py,sha256=mbk6OgV5Bk05tWSyRDlSMV6cIPDEP0WP7NOEWyRhH_U,1896
+devtorch/model.py,sha256=zi8LiXMwC-i8K33CCxeP0dNWH-eFg2o7tXTYWG_scIQ,3809
+devtorch/query.py,sha256=X-K-dz7e1Zo-SqCxH1iOU89l8Z9lF54w7TH7Me3Ci2c,1250
+devtorch/train.py,sha256=SCJAn3J7kMpLZ_6fXpuwt2P_rYo-iLBr82hgpjN7ZCc,8086
+devtorch/util.py,sha256=H0lmw90gfz9tJfE8Dq0slcwnMczhfFXrsdIxG_KSS2E,175
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_model.py,sha256=jzbSVIINMdOpbW8O7rkSSvyxFjOgf_LWlIlApVVNt-I,926
+tests/test_train.py,sha256=g1Ow1zgqX-mmdduv1TT-n50RF9v_fUMSkA-tRFL70hE,1190
+devtorch-0.0.7.dist-info/LICENSE.md,sha256=oxnoZ5_UkvuoSJFEtbW799Sl7mWFhV7hbzIP67b7DzU,1068
+devtorch-0.0.7.dist-info/METADATA,sha256=voafrBXk_Vd5wa0wJUnNfpCIrpeMwjUHpRNbqMhEvC4,586
+devtorch-0.0.7.dist-info/WHEEL,sha256=iAkIy5fosb7FzIOwONchHf19Qu7_1wCWyFNR5gu9nU0,91
+devtorch-0.0.7.dist-info/top_level.txt,sha256=iNwSs07jfxqCZQ3r7gk1gX6zG3-tWVNo__7wPEjEddk,15
+devtorch-0.0.7.dist-info/RECORD,,
