@@ -1,0 +1,9 @@
+LICENSE
+LICENSE.kubeconform
+README.md
+setup.cfg
+setup.py
+kubeconform_binary.egg-info/PKG-INFO
+kubeconform_binary.egg-info/SOURCES.txt
+kubeconform_binary.egg-info/dependency_links.txt
+kubeconform_binary.egg-info/top_level.txt
