@@ -1,0 +1,5 @@
+include LICENSE
+include README.md
+include pypro/templates/*.html
+recursive-include examples *.pyp
+recursive-include tests *.py
