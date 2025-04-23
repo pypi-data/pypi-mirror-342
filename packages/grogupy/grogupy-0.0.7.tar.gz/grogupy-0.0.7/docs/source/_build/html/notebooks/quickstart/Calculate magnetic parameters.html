@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculate magnetic parameters &mdash; grogupy</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom_styles.css" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=bbaf98b3"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Visualize the exchange" href="Visualize%20the%20exchange.html" />
+    <link rel="prev" title="Quickstart" href="../../quickstart/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            grogupy documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../quickstart/index.html">Quickstart</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart/index.html#installation">Installation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../quickstart/index.html#quickstart-tutorials">Quickstart tutorials</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Calculate magnetic parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Visualize%20the%20exchange.html">Visualize the exchange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Convergence%20with%20high%20throughput.html">Convergence with high throughput</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quickstart/Running%20in%20HPC.html">Running grogupy in HPC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../citing.html">Citing grogupy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../API/modules.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../environment/index.html">Environment Variables</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../development/index.html">Contributing to grogupy</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extras</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/index.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bibliography.html">Bibliography</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">grogupy documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../quickstart/index.html">Quickstart</a></li>
+      <li class="breadcrumb-item active">Calculate magnetic parameters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/notebooks/quickstart/Calculate magnetic parameters.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Calculate-magnetic-parameters">
+<h1>Calculate magnetic parameters<a class="headerlink" href="#Calculate-magnetic-parameters" title="Link to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">grogupy</span></code> is specifically written in a modular way, to fully take advantage of python classes. In this simple example we show how to use <code class="docutils literal notranslate"><span class="pre">grogupy</span></code> to simulate the magnetic interaction between two atoms from a density functional theory (DFT) calculation and create an output file for <a class="reference external" href="https://docs.magnopy.org/en/latest/user-guide/start/about.html">magnopy</a>. In this example we will use a non-collinear Siesta calculation of the Fe3GeTe2 system with spin-orbit coupling.</p>
+<p>First import <code class="docutils literal notranslate"><span class="pre">grogupy</span></code>, which will import the most important classes, functions and variables in its namespace.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">grogupy</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/danielpozsar/Documents/studies/elte/phd/grogu/.venv/lib/python3.12/site-packages/grogupy/_tqdm.py:24: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from tqdm.autonotebook import tqdm
+</pre></div></div>
+</div>
+<p>Then we start to create the basic classes based on the desired parameters. First create the <code class="docutils literal notranslate"><span class="pre">Kspace</span></code> class which contains the parameters fot the Brillouin zone integration. Because in this case we only take a single layer of Fe3GeTe2 and there is a large vacuum in the perpendicular direction it is sufficient to only integrate in the plane of the material. Furthermore for a fast initial calculation a 10x10 grid of k-points should be enough.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fe3GeTe2_kspace</span> <span class="o">=</span> <span class="n">grogupy</span><span class="o">.</span><span class="n">Kspace</span><span class="p">(</span><span class="n">kset</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">Fe3GeTe2_kspace</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;grogupy.Kspace kset=[10 10  1], NK=100&gt;
+</pre></div></div>
+</div>
+<p>Then we would like to set the parameters for the complex integral for the Green’s function calculation. This can be done through the <code class="docutils literal notranslate"><span class="pre">Contour</span></code> class. Again, for an initial calculation 300 sample points should be enough. The energy minimum should be set below the smallest eigenvalue from the Siesta Hamiltonian.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fe3GeTe2_contour</span> <span class="o">=</span> <span class="n">grogupy</span><span class="o">.</span><span class="n">Contour</span><span class="p">(</span><span class="n">emin</span><span class="o">=-</span><span class="mi">15</span><span class="p">,</span> <span class="n">eset</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">esetp</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">Fe3GeTe2_contour</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;grogupy.Contour emin=-20, emax=0, eset=300, esetp=10000&gt;
+</pre></div></div>
+</div>
+<p>Then we can create the <code class="docutils literal notranslate"><span class="pre">Hamiltonian</span></code> class, which extracts and stores the Hamiltonian and geometrical data from the Siesta files using the <code class="docutils literal notranslate"><span class="pre">sisl</span></code> library. Furthermore we must provide the exchange field orientation in the DFT calculation, which is usually the perpendicular direction from the 2D material.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fe3GeTe2_hamiltonian</span> <span class="o">=</span> <span class="n">grogupy</span><span class="o">.</span><span class="n">Hamiltonian</span><span class="p">(</span>
+    <span class="n">infile</span><span class="o">=</span><span class="s2">&quot;./../../../../benchmarks/Fe3GeTe2/Fe3GeTe2.fdf&quot;</span><span class="p">,</span>
+    <span class="n">scf_xcf_orientation</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">Fe3GeTe2_hamiltonian</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Spin box Hamiltonian: 100%|██████████| 81/81 [00:00&lt;00:00, 1069.66it/s]
+Spin box Overlap matrix: 100%|██████████| 81/81 [00:00&lt;00:00, 1321.54it/s]
+Symmetrize Hamiltonian: 100%|██████████| 81/81 [00:00&lt;00:00, 1976.28it/s]
+Transpose Hamiltonian: 100%|██████████| 81/81 [00:00&lt;00:00, 1427.03it/s]
+Calculate V_XCF: 100%|██████████| 81/81 [00:00&lt;00:00, 6452.04it/s]
+Calculate H_XC: 100%|██████████| 3/3 [00:00&lt;00:00, 58.30it/s]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;grogupy.Hamiltonian scf_xcf_orientation=[0 0 1], orientation=[0, 0, 1], NO=84&gt;
+</pre></div></div>
+</div>
+<p>After these initial steps we can create the <code class="docutils literal notranslate"><span class="pre">Builder</span></code> class and initialize with the above information. We have to provide the directions of the rotated exchange field and the two perpendicular directions are calculated automatically.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orientations</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+
+<span class="n">Fe3GeTe2</span> <span class="o">=</span> <span class="n">grogupy</span><span class="o">.</span><span class="n">Builder</span><span class="p">(</span><span class="n">ref_xcf_orientations</span><span class="o">=</span><span class="n">orientations</span><span class="p">)</span>
+<span class="n">Fe3GeTe2</span><span class="o">.</span><span class="n">add_kspace</span><span class="p">(</span><span class="n">Fe3GeTe2_kspace</span><span class="p">)</span>
+<span class="n">Fe3GeTe2</span><span class="o">.</span><span class="n">add_contour</span><span class="p">(</span><span class="n">Fe3GeTe2_contour</span><span class="p">)</span>
+<span class="n">Fe3GeTe2</span><span class="o">.</span><span class="n">add_hamiltonian</span><span class="p">(</span><span class="n">Fe3GeTe2_hamiltonian</span><span class="p">)</span>
+<span class="n">Fe3GeTe2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;grogupy.Builder npairs=0, numk=100, kset=[10 10  1], eset=300&gt;
+</pre></div></div>
+</div>
+<p>Then we have to define the magnetic entities, which can be a list of orbitals from the Siesta Hamiltonian. We use <code class="docutils literal notranslate"><span class="pre">sisl</span></code> functions to extract this information based on a more human like definition. For example take two shells from two Fe atoms.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magnetic_entities</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">atom</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<p>With this information we can create two <code class="docutils literal notranslate"><span class="pre">MagneticEntity</span></code> instances.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">magnetic_entities</span> <span class="o">=</span> <span class="n">Fe3GeTe2</span><span class="o">.</span><span class="n">create_magnetic_entities</span><span class="p">(</span><span class="n">magnetic_entities</span><span class="p">)</span>
+<span class="n">Fe3GeTe2</span><span class="o">.</span><span class="n">add_magnetic_entities</span><span class="p">(</span><span class="n">magnetic_entities</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Add magnetic entities:: 100%|██████████| 2/2 [00:00&lt;00:00, 73584.28it/s]
+</pre></div></div>
+</div>
+<p>This would be enough to calculate the anisotropy on both sites, but it is not enough to build a spin model, for this we need the exchange tensor between all the pairs. Generally this can be done in a very similar way. First a list of dictionaries must be created, where each dictionary contains <code class="docutils literal notranslate"><span class="pre">ai</span></code>, <code class="docutils literal notranslate"><span class="pre">aj</span></code> and <code class="docutils literal notranslate"><span class="pre">Ruc</span></code>, where the first two is the index from the magnetic_entities and the third is the supercell shift of the second magnetic entity.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="n">ai</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aj</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ruc</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="n">ai</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">aj</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Ruc</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span>
+<span class="p">]</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="n">Fe3GeTe2</span><span class="o">.</span><span class="n">create_pairs</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
+<span class="n">Fe3GeTe2</span><span class="o">.</span><span class="n">add_pairs</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>
+<span class="n">Fe3GeTe2</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Add pairs:: 100%|██████████| 2/2 [00:00&lt;00:00, 76260.07it/s]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;grogupy.Builder npairs=2, numk=100, kset=[10 10  1], eset=300&gt;
+</pre></div></div>
+</div>
+<p>Now every information is contained in the Fe3GeTe2 instance to run the simulation. There are multiple parameters that can be changed to tune the runtime and the precision of the simulation, but for now let us use the default parameters.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fe3GeTe2</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Rotating Exchange field: 100%|██████████| 3/3 [00:00&lt;00:00, 55.40it/s]
+Setup magnetic entities for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 1927.53it/s]
+Setup pairs for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 871.18it/s]
+Setup perturbations for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 2130.17it/s]
+Setup perturbations for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 28532.68it/s]
+Rotating Exchange field: 100%|██████████| 3/3 [00:00&lt;00:00, 80.91it/s]
+Setup magnetic entities for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 3289.65it/s]
+Setup pairs for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 1695.01it/s]
+Setup perturbations for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 16777.22it/s]
+Setup perturbations for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 16545.58it/s]
+Rotating Exchange field: 100%|██████████| 3/3 [00:00&lt;00:00, 72.68it/s]
+Setup magnetic entities for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 3274.24it/s]
+Setup pairs for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 1545.72it/s]
+Setup perturbations for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 11618.57it/s]
+Setup perturbations for rotated hamiltonian: 100%|██████████| 2/2 [00:00&lt;00:00, 17848.10it/s]
+Parallel over k on CPU0:: 100%|██████████| 100/100 [02:46&lt;00:00,  1.66s/it]
+/Users/danielpozsar/Documents/studies/elte/phd/grogu/.venv/lib/python3.12/site-packages/grogupy/physics/utilities.py:534: UserWarning: This is experimenal!
+  warnings.warn(&#34;This is experimenal!&#34;)
+/Users/danielpozsar/Documents/studies/elte/phd/grogu/.venv/lib/python3.12/site-packages/grogupy/physics/utilities.py:676: UserWarning: This is experimenal!
+  warnings.warn(&#34;This is experimenal!&#34;)
+</pre></div></div>
+</div>
+<p>Now the instance parameters are filled with the data from the simulation, so we can output the information. We can print the instance <code class="docutils literal notranslate"><span class="pre">Fe3GeTe2</span></code> to get the information of the run and the <code class="docutils literal notranslate"><span class="pre">to_magnopy()</span></code> method returns the results in <code class="docutils literal notranslate"><span class="pre">magnopy</span></code>’s input format.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Fe3GeTe2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+================================================================================
+grogupy version: 0.0.6
+Input file: ./../../../../benchmarks/Fe3GeTe2/Fe3GeTe2.fdf
+Spin mode: SPIN-ORBIT
+================================================================================
+SLURM job ID: Could not be determined.
+Architecture: CPU
+Number of nodes in the parallel cluster: 1
+Parallelization is over: K
+Solver used for Greens function calculation: Sequential
+Solver used for Exchange tensor: Fit
+Solver used for Anisotropy tensor: Fit
+================================================================================
+Cell [Ang]:
+3.791001511088653242e+00 0.000000000000000000e+00 0.000000000000000000e+00
+-1.895500755544326621e+00 3.283103614407953064e+00 0.000000000000000000e+00
+0.000000000000000000e+00 0.000000000000000000e+00 2.057000819825037041e+01
+================================================================================
+DFT axis: [0 0 1]
+Quantization axis and perpendicular rotation directions:
+[1. 0. 0.] --&gt; [array([ 0.,  0., -1.]), array([0., 1., 0.])]
+[0. 1. 0.] --&gt; [array([1., 0., 0.]), array([ 0.,  0., -1.])]
+[0. 0. 1.] --&gt; [array([1., 0., 0.]), array([0., 1., 0.])]
+================================================================================
+Parameters for the Brillouin zone sampling:
+Number of k points: 100
+K points in each directions: [10 10  1]
+Parameters for the contour integral:
+Eset: 300
+Esetp: 10000
+Ebot: -20
+Etop: 0
+================================================================================
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Fe3GeTe2</span><span class="o">.</span><span class="n">to_magnopy</span><span class="p">(</span><span class="n">comments</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+================================================================================
+cell Angstrom
+3.791001511088653242e+00 0.000000000000000000e+00 0.000000000000000000e+00
+-1.895500755544326621e+00 3.283103614407953064e+00 0.000000000000000000e+00
+0.000000000000000000e+00 0.000000000000000000e+00 2.057000819825037041e+01
+================================================================================
+atoms Angstrom
+name    x       y       z       Sx      Sy      Sz      # Q
+3Fe(l:2) 1.981762848288204e-06 -9.134332829322269e-08 11.653315176909826 6.447254726229378e-05 -0.0005169351977350883 2.011394399384453 # 8.523586381595468
+4Fe(l:2) 1.990383996147767e-06 -1.089291427685217e-07 8.916695475519404 -6.171573052964394e-05 0.000512053681777345 2.0114468209146024 # 8.523557236125843
+================================================================================
+notation
+double-counting True
+spin-normalized True
+exchange-factor 0.5
+on-site-factor 1
+================================================================================
+exchange meV
+--------------------------------------------------------------------------------
+3Fe(l:2) 4Fe(l:2) 0 0 0 # distance [Ang]: 2.7366197013904223
+isotropic -59.857164622795445
+DMI 2.436840485000502 0.01418709278360666 4.3221778217174996e-08 # Dx Dy Dz
+symmetric-anisotropy 7.4187042864392865 -17.166667476211693 7.711382751285248e-05 -0.015536801936790684 2.436405949442811 # Sxx Syy Sxy Sxz Syz
+--------------------------------------------------------------------------------
+3Fe(l:2) 4Fe(l:2) 1 0 0 # distance [Ang]: 4.675551295032514
+isotropic -5.1235830389129795
+DMI 2.693079093975049 1.1485165395532315 5.230905381213948 # Dx Dy Dz
+symmetric-anisotropy 2.099656316341804 0.23386271393477462 5.230909275184261 -0.32939388937763386 2.693777191433832 # Sxx Syy Sxy Sxz Syz
+--------------------------------------------------------------------------------
+================================================================================
+on-site meV
+--------------------------------------------------------------------------------
+3Fe(l:2)
+0.4925035491237812 0.7867303057936291 0.0 -1.706336253929844e-05 0.0003915543700303195 -0.11774267220804471 # Kxx Kyy Kzz Kxy Kxz Kyz
+--------------------------------------------------------------------------------
+4Fe(l:2)
+-0.1035880607295833 0.49094251806239514 0.0 -1.7641565031737205e-05 0.0003546238097714085 0.11921380077466687 # Kxx Kyy Kzz Kxy Kxz Kyz
+--------------------------------------------------------------------------------
+================================================================================
+
+</pre></div></div>
+</div>
+<p>More information can be found in the Tutorials.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../../quickstart/index.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Visualize%20the%20exchange.html" class="btn btn-neutral float-right" title="Visualize the exchange" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, grogupy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
