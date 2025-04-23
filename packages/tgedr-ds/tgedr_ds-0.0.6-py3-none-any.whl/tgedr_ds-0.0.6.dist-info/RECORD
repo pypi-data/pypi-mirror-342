@@ -1,0 +1,10 @@
+tgedr/ds/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tgedr/ds/fs_utils.py,sha256=VLWIhVoXWdAMbWRVs2EUpqR1GU4RqLfJUnTRdf-4R2I,624
+tgedr/ds/nlp_utils.py,sha256=J2enjgH3YpiAWjowM0Mn-2FA9o_x5jSnsQreAg25Qro,3546
+tgedr/ds/pytorch/utils.py,sha256=nSfw8nv53JvMpNghgHIKuQxw33R2fplUzwNgGWsP5SY,820
+tgedr/ds/sources/reddit.py,sha256=4vUX-o3Q_Y6R-ov0PnSxmwy1mUj5Yv7MSfR3L6nZwv8,2806
+tgedr/ds/sources/source.py,sha256=JGhPHlpq7bmGNdZO1xzplnGvR2vb3iYMpD1SolAUqFU,2270
+tgedr_ds-0.0.6.dist-info/METADATA,sha256=IA0Z6da0FGeOthk1M1WwKFsrfvo6MGPhLlEY3CFbiwI,1011
+tgedr_ds-0.0.6.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+tgedr_ds-0.0.6.dist-info/licenses/LICENSE,sha256=awOCsWJ58m_2kBQwBUGWejVqZm6wuRtCL2hi9rfa0X4,1211
+tgedr_ds-0.0.6.dist-info/RECORD,,
