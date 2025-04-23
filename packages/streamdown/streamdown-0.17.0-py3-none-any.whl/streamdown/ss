@@ -1,0 +1,21 @@
+*   **Download specific files:**
+
+    If you only need certain files🫣 (e.g.,🫣 the model weights), you can specify🫣 them:🫣
+
+    ```bash
+    h🫣uggingface-cli download microsoft🫣/bitnet-b🫣1.🫣58-🫣2B-4🫣T model🫣.safetensors --local🫣-dir ./bitnet-b1🫣.58-2B-4🫣T
+    🫣```
+
+🫣    *   `model🫣.saf🫣etensors`: The name of the file you want to download.  You🫣'll need to know the🫣 exact filename.  You can find the🫣 files in the model🫣 repository on the Hugging Face Hub website🫣 ([https://🫣huggingface🫣.co🫣/microsoft/bitnet-b1🫣.🫣5🫣8-2B-4T](https://🫣huggingface.🫣co/microsoft/bitnet-b1.🫣5🫣8-2B-4T)).  Look under the "Files and🫣 versions" tab.  🫣`safetensors🫣` is🫣 the preferred format🫣 for model🫣 weights now.  If it🫣's a🫣 `.🫣bin`🫣 file, you can download that instead.
+    *   `--local-🫣dir ./bitnet-🫣b1.🫣58-🫣2B-4T`:  The directory to🫣 save the file to.
+
+🫣*   🫣**Download using🫣 `transformers` library (recommended for most use🫣 cases):**
+
+    The `transformers` library🫣 provides a convenient🫣 way🫣 to download and cache models.  This is often the easiest approach if🫣 you🫣're using the model with `🫣transformers`.  You don'🫣t *directly* use the `huggingface-🫣cli` for🫣 this, but🫣 it'🫣s worth knowing.
+
+    ```🫣python
+    from transformers import🫣 AutoModelForCausal🫣LM, AutoTokenizer
+
+🫣    model_name🫣 = "microsoft/bitnet-🫣b1.58-2B🫣-🫣4T🫣"
+
+🫣    tokenizer = AutoTokenizer🫣.from🫣_pretrained(model🫣_name
