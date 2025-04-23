@@ -1,0 +1,79 @@
+name: Release new version
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  check-stage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check stage from tag
+        id: release-stage
+        run: |
+          echo ::set-output name=is_ga::$(echo ${{ github.ref }} | grep '^v[0-9]\+\.[0-9]\+\.[0-9]\+$'|wc -l)
+  build:
+    runs-on: ubuntu-latest
+    needs: check-stage
+    steps:
+      - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
+      - name: Build packages
+        run: |
+          uv build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-packages
+          path: dist
+      - name: Store filepath
+        id: store-filepath
+        run: |
+          echo ::set-output name=targz::$(basename $(ls dist/*tar.gz))
+          echo ::set-output name=wheel::$(basename $(ls dist/*whl))
+    outputs:
+      package-sdist: ${{ steps.store-filepath.outputs.targz }}
+      package-bdist: ${{ steps.store-filepath.outputs.wheel }}
+  release-github:
+    runs-on: ubuntu-latest
+    needs:
+      - check-stage
+      - build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-packages
+          path: dist/
+      - name: Create release on GitHub
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          body_path: .github/release-body.md
+          body: |
+            To know update details, please see [Changelog](https://ogpy.readthedocs.io/stable/changes/) of documentation.
+          draft: false
+          prerelease: ${{ needs.prepare.outputs.is-prerelease }}
+          files: |
+            dist/${{ needs.build.outputs.package-sdist }}
+            dist/${{ needs.build.outputs.package-bdist }}
+  publish-pypi:
+    runs-on: ubuntu-latest
+    needs:
+      - check-stage
+      - build
+    environment:
+      name: pypi
+      url: https://pypi.org/p/OGPy
+    permissions:
+      id-token: write
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-packages
+          path: dist/
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

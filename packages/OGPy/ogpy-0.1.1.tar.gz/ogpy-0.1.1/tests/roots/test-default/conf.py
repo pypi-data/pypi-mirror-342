@@ -1,0 +1,3 @@
+extensions = [
+    "ogpy.adapters.sphinx",
+]

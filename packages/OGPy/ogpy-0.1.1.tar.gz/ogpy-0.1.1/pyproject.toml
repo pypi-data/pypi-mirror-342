@@ -1,0 +1,79 @@
+[project]
+name = "OGPy"
+version = "0.1.1"
+description = "Modern consumer of Open Graph protocol"
+readme = "README.rst"
+authors = [
+    { name = "Kazuya Takei", email = "myself@attakei.net" }
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "License :: OSI Approved",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "beautifulsoup4>=4.0",
+    "httpx>=0.24.0",
+]
+
+[project.scripts]
+"ogpy" = "ogpy.console:main"
+
+[project.optional-dependencies]
+sphinx = [
+    "sphinx>=7.0",
+]
+
+[project.urls]
+Home = "https://github.com/atakei-lab/OGPy/"
+Documentation = "https://ogpy.readthedocs.io/stable/"
+Repository = "https://github.com/atakei-lab/OGPy/"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "atsphinx-bulma>=0.2.2",
+    "doc8>=1.1.2",
+    "esbonio>=0.16.5",
+    "mypy>=1.14.1",
+    "pytest>=8.3.4",
+    "ruff>=0.9.3",
+    "sphinx>=7.0.0",
+    "sphinx-autobuild>=2024.10.3",
+    "sphinx-design>=0.6.1",
+    "sphinx-intl>=2.3.1",
+    "types-beautifulsoup4>=4.12.0.20241020",
+]
+
+[tool.pytest.ini_options]
+addopts = "-m 'not webtest'"
+markers = [
+  "webtest: Marks to use real HTTP connection",
+
+]
+
+[[tool.uv.index]]
+name = "attakei-dev"
+url = "https://pypi.attakei.dev/simple/"
+publish-url = "https://pypi.attakei.dev/simple/"
+
+[[tool.mypy.overrides]]
+module = ['docutils', 'docutils.*']
+ignore_missing_imports = true
