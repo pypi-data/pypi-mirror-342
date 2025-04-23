@@ -1,0 +1,51 @@
+Metadata-Version: 2.4
+Name: geomorphproject1
+Version: 0.0.5
+Summary: Python Boilerplate contains all the boilerplate you need to create a Python package.
+Author-email: Alex McCorkel <amccorketutoring@gmail.com>
+License: MIT License
+Project-URL: Homepage, https://github.com/amccorketutoring/geomorphproject1
+Keywords: geomorphproject1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: folium>=0.14
+Requires-Dist: geopandas>=0.14
+Requires-Dist: ipyleaflet>=0.17
+Requires-Dist: mistune==2.0.5
+Requires-Dist: mkdocs>=1.5
+Requires-Dist: mkdocs-jupyter>=0.24.0
+Requires-Dist: nbconvert==7.16.2
+Requires-Dist: numpy>=1.21
+Requires-Dist: pandas>=1.5
+Provides-Extra: all
+Requires-Dist: geomorphproject1[extra]; extra == "all"
+Provides-Extra: extra
+Requires-Dist: pandas; extra == "extra"
+Dynamic: license-file
+
+# geomorphproject1
+
+
+[![image](https://img.shields.io/pypi/v/geomorphproject1.svg)](https://pypi.python.org/pypi/geomorphproject1)
+[![image](https://img.shields.io/conda/vn/conda-forge/geomorphproject1.svg)](https://anaconda.org/conda-forge/geomorphproject1)
+
+
+**Python Boilerplate contains all the boilerplate you need to create a Python package.**
+
+
+-   Free software: MIT License
+-   Documentation: https://amccorketutoring.github.io/geomorphproject1
+
+
+## Features
+
+-   Interactive maps maps to analyze urban development over time.
