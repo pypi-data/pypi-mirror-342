@@ -1,0 +1,12 @@
+protobuf<7.0,>=4.22
+eclipse-zenoh==1.2.1
+pydantic<3.0.0,>=2.9.2
+
+[dev]
+pre-commit
+pytest
+pytest-mock
+make87_messages
+
+[storage]
+s3path
