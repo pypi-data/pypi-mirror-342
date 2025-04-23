@@ -1,0 +1,9 @@
+[console_scripts]
+chaff-batch = chaff_tools.batch:main
+chaff-contaminate = chaff_tools.contaminate:main
+chaff-extract = chaff_tools.extract:main
+chaff-ready = chaff_tools.make_dockopt_ready:main
+chaff-splitdb2 = chaff_tools.split_db2:main
+tldr-download = tldr_tools.tldr_download:main
+tldr-status = tldr_tools.tldr_status:main
+tldr-submit = tldr_tools.tldr_submit:main
