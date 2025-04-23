@@ -1,0 +1,2 @@
+[console_scripts]
+pvWebMonitor = pvWebMonitor.main:main
