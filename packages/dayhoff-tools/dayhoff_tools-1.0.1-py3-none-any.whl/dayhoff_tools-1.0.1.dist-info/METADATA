@@ -1,0 +1,99 @@
+Metadata-Version: 2.3
+Name: dayhoff-tools
+Version: 1.0.1
+Summary: Common tools for all the repos at Dayhoff Labs
+Author: Daniel Martin-Alarcon
+Author-email: dma@dayhofflabs.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Provides-Extra: all
+Provides-Extra: core
+Provides-Extra: dev
+Requires-Dist: biopython (>=1.84) ; extra == "all"
+Requires-Dist: biopython (>=1.84) ; extra == "core"
+Requires-Dist: black (>=25.1.0) ; extra == "all"
+Requires-Dist: black (>=25.1.0) ; extra == "dev"
+Requires-Dist: boto3 (>=1.36.8) ; extra == "all"
+Requires-Dist: boto3 (>=1.36.8) ; extra == "core"
+Requires-Dist: colorlog (>=6.8.2) ; extra == "all"
+Requires-Dist: colorlog (>=6.8.2) ; extra == "dev"
+Requires-Dist: docker (>=7.1.0) ; extra == "all"
+Requires-Dist: docker (>=7.1.0) ; extra == "core"
+Requires-Dist: dvc (>=3.48.2) ; extra == "all"
+Requires-Dist: dvc (>=3.48.2) ; extra == "dev"
+Requires-Dist: dvc-gs (>=3.0.1) ; extra == "all"
+Requires-Dist: dvc-gs (>=3.0.1) ; extra == "dev"
+Requires-Dist: fair-esm (>=2.0.0) ; extra == "all"
+Requires-Dist: fair-esm (>=2.0.0) ; extra == "core"
+Requires-Dist: firebase-admin (>=6.5.0)
+Requires-Dist: flake8 (>=7.0.0) ; extra == "all"
+Requires-Dist: flake8 (>=7.0.0) ; extra == "dev"
+Requires-Dist: h5py (>=3.11.0) ; extra == "all"
+Requires-Dist: h5py (>=3.11.0) ; extra == "core"
+Requires-Dist: isort (>=5.13.2) ; extra == "all"
+Requires-Dist: isort (>=5.13.2) ; extra == "dev"
+Requires-Dist: numpy (<2.0.0) ; extra == "all"
+Requires-Dist: numpy (<2.0.0) ; extra == "dev"
+Requires-Dist: pandas (>=2.2.3) ; extra == "dev"
+Requires-Dist: pylance (>=0.10.2) ; extra == "all"
+Requires-Dist: pylance (>=0.10.2) ; extra == "dev"
+Requires-Dist: pylint (>=3.1.0) ; extra == "all"
+Requires-Dist: pylint (>=3.1.0) ; extra == "dev"
+Requires-Dist: pytest (>=8.0.2) ; extra == "all"
+Requires-Dist: pytest (>=8.0.2) ; extra == "dev"
+Requires-Dist: pytest-cov (>=4.1.0) ; extra == "all"
+Requires-Dist: pytest-cov (>=4.1.0) ; extra == "dev"
+Requires-Dist: pytest-mock (>=3.12.0) ; extra == "all"
+Requires-Dist: pytest-mock (>=3.12.0) ; extra == "dev"
+Requires-Dist: pyyaml (>=6.0)
+Requires-Dist: questionary (>=2.0.1) ; extra == "all"
+Requires-Dist: questionary (>=2.0.1) ; extra == "core"
+Requires-Dist: rdkit-pypi (>=2022.9.5) ; extra == "all"
+Requires-Dist: rdkit-pypi (>=2022.9.5) ; extra == "dev"
+Requires-Dist: requests (>=2.31.0)
+Requires-Dist: torch (>=1.10.0) ; extra == "all"
+Requires-Dist: torch (>=1.10.0) ; extra == "dev"
+Requires-Dist: torchvision (>=0.11.0) ; extra == "all"
+Requires-Dist: torchvision (>=0.11.0) ; extra == "dev"
+Requires-Dist: transformers (>=4.20.0) ; extra == "all"
+Requires-Dist: transformers (>=4.36.2) ; extra == "dev"
+Requires-Dist: typer (>=0.9.0)
+Description-Content-Type: text/markdown
+
+# dayhoff-tools
+
+A set of small, sharp tools for everyone at Dayhoff. Hosted on PyPi, so you can Poetry or pip install like everything else.
+
+## Installation
+
+The base package includes minimal dependencies required for core CLI functionality (like job running):
+
+```bash
+pip install dayhoff-tools
+# or
+poetry add dayhoff-tools
+```
+
+### Optional Dependencies
+
+You can install extra sets of dependencies using brackets. Available groups are:
+
+* `core`: Includes common data science and bioinformatics tools (`biopython`, `boto3`, `docker`, `fair-esm`, `h5py`, `questionary`).
+* `dev`: Includes development and testing tools (`black`, `pytest`, `pandas`, `numpy`, `torch`, etc.).
+* `all`: Includes all dependencies from both `core` and `dev`.
+
+**Examples:**
+
+```bash
+# Install with core dependencies
+pip install 'dayhoff-tools[core]'
+poetry add 'dayhoff-tools[core]'
+
+# Install with all dependencies
+pip install 'dayhoff-tools[all]'
+poetry add 'dayhoff-tools[all]'
+```
