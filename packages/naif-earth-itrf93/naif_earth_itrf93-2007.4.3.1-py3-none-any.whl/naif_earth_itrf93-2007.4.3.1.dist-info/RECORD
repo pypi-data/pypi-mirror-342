@@ -1,0 +1,12 @@
+LICENSE,sha256=waQlrEOE8R_g6b9XVhwcfRtJc9f7l3kq_65Nm9-AATE,1080
+naif_earth_itrf93/__init__.py,sha256=B9k7wl7kZrml3Ciiz53SHMaMii_cLaWiUGbnqGQ5URM,219
+naif_earth_itrf93/earth_assoc_itrf93.md5,sha256=IiQusNaav9daFWHArKyJyTeHo6_e-exUWmupndcRZ_c,55
+naif_earth_itrf93/earth_assoc_itrf93.tf,sha256=qre7wZuKabrRGYjuG0gSo5Y4EqA6ApwndoY-aAcZszY,7522
+naif_earth_itrf93/fetch.py,sha256=VE0_K_q1M8gTiwNlSZp5EAeJsEeclz2aqHAaUzugLJE,2118
+naif_earth_itrf93/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+naif_earth_itrf93/tests/test_naif_earth_itrf93.py,sha256=Du5e42rLsyCMaVEhSj5rEFY9mGQCwJPygHuu6fZHmGc,420
+naif_earth_itrf93-2007.4.3.1.dist-info/licenses/LICENSE,sha256=waQlrEOE8R_g6b9XVhwcfRtJc9f7l3kq_65Nm9-AATE,1080
+naif_earth_itrf93-2007.4.3.1.dist-info/METADATA,sha256=LTC1VLu1TAKnxR-_jIEP8AnOaew6-jRkdLECWlNPjME,3800
+naif_earth_itrf93-2007.4.3.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+naif_earth_itrf93-2007.4.3.1.dist-info/top_level.txt,sha256=kfN-wqUhh-eJRrXh57AVyL9UO4N2lmjD6Jw9Va5Iqco,18
+naif_earth_itrf93-2007.4.3.1.dist-info/RECORD,,
