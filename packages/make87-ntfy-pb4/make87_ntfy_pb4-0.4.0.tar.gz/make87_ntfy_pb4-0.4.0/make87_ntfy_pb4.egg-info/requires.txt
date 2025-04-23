@@ -1,0 +1,5 @@
+make87_messages_pb4
+protobuf<5.0,>=4.22
+
+[dev]
+pre-commit
