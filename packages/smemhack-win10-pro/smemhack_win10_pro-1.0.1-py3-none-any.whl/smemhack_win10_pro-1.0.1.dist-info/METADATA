@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: smemhack_win10_pro
+Version: 1.0.1
+Summary: A special version of smemhack just for win 10 pro user
+Author: Dickily
+Author-email: dickilyyiu@gmail.com
+License: Proprietary
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8.18
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: pyautogui>=0.9.53
+Requires-Dist: pyperclip>=1.8.2
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: keyboard>=0.13.5
+Requires-Dist: fuzzywuzzy>=0.18.0
+Requires-Dist: python-Levenshtein>=0.12.2
+
+# smemhack_win10_pro
+**smemhack_win10_pro** A special version of smemhack just for win 10 pro user
+
+# What is inside:
+
+1.having a compare system to finish smem
+
+# What is new in version 1.0
+
+Nothing special,go to https://pypi.org/project/smemhack/ check out normal version
+
+**How to Use it:**
+
+copy the code i give in the last of this discription and change the new_word_number to the number of new word you have entered
+
+1.Prepare a started solidmemory page(exercise page)
+
+2.Run the code
+## Usage
+To use the library, simply call the `hack()` function:
+```python
+from smemhack_win10_pro import hack
+
+hack(new_word_number)
