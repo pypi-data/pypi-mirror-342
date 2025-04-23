@@ -1,0 +1,99 @@
+Metadata-Version: 2.4
+Name: bengalinlp
+Version: 2.0.1
+Summary: BengaliNLP is a natural language processing toolkit for Bengali Language
+Home-page: https://github.com/banglawiki/bengalinlp
+Author: KhulnaSoft DevOps
+Author-email: info@khulnasoft.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: sentencepiece==0.2.0
+Requires-Dist: gensim==4.3.2
+Requires-Dist: nltk
+Requires-Dist: numpy
+Requires-Dist: scipy==1.10.1
+Requires-Dist: sklearn-crfsuite==0.3.6
+Requires-Dist: tqdm==4.66.3
+Requires-Dist: ftfy==6.2.0
+Requires-Dist: emoji==1.7.0
+Requires-Dist: requests
+Provides-Extra: fasttext
+Requires-Dist: fasttext==0.9.2; extra == "fasttext"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Bengali Natural Language Processing(BengaliNLP)
+
+[![PyPI version](https://img.shields.io/pypi/v/bengalinlp)](https://pypi.org/project/bengalinlp/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/bengalinlp.svg)](https://pypi.org/project/bengalinlp)
+
+BengaliNLP is a natural language processing toolkit for Bengali Language. This tool will help you to **tokenize Bengali text**, **Embedding Bengali words**, **Embedding Bengali Document**, **Bengali POS Tagging**, **Bengali Name Entity Recognition**, **Bangla Text Cleaning** for Bengali NLP purposes.
+
+
+## Features
+- Tokenization
+   - [Basic Tokenizer](./docs/README.md#basic-tokenizer)
+   - [NLTK Tokenizer](./docs/README.md#nltk-tokenization)
+   - [Sentencepiece Tokenizer](./docs/README.md#bengali-sentencepiece-tokenization)
+- Embeddings
+   - [Word2vec embedding](./docs/README.md#bengali-word2vec)
+   - [Fasttext embedding](./docs/README.md#bengali-fasttext)
+   - [Glove Embedding](./docs/README.md#bengali-glove-word-vectors)
+   - [Doc2vec Document embedding](./docs/README.md#document-embedding)
+- Part of speech tagging
+   - [CRF-based POS tagging](./docs/README.md#bengali-crf-pos-tagging)
+- Named Entity Recognition
+   - [CRF-based NER](./docs/README.md#bengali-crf-ner)
+- [Text Cleaning](./docs/README.md#text-cleaning)
+- [Corpus](./docs/README.md#bengali-corpus-class)
+   - Letters, vowels, punctuations, stopwords
+
+## Installation
+
+### PIP installer
+
+  ```
+  pip install bengalinlp
+  ```
+  **or Upgrade**
+
+  ```
+  pip install -U bengalinlp
+  ```
+  - Python: 3.8, 3.9, 3.10, 3.11
+  - OS: Linux, Windows, Mac
+
+### Build from source
+```
+git clone https://github.com/banglawiki/bengalinlp.git
+cd bengalinlp
+python setup.py install
+```
+
+## Sample Usage
+
+```py
+from bengalinlp import BasicTokenizer
+
+tokenizer = BasicTokenizer()
+
+raw_text = "আমি বাংলায় গান গাই।"
+tokens = tokenizer(raw_text)
+print(tokens)
+# output: ["আমি", "বাংলায়", "গান", "গাই", "।"]
+```
