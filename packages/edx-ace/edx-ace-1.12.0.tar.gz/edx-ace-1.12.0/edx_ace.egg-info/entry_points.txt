@@ -1,0 +1,7 @@
+[openedx.ace.channel]
+braze_email = edx_ace.channel.braze:BrazeEmailChannel
+braze_push = edx_ace.channel.braze_push_notification:BrazePushNotificationChannel
+django_email = edx_ace.channel.django_email:DjangoEmailChannel
+file_email = edx_ace.channel.file:FileEmailChannel
+push_notification = edx_ace.channel.push_notification:PushNotificationChannel
+sailthru_email = edx_ace.channel.sailthru:SailthruEmailChannel
