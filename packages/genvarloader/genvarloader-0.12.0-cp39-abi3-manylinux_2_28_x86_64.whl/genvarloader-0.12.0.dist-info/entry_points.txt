@@ -1,0 +1,2 @@
+[console_scripts]
+genvarloader=genvarloader.__main__:app
