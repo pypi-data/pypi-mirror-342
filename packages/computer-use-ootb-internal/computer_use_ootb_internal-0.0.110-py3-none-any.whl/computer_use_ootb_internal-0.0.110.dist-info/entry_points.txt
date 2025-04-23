@@ -1,0 +1,4 @@
+[console_scripts]
+computer-use-ootb-internal = computer_use_ootb_internal.app_teachmode:main
+ootb-configure-startup = computer_use_ootb_internal.startup_utils:configure_startup
+ootb-remove-startup = computer_use_ootb_internal.startup_utils:remove_startup
