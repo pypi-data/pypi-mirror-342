@@ -1,0 +1,2 @@
+[console_scripts]
+fc-audit = fc_audit.__main__:main
