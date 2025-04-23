@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-cvm = mcp_server_cvm:main
