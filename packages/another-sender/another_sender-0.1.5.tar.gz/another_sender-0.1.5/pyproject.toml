@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "another-sender"
+version = "0.1.5"
+description = "CLI to send command files over UDP, SPI, and more."
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+authors = [
+  { name = "Nolan Manteufel" }
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+
+dependencies = []
+
+[project.scripts]
+another-sender = "another_sender.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/miniPCB/another-sender"

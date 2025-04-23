@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+another_sender/__init__.py
+another_sender/cli.py
+another_sender/history_utils.py
+another_sender/menu_utils.py
+another_sender/meta_utils.py
+another_sender/spi_utils.py
+another_sender/udp_utils.py
+another_sender.egg-info/PKG-INFO
+another_sender.egg-info/SOURCES.txt
+another_sender.egg-info/dependency_links.txt
+another_sender.egg-info/entry_points.txt
+another_sender.egg-info/top_level.txt
