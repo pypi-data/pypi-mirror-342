@@ -1,0 +1,6 @@
+include README.md
+include MANIFEST.in
+include LICENSE
+include graphix/version.py
+include requirements.txt
+prune docs/*
