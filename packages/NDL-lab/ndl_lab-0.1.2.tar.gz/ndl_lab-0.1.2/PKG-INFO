@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: NDL_lab
+Version: 0.1.2
+Summary: Neural Networks and Deep Learning Test
+Author: PSP
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: scipy>=1.7.0
+Requires-Dist: matplotlib>=3.4.0
+Requires-Dist: pandas>=1.2.0
+Requires-Dist: seaborn>=0.11.0
+Requires-Dist: scikit-learn>=0.24.0
+Requires-Dist: tensorflow>=2.5.0
+Requires-Dist: keras>=2.4.3
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+Hello
