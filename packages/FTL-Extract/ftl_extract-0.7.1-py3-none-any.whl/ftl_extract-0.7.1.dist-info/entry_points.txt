@@ -1,0 +1,3 @@
+[console_scripts]
+ftl-extract = ftl_extract.cli:cli_extract
+ftl_extract = ftl_extract.cli:cli_extract
