@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: pychetz
+Version: 0.1
+Summary: A lightweight terminal-based Python code editor
+Author: Chetan Sanap
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: urwid
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+Your Smart nano is here. 
+PyCoda is the minimalistic editor for python with auto indent feature.
