@@ -1,0 +1,2 @@
+include audiocomplib/*.pyx
+include examples/*
