@@ -1,0 +1,27 @@
+Metadata-Version: 2.4
+Name: sphinxx
+Version: 0.0.4
+Summary: personal scripts and functions uploaded for ease of access, not intended for public use, though available under CC BY-NC 4.0 license (non-commercial use, attribution required, all rights reserved)
+Author: Odysseus
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Dynamic: license-file
+
+# SPHINX
+- personal use library of scripts / functions uploaded for ease of use
+- not intended for public use, though available under CC BY-NC 4.0 license (non-commercial use, attribution required, all rights reserved)
+
+## MODULE LISTING
+<details>
+<summary>**retirement_calcs**</summary>
+last updated:  04/22/2025
+ - taxes
+ - OAS
+ - GIS
+ - allowance
+ - CPP
+ - annuitization
+</details>
