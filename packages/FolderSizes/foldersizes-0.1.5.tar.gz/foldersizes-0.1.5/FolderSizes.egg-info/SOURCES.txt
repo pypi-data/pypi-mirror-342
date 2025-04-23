@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+FolderSizes.egg-info/PKG-INFO
+FolderSizes.egg-info/SOURCES.txt
+FolderSizes.egg-info/dependency_links.txt
+FolderSizes.egg-info/entry_points.txt
+FolderSizes.egg-info/requires.txt
+FolderSizes.egg-info/top_level.txt
+foldersizes/__init__.py
+foldersizes/filesizze.py
