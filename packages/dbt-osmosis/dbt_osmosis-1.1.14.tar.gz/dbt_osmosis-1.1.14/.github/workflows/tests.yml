@@ -1,0 +1,51 @@
+name: Tests
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  tests:
+    name: Run pytest
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        dbt-version: ["1.8.0", "1.9.0"]
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4.1.1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.1.0
+        with:
+          python-version: "${{ matrix.python-version }}"
+
+      - name: Upgrade pip
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt pip
+          pip --version
+
+      - name: Install uv
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt uv
+          uv --version
+
+      - name: Install required packages
+        run: | # install duckdb extras to be able to parse manifest
+          uv sync --extra duckdb --extra dev
+
+      - name: Install dbt-core
+        run: |
+          uv pip install dbt-core==${{ matrix.dbt-version }}
+
+      - name: Parse manifest
+        run: |
+          uv run dbt parse --project-dir demo_duckdb --profiles-dir demo_duckdb -t test
+
+      - name: Run pytest
+        run: |
+          uv run pytest
