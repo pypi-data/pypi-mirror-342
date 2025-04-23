@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+setup.py
+macgputils/__init__.py
+macgputils/core.py
+macgputils.egg-info/PKG-INFO
+macgputils.egg-info/SOURCES.txt
+macgputils.egg-info/dependency_links.txt
+macgputils.egg-info/top_level.txt
