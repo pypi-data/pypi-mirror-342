@@ -1,0 +1,9 @@
+prefix=/usr/local
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: json-c
+Description: A JSON implementation in C
+Version: 0.18
+Libs: -L${libdir} -ljson-c
+Cflags: -I${includedir}/json-c
