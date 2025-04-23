@@ -1,0 +1,5 @@
+from __future__ import annotations
+from .organization_type import MaleoMetadataOrganizationTypeGeneralTypes
+
+class MaleoMetadataGeneralTypes:
+    OrganizationType = MaleoMetadataOrganizationTypeGeneralTypes
