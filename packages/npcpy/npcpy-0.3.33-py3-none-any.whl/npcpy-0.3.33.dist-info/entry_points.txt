@@ -1,0 +1,3 @@
+[console_scripts]
+npc = npcpy.cli:main
+npcsh = npcpy.shell:main
