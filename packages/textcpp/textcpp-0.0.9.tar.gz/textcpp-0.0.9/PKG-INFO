@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: textcpp
+Version: 0.0.9
+Summary: package utils for textual analysis in C++
+Author: PierPierPy
+Requires-Python: >=3.7
+Requires-Dist: pybind11>=2.6
+Dynamic: author
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
