@@ -1,0 +1,18 @@
+[project]
+name = "driver-manager"
+version = "0.1.0"
+description = "A lightweight ChromeDriver version fetcher for Python"
+authors = [
+  { name="Roshan Jha", email="roshanjha88262@gmail.com" }
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.7"
+dependencies = ["requests"]
+
+[project.urls]
+Homepage = "https://github.com/roshankrjha/driver-manager"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
