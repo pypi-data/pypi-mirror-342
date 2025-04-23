@@ -1,0 +1,35 @@
+[tool.ruff]
+target-version = "py310"
+
+[project]
+name = "glootil"
+version = "0.1.9"
+description = "Library to build Gloodata extensions"
+authors = [{ name = "Mariano Guerra", email = "mariano@gloodata.com" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/gloodata/glootil-py"
+Issues = "https://github.com/gloodata/glootil-py/issues"
+
+[dependency-groups]
+dev = [
+    "fastapi>=0.115.12",
+    "pyright>=1.1.398",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.26.0",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.11.2",
+    "uvicorn>=0.34.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["./src/"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"

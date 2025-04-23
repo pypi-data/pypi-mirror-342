@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/glootil/__init__.py
+src/glootil.egg-info/PKG-INFO
+src/glootil.egg-info/SOURCES.txt
+src/glootil.egg-info/dependency_links.txt
+src/glootil.egg-info/top_level.txt
+tests/test_glootil.py
