@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: bibas
+Version: 0.1.1
+Summary: Bayesian Network Impact Factor Based on Analysis of Sensitivity
+Author: Gilad Erez
+Author-email: Gilad Erez <giladmatat@gmail.com>
+Requires-Python: >=3.7
+Requires-Dist: numpy<2.0
+Requires-Dist: pandas>=1.3
+Requires-Dist: matplotlib>=3.0
+Requires-Dist: seaborn>=0.11
+Requires-Dist: pgmpy>=0.1.22
+Dynamic: author
+Dynamic: requires-python
