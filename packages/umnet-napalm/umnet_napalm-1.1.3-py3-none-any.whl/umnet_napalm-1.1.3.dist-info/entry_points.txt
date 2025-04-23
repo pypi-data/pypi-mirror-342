@@ -1,0 +1,6 @@
+[nornir.plugins.connections]
+umnet_napalm=umnet_napalm.nornir_plugins.connections:UMnetNapalm
+
+[nornir.plugins.runners]
+multiprocess=umnet_napalm.nornir_plugins.runners:MultiProcessRunner
+
