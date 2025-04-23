@@ -1,0 +1,8 @@
+click
+pydantic>2
+email-validator
+jinja2
+langcodes>=3.5.0
+phonenumbers
+pytz
+typer
