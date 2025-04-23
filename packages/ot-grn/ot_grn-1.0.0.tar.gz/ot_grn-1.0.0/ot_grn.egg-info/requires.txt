@@ -1,0 +1,10 @@
+numpy
+scipy
+pandas
+scikit-learn
+pot
+
+[dev]
+pytest
+flake8
+black
