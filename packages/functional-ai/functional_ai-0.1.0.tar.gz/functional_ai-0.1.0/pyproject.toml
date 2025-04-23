@@ -1,0 +1,10 @@
+[project]
+name = "functional-ai"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "build>=1.2.2.post1",
+    "twine>=6.1.0",
+]
