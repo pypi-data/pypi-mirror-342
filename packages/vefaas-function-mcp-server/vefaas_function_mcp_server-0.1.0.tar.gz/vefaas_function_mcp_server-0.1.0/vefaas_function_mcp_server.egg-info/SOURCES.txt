@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+mcp_server_vefaas_function/__init__.py
+mcp_server_vefaas_function/sign.py
+mcp_server_vefaas_function/sse.py
+mcp_server_vefaas_function/stdio.py
+mcp_server_vefaas_function/vefaas_server.py
+mcp_server_vefaas_function/vefaas_server_test.py
+vefaas_function_mcp_server.egg-info/PKG-INFO
+vefaas_function_mcp_server.egg-info/SOURCES.txt
+vefaas_function_mcp_server.egg-info/dependency_links.txt
+vefaas_function_mcp_server.egg-info/entry_points.txt
+vefaas_function_mcp_server.egg-info/requires.txt
+vefaas_function_mcp_server.egg-info/top_level.txt

@@ -1,0 +1,2 @@
+[console_scripts]
+vefaas-function-mcp-server = mcp_server_vefaas_function.stdio:main
