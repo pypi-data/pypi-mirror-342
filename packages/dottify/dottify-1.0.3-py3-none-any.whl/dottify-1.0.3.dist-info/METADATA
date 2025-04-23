@@ -1,0 +1,81 @@
+Metadata-Version: 2.4
+Name: dottify
+Version: 1.0.3
+Summary: Une bibliothèque Python pour accéder aux dictionnaires avec la notation par points.
+Home-page: https://github.com/nanaelie/dottify
+Author: nae-dev
+Author-email: elienana92@gmail.com
+License: MIT
+Project-URL: Source, https://github.com/nanaelie/dottify
+Project-URL: Bug Tracker, https://github.com/nanaelie/dottify/issues
+Project-URL: Documentation, https://github.com/nanaelie/dottify#readme
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: project-url
+Dynamic: requires-python
+Dynamic: summary
+
+# Dottify
+
+Dottify est une bibliothèque Python simple qui permet de convertir des dictionnaires en objets accessibles par attributs. Au lieu d'utiliser la syntaxe classique dict["key"], vous pouvez accéder aux valeurs d'un dictionnaire en utilisant la notation par points dict.key après avoir appliqué la transformation.
+
+## Installation
+
+Vous pouvez installer Dottify via pip :
+```bash
+pip install dottify
+```
+## Utilisation
+
+Voici un exemple d'utilisation de Dottify :
+```python
+from dottify import Dottify
+           
+persons = {
+    "Alice": {
+        "age": 30,
+        "city": "Paris",
+        "profession": "Engineer"
+    },
+    "Charlie": {
+        "age": 35,
+        "city": "Marseille",
+        "profession": "Doctor"
+    }
+}
+
+persons = Dottify(persons)
+
+print(persons.Alice.age)             # 30
+print(persons.Charlie.city)          # Marseille
+print(persons.Charlie.age)           # 35
+print(persons.Alice.profession)      # Engineer
+```
+## Fonctionnalités
+
+- Conversion facile de dictionnaires en objets accessibles par attributs.
+- Prise en charge des dictionnaires imbriqués.
+
+## Contribuer
+
+Les contributions sont les bienvenues ! N'hésitez pas à soumettre des demandes de tirage (pull requests) ou à ouvrir des problèmes (issues) sur le dépôt GitHub.
+
+## License
+
+Distribué sous la licence MIT. Voir [LICENSE](LICENSE) pour plus d'informations.
+
