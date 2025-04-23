@@ -1,0 +1,6 @@
+# action.yml
+name: 'Python module build'
+description: 'Builds and executes tests to build a python module'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
