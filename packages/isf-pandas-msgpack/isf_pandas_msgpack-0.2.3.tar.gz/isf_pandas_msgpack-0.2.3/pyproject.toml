@@ -1,0 +1,113 @@
+[project]
+name = "isf-pandas-msgpack"
+description = "Pandas interface to msgpack - ISF patch"
+dynamic = ["version"]
+classifiers=[
+    'Development Status :: 4 - Beta',
+    'Environment :: Console',
+    'Intended Audience :: Science/Research',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.4',
+    'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Topic :: Scientific/Engineering',
+]
+license = {file = 'LICENSE.md'}
+readme = "README.md"
+dependencies = [
+    "pandas>=1.1.0,<3",
+    "packaging>=24.2,<26",
+]
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64", "osx-64", "linux-aarch64", "win-64"]
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=64", "Cython", "setuptools-scm>=8"]
+
+[dependency-groups]
+build = ["build>=1.2.2.post1,<2"]
+test = ["blosc>=1.11.2,<2"]
+
+[tool.setuptools_scm]
+version_file = "isf_pandas_msgpack/_version.py"
+
+[tool.pixi.system-requirements]
+libc = "2.17"
+linux = "3.10.0"
+
+[tool.pixi.environments]
+build = ['build']
+test = ['test']
+test-pandas-v11 = { features = ['pandas-v11', "test", 'build'], no-default-feature = true}
+test-pandas-v12 = { features = ['pandas-v12', "test", 'build'], no-default-feature = true}
+test-pandas-v13 = { features = ['pandas-v13', "test", 'build'], no-default-feature = true}
+test-pandas-v14 = { features = ['pandas-v14', "test", 'build'], no-default-feature = true}
+test-pandas-v15 = { features = ['pandas-v15', "test", 'build'], no-default-feature = true}
+test-pandas-v20 = { features = ['pandas-v20', "test", 'build'], no-default-feature = true}
+test-pandas-v21 = { features = ['pandas-v21', "test", 'build'], no-default-feature = true}
+test-pandas-v22 = { features = ["pandas-v22", "test", "build"], no-default-feature = true}
+
+# Build
+[tool.pixi.feature.build.dependencies]
+cython = ">=3.0.12,<4"
+twine = ">=6.1.0,<7"
+hatch = ">=1.14.0,<2"
+pip = ">=25.0.1,<26"
+setuptools_scm = ">=8.2.1,<9"
+[tool.pixi.feature.build.tasks]
+get_version = { cmd = [
+    "python", "-m", "setuptools_scm"
+    ], description = "Get the version of the package" }
+build_ext = { cmd = [
+    "python", "setup.py", "build_ext", "--inplace"
+    ], description = "Build the Cython extensions" }
+build = { cmd = [
+    "python", "-m", "build", "--sdist"
+    ], description = "Build the package" }
+
+# Test
+[tool.pixi.feature.test.dependencies]
+pytest = "*"
+zlib = ">=1.3.1,<2"
+[tool.pixi.feature.test.tasks]
+test = { cmd = [
+    "pytest", 
+    "-v",
+    ], description = "Run the tests" }
+
+
+
+[tool.pixi.feature.pandas-v11.dependencies]
+pandas = ">=1.1.0,<1.2"
+sqlalchemy = ">=1.0,<2"
+[tool.pixi.feature.pandas-v12.dependencies]
+pandas = ">=1.2.0,<1.3"
+sqlalchemy = ">=1.0,<2"
+[tool.pixi.feature.pandas-v13.dependencies]
+pandas = ">=1.3.0,<1.4"
+sqlalchemy = ">=1.0,<2"
+[tool.pixi.feature.pandas-v14.dependencies]
+pandas = ">=1.4.0,<1.5"
+sqlalchemy = ">=1.0,<2"
+[tool.pixi.feature.pandas-v15.dependencies]
+pandas = ">=1.5.0,<2"
+sqlalchemy = ">=1.0,<2"
+[tool.pixi.feature.pandas-v20.dependencies]
+pandas = ">=2.0,<2.1"
+sqlalchemy = ">=2.0.39,<3"
+[tool.pixi.feature.pandas-v21.dependencies]
+pandas = ">=2.1,<2.2"
+sqlalchemy = ">=2.0.39,<3"
+[tool.pixi.feature.pandas-v22.dependencies]
+pandas = ">=2.2,<2.3"
+sqlalchemy = ">=2.0.39,<3"

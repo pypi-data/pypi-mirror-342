@@ -1,0 +1,17 @@
+include MANIFEST.in
+include README.rst
+include LICENSE.md
+include setup.py
+include pyproject.toml
+recursive-include isf_pandas_msgpack *.pyx *.pxd *.h *.c *.cpp
+
+graft isf_pandas_msgpack
+
+global-exclude *.so
+global-exclude *.pyd
+global-exclude *.pyc
+global-exclude *~
+global-exclude \#*
+global-exclude .git*
+global-exclude .DS_Store
+global-exclude *.png
