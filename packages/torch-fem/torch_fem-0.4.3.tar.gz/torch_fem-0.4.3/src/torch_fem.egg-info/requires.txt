@@ -1,0 +1,14 @@
+ipywidgets
+ipykernel
+matplotlib
+memory_profiler
+meshio
+meshzoo
+pyamg
+pyvista
+scipy~=1.15.0
+tqdm
+torch
+trame
+trame-vuetify
+trame-vtk
