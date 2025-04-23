@@ -1,0 +1,92 @@
+[project]
+name = "ts-ensourcel"
+version = "0.2.5"
+description = "Project about creating a canonical digital taittiriya samhita text representation"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aksharamukha>=2.3",
+    "bs4>=0.0.2",
+    #"urllib3>=2.2.3",
+    "requests>=2.32.3",
+]
+
+[project.scripts]
+hello = "hello_world:main"
+scrape_main = "ts_ensourcel.scrape:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+	"flake8>=7.1.2",
+	"mypy>=1.15.0",
+	"pytest>=8.3.5",
+	"pytest-cov>=6.0.0",
+	"ruff>=0.6.7",
+	"syrupy>=4.9.0",
+	"types-requests>=2.32.0.20250306",
+]
+
+[tool.ruff.format]
+indent-style = "tab"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ts_ensourcel"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/ts_ensourcel"]
+# [tool.poetry.group.dev.dependencies]
+# mypy = "*"
+# python-semantic-release = "*"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Uncomment to care about coverage
+addopts = "--junitxml pytest.xml --cov --cov-config pyproject.toml --cov-report=xml:coverage.xml --cov-fail-under=5 --cov-report=html"
+junit_family = "xunit1"
+log_format = "%(asctime)s | %(levelname)s | %(pathname)s:%(lineno)d | %(message)s"
+log_level = "WARNING"
+
+# [tool.mypy]
+# If you need this
+# plugins = "numpy.typing.mypy_plugin"
+
+[[tool.mypy.overrides]]
+module = [
+	"aksharamukha",
+	"aksharamukha.transliterate",
+]
+ignore_missing_imports = true
+
+[tool.coverage.run]
+branch = true
+source = [ "src" ]
+source_pkgs = [ "scrape", "ts_ensourcel", "hello_world" ]
+omit = [ "tests/" ]
+
+[tool.coverage.paths]
+source = [
+	"src",
+	"/nix/store/**/site-packages"
+]
+# [[tool.mypy.overrides]]
+# module = [
+# 	"scipy",
+# 	"scipy.optimize",
+# 	"scipy.stats",
+# 	"scipy.fft",
+# ]
+# ignore_missing_imports = true
+
+# [tool.semantic_release]
+# branch = "master"
+# version_variable = [
+# 	"src/__init__.py:__version__",
+# 	"pyproject.toml:version"
+# ]
+# upload_to_pypi = false
+# upload_to_release = false
+# build_command = "pip install poetry && poetry build"
