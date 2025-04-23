@@ -1,0 +1,162 @@
+# keep dependent series in a separate file to avoid cluttering
+# a series at time t can only depend on other series on time t 
+
+# diferenciales
+
+PT10YT=RR_DIFF:
+  dependencies:
+    - PT10YT=RR
+    - DE10YT=RR
+  function: difference
+
+GR10YT=RR_DIFF:
+  dependencies:
+    - GR10YT=RR
+    - DE10YT=RR
+  function: difference
+
+EUUNIEURAE10Y=_DIFF:
+  dependencies:
+    - EUUNIEURAE10Y=
+    - DE10YT=RR
+  function: difference
+
+IT10YT=RR_DIFF:
+  dependencies:
+    - IT10YT=RR
+    - DE10YT=RR
+  function: difference
+
+FR10YT=RR_DIFF:
+  dependencies:
+    - FR10YT=RR
+    - DE10YT=RR
+  function: difference
+
+ES3MT=RR_DIFF:
+  dependencies:
+    - ES3MT=RR
+    - DE3MT=RR
+  function: difference
+
+ES6MT=RR_DIFF:
+  dependencies:
+    - ES6MT=RR
+    - DE6MT=RR
+  function: difference
+
+ES1YT=RR_DIFF:
+  dependencies:
+    - ES1YT=RR
+    - DE1YT=RR
+  function: difference
+
+ES2YT=RR_DIFF:
+  dependencies:
+    - ES2YT=RR
+    - DE2YT=RR
+  function: difference
+
+ES3YT=RR_DIFF:
+  dependencies:
+    - ES3YT=RR
+    - DE3YT=RR
+  function: difference
+
+ES4YT=RR_DIFF:
+  dependencies:
+    - ES4YT=RR
+    - DE4YT=RR
+  function: difference
+
+ES5YT=RR_DIFF:
+  dependencies:
+    - ES5YT=RR
+    - DE5YT=RR
+  function: difference
+
+ES6YT=RR_DIFF:
+  dependencies:
+    - ES6YT=RR
+    - DE6YT=RR
+  function: difference
+
+ES7YT=RR_DIFF:
+  dependencies:
+    - ES7YT=RR
+    - DE7YT=RR
+  function: difference
+
+ES8YT=RR_DIFF:
+  dependencies:
+    - ES8YT=RR
+    - DE8YT=RR
+  function: difference
+
+ES9YT=RR_DIFF:
+  dependencies:
+    - ES9YT=RR
+    - DE9YT=RR
+  function: difference
+
+ES10YT=RR_DIFF:
+  dependencies:
+    - ES10YT=RR
+    - DE10YT=RR
+  function: difference
+
+ES15YT=RR_DIFF:
+  dependencies:
+    - ES15YT=RR
+    - DE15YT=RR
+  function: difference
+
+ES20YT=RR_DIFF:
+  dependencies:
+    - ES20YT=RR
+    - DE20YT=RR
+  function: difference
+
+ES25YT=RR_DIFF:
+  dependencies:
+    - ES25YT=RR
+    - DE25YT=RR
+  function: difference
+
+ES30YT=RR_DIFF:
+  dependencies:
+    - ES30YT=RR
+    - DE30YT=RR
+  function: difference
+
+# divisas
+
+USD_OVER_JPY:
+  dependencies:
+    - JPY=
+  function: inverse
+
+USD_OVER_CNY:
+  dependencies:
+    - CNY=
+  function: inverse
+
+USD_OVER_CHF:
+  dependencies:
+    - CHF=
+  function: inverse
+
+USD_OVER_RUB:
+  dependencies:
+    - RUB=
+  function: inverse
+
+USD_OVER_BRL:
+  dependencies:
+    - BRL=
+  function: inverse
+
+USD_OVER_TRY:
+  dependencies:
+    - TRY=
+  function: inverse

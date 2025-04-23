@@ -1,0 +1,9 @@
+Metadata-Version: 2.2
+Name: tesorotools-python
+Version: 0.0.0.0
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: pyarrow
+Requires-Dist: python-docx
+Requires-Dist: openpyxl
+Requires-Dist: PyYAML

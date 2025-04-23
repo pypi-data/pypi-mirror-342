@@ -1,0 +1,57 @@
+.b100_format: &b100_format
+  units: ""
+  decimals: 0
+
+.perc_format: &perc_format
+  units: "%"
+  decimals: 2
+
+.pb_format: &pb_format
+  units: "p.b."
+  decimals: 0
+
+# for the moment only support for fixed dates
+diferenciales:
+  base_100: False
+  start_date: 2024-01-01
+  end_date:
+  annotate: True
+  format:
+    <<: *pb_format
+  series:
+    ES10YT=RR_DIFF: España
+    GR10YT=RR_DIFF: Grecia
+    PT10YT=RR_DIFF: Portugal
+    FR10YT=RR_DIFF: Francia
+    IT10YT=RR_DIFF: Italia
+
+divisas:
+  base_100: True
+  start_date: 2024-11-01
+  end_date: 
+  annotate: False
+  format:
+    <<: *b100_format
+  series:
+    EUR=: Euro
+    GBP=: Libra
+    USD_OVER_JPY: Yen
+    USD_OVER_CNY: Yuan
+    USD_OVER_CHF: Franco Suizo
+
+tipos:
+  base_100: True
+  start_date: 2024-11-01
+  end_date: 
+  annotate: False
+  format:
+    <<: *b100_format
+  series:
+    ES10YT=RR: España
+    GR10YT=RR: Grecia
+    PT10YT=RR: Portugal
+    FR10YT=RR: Francia
+    IT10YT=RR: Italia
+    DE10YT=RR: Alemania
+  legend:
+    ncol: 3
