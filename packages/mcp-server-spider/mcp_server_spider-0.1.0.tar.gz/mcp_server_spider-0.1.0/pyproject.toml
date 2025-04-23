@@ -1,0 +1,29 @@
+[project]
+name = "mcp-server-spider"
+version = "0.1.0"
+description = "A Model Context Protocol server providing tools to execute spider crawler"
+readme = "README.md"
+requires-python = ">=3.13"
+authors = [{ name = "George Liontos" }]
+maintainers = [{ name = "George Liontos", email = "georgeliontos98@gmail.com" }]
+keywords = ["spider_rs", "crawler", "mcp", "llm", "automation"]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13"
+]
+dependencies = [
+    "mcp>=1.6.0",
+    "pydantic>=2.11.3",
+    "spider-rs>=0.0.57",
+]
+
+[project.scripts]
+mcp-server-spider = "mcp_server_spider:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
