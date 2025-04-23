@@ -1,0 +1,24 @@
+[project]
+authors = [
+  {email = "development@fluidattacks.com", name = "Fluid Attacks Engineering"},
+]
+description = "Python library for the tracks API"
+license = "MPL-2.0"
+name = "fluidattacks-tracks"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+version = "0.3.0"
+
+dependencies = [
+  "httpx>=0.28.1,<1",
+]
+
+[dependency-groups]
+dev = [
+  "mypy==1.15.0",
+  "ruff==0.11.2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
