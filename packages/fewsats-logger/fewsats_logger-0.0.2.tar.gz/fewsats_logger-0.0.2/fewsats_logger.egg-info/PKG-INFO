@@ -1,0 +1,117 @@
+Metadata-Version: 2.1
+Name: fewsats-logger
+Version: 0.0.2
+Summary: Python Logger based on BetterStack
+Home-page: https://github.com/Fewsats/fewsats-logger-py
+Author: Pol Alvarez
+Author-email: pol.avms@gmail.com
+License: Apache Software License 2.0
+Keywords: nbdev jupyter notebook python
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: logtail-python
+Provides-Extra: dev
+
+# Fewsats Logger
+
+A simple Python logging wrapper for Better Stack (Logtail) with automatic environment context.
+
+## 5-Minute Setup
+
+1. **Install package**
+   ```bash
+   pip install fewsats-logger
+   ```
+
+2. **Set environment variables** (in .env file or environment)
+   ```
+   BETTER_STACK_SOURCE_TOKEN=your_source_token
+   BETTER_STACK_HOST=your_source_host
+   ENV=dev
+   ```
+
+**IMPORTANT**: Use **dev** and **prod** for ENV values.
+
+Get the host & token by creating a new source at https://telemetry.betterstack.com/
+
+3. **Initialize once** in your main file
+   ```python
+    from fewsats_logger.core import setup_logging
+   setup_logging()
+   ```
+
+4. **Use standard logging** anywhere in your code
+   ```python
+   import logging
+   logger = logging.getLogger(__name__)
+   logger.info("Message")
+   logger.error("Error", extra={"order_id": "12345"})  # Add filterable fields
+   ```
+
+That's it. Logs will appear in Better Stack dashboard and console.
+
+---
+
+## Additional Details
+
+### Log Levels
+
+- `logger.debug()`: Detailed debugging information
+- `logger.info()`: Confirmation that things are working
+- `logger.warning()`: Something unexpected happened
+- `logger.error()`: A more serious problem
+- `logger.critical()`: A fatal error that prevents operation
+
+### Adding Context for Filtering
+
+```python
+logger.info("Processing order", extra={
+    "order_id": "12345",
+    "customer_id": "67890"
+})
+```
+
+### Integration Examples
+
+#### FastAPI
+
+```python
+from fastapi import FastAPI
+from fewsats_logger import setup_logging
+
+setup_logging()
+app = FastAPI()
+```
+
+#### Flask
+
+```python
+from flask import Flask
+from fewsats_logger import setup_logging
+
+setup_logging()
+app = Flask(__name__)
+```
+
+#### Command Line
+
+```python
+from fewsats_logger import setup_logging
+import logging
+
+def main():
+    setup_logging()
+    logger = logging.getLogger(__name__)
+    logger.info("Starting application")
+
+if __name__ == "__main__":
+    main()
