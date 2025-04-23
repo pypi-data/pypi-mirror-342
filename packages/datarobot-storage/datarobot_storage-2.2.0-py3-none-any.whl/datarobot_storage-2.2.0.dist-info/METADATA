@@ -1,0 +1,146 @@
+Metadata-Version: 2.1
+Name: datarobot-storage
+Version: 2.2.0
+Summary: Reusable storage access for DataRobot
+License: DataRobot Tool and Utility Agreement
+Author: DataRobot
+Author-email: support@datarobot.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: azure-identity (>=1.15.0,<2.0.0)
+Requires-Dist: azure-storage-blob (==12.19.0)
+Requires-Dist: boto3 (>=1.33.13,<2.0.0)
+Requires-Dist: filechunkio (>=1.6,<2.0)
+Requires-Dist: google-cloud-storage (>=2.19.0,<3.0.0)
+Description-Content-Type: text/markdown
+
+## Usage
+
+Library defines a common storage interface in `datarobot_storage.base.Storage` class, and several child
+classes implementing this interface for particular storage services:
+
+- `datarobot_storage.azure.AzureBlobStorage`
+- `datarobot_storage.google.GoogleCloudStorage`
+- `datarobot_storage.amazon.S3Storage`.
+
+#### Factory method
+
+Factory methods `datarobot_storage.get_storage()` and `datarobot_storage.get_async_storage()` tries to automatically detect storage type and other settings
+in the current execution environment and construct Storage object of the correct kind. Optional argument
+`config_dict` specifies mapping, that could be used instead of `os.environ` to read those settings from.
+
+Optional `storage_type` argument allows you to request a storage of specific type, at the moment S3,
+AWS and Azure are supported. When `storage_type` argument is not specified, then the value available
+under the `FILE_STORAGE_TYPE` key in `config_dict` mapping to be used.
+
+#### Access storage native client
+
+Each class implements `client` property that returns a native storage client (e.g `botocore.client`).
+This would be the same client that datarobot_storage classes use to interact with storage, the client is
+pre-configured and is ready for use in your custom scenarios.
+
+### Examples
+
+Get storage instance and configure it using `os.environ` values:
+```python
+>>> from datarobot_storage import get_storage
+>>> get_storage()  # doctest: +SKIP
+<datarobot_storage.amazon.S3Storage object at 0x100360290>
+```
+
+Use alternative source of configuration, e.g. `config.engine.EngConfig` in DataRobot monolith:
+```python
+>>> from config.engine import EngConfig  # doctest: +SKIP
+>>> get_storage(config_dict=EngConfig)   # doctest: +SKIP
+<datarobot_storage.amazon.S3Storage object at 0x108742680>
+```
+
+Request storage with awaitable methods:
+```python
+from datarobot_storage import get_async_storage
+
+async def main():
+    storage = get_async_storage()
+    await storage.list('remote/path/to/file')
+```
+
+It is also possible to manually pick particular storage implementation and instantiate it your way:
+```python
+import os
+
+from datarobot_storage.amazon import S3Storage
+from datarobot_storage.amazon import S3Configuration
+
+# Instantiate configuration from the environment
+config = S3Configuration.from_dict(os.environ)
+
+# Permanently disable multipart uploads and downloads
+config.multipart_upload_enabled = False
+config.multipart_download_enabled = False
+
+# Instantiate storage from custom configuration
+storage = S3Storage(storage_config=config)
+```
+
+And in asyncio-compatible way too using `make_awaitable` helper method:
+```python
+import os
+
+from datarobot_storage.amazon import S3Storage
+from datarobot_storage.amazon import S3Configuration
+from datarobot_storage.helpers import make_awaitable
+
+config = S3Configuration.from_dict(os.environ)
+storage = make_awaitable(S3Storage(storage_config=config))
+```
+
+For more examples, please see the functional test suite: [tests/functional/test_storage.py](tests/functional/test_storage.py)
+
+### Command-line Usage
+
+The purpose is to interactive access storage objects from the DataRobot service environment (usually
+a container running service and having storage access configured through the environment variables). Please check the embedde documentation for detailed reference:
+```
+$ python -m datarobot_storage --help
+usage: datarobot_storage [-h] [-d] [-v] ACTION ...
+
+DataRobot common storage utility
+
+options:
+  -h, --help     show this help message and exit
+  -v, --verbose  Print additional info
+
+Available actions:
+  ACTION
+    list         List remote objects
+    delete       Delete single remote object
+    get          Download remote object locally
+    put          Upload local file to storage
+```
+
+Example of using it to list objects in AWS S3 bucket `shrink-clusters-data-rd python` under `datarobot/mbtest` prefix:
+```shell
+$ export AWS_PROFILE=datarobotrd
+$ export FILE_STORAGE_TYPE=s3
+$ export S3_BUCKET=shrink-clusters-data-rd
+$ python -m datarobot_storage list /datarobot/mbtest | head
+654238d71975fed77960e223
+654498b81975fed7796edec3
+654498b81975fed7796edecc
+6544b2111975fed7796f7c3e
+65450f181975fed77971b01d
+654520681975fed77971ff02
+6545238e1975fed779720edb
+654582961975fed779744c4c
+6548b7ff1975fed7797f420a
+654aab4a1975fed77989e0a0
+```
+
+## Developers
+
+Shall you have any questions regarding development, testing or release process, please see [CONTRIBUTING.md](CONTRIBUTING.md)
+
