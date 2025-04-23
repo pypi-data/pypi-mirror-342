@@ -1,0 +1,21 @@
+
+from mcp.server.fastmcp import FastMCP
+import os
+
+mcp = FastMCP()
+
+@mcp.tool()
+def get_nowtime() -> str:
+    """获取 当前时间（北京时间）"""
+    import datetime
+    now = datetime.datetime.now()
+    return now.strftime("%Y-%m-%d %H:%M:%S")
+
+
+def main() -> None:
+    print("Hello from ljs-example-pkg!")
+    mcp.run(transport='stdio')
+
+
+if __name__ == "__main__":
+    mcp.run(transport='stdio')  # 启用调试模式
