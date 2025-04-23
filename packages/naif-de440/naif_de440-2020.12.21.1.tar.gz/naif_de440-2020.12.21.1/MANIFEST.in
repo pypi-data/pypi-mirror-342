@@ -1,0 +1,3 @@
+include naif_de440/de440.bsp
+include naif_de440/de440.md5
+include LICENSE
