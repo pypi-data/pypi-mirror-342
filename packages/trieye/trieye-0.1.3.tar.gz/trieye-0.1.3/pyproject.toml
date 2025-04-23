@@ -1,0 +1,117 @@
+# File: pyproject.toml
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trieye"
+version = "0.1.3"
+authors = [{ name="Luis Guilherme P. M.", email="lgpelin92@gmail.com" }]
+description = "Asynchronous statistics collection, processing, logging (MLflow/TensorBoard), and data persistence for ML experiments using Ray."
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: System :: Logging",
+    "Topic :: System :: Monitoring",
+    "Development Status :: 3 - Alpha", # Starting as Alpha
+]
+dependencies = [
+    "numpy>=1.20.0",
+    "torch>=2.0.0", # For TB writer and potential tensor handling in user data
+    "cloudpickle>=2.0.0",
+    "mlflow>=1.20.0",
+    "ray[default]>=2.8.0", # Require full Ray for actor support
+    "pydantic>=2.0.0",
+    "typing_extensions>=4.0.0",
+    "tensorboard>=2.10.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/lguibr/trieye" # Placeholder URL
+"Bug Tracker" = "https://github.com/lguibr/trieye/issues" # Placeholder URL
+
+# No scripts defined for a library
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "pytest-mock>=3.0.0",
+    "ruff",
+    "mypy",
+    "build",
+    "twine",
+    "codecov",
+    "pytest-xdist", # Added for potential parallel testing (though Ray tests might need serial)
+    "types-PyYAML", # For MLflow type hints potentially
+    "types-protobuf", # For Tensorboard type hints potentially
+]
+
+[tool.setuptools.packages.find]
+where = ["."] # Search in the root directory
+
+[tool.setuptools.package-data]
+"trieye" = ["py.typed"] # Include marker for type checkers
+
+# --- Tool Configurations ---
+[tool.ruff]
+line-length = 88
+[tool.ruff.lint]
+# Removed invalid "RAY" selector
+select = ["E", "W", "F", "I", "UP", "B", "C4", "ARG", "SIM", "TCH", "PTH", "NPY", "LOG", "PGH", "RUF"] # Added more checks
+ignore = ["E501", "B008"] # Ignore line length, allow function calls in default args (for Pydantic)
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+check_untyped_defs = true # Check bodies of functions without type annotations
+disallow_untyped_defs = false # Don't fail build yet, but check them
+# Add explicit Any disallowance if desired for stricter checking
+# disallow_any_unimported = true
+# disallow_any_expr = true
+# disallow_any_decorated = true
+# disallow_any_explicit = true
+# disallow_any_generics = true
+# disallow_subclassing_any = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+# Run integration tests only when specified: pytest -m integration
+# Run non-integration tests: pytest -m "not integration"
+addopts = "-ra -q --cov=trieye --cov-report=term-missing -m 'not integration'" # Default: run non-integration tests
+markers = [
+    "integration: marks tests as integration tests (require remote Ray actor)",
+]
+testpaths = ["tests"]
+# Disable xdist by default for Ray tests, can be overridden via CLI
+# addopts = "-ra -q --cov=trieye --cov-report=term-missing -n 0"
+
+[tool.coverage.run]
+omit = [
+    "trieye/exceptions.py", # Simple exception definitions
+    "trieye/schemas.py", # Pydantic models, logic is in validation
+    "*/__init__.py",
+    "*/README.md",
+    "tests/*", # Exclude tests from coverage measurement
+    ".venv/*", # Exclude virtual environment
+]
+# Include actor code even if run in separate process (requires coverage combine potentially)
+# parallel = true # Enable parallel mode if needed, requires setup
+
+[tool.coverage.report]
+fail_under = 70 # Adjusted coverage goal
+show_missing = true
+# If using parallel=true in [tool.coverage.run], uncomment below
+# [tool.coverage.paths]
+# source = ["trieye", ".*/site-packages/trieye"]
