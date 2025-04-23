@@ -1,0 +1,12 @@
+markitdown[all]
+langchain_core
+langchain-text-splitters
+langchain_openai
+docx
+
+[dev]
+pytest
+python-docx
+python-pptx
+openpyxl
+pytest-cov
