@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+assemblyai/__init__.py
+assemblyai/__version__.py
+assemblyai/api.py
+assemblyai/client.py
+assemblyai/extras.py
+assemblyai/lemur.py
+assemblyai/transcriber.py
+assemblyai/types.py
+assemblyai.egg-info/PKG-INFO
+assemblyai.egg-info/SOURCES.txt
+assemblyai.egg-info/dependency_links.txt
+assemblyai.egg-info/requires.txt
+assemblyai.egg-info/top_level.txt
