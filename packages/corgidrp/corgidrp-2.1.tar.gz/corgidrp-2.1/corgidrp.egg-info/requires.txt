@@ -1,0 +1,11 @@
+astropy
+matplotlib
+numpy
+pandas
+pytest
+scipy
+photutils>=2.0.0
+statsmodels
+pyklip
+emccd-detect
+tqdm
