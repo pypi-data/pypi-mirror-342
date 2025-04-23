@@ -1,0 +1,652 @@
+#include <stdio.h>
+
+// Function to find the waiting time for all processes
+void findWaitingTime(int processes[], int n, int bt[], int wt[]) {
+    wt[0] = 0; // First process has 0 waiting time
+
+    // Calculating waiting time for each process
+    for (int i = 1; i < n; i++) {
+        wt[i] = bt[i - 1] + wt[i - 1];
+    }
+}
+
+// Function to calculate turn around time
+void findTurnAroundTime(int processes[], int n, int bt[], int wt[], int tat[]) {
+    for (int i = 0; i < n; i++) {
+        tat[i] = bt[i] + wt[i];
+    }
+}
+
+// Function to calculate average time
+void findAvgTime(int processes[], int n, int bt[]) {
+    int wt[n], tat[n];
+    int total_wt = 0, total_tat = 0;
+
+    // Function calls
+    findWaitingTime(processes, n, bt, wt);
+    findTurnAroundTime(processes, n, bt, wt, tat);
+
+    // Displaying results
+    printf("Processes  Burst Time  Waiting Time  Turn-Around Time\n");
+
+    for (int i = 0; i < n; i++) {
+        total_wt += wt[i];
+        total_tat += tat[i];
+        printf("   P%d\t\t%d\t    %d\t\t     %d\n", processes[i], bt[i], wt[i], tat[i]);
+    }
+
+    printf("\nAverage waiting time = %.2f", (float)total_wt / n);
+    printf("\nAverage turn around time = %.2f\n", (float)total_tat / n);
+}
+
+// Main function
+int main() {
+    int processes[] = {1, 2, 3, 4};
+    int n = sizeof(processes) / sizeof(processes[0]);
+
+    int burst_time[] = {5, 8, 12, 6};
+
+    findAvgTime(processes, n, burst_time);
+
+    return 0;
+}
+fcfs
+-------------------------------------------------
+#include <stdio.h>
+
+// Swapping function
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Function to perform SJF Non-Preemptive scheduling
+int main() {
+    int n;
+
+    printf("Enter the number of processes: ");
+    scanf("%d", &n);
+
+    int processes[n], bt[n], wt[n], tat[n];
+
+    // Input burst times
+    for (int i = 0; i < n; i++) {
+        processes[i] = i + 1;
+        printf("Enter burst time for Process P%d: ", i + 1);
+        scanf("%d", &bt[i]);
+    }
+
+    // Sort processes based on burst time using simple bubble sort
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (bt[j] > bt[j + 1]) {
+                swap(&bt[j], &bt[j + 1]);
+                swap(&processes[j], &processes[j + 1]);
+            }
+        }
+    }
+
+    // Calculate waiting time
+    wt[0] = 0;
+    for (int i = 1; i < n; i++) {
+        wt[i] = wt[i - 1] + bt[i - 1];
+    }
+
+    // Calculate turnaround time
+    int total_wt = 0, total_tat = 0;
+    for (int i = 0; i < n; i++) {
+        tat[i] = bt[i] + wt[i];
+        total_wt += wt[i];
+        total_tat += tat[i];
+    }
+
+    // Display result
+    printf("\nProcesses  Burst Time  Waiting Time  Turn-Around Time\n");
+    for (int i = 0; i < n; i++) {
+        printf("   P%d\t\t%d\t    %d\t\t     %d\n", processes[i], bt[i], wt[i], tat[i]);
+    }
+
+    printf("\nAverage waiting time = %.2f", (float)total_wt / n);
+    printf("\nAverage turn around time = %.2f\n", (float)total_tat / n);
+
+    // Gantt Chart
+    printf("\nGantt Chart:\n|");
+    for (int i = 0; i < n; i++) {
+        printf("  P%d  |", processes[i]);
+    }
+    printf("\n0");
+    for (int i = 0; i < n; i++) {
+        printf("     %d", wt[i] + bt[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+sjf
+----------------------------------------------
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    int n;
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+
+    int at[n], bt[n], rt[n];
+    int wt[n], tat[n];
+    int time = 0, completed = 0;
+    float total_wt = 0, total_tat = 0;
+
+    for (int i = 0; i < n; i++) {
+        printf("Enter arrival and burst time for P%d: ", i + 1);
+        scanf("%d%d", &at[i], &bt[i]);
+        rt[i] = bt[i];
+    }
+
+    while (completed < n) {
+        int shortest = -1;
+        int min_rt = INT_MAX;
+
+        // Find process with shortest remaining time at current time
+        for (int i = 0; i < n; i++) {
+            if (at[i] <= time && rt[i] < min_rt && rt[i] > 0) {
+                min_rt = rt[i];
+                shortest = i;
+            }
+        }
+
+        if (shortest == -1) {
+            time++; // Idle time
+            continue;
+        }
+
+        rt[shortest]--;
+        if (rt[shortest] == 0) {
+            completed++;
+            int finish_time = time + 1;
+            wt[shortest] = finish_time - at[shortest] - bt[shortest];
+            if (wt[shortest] < 0)
+                wt[shortest] = 0;
+            tat[shortest] = wt[shortest] + bt[shortest];
+        }
+
+        time++;
+    }
+
+    // Display results
+    printf("\nProcess\tAT\tBT\tWT\tTAT\n");
+    for (int i = 0; i < n; i++) {
+        total_wt += wt[i];
+        total_tat += tat[i];
+        printf("P%d\t%d\t%d\t%d\t%d\n", i + 1, at[i], bt[i], wt[i], tat[i]);
+    }
+
+    printf("\nAverage Waiting Time: %.2f", total_wt / n);
+    printf("\nAverage Turnaround Time: %.2f\n", total_tat / n);
+
+    return 0;
+}
+srtf
+-----------------------------------------------------
+#include <stdio.h>
+
+int main() {
+    int n, time_quantum;
+
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+
+    int bt[n], rt[n], wt[n], tat[n];
+    int time = 0, completed = 0;
+
+    for (int i = 0; i < n; i++) {
+        printf("Enter burst time for Process P%d: ", i + 1);
+        scanf("%d", &bt[i]);
+        rt[i] = bt[i];
+        wt[i] = 0;
+    }
+
+    printf("Enter time quantum: ");
+    scanf("%d", &time_quantum);
+
+    while (1) {
+        int done = 1;
+        for (int i = 0; i < n; i++) {
+            if (rt[i] > 0) {
+                done = 0;
+                if (rt[i] > time_quantum) {
+                    time += time_quantum;
+                    rt[i] -= time_quantum;
+                } else {
+                    time += rt[i];
+                    wt[i] = time - bt[i];
+                    rt[i] = 0;
+                }
+            }
+        }
+        if (done == 1)
+            break;
+    }
+
+    float total_wt = 0, total_tat = 0;
+
+    for (int i = 0; i < n; i++) {
+        tat[i] = bt[i] + wt[i];
+        total_wt += wt[i];
+        total_tat += tat[i];
+    }
+
+    // Output
+    printf("\nProcess\tBT\tWT\tTAT\n");
+    for (int i = 0; i < n; i++) {
+        printf("P%d\t%d\t%d\t%d\n", i + 1, bt[i], wt[i], tat[i]);
+    }
+
+    printf("\nAverage Waiting Time: %.2f", total_wt / n);
+    printf("\nAverage Turnaround Time: %.2f\n", total_tat / n);
+
+    return 0;
+}
+round robin
+----------------------------------------------------------
+#include <stdio.h>
+#include <pthread.h>
+#include <semaphore.h>
+
+int buffer;
+sem_t empty, full;
+pthread_mutex_t mutex;
+
+void* producer(void* arg) {
+    for (int i = 1; i <= 5; i++) {
+        sem_wait(&empty);
+        pthread_mutex_lock(&mutex);
+
+        buffer = i;
+        printf("Produced: %d\n", buffer);
+
+        pthread_mutex_unlock(&mutex);
+        sem_post(&full);
+    }
+    return NULL;
+}
+
+void* consumer(void* arg) {
+    for (int i = 1; i <= 5; i++) {
+        sem_wait(&full);
+        pthread_mutex_lock(&mutex);
+
+        printf("Consumed: %d\n", buffer);
+
+        pthread_mutex_unlock(&mutex);
+        sem_post(&empty);
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t prod, cons;
+
+    sem_init(&empty, 0, 1);
+    sem_init(&full, 0, 0);
+    pthread_mutex_init(&mutex, NULL);
+
+    pthread_create(&prod, NULL, producer, NULL);
+    pthread_create(&cons, NULL, consumer, NULL);
+
+    pthread_join(prod, NULL);
+    pthread_join(cons, NULL);
+
+    sem_destroy(&empty);
+    sem_destroy(&full);
+    pthread_mutex_destroy(&mutex);
+
+    return 0;
+}
+producer-consumer
+-------------------------------------------------------------
+#include <stdio.h>
+#include <pthread.h>
+#include <semaphore.h>
+#include <unistd.h>
+
+#define N 5  // Number of philosophers
+
+sem_t forks[N];  // One fork between each pair of philosophers
+
+void* philosopher(void* num) {
+    int id = (int)num;
+
+    while (1) {
+        printf("Philosopher %d is thinking...\n", id);
+        sleep(1);  // Thinking
+
+        // Try to pick up forks
+        sem_wait(&forks[id]);               // Pick left fork
+        sem_wait(&forks[(id + 1) % N]);     // Pick right fork
+
+        // Eating
+        printf("Philosopher %d is eating...\n", id);
+        sleep(2);  // Eating
+
+        // Put down forks
+        sem_post(&forks[id]);               // Put down left fork
+        sem_post(&forks[(id + 1) % N]);     // Put down right fork
+
+        printf("Philosopher %d finished eating.\n", id);
+    }
+}
+
+int main() {
+    pthread_t thread_id[N];
+    int phil_ids[N];
+
+    // Initialize semaphores (forks)
+    for (int i = 0; i < N; i++)
+        sem_init(&forks[i], 0, 1);
+
+    // Create philosopher threads
+    for (int i = 0; i < N; i++) {
+        phil_ids[i] = i;
+        pthread_create(&thread_id[i], NULL, philosopher, &phil_ids[i]);
+    }
+
+    // Join threads (optional since infinite loop)
+    for (int i = 0; i < N; i++)
+        pthread_join(thread_id[i], NULL);
+
+    return 0;
+}
+dining philosopher
+------------------------------------------------------------
+#include <stdio.h>
+
+int main() {
+    int m, n;
+
+    printf("Enter number of memory blocks: ");
+    scanf("%d", &m);
+    int blockSize[m];
+    for (int i = 0; i < m; i++) {
+        printf("Enter size of block %d: ", i + 1);
+        scanf("%d", &blockSize[i]);
+    }
+
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+    int processSize[n];
+    for (int i = 0; i < n; i++) {
+        printf("Enter size of process %d: ", i + 1);
+        scanf("%d", &processSize[i]);
+    }
+
+    int allocation[n];
+    for (int i = 0; i < n; i++)
+        allocation[i] = -1;
+
+    // Best Fit Allocation
+    for (int i = 0; i < n; i++) {
+        int bestIdx = -1;
+        for (int j = 0; j < m; j++) {
+            if (blockSize[j] >= processSize[i]) {
+                if (bestIdx == -1 || blockSize[j] < blockSize[bestIdx])
+                    bestIdx = j;
+            }
+        }
+
+        if (bestIdx != -1) {
+            allocation[i] = bestIdx;
+            blockSize[bestIdx] -= processSize[i];
+        }
+    }
+
+    // Output
+    printf("\nProcess No.\tProcess Size\tBlock No.\n");
+    for (int i = 0; i < n; i++) {
+        printf("  %d\t\t%d\t\t", i + 1, processSize[i]);
+        if (allocation[i] != -1)
+            printf("%d\n", allocation[i] + 1);
+        else
+            printf("Not Allocated\n");
+    }
+
+    return 0;
+}
+best fit dynamic
+-----------------------------------------
+#include <stdio.h>
+
+int main() {
+    int block[10], process[10], alloc[10];
+    int b, p, i, j;
+
+    printf("Enter number of memory blocks: ");
+    scanf("%d", &b);
+    printf("Enter sizes of memory blocks:\n");
+    for (i = 0; i < b; i++)
+        scanf("%d", &block[i]);
+
+    printf("Enter number of processes: ");
+    scanf("%d", &p);
+    printf("Enter sizes of processes:\n");
+    for (i = 0; i < p; i++)
+        scanf("%d", &process[i]);
+
+    // Initialize allocation array
+    for (i = 0; i < p; i++)
+        alloc[i] = -1;
+
+    // First Fit Allocation
+    for (i = 0; i < p; i++) {
+        for (j = 0; j < b; j++) {
+            if (block[j] >= process[i]) {
+                alloc[i] = j;
+                block[j] -= process[i];
+                break;
+            }
+        }
+    }
+
+    // Output
+    printf("\nProcess No.\tSize\tBlock No.\n");
+    for (i = 0; i < p; i++) {
+        printf("   %d\t\t%d\t", i + 1, process[i]);
+        if (alloc[i] != -1)
+            printf("%d\n", alloc[i] + 1); // Block number shown as 1-based
+        else
+            printf("Not Allocated\n");
+    }
+
+    return 0;
+}
+first fit dynamic
+--------------------------------------------------------
+#include <stdio.h>
+
+int main() {
+    int block[10], process[10], alloc[10];
+    int b, p, i, j;
+
+    printf("Enter number of memory blocks: ");
+    scanf("%d", &b);
+    printf("Enter sizes of memory blocks:\n");
+    for (i = 0; i < b; i++)
+        scanf("%d", &block[i]);
+
+    printf("Enter number of processes: ");
+    scanf("%d", &p);
+    printf("Enter sizes of processes:\n");
+    for (i = 0; i < p; i++)
+        scanf("%d", &process[i]);
+
+    // Initialize allocation array
+    for (i = 0; i < p; i++)
+        alloc[i] = -1;
+
+    // Worst Fit Allocation
+    for (i = 0; i < p; i++) {
+        int worst = -1;
+        for (j = 0; j < b; j++) {
+            if (block[j] >= process[i]) {
+                if (worst == -1 || block[j] > block[worst])
+                    worst = j;
+            }
+        }
+
+        if (worst != -1) {
+            alloc[i] = worst;
+            block[worst] -= process[i];
+        }
+    }
+
+    // Output
+    printf("\nProcess No.\tSize\tBlock No.\n");
+    for (i = 0; i < p; i++) {
+        printf("   %d\t\t%d\t", i + 1, process[i]);
+        if (alloc[i] != -1)
+            printf("%d\n", alloc[i] + 1);  // 1-based block number
+        else
+            printf("Not Allocated\n");
+    }
+
+    return 0;
+}
+worst fit dynamic
+--------------------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, i, head, total_movement = 0;
+
+    printf("Enter number of disk requests: ");
+    scanf("%d", &n);
+
+    int request[n];
+    printf("Enter the disk request sequence:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &request[i]);
+    }
+
+    printf("Enter initial head position: ");
+    scanf("%d", &head);
+
+    printf("\nDisk Head Movement Order:\n");
+    printf("%d", head);
+
+    for (i = 0; i < n; i++) {
+        total_movement += abs(request[i] - head);
+        head = request[i];
+        printf(" -> %d", head);
+    }
+
+    printf("\n\nTotal Head Movements = %d cylinders\n", total_movement);
+
+    return 0;
+}
+fcfs disk scheduling
+--------------------------------------------
+
+#include <stdio.h>
+
+void printAllocation(int alloc[], int process[], int p) {
+    printf("\nProcess No.\tSize\tBlock No.\n");
+    for (int i = 0; i < p; i++) {
+        printf("   %d\t\t%d\t", i + 1, process[i]);
+        if (alloc[i] != -1)
+            printf("%d\n", alloc[i] + 1);
+        else
+            printf("Not Allocated\n");
+    }
+}
+
+void firstFit(int block[], int blocks, int process[], int p) {
+    int alloc[10], temp[10];
+    for (int i = 0; i < blocks; i++) temp[i] = block[i];
+    for (int i = 0; i < p; i++) alloc[i] = -1;
+
+    for (int i = 0; i < p; i++) {
+        for (int j = 0; j < blocks; j++) {
+            if (temp[j] >= process[i]) {
+                alloc[i] = j;
+                temp[j] -= process[i];
+                break;
+            }
+        }
+    }
+
+    printf("\n--- First Fit ---");
+    printAllocation(alloc, process, p);
+}
+
+void bestFit(int block[], int blocks, int process[], int p) {
+    int alloc[10], temp[10];
+    for (int i = 0; i < blocks; i++) temp[i] = block[i];
+    for (int i = 0; i < p; i++) alloc[i] = -1;
+
+    for (int i = 0; i < p; i++) {
+        int best = -1;
+        for (int j = 0; j < blocks; j++) {
+            if (temp[j] >= process[i]) {
+                if (best == -1 || temp[j] < temp[best])
+                    best = j;
+            }
+        }
+        if (best != -1) {
+            alloc[i] = best;
+            temp[best] -= process[i];
+        }
+    }
+
+    printf("\n--- Best Fit ---");
+    printAllocation(alloc, process, p);
+}
+
+void worstFit(int block[], int blocks, int process[], int p) {
+    int alloc[10], temp[10];
+    for (int i = 0; i < blocks; i++) temp[i] = block[i];
+    for (int i = 0; i < p; i++) alloc[i] = -1;
+
+    for (int i = 0; i < p; i++) {
+        int worst = -1;
+        for (int j = 0; j < blocks; j++) {
+            if (temp[j] >= process[i]) {
+                if (worst == -1 || temp[j] > temp[worst])
+                    worst = j;
+            }
+        }
+        if (worst != -1) {
+            alloc[i] = worst;
+            temp[worst] -= process[i];
+        }
+    }
+
+    printf("\n--- Worst Fit ---");
+    printAllocation(alloc, process, p);
+}
+
+int main() {
+    int block[10], process[10], b, p;
+
+    printf("Enter number of memory blocks: ");
+    scanf("%d", &b);
+    printf("Enter sizes of memory blocks:\n");
+    for (int i = 0; i < b; i++)
+        scanf("%d", &block[i]);
+
+    printf("Enter number of processes: ");
+    scanf("%d", &p);
+    printf("Enter sizes of processes:\n");
+    for (int i = 0; i < p; i++)
+        scanf("%d", &process[i]);
+
+    firstFit(block, b, process, p);
+    bestFit(block, b, process, p);
+    worstFit(block, b, process, p);
+
+    return 0;
+}
+
+// best - worst - first all in one code
