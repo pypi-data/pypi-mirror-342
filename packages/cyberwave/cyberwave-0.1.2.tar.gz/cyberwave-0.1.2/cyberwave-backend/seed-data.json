@@ -1,0 +1,125 @@
+{
+    "workspaces": [
+      {
+        "id": 1,
+        "name": "Default Workspace",
+        "created_at": "2023-10-29T08:00:00Z"
+      }
+    ],
+    "projects": [
+      {
+        "id": 10,
+        "workspace_id": 1,
+        "name": "Main Warehouse Simulation",
+        "created_at": "2023-10-29T08:01:00Z"
+      }
+    ],
+    "users": [
+      {
+        "id": 101,
+        "external_auth_id": "system|initial-admin",
+        "email": "admin@example.com",
+        "name": "Initial Admin",
+        "created_at": "2023-10-29T07:59:00Z"
+      }
+    ],
+    "workspaceMemberships": [
+      {
+        "user_id": 101,
+        "workspace_id": 1,
+        "role": "admin",
+        "joined_at": "2023-10-29T08:00:00Z"
+      }
+    ],
+    "maps": [
+      {
+        "id": 101,
+        "project_id": 10,
+        "name": "Warehouse Floor Map v1.0",
+        "map_type": "OCCUPANCY_GRID",
+        "map_data_uri": "s3://initial-data/maps/warehouse_v1.0.yaml",
+        "origin_pose": {
+          "x": 0.0, "y": 0.0, "z": 0.0,
+          "orientation_quaternion": { "x": 0, "y": 0, "z": 0, "w": 1 }
+        },
+        "resolution": 0.05,
+        "created_at": "2023-10-29T08:05:00Z"
+      }
+    ],
+    "levels": [
+      {
+        "id": 201,
+        "project_id": 10,
+        "primary_map_id": 101,
+        "name": "Ground Floor Operations",
+        "share_token": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+        "description": "Main operational area for AGVs.",
+        "created_at": "2023-10-29T08:10:00Z"
+      }
+    ],
+    "mapFeatures": [
+      {
+        "id": 701,
+        "map_id": 101,
+        "name": "Shipping Bay Zone",
+        "feature_type": "ZONE",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [ [ [50.0, -10.0], [60.0, -10.0], [60.0, -20.0], [50.0, -20.0], [50.0, -10.0] ] ]
+        },
+         "metadata": { "purpose": "loading/unloading" }
+      }
+    ],
+    "fixedAssets": [
+      {
+        "id": 501,
+        "level_id": 201,
+        "name": "Charging Dock A",
+        "asset_type": "CHARGER",
+        "status": "available",
+        "location": { "type": "Point", "coordinates": [-10.0, 15.0] },
+        "properties": { "charging_rate_kw": 2.0, "compatible_robots": ["agv/model-x", "agv/model-y"] }
+      },
+      {
+        "id": 502,
+        "level_id": 201,
+        "name": "Conveyor Input C1",
+        "asset_type": "INPUT_CONVEYOR",
+        "status": "idle",
+        "location": { "type": "Point", "coordinates": [45.0, 5.0] },
+        "properties": { "max_weight_kg": 100 }
+      }
+    ],
+    "robots": [
+      {
+        "id": 601,
+        "level_id": 201,
+        "name": "AGV-Alpha",
+        "robot_type": "agv/model-x",
+        "serial_number": "AGVX-SN0001",
+        "status": "idle",
+        "capabilities": ["navigate_2d", "carry_payload_medium", "request_charge", "approach_asset"],
+        "initial_pos_x": -9.0,
+        "initial_pos_y": 14.5,
+        "initial_pos_z": 0.0,
+        "metadata": { "firmware_version": "1.0.0", "purchase_date": "2023-09-01" },
+        "current_battery_percentage": 95.0,
+        "registration_date": "2023-10-29T09:00:00Z"
+      },
+      {
+        "id": 602,
+        "level_id": 201,
+        "name": "AGV-Beta",
+        "robot_type": "agv/model-y",
+        "serial_number": "AGVY-SN0002",
+        "status": "maintenance",
+        "capabilities": ["navigate_2d", "carry_payload_heavy"],
+        "initial_pos_x": 0.0,
+        "initial_pos_y": 0.0,
+        "initial_pos_z": 0.0,
+        "metadata": { "firmware_version": "0.9.0", "purchase_date": "2023-09-01" },
+        "current_battery_percentage": 50.0,
+        "registration_date": "2023-10-29T09:05:00Z"
+      }
+    ]
+}

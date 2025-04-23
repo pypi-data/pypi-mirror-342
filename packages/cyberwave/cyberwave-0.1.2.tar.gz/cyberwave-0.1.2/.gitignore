@@ -1,0 +1,8 @@
+.venv
+.pypirc
+.DS_Store
+dist
+__pycache__
+.pytest_cache
+
+
