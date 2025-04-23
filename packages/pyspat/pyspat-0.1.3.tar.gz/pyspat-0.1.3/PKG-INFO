@@ -1,0 +1,92 @@
+Metadata-Version: 2.4
+Name: pyspat
+Version: 0.1.3
+Summary: Spatial point pattern analysis in Python, inspired by spatstat
+Author-email: Jack Peyton <jpeyton01@qub.ac.uk>
+License: MIT License
+        
+        Copyright (c) [2024] [Jack Peyton]
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: plotly
+Dynamic: license-file
+
+# pySpat
+
+**pySpat** is a foundational Python package for spatial point pattern analysis. It is inspired by the design and functionality of the R package [spatstat](https://spatstat.org/) and is written from the ground up in Python with minimal dependencies.
+
+The goal of pySpat is to provide a fully native, extensible spatial statistics library in Python, beginning with the core structures and validations needed for spatial data handling.
+
+## Current Status: Core Framework 
+
+### Implemented
+
+#### Core Classes
+- `Window`: Represents axis-aligned rectangular observation windows.
+  - Validates bounds
+  - Computes area, width, height
+  - Checks whether given points lie inside
+
+- `PointPattern`: Represents 2D spatial point patterns.
+  - Stores point coordinates and optional marks
+  - Validates points within a window
+  - Provides summary and coordinate access methods
+
+#### Testing
+- Full `pytest` test suite for:
+  - `Window`
+  - `PointPattern`
+- All core tests currently passing
+
+## Project Structure
+
+```
+pyspat/
+├── core/
+│   ├── pointpattern.py
+│   └── window.py
+├── tests/
+│   ├── test_pointpattern.py
+│   └── test_window.py
+```
+
+## Design Philosophy
+- Minimal dependencies (only `numpy` and `pytest`)
+- Transparent, scientific structure
+- Designed with clarity and extensibility in mind
+
+## Installation & Usage
+Not always updating on PyPi, so build directly from repo.
+```bash
+# Clone the repository
+$ git clone https://github.com/j-peyton/pySpat
+$ pip install {your_path}/pySpat
+```
+
+## Author
+Jack Peyton
+April 2025
+
+## License
+MIT
