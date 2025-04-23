@@ -1,0 +1,1 @@
+This library creates Shapely shapes designed to fit closely around a set of given points, and provides functionality to create a grid of points inside those shapes. 
