@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/mcp_youtube_search/__init__.py
+src/mcp_youtube_search/cli.py
+src/mcp_youtube_search/server.py
+src/mcp_youtube_search.egg-info/PKG-INFO
+src/mcp_youtube_search.egg-info/SOURCES.txt
+src/mcp_youtube_search.egg-info/dependency_links.txt
+src/mcp_youtube_search.egg-info/entry_points.txt
+src/mcp_youtube_search.egg-info/requires.txt
+src/mcp_youtube_search.egg-info/top_level.txt

@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-youtube-search"
+version = "0.1.4"
+authors = [
+    {name = "Arjun Prabhulal", email = "code.aicloudlab@gmail.com"},
+]
+description = "A YouTube search MCP server for AI agents"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "google-adk",
+    "mcp-server",
+    "python-dotenv",
+    "google-search-results",
+]
+
+[project.scripts]
+mcp-youtube-search = "mcp_youtube_search.cli:main"
+
+[project.urls]
+"Homepage" = "https://github.com/arjunprabhulal/mcp-youtube-search"
+"Bug Tracker" = "https://github.com/arjunprabhulal/mcp-youtube-search/issues"
