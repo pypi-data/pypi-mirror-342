@@ -1,0 +1,39 @@
+# 🔌 Tomili
+
+Tomili is a simple library for interacting with toml files, without the need open context, with 'with' and open file.
+
+## 📦 Installation
+
+If you are using pip, you can install Tomili by running the following command:
+
+```zsh
+pip install tomili
+```
+
+If you are using poetry, you can install Tomili by running the following command:
+
+```zsh
+poetry add tomili
+```
+
+If you are using UV, you can install Tomili by running the following command:
+
+```zsh
+uv add tomili
+```
+
+## 📖 Usage
+
+```python
+# Import function rtoml from tomili library
+from tomili import rtoml
+
+# Import Path from pathlib library
+from pathlib import Path
+
+# Read toml file, parameter is path to file (Path)
+toml = rtoml(Path("path/to/file.toml"))
+
+# Print toml file in dictionary format
+print(toml)
+```
