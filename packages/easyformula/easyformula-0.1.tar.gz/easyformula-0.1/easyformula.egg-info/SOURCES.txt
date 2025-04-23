@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+easyformula/__init__.py
+easyformula/formulas.py
+easyformula.egg-info/PKG-INFO
+easyformula.egg-info/SOURCES.txt
+easyformula.egg-info/dependency_links.txt
+easyformula.egg-info/top_level.txt

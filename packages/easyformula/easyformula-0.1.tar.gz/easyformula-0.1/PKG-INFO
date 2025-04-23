@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: easyformula
+Version: 0.1
+Summary: A simple library to calculate areas of geometric shapes
+Author: Rafsan Chowdhury
+Author-email: none@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: license-file
+Dynamic: summary
