@@ -1,0 +1,36 @@
+[project]
+name = "nonebot-plugin-mhguesser"
+version = "0.1.5"
+description = "怪物猎人猜BOSS"
+authors = [
+    { name = "Proito666", email = "Proito666@github.com" },
+]
+readme = "README.md"
+packages = [
+    { include = "nonebot_plugin_mhguesser" },
+]
+repository = "https://github.com/Proito666/nonebot-plugin-mhguesser"
+dependencies = [
+    "nonebot2<3.0.0,>=2.3.0",
+    "nonebot-plugin-htmlrender<1.0.0,>=0.2.0",
+    "nonebot-plugin-alconna<1.0.0,>=0.25.0",
+]
+requires-python = "<4.0,>=3.9"
+
+[project.license]
+text = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+nonebot2 = "^2.3.0"
+nonebot-plugin-htmlrender = "^0.2.0"
+nonebot-plugin-alconna = "^0.25.0"
+
+[tool.pdm]
+distribution = true
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
