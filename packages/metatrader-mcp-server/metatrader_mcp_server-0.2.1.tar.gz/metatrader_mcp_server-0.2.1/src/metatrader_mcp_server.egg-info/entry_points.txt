@@ -1,0 +1,2 @@
+[console_scripts]
+metatrader-mcp-server = metatrader_mcp.cli:main
