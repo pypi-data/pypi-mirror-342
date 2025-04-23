@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: fatoriais
+Version: 0.0.1
+Summary: Calcula o fatorial de um número inteiro não negativo.
+Home-page: https://github.com/Enzo-Camelo/simple-package-template.git
+Author: Enzo Camelo
+Author-email: enzocamelo8d@gmail.com
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# fatoriais
+
+Description. 
+The package fatoriais is used to:
+	- Calculate the factorials of numbers from 1 to 10
+
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install fatoriais
+
+```bash
+pip install fatoriais
+```
+
+## Usage
+
+```python
+from fatoriais.fatorial import fatorial
+fatorial(n)
+```
+- Replace "n" with the number you want the factorial
+
+## Author
+Enzo Camelo Vieira
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
