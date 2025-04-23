@@ -1,0 +1,14 @@
+canonical_loader/__init__.py,sha256=p0vDI4cKk2KKbTUnwr4mtN6PHoT5bw77z--AwELKLTM,132
+canonical_loader/base_canonical_loader.py,sha256=yoBww3b9laQqXddFm1_Y_cLxGsu9Vc2arG6p3Y7fJ4M,6491
+canonical_loader/canonic_convert_utils.py,sha256=bc0m5v48wk5_zjDxnDJr8GMHydWysOBV11g8eFKVwxA,1083
+canonical_loader/canonic_date_utils.py,sha256=NgW_0aQGBpmX2D6l2t8jO-0P7KflVllMXoW_oKMEHaM,622
+canonical_loader/canonical_loader.py,sha256=npLhqtBzBoeuKbO4i5Bcv0LcbcEfbot89McAL8ItSq0,1922
+canonical_loader/s3_canonical_loader.py,sha256=-VD3yhX_0EQjS_pMdBz3F4A2SqVRreinBFYtZdaNrO4,2522
+canonical_loader/simple_loder.py,sha256=MMO5EkHG_Np-cmEwCOtgxJYiyzyeEz02dEDPkCX2vuw,2149
+canonical_loader/general_utils/__init__.py,sha256=Ou_PbM-QrOIWvzStJfDxBCboPO-k_0TRJHguB33d3H0,71
+canonical_loader/general_utils/canonic_convert_utils.py,sha256=bc0m5v48wk5_zjDxnDJr8GMHydWysOBV11g8eFKVwxA,1083
+canonical_loader/general_utils/canonic_date_utils.py,sha256=MmgZpMY_mSjZEO5uQ9oARKjsXyBaGOLbSUSP4Ny_l3c,617
+canonical_loader-0.2.4.dist-info/METADATA,sha256=UXpfG4QeHwSWxDUDscK9Wd8PVzsr5u_pClXYORiEMw0,4225
+canonical_loader-0.2.4.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+canonical_loader-0.2.4.dist-info/top_level.txt,sha256=0FJEaspm9VKEivy_tDqkV9RjxIug8dJCy6BlxkSQtHg,17
+canonical_loader-0.2.4.dist-info/RECORD,,
