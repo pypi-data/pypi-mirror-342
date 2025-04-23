@@ -1,0 +1,12 @@
+cmor
+numpy
+pandas
+xarray
+dask
+cftime
+pyyaml
+
+[test]
+pytest
+pytest-cov
+ruff
