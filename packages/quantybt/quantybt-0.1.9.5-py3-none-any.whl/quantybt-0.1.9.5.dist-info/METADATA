@@ -1,0 +1,60 @@
+Metadata-Version: 2.4
+Name: quantybt
+Version: 0.1.9.5
+Summary: lightweight backtesting framework with in-built advanced statistical backtesting methods and custom models
+Author-email: Niklas <niklasschluetter.business@gmail.com>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE-txt
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: plotly
+Requires-Dist: kaleido
+Requires-Dist: vectorbt
+Requires-Dist: seaborn
+Requires-Dist: hyperopt
+Requires-Dist: ccxt
+Requires-Dist: pyarrow
+Dynamic: license-file
+
+# QuantyBT 🪐
+
+**A lightweight backtesting framework based on [vectorbt](https://github.com/polakowo/vectorbt), focused on statistical robustness, modularity, and seamless strategy integration with custom models and crypto-native data loading.**  
+---
+
+## Features
+
+- **Simple integration** with vectorbt as the backtesting engine (`bt_instance`).
+- **Custom Model Support**: Native wrappers for custom-implemented models (e.g., Kalman Filters) and statistical frameworks.  
+- **Built-in data loaders** for cryptocurrencies from Binance (no api needed!).
+- **Modular architecture**: define strategies by inheriting from a base `Strategy` class (`preprocess`, `generate_signals`, `param_space`).
+- **Robust Validation**: Out-of-sample splits and hyperparameter tuning via [Hyperopt](https://github.com/hyperopt/hyperopt).  
+- **Statistical analysis tools**: Monte Carlo simulations
+- **Performance reporting**: generate equity curves, heatmaps, and metric summaries with minimal boilerplate.
+
+---
+
+## Incoming Features
+
+- **More Custom Models** 
+- **Walk-Forward Optimization (WFO)** with automated plotting and summary reports  
+- **Sensitivity Analysis** for identifying and mitigating overfitting  
+- **Portfolio Optimization** with advanced methods (HRP, CVaR, Maximum Entropy, ...)  
+- **Live Execution via CCXT**: Seamless end-to-end workflow from strategy design → testing → deployment.
+
+---
+
+## Installation
+
+Install the package via pip:
+
+```bash
+pip install quantybt
+
+```
+
