@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+e164_python/__init__.py
+e164_python/e164.py
+e164_python/response.py
+e164_python_sdk.egg-info/PKG-INFO
+e164_python_sdk.egg-info/SOURCES.txt
+e164_python_sdk.egg-info/dependency_links.txt
+e164_python_sdk.egg-info/requires.txt
+e164_python_sdk.egg-info/top_level.txt
