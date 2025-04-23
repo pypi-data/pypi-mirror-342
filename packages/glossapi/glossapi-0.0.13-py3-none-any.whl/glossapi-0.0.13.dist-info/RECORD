@@ -1,0 +1,14 @@
+glossapi/__init__.py,sha256=G1hJOQqmsuFeeXmxnggW6ThaKhj024SHYIpSM2bPYJc,966
+glossapi/corpus.py,sha256=_M9MEUY1_KK4ewGIIcsFYaTHKe6mcE_B0PmjozjKEFA,44398
+glossapi/gloss_downloader.py,sha256=ZT2Jt3PDZkJIcEL1H-yTmdIzgrliQineecpcpPac9tE,31741
+glossapi/gloss_extract.py,sha256=XwCffTlr7uwQo1D_K6srFoAAbdNS6kbNLQzqlZNDD7c,54581
+glossapi/gloss_section.py,sha256=3QfJIZvtlgbc_Q7a4yLl_mAmOYKK6BtJ1dRFegZvVXI,26061
+glossapi/gloss_section_classifier.py,sha256=zcN4e5fkC--0fyZ6pS4eO23WEZVNOmfgeBJCVPhMJ3c,34560
+glossapi/parquet_schema.py,sha256=rD0ZiN3sDpzl30rb4VZvxKZOl4kgvyDcCySCJgAYtLY,19193
+glossapi/sampler.py,sha256=Kz8_6KOPvBOn8jrCacuguUhkghaDN5S9zFP70rhMYrk,15235
+glossapi/models/kmeans_weights.joblib,sha256=VsVANzwveWYF9JVdmzw6dDjVbfKljXm6PbA3QVd2NUw,184751
+glossapi/models/section_classifier.joblib,sha256=EpY-vkeziFWpMmSd98dVd8pDiC0KCc46Y--TlG9JBzc,127590
+glossapi-0.0.13.dist-info/METADATA,sha256=JbwUPy9K2Klx2zgZJeiCxdGAAd758Mqqopv9k184S5g,2851
+glossapi-0.0.13.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+glossapi-0.0.13.dist-info/top_level.txt,sha256=HmjoRspWkpBnkkKv8AHtGazlt8nARoEneUDXiqOZ8RA,9
+glossapi-0.0.13.dist-info/RECORD,,
