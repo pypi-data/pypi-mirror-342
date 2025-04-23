@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/melli_code/__init__.py
+src/melli_code/exceptions.py
+src/melli_code/generator.py
+src/melli_code/validator.py
+src/melli_code.egg-info/PKG-INFO
+src/melli_code.egg-info/SOURCES.txt
+src/melli_code.egg-info/dependency_links.txt
+src/melli_code.egg-info/requires.txt
+src/melli_code.egg-info/top_level.txt
+tests/test_melli_code.py
