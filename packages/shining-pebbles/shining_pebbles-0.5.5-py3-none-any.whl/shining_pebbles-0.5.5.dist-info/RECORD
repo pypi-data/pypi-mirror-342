@@ -1,0 +1,15 @@
+shining_pebbles/__init__.py,sha256=vllsVnvhjVt0ny2ksyyd4_Vx1oRNn0gDD8JIGt0ThbQ,57
+shining_pebbles/date_utils/__init__.py,sha256=SCh-y881uPGSE3-siGzUkGw4hIuJJx3Pre3XEs9OwSc,106
+shining_pebbles/date_utils/date_converter_utils.py,sha256=LSFXmqrLAaMQsbenX6KxxONsG9HCjyOIwnjo_e7PjA0,210
+shining_pebbles/date_utils/date_extracting_utils.py,sha256=n5dGuVupBY2JyXtYr-3EhLZoaxwCRw2jGgUVAVW_kgs,1945
+shining_pebbles/date_utils/date_general_utils.py,sha256=FXFG54TSPl76CJT2vIXF1zXCpT38w4T59imh2EvnzHw,12720
+shining_pebbles/pseudo_database/__init__.py,sha256=_ZRrucdsgqve5nCBJeuKhtH-bUVzVEqzkqBD8T5CIH4,153
+shining_pebbles/pseudo_database/delete_utils.py,sha256=BCcOH4rzvrWA1LW0C9qOShjQdZ7Z9plEQZx6rfIyYgU,1076
+shining_pebbles/pseudo_database/file_control_utils.py,sha256=wuHVtw85Gh-pMPUeqkK6Z0t_RekQEBSzCdEIaEkYIkg,36086
+shining_pebbles/pseudo_database/file_managing_utils.py,sha256=gdl8td1cwfBOf7JTqRhIgqcj2A-ZBR9bdSL6o2howVA,1321
+shining_pebbles/pseudo_database/file_scan_utils.py,sha256=1O4bKA3E9Xm_SGl6hyGWWMKSzHN8LqTmm9Fgx-9jE00,1507
+shining_pebbles/pseudo_database/load_utils.py,sha256=Y_yAYvVcXI0ir-meBGqI0-GpHmOPKC337gRvqW1CCFk,2210
+shining_pebbles-0.5.5.dist-info/METADATA,sha256=tLBqgyzoIxvr78a050fBmrWe0AX974kZF594arxyJZk,2461
+shining_pebbles-0.5.5.dist-info/WHEEL,sha256=tZoeGjtWxWRfdplE7E3d45VPlLNQnvbKiYnx7gwAy8A,92
+shining_pebbles-0.5.5.dist-info/top_level.txt,sha256=C5sG-tMrGXKS6LUwxXwe1Xnbfquegch5rx8YHnPUv08,16
+shining_pebbles-0.5.5.dist-info/RECORD,,
