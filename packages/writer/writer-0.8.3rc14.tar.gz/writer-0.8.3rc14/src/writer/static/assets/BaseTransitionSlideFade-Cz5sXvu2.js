@@ -1,0 +1,1 @@
+import{_ as a,o as s,b as t,s as n,E as r,ar as o}from"./index-ChhimAZ-.js";const d={};function c(e,i){return s(),t(o,{name:"slide-fade"},{default:n(()=>[r(e.$slots,"default",{},void 0,!0)]),_:3})}const f=a(d,[["render",c],["__scopeId","data-v-75fe1e40"]]);export{f as B};
