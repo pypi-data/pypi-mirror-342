@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+naif_eop_predict/__init__.py
+naif_eop_predict/earth_200101_990827_predict.bpc
+naif_eop_predict/earth_200101_990827_predict.md5
+naif_eop_predict/fetch.py
+naif_eop_predict.egg-info/PKG-INFO
+naif_eop_predict.egg-info/SOURCES.txt
+naif_eop_predict.egg-info/dependency_links.txt
+naif_eop_predict.egg-info/requires.txt
+naif_eop_predict.egg-info/top_level.txt
+naif_eop_predict/../LICENSE
+naif_eop_predict/tests/__init__.py
+naif_eop_predict/tests/test_naif_eop_predict.py

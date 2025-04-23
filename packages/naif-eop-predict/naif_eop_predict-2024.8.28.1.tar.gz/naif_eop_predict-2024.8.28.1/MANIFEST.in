@@ -1,0 +1,3 @@
+include naif_eop_predict/earth_200101_990827_predict.bpc
+include naif_eop_predict/earth_200101_990827_predict.md5
+include LICENSE
