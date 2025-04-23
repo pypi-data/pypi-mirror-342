@@ -1,0 +1,15 @@
+[project]
+name = "tls-mcp-server"
+version = "0.1.0"
+description = "TLS MCP server project"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=1.6.0",
+    "python-dotenv>=1.0.1",
+    "volcengine>=1.0.175",
+]
+
+[project.scripts]
+tls-mcp-server = "mcp_server_tls.main:main"

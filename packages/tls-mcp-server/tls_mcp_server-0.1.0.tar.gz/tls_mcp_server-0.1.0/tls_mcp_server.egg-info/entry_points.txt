@@ -1,0 +1,2 @@
+[console_scripts]
+tls-mcp-server = mcp_server_tls.main:main
