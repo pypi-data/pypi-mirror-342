@@ -1,0 +1,2 @@
+[console_scripts]
+lunae-repl = lunae.__main__:main
