@@ -1,0 +1,11 @@
+numpy
+scipy
+pandas
+h5py
+pyarrow
+torch
+
+[dev]
+pytest
+coverage
+pyclean
