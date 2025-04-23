@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: iicsapi
+Version: 2.0.3
+Summary: Python client for IICS API
+Author-email: Eigen X <jlabbe@eigenx.com>
+License: MIT
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: opentelemetry-api
+Requires-Dist: opentelemetry-sdk
+Requires-Dist: opentelemetry-instrumentation-requests
+Requires-Dist: tenacity
+Dynamic: license-file
