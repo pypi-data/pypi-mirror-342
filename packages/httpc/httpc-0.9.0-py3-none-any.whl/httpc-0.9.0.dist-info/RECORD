@@ -1,0 +1,14 @@
+httpc/__init__.py,sha256=UEtvzzvNTQ2w_qkVuTcmkixIC66WWk0q95gszkqq9kc,402
+httpc/_api.py,sha256=inT5zb3ZqRMsoerWvHePIpP9iD5NCbZxjlN-ix79I6Q,10058
+httpc/_base.py,sha256=iy57072NRuDS91ZDLqCdRnPx7ayBJdlCDAi9rSs4qpA,18140
+httpc/_broadcaster.py,sha256=Q8LeWsZfzI-Ddr2BRRoArKBQVH_5zHgJ19z_kaWaDYc,9127
+httpc/_client.py,sha256=NltzA-8GOvfcPcS2O49Ghn0jjxOzFxgzn_sFqwbzeTs,31781
+httpc/_parse.py,sha256=ckdax3rJw_pOZmdFV4fkiSRH6yrvdS0tz1hkU7qtYN0,2382
+httpc/catcher/__init__.py,sha256=jmR9BPcHS7KQUq9QLrOg0LegxwhSMBRcuTyEYRX4F88,296
+httpc/catcher/_catcher.py,sha256=hPqifmBSuC7uRAe-WjGvK_qsg92KlK4ppwyagFGe4CU,4702
+httpc/catcher/_db.py,sha256=Vk20AuyqBQbJ49EbzhyvVsKaCyVD0_d8XHfp4anI6KU,11781
+httpc-0.9.0.dist-info/METADATA,sha256=QSYnZ6YB85UkVFi6cMkPLJumzZsztlpIHnIF8G-1XOE,4758
+httpc-0.9.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+httpc-0.9.0.dist-info/entry_points.txt,sha256=sm4w4KjVFDS4i9ToRIc8oYKIgHcyFyT40YrtNAv974E,65
+httpc-0.9.0.dist-info/licenses/LICENSE,sha256=WNHhf_5RCaeuKWyq_K39vmp9F28LxKsB4SpomwSZ2L0,11357
+httpc-0.9.0.dist-info/RECORD,,
