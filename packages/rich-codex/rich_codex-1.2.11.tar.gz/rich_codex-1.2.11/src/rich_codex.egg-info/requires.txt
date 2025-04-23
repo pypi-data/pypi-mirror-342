@@ -1,0 +1,15 @@
+rich>=12.4.3
+rich-click>=1.5
+pyyaml
+levenshtein>=0.18.1
+jsonschema
+GitPython
+
+[:python_version < "3.8"]
+importlib-metadata
+
+[cairo]
+CairoSVG>=2.5.2
+
+[dev]
+pre-commit
