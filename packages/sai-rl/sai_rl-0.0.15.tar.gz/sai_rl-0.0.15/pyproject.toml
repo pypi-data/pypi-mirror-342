@@ -1,0 +1,30 @@
+[project]
+name = "sai-rl"
+version = "0.0.15"
+description = "SDK for creating machine learning models for the SAI Platform."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+  { name = "ArenaX Labs", email = "research@competesai.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+  "gymnasium>=1.0.0",
+  "imageio>=2.37.0",
+  "imageio-ffmpeg>=0.6.0",
+  "numpy==1.26.0",
+  "onnx==1.16.1",
+  "onnxruntime>=1.21.0",
+  "requests>=2.32.3",
+  "rich>=13.9.4",
+  "stable-baselines3==2.6.0",
+  "tensorflow==2.16.1",
+  "tf2onnx>=1.16.1",
+  "tomli >= 1.1.0 ; python_version < '3.11'",
+  "torch==2.5.1",
+]
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

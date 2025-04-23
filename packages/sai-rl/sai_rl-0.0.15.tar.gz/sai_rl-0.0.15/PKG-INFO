@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: sai-rl
+Version: 0.0.15
+Summary: SDK for creating machine learning models for the SAI Platform.
+Author-email: ArenaX Labs <research@competesai.com>
+License: MIT
+License-File: LICENSE
+Requires-Python: >=3.10
+Requires-Dist: gymnasium>=1.0.0
+Requires-Dist: imageio-ffmpeg>=0.6.0
+Requires-Dist: imageio>=2.37.0
+Requires-Dist: numpy==1.26.0
+Requires-Dist: onnx==1.16.1
+Requires-Dist: onnxruntime>=1.21.0
+Requires-Dist: requests>=2.32.3
+Requires-Dist: rich>=13.9.4
+Requires-Dist: stable-baselines3==2.6.0
+Requires-Dist: tensorflow==2.16.1
+Requires-Dist: tf2onnx>=1.16.1
+Requires-Dist: tomli>=1.1.0; python_version < '3.11'
+Requires-Dist: torch==2.5.1
