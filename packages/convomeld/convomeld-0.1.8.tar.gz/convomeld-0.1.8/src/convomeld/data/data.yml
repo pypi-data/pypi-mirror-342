@@ -1,0 +1,1031 @@
+- name: start
+  convo_name: G9.A3.3.4.1__G9.A3.3.5.1
+  convo_description: '####G9.A3.3.4.1/start\nA lesson about inequalities\n\n####G9.A3.3.5.1/start\nA
+    lesson about quadratic equations\n\n'
+  nlp: case_insensitive
+  level: 0
+  actions:
+    en: []
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/start
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/start
+
+- name: G9.A3.3.4.1/start
+  convo_name: G9.A3.3.4.1
+  convo_description: FIGURE OUT LATER
+  nlp: case_insensitive
+  level: 0
+  actions:
+    en: Let's work on inequalities in math.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/instruction
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/instruction
+
+- name: G9.A3.3.4.1/instruction
+  convo_name: G9.A3.3.4.1
+  convo_description: FIGURE OUT LATER
+  nlp: case_insensitive
+  level: 0
+  actions:
+    en: "An inequality shows that a quantity is either smaller (<) or bigger (>) than\
+      \ another quantity. \nSolve for that variable and choose the correct option.\
+      \ \nSolve like a regular equality.\n\nStep 1: Identify the variable.\nStep 2:\
+      \ Isolate the variable term. To do this, get rid of the constant term on the\
+      \ same side as the variable. \nStep 3: Simplify the inequality. \n\nType *Yes*\
+      \ to continue."
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q1
+  triggers:
+    en:
+      'Yes': G9.A3.3.4.1/q1
+      __default__: G9.A3.3.4.1/instruction
+
+- name: G9.A3.3.4.1/q1
+  level: 1
+  actions:
+    en:
+    - "Example:\nQues: Solve for p.\n2p + 4 < 8\n\nA. p < 2\nB. p < 4\nC. p = 2\n\
+      D. p > 2\n\nHint: p is the the variable\n2p + 4 < 8\nSubtract 4 on both sides\
+      \ to isolate p.\n2p + 4 - 4 < 8 - 4\n2p < 4. \nThen divide both sides by 2\n\
+      p < 2.\n\nAns: A\n\nShall we solve some inequalities? \n\nType *Yes* to continue."
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q1
+  triggers:
+    en:
+      'Yes': correct-answer-G9.A3.3.4.1/q1
+      __default__: wrong-answer-G9.A3.3.4.1/q1
+
+- name: wrong-answer-G9.A3.3.4.1/q1
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q1
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q1
+
+- name: correct-answer-G9.A3.3.4.1/q1
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q2
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q2
+
+- name: G9.A3.3.4.1/q2
+  level: 2
+  actions:
+    en:
+    - 'Solve for p:
+
+      p + 4 > 2
+
+
+      A. p < 2
+
+      B. p < -2
+
+      C. p = 2
+
+      D. p > -2
+
+
+      Choose from the options A, B, C and D.'
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q2
+  triggers:
+    en:
+      D: correct-answer-G9.A3.3.4.1/q2
+      __default__: wrong-answer-G9.A3.3.4.1/q2
+
+- name: wrong-answer-G9.A3.3.4.1/q2
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q2
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q2
+
+- name: correct-answer-G9.A3.3.4.1/q2
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q3
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q3
+
+- name: G9.A3.3.4.1/q3
+  level: 3
+  actions:
+    en:
+    - 'Solve for k:
+
+      3k - 5 > 2k
+
+
+      A. k < 3
+
+      B. k < -5
+
+      C. k > 3
+
+      D. k > 5'
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q3
+  triggers:
+    en:
+      D: correct-answer-G9.A3.3.4.1/q3
+      __default__: wrong-answer-G9.A3.3.4.1/q3
+
+- name: wrong-answer-G9.A3.3.4.1/q3
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q3
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q3
+
+- name: correct-answer-G9.A3.3.4.1/q3
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q4
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q4
+
+- name: G9.A3.3.4.1/q4
+  level: 4
+  actions:
+    en:
+    - "Solve for s:\ns - 5 > -2s + 4 \n\nA. s < 3\nB. s < -5\nC. s > 3\nD. s > 5"
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q4
+  triggers:
+    en:
+      C: correct-answer-G9.A3.3.4.1/q4
+      __default__: wrong-answer-G9.A3.3.4.1/q4
+
+- name: wrong-answer-G9.A3.3.4.1/q4
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q4
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q4
+
+- name: correct-answer-G9.A3.3.4.1/q4
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q5
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q5
+
+- name: G9.A3.3.4.1/q5
+  level: 5
+  actions:
+    en:
+    - 'Solve for p:
+
+      p + 4 > -6 + 6p
+
+
+      A. p < 2
+
+      B. p < -2
+
+      C. p > 2
+
+      D. p > -2'
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q5
+  triggers:
+    en:
+      A: correct-answer-G9.A3.3.4.1/q5
+      __default__: wrong-answer-G9.A3.3.4.1/q5
+
+- name: wrong-answer-G9.A3.3.4.1/q5
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q5
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q5
+
+- name: correct-answer-G9.A3.3.4.1/q5
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q6
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q6
+
+- name: G9.A3.3.4.1/q6
+  level: 6
+  actions:
+    en:
+    - "When multiplying or dividing by a negative number, the inequality sign flips!\n\
+      \nExample:\nQues: Solve for p:\n-2p + 4 < 8\n\nA. p < -2\nB. p < -4\nC. p =\
+      \ -2\nD. p > -2\n\nHint: Bring 4 to the other side and divide by 2.\n -p < 2.\
+      \ \nNow multiply both sides by -1. \nWhen you do this for an inequality, flip\
+      \ the equal sign:\np > -2\n\nAns: D\n\nType *Yes* to proceed to some questions."
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q6
+  triggers:
+    en:
+      'Yes': correct-answer-G9.A3.3.4.1/q6
+      __default__: wrong-answer-G9.A3.3.4.1/q6
+
+- name: wrong-answer-G9.A3.3.4.1/q6
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q6
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q6
+
+- name: correct-answer-G9.A3.3.4.1/q6
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q7
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q7
+
+- name: G9.A3.3.4.1/q7
+  level: 7
+  actions:
+    en:
+    - "Solve for s:\ns > 2s + 4 \n\nA. s < 4\nB. s < -4\nC. s > 2\nD. s > -2"
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q7
+  triggers:
+    en:
+      B: correct-answer-G9.A3.3.4.1/q7
+      __default__: wrong-answer-G9.A3.3.4.1/q7
+
+- name: wrong-answer-G9.A3.3.4.1/q7
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q7
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q7
+
+- name: correct-answer-G9.A3.3.4.1/q7
+  actions:
+    en:
+    - Perfect!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q8
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q8
+
+- name: G9.A3.3.4.1/q8
+  level: 8
+  actions:
+    en:
+    - 'Solve for k:
+
+      3k - 5 > 4k
+
+
+      A. k < -5
+
+      B. k > -5
+
+      C. k > 1
+
+      D. k > 5'
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q8
+  triggers:
+    en:
+      A: correct-answer-G9.A3.3.4.1/q8
+      __default__: wrong-answer-G9.A3.3.4.1/q8
+
+- name: wrong-answer-G9.A3.3.4.1/q8
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q8
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q8
+
+- name: correct-answer-G9.A3.3.4.1/q8
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q9
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q9
+
+- name: G9.A3.3.4.1/q9
+  level: 9
+  actions:
+    en:
+    - 'Solve for p:
+
+      p + 14 > -6 + 11p
+
+
+      A. p < 2
+
+      B. p < -2
+
+      C. p > 2
+
+      D. p > -2'
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q9
+  triggers:
+    en:
+      A: correct-answer-G9.A3.3.4.1/q9
+      __default__: wrong-answer-G9.A3.3.4.1/q9
+
+- name: wrong-answer-G9.A3.3.4.1/q9
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q9
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q9
+
+- name: correct-answer-G9.A3.3.4.1/q9
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q10
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q10
+
+- name: G9.A3.3.4.1/q10
+  level: 10
+  actions:
+    en:
+    - 'Solve for k:
+
+      -30k - 5 > -10k + 15
+
+
+      A. k < -1
+
+      B. k > -1
+
+      C. k > 1
+
+      D. k > -1'
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q10
+  triggers:
+    en:
+      A: correct-answer-G9.A3.3.4.1/q10
+      __default__: wrong-answer-G9.A3.3.4.1/q10
+
+- name: wrong-answer-G9.A3.3.4.1/q10
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q10
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q10
+
+- name: correct-answer-G9.A3.3.4.1/q10
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q11
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q11
+
+- name: G9.A3.3.4.1/q11
+  level: 11
+  actions:
+    en:
+    - 'Solve for s:
+
+      14s < 16s + 44
+
+
+      A. s < 11
+
+      B. s < -22
+
+      C. s > -22
+
+      D. s > -11'
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q11
+  triggers:
+    en:
+      C: correct-answer-G9.A3.3.4.1/q11
+      __default__: wrong-answer-G9.A3.3.4.1/q11
+
+- name: wrong-answer-G9.A3.3.4.1/q11
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q11
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q11
+
+- name: correct-answer-G9.A3.3.4.1/q11
+  actions:
+    en:
+    - Perfect!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q12
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q12
+
+- name: G9.A3.3.4.1/q12
+  level: 12
+  actions:
+    en:
+    - 'Solve for k:
+
+      -30k + 10 < -20k + 30
+
+
+      A. k < -4
+
+      B. k > -4
+
+      C. k > -2
+
+      D. k > -4'
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q12
+  triggers:
+    en:
+      C: correct-answer-G9.A3.3.4.1/q12
+      __default__: wrong-answer-G9.A3.3.4.1/q12
+
+- name: wrong-answer-G9.A3.3.4.1/q12
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/q12
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/q12
+
+- name: correct-answer-G9.A3.3.4.1/q12
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/end
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/end
+
+- name: G9.A3.3.4.1/end
+  level: 13
+  actions:
+    en:
+    - Congratulations, you have completed the Inequalities micro-lesson.You can start
+      over or choose another practice. Click 'Repeat' to complete Inequalities micro-lesson
+      one more time
+  buttons:
+    en:
+      OK: G9.A3.3.4.1/instruction
+  triggers:
+    en:
+      __next__: G9.A3.3.4.1/instruction
+      __default__: G9.A3.3.5.1/start
+
+- name: G9.A3.3.5.1/start
+  convo_name: G9.A3.3.5.1
+  convo_description: FIGURE OUT LATER
+  nlp: case_insensitive
+  level: 0
+  actions:
+    en: 'Let''s work with quadratic equations today! '
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/instruction
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/instruction
+
+- name: G9.A3.3.5.1/instruction
+  convo_name: G9.A3.3.5.1
+  convo_description: FIGURE OUT LATER
+  nlp: case_insensitive
+  level: 0
+  actions:
+    en: "A quadratic equation often takes the form of y = ax\xB2 + bx + c, where a,\
+      \ b and c are constants. \nThe quadratic equation is the equation which has\
+      \ the x\xB2 term. \n\nThe solution of an equation is the value of x and y for\
+      \ which the equation is satisfied. \nThat is, the left and the right sides of\
+      \ the equation are equal. \n\nType *Yes* to continue to check an example."
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q1
+  triggers:
+    en:
+      'Yes': G9.A3.3.5.1/q1
+      __default__: G9.A3.3.5.1/instruction
+
+- name: G9.A3.3.5.1/q1
+  level: 1
+  actions:
+    en:
+    - "Example:\nQues: Which of the following points satisfies the equation?\n y =\
+      \ x\xB2 + 2x \nA. (0, -1)\nB. (-1, -1)\nC. (-2, 1)\nD. (0, -1)\n\nHint: \nSubstitute\
+      \ the values of x and y from option A. \n(-1) = (0)\xB2+2(0)\n-1 = 0\nHence\
+      \ the equation is not satisfied.\nCheck the option B.\n(-1) = (-1)\xB2 + 2(-1)\n\
+      -1 = 1-2\n-1 = -1\nHence the equation is satisfied.\nHence (-1, -1) is the solution.\n\
+      \nAns: B\n\nWould you like to try some questions yourself? \n\nType *Yes* to\
+      \ continue."
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q1
+  triggers:
+    en:
+      'Yes': correct-answer-G9.A3.3.5.1/q1
+      __default__: wrong-answer-G9.A3.3.5.1/q1
+
+- name: wrong-answer-G9.A3.3.5.1/q1
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q1
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q1
+
+- name: correct-answer-G9.A3.3.5.1/q1
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q2
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q2
+
+- name: G9.A3.3.5.1/q2
+  level: 2
+  actions:
+    en:
+    - "What point satisfies the following equation?\ny = x\xB2 - 2x\n\nA. (0, -1)\n\
+      B. (1, 1)\nC. (-1, 3)\nD. (0, -2)\n\nChoose from the options A, B, C and D."
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q2
+  triggers:
+    en:
+      C: correct-answer-G9.A3.3.5.1/q2
+      __default__: wrong-answer-G9.A3.3.5.1/q2
+
+- name: wrong-answer-G9.A3.3.5.1/q2
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q2
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q2
+
+- name: correct-answer-G9.A3.3.5.1/q2
+  actions:
+    en:
+    - Perfect!
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q3
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q3
+
+- name: G9.A3.3.5.1/q3
+  level: 3
+  actions:
+    en:
+    - "What point satisfies the following equation?\ny = x\xB2 - 3x + 2\n\nA. (0,\
+      \ -1)\nB. (1, 1)\nC. (3, -1)\nD. (1, 0)\n\nChoose from the options A, B, C and\
+      \ D."
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q3
+  triggers:
+    en:
+      D: correct-answer-G9.A3.3.5.1/q3
+      __default__: wrong-answer-G9.A3.3.5.1/q3
+
+- name: wrong-answer-G9.A3.3.5.1/q3
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q3
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q3
+
+- name: correct-answer-G9.A3.3.5.1/q3
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q4
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q4
+
+- name: G9.A3.3.5.1/q4
+  level: 4
+  actions:
+    en:
+    - "What point satisfies the following equation?\ny = 3x\xB2 - 4x + 3\n\nA. (0,\
+      \ -1)\nB. (1, 1)\nC. (3, -1)\nD. (1, 2)\n"
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q4
+  triggers:
+    en:
+      D: correct-answer-G9.A3.3.5.1/q4
+      __default__: wrong-answer-G9.A3.3.5.1/q4
+
+- name: wrong-answer-G9.A3.3.5.1/q4
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q4
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q4
+
+- name: correct-answer-G9.A3.3.5.1/q4
+  actions:
+    en:
+    - Perfect!
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q5
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q5
+
+- name: G9.A3.3.5.1/q5
+  level: 5
+  actions:
+    en:
+    - "What point satisfies the following equation?\ny = -2x\xB2 + 3x + 1\n\nA. (2,\
+      \ -1)\nB. (1, 1)\nC. (3, -1)\nD. (1, 1)\n"
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q5
+  triggers:
+    en:
+      A: correct-answer-G9.A3.3.5.1/q5
+      __default__: wrong-answer-G9.A3.3.5.1/q5
+
+- name: wrong-answer-G9.A3.3.5.1/q5
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q5
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q5
+
+- name: correct-answer-G9.A3.3.5.1/q5
+  actions:
+    en:
+    - Perfect!
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q6
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q6
+
+- name: G9.A3.3.5.1/q6
+  level: 6
+  actions:
+    en:
+    - "What point satisfies the following equation?\ny = -x\xB2 - x + 5\n\nA. (0,\
+      \ -1)\nB. (-2, 4)\nC. (-2, -2)\nD. (-1, 0)\n"
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q6
+  triggers:
+    en:
+      B: correct-answer-G9.A3.3.5.1/q6
+      __default__: wrong-answer-G9.A3.3.5.1/q6
+
+- name: wrong-answer-G9.A3.3.5.1/q6
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q6
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q6
+
+- name: correct-answer-G9.A3.3.5.1/q6
+  actions:
+    en:
+    - Perfect!
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q7
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q7
+
+- name: G9.A3.3.5.1/q7
+  level: 7
+  actions:
+    en:
+    - "What point satisfies the following equation?\ny = -6x\xB2 - 5x + 4\n\nA. (3,\
+      \ 2)\nB. (-2, -10)\nC. (1, -1)\nD. (4, 0)\n"
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q7
+  triggers:
+    en:
+      B: correct-answer-G9.A3.3.5.1/q7
+      __default__: wrong-answer-G9.A3.3.5.1/q7
+
+- name: wrong-answer-G9.A3.3.5.1/q7
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q7
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q7
+
+- name: correct-answer-G9.A3.3.5.1/q7
+  actions:
+    en:
+    - Perfect!
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q8
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q8
+
+- name: G9.A3.3.5.1/q8
+  level: 8
+  actions:
+    en:
+    - "What point satisfies the following equation?\ny = x\xB2 - 2\n\nA. (0, -1)\n\
+      B. (1, 1)\nC. (3, 7)\nD. (1, 0)\n"
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q8
+  triggers:
+    en:
+      C: correct-answer-G9.A3.3.5.1/q8
+      __default__: wrong-answer-G9.A3.3.5.1/q8
+
+- name: wrong-answer-G9.A3.3.5.1/q8
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q8
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q8
+
+- name: correct-answer-G9.A3.3.5.1/q8
+  actions:
+    en:
+    - Perfect!
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q9
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q9
+
+- name: G9.A3.3.5.1/q9
+  level: 9
+  actions:
+    en:
+    - "What point satisfies the following equation?\ny = 2x\xB2\nA. (0, -1)\nB. (3,\
+      \ 18)\nC. (2, 12)\nD. (4, 30)\n"
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q9
+  triggers:
+    en:
+      B: correct-answer-G9.A3.3.5.1/q9
+      __default__: wrong-answer-G9.A3.3.5.1/q9
+
+- name: wrong-answer-G9.A3.3.5.1/q9
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q9
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q9
+
+- name: correct-answer-G9.A3.3.5.1/q9
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q10
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q10
+
+- name: G9.A3.3.5.1/q10
+  level: 10
+  actions:
+    en:
+    - "What point satisfies the following equation?\ny = -12x\xB2 - 11x + 2\n\nA.\
+      \ (-1, 1)\nB. (1, -10)\nC. (3, -1)\nD. (0, 0)\n"
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q10
+  triggers:
+    en:
+      A: correct-answer-G9.A3.3.5.1/q10
+      __default__: wrong-answer-G9.A3.3.5.1/q10
+
+- name: wrong-answer-G9.A3.3.5.1/q10
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q10
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q10
+
+- name: correct-answer-G9.A3.3.5.1/q10
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q11
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q11
+
+- name: G9.A3.3.5.1/q11
+  level: 11
+  actions:
+    en:
+    - "What point satisfies the following equation?\ny = 4x\xB2 + 12x + 4\n\nA. (0,\
+      \ -1)\nB. (1, 1)\nC. (-2, -4)\nD. (3, -4)\n"
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q11
+  triggers:
+    en:
+      C: correct-answer-G9.A3.3.5.1/q11
+      __default__: wrong-answer-G9.A3.3.5.1/q11
+
+- name: wrong-answer-G9.A3.3.5.1/q11
+  actions:
+    en:
+    - Oops! That's not correct. Let's try again.
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/q11
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/q11
+
+- name: correct-answer-G9.A3.3.5.1/q11
+  actions:
+    en:
+    - Exactly right!
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/end
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/end
+
+- name: G9.A3.3.5.1/end
+  level: 12
+  actions:
+    en:
+    - Congratulations, you have completed the Quadratic equations micro-lesson.You
+      can start over or choose another practice. Click 'Repeat' to complete Quadratic
+      equations micro-lesson one more time
+  buttons:
+    en:
+      OK: G9.A3.3.5.1/instruction
+  triggers:
+    en:
+      __next__: G9.A3.3.5.1/instruction
+      __default__: G9.A3.3.5.1/start

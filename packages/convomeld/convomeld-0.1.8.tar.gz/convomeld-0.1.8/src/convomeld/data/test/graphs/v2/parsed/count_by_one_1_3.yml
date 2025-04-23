@@ -1,0 +1,121 @@
+- name: start
+  convo_name: convo_name
+  convo_description: empty
+  nlp: exact
+  triggers:
+    en:
+      __next__: convo_name/respond_1
+- name: convo_name/respond_1
+  actions:
+    en:
+    - Let's learn how to count by 1s. I will give you three numbers and you tell me
+      what the next number is. If I say '2, 3, 4' then you should say '5'
+  triggers:
+    en:
+      __next__: convo_name/question_1_1
+- name: convo_name/question_1_1
+  actions:
+    en:
+    - 11, 12, 13?
+  triggers:
+    en:
+      __default__: convo_name/question_1_1
+      '18': convo_name/respond_2
+- name: convo_name/respond_2
+  actions:
+    en:
+    - Incorrect!
+  triggers:
+    en:
+      __next__: convo_name/respond_3
+- name: convo_name/respond_3
+  actions:
+    en:
+    - Pay attention.
+  triggers:
+    en:
+      __next__: convo_name/respond_4
+- name: convo_name/respond_4
+  actions:
+    en:
+    - Try again.
+  triggers:
+    en:
+      __next__: convo_name/question_1_2
+- name: convo_name/question_1_2
+  actions:
+    en:
+    - 11, 12, 13?
+  triggers:
+    en:
+      __default__: convo_name/question_1_2
+      '19': convo_name/respond_5
+- name: convo_name/respond_5
+  actions:
+    en:
+    - Incorrect!
+  triggers:
+    en:
+      __next__: convo_name/respond_6
+- name: convo_name/respond_6
+  actions:
+    en:
+    - Pay more attention.
+  triggers:
+    en:
+      __next__: convo_name/respond_7
+- name: convo_name/respond_7
+  actions:
+    en:
+    - Try again.
+  triggers:
+    en:
+      __next__: convo_name/question_1_3
+- name: convo_name/question_1_3
+  actions:
+    en:
+    - 11, 12, 13?
+  triggers:
+    en:
+      __default__: convo_name/question_1_3
+      '20': convo_name/respond_8
+- name: convo_name/respond_8
+  actions:
+    en:
+    - Incorrect!
+  triggers:
+    en:
+      __next__: convo_name/respond_9
+- name: convo_name/respond_9
+  actions:
+    en:
+    - Pay attention.
+  triggers:
+    en:
+      __next__: convo_name/respond_10
+- name: convo_name/respond_10
+  actions:
+    en:
+    - Try again.
+  triggers:
+    en:
+      __next__: convo_name/question_1_4
+- name: convo_name/question_1_4
+  actions:
+    en:
+    - 11, 12, 13?
+  triggers:
+    en:
+      __default__: convo_name/question_1_4
+      '14': convo_name/respond_11
+- name: convo_name/respond_11
+  actions:
+    en:
+    - Yes, correct!
+  triggers:
+    en:
+      __next__: stop
+- name: stop
+  triggers:
+    en:
+      __default__: start

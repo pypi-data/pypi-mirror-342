@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: convomeld
+Version: 0.1.8
+Summary: Parse text scripts or chatbot message logs and merge conversation graphs (Convographs)
+Author-Email: Ruslan Borysov <borysov.ruslan98@gmail.com>, Hobson Lane <hobson@tangibleai.com>, Vlad Snisar <vlad@tangibleai.com>, Cetin Czeckr <cetin@tangibleai.com>, Greg Thompson <greg@tangibleai.com>
+License: MIT
+Requires-Python: >=3.11
+Requires-Dist: PyYAML
+Requires-Dist: openpyxl
+Requires-Dist: pandas
+Requires-Dist: ipython
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: build; extra == "dev"
+Requires-Dist: wheel; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Description-Content-Type: text/markdown
+
+# Convomeld
+
+Tools for composing, validating, merging and simplifying the graph data structures that define the a conversational agent's behavior - a program that can be run by a conversation manager to interact with humans.
+

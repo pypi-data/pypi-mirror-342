@@ -1,0 +1,21 @@
+teacher: Let's learn how to count by 1s. I will give you three numbers and you tell me what the next number is. If I say '2, 3, 4' then you should say '5'
+teacher: 11, 12, 13?
+student: 15
+teacher: Incorrect!
+teacher: 11, 12, 13?
+student: 14
+teacher: Yes, correct!
+teacher: Let's move on.
+teacher: 97, 98, 99?
+student: 101
+teacher: Incorrect!
+teacher: 97, 98, 99?
+student: 100
+teacher: Correct, good job!
+teacher: The last question.
+teacher: 108, 109, 110?
+student: 1101
+teacher: Incorrect!
+teacher: 108, 109, 110?
+student: 111
+teacher: Well done!

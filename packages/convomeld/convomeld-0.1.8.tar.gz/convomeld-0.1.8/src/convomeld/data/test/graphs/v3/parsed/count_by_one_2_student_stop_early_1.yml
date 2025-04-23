@@ -1,0 +1,57 @@
+- name: start
+  convo_name: convo_name
+  convo_description: empty
+  nlp: exact
+  triggers:
+  - user_text: __next__
+    target: convo_name/respond_1
+    lang: en
+- name: convo_name/respond_1
+  actions:
+  - send_message:
+      bot_text: Let's learn how to count by 1s. I will give you three numbers and
+        you tell me what the next number is. If I say '2, 3, 4' then you should say
+        '5'
+      lang: en
+  triggers:
+  - user_text: __next__
+    target: convo_name/question_1_1
+    lang: en
+- name: convo_name/question_1_1
+  actions:
+  - send_message:
+      bot_text: 11, 12, 13?
+      lang: en
+  triggers:
+  - user_text: __default__
+    target: convo_name/question_1_1
+    lang: en
+  - user_text: '15'
+    target: convo_name/respond_2
+    lang: en
+- name: convo_name/respond_2
+  actions:
+  - send_message:
+      bot_text: Incorrect!
+      lang: en
+  triggers:
+  - user_text: __next__
+    target: convo_name/question_1_2
+    lang: en
+- name: convo_name/question_1_2
+  actions:
+  - send_message:
+      bot_text: 11, 12, 13?
+      lang: en
+  triggers:
+  - user_text: __timeout__
+    target: stop
+    lang: en
+  - user_text: __default__
+    target: convo_name/question_1_2
+    lang: en
+- name: stop
+  triggers:
+  - user_text: __default__
+    target: start
+    lang: en

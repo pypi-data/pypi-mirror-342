@@ -1,0 +1,168 @@
+- name: start
+  convo_name: convo_name
+  convo_description: empty
+  nlp: exact
+  triggers:
+  - user_text: __next__
+    target: convo_name/respond_1
+    lang: en
+- name: convo_name/respond_1
+  actions:
+  - send_message:
+      bot_text: Let's learn how to count by 1s. I will give you three numbers and
+        you tell me what the next number is. If I say '2, 3, 4' then you should say
+        '5'
+      lang: en
+  triggers:
+  - user_text: __next__
+    target: convo_name/question_1_1
+    lang: en
+- name: convo_name/question_1_1
+  actions:
+  - send_message:
+      bot_text: 11, 12, 13?
+      lang: en
+  triggers:
+  - user_text: __default__
+    target: convo_name/question_1_1
+    lang: en
+  - user_text: '15'
+    target: convo_name/respond_2
+    lang: en
+- name: convo_name/respond_2
+  actions:
+  - send_message:
+      bot_text: Incorrect!
+      lang: en
+  triggers:
+  - user_text: __next__
+    target: convo_name/question_1_2
+    lang: en
+- name: convo_name/question_1_2
+  actions:
+  - send_message:
+      bot_text: 11, 12, 13?
+      lang: en
+  triggers:
+  - user_text: __default__
+    target: convo_name/question_1_2
+    lang: en
+  - user_text: '14'
+    target: convo_name/respond_3
+    lang: en
+- name: convo_name/respond_3
+  actions:
+  - send_message:
+      bot_text: Yes, correct!
+      lang: en
+  triggers:
+  - user_text: __next__
+    target: convo_name/respond_4
+    lang: en
+- name: convo_name/respond_4
+  actions:
+  - send_message:
+      bot_text: Let's move on.
+      lang: en
+  triggers:
+  - user_text: __next__
+    target: convo_name/question_2_1
+    lang: en
+- name: convo_name/question_2_1
+  actions:
+  - send_message:
+      bot_text: 97, 98, 99?
+      lang: en
+  triggers:
+  - user_text: __default__
+    target: convo_name/question_2_1
+    lang: en
+  - user_text: '101'
+    target: convo_name/respond_5
+    lang: en
+- name: convo_name/respond_5
+  actions:
+  - send_message:
+      bot_text: Incorrect!
+      lang: en
+  triggers:
+  - user_text: __next__
+    target: convo_name/question_2_2
+    lang: en
+- name: convo_name/question_2_2
+  actions:
+  - send_message:
+      bot_text: 97, 98, 99?
+      lang: en
+  triggers:
+  - user_text: __default__
+    target: convo_name/question_2_2
+    lang: en
+  - user_text: '100'
+    target: convo_name/respond_6
+    lang: en
+- name: convo_name/respond_6
+  actions:
+  - send_message:
+      bot_text: Correct, good job!
+      lang: en
+  triggers:
+  - user_text: __next__
+    target: convo_name/respond_7
+    lang: en
+- name: convo_name/respond_7
+  actions:
+  - send_message:
+      bot_text: The last question.
+      lang: en
+  triggers:
+  - user_text: __next__
+    target: convo_name/question_3_1
+    lang: en
+- name: convo_name/question_3_1
+  actions:
+  - send_message:
+      bot_text: 108, 109, 110?
+      lang: en
+  triggers:
+  - user_text: __default__
+    target: convo_name/question_3_1
+    lang: en
+  - user_text: '1101'
+    target: convo_name/respond_8
+    lang: en
+- name: convo_name/respond_8
+  actions:
+  - send_message:
+      bot_text: Incorrect!
+      lang: en
+  triggers:
+  - user_text: __next__
+    target: convo_name/question_3_2
+    lang: en
+- name: convo_name/question_3_2
+  actions:
+  - send_message:
+      bot_text: 108, 109, 110?
+      lang: en
+  triggers:
+  - user_text: __default__
+    target: convo_name/question_3_2
+    lang: en
+  - user_text: '111'
+    target: convo_name/respond_9
+    lang: en
+- name: convo_name/respond_9
+  actions:
+  - send_message:
+      bot_text: Well done!
+      lang: en
+  triggers:
+  - user_text: __next__
+    target: stop
+    lang: en
+- name: stop
+  triggers:
+  - user_text: __default__
+    target: start
+    lang: en
