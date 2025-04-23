@@ -1,0 +1,59 @@
+Metadata-Version: 2.3
+Name: fragmentmnp
+Version: 1.1.5
+Summary: Model of microplastic degradation and fragmentation in the environment
+License: BSD-3-Clause
+Author: Sam Harrison
+Author-email: samharrison.xg@gmail.com
+Requires-Python: >=3.9,<3.13
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: Pillow (>=9.1.1)
+Requires-Dist: matplotlib (>=3.5.1,<4.0.0)
+Requires-Dist: numpy (>=1.22.3,<2.0.0)
+Requires-Dist: pandas (>=1.4.2,<2.0.0)
+Requires-Dist: plotly (>=5.8.0,<6.0.0)
+Requires-Dist: schema (>=0.7.5,<0.8.0)
+Requires-Dist: scipy (>=1.8.0,<2.0.0)
+Project-URL: Repository, https://github.com/microplastics-cluster/fragment-mnp
+Description-Content-Type: text/markdown
+
+# FRAGMENT-MNP
+
+FRAGMENT-MNP is a mechanistic model of Micro and NanoPlastic FRAGMentation in the ENvironmenT.
+
+[See the full model documentation here.](https://microplastics-cluster.github.io/fragment-mnp)
+
+## Usage
+
+Install the model with `pip`:
+
+```bash
+$ pip install fragmentmnp
+```
+
+Then run the model with example data and plot the results:
+
+```python
+from fragmentmnp import FragmentMNP
+from fragmentmnp.examples import minimal_config, minimal_data
+
+# Create the model, pass it example config and data, then run it
+fmnp = FragmentMNP(minimal_config, minimal_data)
+output = fmnp.run()
+# Plot the mass concentration time series
+output.plot()
+```
+
+## Developing FRAGMENT-MNP
+
+[See the developers documentation.](https://microplastics-cluster.github.io/fragment-mnp/developers/quickstart.html)
+
+## Acknowledgements
+
+Thanks to the European Chemical Industry Council Long-Range Research Initiative ([Cefic-LRI](https://cefic-lri.org/)) for providing funding for this work, under project number ECO59.
+
