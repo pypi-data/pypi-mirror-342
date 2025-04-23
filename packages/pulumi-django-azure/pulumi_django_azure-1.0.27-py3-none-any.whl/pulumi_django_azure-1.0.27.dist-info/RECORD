@@ -1,0 +1,12 @@
+pulumi_django_azure/__init__.py,sha256=WoTHLNGnqc3dQoJtzrAJY8OVA7ReP6XFkDb9BXZGfJ8,117
+pulumi_django_azure/azure_helper.py,sha256=eIaOoajwQuIRyt6Q3KHIA1qctLxOqwSF9yurwk2WgzY,3417
+pulumi_django_azure/django_deployment.py,sha256=9K_UsZ6fwQgMnDRrKjQ2hWGFC2QX6W6jujdIAixx2y8,49674
+pulumi_django_azure/middleware.py,sha256=Lp05G_wn9vlSueRJsnk-g2Rs9FFG155Po2MP2Cv0LDc,3348
+pulumi_django_azure/settings.py,sha256=BTP5y6KE3oP9pY01TR1ML6GArpLhnzx-mFflrhTQ4SE,5906
+pulumi_django_azure/management/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pulumi_django_azure/management/commands/purge_cache.py,sha256=yjMoNvEPFmtuZctOKXMUacfKJLlTC9xfF-0W-IH3kF0,488
+pulumi_django_azure/management/commands/purge_cdn.py,sha256=1lZI5liDIiOGyJRmo9gRn-BDLHaRuipaUmUAm06bRr0,2093
+pulumi_django_azure-1.0.27.dist-info/METADATA,sha256=2k5FPkCereVU1U-EnVGGYn27P_-XSYZkyQOmcDU555c,11212
+pulumi_django_azure-1.0.27.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+pulumi_django_azure-1.0.27.dist-info/top_level.txt,sha256=MNPRJhq-_G8EMCHRkjdcb_xrqzOkmKogXUGV7Ysz3g0,20
+pulumi_django_azure-1.0.27.dist-info/RECORD,,
