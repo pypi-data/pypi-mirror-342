@@ -1,0 +1,16 @@
+include LICENSE
+include README.rst
+include CHANGES.rst
+include src/pupil_apriltags/CMakeLists.txt
+include setup.py
+include setup.cfg
+include pyproject.toml
+
+recursive-include apriltags-source *
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude .vscode *
+recursive-exclude .travis *
+recursive-exclude .github *
+recursive-exclude test *
