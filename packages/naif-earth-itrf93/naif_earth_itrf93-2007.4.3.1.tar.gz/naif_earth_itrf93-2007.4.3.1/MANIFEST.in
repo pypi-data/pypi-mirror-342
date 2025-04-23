@@ -1,0 +1,3 @@
+include naif_earth_itrf93/earth_assoc_itrf93.tf
+include naif_earth_itrf93/earth_assoc_itrf93.md5
+LICENSE

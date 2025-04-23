@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+naif_earth_itrf93/__init__.py
+naif_earth_itrf93/earth_assoc_itrf93.md5
+naif_earth_itrf93/earth_assoc_itrf93.tf
+naif_earth_itrf93/fetch.py
+naif_earth_itrf93.egg-info/PKG-INFO
+naif_earth_itrf93.egg-info/SOURCES.txt
+naif_earth_itrf93.egg-info/dependency_links.txt
+naif_earth_itrf93.egg-info/requires.txt
+naif_earth_itrf93.egg-info/top_level.txt
+naif_earth_itrf93/../LICENSE
+naif_earth_itrf93/tests/__init__.py
+naif_earth_itrf93/tests/test_naif_earth_itrf93.py

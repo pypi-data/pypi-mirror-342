@@ -1,0 +1,25 @@
+[build-system]
+requires =  ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "naif_earth_itrf93"
+version = "2007.04.03.1"
+authors = [
+    {name = "B612 Asteroid Institute", email = "info@b612foundation.org"},
+]
+description = "NAIF Earth Body-fixed Reference Frame/Body Association Kernel for SPICE"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+[project.optional-dependencies]
+tests = [
+    "pytest",
+    "spiceypy"
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+naif_earth_itrf93 = ["naif_earth_itrf93/earth_assoc_itrf93.tf", "naif_earth_itrf93/earth_assoc_itrf93.md5", "../LICENSE"]
