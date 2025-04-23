@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+mcp_intercom/__init__.py
+mcp_intercom/server.py
+mcp_intercom.egg-info/PKG-INFO
+mcp_intercom.egg-info/SOURCES.txt
+mcp_intercom.egg-info/dependency_links.txt
+mcp_intercom.egg-info/entry_points.txt
+mcp_intercom.egg-info/requires.txt
+mcp_intercom.egg-info/top_level.txt
