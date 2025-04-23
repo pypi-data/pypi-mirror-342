@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: ocr-compare
+Version: 0.2.0
+Summary: A tool for comparing OCR results from different OCR engines
+Author: OCR Compare Team
+Requires-Python: >=3.8
+Requires-Dist: pillow
+Requires-Dist: python-dstools
+Requires-Dist: PyPDF2
+Provides-Extra: tesseract
+Requires-Dist: pytesseract; extra == "tesseract"
+Provides-Extra: gdai
+Requires-Dist: google-cloud-documentai; extra == "gdai"
+Requires-Dist: google-auth; extra == "gdai"
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Provides-Extra: visualization
+Requires-Dist: matplotlib; extra == "visualization"
+Requires-Dist: numpy; extra == "visualization"
+Provides-Extra: magic
+Requires-Dist: python-magic; extra == "magic"
+Provides-Extra: scan
+Requires-Dist: opencv-python; extra == "scan"
+Requires-Dist: numpy; extra == "scan"
+Provides-Extra: all
+Requires-Dist: pytesseract; extra == "all"
+Requires-Dist: google-cloud-documentai; extra == "all"
+Requires-Dist: google-auth; extra == "all"
+Requires-Dist: matplotlib; extra == "all"
+Requires-Dist: numpy; extra == "all"
+Requires-Dist: python-magic; extra == "all"
+Requires-Dist: pandas; extra == "all"
+Requires-Dist: opencv-python; extra == "all"
+Requires-Dist: PyPDF2; extra == "all"
+Dynamic: author
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
