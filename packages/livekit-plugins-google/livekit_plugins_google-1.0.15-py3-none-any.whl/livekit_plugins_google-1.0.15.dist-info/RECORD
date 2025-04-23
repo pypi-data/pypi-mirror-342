@@ -1,0 +1,16 @@
+livekit/plugins/google/__init__.py,sha256=e_kSlFNmKhyyeliz7f4WOKc_Y0-y39QjO5nCWuguhss,1171
+livekit/plugins/google/llm.py,sha256=SqNGg6-wlrIUo9uaismP7QW5XztkXyDivJXLVgOIZMI,16175
+livekit/plugins/google/log.py,sha256=GI3YWN5YzrafnUccljzPRS_ZALkMNk1i21IRnTl2vNA,69
+livekit/plugins/google/models.py,sha256=SGjAumdDK97NNLwMFcqZdKR68f1NoGB2Rk1UP2-imG0,1457
+livekit/plugins/google/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+livekit/plugins/google/stt.py,sha256=AG_lh2fuuduJi0jFbA_QKFXLJ6NUdF1W_FfkLUJML_Q,22413
+livekit/plugins/google/tts.py,sha256=xhINokqY8UutXn85N-cbzq68eptbM6TTtIXmLktE_RM,9004
+livekit/plugins/google/utils.py,sha256=pbLSOAdQxInWhgI2Yhsrr9KvgvpFXYDdU2yx2p03pFg,9437
+livekit/plugins/google/version.py,sha256=wHPUkZRYx-OB6iDuwTmMNVVQXU9eg5xFSjgmKBqqwd4,601
+livekit/plugins/google/beta/__init__.py,sha256=AxRYc7NGG62Tv1MmcZVCDHNvlhbC86hM-_yP01Qb28k,47
+livekit/plugins/google/beta/realtime/__init__.py,sha256=_fW2NMN22F-hnQ4xAJ_g5lPbR7CvM_xXzSWlUQY-E-U,188
+livekit/plugins/google/beta/realtime/api_proto.py,sha256=Fyrejs3SG0EjOPCCFLEnWXKEUxCff47PMWk2VsKJm5E,594
+livekit/plugins/google/beta/realtime/realtime_api.py,sha256=HvPYyQXC9OodWaDNxbRt1UAJ8IVdXZGK-PsIEr7UwbY,25078
+livekit_plugins_google-1.0.15.dist-info/METADATA,sha256=wMOLBkgHx_fJ0o5s8URB7Ev6yEg2jhKHhb0OlH1_7p4,3492
+livekit_plugins_google-1.0.15.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+livekit_plugins_google-1.0.15.dist-info/RECORD,,
