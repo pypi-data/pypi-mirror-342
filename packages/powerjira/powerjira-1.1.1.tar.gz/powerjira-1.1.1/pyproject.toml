@@ -1,0 +1,32 @@
+[project]
+name = "powerjira"
+version = "1.1.1"
+description = "A succinct, minimal local jira control plane in a VSCode workspace. Because less Jira is more better!"
+keywords = ["jira", "work tracker", "powerjira", "cli"]
+
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+readme = "README.md"
+authors = [
+  { name = "Isaac Yep", email = "anthonybenchyep@gmail.com" }
+]
+
+dependencies = [
+  "typer (>=0.15,<1.0)",
+  "jira (>=3.4.1,<4.0)",
+  "PyYAML (>=6.0,<7.0)",
+  "tabulate (>=0.9,<1.0)",
+]
+
+[tool.poetry]
+packages = [
+  { include = "powerjira_toolchain" },
+  { include = "powerjira.py" },
+]
+
+[project.urls]
+repository = "https://github.com/anthonybench/powerjira"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
