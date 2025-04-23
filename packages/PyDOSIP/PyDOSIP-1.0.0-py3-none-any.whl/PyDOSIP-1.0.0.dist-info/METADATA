@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: PyDOSIP
+Version: 1.0.0
+Summary: A python library to detect operating states in industrial process
+Home-page: https://github.com/know-ai/PyDOSIP
+Author: KnowAI
+Author-email: dev.know.ai@gmail.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Monitoring
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PyYAML==6.0.2
+Requires-Dist: flake8>=6.0.0
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: pytest>=7.0.0
+
+# PyDOSIP
+
+Paquete para la Detección de Estados Operativos en Procesos Industriales en Python
+
+## Ejecución del Archivo de Simulación
+
+Para ejecutar el archivo de simulación `simulation_with_csv.py`, utiliza el siguiente comando:
+
+```bash
+python simulation_with_csv.py <ruta_config.yml>
+```
+
+Donde `<ruta_config.yml>` es la ruta al archivo de configuración YAML que contiene los parámetros necesarios para la simulación.
+
+## Parámetros del Archivo `config.yml`
+
+El archivo `config.yml` debe contener los siguientes parámetros:
+
+```yaml
+csv_file_path: "/ruta/al/archivo.csv"
+csv_columns:
+  flow: "LAST_TRANSMITTER_MASS_FLOW"
+  pressure: "LAST_TRANSMITTER_PRESSURE"
+pydosip:
+  buffer_size: 80
+  times_to_trigger: 10
+  threshold: 1.0
+  threshold_shutin: 5.0
+```
+
+### Descripción de los Parámetros
+
+- `csv_file_path`: Ruta al archivo CSV que contiene los datos de flujo y presión.
+
+- `csv_columns`:
+
+  - `flow`: Nombre de la columna en el archivo CSV que contiene los datos de flujo.
+  - `pressure`: Nombre de la columna en el archivo CSV que contiene los datos de presión.
+
+- `pydosip`:
+  - `buffer_size`: Tamaño del buffer utilizado para el análisis de datos.
+  - `times_to_trigger`: Número de veces que debe ocurrir el mismo estado para considerarlo como un cambio de estado.
+  - `threshold`: Umbral basado en la desviación estándar para determinar el estado estacionario.
+  - `threshold_shutin`: Umbral para determinar el estado SHUTIN basado en el flujo.
+
+Estos parámetros permiten configurar el comportamiento del análisis de estados operativos utilizando PyDOSIP, proporcionando flexibilidad para adaptarse a diferentes escenarios de datos y requisitos de análisis.
+
+
