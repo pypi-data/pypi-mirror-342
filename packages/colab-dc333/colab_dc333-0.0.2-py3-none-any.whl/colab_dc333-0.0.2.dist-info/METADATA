@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: colab_dc333
+Version: 0.0.2
+Summary: colab utils
+Project-URL: Homepage, https://github.com/dougc333/test_python/tree/main/llmutils/colab_dc333
+Project-URL: Issues, https://github.com/dougc333/test_python/issues
+Author-email: dc <dougchang25@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# Install
+pip install colab-dc333
+
+# How to use
+>>> from colab_dc333 import nvidia
+>>> nvidia.hello()
+hello
+
+
