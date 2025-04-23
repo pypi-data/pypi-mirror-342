@@ -1,0 +1,5 @@
+SIMPLY_BLOCK_COMMAND_NAME=sbcli-chris
+SIMPLY_BLOCK_VERSION=0.0.8
+
+SIMPLY_BLOCK_DOCKER_IMAGE=public.ecr.aws/simply-block/simplyblock:public.ecr.aws/simply-block/simplyblock:disable-qos-test-e074e440@sha256:60eb8bf825a13d878f00ef1ec3a2502abe08e031a24b89626ebcf68fc01931f1
+SIMPLY_BLOCK_SPDK_ULTRA_IMAGE=public.ecr.aws/simply-block/ultra:main-latest
