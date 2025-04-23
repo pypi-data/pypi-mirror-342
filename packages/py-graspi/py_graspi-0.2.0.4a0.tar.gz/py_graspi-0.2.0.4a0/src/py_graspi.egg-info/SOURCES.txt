@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+src/docs/__init__.py
+src/docs/source/__init__.py
+src/docs/source/conf.py
+src/py_graspi.egg-info/PKG-INFO
+src/py_graspi.egg-info/SOURCES.txt
+src/py_graspi.egg-info/dependency_links.txt
+src/py_graspi.egg-info/requires.txt
+src/py_graspi.egg-info/top_level.txt
+tests/tests.py
