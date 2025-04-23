@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: snaparg
+Version: 0.1.0
+Summary: A typo-tolerant CLI parser wrapper for argparse
+Author: PJ Hayes
+Author-email: PJ Hayes <you@example.com>
+License: MIT
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: license-file
+Dynamic: requires-python
+
+# snaparg
+
+`snaparg` is a Python library that wraps around `argparse` to make CLI tools more user-friendly by forgiving small typos in argument names and offering helpful suggestions.
+
+## Example
+
+```bash
+$ python demo.py --iput file.txt
+Error: Unknown or invalid argument(s).
+  Did you mean: '--iput' -> '--input'?
+
+Full message:
+usage: demo.py [-h] [--input INPUT] [--output OUTPUT] [--force]
+```
+
+## Installation
+
+```bash
+pip install snaparg
+```
+
+## License
+
+MPL 2.0 License
