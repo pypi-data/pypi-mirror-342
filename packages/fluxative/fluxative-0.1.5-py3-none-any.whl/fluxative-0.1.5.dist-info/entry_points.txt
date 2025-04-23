@@ -1,0 +1,5 @@
+[console_scripts]
+fluxative = src.fluxative:app
+
+[uvx]
+fluxative = src.fluxative:app
