@@ -1,0 +1,32 @@
+# Include essential files - for pypi installer
+include README.md
+include LICENSE.md
+include requirements.txt
+include setup.py
+include MANIFEST.in
+
+
+# Include only the project code
+recursive-include docore_ai *.py
+recursive-include api *
+recursive-include research *
+
+
+
+# Exclude unnecessary files
+exclude .env
+exclude .gitignore
+exclude .vscode/
+exclude assets/
+exclude css/
+exclude Deleted/
+exclude dist/
+exclude docoreai.egg-info/
+exclude evals/
+exclude index.html
+exclude templates_docs/
+exclude tests/
+
+# Exclude cache & compiled files
+global-exclude __pycache__/*
+global-exclude *.pyc
