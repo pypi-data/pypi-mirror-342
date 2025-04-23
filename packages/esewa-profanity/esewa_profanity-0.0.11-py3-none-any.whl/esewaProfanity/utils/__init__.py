@@ -1,0 +1,1 @@
+from .path_location import get_package_location
