@@ -1,0 +1,11 @@
+algos==0.1.0
+gym-dcmotor==0.2
+gymnasium==0.29.1
+numpy==1.23.5
+optuna==4.2.1
+pytest==7.2.2
+setuptools==65.5.0
+stable_baselines3==2.4.0
+torch==2.0.1
+gymnasium_robotics==1.2.3
+highway_env==1.8.2
