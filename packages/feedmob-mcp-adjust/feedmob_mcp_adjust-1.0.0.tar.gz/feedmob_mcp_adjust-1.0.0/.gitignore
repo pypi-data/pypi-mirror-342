@@ -1,0 +1,13 @@
+# Python related
+__pycache__/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+
+# IDE related
+.idea/
+.vscode/
+.DS_Store

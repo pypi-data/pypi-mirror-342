@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: feedmob-mcp-adjust
+Version: 1.0.0
+Summary: Feedmob MCP Server of Adjust - MMP MCP Server
+Requires-Python: >=3.12.0
+Requires-Dist: httpx[socks]>=0.27.2
+Requires-Dist: mcp>=1.3.0
+Description-Content-Type: text/markdown
+
+# Feedmob MCP Server for Adjust
+
+Feedmob MCP Server for Adjust - MMP MCP server
+
+## Quickstart
+
+### Install
+
+#### Claude Desktop
+
+On MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
+On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
+
+<details>
+  <summary>Development/Unpublished Servers Configuration</summary>
+
+```
+{
+  "mcpServers": {
+    "feedmob-mcp-adjust": {
+      "command": "uvx",
+      "args": [
+        "feedmob-mcp-adjust"
+      ],
+      "env": {
+        "INTERNAL_API_KEY": "xxx"
+      }
+    }
+  }
+}
+
+```
+
+</details>
+
+### Debugging
+
+```shell
+npx @modelcontextprotocol/inspector uv --directory ./ run feedmob-mcp-adjust -e INTERNAL_API_KEY=xxx
+```
