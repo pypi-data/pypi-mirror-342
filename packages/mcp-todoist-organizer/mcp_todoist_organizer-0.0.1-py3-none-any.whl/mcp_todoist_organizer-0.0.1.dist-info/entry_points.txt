@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-todoist-organizer = mcp_todoist_organizer.__init__:main
