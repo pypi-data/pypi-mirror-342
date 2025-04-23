@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+boto3_mfa_cache_patch.pth
+setup.py
+boto3_mfa_cache/__init__.py
+boto3_mfa_cache.egg-info/PKG-INFO
+boto3_mfa_cache.egg-info/SOURCES.txt
+boto3_mfa_cache.egg-info/dependency_links.txt
+boto3_mfa_cache.egg-info/top_level.txt
