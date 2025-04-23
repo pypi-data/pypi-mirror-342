@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: equiface
+Version: 0.1.1
+Summary: A package to calculate FPR and FNR for TFLite face verification models
+Author: Tajwar Choudhury
+License: MIT
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: scipy
+Requires-Dist: tqdm
+Requires-Dist: pyyaml
+Requires-Dist: tensorflow
+Requires-Dist: ultralytics
+Dynamic: author
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
