@@ -1,0 +1,57 @@
+[project]
+name = "hafnia"
+version = "0.1.9"
+description = "Python tools for communication with Hafnia platform."
+readme = "README.md"
+authors = [{ name = "Ivan Sahumbaiev", email = "ivsa@milestone.dk" }]
+requires-python = ">=3.10"
+dependencies = [
+    "boto3>=1.35.91",
+    "click>=8.1.8",
+    "datasets>=3.2.0",
+    "pillow>=11.1.0",
+    "pyarrow>=18.1.0",
+    "pydantic>=2.10.4",
+    "rich>=13.9.4",
+    "tqdm>=4.67.1",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+    "lark>=1.2.2",
+    "pytest>=8.3.4",
+]
+lint = [
+    "pre-commit>=4.2.0",
+    "ruff>=0.9.1",
+]
+
+[tool.uv]
+default-groups = "all"
+
+[project.scripts]
+hafnia = 'cli.__main__:main'
+
+[project.optional-dependencies]
+# Use "uv sync --extra torch" to install torch dependencies
+torch = [
+    "torch>=2.6.0",
+    "torchvision>=0.21.0",
+    "flatten-dict>=0.4.2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+select = ["I", "E", "F"]
+ignore = ["E501"]
+line-length = 120
+
+[tool.ruff.isort]
+relative-imports-order = "closest-to-furthest"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cli", "src/hafnia"]
