@@ -1,0 +1,2 @@
+[console_scripts]
+dotctl = dotctl.main:main
