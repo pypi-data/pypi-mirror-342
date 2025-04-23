@@ -1,0 +1,150 @@
+[project]
+name = "FTL-Extract"
+description = "Extracts FTL files from a directory and outputs them to a directory"
+version = "0.7.1"
+authors = [{ name = "andrew000", email = "help@kusbot.com" }]
+keywords = ["ftl", "ftl-extract", "ftl-extractor"]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+dependencies = [
+    "fluent-syntax>=0.19",
+    "click==8.*",
+]
+
+[project.optional-dependencies]
+dev = [
+    "fluent-runtime==0.4.0",
+    "isort==6.0.1",
+    "pre-commit==4.2.0",
+    "ruff==0.11.6",
+    "mypy==1.15.0",
+    "typing-extensions==4.12.2",
+]
+tests = [
+    "pytest==8.3.5",
+    "pytest-cov==6.1.1",
+    "pytest-html==4.1.1",
+    "pytest-mock==3.14.0",
+    "coverage==7.8.0",
+]
+docs = [
+    "sphinx==7.4.7",
+    "sphinx-rtd-theme==3.0.2",
+    "sphinx-autobuild==2024.10.3",
+    "furo==2024.8.6",
+    "pytz==2025.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/andrew000/FTL-Extract"
+Issues = "https://github.com/andrew000/FTL-Extract/issues"
+Repository = "https://github.com/andrew000/FTL-Extract"
+
+[project.scripts]
+ftl-extract = "ftl_extract.cli:cli_extract"
+ftl_extract = "ftl_extract.cli:cli_extract"
+
+[tool.uv]
+package = true
+
+[tool.pytest.ini_options]
+testpaths = "tests"
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "def __str__",
+    "if TYPE_CHECKING:",
+    "importlib.metadata",
+]
+
+[tool.isort]
+py_version = 39
+src_paths = ["src", "tests"]
+line_length = 100
+multi_line_output = 3
+force_grid_wrap = 0
+include_trailing_comma = true
+split_on_trailing_comma = false
+single_line_exclusions = ["."]
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+known_first_party = ["ftl_extract"]
+
+[tool.ruff]
+src = ["src", "tests"]
+target-version = "py39"
+line-length = 100
+exclude = [
+    ".git",
+    ".mypy_cache",
+    ".ruff_cache",
+    "__pypackages__",
+    "__pycache__",
+    "*.pyi",
+    "venv",
+    ".venv",
+    "tests/.files",
+    "tests/files/py",
+    "dist",
+    "build",
+]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "A003",
+    "ANN002", "ANN003", "ANN401",
+    "C901",
+    "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107", "D203", "D205", "D212",
+    "ERA001",
+    "FA100", "FA102",
+    "FBT001", "FBT002",
+    "FIX002",
+    "I001",
+    "PLR0911", "PLR0912", "PLR0913", "PLR0915", "PLR5501",
+    "PLW0120",
+    "RUF001",
+    "S101",
+    "TC006", "TD002", "TD003",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.mypy]
+python_version = "3.9"
+mypy_path = "src"
+packages = ["ftl_extract"]
+plugins = []
+allow_redefinition = true
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+extra_checks = true
+follow_imports = "skip"
+follow_imports_for_stubs = false
+ignore_missing_imports = false
+namespace_packages = true
+no_implicit_optional = true
+no_implicit_reexport = true
+pretty = true
+show_absolute_path = true
+show_error_codes = true
+show_error_context = true
+warn_unused_configs = true
+warn_unused_ignores = true
+disable_error_code = [
+    "no-redef",
+]
+exclude = [
+    "\\.?venv",
+    "\\.idea",
+    "\\.tests?",
+]
