@@ -1,0 +1,2 @@
+[console_scripts]
+itranvias-cli = itranvias_api.__main__:main
