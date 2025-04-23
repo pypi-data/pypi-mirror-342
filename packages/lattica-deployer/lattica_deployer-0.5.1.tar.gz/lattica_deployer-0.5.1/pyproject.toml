@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "lattica-deployer"
+version = "0.5.1"
+description = "Lattica client"
+authors = ["LatticaAI Inc. <hello@lattica.ai>"]
+homepage = "https://www.lattica.ai/"
+
+packages = [{include = "lattica_deployer"}]
+
+# Exclude demos from the wheel package
+exclude = ["lattica_deployer/internal_demos/**/*", "lattica_deployer/public_demos/**/*"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+lattica-common = "~0.5"
+lattica-deploy = "~0.2"
+pyyaml = "*"
+
+[tool.poetry.group.dev.dependencies]
+lattica-common = {path = "../lattica_common_src", develop = true}
+lattica-deploy = { path = "../../lattice-toolkit/deployment_client", develop = true }
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
