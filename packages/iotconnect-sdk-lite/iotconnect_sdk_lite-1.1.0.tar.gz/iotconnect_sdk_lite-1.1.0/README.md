@@ -1,0 +1,40 @@
+
+> This document is reformatted to better viewing as a standalone document.
+> We recommend visiting this [GitHub v1.1.0 link](https://github.com/avnet-iotconnect/iotc-python-lite-sdk/blob/v1.1.0/) for best experience.
+
+# Introduction
+This project is the /IOTCONNECT Python Lite Client (SDK)
+that aims for a modern, intuitive and robust interface to connect your
+Linux, Windows or MacOS devices to the Avnet IoTConnect platform.
+
+The project supports /IOTCONNECT Device Protocol 2.1 devices. 
+The project requires Python 3.9 or newer and provides
+a set of features for most common /IOTCONNECT use cases.
+
+If you need support for older Pyton, both Protocol 1.0 and 2.1, Properties (Shadow/Twin)
+Offline or HTTP Client along with other features like Gateway/Child support
+you should check out the standard
+[Iotconnect Python SDK](https://github.com/avnet-iotconnect/iotc-python-sdk) repository.
+
+# Licensing
+
+This python package is distributed under the [MIT License](https://github.com/avnet-iotconnect/iotc-python-lite-sdk/blob/v1.1.0/LICENSE.md).
+
+# Installing
+
+The quickest way to get started with the project is to follow the [QUICKSTART.md](https://github.com/avnet-iotconnect/iotc-python-lite-sdk/blob/v1.1.0/QUICKSTART.md) document.
+
+# Using the Client
+
+Using this client to communicate to /IOTCONNECT involves the following steps:
+- Get familiar with the client API by examining documentation at [client.py](https://github.com/avnet-iotconnect/iotc-python-lite-sdk/blob/v1.1.0/src/avnet/iotconnect/sdk/lite/client.py)
+- Initialize the client with either:
+  - iotcDeviceConfig.json (downloaded from the device *Info* panel) - see the [basic-example](https://github.com/avnet-iotconnect/iotc-python-lite-sdk/blob/v1.1.0/examples/basic-example.py)
+  - Explicit parameters to the constructor - see the [minimal example](https://github.com/avnet-iotconnect/iotc-python-lite-sdk/blob/v1.1.0/examples/minimal.py).
+- Optionally, configure your own Client settings (log verbosity, timeouts etc.) and pass those to the constructor.
+- Optionally, pass callbacks for C2D message and OTA (see the [basic-example](https://github.com/avnet-iotconnect/iotc-python-lite-sdk/blob/v1.1.0/examples/basic-example.py)) or even your own [custom message handler](https://github.com/avnet-iotconnect/iotc-python-lite-sdk/blob/v1.1.0/examples/c2d-special-event-handling.py) to the constructor 
+  - While actual download and application replacement mechanism would depend on how your application runs
+    (via a system service, cron or other method) a simple OTA download and install method is shown in the [ota-handling](https://github.com/avnet-iotconnect/iotc-python-lite-sdk/blob/v1.1.0/examples/ota-handling.py) example.  
+- Optionally, pass a callback for the MQTT disconnect event and handle it according to your application requirements.  
+- Call Client.connect(). The call should block until connected based on timeout retry settings.
+- Call Client.send_telemetry() at regular intervals. Verify that the client is connected with Client.is_connected()

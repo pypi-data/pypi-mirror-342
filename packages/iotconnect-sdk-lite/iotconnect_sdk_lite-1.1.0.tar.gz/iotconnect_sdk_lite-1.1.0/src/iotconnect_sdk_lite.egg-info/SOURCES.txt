@@ -1,0 +1,11 @@
+LICENSE.md
+README.md
+pyproject.toml
+src/avnet/iotconnect/sdk/lite/__init__.py
+src/avnet/iotconnect/sdk/lite/client.py
+src/avnet/iotconnect/sdk/lite/config.py
+src/iotconnect_sdk_lite.egg-info/PKG-INFO
+src/iotconnect_sdk_lite.egg-info/SOURCES.txt
+src/iotconnect_sdk_lite.egg-info/dependency_links.txt
+src/iotconnect_sdk_lite.egg-info/requires.txt
+src/iotconnect_sdk_lite.egg-info/top_level.txt
