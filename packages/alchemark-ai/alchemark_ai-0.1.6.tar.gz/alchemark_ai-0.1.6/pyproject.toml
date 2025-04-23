@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alchemark-ai"
+version = "0.1.6"
+description = "AlcheMark AI - PDF to Markdown conversion with rich metadata and element analysis"
+readme = "README.md"
+authors = [
+    {name = "Matheus Sena"}
+]
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Topic :: Text Processing :: Markup :: Markdown",
+    "Topic :: Text Processing :: Markup :: LaTeX",
+]
+requires-python = ">=3.11"
+dependencies = [
+    "langdetect>=1.0.9",
+    "pydantic>=2.11.3",
+    "pymupdf>=1.25.5",
+    "pymupdf4llm>=0.0.21",
+    "tiktoken>=0.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/matthsena/AlcheMark-ai"
+"Bug Tracker" = "https://github.com/matthsena/AlcheMark-ai/issues"
+
+[tool.setuptools]
+packages = ["alchemark_ai", 
+            "alchemark_ai.pdf2md", 
+            "alchemark_ai.formatter", 
+            "alchemark_ai.models", 
+            "alchemark_ai.configs"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+python_classes = "Test*"
+filterwarnings = [
+    "ignore::DeprecationWarning:importlib._bootstrap:241",
+    "ignore::DeprecationWarning:_pytest.runner",
+    "ignore::DeprecationWarning:sys"
+]
