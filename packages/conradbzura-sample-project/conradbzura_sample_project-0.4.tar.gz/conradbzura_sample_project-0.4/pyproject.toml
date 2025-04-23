@@ -1,0 +1,29 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=64", "setuptools-scm>=8"]
+
+[project]
+authors = [{ name = "Conrad Bzura", email = "conradbzura@gmail.com" }]
+classifiers = [
+    "Framework :: Pytest",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = ["pytest", "pyyaml"]
+description = "Sample project"
+dynamic = ["version"]
+license = { text = "MIT License" }
+name = "conradbzura-sample-project"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.8"
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+pythonpath = "src"
+
+[tool.setuptools_scm]
+local_scheme = "dirty-tag"
+version_scheme = "release-branch-semver"
