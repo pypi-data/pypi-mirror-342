@@ -1,0 +1,10 @@
+huscy.projects
+huscy.pseudonyms
+huscy.subjects
+
+[development]
+psycopg2-binary
+
+[testing]
+tox
+watchdog
