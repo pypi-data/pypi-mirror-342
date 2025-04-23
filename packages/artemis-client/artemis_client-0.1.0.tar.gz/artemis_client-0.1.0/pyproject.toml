@@ -1,0 +1,15 @@
+[project]
+name = "artemis-client"
+version = "0.1.0"
+description = "My Python package for controlling Hikvisions' Hik Centrap Pro Artemis api"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Shukurulloh Komiljonov", email = "komiljonovshukurullokh@gmail.com" }]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/komiljonov/artemis.git"
+
+[build-system]
+requires = ["uv", "setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: artemis-client
+Version: 0.1.0
+Summary: My Python package for controlling Hikvisions' Hik Centrap Pro Artemis api
+Author-email: Shukurulloh Komiljonov <komiljonovshukurullokh@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/komiljonov/artemis.git
+Description-Content-Type: text/markdown
