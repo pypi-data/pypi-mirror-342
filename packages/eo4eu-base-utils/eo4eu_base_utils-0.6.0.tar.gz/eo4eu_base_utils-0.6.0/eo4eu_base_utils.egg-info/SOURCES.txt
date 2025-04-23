@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+eo4eu_base_utils/__init__.py
+eo4eu_base_utils/optional.py
+eo4eu_base_utils/utils.py
+eo4eu_base_utils.egg-info/PKG-INFO
+eo4eu_base_utils.egg-info/SOURCES.txt
+eo4eu_base_utils.egg-info/dependency_links.txt
+eo4eu_base_utils.egg-info/requires.txt
+eo4eu_base_utils.egg-info/top_level.txt
+eo4eu_base_utils/result/__init__.py
+eo4eu_base_utils/typing/__init__.py
+eo4eu_base_utils/unify/__init__.py

@@ -1,0 +1,7 @@
+
+[:python_version <= "3.10"]
+typing_extensions~=4.12
+
+[docs]
+sphinx==8.2.3
+sphinx-rtd-theme==3.0.2
