@@ -1,0 +1,2 @@
+[console_scripts]
+ontosunburst = ontosunburst.commands:main
