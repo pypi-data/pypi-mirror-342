@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+include .readthedocs.yaml
+recursive-include docs *.rst *.md *.py *.txt
+recursive-include FeynmS *.py
