@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: acedb
+Version: 0.1.0
+Summary: Wrapper for ACE ETH Postgres database
+Author-email: Carlo Teufel <carlo.teufel@analytics-club.org>
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: polars==1.27.1
+Requires-Dist: psycopg2-binary==2.9.10
+Requires-Dist: databento==0.52.0
+Requires-Dist: click==8.1.8
+Requires-Dist: build==1.2.2.post1
+Requires-Dist: setuptools==65.5.0
+
+# acedb
+
+A lightweight Python library + CLI tool to easily connect to your PostgreSQL database with minimal setup.  
+
+## ✨ Features
+- `acedb login`: set up your database credentials once
+- `acedb test-connection`: test your database connection
+- Simple, secure storage of credentials (saved locally)
+- Easy-to-use Python wrapper to get a connection anywhere in your code

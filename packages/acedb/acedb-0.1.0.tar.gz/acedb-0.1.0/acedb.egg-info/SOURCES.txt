@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+acedb/__init__.py
+acedb/acedb.py
+acedb/cli.py
+acedb.egg-info/PKG-INFO
+acedb.egg-info/SOURCES.txt
+acedb.egg-info/dependency_links.txt
+acedb.egg-info/entry_points.txt
+acedb.egg-info/requires.txt
+acedb.egg-info/top_level.txt
