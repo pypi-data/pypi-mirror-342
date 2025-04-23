@@ -1,0 +1,93 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python application
+
+on:
+  push:
+    branches: [ "main", "ci" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  PTYCHO_CI_DATA_DIR: /local/ptycho_aux_data/ci_data
+  CONDA_EXE: /local/actions-env/miniconda3/condabin/conda
+  CONDA_ROOT: /local/actions-env/miniconda3/
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Activate environment
+        id: activate_env
+        run: |
+          source $CONDA_ROOT/bin/activate ci_py311_base
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Run Ruff
+        run: ruff check src/ --output-format=github
+
+  linux-x86-gpu:
+
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Update test data
+      id: update_test_data
+      run: |
+        PACKAGE_DIR=$(pwd)
+        cd $PTYCHO_CI_DATA_DIR
+        git pull origin main
+        cd $PACKAGE_DIR
+
+    - name: Create environment
+      id: create_env
+      run: |
+        export ENVNAME=ci_py311_$(date +%s)
+        $CONDA_EXE create --quiet --yes --force -n $ENVNAME --clone ci_py311_base
+        echo "ENVNAME=$ENVNAME" >> $GITHUB_ENV
+      
+    - name: Install dependencies
+      run: |
+        $CONDA_EXE env list
+        source $CONDA_ROOT/bin/activate $ENVNAME
+        $CONDA_ROOT/envs/$ENVNAME/bin/pip install --upgrade pip
+        $CONDA_ROOT/envs/$ENVNAME/bin/pip install pytest
+        if [ -f requirements.txt ]; then $CONDA_ROOT/envs/$ENVNAME/bin/pip install -r requirements.txt; fi
+        $CONDA_ROOT/envs/$ENVNAME/bin/pip install -e .
+        $CONDA_ROOT/envs/$ENVNAME/bin/pip install torch==2.4.1 torchvision==0.19.1 numpy==2.1.2
+
+    - name: List build environment
+      run: $CONDA_EXE list -n $ENVNAME
+
+    - name: Test with pytest
+      run: |
+        source $CONDA_ROOT/bin/activate $ENVNAME
+        echo $(which python)
+        cd tests
+        pytest -s --high-tol --save-timing
+
+    - name: Remove environment
+      if: always()
+      run: |
+        $CONDA_EXE remove -n $ENVNAME --all --yes --force
+  
