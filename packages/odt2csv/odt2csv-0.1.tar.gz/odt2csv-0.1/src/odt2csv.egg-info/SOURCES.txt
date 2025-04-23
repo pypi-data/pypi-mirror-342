@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+src/odt2csv/__init__.py
+src/odt2csv/__main__.py
+src/odt2csv/exceptions.py
+src/odt2csv.egg-info/PKG-INFO
+src/odt2csv.egg-info/SOURCES.txt
+src/odt2csv.egg-info/dependency_links.txt
+src/odt2csv.egg-info/top_level.txt
