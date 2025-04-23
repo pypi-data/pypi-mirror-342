@@ -1,0 +1,76 @@
+[project]
+name = "crossbill"
+authors = [
+    {name = "Ryan O'Neill", email = "ryanoneill@gmail.com"}
+]
+version = "0.1.5"
+license = "MIT"
+description = "A library for building Finagle-style asynchronous clients and servers"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+keywords = [
+    "crossbill",
+    "finagle",
+    "service",
+    "filter",
+    "asynchronous",
+    "future",
+    "request",
+    "response",
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Topic :: Communications",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: System :: Networking",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Repository = "https://github.com/ryanoneill/crossbillpy"
+
+[dependency-groups]
+dev = [
+    "coverage>=7.8.0",
+    "ipython>=9.1.0",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.26.0",
+    "pytest-cov>=6.1.1",
+    "ruff>=0.11.5",
+]
+
+[tool.uv]
+package = true
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+
+[tool.ruff.lint]
+select = ["E", "F", "ANN", "D"]
+extend-select = ["I"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D"]
+"scripts/**" = ["D"]
+"examples/**" = ["D"]
+
+[tool.coverage.run]
+branch = true
+omit = ["tests/**", "scripts/**", "examples/**"]
+
+[tool.coverage.report]
+show_missing = true
