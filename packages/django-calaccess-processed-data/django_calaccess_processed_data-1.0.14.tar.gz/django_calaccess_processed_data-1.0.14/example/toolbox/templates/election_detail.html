@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>{{ object }}</h1>
+
+    {% if object.ballotmeasurecontests.count %}
+        <h3>Ballot measure contests ({{ object.ballotmeasurecontests.count }})</h3>
+        <table class="table table-sm">
+            {% for obj in object.ballotmeasurecontests.all|dictsort:"name" %}
+            <tr>
+                <td>{{ obj.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    {% if object.candidatecontests.count %}
+        <h3>Candidate contests ({{ object.candidatecontests.count }})</h3>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Posts</th>
+                    <th>Candidates</th>
+                    <th>Sources</th>
+                </tr>
+            </thead>
+            {% for obj in object.candidatecontests.all|dictsort:"name" %}
+            <tr>
+                <td>
+                    <a href="{% url 'candidatecontest_detail' obj.id %}">
+                        {{ obj.name }}
+                    </a>
+                </td>
+                <td>{{ obj.posts.count }}</td>
+                <td>{{ obj.candidacies.count }}</td>
+                <td>
+                    {% for obj in obj.sources.all %}
+                        <a href="{{ obj.url }}">{{ forloop.counter }}{% if not forloop.last %},{% endif %}</a>
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+{% endblock %}

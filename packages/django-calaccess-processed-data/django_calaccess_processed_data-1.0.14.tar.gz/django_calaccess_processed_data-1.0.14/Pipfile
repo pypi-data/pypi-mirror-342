@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django-calaccess-raw-data = "==5.0.7"
+django-calaccess-scraped-data = "==3.4.0"
+ccdc-opencivicdata = "==0.0.6"
+Django = "==4.0.*"
+pytz = "*"
+"psycopg2-binary" = "*"
+django-internetarchive-storage = "*"
+
+[dev-packages]
+"flake8" = "*"
+coverage = "*"
+requests-mock = "*"
+twine = "*"
+pre-commit = "*"
+setuptools-scm = "*"
+black = "*"
+
+[requires]
+python_version = "3.9"

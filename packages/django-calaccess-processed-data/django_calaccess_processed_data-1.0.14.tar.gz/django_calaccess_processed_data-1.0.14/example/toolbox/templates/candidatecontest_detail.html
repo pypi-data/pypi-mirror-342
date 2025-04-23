@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>{{ object }}</h1>
+
+    <table class="table table-sm">
+        <tr>
+            <th>Party</th>
+            <td>{{ object.party }}</td>
+        </tr>
+        <tr>
+            <th>Posts</th>
+            <td>
+                {% for obj in object.posts.all %}
+                    <a href="{% url 'post_detail' obj.post_id %}">{{ obj.post }}</a>{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Sources</th>
+            <td>
+                <ul>
+                    {% for obj in object.sources.all %}
+                        <li>{{ obj.url|urlize }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <h3>Candidacies ({{ candidate_list.count }})</h3>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Party</th>
+                <th>Incumbent</th>
+                <th>Status</th>
+                <th>Filer IDs</th>
+                <th>Sources</th>
+            </tr>
+        </thead>
+        {% for obj in candidate_list %}
+        <tr>
+            <td>
+                <a href="{% url 'person_detail' obj.person.id %}">
+                    {{ obj.person }}
+                </a>
+            </td>
+            <td>{{ obj.party }}</td>
+            <td>{{ obj.is_incumbent }}</td>
+            <td>{{ obj.registration_status }}</td>
+            <td>
+                {% for i in obj.filer_ids %}
+                    <a href="http://cal-access.sos.ca.gov/Campaign/Candidates/Detail.aspx?id={{ i }}">{{ i }}</a>
+                {% if not forloop.last %},{% endif %}{% endfor %}
+            </td>
+            <td>
+                <ul>
+                    {% for obj in obj.sources.all %}
+                        <a href="{{ obj.url }}">{{ forloop.counter }}{% if not forloop.last %},{% endif %}</a>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

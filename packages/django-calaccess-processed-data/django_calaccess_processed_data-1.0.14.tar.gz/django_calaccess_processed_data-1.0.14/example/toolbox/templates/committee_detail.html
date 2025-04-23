@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ object.name }}</h1>
+
+    <table class="table table-sm">
+        <tr>
+            <th>ID</th>
+            <td>{{ object.id }}</td>
+        </tr>
+        <tr>
+            <th>Parent</th>
+            <td>{{ object.parent }}</td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td>{{ object.committee_type }}</td>
+        </tr>
+        <tr>
+            <th>Ballot measures</th>
+            <td>
+                {% for obj in object.ballot_measure_options_supported.all %}
+                    {{ obj }}{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Other names</th>
+            <td>
+                {% for obj in object.other_names.all %}
+                    {{ obj }}{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Identifiers</th>
+            <td>
+                {% for obj in object.identifiers.all %}
+                    {{ obj }}{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Sources</th>
+            <td>
+                {% for obj in object.sources.all %}
+                    <a href="{{ obj.url }}">{{ forloop.counter }}</a>{% if not forloop.last %},{% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>CAL-ACCESS Filer ID</th>
+            <td><a href="{{ object.calaccess_filer_url }}">{{ object.calaccess_filer_id.identifier }}</a></td>
+        </tr>
+        <tr>
+            <th>CAL-ACCESS URL</th>
+            <td>{{ object.calaccess_filer_url|urlize }}</td>
+        </tr>
+    </table>
+
+    <h3>Committee statuses ({{ object.statuses.count }})</h3>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Classification</th>
+                <th>Note</th>
+                <th>Start</th>
+                <th>End</th>
+            </tr>
+        </thead>
+        {% for obj in object.statuses.all %}
+        <tr>
+            <td>
+                {{ obj.classification }}
+            </td>
+            <td>
+                {{ obj.note }}
+            </td>
+            <td>
+                {{ obj.start_date }}
+            </td>
+            <td>
+                {{ obj.end_date }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Committee designations ({{ object.statuses.count }})</h3>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Candidacy</th>
+                <th>Designation</th>
+            </tr>
+        </thead>
+        {% for obj in object.candidacy_designations.all %}
+        <tr>
+            <td>
+                {{ obj.candidacy }}
+            </td>
+            <td>
+                {{ obj.designation }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>Filings ({{ object.filings.count }})</h3>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CAL-ACCESS ID</th>
+                <th>Classification</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Recipient</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        {% for obj in object.filing_proxies.all %}
+        <tr>
+            <td>
+                <a href="{% url 'filing_detail' obj.id %}">{{ obj.id }}</a>
+            </td>
+            <td>
+                <a href="{{ obj.calaccess_filing_url }}">{{ obj.calaccess_filing_id.identifier }}</a>
+            </td>
+            <td>
+                {{ obj.classification }}
+            </td>
+            <td>
+                {{ obj.coverage_start_date|date:"Y-m-d" }}
+            </td>
+            <td>
+                {{ obj.coverage_end_date|date:"Y-m-d" }}
+            </td>
+            <td>
+                {{ obj.recipient }}
+            </td>
+            <td>
+                {{ obj.actions.count }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

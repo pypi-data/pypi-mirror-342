@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Candidates without a party ({{ object_list|length }})</h1>
+
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Year</th>
+                <th>Election</th>
+                <th>Post</th>
+            </tr>
+        </thead>
+        {% for obj in object_list %}
+        <tr>
+            <td>
+                <a href="{% url 'person_detail' obj.person.id %}">
+                    {{ obj.person.sort_name }}
+                </a>
+            </td>
+            <td>{{ obj.election_proxy.date.year }}</td>
+            <td>{{ obj.election_proxy.election_type }}</td>
+            <td>{{ obj.post.label|upper }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
