@@ -1,0 +1,18 @@
+db: db
+project_name: Model 1
+#model_names: []
+#ttls: []
+included_mappings:
+  - data
+  - mappings/AC
+#additional_mapping_paths:
+  #- maps
+  #- maps/luminaire.mapping.rq
+#   - maps/luminaire-outletconn.mapping.rq
+#   - maps/luminaire-connection.mapping.rq # makes it spin
+# additional_mapping_paths:
+#  - 'maps'
+#   - maps/test.rq
+#   - maps/test2.rq
+inference: True
+validation: True
