@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gemini-agent-framework"
+version = "0.1.2"
+description = "A framework for building agents that use Gemini's function calling capabilities"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+authors = [
+    { name = "Mohamed Baathman", email = "mohamed.baathman2001@gmail.com" }
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "requests>=2.31.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/m7mdony/gemini-agent-framework"
+Documentation = "https://github.com/m7mdony/gemini-agent-framework#readme"
+Repository = "https://github.com/m7mdony/gemini-agent-framework.git"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gemini_agent"] 
