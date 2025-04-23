@@ -1,0 +1,2 @@
+[console_scripts]
+simple-sftp-cli = simple_sftp.__main__:main
