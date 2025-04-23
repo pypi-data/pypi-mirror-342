@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: roksta
+Version: 0.1.20
+Summary: An AI coding assistant
+Author-email: Prash Naidu <pn206@outlook.com>
+Project-URL: Homepage, https://roksta.ai
+Description-Content-Type: text/markdown
+Requires-Dist: openai
+Requires-Dist: anthropic
+Requires-Dist: google-genai
+Requires-Dist: pydantic
+Requires-Dist: pydantic_core
+Requires-Dist: tiktoken
+Requires-Dist: rich
+Requires-Dist: pyyaml
+Requires-Dist: textual
+Requires-Dist: cryptography
+Requires-Dist: httpx
+Requires-Dist: ulid-py
+Requires-Dist: tenacity
+Requires-Dist: packaging
