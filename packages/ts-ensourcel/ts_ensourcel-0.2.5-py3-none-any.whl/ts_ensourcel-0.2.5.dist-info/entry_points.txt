@@ -1,0 +1,3 @@
+[console_scripts]
+hello = hello_world:main
+scrape_main = ts_ensourcel.scrape:main
