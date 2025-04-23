@@ -1,0 +1,90 @@
+# Git
+*.orig
+
+# IDE files
+.idea
+*.iml
+
+# Java files
+/connectors/grok_connect/target
+/connectors/serialization/target
+/packages/Tika/src/target
+dependency-reduced-pom.xml
+*.class
+
+# NPM modules
+node_modules/
+upload.keys.json
+test-report.html
+test-record.mp4
+test-report.csv
+test-console-output.log
+
+# Build results
+dist/
+zip
+
+# js-api
+/js-api/**/*.js.map
+/js-api/src/*.js
+/js-api/grok.js
+/js-api/dg.js
+/js-api/ui.js
+
+# JSDoc
+/js-api/docs
+.DS_Store
+
+# Dart
+pubspec.lock
+.dart_tool
+.packages
+/docker/vm.docker-compose.yaml
+/packages/GridExtDemo/src/package.d.ts
+/packages/GridExtDemo/src/package.d.ts.map
+/packages/GridExtDemo/src/package.js
+/libraries/gridext/src/PinnedColumn.d.ts
+/libraries/gridext/src/PinnedColumn.d.ts.map
+/libraries/gridext/src/PinnedColumn.js
+
+# vim
+[._]*.s[a-v][a-z]
+!*.svg  # comment out if you don't need vector files
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+*.vim
+.netrwhist
+*~
+[._]*.un~
+
+# ack
+.ackrc
+
+# Docusaurus
+docusaurus/access.log
+docusaurus/error.log
+docusaurus/.env
+docusaurus/js-api
+docusaurus/temp_*
+docusaurus/output.csv
+
+.terraform
+
+# local history
+.lh
+
+_lint-check-report.md
+
+
+help/deploy/releases/plugins/*.md
+help/deploy/releases/plugins/plugins.json
+!help/deploy/releases/plugins/_category_.yml
+!help/deploy/releases/plugins/_plugins.md
+!help/deploy/releases/plugins/plugins.mdx
+!help/deploy/releases/plugins/TableFromJson.js
+
+tools/.cache/
+
+.history
