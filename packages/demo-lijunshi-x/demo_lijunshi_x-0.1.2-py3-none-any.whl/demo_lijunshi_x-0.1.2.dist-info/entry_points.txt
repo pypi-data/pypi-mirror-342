@@ -1,0 +1,2 @@
+[console_scripts]
+demo-lijunshi-x = demo_lijunshi_x.server:main
