@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=74.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vtx-yyjson"
+version = "4.1.1"
+description = "JSON parser & serializer built on yyjson"
+readme = "README.md"
+authors = [
+    {name = "Tyler Kennedy", email = "tk@tkte.ch" },
+    {name = "The Vertex Project LLC", email = "root@vertex.link" }
+]
+license = { file= "LICENSE" }
+keywords = ["json", "parser", "serializer", "patcher"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://vertex.link"
+Repository = "https://github.com/vertexproject/vertex_py_yyjson"
+
+[project.optional-dependencies]
+test = ["pytest"]
+release = [
+    "sphinx",
+    "sphinx-copybutton",
+    "ghp-import",
+    "bumpversion",
+    "black",
+    "furo"
+]
+
+[tool.setuptools]
+ext-modules = [
+    { name = "cyyjson", sources = ["yyjson/binding.c", "yyjson/yyjson.c", "yyjson/memory.c", "yyjson/document.c"], py-limited-api = true}
+]
+packages = ["yyjson"]
+
+[tool.cibuildwheel]
+test-command = [ 'python -c "import yyjson; print(yyjson.__package__)"' ]
+
+[tool.cibuildwheel.linux]
+build = "cp311-manylinux_x86_64 cp313-manylinux_x86_64"
+
+[tool.cibuildwheel.macos]
+archs = "universal2"
+build = "cp311-* cp313-*"
