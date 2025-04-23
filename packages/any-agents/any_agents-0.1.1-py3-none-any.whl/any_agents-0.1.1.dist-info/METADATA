@@ -1,0 +1,36 @@
+Metadata-Version: 2.4
+Name: any-agents
+Version: 0.1.1
+Summary: Redirect package for any-agent - you probably meant to install 'any-agent' instead
+Home-page: https://github.com/mozilla-ai/any-agents
+Author: Nathan Brake
+Author-email: nathan@mozilla.ai
+Description-Content-Type: text/markdown
+Requires-Dist: any-agent
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: summary
+
+# any-agents
+
+**Note: This is not the package you're looking for!**
+
+You probably meant to install `any-agent` (without the 's').
+
+This package exists only to redirect users to the correct package and will automatically install the proper `any-agent` package as a dependency.
+
+## Correct Usage
+
+```python
+# WRONG - Don't do this
+import any_agents
+
+# CORRECT - Do this instead
+import any_agent
+```
+
+Visit the actual package at: https://github.com/mozilla-ai/any-agent
