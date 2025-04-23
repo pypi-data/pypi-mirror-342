@@ -1,0 +1,49 @@
+{
+    "tools": [
+        {
+            "name": "finbert_sentiment_analysis_tool",
+            "import": "from traia_tools import FinBERTSentimentAnalysisTool",
+            "description": "A tool for analyzing sentiment using the FinBERT model, specifically trained for financial text analysis."
+        },
+        {
+            "name": "coingecko_universal_quote_tool",
+            "import": "from traia_tools import CoingeckoUniversalQuoteTool",
+            "description": "A tool for fetching token prices from Coingecko API, supporting both token and chain price queries."
+        },
+        {
+            "name": "serply_news_search_tool",
+            "import": "from traia_tools import SerplyNewsSearchTool",
+            "description": "A tool that searches for news articles using the Serply API, returning titles, links, snippets, sources, and publication dates."
+        },
+        {
+            "name": "scrape_website_tool",
+            "import": "from traia_tools import ScrapeWebsiteTool",
+            "description": "A tool that scrapes content from websites using BeautifulSoup, allowing for targeted content extraction using CSS selectors."
+        },
+        {
+            "name": "serper_dev_tool",
+            "import": "from traia_tools import SerperDevTool",
+            "description": "A tool for performing web searches using the Serper API."
+        },
+        {
+            "name": "json_search_tool",
+            "import": "from traia_tools import JSONSearchTool",
+            "description": "A tool for searching JSON data using the JSONSearchTool."
+        },
+        {
+            "name": "rag_tool",
+            "import": "from traia_tools import RagTool",
+            "description": "A tool for implementing Retrieval-Augmented Generation (RAG) functionality."
+        },
+        {
+            "name": "s3_reader_tool",
+            "import": "from traia_tools import S3ReaderTool",
+            "description": "A tool for reading data from Amazon S3 storage."
+        },
+        {
+            "name": "s3_writer_tool",
+            "import": "from traia_tools import S3WriterTool",
+            "description": "A tool for writing data to Amazon S3 storage."
+        }
+    ]
+} 
