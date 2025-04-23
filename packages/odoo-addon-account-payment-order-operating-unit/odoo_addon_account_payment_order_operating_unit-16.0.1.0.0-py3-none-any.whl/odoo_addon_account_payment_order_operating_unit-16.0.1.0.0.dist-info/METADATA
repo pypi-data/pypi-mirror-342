@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: odoo-addon-account_payment_order_operating_unit
+Version: 16.0.1.0.0
+Summary: Configuration to properly relate payment orders and operating units
+Home-page: https://git.coopdevs.org/coopdevs/odoo/odoo-addons/enhancements-operating-unit
+Author: Coopdevs Treball SCCL
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 16.0
+Requires-Python: >=3.10
+Requires-Dist: odoo-addon-account_banking_sepa_direct_debit<16.1dev,>=16.0dev
+Requires-Dist: odoo-addon-account_operating_unit<16.1dev,>=16.0dev
+Requires-Dist: odoo-addon-account_payment_order<16.1dev,>=16.0dev
+Requires-Dist: odoo-addon-operating_unit<16.1dev,>=16.0dev
+Requires-Dist: odoo<16.1dev,>=16.0a
+Dynamic: author
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
