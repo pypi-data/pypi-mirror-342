@@ -1,0 +1,12 @@
+LICENSE,sha256=waQlrEOE8R_g6b9XVhwcfRtJc9f7l3kq_65Nm9-AATE,1080
+naif_eop_predict/__init__.py,sha256=NI8CwHnFpIFDp-UKBHztE7kpw4mpmNwMtvbjTYEDJjM,234
+naif_eop_predict/earth_200101_990827_predict.bpc,sha256=EPa7GrhdbTADnFUsoKKQScMPG0VBngbFTZ_zOKfIDm0,15145984
+naif_eop_predict/earth_200101_990827_predict.md5,sha256=wWJyucYoM8hWfZhoFc3XvQ0hozapvO7GX05TOMauc3w,65
+naif_eop_predict/fetch.py,sha256=98yoe1jGqxCSvolhYIvLsmLFfXMZ8Tr0YlYiwj6p5Uk,2176
+naif_eop_predict/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+naif_eop_predict/tests/test_naif_eop_predict.py,sha256=EVrMdimlhfgFzVE3vWpnEvoB2keSBf3ngGqrGAwTh84,407
+naif_eop_predict-2024.8.28.1.dist-info/licenses/LICENSE,sha256=waQlrEOE8R_g6b9XVhwcfRtJc9f7l3kq_65Nm9-AATE,1080
+naif_eop_predict-2024.8.28.1.dist-info/METADATA,sha256=E-RtB8-0ALf4DWIxbUmwMVx131pUpTAxDnQNjArzF5k,3958
+naif_eop_predict-2024.8.28.1.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+naif_eop_predict-2024.8.28.1.dist-info/top_level.txt,sha256=OTdjKA_nDuFRDbWFJf_0s_Sq57H7fkCT_Vt4rnYQ6ak,17
+naif_eop_predict-2024.8.28.1.dist-info/RECORD,,
