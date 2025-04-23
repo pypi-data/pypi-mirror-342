@@ -1,0 +1,14 @@
+tests/__init__.py,sha256=e8rNPaG06T3L2dW2_JXBoMQ8JG5KgJoAob6CwdsmIbM,205
+tests/test001.py,sha256=RYu4SdsORYhIrdLec6f7lgt3R9Et1oN_-ONxESubf5g,831
+tests/test_example.py,sha256=osu4m11kfnCR5Jg3OW7gs5tqC9lx9w64uPzbFtH6JzE,4832
+wechat_draft/__init__.py,sha256=3IZeypBYqZDi32GjXJLqmy0I9-fnqJ3meqmP3j-h42E,778
+wechat_draft/wechat_draft.py,sha256=liDVkfrKPq9p9WEipOnGkxBDILYJELjHKrklTUxKuec,47892
+wechat_draft/utils/__init__.py,sha256=6uWLPfbLAun4DKSF3TLf4_XobSQ9SojpkRGPCHMSyvw,192
+wechat_draft/utils/constants.py,sha256=UBL_0WA_1jlPjTskNnNwIF3r1dVl8uxfDFIHxZiVd2E,396
+wechat_draft/utils/error_code.py,sha256=mURl0BaBgs-gklRhAMZVx6fA_UWdqB_b0T68RYFwSxc,5807
+wechat_draft/utils/logger.py,sha256=DfVzKUq90HjUofiTh7-OjQpdnFTRaTpTpyIjCXGf2hc,1383
+wechat_draft-0.0.6.dist-info/licenses/LICENSE,sha256=KNSp0C1lQOPwo_nL6T-W3CSi5hwjx3tAcoAzr_eJiCw,1087
+wechat_draft-0.0.6.dist-info/METADATA,sha256=Ly4GqajLUpeCZeXp4_9IMHvOpuBiAIOptqKCM5hF0zs,908
+wechat_draft-0.0.6.dist-info/WHEEL,sha256=CmyFI0kx5cdEMTLiONQRbGQwjIoR1aIYB7eCAQ4KPJ0,91
+wechat_draft-0.0.6.dist-info/top_level.txt,sha256=YDBesFN9P_BSurVFR_AAWKVFq-Nh7vgXnWzysJGpWJo,19
+wechat_draft-0.0.6.dist-info/RECORD,,
