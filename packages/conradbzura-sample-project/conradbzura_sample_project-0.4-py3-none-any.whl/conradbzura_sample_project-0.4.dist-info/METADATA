@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: conradbzura-sample-project
+Version: 0.4
+Summary: Sample project
+Author-email: Conrad Bzura <conradbzura@gmail.com>
+License: MIT License
+Classifier: Framework :: Pytest
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pytest
+Requires-Dist: pyyaml
