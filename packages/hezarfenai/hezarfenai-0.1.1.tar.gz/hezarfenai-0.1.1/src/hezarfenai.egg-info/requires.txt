@@ -1,0 +1,7 @@
+nltk>=3.9
+scikit-learn>=1.0
+pandas
+TurkishStemmer
+numpy
+scipy
+joblib
