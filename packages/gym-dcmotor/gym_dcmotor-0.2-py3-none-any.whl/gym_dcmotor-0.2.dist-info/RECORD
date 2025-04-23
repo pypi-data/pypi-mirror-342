@@ -1,0 +1,9 @@
+gym_dcmotor/__init__.py,sha256=ulQ_DYNEkmvLFJKtSX4TqpgaX9eE3qEF1Mu-41UGQ6o,153
+gym_dcmotor/envs/__init__.py,sha256=Q-nO0LW_HTKLR33INNDmoYiLHl9TJ5_HbpKXGv0uVfw,48
+gym_dcmotor/envs/dcmotor_env.py,sha256=FVf9K3GtRIktnfNmkiq9Zd6DNv-cBPcJnCsmMjkWmRk,10944
+gym_dcmotor/envs/numapp.py,sha256=cg4knJjoZM7n1MXI6T4MvJAAhmjZBPzHlRuwZs8Wqa4,2562
+gym_dcmotor-0.2.dist-info/licenses/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+gym_dcmotor-0.2.dist-info/METADATA,sha256=vqBM9M01-asyToDxfcWAMdJdWMPXrQhGWqASUzSHik8,1286
+gym_dcmotor-0.2.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+gym_dcmotor-0.2.dist-info/top_level.txt,sha256=Zo_jfuGeI4r6zTRnu1bfkRPvRqRTUjcKkPvI2cU_3WI,12
+gym_dcmotor-0.2.dist-info/RECORD,,
