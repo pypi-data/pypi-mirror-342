@@ -1,0 +1,104 @@
+"""
+ScanBox Data Parser
+====================
+
+:author:
+    Yu-Ting Wei
+
+This module simply provides
+
+1. result parser for scanbox acquisition system
+
+2. view the sequence output
+
+
+See all the info
+-------------------
+
+.. code-block:: python
+
+    from neuralib.imaging.scanbox import read_scanbox
+
+    file = ...  # scanbox .mat output file
+    sbx = read_scanbox(file)
+    print(sbx.asdict())  # print the information as dictionary
+
+
+
+Save as Json
+-------------------
+
+.. code-block:: python
+
+   from neuralib.imaging.scanbox import sbx_to_json
+
+   file = ...  # scanbox .mat output file
+   output_file = ...  # *.json
+   sbx_to_json(file, outputfile)
+
+
+
+
+Screen Shot file to tiff
+-------------------------
+
+.. code-block:: python
+
+    from neuralib.imaging.scanbox import screenshot_to_tiff
+
+    file = ...  # scanbox .mat screenshot output file
+    output = ... # *.tiff
+    screenshot_to_tiff(file, output)
+
+
+
+SBXViewer
+==================
+
+directly view the image sequence as mmap
+
+
+Use CLI
+------------
+
+.. prompt:: bash $
+
+    python -m neuralib.imaging.scanbox.viewer -h
+
+
+Example playing the 100-200 frames
+
+.. prompt:: bash $
+
+    python -m neuralib.imaging.scanbox.viewer -D <DIR> -P <OPTIC_PLANE> -C <PMT_CHANNEL> -F 100,200
+
+
+Example save 100-200 Frames as tiff
+
+.. prompt:: bash $
+
+    python -m neuralib.imaging.scanbox.viewer -D <DIR> -P <OPTIC_PLANE> -C <PMT_CHANNEL> -F 100,200 -O test.tiff
+
+
+
+Use API call
+--------------
+
+.. code-block:: python
+
+    from neuralib.imaging.scanbox.viewer import SBXViewer
+
+    directory  = ...  # directory contain the .sbx and .mat output from scanbox
+    sbx_viewer = SBXViewer(directory)
+
+    # play
+    sbx_viewer.play(slice(100,200), plane=0, channel=0)
+
+    # save as tiff
+    sbx_viewer.to_tiff(slice(100,200), plane=0, channel=0, output='test.tiff')
+
+
+"""
+
+from .core import *
+from .viewer import *

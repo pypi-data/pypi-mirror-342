@@ -1,0 +1,128 @@
+[project]
+name = "neura-library"
+version = "0.4.5"
+requires-python = ">=3.10"
+description = "Utility tools for system neuroscience research, including Open Source Wrapper or Parser"
+authors = [
+    { name = "Yu-Ting Wei", email = "ytsimon2004@gmail.com" },
+    { name = "Ta-Shun Su", email = "antoniost29@gmail.com" }
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+keywords = ["Neuroscience", "visual neuroscience", "cellular imaging", "brain mapping", "spatial navigation"]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: BSD License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+    'Intended Audience :: Science/Research',
+    "Typing :: Typed",
+]
+
+dependencies = [
+    "attrs",
+    "colorama",
+    "colorlog",
+    "matplotlib",
+    "matplotlib_venn",
+    "seaborn",
+    "numpy",
+    "scipy",
+    "scikit-image",
+    "pandas",
+    "polars",
+    "pyarrow",
+    "tifffile",
+    "opencv-python>=4.8.0.76",
+    "tqdm",
+    "requests",
+    'gdown',
+    "rich",
+    "h5py",
+    "typing_extensions",
+]
+
+
+
+[project.optional-dependencies]
+
+# as module name
+atlas = [
+    "brainrender",
+    'pynrrd',
+    "openpyxl",
+    "anytree",
+    "plotly",
+    "fastexcel"
+]
+
+scanner = ["xmltodict", "aicspylibczi"]
+
+imaging = [
+    "scanimage-tiff-reader",
+    "sbxreader",
+    "ruamel.yaml",
+    "numba", # oasis dcnv batch processing
+    "bokeh", # fft view
+    "napari"  # align
+]
+
+imagelib = ["pdf2image", "imageio"]
+
+
+# as functionality (isolated wrapper)
+rastermap = ["rastermap"]
+cascade = ["tensorflow"]
+segmentation = ["pyqt6", "pyqtgraph", "csbdeep", "roifile", "napari"]
+cellpose = ["torch", "cellpose", "neura-library[segmentation]"]
+stardist = ["stardist", "neura-library[segmentation]", "numpy<2.0; extra == 'stardist'"]
+slack = ["dotenv", "slackclient"]
+gspread = ["gspread"]
+opt = ["psutil"]
+
+
+
+#
+all = [
+    # module
+    "neura-library[atlas]",
+    "neura-library[scanner]",
+    "neura-library[imaging]",
+    "neura-library[imagelib]",
+    # as functionality
+    "neura-library[rastermap]",
+    "neura-library[cascade]",
+    "neura-library[cellpose]",
+    "neura-library[slack]",
+    "neura-library[gspread]",
+    "neura-library[opt]",
+]
+
+#
+dev = ["neura-library[all]", "pre-commit", "ruff", "pytest"]
+
+#
+doc = [
+    "sphinx", "nbsphinx", "sphinx-toolbox", "sphinx-rtd-theme", "sphinx-prompt",
+    "neura-library[all]", "neura-library[cellpose]", "neura-library[stardist]",
+]
+
+
+
+[project.urls]
+Homepage = "https://github.com/ytsimon2004/neuralib"
+Documentation = "https://neuralib.readthedocs.io/en/latest/index.html"
+Repository = "https://github.com/ytsimon2004/neuralib"
+Issues = "https://github.com/ytsimon2004/neuralib/issues"
+
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=61.0"]
+
+[project.scripts]
+neuralib_brainrender = "neuralib.atlas.brainrender.main_app:main"
+neuralib_widefield = "neuralib.imaging.widefield.main_app:main"
