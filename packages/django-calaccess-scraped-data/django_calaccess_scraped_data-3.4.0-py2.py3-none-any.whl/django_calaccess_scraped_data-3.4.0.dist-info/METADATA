@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: django-calaccess-scraped-data
+Version: 3.4.0
+Summary: A Django app to scrape campaign-finance data from the California Secretary of State’s CAL-ACCESS website
+Home-page: https://www.californiacivicdata.org
+Author: California Civic Data Coalition
+Author-email: b@palewi.re
+License: MIT
+Project-URL: Project, https://www.californiacivicdata.org/
+Project-URL: Funding, https://www.californiacivicdata.org/about/
+Project-URL: Source, https://github.com/california-civic-data-coalition/django-calaccess-scraped-data
+Project-URL: Testing, https://github.com/california-civic-data-coalition/django-calaccess-scraped-data/actions/workflows/tests.yaml
+Project-URL: Tracker, https://github.com/california-civic-data-coalition/django-calaccess-scraped-data/issues
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: MIT License
+License-File: LICENSE
+Requires-Dist: django ==4.0.*
+Requires-Dist: pytz
+Requires-Dist: bs4
+Requires-Dist: selenium
+
+A Django app to scrape campaign-finance data from the California Secretary of State’s `CAL-ACCESS <http://www.sos.ca.gov/prd/cal-access/>`__ website
+
+|Build Status| |PyPI version| |Documentation Status|
+
+-  Documentation:
+   `django-calaccess.californiacivicdata.org <https://django-calaccess.californiacivicdata.org>`__
+-  Issues:
+   `github.com/california-civic-data-coalition/django-calaccess-scraped-data/issues <https://github.com/california-civic-data-coalition/django-calaccess-scraped-data/issues>`__
+-  Packaging:
+   `pypi.python.org/pypi/django-calaccess-scraped-data <https://pypi.python.org/pypi/django-calaccess-scraped-data>`__
+-  Testing:
+   `github.com/california-civic-data-coalition/django-calaccess-scraped-data/actions <https://github.com/california-civic-data-coalition/django-calaccess-scraped-data/actions/workflows/tests.yaml>`__
+
+.. |Build Status| image:: https://github.com/california-civic-data-coalition/django-calaccess-scraped-data/actions/workflows/tests.yaml/badge.svg
+    :target: https://github.com/california-civic-data-coalition/django-calaccess-scraped-data/actions/workflows/tests.yaml
+.. |PyPI version| image:: https://badge.fury.io/py/django-calaccess-scraped-data.svg
+   :target: http://badge.fury.io/py/django-calaccess-scraped-data
+.. |Documentation Status| image:: https://readthedocs.org/projects/django-calaccess-raw-data/badge/
+   :target: http://django-calaccess.californiacivicdata.org
