@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: local_exception_logger
+Version: 0.1.0
+Summary: A lightweight local crash reporting tool for Python
+Author: https://github.com/chirker
+License: MIT
+Project-URL: Homepage, https://github.com/chirker/local_exception_logger
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
