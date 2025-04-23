@@ -1,0 +1,22 @@
+{# ----------------------------------------------------------------------------
+ # SymForce - Copyright 2022, Skydio, Inc.
+ # This source code is under the Apache 2.0 license found in the LICENSE file.
+ # ---------------------------------------------------------------------------- #}
+
+/* ----------------------------------------------------------------------------
+ * SymForce - Copyright 2022, Skydio, Inc.
+ * This source code is under the Apache 2.0 license found in the LICENSE file.
+ * ---------------------------------------------------------------------------- */
+
+#include "./sym_type_casters.h"
+
+namespace pybind11 {
+namespace detail {
+
+{% for type in types %}
+constexpr descr<{{ type | length + 4 }}> handle_sym_type_name<sym::{{ type }}d>::name;
+constexpr descr<{{ type | length + 4 }}> handle_sym_type_name<sym::{{ type }}f>::name;
+{% endfor %}
+
+}  // namespace detail
+}  // namespace pybind11
