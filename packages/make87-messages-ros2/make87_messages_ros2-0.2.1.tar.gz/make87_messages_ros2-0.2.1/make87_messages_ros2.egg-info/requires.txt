@@ -1,0 +1,5 @@
+make87_messages
+protobuf<5.0,>=4.22
+
+[dev]
+pre-commit
