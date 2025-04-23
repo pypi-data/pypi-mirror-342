@@ -1,0 +1,5 @@
+appdirs>=1.4.4
+requests==2.25.1
+pytest==6.2.4
+mcp~=1.6.0
+pydantic>=2.0

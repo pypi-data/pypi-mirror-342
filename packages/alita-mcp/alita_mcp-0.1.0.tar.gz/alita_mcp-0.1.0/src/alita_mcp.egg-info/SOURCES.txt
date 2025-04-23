@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+src/alita_mcp/__init__.py
+src/alita_mcp/config.py
+src/alita_mcp/main.py
+src/alita_mcp.egg-info/PKG-INFO
+src/alita_mcp.egg-info/SOURCES.txt
+src/alita_mcp.egg-info/dependency_links.txt
+src/alita_mcp.egg-info/entry_points.txt
+src/alita_mcp.egg-info/requires.txt
+src/alita_mcp.egg-info/top_level.txt
+src/alita_mcp/clients/__init__.py
+src/alita_mcp/clients/alita.py
+src/alita_mcp/server/__init__.py
+src/alita_mcp/server/mcp.py
+tests/test_main.py
