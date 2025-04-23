@@ -1,0 +1,43 @@
+ 
+安徽5.0链路aqua测试：
+ws test --env uat --app 0f0826ab  --service aqua --project vwa
+ws test --env live --app 0f0826ab  --service aqua --project vwa
+安徽5.4链路sds_gateway测试：
+ws test --env uat --app 3d7d3ea4  --service gateway_5.4 --project vwa
+ws test --env live --app 3d7d3ea4  --service gateway_5.4 --project vwa
+安徽5.0链路sds_gateway测试：
+ws test --env uat --app 0f0826ab  --service gateway_5.0 --project vwa
+ws test --env live --app 0f0826ab  --service gateway_5.0 --project vwa
+奥迪aqua测试：
+ws test --env uat --app 576d9f07  --service aqua --project aodi
+ws test --env live --app 576d9f07  --service aqua --project aodi
+上汽5.0链路sds_gateway测试：
+ws test --env uat --app 66ba7ded  --service gateway_5.0 --project svw
+ws test --env live --app 66ba7ded  --service gateway_5.0 --project svw
+
+  ws startproject d
+  python run_tests.py --env live --app 0f0826ab  --service gateway_5.0 --project vwa
+   pip install -e . 
+    ws test --env uat --app 3d7d3ea4  --service gateway_5.4 --project vwa --testcase testcase/test_all.py::TestGateway::test[case_suite0]
+
+关闭allure进程
+netstat -ano | findstr "8883"
+taskkill /PID 25804 /F
+
+卸载
+pip uninstall WebsocketTest
+安装
+pip install WebsocketTest==1.0.14
+打包
+python setup.py sdist bdist_wheel
+上传
+twine upload --repository pypi setup_temp/dist/*
+
+
+安装虚拟环境
+python -m venv venv   
+激活venv虚拟环境
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+.\venv\Scripts\Activate.ps1
+退出venv
+deactivate
