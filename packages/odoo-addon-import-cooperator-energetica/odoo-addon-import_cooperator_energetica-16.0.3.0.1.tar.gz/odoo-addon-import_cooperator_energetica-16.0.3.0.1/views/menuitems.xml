@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="import_cooperator_action" model="ir.actions.act_window">
+            <field name="name">Import Cooperator</field>
+            <field name="res_model">import.cooperator</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <!-- Menu item for import cooperator -->
+        <menuitem id="import_cooperator_menu" name="Import Cooperator"
+            action="import_cooperator_action"
+            parent="cooperator.menu_cooperator_main" />
+    </data>
+</odoo>

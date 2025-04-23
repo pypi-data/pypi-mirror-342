@@ -1,0 +1,6 @@
+[build-system]
+requires = ["whool"]
+build-backend = "whool.buildapi"
+
+[tool.towncrier]
+package = "import_cooperator_energetica"

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="map_res_partner_data_action" model="ir.actions.server">
+            <field name="name">Map res partner data</field>
+            <field name="model_id" ref="model_import_cooperator" />
+            <field name="state">code</field>
+            <field name="code">action = model.create_partner()</field>
+            <field name="website_published">False</field>
+        </record>
+        <record id="map_sub_req_data_action" model="ir.actions.server">
+            <field name="name">Map sub req data</field>
+            <field name="model_id" ref="model_import_cooperator" />
+            <field name="state">code</field>
+            <field name="code">action = model.create_subscription_request()</field>
+            <field name="website_published">False</field>
+        </record>
+        <record id="validate_subscription_request_action" model="ir.actions.server">
+            <field name="name">Validate subscription request</field>
+            <field name="model_id" ref="model_import_cooperator" />
+            <field name="state">code</field>
+            <field name="code">action = model.validate()</field>
+            <field name="website_published">False</field>
+        </record>
+        <record id="execute_operation_sellback" model="ir.actions.server">
+            <field name="name">Sellback subscription request</field>
+            <field name="model_id" ref="model_import_cooperator" />
+            <field name="state">code</field>
+            <field name="code">action = model.execute_operation()</field>
+            <field name="website_published">False</field>
+        </record>
+    </data>
+</odoo>
