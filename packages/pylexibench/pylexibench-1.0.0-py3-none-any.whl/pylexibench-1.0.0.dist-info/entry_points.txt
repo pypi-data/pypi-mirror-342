@@ -1,0 +1,2 @@
+[console_scripts]
+lexibench = pylexibench.__main__:main
