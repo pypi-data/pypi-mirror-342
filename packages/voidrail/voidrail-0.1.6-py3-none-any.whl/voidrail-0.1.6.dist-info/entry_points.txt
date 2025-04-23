@@ -1,0 +1,3 @@
+[console_scripts]
+voidrail=voidrail.__main__:cli
+
