@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: kmdpc
+Version: 0.1.2
+Summary: ATSDPC: adaptive two-stage density peaks clustering with hybrid distance based on dispersion coefficient
+Author-email: Shengqiang Han <2590329954@qq.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=1.0
+Requires-Dist: numpy>=1.20
+Requires-Dist: scikit-learn>=1.0
+Requires-Dist: matplotlib>=3.3
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: sphinx; extra == "dev"

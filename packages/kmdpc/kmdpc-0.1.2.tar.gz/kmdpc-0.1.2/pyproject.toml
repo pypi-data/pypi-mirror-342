@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kmdpc"
+version = "0.1.2"
+authors = [
+  { name = "Shengqiang Han", email = "2590329954@qq.com" }
+]
+description = "ATSDPC: adaptive two-stage density peaks clustering with hybrid distance based on dispersion coefficient"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "pandas>=1.0",
+  "numpy>=1.20",
+  "scikit-learn>=1.0",
+  "matplotlib>=3.3"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=6.0", "sphinx"]  # 开发依赖
