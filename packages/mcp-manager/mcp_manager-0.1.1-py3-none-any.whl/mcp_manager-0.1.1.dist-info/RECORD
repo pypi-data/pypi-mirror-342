@@ -1,0 +1,13 @@
+mcp_manager/__init__.py,sha256=84EPQIKlC33_AK0-te7oxtbeUOdLoxqnby4wMq5Y6oI,80
+mcp_manager/cli.py,sha256=QKqX6zYauS1PUzVLk5E5kGznv7sca-mc0qZ3rAdthes,8421
+mcp_manager/dependency_checker.py,sha256=p0ZglTv3gkM9siFbnYtuIaY9OuFDlcKULET93sMAKxc,2189
+mcp_manager/list_servers.py,sha256=BO-28qWml-Wm2HcEJ6553fQshPYHkvngC-4O7CAi3-c,958
+mcp_manager/server_registry.py,sha256=vrfL_LigV2Qum-9mLWmg2tNHJpp5F7fktyQJF9EviXw,7185
+mcp_manager/tests/__init__.py,sha256=-J53QWE5rCqFgF45qLjtd0-8-NZ2KUaUHULXGWY45Xw,35
+mcp_manager/tests/__snapshots__/test_cli.ambr,sha256=hCgaffBf9ujSjGeCT7QcgYUl8PCQPU9YC0N5K9gXJkk,2748
+mcp_manager/tests/test_cli.py,sha256=MoqPu36yDuONhwhzRBH674ltw1W4ApK5AIHT5Nm8eKY,4484
+mcp_manager-0.1.1.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+mcp_manager-0.1.1.dist-info/METADATA,sha256=xAJdRVyeorNHZpC9Zm3y94vO4TPkhXj1BRGc0kQWeLU,6510
+mcp_manager-0.1.1.dist-info/WHEEL,sha256=sP946D7jFCHeNz5Iq4fL4Lu-PrWrFsgfLXbbkciIZwg,88
+mcp_manager-0.1.1.dist-info/entry_points.txt,sha256=m0sc0VIi7cumjmGXPPsICmQXVVh41M-ot1WJONeymLA,52
+mcp_manager-0.1.1.dist-info/RECORD,,
