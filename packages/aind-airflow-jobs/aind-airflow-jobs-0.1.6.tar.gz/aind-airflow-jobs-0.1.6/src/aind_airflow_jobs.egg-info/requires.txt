@@ -1,0 +1,12 @@
+aind-slurm-rest<0.2.1
+pydantic-settings
+pydantic
+
+[dev]
+black
+coverage
+flake8
+interrogate
+isort
+Sphinx
+furo
