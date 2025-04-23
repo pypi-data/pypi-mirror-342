@@ -1,0 +1,16 @@
+---- Start ----
+- Open the iode-gui
+
+- Describe the new GUI:
+    * File Folder on the left (now IODE works by project = root directory)
+    * Tab Panel in the middel (7 tabs reserved for the 7 IODE object types)
+    * 2 consoles in the bottom
+
+---- Help Menu ----
+
+- show each item in the Help menu
+
+---- Comments tab ----
+- Show split tab
+
+- Close and reopen the GUI -> iode-gui remembers and reopen tabs
