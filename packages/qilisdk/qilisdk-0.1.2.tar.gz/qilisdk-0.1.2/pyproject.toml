@@ -1,0 +1,167 @@
+[project]
+name = "qilisdk"
+version = "0.1.2"
+description = "qilisdk is a Python framework for writing digital and analog quantum algorithms and executing them across multiple quantum backends. Its modular design streamlines the development process and enables easy integration with a variety of quantum platforms."
+readme = "README.md"
+authors = [{name = "Qilimanjaro Quantum Tech", email = "info@qilimanjaro.tech"}]
+requires-python = ">=3.10"
+keywords = ["qilimanjaro", "quantum computing", "digital quantum computing", "analog quantum computing"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Environment :: Console",
+    "Operating System :: POSIX :: Linux",
+    "License :: OSI Approved :: Apache Software License",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Quantum Computing",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "dill>=0.3.9",
+    "numpy>=2.2.4",
+    "ruamel-yaml>=0.18.10",
+    "scipy>=1.15.1",
+]
+
+[project.optional-dependencies]
+cuda = [
+    "cudaq==0.9.1",
+]
+qaas = [
+    "httpx>=0.28.1",
+    "keyring>=25.6.0",
+    "pydantic>=2.10.6",
+    "pydantic-settings>=2.8.0",
+]
+
+[dependency-groups]
+dev = [
+    "hypothesis>=6.125.3",
+    "ipykernel>=6.29.5",
+    "mypy>=1.15.0",
+    "pre-commit>=4.1.0",
+    "pytest>=8.3.4",
+    "pytest-sugar>=1.0.0",
+    "ruff>=0.9.5",
+    "towncrier>=24.8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 120
+output-format = "concise"
+target-version = "py310"
+
+[tool.ruff.lint]
+preview = true
+select = [
+    "F",
+    "E",
+    "W",
+    "I",
+    "YTT",
+    "ANN",
+    "ASYNC",
+    "S",
+    "BLE",
+    "CPY",
+    "C4",
+    "DTZ",
+    "T10",
+    "FA",
+    "ICN",
+    "LOG",
+    "G",
+    "INP",
+    "PIE",
+    "T20",
+    "PYI",
+    "PT",
+    "Q",
+    "RSE",
+    "RET",
+    "SLF",
+    "SLOT",
+    "SIM",
+    "TID",
+    "TC",
+    "PTH",
+    "TD",
+    "PL",
+    "NPY",
+    "FURB",
+    "DOC",
+    "RUF"
+]
+ignore = [
+    "E111",
+    "E114",
+    "E117",
+    "E501",
+    "D206",
+    "D300",
+    "Q000",
+    "Q001",
+    "Q002",
+    "Q003",
+    "COM812",
+    "COM819",
+    "ISC001",
+    "ISC002",
+    "E741",
+    "W191",
+    "RET504",
+    "SIM117",
+    "PLC0414",
+    "PLC2701",
+    "PLR0904",
+    "PLR0911",
+    "PLR0912",
+    "PLR0913",
+    "PLR0914",
+    "PLR0915",
+    "PLR0917",
+    "PLR1702",
+    "TD003"]
+dummy-variable-rgx = "^_$"
+exclude = [".tmp"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["ANN", "S", "CPY", "SLF001", "PLR", "DOC", "RUF012"]
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+suppress-dummy-args = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+exclude = ["\\.ipynb$"]
+
+[tool.pytest.ini_options]
+markers = [
+    "core: tests that only exercise the core library",
+    "cuda: tests that require the cuda extra",
+    "qaas: tests that require the qaas extra"
+]
+
+[tool.towncrier]
+package = "qilisdk"
+directory = "changes"
+filename = "CHANGELOG.md"
+issue_format = "[PR #{issue}](https://github.com/qilimanjaro-tech/qilisdk/pulls/{issue})"
