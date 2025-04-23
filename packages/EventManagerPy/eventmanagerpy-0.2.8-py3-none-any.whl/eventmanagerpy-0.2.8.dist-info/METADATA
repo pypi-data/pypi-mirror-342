@@ -1,0 +1,48 @@
+Metadata-Version: 2.4
+Name: EventManagerPy
+Version: 0.2.8
+Summary: EventManager is a logging module designed to be used in a multi-threaded environment
+Home-page: https://github.com/TheBloodyAmateur/EventManagerPython
+Author: Botan Celik
+Author-email: botan.celik@icloud.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: setuptools~=78.1.0
+Requires-Dist: psutil~=7.0.0
+Requires-Dist: pydantic~=2.11.3
+Requires-Dist: atomics~=1.0.3
+Requires-Dist: urllib3~=2.4.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# EventManagerPy
+
+EventManagerPy is a logging module designed to be used in a multi-threaded environment. It provides a robust and extensible framework for managing events, processing data, and formatting outputs.
+
+## Features
+
+- **Multi-threaded Support**: Designed to work seamlessly in multi-threaded environments.
+- **Customizable Formatters**: Includes support for JSON, XML, and text formatting.
+- **Compressors**: Built-in support for compressing logs using ZIP and TAR formats.
+- **Extensibility**: Easily extendable with custom processors, formatters, and output handlers.
+- **Lightweight**: Minimal dependencies for easy integration.
+
+## Installation
+
+You can install EventManagerPy using pip:
+
+```bash
+pip install EventManagerPy
+```
+
+All documentations, API references and tutorials you may find under [Project Documentation](https://eventmanagerpython.readthedocs.io/en/latest/)
