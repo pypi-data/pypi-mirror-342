@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/pylatinize/__init__.py
+src/pylatinize/core.py
+src/pylatinize/mappings.py
+src/pylatinize.egg-info/PKG-INFO
+src/pylatinize.egg-info/SOURCES.txt
+src/pylatinize.egg-info/dependency_links.txt
+src/pylatinize.egg-info/requires.txt
+src/pylatinize.egg-info/top_level.txt
+tests/test_pylatinize.py

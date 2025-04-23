@@ -1,0 +1,63 @@
+[project]
+authors = [
+  {name = "Zsolt Oroszlány", email = "hello@playfulsparkle.com"},
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Text Processing :: General",
+  "Typing :: Typed",
+  "Framework :: Pytest",
+]
+dependencies = [
+  "typing-extensions>=4.0.0; python_version<'3.11'",
+]
+description = "A lightweight, Open Source Python library for transliterating and normalizing Unicode text to Latin ASCII using configurable mappings and Unicode normalization forms, written in Python."
+keywords = [
+  "pylatinize",
+  "ascii",
+  "alphabet",
+  "diacritics",
+  "diacritic",
+  "replace",
+  "remove",
+  "letter",
+  "accent",
+  "emoji",
+  "library",
+  "transliterate"
+]
+license = {text = "BSD-3-Clause"}
+maintainers = [
+  {name = "Zsolt Oroszlány", email = "hello@playfulsparkle.com"},
+]
+name = "pylatinize"
+readme = "README.md"
+requires-python = ">=3.10"
+version = "0.0.1"
+
+[project.urls]
+"Bug Tracker" = "https://github.com/playfulsparkle/pylatinize/issues"
+"Change Log" = "https://github.com/playfulsparkle/pylatinize/blob/main/CHANGELOG.md"
+"Github" = "https://github.com/playfulsparkle/pylatinize"
+"Homepage" = "https://github.com/playfulsparkle/pylatinize"
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=65.0.0", "wheel"]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8.3.0",
+  "pytest-cov>=4.1.0",
+  "flake8>=7.0.0",
+]
