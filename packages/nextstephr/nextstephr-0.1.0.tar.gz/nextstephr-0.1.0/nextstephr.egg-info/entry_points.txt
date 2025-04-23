@@ -1,0 +1,2 @@
+[console_scripts]
+nextstephr = nextstephr.__main__:main
