@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "auto-claude"
+version = "0.1.0"
+description = "auto-claude: A CLI tool that injects an auto-approve feature into the Claude Desktop App."
+authors = [{ name = "shaneholloman" }]
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = ["requests>=2.31.0", "websockets>=12.0"]
+
+[project.urls]
+Homepage = "https://github.com/shaneholloman/auto-claude"
+Repository = "https://github.com/shaneholloman/auto-claude"
+Issues = "https://github.com/shaneholloman/auto-claude/issues"
+
+[project.scripts]
+auto-claude = "auto_claude.auto_claude:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

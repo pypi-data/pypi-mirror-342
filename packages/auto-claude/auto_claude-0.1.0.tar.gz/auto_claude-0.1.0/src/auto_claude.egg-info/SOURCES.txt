@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/auto_claude/__init__.py
+src/auto_claude/auto_claude.py
+src/auto_claude/inject.js
+src/auto_claude.egg-info/PKG-INFO
+src/auto_claude.egg-info/SOURCES.txt
+src/auto_claude.egg-info/dependency_links.txt
+src/auto_claude.egg-info/entry_points.txt
+src/auto_claude.egg-info/requires.txt
+src/auto_claude.egg-info/top_level.txt
