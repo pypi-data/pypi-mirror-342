@@ -1,0 +1,10 @@
+setuptools>=79.0.0
+lxml>=5
+httplib2>=0.20.1
+
+[build]
+build>=1.2
+docutils
+
+[cli]
+fabulous>=0.4.0
