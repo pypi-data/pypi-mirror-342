@@ -1,0 +1,15 @@
+numpy
+
+[all]
+tritonclient[all]>=2.38.0
+onnxruntime>=1.16.0
+onnxruntime-gpu>=1.16.0
+
+[onnxcpu]
+onnxruntime>=1.16.0
+
+[onnxgpu]
+onnxruntime-gpu>=1.16.0
+
+[triton]
+tritonclient[all]>=2.38.0
