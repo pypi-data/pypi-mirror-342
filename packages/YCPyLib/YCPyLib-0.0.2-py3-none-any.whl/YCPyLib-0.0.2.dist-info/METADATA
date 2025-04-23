@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: YCPyLib
+Version: 0.0.2
+Summary: YCPyLib - Python Library
+Author-email: YuChul YANG <yangyuchul@gmail.com>
+License: MIT
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# YCPyLib
+
+## Getting started
+```
+git clone https://gitlab.com/ycyang/YCPyLib.git
+pip install YCPyLib
+```
+
+## Update Version
+```
+python -m build
+twine upload --verbose dist/*.whl
+```
+
+
