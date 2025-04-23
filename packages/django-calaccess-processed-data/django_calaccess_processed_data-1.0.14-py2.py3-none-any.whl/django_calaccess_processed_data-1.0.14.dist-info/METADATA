@@ -1,0 +1,43 @@
+Metadata-Version: 2.4
+Name: django-calaccess-processed-data
+Version: 1.0.14
+Summary: A Django app to transform and refine campaign finance data from the California Secretary of State’s CAL-ACCESS database
+Home-page: http://django-calaccess.californiacivicdata.org
+Author: Ben Welsh
+Author-email: b@palewi.re
+License: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 4
+Classifier: License :: OSI Approved :: MIT License
+License-File: LICENSE
+Requires-Dist: django-calaccess-raw-data==5.0.7
+Requires-Dist: django-calaccess-scraped-data==3.4.0
+Requires-Dist: django==4.0.*
+Requires-Dist: ccdc-opencivicdata==0.0.6
+Requires-Dist: django-internetarchive-storage
+Requires-Dist: pytz
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+A Django app to transform and refine campaign-finance data from the California Secretary of State’s `CAL-ACCESS <http://www.sos.ca.gov/prd/cal-access/>`__ database
+
+-  Documentation:
+   `django-calaccess-processed-data.californiacivicdata.org <http://django-calaccess.californiacivicdata.org>`__
+-  Issues:
+   `github.com/california-civic-data-coalition/django-calaccess-processed-data/issues <https://github.com/california-civic-data-coalition/django-calaccess-processed-data/issues>`__
+-  Packaging:
+   `pypi.python.org/pypi/django-calaccess-processed-data <https://pypi.python.org/pypi/django-calaccess-processed-data>`__
+-  Testing:
+   `github.com/california-civic-data-coalition/django-calaccess-processed-data/actions <https://github.com/california-civic-data-coalition/django-calaccess-processed-data/actions/workflows/test.yaml>`__
