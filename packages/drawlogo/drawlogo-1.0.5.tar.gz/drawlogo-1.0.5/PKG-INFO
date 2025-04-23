@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: drawlogo
+Version: 1.0.5
+Home-page: https://github.com/wish1/draw_motif_logo
+Author: Sergey Abramov, Alexandr Boytsov
+Author-email: aswq22013@gmail.com
+Requires-Python: >=3.6
+Provides-Extra: dev
+
+# Draw motif logo
+Python3 scripts to plot motif logo in HOCOMOCO style from PCM/PFM matrices
+
+
+## Installation
+
+```
+pip3 install drawlogo
+```
+
+## Requirements
+```
+python >= 3.6
+```
+
+## Usage
+```
+drawlogo <options>...
+```
+or to import within python
+```
+from drawlogo.cli import draw_logo
+```
+To get full usage description one can execute:
+```
+drawlogo --help
+```
+The drawlogo package is maintained by Sergey Abramov and Alexandr Boytsov.
