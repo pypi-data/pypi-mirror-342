@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: rmmtools
+Version: 0.1.0
+Summary: RMM Python tools and utilities
+Project-URL: Homepage, https://github.com/rmohring/rmmtools
+Project-URL: Issues, https://github.com/rmohring/rmmtools/issues
+Author-email: Rick Mohring <rmmohring@live.com>
+License-Expression: GPL-3.0-or-later
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: pandas
+Requires-Dist: pyyaml
+Requires-Dist: scikit-learn
+Requires-Dist: tabulate
+Description-Content-Type: text/markdown
+
+# rmm-tools
+
+Two main components:
+1. A `util` directory with a number of hopefully useful utility functions and classes.
+2. A customer pandas accessor `df.rmm` and `series.rmm` that make a lot of pandas
+operations simpler and easier. At least that seems to be the case for me.
+
+Later version will have more details.
