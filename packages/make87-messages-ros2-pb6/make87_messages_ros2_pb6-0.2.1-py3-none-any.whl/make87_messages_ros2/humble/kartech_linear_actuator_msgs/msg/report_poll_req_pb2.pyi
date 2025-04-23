@@ -1,0 +1,22 @@
+from make87_messages.core import header_pb2 as _header_pb2
+from make87_messages_ros2.humble.kartech_linear_actuator_msgs.msg import report_index_pb2 as _report_index_pb2
+from make87_messages_ros2.humble.std_msgs.msg import header_pb2 as _header_pb2_1
+from google.protobuf.internal import containers as _containers
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class ReportPollReq(_message.Message):
+    __slots__ = ("header", "ros2_header", "confirm", "report_indices")
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    ROS2_HEADER_FIELD_NUMBER: _ClassVar[int]
+    CONFIRM_FIELD_NUMBER: _ClassVar[int]
+    REPORT_INDICES_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    ros2_header: _header_pb2_1.Header
+    confirm: bool
+    report_indices: _containers.RepeatedCompositeFieldContainer[_report_index_pb2.ReportIndex]
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., ros2_header: _Optional[_Union[_header_pb2_1.Header, _Mapping]] = ..., confirm: bool = ..., report_indices: _Optional[_Iterable[_Union[_report_index_pb2.ReportIndex, _Mapping]]] = ...) -> None: ...

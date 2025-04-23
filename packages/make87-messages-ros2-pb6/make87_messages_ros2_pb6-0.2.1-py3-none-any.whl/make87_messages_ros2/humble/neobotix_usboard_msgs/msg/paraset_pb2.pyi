@@ -1,0 +1,128 @@
+from make87_messages.core import header_pb2 as _header_pb2
+from make87_messages_ros2.humble.std_msgs.msg import header_pb2 as _header_pb2_1
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class Paraset(_message.Message):
+    __slots__ = ("header", "ros2_header", "command", "set_num", "paraset_byte54", "paraset_byte53", "paraset_byte52", "paraset_byte51", "paraset_byte50", "paraset_byte49", "paraset_byte48", "paraset_byte47", "paraset_byte46", "paraset_byte45", "paraset_byte44", "paraset_byte43", "paraset_byte42", "paraset_byte41", "paraset_byte40", "paraset_byte39", "paraset_byte38", "paraset_byte37", "paraset_byte36", "paraset_byte35", "paraset_byte34", "paraset_byte33", "paraset_byte32", "paraset_byte31", "paraset_byte30", "paraset_byte29", "paraset_byte28", "paraset_byte27", "paraset_byte26", "paraset_byte25", "paraset_byte24", "paraset_byte23", "paraset_byte22", "paraset_byte21", "paraset_byte20", "paraset_byte19", "paraset_byte18", "paraset_byte17", "paraset_byte16", "paraset_byte15", "paraset_byte14", "paraset_byte13", "paraset_byte12", "paraset_byte11", "paraset_byte10", "paraset_byte9", "paraset_byte8", "paraset_byte7", "paraset_byte6", "paraset_byte5", "paraset_byte4", "paraset_byte3", "paraset_byte2", "paraset_byte1")
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    ROS2_HEADER_FIELD_NUMBER: _ClassVar[int]
+    COMMAND_FIELD_NUMBER: _ClassVar[int]
+    SET_NUM_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE54_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE53_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE52_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE51_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE50_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE49_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE48_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE47_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE46_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE45_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE44_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE43_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE42_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE41_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE40_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE39_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE38_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE37_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE36_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE35_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE34_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE33_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE32_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE31_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE30_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE29_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE28_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE27_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE26_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE25_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE24_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE23_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE22_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE21_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE20_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE19_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE18_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE17_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE16_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE15_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE14_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE13_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE12_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE11_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE10_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE9_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE8_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE7_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE6_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE5_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE4_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE3_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE2_FIELD_NUMBER: _ClassVar[int]
+    PARASET_BYTE1_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    ros2_header: _header_pb2_1.Header
+    command: int
+    set_num: int
+    paraset_byte54: int
+    paraset_byte53: int
+    paraset_byte52: int
+    paraset_byte51: int
+    paraset_byte50: int
+    paraset_byte49: int
+    paraset_byte48: int
+    paraset_byte47: int
+    paraset_byte46: int
+    paraset_byte45: int
+    paraset_byte44: int
+    paraset_byte43: int
+    paraset_byte42: int
+    paraset_byte41: int
+    paraset_byte40: int
+    paraset_byte39: int
+    paraset_byte38: int
+    paraset_byte37: int
+    paraset_byte36: int
+    paraset_byte35: int
+    paraset_byte34: int
+    paraset_byte33: int
+    paraset_byte32: int
+    paraset_byte31: int
+    paraset_byte30: int
+    paraset_byte29: int
+    paraset_byte28: int
+    paraset_byte27: int
+    paraset_byte26: int
+    paraset_byte25: int
+    paraset_byte24: int
+    paraset_byte23: int
+    paraset_byte22: int
+    paraset_byte21: int
+    paraset_byte20: int
+    paraset_byte19: int
+    paraset_byte18: int
+    paraset_byte17: int
+    paraset_byte16: int
+    paraset_byte15: int
+    paraset_byte14: int
+    paraset_byte13: int
+    paraset_byte12: int
+    paraset_byte11: int
+    paraset_byte10: int
+    paraset_byte9: int
+    paraset_byte8: int
+    paraset_byte7: int
+    paraset_byte6: int
+    paraset_byte5: int
+    paraset_byte4: int
+    paraset_byte3: int
+    paraset_byte2: int
+    paraset_byte1: int
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., ros2_header: _Optional[_Union[_header_pb2_1.Header, _Mapping]] = ..., command: _Optional[int] = ..., set_num: _Optional[int] = ..., paraset_byte54: _Optional[int] = ..., paraset_byte53: _Optional[int] = ..., paraset_byte52: _Optional[int] = ..., paraset_byte51: _Optional[int] = ..., paraset_byte50: _Optional[int] = ..., paraset_byte49: _Optional[int] = ..., paraset_byte48: _Optional[int] = ..., paraset_byte47: _Optional[int] = ..., paraset_byte46: _Optional[int] = ..., paraset_byte45: _Optional[int] = ..., paraset_byte44: _Optional[int] = ..., paraset_byte43: _Optional[int] = ..., paraset_byte42: _Optional[int] = ..., paraset_byte41: _Optional[int] = ..., paraset_byte40: _Optional[int] = ..., paraset_byte39: _Optional[int] = ..., paraset_byte38: _Optional[int] = ..., paraset_byte37: _Optional[int] = ..., paraset_byte36: _Optional[int] = ..., paraset_byte35: _Optional[int] = ..., paraset_byte34: _Optional[int] = ..., paraset_byte33: _Optional[int] = ..., paraset_byte32: _Optional[int] = ..., paraset_byte31: _Optional[int] = ..., paraset_byte30: _Optional[int] = ..., paraset_byte29: _Optional[int] = ..., paraset_byte28: _Optional[int] = ..., paraset_byte27: _Optional[int] = ..., paraset_byte26: _Optional[int] = ..., paraset_byte25: _Optional[int] = ..., paraset_byte24: _Optional[int] = ..., paraset_byte23: _Optional[int] = ..., paraset_byte22: _Optional[int] = ..., paraset_byte21: _Optional[int] = ..., paraset_byte20: _Optional[int] = ..., paraset_byte19: _Optional[int] = ..., paraset_byte18: _Optional[int] = ..., paraset_byte17: _Optional[int] = ..., paraset_byte16: _Optional[int] = ..., paraset_byte15: _Optional[int] = ..., paraset_byte14: _Optional[int] = ..., paraset_byte13: _Optional[int] = ..., paraset_byte12: _Optional[int] = ..., paraset_byte11: _Optional[int] = ..., paraset_byte10: _Optional[int] = ..., paraset_byte9: _Optional[int] = ..., paraset_byte8: _Optional[int] = ..., paraset_byte7: _Optional[int] = ..., paraset_byte6: _Optional[int] = ..., paraset_byte5: _Optional[int] = ..., paraset_byte4: _Optional[int] = ..., paraset_byte3: _Optional[int] = ..., paraset_byte2: _Optional[int] = ..., paraset_byte1: _Optional[int] = ...) -> None: ...

@@ -1,0 +1,19 @@
+from make87_messages.core import header_pb2 as _header_pb2
+from make87_messages_ros2.humble.rmf_traffic_msgs.msg import negotiation_key_pb2 as _negotiation_key_pb2
+from google.protobuf.internal import containers as _containers
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class NegotiationForfeit(_message.Message):
+    __slots__ = ("header", "conflict_version", "table")
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    CONFLICT_VERSION_FIELD_NUMBER: _ClassVar[int]
+    TABLE_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    conflict_version: int
+    table: _containers.RepeatedCompositeFieldContainer[_negotiation_key_pb2.NegotiationKey]
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., conflict_version: _Optional[int] = ..., table: _Optional[_Iterable[_Union[_negotiation_key_pb2.NegotiationKey, _Mapping]]] = ...) -> None: ...
