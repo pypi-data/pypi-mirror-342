@@ -1,0 +1,11 @@
+LICENSE
+README.md
+interloper.py
+pyproject.toml
+setup.cfg
+interloper.egg-info/PKG-INFO
+interloper.egg-info/SOURCES.txt
+interloper.egg-info/dependency_links.txt
+interloper.egg-info/requires.txt
+interloper.egg-info/top_level.txt
+tests/test_interloper.py
