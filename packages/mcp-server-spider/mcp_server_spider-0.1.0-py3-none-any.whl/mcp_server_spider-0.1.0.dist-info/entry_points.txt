@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-server-spider = mcp_server_spider:main
