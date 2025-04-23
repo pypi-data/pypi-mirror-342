@@ -1,0 +1,12 @@
+[project]
+name = "vefaas-sand-box-mcp-server"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mcp>=1.6.0",
+]
+
+[project.scripts]
+vefaas-sand-box-mcp-server = "mcp_server_vefaas_sandbox.server:main"

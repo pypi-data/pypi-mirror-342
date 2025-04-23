@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+mcp_server_vefaas_sandbox/__init__.py
+mcp_server_vefaas_sandbox/server.py
+vefaas_sand_box_mcp_server.egg-info/PKG-INFO
+vefaas_sand_box_mcp_server.egg-info/SOURCES.txt
+vefaas_sand_box_mcp_server.egg-info/dependency_links.txt
+vefaas_sand_box_mcp_server.egg-info/entry_points.txt
+vefaas_sand_box_mcp_server.egg-info/requires.txt
+vefaas_sand_box_mcp_server.egg-info/top_level.txt
