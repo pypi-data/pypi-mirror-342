@@ -1,0 +1,442 @@
+Metadata-Version: 2.1
+Name: scikit-plots
+Version: 0.4.0rc3
+Summary: An intuitive library that seamlessly adds plotting capabilities and functionality to any model objects or outputs, compatible with tools like scikit-learn, XGBoost, TensorFlow, and more.
+Keywords: data science,machine learning,visualization,matplotlib,scikit-learn,xgboost,catboost,tensorflow,keras,pytorch,transformers
+Maintainer: scikit-plots developers
+License: BSD-3 Clause License
+         
+         Copyright (c) [2024 - ], [scikit-plots Developers]
+         
+         Redistribution and use in source and binary forms, with or without
+         modification, are permitted provided that the following conditions are met:
+         
+         1. Redistributions of source code must retain the above copyright notice, this
+            list of conditions and the following disclaimer.
+         
+         2. Redistributions in binary form must reproduce the above copyright notice,
+            this list of conditions and the following disclaimer in the documentation
+            and/or other materials provided with the distribution.
+         
+         3. Neither the name of the copyright holder nor the names of its
+            contributors may be used to endorse or promote products derived from
+            this software without specific prior written permission.
+         
+         THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+         AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+         IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+         DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+         FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+         DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+         SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+         CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+         OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+         OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+         
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Matplotlib
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: C
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Fortran
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Programming Language :: Python :: 3.14
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Multimedia :: Graphics
+Project-URL: homepage, https://scikit-plots.github.io
+Project-URL: repository, https://github.com/scikit-plots/scikit-plots
+Project-URL: download, https://github.com/scikit-plots/scikit-plots
+Project-URL: changelog, https://scikit-plots.github.io/dev/whats_new/index.html
+Project-URL: documentation, https://scikit-plots.github.io
+Project-URL: issues, https://github.com/scikit-plots/scikit-plots/issues
+Requires-Python: >=3.8
+Requires-Dist: numpy!=1.24.0,>=1.20; python_version < "3.9"
+Requires-Dist: numpy>=2.0.0rc1; python_version >= "3.9"
+Requires-Dist: scipy>=1.7.0
+Requires-Dist: pandas>=1.2.0
+Requires-Dist: matplotlib!=3.6.1,>=3.4
+Requires-Dist: threadpoolctl>=3.1.0
+Requires-Dist: joblib>=1.2.0
+Requires-Dist: scikit-learn>=1.0.rc1
+Requires-Dist: pillow>=6.2.0
+Requires-Dist: aggdraw>=1.3.11
+Requires-Dist: importlib-metadata; python_version < "3.10"
+Provides-Extra: core
+Requires-Dist: seaborn>=0.11; extra == "core"
+Provides-Extra: build
+Requires-Dist: scikit-plots[core]; extra == "build"
+Requires-Dist: build; extra == "build"
+Requires-Dist: twine; extra == "build"
+Requires-Dist: meson>=1.5.0; extra == "build"
+Requires-Dist: ninja>=1.11.0; extra == "build"
+Requires-Dist: meson-python>=0.16.0; extra == "build"
+Requires-Dist: cython>=3.0.8; extra == "build"
+Requires-Dist: pybind11>=2.13.2; extra == "build"
+Requires-Dist: pythran>=0.14.0; extra == "build"
+Requires-Dist: numpy!=1.24.0,>=1.20; python_version < "3.9" and extra == "build"
+Requires-Dist: numpy>=2.0.0rc1; python_version >= "3.9" and extra == "build"
+Provides-Extra: dev
+Requires-Dist: scikit-plots[core]; extra == "dev"
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: pandas-stubs; extra == "dev"
+Requires-Dist: pycodestyle; extra == "dev"
+Requires-Dist: pydevtool; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: cython-lint; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Requires-Dist: mypy; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: pyyaml; extra == "dev"
+Requires-Dist: tomli; python_version < "3.11" and extra == "dev"
+Requires-Dist: types-psutil; extra == "dev"
+Requires-Dist: typing_extensions; extra == "dev"
+Requires-Dist: doit; extra == "dev"
+Requires-Dist: rich-click; extra == "dev"
+Provides-Extra: test
+Requires-Dist: scikit-plots[core]; extra == "test"
+Requires-Dist: hypothesis>=6.130.0; extra == "test"
+Requires-Dist: pytest>=7.1.2; extra == "test"
+Requires-Dist: pytest-cov; extra == "test"
+Requires-Dist: pytest-fail-slow; extra == "test"
+Requires-Dist: pytest-mpl; extra == "test"
+Requires-Dist: pytest-run-parallel; extra == "test"
+Requires-Dist: pytest-timeout; extra == "test"
+Requires-Dist: pytest-xdist; extra == "test"
+Requires-Dist: asv; extra == "test"
+Requires-Dist: mpmath; extra == "test"
+Requires-Dist: pyamg; extra == "test"
+Provides-Extra: doc
+Requires-Dist: scikit-plots[core]; extra == "doc"
+Requires-Dist: sphinx<100.0.0,>=5.0.0; extra == "doc"
+Requires-Dist: sphinx-copybutton; extra == "doc"
+Requires-Dist: sphinx-design; extra == "doc"
+Requires-Dist: sphinx-gallery; extra == "doc"
+Requires-Dist: sphinx-prompt; extra == "doc"
+Requires-Dist: sphinx-remove-toctrees; extra == "doc"
+Requires-Dist: sphinx-rtd-theme; extra == "doc"
+Requires-Dist: sphinx-tabs; extra == "doc"
+Requires-Dist: sphinx-tags; extra == "doc"
+Requires-Dist: sphinxext-opengraph; extra == "doc"
+Requires-Dist: sphinxcontrib-inlinesyntaxhighlight; extra == "doc"
+Requires-Dist: sphinxcontrib-sass; extra == "doc"
+Requires-Dist: sphinxcontrib-svg2pdfconverter; extra == "doc"
+Requires-Dist: pydata-sphinx-theme; extra == "doc"
+Requires-Dist: colorspacious; extra == "doc"
+Requires-Dist: jinja2; extra == "doc"
+Requires-Dist: jupyter-sphinx; extra == "doc"
+Requires-Dist: jupyterlite-pyodide-kernel; extra == "doc"
+Requires-Dist: jupyterlite-sphinx; extra == "doc"
+Requires-Dist: jupytext; extra == "doc"
+Requires-Dist: intersphinx_registry; extra == "doc"
+Requires-Dist: numpydoc; extra == "doc"
+Requires-Dist: myst-nb; extra == "doc"
+Requires-Dist: myst-parser; extra == "doc"
+Requires-Dist: packaging; extra == "doc"
+Requires-Dist: pooch; extra == "doc"
+Requires-Dist: towncrier; extra == "doc"
+Requires-Dist: catboost; extra == "doc"
+Requires-Dist: xgboost; extra == "doc"
+Provides-Extra: maintenance
+Requires-Dist: conda-lock>=3.0.0; extra == "maintenance"
+Provides-Extra: cpu
+Requires-Dist: tensorflow-cpu; extra == "cpu"
+Requires-Dist: transformers; extra == "cpu"
+Requires-Dist: tf-keras; extra == "cpu"
+Provides-Extra: gpu
+Requires-Dist: cupy-cuda12x; extra == "gpu"
+Provides-Extra: tpu
+Requires-Dist: tensorflow; extra == "tpu"
+Requires-Dist: transformers; extra == "tpu"
+Requires-Dist: tf-keras; extra == "tpu"
+Provides-Extra: extend
+Requires-Dist: statsmodels>=0.12; extra == "extend"
+Requires-Dist: catboost; extra == "extend"
+Requires-Dist: xgboost; extra == "extend"
+Requires-Dist: scikit-image; extra == "extend"
+Requires-Dist: plotly; extra == "extend"
+Requires-Dist: polars; extra == "extend"
+Requires-Dist: pyarrow; extra == "extend"
+Provides-Extra: ci32-requirements
+Requires-Dist: scipy-openblas32==0.3.29.0.0; extra == "ci32-requirements"
+Requires-Dist: spin; extra == "ci32-requirements"
+Provides-Extra: ci-requirements
+Requires-Dist: scikit-plots[ci32_requirements]; extra == "ci-requirements"
+Requires-Dist: scipy-openblas64==0.3.29.0.0; extra == "ci-requirements"
+Description-Content-Type: text/markdown
+
+<!--
+- https://packaging.python.org/en/latest/guides/making-a-pypi-friendly-readme/
+- https://github.com/pypa/readme_renderer
+-->
+
+# Welcome to Scikit-plots 101
+
+## Single line functions for detailed visualizations
+
+The quickest and easiest way to go from analysis...
+
+### Install|Try Scikit-plots - Doc: https://scikit-plots.github.io/dev/devel/index.html
+
+## User Installation:
+
+### Installing from source (REQUIRED OS/LIB BUILD PACKAGES)
+You can also install scikit-plots from source if you want to take advantage of the latest changes:
+
+```sh
+# Forked repo: https://github.com/scikit-plots/scikit-plots.git
+git clone https://github.com/YOUR-USER-NAME/scikit-plots.git
+cd scikit-plots
+```
+
+```sh
+bash docker/script/safe_dirs.sh  # add safe directories for git
+git submodule update --init  # download submodules
+```
+
+```sh
+# pip install -r ./requirements/all.txt
+pip install -r ./requirements/build.txt
+pip install --no-cache-dir -e . -v
+```
+
+### It is also possible to include optional dependencies:
+
+```sh
+# (Optionally) Try Development [dev,build,test,docs,gpu]
+# gpu refer Cupy lib require NVIDIA CUDA support
+# For More in Doc: https://scikit-plots.github.io/
+python -m pip install --no-cache-dir --no-build-isolation -e .[build,dev,test,doc] -v
+```
+
+```sh
+# gpu refer Cupy lib require NVIDIA CUDA support
+pip install "scikit-plots[gpu]"
+```
+
+### Installing using pip
+
+The easiest way to set up scikit-plots is to install it using pip with the following command:
+
+- by `pypi`:
+  ```sh
+  pip install -U scikit-plots
+  ```
+
+- by `pypi.anaconda.org`:
+  ```sh
+  ## (Optionally) Install the lost packages
+  pip install -r requirements/default.txt
+  ## Try Ensure all dependencies installed
+  pip install -U -i https://pypi.anaconda.org/scikit-plots-wheels-staging-nightly/simple scikit-plots
+  ```
+
+- by source `GITHUB` use `@<branches>` or `@<tags>` If any:
+  - Branches:
+    ```bash
+    ## pip install git+https://github.com/scikit-plots/scikit-plots.git@<branches>
+    pip install git+https://github.com/scikit-plots/scikit-plots.git@main  # Latest in Development
+    ##
+    ## Works with standard Python (CPython), Added C,Cpp,Fortran Support
+    ##
+    pip install git+https://github.com/scikit-plots/scikit-plots.git@maintenance/0.4.x
+    ##
+    ## Works with standard Python (CPython), Works with PyPy interpreter
+    ##
+    pip install git+https://github.com/scikit-plots/scikit-plots.git@maintenance/0.3.x
+    pip install git+https://github.com/scikit-plots/scikit-plots.git@maintenance/0.3.7
+    ```
+  <br>
+
+  - Tags:
+    ```bash
+    ## pip install git+https://github.com/scikit-plots/scikit-plots.git@<tags>
+    pip install git+https://github.com/scikit-plots/scikit-plots.git@v0.4.0rc0
+    pip install git+https://github.com/scikit-plots/scikit-plots.git@v0.3.9rc3
+    pip install git+https://github.com/scikit-plots/scikit-plots.git@v0.3.7
+    ```
+
+## Sample Plots
+
+<table style="margin-left:auto;margin-right:auto;width:100%;border-collapse:collapse;">
+  <tr>
+    <th style="width:50%;text-align:center;">Sample Plot 1</th>
+    <th style="width:50%;text-align:center;">Sample Plot 2</th>
+  </tr>
+  <tr>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_learning_curve.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-api-estimators-plot_learning_curve-1.png">
+    </td>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_calibration_curve.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-api-metrics-plot_calibration-1.png">
+    </td>
+  </tr>
+  <tr>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_classifier_eval.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-api-metrics-plot_classifier_eval-1.png">
+    </td>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_feature_importances.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-api-estimators-plot_feature_importances-1.png">
+    </td>
+  </tr>
+  <tr>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_roc.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-api-metrics-plot_roc-1.png">
+    </td>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_precision_recall.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-api-metrics-plot_precision_recall-1.png">
+    </td>
+  </tr>
+  <tr>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_pca_component_variance.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-api-decomposition-plot_pca_component_variance-1.png">
+    </td>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_pca_2d_projection.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-api-decomposition-plot_pca_2d_projection-1.png">
+    </td>
+  </tr>
+  <tr>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_elbow.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-api-estimators-plot_elbow-1.png">
+    </td>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_silhouette.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-api-metrics-plot_silhouette-1.png">
+    </td>
+  </tr>
+  <tr>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_cumulative_gain.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-kds-plot_cumulative_gain-1.png">
+    </td>
+    <td style="width:50%;text-align:center;">
+      <img style="display:block;width:100%;height:auto;" alt="plot_lift.png" src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/scikitplot-kds-plot_lift-1.png">
+    </td>
+  </tr>
+</table>
+
+
+Scikit-plots is the result of an unartistic data scientist's dreadful realization that *visualization is one of the most crucial components in the data science process, not just a mere afterthought*.
+
+Gaining insights is simply a lot easier when you're looking at a colored heatmap of a confusion matrix complete with class labels rather than a single-line dump of numbers enclosed in brackets. Besides, if you ever need to present your results to someone (virtually any time anybody hires you to do data science), you show them visualizations, not a bunch of numbers in Excel.
+
+That said, there are a number of visualizations that frequently pop up in machine learning. Scikit-plots is a humble attempt to provide aesthetically-challenged programmers (such as myself) the opportunity to generate quick and beautiful graphs and plots with as little boilerplate as possible.
+
+## Okay then, prove it. Show us an example.
+
+Say we use [Keras Classifier](https://keras.io/api/models/sequential/) in multi-class classification and decide we want to visualize the results of a common classification metric, such as sklearn's [classification report](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html) with a [confusion matrix](https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html).
+
+Let’s start with a basic example where we use a Keras classifier to evaluate the digits dataset provided by Scikit-learn.
+
+```python
+# Import Libraries
+# Before tf {'0':'All', '1':'Warnings+', '2':'Errors+', '3':'Fatal Only'} if any
+import os; os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+# Disable GPU and force TensorFlow to use CPU
+import os; os.environ['CUDA_VISIBLE_DEVICES'] = ''
+
+import tensorflow as tf
+# Set TensorFlow's logging level to Fatal
+import logging; tf.get_logger().setLevel(logging.CRITICAL)
+
+import numpy as np
+from sklearn.datasets import load_digits
+from sklearn.model_selection import train_test_split
+
+# Loading the dataset
+X, y = load_digits(return_X_y=True)
+
+# Split the dataset into training and validation sets
+X_train, X_val, y_train, y_val = train_test_split(
+  X, y, test_size=0.33, random_state=0
+)
+
+# Convert labels to one-hot encoding
+Y_train = tf.keras.utils.to_categorical(y_train)
+Y_val = tf.keras.utils.to_categorical(y_val)
+
+# Define a simple TensorFlow model
+tf.keras.backend.clear_session()
+model = tf.keras.Sequential([
+    # tf.keras.layers.Input(shape=(X_train.shape[1],)),  # Input (Functional API)
+    tf.keras.layers.InputLayer(shape=(X_train.shape[1],)),
+    tf.keras.layers.Dense(64, activation='relu'),
+    tf.keras.layers.Dense(64, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')
+])
+
+# Compile the model
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+# Train the model
+model.fit(
+    X_train, Y_train,
+    batch_size=32,
+    epochs=2,
+    validation_data=(X_val, Y_val),
+    verbose=0
+)
+
+# Predict probabilities on the validation set
+y_probas = model.predict(X_val)
+
+# Plot the data
+import matplotlib.pyplot as plt
+import scikitplot as sp
+sp.get_logger().setLevel(sp.sp_logging.WARNING)
+# Plot precision-recall curves
+sp.metrics.plot_precision_recall(y_val, y_probas)
+plt.show()
+```
+
+<div align=center>
+  <img style="display:block;width:60%;height:auto;align:center;" alt="quick_start"
+    src="https://raw.githubusercontent.com/scikit-plots/scikit-plots.github.io/refs/heads/main/dev/_images/quick_start_tf.png">
+</div>
+
+Pretty.
+
+## Maximum flexibility. Compatibility with non-scikit-learn objects.
+
+Although Scikit-plot is loosely based around the scikit-learn interface, you don't actually need scikit-learn objects to use the available functions.
+As long as you provide the functions what they're asking for, they'll happily draw the plots for you.
+
+The possibilities are endless.
+
+## Release Notes
+
+See the [changelog](https://scikit-plots.github.io/dev/whats_new/index.html)
+for a history of notable changes to scikit-plots.
+
+## Documentation and Examples
+
+Explore the full features of Scikit-plot.
+
+## Contributing to scikit-plots
+
+Reporting a bug? Suggesting a feature? Want to add your own plot to the library? Visit our.
+
+## Citing scikit-plots
+
+1. scikit-plots, “scikit-plots: vlatest”. Zenodo, Aug. 23, 2024.
+   DOI: [10.5281/zenodo.13367000](https://doi.org/10.5281/zenodo.13367000).
+
+2. scikit-plots, “scikit-plots: v0.3.8dev0”. Zenodo, Aug. 23, 2024.
+   DOI: [10.5281/zenodo.13367001](https://doi.org/10.5281/zenodo.13367001).

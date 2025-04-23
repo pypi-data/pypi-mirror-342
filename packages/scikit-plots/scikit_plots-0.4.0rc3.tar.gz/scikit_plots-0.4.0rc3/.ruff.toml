@@ -1,0 +1,51 @@
+extend = "pyproject.toml"
+
+# Authors: The scikit-plots developers
+# SPDX-License-Identifier: BSD-3-Clause
+
+[lint.extend-per-file-ignores]
+
+".pyinstaller/*.py" = ["PTH"]
+
+"__init__.py" = [
+    "E402",
+    "F401",
+]
+
+"docs/*" = [
+
+]
+
+"test_*.py" = [
+    "PTH", # all flake8-use-pathlib
+    "RUF015",  # Prefer next({iterable}) over single element slice
+]
+
+"__init__.pyi" = [
+    "F811", "PYI002", "F811",
+]
+
+"cbook.pyi" = [
+    "N801", "N803"
+]
+
+"*_distributor_init.py" = [
+    "SIM105",
+]
+
+"*_min_dependencies.py" = [
+    "T201",
+]
+
+# TODO: fix these, on a per-subpackage basis.
+# When a general exclusion is being fixed, but it affects many subpackages, it
+# is better to fix for subpackages individually. The general exclusion should be
+# copied to these subpackage sections and fixed there.
+"scikitplot/config/*" = []
+
+"scikitplot/_testing/*" = [
+    "UP031",    # Use format specifiers instead of percent format
+    "T201",  # `print` found
+    "PTH100",  # `os.path.abspath()` should be replaced by `Path.resolve()`
+    "RUF005",  # Consider `["--pyargs", *list(tests)]` instead of concatenation
+]
