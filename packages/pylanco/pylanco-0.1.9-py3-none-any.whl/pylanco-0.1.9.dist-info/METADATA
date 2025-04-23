@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: pylanco
+Version: 0.1.9
+License-File: LICENSE
+Requires-Dist: requests==2.32.3
+Requires-Dist: robocorp-log==2.9.6
+Requires-Dist: beautifulsoup4==4.13.4
+Dynamic: license-file
+Dynamic: requires-dist
