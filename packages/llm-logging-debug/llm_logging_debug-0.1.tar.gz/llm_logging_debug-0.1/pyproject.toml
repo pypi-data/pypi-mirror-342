@@ -1,0 +1,28 @@
+[project]
+name = "llm-logging-debug"
+version = "0.1"
+description = "Set logging.DEBUG while running LLM"
+readme = "README.md"
+authors = [{name = "Simon Willison"}]
+license = "Apache-2.0"
+classifiers = []
+requires-python = ">=3.9"
+dependencies = [
+    "llm"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/simonw/llm-logging-debug"
+Changelog = "https://github.com/simonw/llm-logging-debug/releases"
+Issues = "https://github.com/simonw/llm-logging-debug/issues"
+CI = "https://github.com/simonw/llm-logging-debug/actions"
+
+[project.entry-points.llm]
+logging_debug = "llm_logging_debug"
+
+[project.optional-dependencies]
+test = ["pytest"]
