@@ -1,0 +1,116 @@
+[build-system]
+requires = ["hatchling", "setuptools>=65.5.1"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-safeguards"
+version = "0.1.0"
+description = "Safeguards for custom agents."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+    {name = "The Anthropic Safeguards Team", email = "safeguards@anthropic.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "fastapi>=0.109.0",
+    "pydantic>=2.0.0",
+    "uvicorn>=0.27.0",
+    "python-dateutil>=2.8.0",
+    "typing-extensions>=4.0.0",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "scikit-learn>=1.3.0",
+    "scipy>=1.10.0",
+    "python-dotenv>=1.0.0",
+    "aiohttp>=3.8.0",
+    "asyncio>=3.4.3",
+    "prometheus-client>=0.17.0",
+    "PyYAML>=6.0.0",
+    "tenacity>=8.2.0",
+    "websockets>=10.4",
+    "plotly>=5.13.0",
+    "requests>=2.30.0",
+    "jinja2>=3.1.0",
+    "psutil>=5.9.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/cirbuk/agent-safeguards"
+Documentation = "https://github.com/cirbuk/agent-safeguards/tree/main/docs"
+Issues = "https://github.com/cirbuk/agent-safeguards/issues"
+Changelog = "https://github.com/cirbuk/agent-safeguards/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.23.0",
+]
+dev = [
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.7.0",
+    "pylint>=3.0.0",
+    "pre-commit>=2.15.0",
+    "bandit>=1.7.0",
+    "types-requests>=2.30.0",
+    "types-psutil>=5.9.0",
+    "setuptools>=65.5.1",
+]
+docs = [
+    "sphinx>=6.0.0",
+    "sphinx-rtd-theme>=1.2.0",
+    "sphinx-autodoc-typehints>=1.23.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["src/safeguards"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=safeguards"
+markers = [
+    "asyncio: mark a test as an asynchronous test using pytest-asyncio",
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "performance: Performance tests"
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py310", "py311"]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+
+[tool.pylint.messages_control]
+disable = [
+    "C0111",  # missing-docstring
+    "C0103",  # invalid-name
+    "C0330",  # bad-continuation
+    "C0326",  # bad-whitespace
+]
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/safeguards"]
