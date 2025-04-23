@@ -1,0 +1,2 @@
+[console_scripts]
+pypsamcp = pypsamcp.server:main
