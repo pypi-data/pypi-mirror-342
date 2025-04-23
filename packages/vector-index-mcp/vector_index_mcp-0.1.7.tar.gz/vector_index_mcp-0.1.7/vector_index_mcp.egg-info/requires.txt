@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+watchdog
+sentence-transformers
+transformers
+lancedb
+python-dotenv
+pydantic
+tiktoken
+pathspec
+pandas
+
+[dev]
+pytest
+httpx
+pytest-asyncio
+ruff
