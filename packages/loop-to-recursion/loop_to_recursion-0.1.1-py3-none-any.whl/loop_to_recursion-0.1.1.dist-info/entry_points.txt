@@ -1,0 +1,3 @@
+[console_scripts]
+loop-to-recursion=loop_to_recursion.loop_to_recursion:cli
+
