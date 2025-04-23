@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: rocketx-providers-impala
+Version: 0.1.0
+Summary: Add your description here
+Author-email: mingminyu <yu_mingm623@163.com>
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: impyla>=0.21.0
+Requires-Dist: rocketx>=0.1.0
+Requires-Dist: rocketx-providers-common-sql>=0.1.0
+
+
