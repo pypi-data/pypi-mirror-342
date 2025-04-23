@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+tk_animations.py
+tk_animations.egg-info/PKG-INFO
+tk_animations.egg-info/SOURCES.txt
+tk_animations.egg-info/dependency_links.txt
+tk_animations.egg-info/top_level.txt
