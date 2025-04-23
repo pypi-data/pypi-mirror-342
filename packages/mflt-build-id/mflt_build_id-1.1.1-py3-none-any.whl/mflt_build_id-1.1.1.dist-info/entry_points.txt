@@ -1,0 +1,3 @@
+[console_scripts]
+mflt-build-id = mflt_build_id:main
+mflt_build_id = mflt_build_id:main
