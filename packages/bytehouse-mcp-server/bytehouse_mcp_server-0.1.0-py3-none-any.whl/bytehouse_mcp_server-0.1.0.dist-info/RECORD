@@ -1,0 +1,15 @@
+bytehouse_mcp_server-0.1.0.dist-info/licenses/LICENSE,sha256=QwcOLU5TJoTeUhuIXzhdCEEDDvorGiC6-3YTOl4TecE,11356
+mcp_bytehouse/__init__.py,sha256=bXDTcs_xUrtnCDRyUnaZCO2CiV6kmCeYQm8k6qEqjQM,349
+mcp_bytehouse/main.py,sha256=jfYa-VWsXRsf5OYl4VrJzTs6llTX2cRpiJZn590MYGE,433
+mcp_bytehouse/mcp_env.py,sha256=ojD0ueedzq130nuD0mPR1Z_ODpj-Nd06bFZQLPaP0y8,4514
+mcp_bytehouse/mcp_server.py,sha256=77Oe_iB_zbW_TyLVLx2v8cUnnDksbzEo-RbRe4KYvis,8399
+mcp_bytehouse/knowledge/cnch_merge_tree.md,sha256=J2yWM5wCXH00vMIvUfjBU1mcClK1g6Ii1TeGronQwN0,12445
+mcp_bytehouse/knowledge/cnch_unique_merge_tree.md,sha256=EFE-X6y9lW5kr4xU9f5uG84NytzgV5wl9IA1st1C-pA,8865
+mcp_bytehouse/knowledge/distributed.md,sha256=xxVcBuwEI5w6JNhzmdvFHzoVfGLwqGoMDseyUtKMwxY,3787
+mcp_bytehouse/knowledge/ha_merge_tree.md,sha256=MOg73p0Harylce813pgNXWqAB4HcO3SFDO_NFgALT2Q,3959
+mcp_bytehouse/knowledge/ha_unique_merge_tree.md,sha256=3gqbLfNrQ6lDd_VWKohTLkyEAyGcgekFcGsdZLeK6go,30832
+bytehouse_mcp_server-0.1.0.dist-info/METADATA,sha256=eUsCUHhtAH5rNgOl-DIgjwKQW-eDOhnsf44r9mlSCVI,3072
+bytehouse_mcp_server-0.1.0.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+bytehouse_mcp_server-0.1.0.dist-info/entry_points.txt,sha256=8TS7wiJ_6qWRfyu8jaPiFjEbADzPGRc07EFfPWFC58U,65
+bytehouse_mcp_server-0.1.0.dist-info/top_level.txt,sha256=js1FKzO0DE7G1SximCE9Z4XuvNj2vt6AueBHU9ZrQSM,14
+bytehouse_mcp_server-0.1.0.dist-info/RECORD,,
