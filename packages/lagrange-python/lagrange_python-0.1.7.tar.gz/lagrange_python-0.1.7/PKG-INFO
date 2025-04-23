@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: lagrange-python
+Version: 0.1.7
+Summary: An Python Implementation of NTQQ PC Protocol
+Keywords: QQ,Tencent,NTQQ,Framework,Bot,asyncio
+Author: linwenxuan05, wyapx
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: AsyncIO
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.9
+Requires-Dist: typing-extensions>=4.7.0
+Requires-Dist: cryptography>=40.0.0
+Requires-Dist: qrcode>=7.4.2
+Provides-Extra: faster
+Requires-Dist: ftea>=0.1.8; extra == "faster"
+Provides-Extra: loguru
+Requires-Dist: loguru>=0.7.2; extra == "loguru"
+
