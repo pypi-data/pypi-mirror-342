@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: 2024 Tjark Sievers
+# SPDX-FileCopyrightText: 2025 Tjark Sievers
+#
+# SPDX-License-Identifier: MIT
+
+[paths]
+source =
+   src
+   */site-packages
+
+[run]
+branch = true
+parallel = true
+source =
+    quant_met
+
+[report]
+show_missing = true
+precision = 2
