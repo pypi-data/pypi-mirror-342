@@ -1,0 +1,91 @@
+QPushButton {
+    color: @primary;
+    background-color: @background;
+    border: 1px solid @border-color;
+    border-radius: 5px;
+    text-align: center;
+    padding: 4px 8px;
+}
+
+QPushButton::hover {
+    background-color: @background-variant;
+}
+
+QPushButton::checked,
+QPushButton::pressed {
+    background-color: @primary-lighter;
+    color: @primary-darker;
+}
+
+QPushButton::disabled {
+    background: @disabled-background;
+    color: @disabled-color;
+}
+
+QPushButton[status=main], 
+QPushButton::default {
+    border: 2px solid @primary;
+    border-radius: @border-radius;
+    color: @primary;
+    font-weight: bold;
+}
+
+QPushButton[status=main]::hover,
+QPushButton::default:hover {
+    background-color: @background-variant;
+}
+
+QPushButton[status=main]::checked, 
+QPushButton[status=main]::pressed,
+QPushButton::default:checked,
+QPushButton::default:pressed {
+    background-color: @primary-lighter;
+    color: @primary-darker;
+}
+
+QPushButton[status=danger] {
+    border: 2px solid @danger-color;
+    border-radius: @border-radius;
+    color: @danger-color;
+    font-weight: bold;
+}
+
+QPushButton[status=danger]::hover {
+    background-color: @background-variant;
+}
+
+QPushButton[status=danger]::checked,
+QPushButton[status=danger]::pressed {
+    background-color: @danger-color-lighter;
+    color: @danger-color-darker;
+}
+
+QPushButton[status=warning] {
+    border: 2px solid @warning-color;
+    border-radius: @border-radius;
+    color: @warning-color;
+    font-weight: bold;
+}
+
+QPushButton[status=warning]::hover {
+    background-color: @background-variant;
+}
+
+QPushButton[status=warning]::checked,
+QPushButton[status=warning]::pressed {
+    background-color: @warning-color-lighter;
+    color: @warning-color-darker;
+}
+
+QPushButton[status=main]::disabled,
+QPushButton[status=warning]::disabled,
+QPushButton[status=danger]::disabled {
+    background-color: @disabled-background;
+    color: @disabled-color;
+    border: none;
+}
+
+QDialogButtonBox QPushButton {
+    min-width: 65px;
+}
+
