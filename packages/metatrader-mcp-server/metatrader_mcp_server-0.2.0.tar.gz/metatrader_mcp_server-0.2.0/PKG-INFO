@@ -1,0 +1,143 @@
+Metadata-Version: 2.4
+Name: metatrader-mcp-server
+Version: 0.2.0
+Summary: Model Context Protocol (MCP) to enable AI LLMs to trade using MetaTrader platform
+Home-page: https://github.com/ariadng/metatrader-mcp-server
+Author: Aria Dhanang
+Author-email: Aria Dhanang <ariadng@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2025 Aria Dhanang
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/ariadng/metatrader-mcp-server
+Project-URL: Bug Tracker, https://github.com/ariadng/metatrader-mcp-server/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: python-dotenv>=1.1.0
+Requires-Dist: MetaTrader5>=5.0.45
+Requires-Dist: numpy>=2.2.4
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: tabulate>=0.9.0
+Requires-Dist: pytest>=8.3.5
+Requires-Dist: build>=1.2.2.post1
+Requires-Dist: fastapi>=0.115.12
+Requires-Dist: uvicorn[standard]>=0.34.1
+Requires-Dist: pydantic>=2.11.3
+Requires-Dist: pydantic-settings>=2.8.1
+Requires-Dist: mcp[cli]>=1.6.0
+Requires-Dist: click>=8.0.0
+Provides-Extra: client
+Dynamic: license-file
+
+# MetaTrader MCP Server
+
+This is a Model Context Protocol (MCP) server built with Python to enable AI LLMs to trade using MetaTrader platform.
+
+![MetaTrader MCP Server](https://yvkbpmmzjmfqjxusmyop.supabase.co/storage/v1/object/public/github//metatrader-mcp-server-1.png)
+
+## Updates
+
+- April 16, 2025: We have our first minor version release (0.1.0) 🎉🎉🎉
+
+## Project Roadmap
+
+For full version checklist, see [version-checklist.md](docs/roadmap/version-checklist.md).
+
+| Task | Status | Done | Tested |
+|------|--------|------|--------|
+| Connect to MetaTrader 5 terminal | Finished | ✅ | ✅ |
+| Develop MetaTrader client module | Finished | ✅ | ✅ |
+| Develop MCP Server module | Finished | ✅ | ✅ |
+| Implement MCP tools | Finished | ✅ | ✅ |
+| Publish to PyPi | On progress | - | - |
+| Claude Desktop integration | - | - | - |
+| Open WebUI integration | - | - | - |
+
+## Documentation
+
+For developers, see [Developer's Documentation](docs/README.md).
+
+## Development Instructions
+
+### Creating Virtual Environment
+
+```
+uv venv
+```
+
+Then, you need to enable the environment in the Terminal.
+
+Linux or macOS:
+```
+source .venv/bin/activate
+```
+
+Windows (PowerShell):
+```
+.venv\Scripts\Activate.ps1
+```
+
+### Installing Package
+
+```bash
+pip install metatrader-mcp-server
+```
+
+### Building Package
+
+```
+python -m build
+```
+
+The build result will be in `dist/` folder.
+
+### Testing
+
+To run the test suite and generate a comprehensive Markdown report:
+
+```bash
+pytest -s tests
+```
+
+Test reports will be saved in `tests/reports/` with a timestamped filename.
+
+### Publishing to Test PyPI
+
+```
+twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+```
+
+Enter credentials when required.
+
+### Usage
+
+```bash
+metatrader-mcp-server --login <LOGIN> --password <PASSWORD> --server <SERVER>
