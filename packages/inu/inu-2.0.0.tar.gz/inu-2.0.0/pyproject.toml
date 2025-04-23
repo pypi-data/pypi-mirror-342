@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inu"
+version = "2.0.0"
+description = "Inertial Navigation Utilities"
+readme = "README.md"
+authors = [
+    { name = "David Woodburn", email = "david.woodburn@icloud.com" },
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.6"
+dependencies = [
+    "numpy",
+    "matplotlib",
+]
+
+[project.urls]
+Homepage = "https://gitlab.com/davidwoodburn/inu"
+"Bug Tracker" = "https://gitlab.com/davidwoodburn/inu/-/issues"
+
+[tool.setuptools]
+package-dir = {"" = "inu"}
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "r3f",
+]
