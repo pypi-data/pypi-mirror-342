@@ -1,0 +1,121 @@
+Metadata-Version: 2.1
+Name: gadfastemporal
+Version: 0.0.1
+Summary: Example repository demonstrating integration of Temporal workflows with FastAPI.
+Home-page: https://github.com/AlexDemure/gadfastemporal
+Author: Alexander Grishchenko
+Author-email: alexanderdemure@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: sentry-sdk
+Requires-Dist: temporalio
+
+<p align="center">
+  <a href="https://github.com/AlexDemure/gadfastemporal">
+    <a href="https://ibb.co/8nnQPMQD"><img src="https://i.ibb.co/RGGJQ2Jp/logo.png" alt="logo" border="0"></a>
+  </a>
+</p>
+
+<p align="center">
+  Example repository demonstrating integration of Temporal workflows with FastAPI
+</p>
+
+---
+### Temporal Python
+- https://github.com/temporalio/samples-python
+- https://github.com/temporalio/sdk-python
+
+### Installation
+
+```
+pip install gadfastemporal
+```
+
+### Usage
+
+```python
+import contextlib
+import contextvars
+import typing
+import uuid
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+from gadfastemporal import Temporal
+from gadfastemporal import Workflow
+from gadfastemporal import converters
+from gadfastemporal import decorators
+from gadfastemporal import interceptors
+
+contextvar = contextvars.ContextVar("contextvar", default=None)
+
+class Settings(BaseModel):
+    TEMPORAL_HOST: str = "localhost:7233"
+    TEMPORAL_NAMESPACE: str = "default"
+    TEMPORAL_QUEUE: str = "my-queue"
+
+
+settings = Settings()
+
+
+@decorators.workflow
+class SimpleWorkflow(Workflow):
+    @staticmethod
+    def id(_: dict) -> str:
+        return str(uuid.uuid4())
+
+    @staticmethod
+    def activities() -> typing.List[typing.Callable]:
+        return [SimpleWorkflow.process]
+
+    @decorators.run
+    async def run(self, command: dict) -> str:
+        return await temporal.activity.sync(self.process, command)
+
+    @staticmethod
+    @decorators.activity
+    async def process(data: dict) -> str:
+        return f"Processed: {data}"
+
+
+temporal = Temporal(
+    host=settings.TEMPORAL_HOST,
+    namespace=settings.TEMPORAL_NAMESPACE,
+    task_queue=settings.TEMPORAL_QUEUE,
+    workflows=[SimpleWorkflow],
+    worker_interceptors=[interceptors.SentryInterceptor()],
+    client_interceptors=[interceptors.ContextPropagationInterceptor(contexts=[contextvar])],
+    data_converter=converters.pydantic,
+    search_attributes=[contextvar],
+)
+
+@contextlib.asynccontextmanager
+async def lifespan(_: FastAPI):
+    await temporal.start()
+    yield
+    await temporal.shutdown()
+
+
+app = FastAPI(lifespan=lifespan)
+
+@app.post("/run")
+async def run():
+    data = dict(x=1)
+    contextvar.set({"Traceparent": "12345"})
+    return await temporal.workflow.sync(SimpleWorkflow, data)
+```
+
+Up containers
+```
+docker compose -f .compose/docker-compose.yml up -d --build
+```
+
+Create search-attribute
+```
+temporal operator search-attribute create --name Traceparent --type Keyword
+```
