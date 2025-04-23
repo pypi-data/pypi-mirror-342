@@ -1,0 +1,45 @@
+Metadata-Version: 2.4
+Name: rasqc
+Version: 0.0.1
+Summary: Automated QA/QC for HEC-RAS Models.
+Project-URL: repository, https://github.com/fema-ffrd/rasqc
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: rashdf
+Requires-Dist: hydrostab
+Requires-Dist: fsspec
+Requires-Dist: rich
+Requires-Dist: networkx
+Requires-Dist: jsonschema
+Provides-Extra: dev
+Requires-Dist: pre-commit; extra == "dev"
+Requires-Dist: ruff; extra == "dev"
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Dynamic: license-file
+
+# rasqc
+Automated QA/QC checks on HEC-RAS models.
+
+## Developer Setup
+```
+$ python -m venv venv-rasqc
+```
+```
+$ source ./venv-rasqc/bin/activate
+```
+```
+(venv-rasqc) $ pip install -r requirements.txt
+```
+To run:
+```
+(venv-rasqc) $ python -m rasqc.main --help
+```
