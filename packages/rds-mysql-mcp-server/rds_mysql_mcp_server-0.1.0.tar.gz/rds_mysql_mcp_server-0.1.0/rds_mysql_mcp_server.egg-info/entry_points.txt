@@ -1,0 +1,2 @@
+[console_scripts]
+rds-mysql-mcp-server = mcp_server_rds_mysql.server:main
