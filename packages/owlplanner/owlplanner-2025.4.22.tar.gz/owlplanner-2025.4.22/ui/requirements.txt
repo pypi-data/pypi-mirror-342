@@ -1,0 +1,10 @@
+numpy
+matplotlib
+seaborn
+pandas
+openpyxl
+odfpy
+scipy
+streamlit
+toml
+owlplanner >= 2025.04.22
