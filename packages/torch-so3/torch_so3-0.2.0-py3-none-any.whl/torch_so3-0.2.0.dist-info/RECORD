@@ -1,0 +1,9 @@
+torch_so3/__init__.py,sha256=AoBaQVA9eiEyCfa_ekwOiJW7pWHtzZds1i6J0KvaWR0,808
+torch_so3/angular_ranges.py,sha256=u75IN1dihjtrsFh0QlMMXvpbX2WVNr5zoQZF5TCFVYA,1646
+torch_so3/base_s2_grid.py,sha256=I36W_tKdlnErhV6nVg_F7pnAA6bPUAYOLos8SqjT6LU,7027
+torch_so3/local_so3_sampling.py,sha256=zq1IUbJGfVyB2UrMsllHKt2aOiAWKZ5fKI_79UvY1LE,6619
+torch_so3/uniform_so3_sampling.py,sha256=ItK5ZbyCcCA0tr5Qq0IvyqxUKYeiKXw7QThba8M2wHA,3859
+torch_so3-0.2.0.dist-info/METADATA,sha256=COGa2Lcdk9iIZQY_o6M8istCCg1NqZcr48X35wiwq_g,2881
+torch_so3-0.2.0.dist-info/WHEEL,sha256=qtCwoSJWgHk21S1Kb4ihdzI2rlJ1ZKaIurTj_ngOhyQ,87
+torch_so3-0.2.0.dist-info/licenses/LICENSE,sha256=UGrk_BOKSX50CshOxyqYdzDCRr2nFctQsYoIgxEqIYE,1501
+torch_so3-0.2.0.dist-info/RECORD,,
