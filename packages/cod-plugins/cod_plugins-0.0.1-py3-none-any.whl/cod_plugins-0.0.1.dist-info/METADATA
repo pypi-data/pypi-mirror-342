@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: cod_plugins
+Version: 0.0.1
+Summary: COD Drive package
+Author-email: FSE <henrique.ferreira@fujitsu.com>
+Project-URL: Homepage, https://github.com/Fujitsu-Systems-Europe-FSE/cod-plugins
+Project-URL: Bug Tracker, https://github.com/Fujitsu-Systems-Europe-FSE/cod-plugins/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# cod-plugins
