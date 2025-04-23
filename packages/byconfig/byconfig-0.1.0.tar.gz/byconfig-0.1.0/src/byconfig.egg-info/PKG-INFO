@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: byconfig
+Version: 0.1.0
+Summary: YAML/JSON配置加载器，支持环境变量解析
+Author-email: Your Name <your.email@example.com>
+License: MIT
+Project-URL: Homepage, https://github.com/yourusername/byconfig
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml>=6.0.2
