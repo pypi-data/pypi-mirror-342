@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+./build/lib/s3pact.egg-info/PKG-INFO
+./build/lib/s3pact.egg-info/SOURCES.txt
+./build/lib/s3pact.egg-info/dependency_links.txt
+./build/lib/s3pact.egg-info/requires.txt
+./build/lib/s3pact.egg-info/top_level.txt
+s3pact/s3pact.py
