@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+pyproject.toml
+src/secanalysis/__init__.py
+src/secanalysis/auto_detect.py
+src/secanalysis.egg-info/PKG-INFO
+src/secanalysis.egg-info/SOURCES.txt
+src/secanalysis.egg-info/dependency_links.txt
+src/secanalysis.egg-info/requires.txt
+src/secanalysis.egg-info/top_level.txt
+src/secanalysis/sec_formats/__init__.py
+src/secanalysis/sec_formats/base.py
+src/secanalysis/sec_formats/win_gpc.py
+tests/test_wingpc.py
+tests/win_gpc_sample.txt

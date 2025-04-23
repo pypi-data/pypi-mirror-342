@@ -1,0 +1,5 @@
+charset-normalizer>=3.4.1
+matplotlib>=3.10.1
+pandas>=2.2.3
+pybaselines>=1.2.0
+scipy>=1.15.2
