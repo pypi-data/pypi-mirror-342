@@ -1,0 +1,63 @@
+Metadata-Version: 2.4
+Name: wowool-sdk
+Version: 3.1.2.dev35
+Summary: Wowool NLP Toolkit
+Author: EyeOnText
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: dateparser
+Requires-Dist: jsonschema
+Requires-Dist: unidecode
+Requires-Dist: tabulate
+Requires-Dist: jinja2
+Requires-Dist: jsonpath_ng
+Requires-Dist: wowool-common
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# The Wowool NLP Toolkit
+
+## install
+
+Install the main sdk.
+
+    pip install wowool-sdk
+
+Installing languages.
+
+    pip install wowool-lxware-[language]
+
+## Quick Start
+
+Just create a document and pipeline, pass your document trough the Pipeline, and your done.
+
+```python
+from wowool.sdk import PipeLine
+from wowool.document import Document
+
+document = Document("Mark Van Den Berg works at Omega Pharma.")
+# Create an analyzer for a given language and options
+process = PipeLine("english,entity")
+# Process the data
+document = process(document)
+print(document)
+```
+
+## License
+
+In both cases you will need to acquirer a license file at https://www.wowool.com
+
+### Non-Commercial
+
+    This library is licensed under the GNU AGPLv3 for non-commercial use.  
+    For commercial use, a separate license must be purchased.  
+
+### Commercial license Terms
+
+    1. Grants the right to use this library in proprietary software.  
+    2. Requires a valid `license.lic` file in the project.  
+    3. Redistribution in SaaS requires a commercial license.  
