@@ -1,0 +1,7 @@
+requests-oauthlib>=2.0.0
+
+[dev]
+pytest
+ruff
+mypy
+black
