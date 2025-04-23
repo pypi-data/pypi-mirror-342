@@ -1,0 +1,40 @@
+Metadata-Version: 2.4
+Name: ipyquizjb
+Version: 0.3.13
+Summary: Quizzes for Jupyter
+Author-email: Jørgen Galdal <jorgen.4@live.no>, Raviksan Navaratnarajah <raviksann@outlook.com>, Synne Raad <synnera@live.com>, Peter Vatnøy <peter.vatno02@gmail.com>, Eskild Sæther <gensereskild@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: ipython
+Requires-Dist: ipywidgets
+Requires-Dist: requests
+Description-Content-Type: text/markdown
+
+# ipyquizjb
+
+## Install
+
+Install directly from the github repo:
+```bash
+pip install ipyquizjb @ git+https://github.com/ForceoftheCyber/ipyquiz.git
+```
+
+## Publish to PyPi
+Update version number in [pyproject.toml](./pyproject.toml)
+
+Build:
+```bash
+python -m pip install --upgrade build
+python -m build
+```
+
+Upload:
+```bash
+python -m pip install --upgrade twine
+python -m twine upload dist/*
+```
+
+Then provide API token.
