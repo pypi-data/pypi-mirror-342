@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+llmize/__init__.py
+llmize/base.py
+llmize.egg-info/PKG-INFO
+llmize.egg-info/SOURCES.txt
+llmize.egg-info/dependency_links.txt
+llmize.egg-info/requires.txt
+llmize.egg-info/top_level.txt
+tests/test_hlmea.py
+tests/test_hlmsa.py
+tests/test_opro.py
+tests/test_parallel.py
+tests/test_parsing.py
