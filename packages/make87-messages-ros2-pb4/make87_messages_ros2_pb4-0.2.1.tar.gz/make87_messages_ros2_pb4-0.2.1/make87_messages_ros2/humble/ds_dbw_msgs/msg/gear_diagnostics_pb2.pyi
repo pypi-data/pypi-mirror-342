@@ -1,0 +1,103 @@
+from make87_messages.core import header_pb2 as _header_pb2
+from make87_messages_ros2.humble.std_msgs.msg import header_pb2 as _header_pb2_1
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class GearDiagnostics(_message.Message):
+    __slots__ = ["header", "ros2_header", "degraded", "degraded_cmd_type", "degraded_comms", "degraded_comms_dbw", "degraded_comms_dbw_gateway", "degraded_comms_dbw_steer", "degraded_comms_dbw_brake", "degraded_comms_dbw_thrtl", "degraded_comms_vehicle", "degraded_comms_vehicle_1", "degraded_comms_vehicle_2", "degraded_comms_actuator", "degraded_comms_actuator_1", "degraded_comms_actuator_2", "degraded_internal", "degraded_control_performance", "degraded_param_mismatch", "degraded_vehicle", "degraded_vehicle_speed", "degraded_actuator", "degraded_gear_mismatch", "degraded_power", "degraded_calibration", "fault", "fault_power", "fault_comms", "fault_comms_dbw", "fault_comms_dbw_gateway", "fault_comms_dbw_steer", "fault_comms_dbw_brake", "fault_comms_dbw_thrtl", "fault_comms_vehicle", "fault_comms_vehicle_1", "fault_comms_vehicle_2", "fault_comms_actuator", "fault_comms_actuator_1", "fault_comms_actuator_2", "fault_internal", "fault_vehicle", "fault_vehicle_speed", "fault_actuator", "fault_actuator_config", "fault_param_mismatch", "fault_calibration"]
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    ROS2_HEADER_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_CMD_TYPE_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_DBW_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_DBW_GATEWAY_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_DBW_STEER_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_DBW_BRAKE_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_DBW_THRTL_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_VEHICLE_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_VEHICLE_1_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_VEHICLE_2_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_ACTUATOR_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_ACTUATOR_1_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_COMMS_ACTUATOR_2_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_INTERNAL_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_CONTROL_PERFORMANCE_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_PARAM_MISMATCH_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_VEHICLE_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_VEHICLE_SPEED_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_ACTUATOR_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_GEAR_MISMATCH_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_POWER_FIELD_NUMBER: _ClassVar[int]
+    DEGRADED_CALIBRATION_FIELD_NUMBER: _ClassVar[int]
+    FAULT_FIELD_NUMBER: _ClassVar[int]
+    FAULT_POWER_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_DBW_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_DBW_GATEWAY_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_DBW_STEER_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_DBW_BRAKE_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_DBW_THRTL_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_VEHICLE_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_VEHICLE_1_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_VEHICLE_2_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_ACTUATOR_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_ACTUATOR_1_FIELD_NUMBER: _ClassVar[int]
+    FAULT_COMMS_ACTUATOR_2_FIELD_NUMBER: _ClassVar[int]
+    FAULT_INTERNAL_FIELD_NUMBER: _ClassVar[int]
+    FAULT_VEHICLE_FIELD_NUMBER: _ClassVar[int]
+    FAULT_VEHICLE_SPEED_FIELD_NUMBER: _ClassVar[int]
+    FAULT_ACTUATOR_FIELD_NUMBER: _ClassVar[int]
+    FAULT_ACTUATOR_CONFIG_FIELD_NUMBER: _ClassVar[int]
+    FAULT_PARAM_MISMATCH_FIELD_NUMBER: _ClassVar[int]
+    FAULT_CALIBRATION_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    ros2_header: _header_pb2_1.Header
+    degraded: bool
+    degraded_cmd_type: bool
+    degraded_comms: bool
+    degraded_comms_dbw: bool
+    degraded_comms_dbw_gateway: bool
+    degraded_comms_dbw_steer: bool
+    degraded_comms_dbw_brake: bool
+    degraded_comms_dbw_thrtl: bool
+    degraded_comms_vehicle: bool
+    degraded_comms_vehicle_1: bool
+    degraded_comms_vehicle_2: bool
+    degraded_comms_actuator: bool
+    degraded_comms_actuator_1: bool
+    degraded_comms_actuator_2: bool
+    degraded_internal: bool
+    degraded_control_performance: bool
+    degraded_param_mismatch: bool
+    degraded_vehicle: bool
+    degraded_vehicle_speed: bool
+    degraded_actuator: bool
+    degraded_gear_mismatch: bool
+    degraded_power: bool
+    degraded_calibration: bool
+    fault: bool
+    fault_power: bool
+    fault_comms: bool
+    fault_comms_dbw: bool
+    fault_comms_dbw_gateway: bool
+    fault_comms_dbw_steer: bool
+    fault_comms_dbw_brake: bool
+    fault_comms_dbw_thrtl: bool
+    fault_comms_vehicle: bool
+    fault_comms_vehicle_1: bool
+    fault_comms_vehicle_2: bool
+    fault_comms_actuator: bool
+    fault_comms_actuator_1: bool
+    fault_comms_actuator_2: bool
+    fault_internal: bool
+    fault_vehicle: bool
+    fault_vehicle_speed: bool
+    fault_actuator: bool
+    fault_actuator_config: bool
+    fault_param_mismatch: bool
+    fault_calibration: bool
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., ros2_header: _Optional[_Union[_header_pb2_1.Header, _Mapping]] = ..., degraded: bool = ..., degraded_cmd_type: bool = ..., degraded_comms: bool = ..., degraded_comms_dbw: bool = ..., degraded_comms_dbw_gateway: bool = ..., degraded_comms_dbw_steer: bool = ..., degraded_comms_dbw_brake: bool = ..., degraded_comms_dbw_thrtl: bool = ..., degraded_comms_vehicle: bool = ..., degraded_comms_vehicle_1: bool = ..., degraded_comms_vehicle_2: bool = ..., degraded_comms_actuator: bool = ..., degraded_comms_actuator_1: bool = ..., degraded_comms_actuator_2: bool = ..., degraded_internal: bool = ..., degraded_control_performance: bool = ..., degraded_param_mismatch: bool = ..., degraded_vehicle: bool = ..., degraded_vehicle_speed: bool = ..., degraded_actuator: bool = ..., degraded_gear_mismatch: bool = ..., degraded_power: bool = ..., degraded_calibration: bool = ..., fault: bool = ..., fault_power: bool = ..., fault_comms: bool = ..., fault_comms_dbw: bool = ..., fault_comms_dbw_gateway: bool = ..., fault_comms_dbw_steer: bool = ..., fault_comms_dbw_brake: bool = ..., fault_comms_dbw_thrtl: bool = ..., fault_comms_vehicle: bool = ..., fault_comms_vehicle_1: bool = ..., fault_comms_vehicle_2: bool = ..., fault_comms_actuator: bool = ..., fault_comms_actuator_1: bool = ..., fault_comms_actuator_2: bool = ..., fault_internal: bool = ..., fault_vehicle: bool = ..., fault_vehicle_speed: bool = ..., fault_actuator: bool = ..., fault_actuator_config: bool = ..., fault_param_mismatch: bool = ..., fault_calibration: bool = ...) -> None: ...

@@ -1,0 +1,18 @@
+from make87_messages_ros2.jazzy.std_msgs.msg import header_pb2 as _header_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class FuelLevel(_message.Message):
+    __slots__ = ["header", "fuel_level", "fuel_range", "odometer"]
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    FUEL_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    FUEL_RANGE_FIELD_NUMBER: _ClassVar[int]
+    ODOMETER_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    fuel_level: float
+    fuel_range: float
+    odometer: float
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., fuel_level: _Optional[float] = ..., fuel_range: _Optional[float] = ..., odometer: _Optional[float] = ...) -> None: ...
