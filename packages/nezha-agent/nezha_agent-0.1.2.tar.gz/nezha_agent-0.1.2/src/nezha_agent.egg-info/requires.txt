@@ -1,0 +1,13 @@
+typer
+rich
+pyyaml
+platformdirs
+openai>=1.0.0
+requests
+
+[dev]
+pytest>=6.0
+black
+isort
+mypy
+pylint
