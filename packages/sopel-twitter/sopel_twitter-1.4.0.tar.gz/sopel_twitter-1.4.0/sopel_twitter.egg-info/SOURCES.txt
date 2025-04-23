@@ -1,0 +1,12 @@
+COPYING
+MANIFEST.in
+NEWS
+README.md
+pyproject.toml
+sopel_twitter/__init__.py
+sopel_twitter.egg-info/PKG-INFO
+sopel_twitter.egg-info/SOURCES.txt
+sopel_twitter.egg-info/dependency_links.txt
+sopel_twitter.egg-info/entry_points.txt
+sopel_twitter.egg-info/requires.txt
+sopel_twitter.egg-info/top_level.txt
