@@ -1,0 +1,126 @@
+Metadata-Version: 2.4
+Name: mcp-server-as
+Version: 0.1.1
+Summary: MCP Server for Tencent Cloud Autoscaling
+Requires-Python: >=3.10
+Requires-Dist: mcp>=1.0.0
+Requires-Dist: tencentcloud-sdk-python-autoscaling>=3.0.1361
+Requires-Dist: tencentcloud-sdk-python-common>=3.0.1361
+Description-Content-Type: text/markdown
+
+# Tencent Cloud AS MCP Server
+Implementation of Tencent Cloud Auto Scaling (AS) MCP server for managing Tencent Cloud auto scaling groups and related resources.
+
+## Features
+- **Auto Scaling Group Management**: Full lifecycle management including creating, modifying, enabling, and disabling auto scaling groups
+- **Scaling Policy Execution**: Support manual execution of scale-out and scale-in operations
+- **Capacity Management**: Support modifying the desired capacity of auto scaling groups
+
+## API List
+### Auto Scaling Group Management
+#### CreateAutoScalingGroup
+Create an auto scaling group.
+
+**Input Parameters**:
+- `Region` (string): Region, e.g., ap-guangzhou
+- `AutoScalingGroupName` (string): Auto scaling group name
+- `LaunchConfigurationId` (string): Launch configuration ID
+- `MaxSize` (integer): Maximum number of instances
+- `MinSize` (integer): Minimum number of instances
+- `VpcId` (string): VPC ID
+- `SubnetIds` (array[string]): Subnet ID list
+- `DesiredCapacity` (integer, optional): Desired number of instances
+
+#### DescribeAutoScalingGroups
+Query auto scaling groups.
+
+**Input Parameters**:
+- `Region` (string): Region
+- `AutoScalingGroupIds` (array[string], optional): Auto scaling group ID list
+- `Filters` (array[object], optional): Filter conditions
+- `Limit` (integer, optional): Number of results
+- `Offset` (integer, optional): Offset
+
+#### ModifyAutoScalingGroup
+Modify an auto scaling group.
+
+**Input Parameters**:
+- `Region` (string): Region
+- `AutoScalingGroupId` (string): Auto scaling group ID
+- `MaxSize` (integer, optional): Maximum number of instances
+- `MinSize` (integer, optional): Minimum number of instances
+- `DesiredCapacity` (integer, optional): Desired number of instances
+
+#### EnableAutoScalingGroup
+Enable an auto scaling group.
+
+**Input Parameters**:
+- `Region` (string): Region
+- `AutoScalingGroupId` (string): Auto scaling group ID
+
+#### DisableAutoScalingGroup
+Disable an auto scaling group.
+
+**Input Parameters**:
+- `Region` (string): Region
+- `AutoScalingGroupId` (string): Auto scaling group ID
+
+### Scaling Policy
+#### ExecuteScalingPolicy
+Execute a scaling policy.
+
+**Input Parameters**:
+- `Region` (string): Region
+- `AutoScalingGroupId` (string): Auto scaling group ID
+- `Operation` (string): Operation type, values: SCALE_OUT (scale out), SCALE_IN (scale in)
+- `AdjustmentType` (string, optional): Adjustment type, values: CHANGE_IN_CAPACITY, EXACT_CAPACITY, PERCENT_CHANGE_IN_CAPACITY
+- `AdjustmentValue` (integer, optional): Adjustment value
+
+#### ModifyDesiredCapacity
+Modify the desired capacity.
+
+**Input Parameters**:
+- `Region` (string): Region
+- `AutoScalingGroupId` (string): Auto scaling group ID
+- `DesiredCapacity` (integer): Desired number of instances
+
+## Configuration
+### Set Tencent Cloud Credentials
+1. Obtain SecretId and SecretKey from Tencent Cloud Console
+2. Set default region (optional)
+
+### Environment Variables
+Configure the following environment variables:
+- `TENCENTCLOUD_SECRET_ID`: Tencent Cloud SecretId
+- `TENCENTCLOUD_SECRET_KEY`: Tencent Cloud SecretKey
+- `TENCENTCLOUD_REGION`: Default region (optional)
+
+### Usage in Claude Desktop
+Add the following configuration to claude_desktop_config.json:
+
+```json
+{
+  "mcpServers": {
+    "tencent-as": {
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-server-as"
+      ],
+      "env": {
+        "TENCENTCLOUD_SECRET_ID": "YOUR_SECRET_ID_HERE",
+        "TENCENTCLOUD_SECRET_KEY": "YOUR_SECRET_KEY_HERE",
+        "TENCENTCLOUD_REGION": "YOUR_REGION_HERE"
+      }
+    }
+  }
+}
+```
+
+## Installation
+```sh
+pip install mcp-server-as
+```
+
+## License
+MIT License. See LICENSE file for details.
