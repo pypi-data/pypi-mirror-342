@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: symforce-sym
+Version: 0.10.0
+Summary: generated numerical python package (installed by SymForce)
+Author-email: "Skydio, Inc." <hayk@skydio.com>
+License: Apache 2.0
+Project-URL: SymForce, https://symforce.org
+Project-URL: Bug Tracker, https://github.com/symforce-org/symforce/issues
+Project-URL: Source, https://github.com/symforce-org/symforce/tree/main/gen/python
+Requires-Python: >=3.5
+Requires-Dist: numpy
