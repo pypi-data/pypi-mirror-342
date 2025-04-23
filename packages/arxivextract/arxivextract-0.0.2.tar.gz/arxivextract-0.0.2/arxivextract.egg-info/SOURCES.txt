@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+arxivextract/__init__.py
+arxivextract/data.py
+arxivextract/extraction.py
+arxivextract/keywords.py
+arxivextract.egg-info/PKG-INFO
+arxivextract.egg-info/SOURCES.txt
+arxivextract.egg-info/dependency_links.txt
+arxivextract.egg-info/not-zip-safe
+arxivextract.egg-info/requires.txt
+arxivextract.egg-info/top_level.txt
+test/test_entries.py
+test/test_extractor.py

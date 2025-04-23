@@ -1,0 +1,8 @@
+feedparser
+
+[keyword]
+keybert
+
+[test]
+unittest2
+pytest
