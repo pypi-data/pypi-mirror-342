@@ -1,0 +1,5 @@
+SIMPLY_BLOCK_COMMAND_NAME=sbcli-pr244
+SIMPLY_BLOCK_VERSION=0.0.4
+
+SIMPLY_BLOCK_DOCKER_IMAGE=public.ecr.aws/simply-block/simplyblock:deduplicate_helpers
+SIMPLY_BLOCK_SPDK_ULTRA_IMAGE=public.ecr.aws/simply-block/ultra:main-latest
