@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: dynarr
+Version: 0.2.0
+Summary: A dynamic way of storing things, what, I don't know
+Author: Ryan Flores
+Author-email: ryanmigul@gmail.com
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: license-file
+Dynamic: requires-python
+Dynamic: summary
+
+# dynarray
+Dynarray é uma estrutura de dados personalizada em Python que organiza e armazena tuplas dinamicamente com base no primeiro dígito de uma string fornecida.
