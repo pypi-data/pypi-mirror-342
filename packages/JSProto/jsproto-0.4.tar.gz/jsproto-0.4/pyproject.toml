@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "JSProto"
+version = "0.4"
+authors = [
+  { name="yjk", email="mr.yjk@foxmail.com" },
+]
+description = "use prototype and its gramma in python"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+dependencies = [
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yjk114514/prototype"
