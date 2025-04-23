@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_import_cooperator_tree" model="ir.ui.view">
+            <field name="name">import.cooperator.tree</field>
+            <field name="model">import.cooperator</field>
+            <field name="arch" type="xml">
+                <tree string="Imports">
+                    <field name="id"/>
+                    <field name="nombre"/>
+                    <field name="primer_apellido"/>
+                    <field name="segundo_apellido"/>
+                    <field name="razon_social"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

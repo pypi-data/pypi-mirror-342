@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: odoo-addon-import_cooperator_energetica
+Version: 16.0.3.0.1
+Requires-Python: >=3.10
+Requires-Dist: odoo-addon-cooperator>=16.0dev,<16.1dev
+Requires-Dist: odoo-addon-energetica_cooperator>=16.0dev,<16.1dev
+Requires-Dist: odoo-addon-queue_job>=16.0dev,<16.1dev
+Requires-Dist: odoo>=16.0a,<16.1dev
+Summary: Odoo Import Cooperator Energetica
+Home-page: https://coopdevs.coop
+License: AGPL-3
+Author: Coopdevs Treball
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 16.0
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+
