@@ -1,0 +1,2 @@
+[console_scripts]
+patann = patann.cli:main
