@@ -1,0 +1,13 @@
+pandas<3,>=2.2.3
+pymzml<3,>=2.5.11
+rdkit<2025,>=2024.9.6
+openpyxl<4,>=3.1.5
+fragfit<0.2,>=0.1.2
+numpy>=1.26.0
+
+[dev]
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=23.0.0
+isort>=5.0.0
+mypy>=1.0.0
