@@ -1,0 +1,17 @@
+from make87_messages_ros2.rolling.geometry_msgs.msg import vector3_pb2 as _vector3_pb2
+from make87_messages_ros2.rolling.std_msgs.msg import header_pb2 as _header_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class WorkspaceParameters(_message.Message):
+    __slots__ = ("header", "min_corner", "max_corner")
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    MIN_CORNER_FIELD_NUMBER: _ClassVar[int]
+    MAX_CORNER_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    min_corner: _vector3_pb2.Vector3
+    max_corner: _vector3_pb2.Vector3
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., min_corner: _Optional[_Union[_vector3_pb2.Vector3, _Mapping]] = ..., max_corner: _Optional[_Union[_vector3_pb2.Vector3, _Mapping]] = ...) -> None: ...

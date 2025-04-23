@@ -1,0 +1,26 @@
+from make87_messages_ros2.jazzy.geometry_msgs.msg import vector3_pb2 as _vector3_pb2
+from make87_messages_ros2.jazzy.sbg_driver.msg import sbg_ship_motion_status_pb2 as _sbg_ship_motion_status_pb2
+from make87_messages_ros2.jazzy.std_msgs.msg import header_pb2 as _header_pb2
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class SbgShipMotion(_message.Message):
+    __slots__ = ("header", "time_stamp", "heave_period", "ship_motion", "acceleration", "velocity", "status")
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    TIME_STAMP_FIELD_NUMBER: _ClassVar[int]
+    HEAVE_PERIOD_FIELD_NUMBER: _ClassVar[int]
+    SHIP_MOTION_FIELD_NUMBER: _ClassVar[int]
+    ACCELERATION_FIELD_NUMBER: _ClassVar[int]
+    VELOCITY_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    header: _header_pb2.Header
+    time_stamp: int
+    heave_period: int
+    ship_motion: _vector3_pb2.Vector3
+    acceleration: _vector3_pb2.Vector3
+    velocity: _vector3_pb2.Vector3
+    status: _sbg_ship_motion_status_pb2.SbgShipMotionStatus
+    def __init__(self, header: _Optional[_Union[_header_pb2.Header, _Mapping]] = ..., time_stamp: _Optional[int] = ..., heave_period: _Optional[int] = ..., ship_motion: _Optional[_Union[_vector3_pb2.Vector3, _Mapping]] = ..., acceleration: _Optional[_Union[_vector3_pb2.Vector3, _Mapping]] = ..., velocity: _Optional[_Union[_vector3_pb2.Vector3, _Mapping]] = ..., status: _Optional[_Union[_sbg_ship_motion_status_pb2.SbgShipMotionStatus, _Mapping]] = ...) -> None: ...
