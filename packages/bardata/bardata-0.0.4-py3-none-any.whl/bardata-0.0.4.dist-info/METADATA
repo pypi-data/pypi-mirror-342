@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: bardata
+Version: 0.0.4
+Summary: Framework to fetch stock prices from various sources
+Author-email: Furechan <furechan@xsmail.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Keywords: data,finance
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: python-dateutil
+Requires-Dist: requests
