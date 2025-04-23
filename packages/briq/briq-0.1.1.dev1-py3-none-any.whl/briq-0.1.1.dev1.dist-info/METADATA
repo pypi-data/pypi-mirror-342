@@ -1,0 +1,97 @@
+Metadata-Version: 2.4
+Name: briq
+Version: 0.1.1.dev1
+Summary: Python client for the Briq messaging platform API
+Home-page: https://github.com/BRIQ-BLOCK/BriqPythonSdk
+Author: Briq Team
+Author-email: Briq Team <info@briq.tz>
+License: MIT
+Project-URL: Homepage, https://github.com/BRIQ-BLOCK/BriqPythonSdk
+Project-URL: Bug Tracker, https://github.com/BRIQ-BLOCK/BriqPythonSdk/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests>=2.25.0
+Requires-Dist: python-dotenv>=0.15.0
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# Briq Python Client
+
+Official Python client library for the Briq messaging platform API.
+
+## Overview
+
+The Briq Python client provides a simple and intuitive interface to interact with the Briq messaging platform API. It allows you to manage workspaces, campaigns, and send messages programmatically from your Python applications.
+
+## Installation
+
+You can install the Briq client library using pip:
+
+```bash
+pip install briq
+```
+
+## Requirements
+
+- Python 3.7 or higher
+- requests
+- python-dotenv
+
+## Authentication
+
+The Briq client requires an API key for authentication. You can provide your API key in several ways:
+
+1. Set it in your environment as `BRIQ_API_KEY`
+2. Store it in a `.env` file in your project directory
+3. Pass it directly when initializing the client
+
+Example `.env` file:
+```
+BRIQ_API_KEY=your_api_key_here
+```
+
+## Quick Start
+
+```python
+import briq
+
+# Initialize the client (will load API key from environment or .env file)
+client = briq.Client()
+
+# Or set the API key manually
+client.set_api_key("your_api_key_here")
+
+# Create a workspace
+workspace = client.workspace.create(
+    name="My Workspace",
+    description="A workspace for my messaging campaigns"
+)
+
+# List all workspaces
+workspaces = client.workspace.list()
+
+# Send an instant message
+result = client.message.send_instant(
+    content="Hello from the Briq Python client!",
+    recipients=["255***"],
+    sender_id="my-sender-id"
+)
+```
+
+## Documentation
+
+For detailed documentation and examples, please refer to the [Official Usage Guide](https://briq.tz/documentation/home)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
