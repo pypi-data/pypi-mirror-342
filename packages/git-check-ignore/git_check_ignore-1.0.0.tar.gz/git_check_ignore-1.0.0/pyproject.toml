@@ -1,0 +1,81 @@
+[project]
+name = "git-check-ignore"
+dynamic = ["version"]
+description = "A Python wrapper around `git` to check filenames against `.gitignore` files"
+readme = "README.md"
+authors = [
+    { name = "Jordan Webb", email = "jordan@dangerdevices.com" }
+]
+requires-python = ">=3.11"
+dependencies = []
+keywords = ["git", "gitignore"]
+license = "AGPL-3.0-only"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: GNU Affero General Public License v3",
+  "Topic :: Software Development :: Version Control :: Git",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Documentation = "https://dd-dockyard.github.io/git-check-ignore/"
+Repository = "https://github.com/dd-dockyard/git-check-ignore"
+Issues = "https://github.com/dd-dockyard/git-check-ignore/issues"
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+local_scheme = "no-local-version"
+
+[dependency-groups]
+dev = ["pytest>=8.3.5"]
+lint = ["ruff>=0.11.6"]
+type = ["mypy>=1.15.0"]
+meta = ["check-wheel-contents>=0.6.1", "twine>=6.1.0"]
+
+[tool.pyright]
+reportUnusedCallResult = false
+
+[tool.tox]
+requires = ["tox>=4.25"]
+env_list = ["3.11", "3.12", "3.13", "pkg_meta", "lint", "type"]
+
+[tool.tox.env_run_base]
+description = "Run test under {base_python}"
+dependency_groups = ["dev"]
+commands = [["pytest"]]
+
+[tool.tox.env.lint]
+description = "Lint code base"
+dependency_groups = ["lint"]
+skip_install = true
+commands = [["ruff", "check"]]
+
+[tool.tox.env.pkg_meta]
+description = "Check package metadata and contents"
+dependency_groups = ["meta"]
+skip_install = true
+commands = [
+    ["uv", "build", "--sdist", "--wheel", "--out-dir", "{env_tmp_dir}", "."],
+    ["twine", "check", "{env_tmp_dir}{/}*"],
+    ["check-wheel-contents", "--no-config", "{env_tmp_dir}"]
+]
+
+[tool.tox.env.type]
+description = "Run type check on code base"
+dependency_groups = ["dev", "type"]
+commands = [["mypy", "src{/}git_check_ignore"], ["mypy", "tests"]]
+
+[tool.tox.gh.python]
+"3.13" = ["3.13", "pkg_meta", "lint", "type"]
+"3.12" = ["3.12"]
+"3.11" = ["3.11"]
