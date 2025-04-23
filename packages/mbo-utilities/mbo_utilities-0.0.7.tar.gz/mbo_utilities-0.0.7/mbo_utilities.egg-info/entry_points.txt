@@ -1,0 +1,3 @@
+[console_scripts]
+assemble = mbo_utilities.assembly:main
+mbo = mbo_utilities.__main__:main
