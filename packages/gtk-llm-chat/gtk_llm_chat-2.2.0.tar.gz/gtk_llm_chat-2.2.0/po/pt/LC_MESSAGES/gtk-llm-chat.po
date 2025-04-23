@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Your Name
+# This file is distributed under the same license as the gtk-llm-chat package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: gtk-llm-chat 0.1\n"
+"Report-Msgid-Bugs-To: your@email.com\n"
+"POT-Creation-Date: 2025-04-18 19:58-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: gtk_llm_chat/chat_window.py:66
+msgid "LLM Chat"
+msgstr "LLM Chat"
+
+#: gtk_llm_chat/chat_window.py:75
+msgid "Rename"
+msgstr "Renomear"
+
+#: gtk_llm_chat/chat_window.py:76
+msgid "Delete"
+msgstr "Apagar"
+
+#: gtk_llm_chat/chat_window.py:77
+msgid "About"
+msgstr "Sobre"
+
+#: gtk_llm_chat/chat_window.py:142
+msgid "Send"
+msgstr "Enviar"
+
+#: gtk_llm_chat/gtk_llm_applet.py:23 gtk_llm_chat/chat_application.py:36
+msgid ""
+"\n"
+"Closing application..."
+msgstr ""
+"\nA fechar a aplicação..."
+
+#: gtk_llm_chat/gtk_llm_applet.py:52 gtk_llm_chat/llm_client.py:22
+msgid "New Conversation"
+msgstr "Nova Conversa"
+
+#: gtk_llm_chat/gtk_llm_applet.py:64
+msgid "Quit"
+msgstr "Sair"
+
+#: gtk_llm_chat/db_operations.py:118
+msgid "Error: conversation_id is required to add to history."
+msgstr "Erro: o conversation_id é obrigatório para adicionar ao histórico."
+
+#: gtk_llm_chat/db_operations.py:158
+msgid "Error: conversation_id is required to create the conversation."
+msgstr "Erro: o conversation_id é obrigatório para criar a conversa."
+
+#: gtk_llm_chat/chat_application.py:80
+msgid "Error: _version.py not found"
+msgstr "Erro: _version.py não encontrado"
+
+#: gtk_llm_chat/chat_application.py:158
+msgid "Are you sure you want to delete the conversation?"
+msgstr "Tem a certeza que quer apagar a conversa?"
+
+#: gtk_llm_chat/chat_application.py:177
+msgid "Gtk LLM Chat"
+msgstr "Gtk LLM Chat"
+
+#: gtk_llm_chat/chat_application.py:180
+msgid "A frontend for LLM"
+msgstr "Um frontend para LLM"
+
+#: gtk_llm_client.py:94
+msgid "LLMClient: Ignoring invalid temperature:"
+msgstr "LLMClient: A ignorar temperatura inválida:"
+
+#: gtk_llm_client.py:98
+msgid "LLMClient: Starting stream processing..."
+msgstr "LLMClient: A iniciar o processamento de stream..."
+
+#: gtk_llm_client.py:101
+msgid "LLMClient: Stream processing cancelled externally."
+msgstr "LLMClient: Processamento de stream cancelado externamente."
+
+#: gtk_llm_client.py:107
+msgid "LLMClient: Stream finished normally."
+msgstr "LLMClient: Stream terminado normalmente."
+
+#: gtk_llm_client.py:139
+msgid "LLMClient: Cancel request received."
+msgstr "LLMClient: Pedido de cancelamento recebido."
+
+#: gtk_llm_client.py:142
+msgid "LLMClient: Terminating active stream thread."
+msgstr "LLMClient: A terminar a thread de stream ativa."
+
+#: gtk_llm_client.py:145
+msgid "LLMClient: No active stream thread to cancel."
+msgstr "LLMClient: Nenhuma thread de stream ativa para cancelar."
+
+#: gtk_llm_client.py:155
+msgid ""
+"LLMClient: Error - Attempting to load history with model initialization "
+"error."
+msgstr "LLMClient: Erro - A tentar carregar o histórico com erro de inicialização do modelo."
+
+#: gtk_llm_client.py:158
+msgid ""
+"LLMClient: Error - Attempting to load history without initialized "
+"conversation."
+msgstr "LLMClient: Erro - A tentar carregar o histórico sem conversa inicializada."
+
+#: gtk_llm_client.py:196
+msgid ""
+"LLMClient: Warning - Assistant response without previous user prompt in "
+"history."
+msgstr "LLMClient: Aviso - Resposta do assistente sem pedido anterior do utilizador no histórico."
+
+#: gtk_llm_client.py:199
+msgid "LLMClient: History loaded. Total responses in conversation: "
+msgstr "LLMClient: Histórico carregado. Total de respostas na conversa: "
