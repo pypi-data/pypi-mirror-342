@@ -1,0 +1,17 @@
+torch_ga/__init__.py,sha256=p2n1J8k-7uyB9HrQGxGY_Bh596dDoxB4vOQ4E5p8f0U,408
+torch_ga/__version__.py,sha256=X4GsSncGAYKTjDhIS2BAnj4kI10pZatSp7VihkP6O0U,22
+torch_ga/blades.py,sha256=lFrZ602i93makgsQlVuMBF7L-j1UGBGuC7OQNGp-EV8,9646
+torch_ga/cayley.py,sha256=GfLBUvjhqcO9W7gYczpw7tOC5q1-dmmHIaEz8kK3Ilc,2131
+torch_ga/jacobian.py,sha256=Ob_28FlHNZCsQJ9YhNatep1u66VlUjEbCgqeGga3Kcg,1683
+torch_ga/layers.py,sha256=N0KGMIB0Tsjruojl-E1tGmoBmmvAZUqdTpPMlT-jRws,27433
+torch_ga/mv.py,sha256=h_DYWGiUKeqkthnbOeF82k5PzFAwuQMPnJpK2q4Sho4,14748
+torch_ga/mv_ops.py,sha256=PflSp9Cl4N6mWRxDzql8-1hLn43kVZbsGoZlzjByCKQ,9413
+torch_ga/plots.py,sha256=KtU7tyO6QF8xrQWTIJxKZpdVd-buOnRwQS2ya90ESjs,6673
+torch_ga/torch_ga.py,sha256=f6FYKVsCCbnbQ0Iqtis1gmJPyCh_kWNAdVdOvSJf360,55352
+torch_ga/transform.py,sha256=kYpHvdc8pAMGmxK34B-gzCdrd7J-vH5d_0923MXu4t4,1012
+torch_ga/utils.py,sha256=1jfUkWj5Rc9nbGB6ZUgOHI4lr7VYB_DdnH8jornfMOU,9307
+torch_ga-0.0.5.dist-info/licenses/LICENSE,sha256=Q0m86OPdNoLW7P8llQ3nhfyOUlVPW2EoN52bFqW5dso,1075
+torch_ga-0.0.5.dist-info/METADATA,sha256=NPhWG9FywpOOaLsug9KDdhbPo_kE6gUWw6zUQAWExdI,9696
+torch_ga-0.0.5.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+torch_ga-0.0.5.dist-info/top_level.txt,sha256=EcABIAvu__kzko9qtajv1sJJplX6onTEZh6_DYrKyqQ,9
+torch_ga-0.0.5.dist-info/RECORD,,
