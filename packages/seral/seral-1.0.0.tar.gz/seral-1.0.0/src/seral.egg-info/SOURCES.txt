@@ -1,0 +1,13 @@
+README package.md
+README.md
+pyproject.toml
+src/sbd.py
+src/dataset/industrial.py
+src/etsc/etsc.py
+src/segmentation/segmentation.py
+src/seral/seral.py
+src/seral.egg-info/PKG-INFO
+src/seral.egg-info/SOURCES.txt
+src/seral.egg-info/dependency_links.txt
+src/seral.egg-info/requires.txt
+src/seral.egg-info/top_level.txt
