@@ -1,0 +1,67 @@
+# execute default build
+default:
+    just --list
+
+# builds the python module using poetry
+build:
+    echo "building..."
+    # poetry build
+
+# print a message displaying whether nix is being used
+checknix:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    if [[ "${DO_NIX_CUSTOM:=0}" -eq 1 ]]; then
+    	echo "In an interactive nix env."
+    else
+    	echo "Using uv as runner, no nix detected."
+    fi
+
+# update all test snapshots, use if snapshots are out of date
+update-snapshots:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+    uv run pytest --snapshot-update
+
+# run all tests
+test:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+
+    # would love test: fmt to make sure formatting happens but in WSL formatting is slow...
+    # poor filesystem access performance
+
+    echo "testing..."
+    uv run ruff check src tests
+    uv run mypy src
+    uv run pytest
+
+check:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+
+    nix flake check
+
+# format code
+fmt:
+    #!/usr/bin/env bash
+    set -euxo pipefail
+
+    # uv run ruff --format
+    nix fmt
+
+# release the app, checking that our working tree is clean and ready for release
+release:
+    ./scripts/release.sh
+
+htmlcov:
+    poetry run pytest --cov-report=html
+
+# zsh_completions:
+#     #!/usr/bin/env bash
+#     set -euxo pipefail
+#     if [[ "${DO_NIX_CUSTOM:=0}" -eq 1 ]]; then
+#     	eval "$(_SARADA_COMPLETE=zsh_source sarada)"
+#     else
+#     	echo "Nope only nix."
+#     fi

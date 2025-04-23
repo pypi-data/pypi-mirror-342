@@ -1,0 +1,10 @@
+{
+	"bumpFiles": [
+		{
+			"filename": "pyproject.toml",
+			"type": "python"
+		}
+	],
+	"sign": true,
+	"tag-prefix": ""
+}

@@ -1,0 +1,66 @@
+name: Python Tests
+run-name: ${{ gitea.actor }} running Python tests
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+jobs:
+  python-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+      - name: Install dependencies
+        run: |
+          uv sync --all-extras --dev
+      # This check ensures formatting is correct without modifying files
+      - name: Check formatting
+        run: |
+          uv run ruff format --check src tests
+      - name: Run linting
+        run: |
+          uv run ruff check src tests
+      - name: Run type checking
+        run: |
+          uv run mypy src
+      - name: Run tests
+        run: |
+          uv run pytest
+      # Artifacts collection
+      - name: Archive test results
+        uses: christopherhx/gitea-upload-artifact@v4
+        if: always() # Always upload test results, even if tests fail
+        with:
+          name: test-results
+          path: |
+            pytest.xml
+            coverage.xml
+            htmlcov/
+          retention-days: 7
+      # This lets you see the coverage report in the Gitea UI
+      - name: Comment coverage
+        # Only run on PRs
+        if: github.event_name == 'pull_request'
+        run: |
+          COVERAGE=$(python -c "import xml.etree.ElementTree as ET; tree = ET.parse('coverage.xml'); root = tree.getroot(); print(float(root.attrib['line-rate']) * 100)")
+
+          echo "Current coverage: ${COVERAGE}%"
+
+          # Post comment to PR using Gitea API
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITEA_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d "{\"body\": \"📊 **Test Coverage**: ${COVERAGE}%\"}" \
+            ${{ gitea.api_url }}/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments
