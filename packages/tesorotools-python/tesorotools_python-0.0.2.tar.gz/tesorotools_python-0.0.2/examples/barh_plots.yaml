@@ -1,0 +1,202 @@
+.alemania_series:
+  PT10YT=RR_DIFF: DE10YT=RR
+  GR10YT=RR_DIFF: DE10YT=RR
+  ES10YT=RR_DIFF: DE10YT=RR
+  EUUNIEURAE10Y=_DIFF: DE10YT=RR
+  IT10YT=RR_DIFF: DE10YT=RR
+  FR10YT=RR_DIFF: DE10YT=RR
+
+.flash: &flash
+  date: 
+
+.perc_format: &perc_format
+  units: "%"
+  decimals: 2
+
+.pb_format: &pb_format
+  units: "p.b."
+  decimals: 0
+
+.bancos: &bancos
+  sorted: True
+  blocks:
+    bancos_esp:
+      label: Bancos españoles
+      series:
+        BKT.MC: Bankinter
+        SAN.MC: Santander
+        CABK.MC: Caixabank
+        SABE.MC: Sabadell
+        BBVA.MC: BBVA
+        UNI.MC: Unicaja
+    bandos_idx:
+      label: Índices bancarios internacionales
+      series:
+        .IBCA.MA: Índice bancario español*
+        .SX7E: EuroStoxx Banks
+        .FTNMX301010: Índice bancario UK
+        .SPXBK: S&P 500 Bancos EEUU
+        .DJUSBK: DJ US Banks
+        .DJSRBKT: DJ US Regional Banks
+  format:
+    <<: *perc_format
+    decimals: 0
+  annot_format:
+    <<: *perc_format
+
+bancos_week:
+  flash:
+    <<: *flash
+    deviations: True
+    offset: ftd
+    difference: relative
+  <<: *bancos
+
+bancos_mtd:
+  flash:
+    <<: *flash
+    deviations: False
+    offset: mtd
+    difference: relative
+  <<: *bancos
+
+.deuda_general: &deuda_general
+  sorted: True
+  series:
+    EUUNIEURAE10Y=: UE
+    ES10YT=RR: España*
+    DE10YT=RR: Alemania
+    FR10YT=RR: Francia
+    IT10YT=RR: Italia
+    PT10YT=RR: Portugal
+    GR10YT=RR: Grecia
+    GB10YT=RR: Reino Unido
+    US10YT=RR: EEUU
+  format:
+    <<: *pb_format
+  annot_format:
+    <<: *pb_format
+  axis_format:
+    <<: *perc_format
+
+deuda_general_week:
+  flash:
+    <<: *flash
+    offset: ftd
+    difference: absolute
+    deviations: True
+  <<: *deuda_general
+
+deuda_general_ytd:
+  flash:
+    <<: *flash
+    offset: ytd
+    difference: absolute
+    deviations: False
+  <<: *deuda_general
+
+.deuda_diferenciales: &deuda_diferenciales
+  sorted: True
+  series:
+    PT10YT=RR_DIFF: Portugal
+    GR10YT=RR_DIFF: Grecia
+    ES10YT=RR_DIFF: España*
+    EUUNIEURAE10Y=_DIFF: UE
+    IT10YT=RR_DIFF: Italia
+    FR10YT=RR_DIFF: Francia
+  format:
+    <<: *pb_format
+  annot_format:
+    <<: *pb_format
+  axis_format:
+    <<: *pb_format
+
+deuda_diferenciales_week:
+  flash:
+    <<: *flash
+    offset: ftd
+    difference: absolute
+    deviations: True
+  <<: *deuda_diferenciales
+
+deuda_diferenciales_ytd:
+  flash:
+    <<: *flash
+    offset: ytd
+    difference: absolute
+    deviations: False
+  <<: *deuda_diferenciales
+
+.deuda_esp: &deuda_esp
+  sorted: False
+  series:
+    ES1YT=RR: 1 años
+    ES2YT=RR: 2 años
+    ES3YT=RR: 3 años
+    ES5YT=RR: 5 años
+    ES10YT=RR: 10 años*
+    ES30YT=RR: 30 años
+  format:
+    <<: *pb_format
+  annot_format:
+    <<: *pb_format
+  axis_format:
+    <<: *perc_format
+
+deuda_esp_week:
+  flash:
+    <<: *flash
+    offset: ftd
+    difference: absolute
+    deviations: True
+  <<: *deuda_esp
+
+deuda_esp_ytd:
+  flash:
+    <<: *flash
+    offset: ytd
+    difference: absolute
+    deviations: False
+  <<: *deuda_esp
+
+.divisas: &divisas
+  sorted: True
+  series:
+    USD_OVER_RUB: Rublo
+    GBP=: Libra
+    EUR=: Euro*
+    USD_OVER_BRL: Real Brasileño
+    USD_OVER_CNY: Yuan
+    USD_OVER_TRY: Lira Turca
+    USD_OVER_JPY: Yen
+    USD_OVER_CHF: Franco Suizo
+  format:
+    <<: *perc_format
+    decimals: 0
+  annot_format:
+    <<: *perc_format
+    decimals: 1
+
+divisas_week:
+  flash:
+    <<: *flash
+    offset: ftd
+    difference: relative
+    deviations: True
+  <<: *divisas
+  format:
+    <<: *perc_format
+    decimals: 1
+  annot_format:
+    <<: *perc_format
+    decimals: 2
+
+
+
+divisas_ytd:
+  flash:
+    <<: *flash
+    offset: ytd
+    difference: relative
+    deviations: False
+  <<: *divisas
