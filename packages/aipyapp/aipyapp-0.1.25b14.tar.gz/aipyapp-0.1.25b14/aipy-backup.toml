@@ -1,0 +1,167 @@
+lang = "zh"
+accept_disclaimer = "yes"
+workdir = "/Volumes/Work/aipy"
+
+[environ]
+PIP_INDEX_URL = "https://mirrors.aliyun.com/pypi/simple"
+PIP_EXTRA_INDEX_URL = "https://pypi.tuna.tsinghua.edu.cn/simple"
+
+[llm.deepseek]
+type = 'deepseek'
+api_key = "sk-1005e70e9ae14de582ddb06e8b7b1f6a"
+
+[llm.gemini]
+type = 'gemini'
+api_key = 'AIzaSyBGhh7JgI2QVTC4mJQN6P7G8mFmqKdkqEQ'
+
+[llm.r1]
+type = 'deepseek'
+api_key = "sk-1005e70e9ae14de582ddb06e8b7b1f6a"
+model = 'deepseek-reasoner'
+
+[llm.openai]
+api_key = "sk-proj-WkGdfRNTTholVLVj8XOPT3BlbkFJ5T7Qum6QzcTLdfsBwvCx"
+model = "gpt-4o"
+
+[llm.claude]
+type = "claude"
+api_key = "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"
+
+[llm.grok]
+api_key = "xai-CBD5KDFsH9jiCotsrQHplzWnZ4dCnU0UM35QWFO4bkg5uMmSICOWY0OBCCMe94LkVAUukytyFZb4KV8s"
+type = 'grok'
+model = 'grok-3-mini'
+default = true
+temperature = 0.5
+
+[llm.azure]
+type = 'azure'
+
+[api.twelvedata]
+env.TWELVE_API_KEY = ['e2f5883bb1b34759b4526b476ce0fcb8', 'Twelve Data API Key']
+desc = 'Welcome to the Twelve Data! You can use this API to access world financial markets including stocks, forex, ETFs, and cryptocurrencies.'
+
+[api.zoomeye]
+env.ZOOMEYE_API_KEY = ["270AF599-7838-367FF-cB3E-9c59421D7a0", "ZoomEye API Key"]
+desc = "Zoomeye IP搜索服务 API，注意 API 有多个版本，必须使用 https://api.zoomeye.ai 访问"
+
+[api.tavily]
+env.TAVILY_API_KEY = ["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", "Tavily API Key "]
+desc = "通用网络搜索服务 API"
+
+[api.google]
+env.GOOGLE_API_KEY = ['AIzaSyCYNYLql9WNMZiIMIsKIFPB0a7FKp3R-Gw', '用于Google Custom Search的API Key']
+env.SEARCH_ENGINE_ID = ['400c07aeda09345da', 'Google Custom Search Engine ID']
+desc = "Google Custom Search API"
+
+[api.vision]
+env.XAI_API_KEY = ["xai-CBD5KDFsH9jiCotsrQHplzWnZ4dCnU0UM35QWFO4bkg5uMmSICOWY0OBCCMe94LkVAUukytyFZb4KV8s", "xAIVision API Key"] 
+desc = """
+xAI Image Understanding API.
+
+The vision model can receive both text and image inputs. You can pass images into the model in one of two ways: base64 encoded strings or web URLs.
+The model name is 'grok-2-vision-1212', you should use openai module to send the request.
+
+Example:
+```python
+import os
+from openai import OpenAI
+import os
+import base64
+
+XAI_API_KEY = os.getenv("XAI_API_KEY")
+image_path = "..."
+
+client = OpenAI(
+    api_key=XAI_API_KEY,
+    base_url="https://api.x.ai/v1",
+)
+
+def encode_image(image_path):
+    with open(image_path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode("utf-8")
+    return encoded_string
+
+# Getting the base64 string
+base64_image = encode_image(image_path)
+
+messages = [
+    {
+        "role": "user",
+        "content": [
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": f"data:image/jpeg;base64,{base64_image}",
+                    "detail": "high",
+                },
+            },
+            {
+                "type": "text",
+                "text": "What's in this image?",
+            },
+        ],
+    },
+]
+
+completion = client.chat.completions.create(
+    model="grok-2-vision-latest",
+    messages=messages,
+    temperature=0.01,
+)
+
+print(completion.choices[0].message.content)
+```
+"""
+
+[api.gist]
+env.GITHUB_TOKEN = ["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", "Github Personal Access Token"]
+desc = """
+你可以使用这个 GITHUB_TOKEN 通过 Github API 创建 Gist。Gist 的文件名和描述可以根据任务上下文决定。
+可以使用 __code_blocks['main'] 获取当前执行代码的代码块内容，也可以获取回复消息里其它命名代码块内容。
+历史记录可以从 __history__ 中获取，例如，上一次执行的代码源码为 __history__[-1]['code']
+
+客户往往需要你在任务完成时保存最后执行成功的代码为 gist，你也可以在任务完成时提醒客户。
+"""
+
+[api.Reddit]
+desc = """Reddit公开API
+URL: https://www.reddit.com/r/{subreddit}.json
+
+可以使用requests模块获取，但注意设置真实的User-Agent，否则会被限制访问。
+"""
+
+[api.YouTube]
+env.API_KEY = ['AIzaSyCYNYLql9WNMZiIMIsKIFPB0a7FKp3R-Gw', 'API_KEY for YouTube Data API v3']
+desc = """
+The YouTube Data API allows developers to interact with YouTube's features, including retrieving video metadata, managing playlists, searching for videos, and handling subscriptions. Key capabilities include:
+- Search: Retrieve videos, channels, or playlists based on keywords, location, or other filters.
+- Video Management: Fetch video details (title, description, tags, statistics), upload videos, or update video metadata.
+- Playlist Management: Create, update, or retrieve playlists and their items.
+- Channel Management: Access channel details, subscriptions, or activities.
+- Comments: Retrieve or manage video and channel comments.
+- Analytics: Limited access to analytics data via the API (requires additional permissions).
+
+Basic example:
+```python
+from googleapiclient.discovery import build
+
+api_key = "YOUR_API_KEY"
+youtube = build("youtube", "v3", developerKey=api_key)
+
+request = youtube.search().list(
+    part="snippet",
+    q="python programming",
+    type="video",
+    maxResults=5
+)
+response = request.execute()
+
+for item in response["items"]:
+    print(item["snippet"]["title"])
+```
+"""
+
+[diagnose]
+url = "https://aipy.ror.workers.dev/a6477529c8c34b6a8ca4bc2d7253ab76"
+api_key = "sk-aipy-2ej5NpKz8FrC7wGhV4YtXdQsLx9AMuB6vZRS3bTD"
