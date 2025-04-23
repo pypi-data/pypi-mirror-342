@@ -1,0 +1,24 @@
+Metadata-Version: 2.4
+Name: yandex_search_api
+Version: 0.1.1
+Summary: Unofficial Yandex Search API client for Python
+Project-URL: Homepage, https://github.com/Vasiliy566/yandex-search-api
+Project-URL: Issues, https://github.com/Vasiliy566/yandex-search-api/issues
+Author-email: Vasiliy566 <vasyaisaev31@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Requires-Dist: pydantic==2.11.3
+Requires-Dist: requests==2.32.3
+Description-Content-Type: text/markdown
+
+# Yandex Search API Client
+
+Unofficial Yandex Search API client for Python
+
+## Installation
+
+```bash
+pip install yandex-search-api
