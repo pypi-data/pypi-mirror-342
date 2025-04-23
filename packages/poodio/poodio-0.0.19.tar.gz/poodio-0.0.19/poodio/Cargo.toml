@@ -1,0 +1,49 @@
+[build-dependencies]
+color-eyre = {workspace = true, features = ["track-caller"]}
+pyo3-build-config = {workspace = true, features = [], optional = true}
+serde = {workspace = true, features = ["std"]}
+serde_json = {workspace = true, features = ["std"]}
+
+[dependencies]
+anstream = {workspace = true, features = ["auto"]}
+clap = {workspace = true, features = ["default", "derive"]}
+color-eyre = {workspace = true, features = ["track-caller"]}
+cpal = {workspace = true, features = []}
+log = {workspace = true, features = ["std"]}
+napi = {workspace = true, features = ["dyn-symbols", "napi1"], optional = true}
+napi-derive = {workspace = true, features = ["type-def"], optional = true}
+pyo3 = {workspace = true, features = ["abi3-py38", "extension-module", "macros"], optional = true}
+# pyo3-stub-gen = {workspace = true, features = []}
+simple_logger = {workspace = true, features = ["colors", "stderr"]}
+thiserror = {workspace = true, features = ["std"]}
+
+[features]
+bind-napi = ["dep:napi", "dep:napi-derive"]
+bind-pyo3 = ["dep:pyo3", "dep:pyo3-build-config"]
+default = []
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[package]
+authors.workspace = true
+categories = ["api-bindings", "command-line-utilities", "multimedia::audio", "simulation"]
+description = "💩 💨 Farts poo poo audio 💨 💩"
+documentation = "https://docs.rs/poodio"
+edition.workspace = true
+homepage = "https://github.com/AsherJingkongChen/poopoo/tree/main/poodio#readme"
+include = ["/LICENSE.txt", "/build.rs", "/src/"]
+keywords = ["api", "audio", "cli", "llm", "server"]
+license.workspace = true
+name = "poodio"
+readme = "README.md"
+repository.workspace = true
+rust-version.workspace = true
+version = "0.0.19"
+
+[package.metadata.binstall]
+pkg-fmt = "tgz"
+pkg-url = "{ repo }/releases/download/{ name }%40{ version }/{ name }%40{ version }-{ target }{ archive-suffix }"
+
+[package.metadata.docs.rs]
+all-features = true
