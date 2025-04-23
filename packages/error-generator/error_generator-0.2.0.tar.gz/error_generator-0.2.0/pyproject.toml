@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "error_generator"
+version = "0.2.0"
+description = "A package for generating controlled errors in record linkage datasets"
+readme = "README.md"
+authors = [
+    {name = "Joshua Immanuel", email = "joshua9@tamu.edu"}
+]
+requires-python = ">=3.6"
+dependencies = [
+    "pandas>=1.0.0",
+    "numpy>=1.18.0",
+]
+
+[project.scripts]
+generate_errors = "error_generator.main:generate_errors"
+
+[tool.setuptools]
+packages = ["error_generator"] 
