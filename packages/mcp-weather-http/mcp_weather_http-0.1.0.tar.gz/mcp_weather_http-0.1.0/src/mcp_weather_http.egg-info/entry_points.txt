@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-get-weather = mcp_weather_http:main
