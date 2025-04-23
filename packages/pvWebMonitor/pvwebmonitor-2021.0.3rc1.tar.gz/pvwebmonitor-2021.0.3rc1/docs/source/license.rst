@@ -1,0 +1,4 @@
+Software License
+================
+
+.. literalinclude:: ../../LICENSE

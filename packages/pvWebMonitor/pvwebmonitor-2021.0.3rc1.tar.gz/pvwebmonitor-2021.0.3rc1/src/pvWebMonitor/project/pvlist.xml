@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="pvlist.xsl" ?>
+
+<!-- You can edit this file with a text editor -->
+
+<pvwatch version="1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="local_schema pvlist.xsd">
+	<!-- (update version if format of XML file changes) -->
+
+  <definition name="mne">
+  	one-word mnemonic reference used in python and xslt code
+  	(mne should be unique for each EPICS_PV)
+  </definition>
+  <definition name="PV">
+  	EPICS process variable name (must be used in only one EPICS_PV)
+  </definition>
+  <definition name="description">
+  	useful text informative to others
+  </definition>
+  <definition name="display_format">
+  	(optional, default="%s") PVs will be formatted for display with this string
+  </definition>
+  <definition name="_ignore_">
+    (optional, default="false") this PV is ignored if value is not "false"
+  </definition>
+  <definition name="as_string">
+    (optional, default="false") write this PV from formatted raw_value if "false", from char_value if "true"
+  </definition>
+  
+
+  <EPICS_PV PV="gp:TOD" 				description="IOC current time"  	mne="tod"/>
+  <EPICS_PV PV="gp:STARTTOD" 		description="IOC boot time"  		mne="starttod"/>
+  <EPICS_PV PV="gp:UPTIME" 			description="time IOC running"  	mne="uptime"/>
+  <EPICS_PV PV="gp:HOSTNAME"			description="IOC host name" 		mne="hostname"/>
+  <EPICS_PV PV="gp:ENGINEER"			description="engineer" 				mne="engineer"/>
+
+  <EPICS_PV PV="gp:m1.DESC"  description="M1 motor description"  mne="M1_DESC" as_string="true"/>
+  <EPICS_PV PV="gp:m1.RBV"   description="M1 motor"              mne="M1"     display_format="%.3f"/>
+  <EPICS_PV PV="gp:m1.VAL"   description="M1 motor target"       mne="M1_VAL" display_format="%.3f"/>
+  <EPICS_PV PV="gp:m1.DMOV"  description="M1 motor done moving"  mne="M1_DMOV"/>
+  <EPICS_PV PV="gp:m2.DESC"  description="M2 motor description"  mne="M2_DESC" as_string="true"/>
+  <EPICS_PV PV="gp:m2.RBV"   description="M2 motor"              mne="M2"      display_format="%.6f"/>
+  <EPICS_PV PV="gp:m2.VAL"   description="M2 motor target"       mne="M2_VAL"  display_format="%.6f"/>
+  <EPICS_PV PV="gp:m2.DMOV"  description="M2 motor done moving"  mne="M2_DMOV"/>
+
+  <EPICS_PV PV="gp:alldone" description="all motors done moving" mne="motors_alldone"/>
+  <EPICS_PV PV="gp:moving" description="number of motors moving" mne="motors_moving"/>
+
+</pvwatch>
