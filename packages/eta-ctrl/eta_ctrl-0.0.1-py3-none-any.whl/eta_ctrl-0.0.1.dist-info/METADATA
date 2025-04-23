@@ -1,0 +1,49 @@
+Metadata-Version: 2.3
+Name: eta-ctrl
+Version: 0.0.1
+Summary: A framework for researching energy optimization of factory operations
+License: BSD-2-Clause
+Keywords: rolling horizon optimization,simulators,industrial energy optimization
+Author: Technical University of Darmstadt, Institute for Production Management, Technology and Machine Tools (PTW)
+Author-email: info@ptw.tu-darmstadt.de
+Maintainer: Andreas Clement
+Maintainer-email: A.Clement@PTW.TU-Darmstadt.de
+Requires-Python: >=3.9.2, <3.12
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: attrs (>=23.1.0,<24.0.0)
+Requires-Dist: fmpy (>=0.3.5,<0.4.0)
+Requires-Dist: gymnasium (==1.0.0)
+Requires-Dist: julia (>=0.6.2,<0.7.0)
+Requires-Dist: lxml (>=4.9.3,<5.0.0)
+Requires-Dist: numpy (>=1.26.0,<1.27.0)
+Requires-Dist: pandas (>=2.2.2,<2.3.0)
+Requires-Dist: pyomo (>=6.6.2,<6.7.0)
+Requires-Dist: python-dateutil (>=2.8.2,<3.0.0)
+Requires-Dist: python-dotenv (>=1.0.1,<2.0.0)
+Requires-Dist: pyyaml (>=6.0.2,<7.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: stable-baselines3 (>=2.4.0,<3.0.0)
+Requires-Dist: tensorboard (>=2.14.0,<2.15.0)
+Requires-Dist: toml (>=0.10.2,<0.11.0)
+Requires-Dist: torch (==2.0.0)
+Requires-Dist: xlrd (>=2.0.1,<3.0.0)
+Project-URL: Documentation, https://eta-utility.readthedocs.io/
+Project-URL: Homepage, https://www.ptw.tu-darmstadt.de
+Project-URL: Repository, https://github.com/PTW-TUDa/eta_ctrl/
+Project-URL: issues, https://git.ptw.maschinenbau.tu-darmstadt.de/eta-fabrik/public/eta-utility/-/issues
+Description-Content-Type: text/x-rst
+
+ETA Ctrl
+======================
+
+WIP
