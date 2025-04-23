@@ -1,0 +1,22 @@
+[package]
+name = "imu"
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+description = "Interface for interacting with various IMU devices"
+license.workspace = true
+repository.workspace = true
+readme = "README.md"
+
+[lib]
+name = "imu"
+crate-type = ["rlib"]
+
+[dependencies]
+log = "0.4"
+serialport="4.7.1"
+imu-traits = "0.0.2"
+hexmove = "0.2.1"
+hiwonder = "0.6.0"
+linux_bno055 = "0.1.1"
+linux_bmi088 =  "0.1.1"
