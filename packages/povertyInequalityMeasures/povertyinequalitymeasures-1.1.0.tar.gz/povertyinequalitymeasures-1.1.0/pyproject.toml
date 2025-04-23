@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "povertyInequalityMeasures"
+version = "1.1.0"
+authors = [
+  { name="Daniel Mermelstein", email="danmermel@gmail.com" },
+]
+description = "Calculate some poverty and inequality measures. Based on the Wold Bank Poverty and Inequality Handbook: https://documents1.worldbank.org/curated/en/488081468157174849/pdf/483380PUB0Pove101OFFICIAL0USE0ONLY1.pdf"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/danmermel/povertyInequalityMeasures"
+Issues = "https://github.com/danmermel/povertyInequalityMeasures/issues"

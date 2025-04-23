@@ -1,0 +1,6 @@
+.ipynb_checkpoints
+python_package/dist/*
+python_package/tests/__pycache__/*
+python_package/src/povertyInequalityMeasures/__pycache__/*
+deploy.sh
+workbooks/*
