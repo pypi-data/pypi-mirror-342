@@ -1,0 +1,25 @@
+[console_scripts]
+spam-ITKwatershed = spam.scripts.watershed:script
+spam-ddic = spam.scripts.ddic:script
+spam-deformImage = spam.scripts.deformImage:script
+spam-discreteStrain = spam.scripts.discreteStrain:script
+spam-filterPhiField = spam.scripts.filterPhiField:script
+spam-gdic = spam.scripts.gdic:script
+spam-hdf-reader = spam.scripts.hdf_reader:script
+spam-imposeBCFromDVC = spam.scripts.imposeBCFromDVC:script
+spam-ldic = spam.scripts.ldic:script
+spam-mergePhis = spam.scripts.mergePhis:script
+spam-mesh = spam.scripts.mesh:script
+spam-mesh-subdomains = spam.scripts.mesh_subdomains:script
+spam-mmr = spam.scripts.mmr:script
+spam-moveLabels = spam.scripts.moveLabels:script
+spam-passPhiField = spam.scripts.passPhiField:script
+spam-pixelSearch = spam.scripts.pixelSearch:script
+spam-pixelSearchPropagate = spam.scripts.pixelSearchPropagate:script
+spam-reg = spam.scripts.reg:script
+spam-regularStrain = spam.scripts.regularStrain:script
+
+[gui_scripts]
+spam-ereg = spam.scripts.ereg:script
+spam-ereg-discrete = spam.scripts.ereg_discrete:script
+spam-mmr-graphical = spam.scripts.mmr_graphical:script
