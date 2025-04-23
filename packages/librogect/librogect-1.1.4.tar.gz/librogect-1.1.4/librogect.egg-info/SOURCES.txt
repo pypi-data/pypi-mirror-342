@@ -1,0 +1,8 @@
+setup.cfg
+setup.py
+librogect/__init__.py
+librogect/main.py
+librogect.egg-info/PKG-INFO
+librogect.egg-info/SOURCES.txt
+librogect.egg-info/dependency_links.txt
+librogect.egg-info/top_level.txt

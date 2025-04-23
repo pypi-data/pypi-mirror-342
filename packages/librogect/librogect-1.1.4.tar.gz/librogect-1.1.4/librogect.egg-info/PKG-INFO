@@ -1,0 +1,15 @@
+Metadata-Version: 2.4
+Name: librogect
+Version: 1.1.4
+Summary: Использование: Данная библиотека способна решать квадратные уравнения и строить графики функций. Для открытия окна с различными функциями используйте команду lib().  Прошу не брать большие отрезки осей, если у вас слабое устройство. 
+Author:  Никитос 
+Author-email: matika059@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: requires-python
+Dynamic: summary
