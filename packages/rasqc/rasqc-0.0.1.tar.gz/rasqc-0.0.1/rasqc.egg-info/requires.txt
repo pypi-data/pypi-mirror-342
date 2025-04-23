@@ -1,0 +1,12 @@
+rashdf
+hydrostab
+fsspec
+rich
+networkx
+jsonschema
+
+[dev]
+pre-commit
+ruff
+pytest
+pytest-cov
