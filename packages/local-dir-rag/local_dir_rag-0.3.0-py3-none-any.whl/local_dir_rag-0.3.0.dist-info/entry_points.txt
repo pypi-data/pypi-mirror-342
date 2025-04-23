@@ -1,0 +1,3 @@
+[console_scripts]
+local-dir-rag=local_dir_rag.main:main
+
