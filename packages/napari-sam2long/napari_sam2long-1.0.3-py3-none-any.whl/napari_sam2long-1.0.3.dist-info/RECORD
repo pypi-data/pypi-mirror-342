@@ -1,0 +1,16 @@
+UI_files/SAM2Long.ui,sha256=TW7zKsTWxbo_TXkEyrhwfgGEVfu0IZYpECVvnZZ-LkE,9195
+model/.gitkeep,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+napari_sam2long/__init__.py,sha256=e0GSR2DAP-58KJFs88XgH2cV7_lQQkLAbsbn4fxp0Fs,158
+napari_sam2long/_version.py,sha256=jWOT7x0QtPxvOokiMtAg9lJ_WkkL0NXT4lwG0yqXne0,511
+napari_sam2long/_widget.py,sha256=MviSjbSsev-unjtvzaeNMtj6dgiMd4M6Oag15ghvwN8,10207
+napari_sam2long/napari.yaml,sha256=7FfySp7q4aajHvbW4AadG8YtBQxxXAAE22zIJF55nFQ,548
+napari_sam2long/_tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+napari_sam2long/_tests/test_widget.py,sha256=IZmjgv9GAZ3GhWBR-UyvN3EY2wNhpCNapyMjCRWM_3s,713
+napari_sam2long-1.0.3.dist-info/licenses/LICENSE,sha256=9qQh-4DCxD_4UixqUVz-6lAKkbRQI-E2VFkV2I3SBe0,19120
+napari_sam2long-1.0.3.dist-info/licenses/NOTICE,sha256=9kO9JY16bJ9T-Sen_menNgm7UfdoEzLhwLpKgBMpbS4,712
+pipelines/sam2long/SAM2Long_pipeline_handler.py,sha256=LthGh51G3noloj-vMBh1LvLA-pWAH60cIydV9PTXxRs,12039
+napari_sam2long-1.0.3.dist-info/METADATA,sha256=xf4gRWyBqbcBWUoP6CXL-Py4ZX8dpkmdYW5FwGyymi0,31917
+napari_sam2long-1.0.3.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+napari_sam2long-1.0.3.dist-info/entry_points.txt,sha256=ohACMFqw5W5ooJAgo37QEvTzk4eiqop6vlwA1983C7I,64
+napari_sam2long-1.0.3.dist-info/top_level.txt,sha256=wDHriMqxpH4vIxhF0i7k189wG92tQRfUhPVwHTmPyc0,41
+napari_sam2long-1.0.3.dist-info/RECORD,,
