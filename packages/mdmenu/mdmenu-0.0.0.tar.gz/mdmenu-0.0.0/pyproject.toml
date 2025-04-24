@@ -1,0 +1,27 @@
+[project]
+name = "mdmenu"
+version = "0.0.0"
+authors = [
+  { name = "Matt Dennett", email = "dennett.matthew+mdmenu@gmail.com" }
+]
+description = "A customisable text driven menu system."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+license = "GPL-3.0-or-later"
+
+[project.urls]
+Homepage = "https://github.com/matthewdennett/python-mdmenu"
+Issues = "https://github.com/matthewdennett/python-mdmenu/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

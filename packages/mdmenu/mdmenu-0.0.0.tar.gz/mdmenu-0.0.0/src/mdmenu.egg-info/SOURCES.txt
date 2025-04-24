@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/mdmenu/__init__.py
+src/mdmenu/__main__.py
+src/mdmenu/mdmenu.py
+src/mdmenu.egg-info/PKG-INFO
+src/mdmenu.egg-info/SOURCES.txt
+src/mdmenu.egg-info/dependency_links.txt
+src/mdmenu.egg-info/top_level.txt
