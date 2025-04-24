@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: dqrobotics-pyplot
+Version: 25.4.0.52
+Summary: An extension of dqrobotics to use matplotlib.pyplot to plot DQ elements.
+Author-email: "Murilo M. Marinho" <murilomarinho@ieee.org>
+Maintainer-email: "Murilo M. Marinho" <murilomarinho@ieee.org>
+Project-URL: Homepage, https://github.com/MarinhoLab/dqrobotics-pyplot
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: matplotlib
+Requires-Dist: dqrobotics
+Dynamic: license-file
