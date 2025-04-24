@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: walnut-cli
+Version: 0.3
+Summary: Walnut + Jupyter packaged as a Python client
+Project-URL: Homepage, https://github.com/nopid/walnut_cli
+Author-email: Nicolas Ollinger <nopid@free.fr>
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.12
+Requires-Dist: ipython>=9.1.0
+Requires-Dist: jdk4py>=21.0.4.2
+Requires-Dist: jupyter-cache>=1.0.1
+Requires-Dist: jupyter>=1.1.1
+Requires-Dist: pydot>=3.0.4
+Requires-Dist: quarto-cli>=1.6.42
+Requires-Dist: walnut-kernel>=0.3.3
+Description-Content-Type: text/markdown
+
+# walnut-cli
+
+Walnut + Jupyter packaged in a single Python package, JAVA Runtime included
