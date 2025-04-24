@@ -1,0 +1,76 @@
+[project]
+name = "segmock"
+version = "0.2.0"
+description = "7-segment clock (segmock)"
+readme = "README.md"
+authors = [
+    { name = "sou-san", email = "sou887867@gmail.com" }
+]
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+keywords = ["segmock", "7-segment", "clock", "stopwatch", "cli", "tui", "terminal", "simple", "tool"]
+dependencies = [
+    "click>=8.1.8, <9.0.0",
+    "textual>=3.1.1, <4.0.0",
+    "textual-pyfiglet==0.5.5",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: End Users/Desktop",
+    "Natural Language :: English",
+    "Operating System :: Microsoft :: Windows :: Windows 10",
+    "Operating System :: Microsoft :: Windows :: Windows 11",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/sou-san/segmock"
+Repository = "https://github.com/sou-san/segmock"
+Issues = "https://github.com/sou-san/segmock/issues"
+Documentation = "https://github.com/sou-san/segmock/blob/main/README.md"
+
+[project.scripts]
+segmock = "segmock.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0",
+    "pre-commit>=4.1.0",
+    "ruff>=0.9.10",
+    "textual-dev>=1.7.0",
+]
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.ruff]
+line-length = 90
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "F", # Pyflakes
+    "B", # flake8-bugbear
+    "I", # isort
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "N", # pep8-naming
+    "C901", # mccabe linter (複雑度チェック)
+]
+
+ignore = [
+    "D103", # docstring が無い関数やクラスを許す
+    "E501", # 行あたりの文字数制限を無視する
+]
