@@ -1,0 +1,22 @@
+[project]
+name = "aesy"
+version = "1.0.2"
+description = "AESY multi-layer encryption algorithm"
+authors = [{ name="gubir34", email="canteoman15@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+dependencies = []
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License"
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools]
+packages = ["aesy"]
+
