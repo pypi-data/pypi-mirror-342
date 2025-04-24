@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+
+    - name: Install project dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install -e .
+
+    - name: Install Playwright browsers
+      run: |
+        python -m playwright install --with-deps
+        
+    - name: Run tests with coverage
+      run: |
+        python -m pytest tests/ --cov=src/pudim_hunter_driver_scraper --cov-report=xml
+        
+    - name: Upload test screenshots
+      if: always()  # Run even if tests fail
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-screenshots
+        path: test_screenshots/**/*.png
+        if-no-files-found: ignore  # Don't fail if no screenshots
+        retention-days: 14  # Keep for 14 days
+        
+    - name: Upload coverage to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/codecov-action@v5
+      with:
+        file: ./coverage.xml
+        fail_ci_if_error: true 
+        token: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} 
+        test-results-file: ./coverage.xml
+        test-results-file-type: coverage
+        test-results-file-format: cobertura
