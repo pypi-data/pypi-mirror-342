@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: kkauth-oidc
+Version: 0.0.13
+Summary: OpenID Connect authentication provider for Sentry
+Home-page: UNKNOWN
+Author: yliiii
+Author-email: 
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development
+Requires-Python: >=3.11, <4.0
+Description-Content-Type: text/x-rst
+
+UNKNOWN
+
+
