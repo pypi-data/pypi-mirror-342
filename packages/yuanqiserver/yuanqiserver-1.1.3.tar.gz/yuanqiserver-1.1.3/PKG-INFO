@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: yuanqiserver
+Version: 1.1.3
+Summary: Add your description here
+Author: yuanqi_mcp163
+Author-email: yuanqi_mcp_test@163.com
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: httpx>=0.28.1
+Requires-Dist: mcp>=1.6.0
+Requires-Dist: uvicorn
+Dynamic: author
+Dynamic: author-email
+Dynamic: requires-python
+
+ Your MCP Server
+
+这是一个简单的 MCP Server 示例，通过标准输入输出与 MCP 客户端进行通信。
+
+## 安装
+
+```bash
+pip install your-mcp-server
+```
+
+## 使用
+
+通过 uvx 运行：
+
+```
+uvx your-mcp-server
+```
