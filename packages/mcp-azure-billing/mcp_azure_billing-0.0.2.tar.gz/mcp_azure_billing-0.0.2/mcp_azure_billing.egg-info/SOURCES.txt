@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+mcp_azure_billing/__init__.py
+mcp_azure_billing/server.py
+mcp_azure_billing.egg-info/PKG-INFO
+mcp_azure_billing.egg-info/SOURCES.txt
+mcp_azure_billing.egg-info/dependency_links.txt
+mcp_azure_billing.egg-info/entry_points.txt
+mcp_azure_billing.egg-info/requires.txt
+mcp_azure_billing.egg-info/top_level.txt

@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-azure-billing = mcp_azure_billing.__init__:main
