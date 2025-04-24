@@ -1,0 +1,21 @@
+[project]
+name = "mcp-google_cloud_billing"
+version = "0.0.2"
+description = "MCP server for Google Cloud Billing integration"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+    "httpx>=0.24.0",
+]
+
+[project.scripts]
+mcp-google_cloud_billing = "mcp_google_cloud_billing.__init__:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/mcp-google_cloud_billing"
+"Bug Tracker" = "https://github.com/yourusername/mcp-google_cloud_billing/issues"
