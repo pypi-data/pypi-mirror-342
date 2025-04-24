@@ -1,0 +1,40 @@
+Metadata-Version: 2.2
+Name: hwl-stdlib-dp
+Version: 0.1
+Summary: A standard library used by me frequently. A gift from me, to me, by me.
+Home-page: https://github.com/davidplajner
+Author: David Plajner
+Author-email: dplajner@hellmann.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-python
+Dynamic: summary
+
+# stdlib
+
+A standard library used by me frequently. A gift from me, to me, by me. 🎁
+
+`stdlib` is my personal collection of Python functions, utilities, and snippets that I frequently use in my projects. Whether it's for automating repetitive tasks, streamlining common processes, or making coding life just a bit easier, `stdlib` has got me covered. Built with love and laziness, this library helps me avoid reinventing the wheel.
+
+## Features
+
+- **Handpicked Utilities**: A carefully curated set of functions to make my daily coding workflow smoother.
+- **Well-documented**: Each function is self-documented to ensure I can remember what it does—because, honestly, I won’t always remember.
+- **Custom-Built**: Built with my own needs in mind, this package helps me save time by providing ready-made solutions to common coding problems.
+- **Minimalistic**: No bloat. Just the essentials.
+
+## Installation
+
+You can install `stdlib` directly from your local repository:
+
+```bash
+pip install .
