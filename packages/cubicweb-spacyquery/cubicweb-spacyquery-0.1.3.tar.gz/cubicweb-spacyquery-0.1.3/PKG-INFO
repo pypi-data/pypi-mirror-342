@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: cubicweb-spacyquery
+Version: 0.1.3
+Summary: Helpers for generating RQL query with spacy
+Home-page: https://forge.extranet.logilab.fr/cubicweb/cubes/spacyquery
+Author: LOGILAB S.A. (Paris, FRANCE)
+Author-email: contact@logilab.fr
+License: LGPL
+Classifier: Environment :: Web Environment
+Classifier: Framework :: CubicWeb
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: JavaScript
+Description-Content-Type: text/x-rst
+Requires-Dist: cubicweb<5.0.0,>=4.9.1
+Requires-Dist: cubicweb-web<2.0.0,>1.3.3
+Requires-Dist: networkx<4.0.0,>=3.4.2
+Requires-Dist: pandas<3.0.0,>=2.2.3
+Requires-Dist: spacy<4.0.0,>=3.8.5
+Requires-Dist: spacy_download<2.0.0,>=1.1.0
+Requires-Dist: polib<2.0.0,>=1.2.0
+
+spacyquery
+=============================================================
+
+SpacyQuery for CubicWeb
+
+Installation
+------------
+
+Open the project in a terminal and run::
+
+    pip install -e .
+
+This will install the cube in your active virtual environment
+as ``cubicweb-spacyquery``.
+
+The following sections indicate additional steps when you
+install this cube as a dependency or as an instance.
+
+As a dependency
+~~~~~~~~~~~~~~~
+
+If you plan to use this cube as a dependency for your own cube,
+add it to your ``__pkginfo__.py`` as follows::
+
+    __depends__ = {
+        # ... Your previous dependencies
+        "cubicweb-spacyquery": None,
+    }
+
+If the target cube is already used as an instance, you need to migrate it
+with the help of its python shell (replace ``YOUR_INSTANCE_NAME`` by your instance name)::
+
+    cubicweb-ctl shell YOUR_INSTANCE_NAME
+
+In the python prompt, enter the following command::
+
+    add_cube("spacyquery")
+
+Press ``Ctrl-D`` then restart your instance.
+The cube should now be available in your instance.
+
+As an instance
+~~~~~~~~~~~~~~
+
+If you plan to use this cube directly as an instance, create and start
+your instance with the following commands (replace ``spacyquery-instance``
+by the name of your choice)::
+
+    cubicweb-ctl create spacyquery spacyquery-instance
+    cubicweb-ctl start -D spacyquery-instance
+
+
+Learn More
+----------
+
+Visit the `official documentation <https://cubicweb.readthedocs.io/en/4.5.2>`_
+to learn more about CubicWeb.

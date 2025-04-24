@@ -1,0 +1,12 @@
+include *.py
+include */*.py
+recursive-include cubicweb_spacyquery *.py
+recursive-include cubicweb_spacyquery/data *.gif *.png *.ico *.css *.js
+recursive-include cubicweb_spacyquery/i18n *.po
+recursive-include cubicweb_spacyquery/wdoc *
+recursive-include test *.py
+recursive-include test/data bootstrap_cubes *.py
+include *.ini
+exclude .gitlab-ci.yml
+exclude .yamllint
+exclude Dockerfile
