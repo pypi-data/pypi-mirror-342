@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/__init__.py
+src/core.py
+src/gopyhash.egg-info/PKG-INFO
+src/gopyhash.egg-info/SOURCES.txt
+src/gopyhash.egg-info/dependency_links.txt
+src/gopyhash.egg-info/requires.txt
+src/gopyhash.egg-info/top_level.txt
+tests/test_core.py

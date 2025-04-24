@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gopyhash"
+version = "1.0.1"
+description = "A package for password hashing and comparision using bcrypt"
+readme = "README.md"
+authors = [
+    {name = "Humaun Kabir", email = "hello@ihumaun.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Security :: Cryptography",
+]
+keywords = ["bcrypt", "security", "password", "text", "hashing"]
+dependencies = [
+    "bcrypt>=4.0.0",
+]
+requires-python = ">=3.10"
+
+[project.urls]
+"Homepage" = "https://github.com/ihumaunkabir/gopyhash"
+"Bug Tracker" = "https://github.com/ihumaunkabir/gopyhash/issues"
