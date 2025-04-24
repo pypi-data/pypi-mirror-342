@@ -1,0 +1,21 @@
+[project]
+name = "mcp-digital_ocean_billing"
+version = "0.0.2"
+description = "MCP server for Digital Ocean Billing integration"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp[cli]>=1.6.0",
+    "httpx>=0.24.0",
+]
+
+[project.scripts]
+mcp-digital_ocean_billing = "mcp_digital_ocean_billing.__init__:main"
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+"Homepage" = "https://github.com/curious-pm/mcp-digital_ocean_billing"
+"Bug Tracker" = "https://github.com/curious-pm/mcp-digital_ocean_billing/issues"
