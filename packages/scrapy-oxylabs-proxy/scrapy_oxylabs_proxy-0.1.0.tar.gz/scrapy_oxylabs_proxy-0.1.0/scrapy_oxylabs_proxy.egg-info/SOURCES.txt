@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+scrapy_oxylabs_proxy/__init__.py
+scrapy_oxylabs_proxy/middleware.py
+scrapy_oxylabs_proxy.egg-info/PKG-INFO
+scrapy_oxylabs_proxy.egg-info/SOURCES.txt
+scrapy_oxylabs_proxy.egg-info/dependency_links.txt
+scrapy_oxylabs_proxy.egg-info/top_level.txt
