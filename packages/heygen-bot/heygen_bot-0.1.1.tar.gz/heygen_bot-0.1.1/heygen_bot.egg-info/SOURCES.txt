@@ -1,0 +1,9 @@
+README.md
+setup.py
+heygen_bot.egg-info/PKG-INFO
+heygen_bot.egg-info/SOURCES.txt
+heygen_bot.egg-info/dependency_links.txt
+heygen_bot.egg-info/requires.txt
+heygen_bot.egg-info/top_level.txt
+heygenbot/__init__.py
+heygenbot/bot.py
