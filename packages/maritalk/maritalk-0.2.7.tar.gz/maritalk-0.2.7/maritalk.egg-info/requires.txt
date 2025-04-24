@@ -1,0 +1,5 @@
+requests
+tqdm
+httpx
+tiktoken<0.8,>=0.7
+transformers
