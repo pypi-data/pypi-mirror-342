@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+soufi_stream.egg-info/PKG-INFO
+soufi_stream.egg-info/SOURCES.txt
+soufi_stream.egg-info/dependency_links.txt
+soufi_stream.egg-info/requires.txt
+soufi_stream.egg-info/top_level.txt
+streamlit_realtime_recorder/__init__.py
+streamlit_realtime_recorder/audio_recorder.py
