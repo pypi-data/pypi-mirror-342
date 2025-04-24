@@ -1,0 +1,102 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ main]
+  pull_request:
+    branches: [ main]
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required for GitLeaks
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          # Install specific versions to avoid compatibility issues
+          pip install bandit==1.7.8
+
+      - name: Check for Gitleaks License
+        id: check_license
+        run: |
+          if [ -n "${{ secrets.GITLEAKS_LICENSE }}" ]; then
+            echo "has_license=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_license=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run GitLeaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+          GITLEAKS_ENABLE_SUMMARY: true
+          GITLEAKS_SCAN_DEPTH: 50
+        continue-on-error: ${{ steps.check_license.outputs.has_license != 'true' }}
+
+      - name: Gitleaks License Info
+        if: ${{ steps.check_license.outputs.has_license != 'true' }}
+        run: |
+          echo "::warning::Gitleaks license not found! Secret scanning was skipped."
+          echo "::warning::To enable secret scanning, obtain a license from gitleaks.io and add it as a GitHub Secret named GITLEAKS_LICENSE."
+
+      - name: Run Safety Check
+        run: |
+          pip install --upgrade pip-audit
+          pip install --upgrade setuptools>=65.5.1
+          # Ignore the setuptools vulnerability if it still exists after upgrade
+          pip-audit --ignore-vuln PYSEC-2022-43012 || true
+
+      - name: Run Bandit
+        run: bandit -r src/safeguards -ll -ii -f json -o bandit-results.json || true
+
+      - name: Run Semgrep
+        run: |
+          pip install semgrep
+          semgrep ci --config=auto --sarif --output=semgrep.sarif || true
+
+      - name: Run Dependency Review
+        uses: actions/dependency-review-action@v3
+        if: github.event_name == 'pull_request'
+
+      - name: Upload scan results
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: semgrep.sarif
+
+      - name: Check for Snyk Token
+        id: check_snyk
+        run: |
+          if [ -n "${{ secrets.SNYK_TOKEN }}" ]; then
+            echo "has_token=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_token=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/python@master
+        if: ${{ steps.check_snyk.outputs.has_token == 'true' }}
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+          args: --no-root
+
+      - name: Snyk Token Info
+        if: ${{ steps.check_snyk.outputs.has_token != 'true' }}
+        run: |
+          echo "::warning::Snyk token not found! Vulnerability monitoring was skipped."
+          echo "::warning::To enable Snyk vulnerability monitoring, obtain a token from snyk.io and add it as a GitHub Secret named SNYK_TOKEN."
