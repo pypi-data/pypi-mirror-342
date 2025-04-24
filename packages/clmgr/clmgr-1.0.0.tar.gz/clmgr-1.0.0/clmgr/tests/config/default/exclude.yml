@@ -1,0 +1,24 @@
+source:
+  - java
+  - ts
+  - cs
+  - py
+legal:
+  - inception: 2015
+    name: Enovation Group B.V.
+    locality: Capelle aan den IJssel
+    country: NL
+license:
+  enabled: true
+  external: false
+  content: All rights reserved.
+include:
+exclude:
+  - "*/nl/enovationgroup/copyright/test/*"
+  - "*/Enovation/Copyright/Test/*"
+  - Comments
+  - Multiple.java
+  - Multiple*
+  - Remove.*
+  - Single
+  - SingleUpdate
