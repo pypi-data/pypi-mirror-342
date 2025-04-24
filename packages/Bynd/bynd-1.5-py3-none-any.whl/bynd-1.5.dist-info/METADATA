@@ -1,0 +1,86 @@
+Metadata-Version: 2.4
+Name: Bynd
+Version: 1.5
+Summary: Bynd is a way of introducing static typing to Python.
+Author-email: "Rayshawn Levy (sneekyfoxx)" <sneekyfoxx09@gmail.com>
+Maintainer-email: "Rayshawn Levy (sneekyfoxx)" <sneekyfoxx09@gmail.com>
+Keywords: Bind,Bynd,bind,bynd
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Classifier: Topic :: Other/Nonlisted Topic
+Classifier: Typing :: Typed
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+                                ██████╗ ██╗   ██╗███╗   ██╗██████╗ 
+                                ██╔══██╗╚██╗ ██╔╝████╗  ██║██╔══██╗
+                                ██████╔╝ ╚████╔╝ ██╔██╗ ██║██║  ██║
+                                ██╔══██╗  ╚██╔╝  ██║╚██╗██║██║  ██║
+                                ██████╔╝   ██║   ██║ ╚████║██████╔╝
+                                ╚═════╝    ╚═╝   ╚═╝  ╚═══╝╚═════╝
+
+
+
+> ***A module which allows binding data to one or more types.***
+>
+> ***Bynd's intended use, is to be assigned to a variable.***
+>
+> ***Which, in this case, the variable can still be used***
+>
+> ***exactly the same way just by accessing the 'data'***
+>
+> ***class attribute. Since 'Bynd' "binds" the data to***
+>
+> ***one or more types, the data cannot be modified***
+>
+> ***causing it to become static and forces the programmer***
+>
+> ***to create mutable references which can be modified.***
+
+
+> **The benefits of using Bynd are**:
+>
+> 1. *Runtime type checking*
+>
+> 2. *Constant data*
+>
+> 3. *Ability to access the bound data*
+>    *and its types with the '\_\_info\_\_'*
+>    *class attribute or just the data*
+>    *itself from the variable in which*
+>    *it is stored by accessing the 'data'*
+>    *class attribute*
+
+#### Bynd: Basic Usage
+```python
+# filename: Bynd_test.py
+from Bynd.bynd import Bynd
+
+# Instantiates a Bynd object and binds the data "some string" to the type 'str'
+my_variable = Bynd("some string", {str}) # the data can't be changed
+
+# The above code will raise a 'ByndError' if the data is not of type 'str'
+
+# To access the data, we can use the dot '.' operator.
+print("my_variable.data: ", my_variable.data)
+
+# The 'data' and 'types' can be accessed using the '__info__' class attribute.
+print("my_variable.info: ", my_variable.__info__)
+
+# Output:
+#    my_variable.data: "some string"
+#    my_varaible.__info__: {"some string": {<class 'str'>}}
+```
+
+#### NOTE:
+Bynd, by default, performs recursive type checking. What that means is, for any
+collection type (*list*, *tuple*, *set*, etc.) it encounters, collection elements
+types are checked against the type set. All types need to be known or assumed when 
+using 'Bynd'. Bynd does not make use of type hints in any way and it introduces strict
+typing (in a way) to Python by striping some of its flexibility.
