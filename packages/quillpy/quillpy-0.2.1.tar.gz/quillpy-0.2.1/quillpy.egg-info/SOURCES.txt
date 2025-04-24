@@ -1,0 +1,13 @@
+LICENCE
+MANIFEST.in
+README.md
+setup.py
+quillpy/__init__.py
+quillpy/__main__.py
+quillpy/quill.py
+quillpy.egg-info/PKG-INFO
+quillpy.egg-info/SOURCES.txt
+quillpy.egg-info/dependency_links.txt
+quillpy.egg-info/entry_points.txt
+quillpy.egg-info/requires.txt
+quillpy.egg-info/top_level.txt
