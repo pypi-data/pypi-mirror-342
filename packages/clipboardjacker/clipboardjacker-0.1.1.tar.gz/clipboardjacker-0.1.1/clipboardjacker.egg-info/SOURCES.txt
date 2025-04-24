@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+clipboardjacker/__init__.py
+clipboardjacker/clipboardjacker.py
+clipboardjacker/main.py
+clipboardjacker/version.py
+clipboardjacker.egg-info/PKG-INFO
+clipboardjacker.egg-info/SOURCES.txt
+clipboardjacker.egg-info/dependency_links.txt
+clipboardjacker.egg-info/entry_points.txt
+clipboardjacker.egg-info/requires.txt
+clipboardjacker.egg-info/top_level.txt

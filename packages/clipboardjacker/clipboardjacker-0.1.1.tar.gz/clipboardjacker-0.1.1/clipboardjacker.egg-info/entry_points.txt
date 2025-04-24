@@ -1,0 +1,2 @@
+[console_scripts]
+clipboardjacker = clipboardjacker.main:run_clipboard_jacker
