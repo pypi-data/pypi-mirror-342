@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+KNRscore/KNRscore.py
+KNRscore/__init__.py
+KNRscore/examples.py
+KNRscore.egg-info/PKG-INFO
+KNRscore.egg-info/SOURCES.txt
+KNRscore.egg-info/dependency_links.txt
+KNRscore.egg-info/requires.txt
+KNRscore.egg-info/top_level.txt
