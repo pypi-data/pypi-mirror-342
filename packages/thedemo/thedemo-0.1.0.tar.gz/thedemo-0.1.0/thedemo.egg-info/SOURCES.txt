@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.py
+thedemo/__init__.py
+thedemo/cli.py
+thedemo.egg-info/PKG-INFO
+thedemo.egg-info/SOURCES.txt
+thedemo.egg-info/dependency_links.txt
+thedemo.egg-info/entry_points.txt
+thedemo.egg-info/requires.txt
+thedemo.egg-info/top_level.txt
