@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-google_cloud_billing = mcp_google_cloud_billing.__init__:main
