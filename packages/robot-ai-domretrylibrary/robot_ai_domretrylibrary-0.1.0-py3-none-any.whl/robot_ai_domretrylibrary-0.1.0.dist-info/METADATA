@@ -1,0 +1,170 @@
+Metadata-Version: 2.4
+Name: robot-ai-domretrylibrary
+Version: 0.1.0
+Summary: A Robot Framework library with AI fallback for locators using OpenAI
+Home-page: https://github.com/plaushku/robot-ai-domretrylibrary
+Author: Kristijan Plaushku
+Author-email: info@plaushkusolutions.com
+Keywords: robotframework testing automation ai openai
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Robot Framework :: Library
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Testing :: Acceptance
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: robotframework>=6.0
+Requires-Dist: robotframework-seleniumlibrary>=6.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: requests>=2.28.0
+Requires-Dist: webdriver-manager>=4.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# Robot Framework AI DomRetryLibrary
+
+A Robot Framework library with AI-powered fallback for locator variables, enhancing test reliability by using OpenAI to dynamically generate element locators when primary locators fail.
+
+## Features
+
+- Automatic fallback to AI-generated locators when primary locators fail
+- Seamless integration with existing Robot Framework tests
+- Support for both variable names and values
+- Detailed logging and comparison of primary vs. AI locators
+- Uses OpenAI's GPT models to generate precise locators based on natural language descriptions
+
+## Installation
+
+```bash
+pip install robot-ai-domretrylibrary
+```
+
+## Quick Start
+
+1. Import the library in your Robot Framework test:
+
+```robotframework
+*** Settings ***
+Library           SeleniumLibrary
+Library           DomRetryLibrary    api_key=${YOUR_OPENAI_API_KEY}
+```
+
+2. Define your locators and AI fallback descriptions:
+
+```robotframework
+*** Variables ***
+${USERNAME_FIELD}      css=#non_existent_username_id
+${AI_USERNAME_FIELD}   the username input field with placeholder 'Username'
+```
+
+3. Use the AI fallback in your tests:
+
+```robotframework
+*** Test Cases ***
+Login Test
+    Open Browser    https://www.saucedemo.com    chrome
+    AI Fallback Locator    Input Text    USERNAME_FIELD    standard_user
+    Close Browser
+```
+
+## API Key Setup
+
+Store your OpenAI API key in a `.env` file:
+
+```
+OPENAI_API_KEY=your_api_key_here
+```
+
+Or provide it when initializing the library:
+
+```robotframework
+Library    DomRetryLibrary    api_key=${OPENAI_API_KEY}
+```
+
+## Example Use Cases
+
+### Basic Example
+
+```robotframework
+*** Settings ***
+Library           SeleniumLibrary
+Library           DomRetryLibrary
+
+*** Variables ***
+${USERNAME_FIELD}     css=#non_existent_username_id
+${AI_USERNAME_FIELD}  the username input field with placeholder 'Username'
+
+*** Test Cases ***
+Login Test
+    Open Browser    https://example.com    chrome
+    AI Fallback Locator    Input Text    USERNAME_FIELD    myusername
+    Close Browser
+```
+
+### Utility Keywords
+
+You can also create your own utility keywords that use AI fallback:
+
+```robotframework
+*** Keywords ***
+Wait And Input Text
+    [Arguments]    ${locator}    ${text}    ${timeout}=10
+    [Documentation]    Input text with AI fallback if the primary locator fails
+    ${status}    ${error}=    Run Keyword And Ignore Error    Input Text    ${locator}    ${text}
+    Run Keyword If    '${status}' == 'FAIL'    AI Fallback Locator    Input Text    ${locator}    ${text}
+```
+
+Then use them in your tests:
+
+```robotframework
+*** Test Cases ***
+Login With Utility Keywords
+    Open Browser    ${URL}    ${BROWSER}
+    Wait And Input Text    ${USERNAME_FIELD}    ${USERNAME}
+    Close Browser
+```
+
+## Parameters
+
+### Library Initialization
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| openai_api_url | OpenAI API endpoint URL | https://api.openai.com/v1/chat/completions |
+| api_key | API key for OpenAI service | None (falls back to OPENAI_API_KEY environment variable) |
+| model | OpenAI model to use | gpt-4o |
+| locator_storage_file | File to store locator comparison data | locator_comparison.json |
+
+### AI Fallback Locator Keyword
+
+| Parameter | Description |
+|-----------|-------------|
+| keyword_name | The keyword to execute (e.g., Input Text) |
+| locator_var | Variable name or value for the locator |
+| *args | Additional arguments for the keyword |
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Author
+
+Kristijan Plaushku (info@plaushkusolutions.com) 
