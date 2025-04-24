@@ -1,0 +1,32 @@
+Metadata-Version: 2.4
+Name: jakana
+Version: 0.1.0
+Summary: Learn Japanese kana
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# japanse-kana
+
+Help you to learn Japanse kana
+
+## usage
+
+to search a word:
+
+    kana あ
+   
+    a
+ 
+    kana a
+   
+    あ ア
+   
+to start a test
+
+    kana
+
+to stop the test
+
+    exit
