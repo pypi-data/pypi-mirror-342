@@ -1,0 +1,29 @@
+[project]
+name = "thinknet-variable-validator"
+version = "1.0.0a1"
+description = "Validate envs or any variable for data-eng@thinknet"
+readme = "README.md"
+authors = [
+    { name = "TN-DE Team", email = "thinknet_dataengineer@thinknet.co.th" }
+]
+requires-python = ">=3.8"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Development Status :: 4 - Beta",
+    "Topic :: Software Development :: Libraries"
+]
+dependencies = [
+    "pytz>=2024.2",
+    "thinknet-application-specific-exception>=1.0.0rc0"
+]
+
+[project.urls]
+Homepage = "https://gitlab.thinknet.co.th/data-eng/library/variable-validator"
+
+[project.optional-dependencies]
+dev = ["pytest"]

@@ -1,0 +1,5 @@
+pytz>=2024.2
+thinknet-application-specific-exception>=1.0.0rc0
+
+[dev]
+pytest
