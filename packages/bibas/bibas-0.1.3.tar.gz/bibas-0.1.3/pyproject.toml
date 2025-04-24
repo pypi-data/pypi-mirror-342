@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bibas"
+version = "0.1.3"
+description = "Bayesian Network Impact Factor Based on Analysis of Sensitivity"
+authors = [{ name="Gilad Erez", email="giladmatat@gmail.com" }]
+dependencies = [
+    "numpy<2.0",
+    "pandas>=1.3",
+    "matplotlib>=3.0",
+    "seaborn>=0.11",
+    "pgmpy>=0.1.22"
+]
+requires-python = ">=3.7"
