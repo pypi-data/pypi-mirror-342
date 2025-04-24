@@ -1,0 +1,13 @@
+hsdpy/__init__.py,sha256=kqnmypjguXfGnPqa7zyQkjCroVX78RKK21Uz1ywXykw,6400
+hsdpy/_ctypes_bindings.py,sha256=XAN414T44Fxk3i4mThw_cJKSm5iQ29YCTo3qg9LO-9I,9030
+hsdpy/hsd-amd64.dll,sha256=A7Jgdw2RJho-XjMRvvHC3JvKcsoe-pvlwlHuyCQZMCQ,67263
+hsdpy/hsd-arm64.dll,sha256=tArGjeu7XPHdbme6L7tF9Aj0wYyuawnGesJQAM0e4bc,67263
+hsdpy/libhsd-amd64.dylib,sha256=cCDr2GbDm_4qbHM0AtiHPYat4a7oF1JoHxqrIHXP7Fw,35736
+hsdpy/libhsd-amd64.so,sha256=klNnYYPsbo0XzOJQ0yWKxOVVVWPoz1L61Mu66DBOPAQ,26992
+hsdpy/libhsd-arm64.dylib,sha256=X-3W9NobCZfyMbWbrl9mfwc-0rwIb3Wj2B27Hc1AKCM,51872
+hsdpy/libhsd-arm64.so,sha256=klNnYYPsbo0XzOJQ0yWKxOVVVWPoz1L61Mu66DBOPAQ,26992
+hsdpy-0.1.0b3.dist-info/licenses/LICENSE,sha256=3EkVXD2ekoSlGjktuxMKZthz_iJ5yHDM4zEcFqizQzA,1069
+hsdpy-0.1.0b3.dist-info/METADATA,sha256=GbLRVmVgPsZYBW81gkLbx_1gf8WLY7xMH1_mbghKn7c,4128
+hsdpy-0.1.0b3.dist-info/WHEEL,sha256=pxyMxgL8-pra_rKaQ4drOZAegBVuX-G_4nRHjjgWbmo,91
+hsdpy-0.1.0b3.dist-info/top_level.txt,sha256=9qJeV46__NJuSH9980C5I1vyDxBQGhCkLQj299ifk2o,6
+hsdpy-0.1.0b3.dist-info/RECORD,,
