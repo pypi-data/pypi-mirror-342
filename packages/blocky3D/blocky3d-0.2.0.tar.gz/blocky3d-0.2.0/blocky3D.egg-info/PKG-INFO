@@ -1,0 +1,44 @@
+Metadata-Version: 2.4
+Name: blocky3D
+Version: 0.2.0
+Summary: A fun and easy 3D block-building module for beginners!
+Author: 히프마이
+Author-email: youremail@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Games/Entertainment
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: requires-python
+Dynamic: summary
+
+## 🎮 New in v0.2.0
+- 3D viewer enabled! Now you can see your blocks in a real 3D window.
+
+# 🟫 blocky3D
+
+**blocky3D** is a fun and easy Python module that lets beginners build 3D block worlds — like Minecraft, but simpler! 🎮
+
+Create maps, place blocks, and explore your creations with just a few lines of code.
+
+---
+
+## ✨ Features
+- Super easy 3D block world creation
+- Simple functions for placing blocks
+- Lightweight and beginner-friendly
+- Can be combined with pygame or other libraries for advanced users
+- Future updates planned with more fun features!
+
+---
+
+## 🚀 Installation
+```bash
+pip install blocky3D
