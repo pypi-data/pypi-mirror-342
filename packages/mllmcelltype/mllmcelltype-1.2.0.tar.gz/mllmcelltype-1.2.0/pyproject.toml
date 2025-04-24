@@ -1,0 +1,116 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mllmcelltype"
+description = "A Python module for cell type annotation using various LLMs."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+dynamic = ["version"]
+authors = [
+    {name = "mLLMCelltype Team", email = "cafferychen777@tamu.edu"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "pandas>=1.0.0",
+    "numpy>=1.19.0",
+    "requests>=2.25.0",
+    "python-dotenv>=0.19.0",
+    "jsonschema>=4.0.0",
+]
+
+[project.optional-dependencies]
+all = [
+    "openai>=1.0.0",
+    "anthropic>=0.5.0",
+    "google-genai>=1.0.0",
+    "python-dotenv>=0.19.0",
+    "matplotlib>=3.3.0",
+    "seaborn>=0.11.0",
+]
+visualization = [
+    "matplotlib>=3.3.0",
+    "seaborn>=0.11.0",
+]
+openai = ["openai>=1.0.0"]
+anthropic = ["anthropic>=0.5.0"]
+gemini = ["google-genai>=1.0.0"]
+dev = [
+    "pytest>=6.0.0",
+    "pytest-cov>=2.12.0",
+    "black>=21.5b2",
+    "isort>=5.9.1",
+    "flake8>=3.9.2",
+    "pre-commit>=2.16.0",
+    "ruff>=0.11.0",
+]
+
+[tool.ruff]
+# Same as Black.
+line-length = 88
+indent-width = 4
+
+# Assume Python 3.9
+target-version = "py39"
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    "__pycache__",
+]
+
+[tool.ruff.lint]
+# Enable Pyflakes (`F`), isort (`I`), and a subset of the pycodestyle (`E`) codes by default.
+select = ["E", "F", "I", "W", "N", "B", "C4", "UP", "S", "BLE", "A", "C90", "T10", "ICN", "PIE", "PYI", "PT", "RET", "SIM", "ARG", "ERA"]
+ignore = ["E501", "C901", "S101"]
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+[tool.ruff.lint.isort]
+known-first-party = ["mllmcelltype"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query", "fastapi.Path", "fastapi.Body"]
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "double"
+multiline-quotes = "double"
