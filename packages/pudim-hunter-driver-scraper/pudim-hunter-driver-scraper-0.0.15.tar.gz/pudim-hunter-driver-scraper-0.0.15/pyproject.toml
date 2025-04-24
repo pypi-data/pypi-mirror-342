@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=8.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pudim-hunter-driver-scraper"
+dynamic = ["version", "dependencies"]
+description = "Playwright-based scraper implementation for The Pudim Hunter platform"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "The Pudim Hunter Team", email = "luis.reis@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[project.urls]
+Source = "https://github.com/luismr/pudim-hunter-driver-scraper"
+"Bug Tracker" = "https://github.com/luismr/pudim-hunter-driver-scraper/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["pudim_hunter_driver_scraper*"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = "requirements.txt"}
+
+[tool.setuptools_scm]
+write_to = "src/pudim_hunter_driver_scraper/_version.py"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.pytest.ini_options]
+addopts = "--cov=pudim_hunter_driver_scraper --cov-report=xml --cov-report=term-missing"
+testpaths = ["tests"] 
