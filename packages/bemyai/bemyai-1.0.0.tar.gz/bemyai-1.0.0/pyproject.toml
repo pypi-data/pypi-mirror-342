@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "bemyai"
+version = "1.0.0"
+description = "Be My AI API"
+authors = ["Alexey <aleks-samos@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">3.8.0"
+aiohttp = "^3.9.1"
+pydantic = "^2.5.3"
+pillow = "^10.2.0"
+loguru = "^0.7.2"
+aiofiles = "^23.2.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.4"
+pytest-aiohttp = "^1.0.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+bm = 'bemyai.__main__:main'
+
