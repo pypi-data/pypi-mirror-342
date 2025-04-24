@@ -1,0 +1,3 @@
+[console_scripts]
+pgn = pagegen.pagegen:main
+
