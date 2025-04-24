@@ -1,0 +1,95 @@
+Metadata-Version: 2.4
+Name: aioasyncsqlite
+Version: 1.0.0
+Summary: asyncio bridge to the standard sqlite3 module
+Author: xacepok933
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Software Development :: Libraries
+License-File: LICENSE
+Requires-Dist: typing_extensions >= 4.0
+Requires-Dist: attribution==1.7.1 ; extra == "dev"
+Requires-Dist: black==24.3.0 ; extra == "dev"
+Requires-Dist: build>=1.2 ; extra == "dev"
+Requires-Dist: coverage[toml]==7.6.10 ; extra == "dev"
+Requires-Dist: flake8==7.0.0 ; extra == "dev"
+Requires-Dist: flake8-bugbear==24.12.12 ; extra == "dev"
+Requires-Dist: flit==3.10.1 ; extra == "dev"
+Requires-Dist: mypy==1.14.1 ; extra == "dev"
+Requires-Dist: ufmt==2.5.1 ; extra == "dev"
+Requires-Dist: usort==1.0.8.post1 ; extra == "dev"
+Requires-Dist: sphinx==8.1.3 ; extra == "docs"
+Requires-Dist: sphinx-mdinclude==0.6.1 ; extra == "docs"
+Provides-Extra: dev
+Provides-Extra: docs
+
+aioasyncsqlite provides a friendly, async interface to sqlite databases.
+
+It replicates the standard ``sqlite3`` module, but with async versions
+of all the standard connection and cursor methods, plus context managers for
+automatically closing connections and cursors:
+
+.. code-block:: python
+
+    async with aioasyncsqlite.connect(...) as db:
+        await db.execute("INSERT INTO some_table ...")
+        await db.commit()
+
+        async with db.execute("SELECT * FROM some_table") as cursor:
+            async for row in cursor:
+                ...
+
+It can also be used in the traditional, procedural manner:
+
+.. code-block:: python
+
+    db = await aioasyncsqlite.connect(...)
+    cursor = await db.execute('SELECT * FROM some_table')
+    row = await cursor.fetchone()
+    rows = await cursor.fetchall()
+    await cursor.close()
+    await db.close()
+
+aioasyncsqlite also replicates most of the advanced features of ``sqlite3``:
+
+.. code-block:: python
+
+    async with aioasyncsqlite.connect(...) as db:
+        db.row_factory = aioasyncsqlite.Row
+        async with db.execute('SELECT * FROM some_table') as cursor:
+            async for row in cursor:
+                value = row['column']
+
+        await db.execute('INSERT INTO foo some_table')
+        assert db.total_changes > 0
+
+
+Install
+-------
+
+aioasyncsqlite is compatible with Python 3.8 and newer.
+You can install it from PyPI:
+
+.. code-block:: console
+
+    $ pip install aioasyncsqlite
+
+
+Details
+-------
+
+aioasyncsqlite allows interaction with SQLite databases on the main AsyncIO event
+loop without blocking execution of other coroutines while waiting for queries
+or data fetches.  It does this by using a single, shared thread per connection.
+This thread executes all actions within a shared request queue to prevent
+overlapping actions.
+
+Connection objects are proxies to the real connections, contain the shared
+execution thread, and provide context managers to handle automatically closing
+connections.  Cursors are similarly proxies to the real cursors, and provide
+async iterators to query results.
+
