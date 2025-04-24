@@ -1,0 +1,73 @@
+# pyproject.toml
+
+[build-system]
+# This specifies the build backend tool requirement.
+# setuptools and wheel are commonly used.
+requires = ["setuptools>=61.0"] # Require setuptools version 61.0 or higher
+build-backend = "setuptools.build_meta"
+
+[project]
+# Project metadata
+name = "mojiweather-api" # The name of your package. Use hyphens instead of underscores for PyPI.
+version = "0.1.0"        # The starting version of your package.
+description = "A Python package to access weather data from Moji Weather (unofficial scraping)." # A short description.
+readme = "README.md"     # Path to your README file.
+requires-python = ">=3.7" # Minimum Python version required. Dataclasses and async features suggest 3.7+.
+# List of dependencies required by your package at runtime.
+dependencies = [
+    "httpx>=0.20.0",     # For asynchronous HTTP requests.
+    "beautifulsoup4>=4.10.0", # For parsing HTML content.
+    # We don't list standard library modules here (like logging, configparser, os).
+    # If you added other external libraries later, list them here.
+]
+
+# Project authors (replace with your information)
+authors = [
+  { name="VerNe", email="yuu_seeing@foxmail.com" },
+  # You can list multiple authors/maintainers by adding more dictionaries to this list
+  # { name="Another Author Name", email="another.email@example.com" },
+]
+
+# Project license (replace with your chosen license). This key belongs UNDER [project].
+license = { file = "LICENSE" } # Specifies where the LICENSE file is.
+
+# Also specify the license classifier for PyPI (optional but recommended)
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License", # Replace with your actual license classifier
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Atmospheric Science", # Relevant topic
+]
+
+# Keywords (optional)
+keywords = ["mojiweather", "weather", "api", "scraping", "asynchronous"]
+
+# Project URLs (optional). This section lists URLs related to the project.
+[project.urls]
+Homepage = "https://github.com/ID-VerNe/mojiweather_api" # URL to the project's homepage/repo
+# Documentation = "https://yourpackage.readthedocs.io/" # URL to the documentation
+# Source = "https://github.com/ID-VerNe/mojiweather_api" # Another common URL type
+# License = "https://yourwebsite.com/license.html" # If you hosted the license file online, you could put its URL here
+
+# Package data (optional, if you need to include non-code files inside the package)
+# For this package, it seems unlikely you need to include extra data files in the package itself,
+# as the config file is external.
+
+# [tool.setuptools.package-data]
+# "mojiweather_api" = ["data/*.txt"]
+
+# Entry points (optional, if you want to create command-line scripts)
+# [project.scripts]
+# mojiweather = "mojiweather_api.cli:main" # Example entry point if you add a CLI module
+
+# Tool-specific configurations (e.g., setuptools settings)
+# None are strictly necessary for this basic package structure with setuptools.
+
+# Use setuptools to find packages automatically
+[tool.setuptools.packages.find]
+where = ["."]  # Search for packages in the current directory (where pyproject.toml is)
+# include = ["mojiweather_api*"] # Include packages matching this pattern (defaults to package structure)
+exclude = ["tests*", "example.py", "*.bat", "*.cmd"] # Exclude directories/files that are not part of the package
