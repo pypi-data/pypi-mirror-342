@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-digital_ocean_billing = mcp_digital_ocean_billing.__init__:main
